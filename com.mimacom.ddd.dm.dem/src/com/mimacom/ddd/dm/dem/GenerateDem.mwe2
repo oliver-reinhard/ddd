@@ -5,8 +5,9 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 var project="com.mimacom.ddd.dm.dem"
+var genModel="platform:/resource/${project}/model/dem.genmodel"
 var baseGenModel="platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
-var dmxGenModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
+var dmxGenModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel" 
 
 Workflow {
 	
@@ -37,6 +38,7 @@ Workflow {
 			fileExtensions = "dem"
 			referencedResource =  "${baseGenModel}"
 			referencedResource =  "${dmxGenModel}"
+			referencedResource =  "${genModel}"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
@@ -59,5 +61,10 @@ Workflow {
 				junitVersion = "5"
 			}
 		}
+	}
+	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "${genModel}"
+		srcPath = "${rootPath}/${project}/src"
 	}
 }

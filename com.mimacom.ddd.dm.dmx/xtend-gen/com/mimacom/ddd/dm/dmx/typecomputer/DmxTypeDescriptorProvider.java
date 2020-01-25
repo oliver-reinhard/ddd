@@ -6,7 +6,6 @@ import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DType;
@@ -20,7 +19,6 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxAmbiguousDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxBaseTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxEnumerationDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxNotificationDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxPrimitiveDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxStateDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxUndefinedDescriptor;
@@ -112,12 +110,6 @@ public class DmxTypeDescriptorProvider {
         if (obj instanceof DAggregate) {
           _matched=true;
           _switchResult = new DmxAggregateDescriptor(((DAggregate)obj), collection);
-        }
-      }
-      if (!_matched) {
-        if (obj instanceof DNotification) {
-          _matched=true;
-          _switchResult = new DmxNotificationDescriptor(((DNotification)obj), collection);
         }
       }
       if (!_matched) {

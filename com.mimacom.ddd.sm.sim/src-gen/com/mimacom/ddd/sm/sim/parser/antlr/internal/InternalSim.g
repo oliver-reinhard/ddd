@@ -239,15 +239,15 @@ ruleSInformationModel returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleSGrabDomainRule
-entryRuleSGrabDomainRule returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSGrabDomainRuleRule()); }
-	iv_ruleSGrabDomainRule=ruleSGrabDomainRule
-	{ $current=$iv_ruleSGrabDomainRule.current; }
+// Entry rule entryRuleSGrabModelRule
+entryRuleSGrabModelRule returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSGrabModelRuleRule()); }
+	iv_ruleSGrabModelRule=ruleSGrabModelRule
+	{ $current=$iv_ruleSGrabModelRule.current; }
 	EOF;
 
-// Rule SGrabDomainRule
-ruleSGrabDomainRule returns [EObject current=null]
+// Rule SGrabModelRule
+ruleSGrabModelRule returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -258,11 +258,11 @@ ruleSGrabDomainRule returns [EObject current=null]
 		(
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getSGrabDomainRuleRule());
+					$current = createModelElement(grammarAccess.getSGrabModelRuleRule());
 				}
 			}
 			{
-				newCompositeNode(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0());
+				newCompositeNode(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0());
 			}
 			ruleDQualifiedName
 			{
@@ -1133,9 +1133,9 @@ ruleDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0());
 				}
-				lv_deductionRule_3_0=ruleSGrabDomainRule
+				lv_deductionRule_3_0=ruleSGrabModelRule
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDomainRule());
@@ -1144,7 +1144,7 @@ ruleDomain returns [EObject current=null]
 						$current,
 						"deductionRule",
 						lv_deductionRule_3_0,
-						"com.mimacom.ddd.sm.sim.Sim.SGrabDomainRule");
+						"com.mimacom.ddd.sm.sim.Sim.SGrabModelRule");
 					afterParserOrEnumRuleCall();
 				}
 			)

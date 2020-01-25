@@ -5,19 +5,20 @@ package com.mimacom.ddd.dm.dem.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DCaseConjunction;
 import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DDomainEvent;
-import com.mimacom.ddd.dm.base.DHumanActorRole;
 import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DMessage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.dem.DCaseConjunction;
+import com.mimacom.ddd.dm.dem.DDomainEvent;
+import com.mimacom.ddd.dm.dem.DHumanActorRole;
+import com.mimacom.ddd.dm.dem.DMessage;
+import com.mimacom.ddd.dm.dem.DNotification;
+import com.mimacom.ddd.dm.dem.DService;
+import com.mimacom.ddd.dm.dem.DemActorModel;
+import com.mimacom.ddd.dm.dem.DemPackage;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -73,26 +74,11 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case BasePackage.DCASE_CONJUNCTION:
-				sequence_DCaseConjunction(context, (DCaseConjunction) semanticObject); 
-				return; 
 			case BasePackage.DCONTEXT:
 				sequence_DContext(context, (DContext) semanticObject); 
 				return; 
-			case BasePackage.DDOMAIN:
-				sequence_DDomain(context, (DDomain) semanticObject); 
-				return; 
-			case BasePackage.DDOMAIN_EVENT:
-				sequence_DDomainEvent(context, (DDomainEvent) semanticObject); 
-				return; 
-			case BasePackage.DHUMAN_ACTOR_ROLE:
-				sequence_DHumanActorRole(context, (DHumanActorRole) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
-				return; 
-			case BasePackage.DMESSAGE:
-				sequence_DMessage(context, (DMessage) semanticObject); 
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
@@ -100,14 +86,8 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DNAMED_PREDICATE:
 				sequence_DNamedPredicate(context, (DNamedPredicate) semanticObject); 
 				return; 
-			case BasePackage.DNOTIFICATION:
-				sequence_DNotification(context, (DNotification) semanticObject); 
-				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
-				return; 
-			case BasePackage.DSERVICE:
-				sequence_DService(context, (DService) semanticObject); 
 				return; 
 			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDmxTextEndRule()) {
@@ -127,6 +107,30 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 					return; 
 				}
 				else break;
+			}
+		else if (epackage == DemPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case DemPackage.DCASE_CONJUNCTION:
+				sequence_DCaseConjunction(context, (DCaseConjunction) semanticObject); 
+				return; 
+			case DemPackage.DDOMAIN_EVENT:
+				sequence_DDomainEvent(context, (DDomainEvent) semanticObject); 
+				return; 
+			case DemPackage.DHUMAN_ACTOR_ROLE:
+				sequence_DHumanActorRole(context, (DHumanActorRole) semanticObject); 
+				return; 
+			case DemPackage.DMESSAGE:
+				sequence_DMessage(context, (DMessage) semanticObject); 
+				return; 
+			case DemPackage.DNOTIFICATION:
+				sequence_DNotification(context, (DNotification) semanticObject); 
+				return; 
+			case DemPackage.DSERVICE:
+				sequence_DService(context, (DService) semanticObject); 
+				return; 
+			case DemPackage.DEM_ACTOR_MODEL:
+				sequence_DemActorModel(context, (DemActorModel) semanticObject); 
+				return; 
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -321,10 +325,13 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DemModel returns DDomainEvent
 	 *     DDomainEvent returns DDomainEvent
 	 *
 	 * Constraint:
 	 *     (
+	 *         imports+=DImport* 
+	 *         domain=DQualifiedName 
 	 *         name=ID 
 	 *         aliases+=ID* 
 	 *         description=DRichText? 
@@ -336,18 +343,6 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_DDomainEvent(ISerializationContext context, DDomainEvent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DDomain returns DDomain
-	 *
-	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName aliases+=ID* description=DRichText? (events+=DDomainEvent | actors+=DActor)*)
-	 */
-	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -410,6 +405,19 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     (name=ID aliases+=ID* description=DRichText?)
 	 */
 	protected void sequence_DService(ISerializationContext context, DService semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DemModel returns DemActorModel
+	 *     DemActorModel returns DemActorModel
+	 *
+	 * Constraint:
+	 *     (imports+=DImport* name=DQualifiedName actors+=DActor*)
+	 */
+	protected void sequence_DemActorModel(ISerializationContext context, DemActorModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

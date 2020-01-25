@@ -4,7 +4,6 @@ import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
@@ -19,6 +18,7 @@ import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import com.mimacom.ddd.dm.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.DInformationModel
 
 class DimUtil extends DmxUtil {
 	
@@ -34,8 +34,8 @@ class DimUtil extends DmxUtil {
 		return features
 	}
 	
-	def DDomain domain(EObject obj) {
-			return EcoreUtil2.getContainerOfType(obj, DDomain) // global types are not owned by a domain => null
+	def DInformationModel domain(EObject obj) {
+			return EcoreUtil2.getContainerOfType(obj, DInformationModel) // global types are not owned by a domain => null
 	}
 	
 	
@@ -56,7 +56,7 @@ class DimUtil extends DmxUtil {
 	/*
 	 * Precondition: d is the domain owning the association
 	 */
-	def boolean isTargetInsideDomain(DAssociation a, DDomain d) {
+	def boolean isTargetInsideDomain(DAssociation a, DInformationModel d) {
 		if (a.targetType !== null) {
 			val targetDomain = a.targetType.domain
 			return d == targetDomain
@@ -73,7 +73,7 @@ class DimUtil extends DmxUtil {
 	/*
 	 * Precondition: d is the domain owning the feature
 	 */
-	def boolean isTypeInsideDomain(DFeature f, DDomain d) {
+	def boolean isTypeInsideDomain(DFeature f, DInformationModel d) {
 		if (f.getType !== null) {
 			val targetDomain = f.getType.domain
 			return d == targetDomain

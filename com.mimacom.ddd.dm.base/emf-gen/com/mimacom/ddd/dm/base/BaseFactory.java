@@ -32,13 +32,22 @@ public interface BaseFactory extends EFactory
 	DImport createDImport();
 
 	/**
-	 * Returns a new object of class '<em>DDomain</em>'.
+	 * Returns a new object of class '<em>DInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDomain</em>'.
+	 * @return a new object of class '<em>DInformation Model</em>'.
 	 * @generated
 	 */
-	DDomain createDDomain();
+	DInformationModel createDInformationModel();
+
+	/**
+	 * Returns a new object of class '<em>DContext</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DContext</em>'.
+	 * @generated
+	 */
+	DContext createDContext();
 
 	/**
 	 * Returns a new object of class '<em>DAggregate</em>'.
@@ -183,69 +192,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DStateEvent createDStateEvent();
-
-	/**
-	 * Returns a new object of class '<em>DContext</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DContext</em>'.
-	 * @generated
-	 */
-	DContext createDContext();
-
-	/**
-	 * Returns a new object of class '<em>DDomain Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDomain Event</em>'.
-	 * @generated
-	 */
-	DDomainEvent createDDomainEvent();
-
-	/**
-	 * Returns a new object of class '<em>DCase Conjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DCase Conjunction</em>'.
-	 * @generated
-	 */
-	DCaseConjunction createDCaseConjunction();
-
-	/**
-	 * Returns a new object of class '<em>DNotification</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DNotification</em>'.
-	 * @generated
-	 */
-	DNotification createDNotification();
-
-	/**
-	 * Returns a new object of class '<em>DMessage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DMessage</em>'.
-	 * @generated
-	 */
-	DMessage createDMessage();
-
-	/**
-	 * Returns a new object of class '<em>DHuman Actor Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DHuman Actor Role</em>'.
-	 * @generated
-	 */
-	DHumanActorRole createDHumanActorRole();
-
-	/**
-	 * Returns a new object of class '<em>DService</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DService</em>'.
-	 * @generated
-	 */
-	DService createDService();
 
 	/**
 	 * Returns the package supported by this factory.

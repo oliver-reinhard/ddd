@@ -1,11 +1,11 @@
 package com.mimacom.ddd.dm.dmx.scoping
 
-import com.mimacom.ddd.dm.base.DDomain
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.impl.ImportNormalizer
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import com.mimacom.ddd.dm.base.DInformationModel
 
 class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 	
@@ -22,7 +22,7 @@ class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespaceAware
 	
 	override protected List<ImportNormalizer> internalGetImportedNamespaceResolvers(EObject context, boolean ignoreCase) {
 		val resolvers = super.internalGetImportedNamespaceResolvers(context, ignoreCase)
-		if (context instanceof DDomain) {
+		if (context instanceof DInformationModel) {
 			val domainName = context.name // domain name (may contain dots but is still a plain string)
 			if (domainName !== null) {
 				// all the aggregates within the same domain name space as this DDomain will be automatically visible without an import statement

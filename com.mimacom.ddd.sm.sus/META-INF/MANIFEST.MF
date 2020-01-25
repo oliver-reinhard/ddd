@@ -9,6 +9,7 @@ Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.sm.sus;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
+ com.mimacom.ddd.dm.dem,
  com.mimacom.ddd.sm.sim;visibility:=reexport,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,

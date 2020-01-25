@@ -10,6 +10,7 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
@@ -432,6 +433,13 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				default: return -1;
 			}
 		}
+		if (baseClass == IDiagramRoot.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -480,6 +488,13 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 			{
 				case BasePackage.IDEDUCIBLE_ELEMENT__DEDUCED_FROM: return BasePackage.DAGGREGATE__DEDUCED_FROM;
 				case BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC: return BasePackage.DAGGREGATE__SYNTHETIC;
+				default: return -1;
+			}
+		}
+		if (baseClass == IDiagramRoot.class)
+		{
+			switch (baseFeatureID)
+			{
 				default: return -1;
 			}
 		}

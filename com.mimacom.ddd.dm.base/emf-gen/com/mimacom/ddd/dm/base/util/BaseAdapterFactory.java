@@ -90,9 +90,14 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDNamespaceAdapter();
 			}
 			@Override
-			public Adapter caseDDomain(DDomain object)
+			public Adapter caseDInformationModel(DInformationModel object)
 			{
-				return createDDomainAdapter();
+				return createDInformationModelAdapter();
+			}
+			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
 			}
 			@Override
 			public Adapter caseIAggregateContainer(IAggregateContainer object)
@@ -110,6 +115,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createIFeatureContainerAdapter();
 			}
 			@Override
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
+			{
+				return createIStaticReferenceTargetAdapter();
+			}
+			@Override
 			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
 			{
 				return createIDeductionDefinitionAdapter();
@@ -123,6 +133,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDDeductionRule(DDeductionRule object)
 			{
 				return createDDeductionRuleAdapter();
+			}
+			@Override
+			public Adapter caseDContext(DContext object)
+			{
+				return createDContextAdapter();
 			}
 			@Override
 			public Adapter caseDAggregate(DAggregate object)
@@ -143,11 +158,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDMultiplicity(DMultiplicity object)
 			{
 				return createDMultiplicityAdapter();
-			}
-			@Override
-			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
-			{
-				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
 			public Adapter caseIRichTextSegment(IRichTextSegment object)
@@ -260,46 +270,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDStateEventAdapter();
 			}
 			@Override
-			public Adapter caseDContext(DContext object)
-			{
-				return createDContextAdapter();
-			}
-			@Override
-			public Adapter caseDDomainEvent(DDomainEvent object)
-			{
-				return createDDomainEventAdapter();
-			}
-			@Override
-			public Adapter caseDCaseConjunction(DCaseConjunction object)
-			{
-				return createDCaseConjunctionAdapter();
-			}
-			@Override
-			public Adapter caseDNotification(DNotification object)
-			{
-				return createDNotificationAdapter();
-			}
-			@Override
-			public Adapter caseDMessage(DMessage object)
-			{
-				return createDMessageAdapter();
-			}
-			@Override
-			public Adapter caseDActor(DActor object)
-			{
-				return createDActorAdapter();
-			}
-			@Override
-			public Adapter caseDHumanActorRole(DHumanActorRole object)
-			{
-				return createDHumanActorRoleAdapter();
-			}
-			@Override
-			public Adapter caseDService(DService object)
-			{
-				return createDServiceAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object)
 			{
 				return createEObjectAdapter();
@@ -367,16 +337,31 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DInformationModel <em>DInformation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DDomain
+	 * @see com.mimacom.ddd.dm.base.DInformationModel
 	 * @generated
 	 */
-	public Adapter createDDomainAdapter()
+	public Adapter createDInformationModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
 	{
 		return null;
 	}
@@ -427,6 +412,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @generated
+	 */
+	public Adapter createIStaticReferenceTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -467,6 +467,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDDeductionRuleAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DContext
+	 * @generated
+	 */
+	public Adapter createDContextAdapter()
 	{
 		return null;
 	}
@@ -527,21 +542,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDMultiplicityAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
-	 * @generated
-	 */
-	public Adapter createIStaticReferenceTargetAdapter()
 	{
 		return null;
 	}
@@ -872,126 +872,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDStateEventAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DContext
-	 * @generated
-	 */
-	public Adapter createDContextAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomainEvent <em>DDomain Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DDomainEvent
-	 * @generated
-	 */
-	public Adapter createDDomainEventAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DCaseConjunction <em>DCase Conjunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DCaseConjunction
-	 * @generated
-	 */
-	public Adapter createDCaseConjunctionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNotification <em>DNotification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNotification
-	 * @generated
-	 */
-	public Adapter createDNotificationAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DMessage <em>DMessage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DMessage
-	 * @generated
-	 */
-	public Adapter createDMessageAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DActor <em>DActor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DActor
-	 * @generated
-	 */
-	public Adapter createDActorAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DHumanActorRole <em>DHuman Actor Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DHumanActorRole
-	 * @generated
-	 */
-	public Adapter createDHumanActorRoleAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DService <em>DService</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DService
-	 * @generated
-	 */
-	public Adapter createDServiceAdapter()
 	{
 		return null;
 	}

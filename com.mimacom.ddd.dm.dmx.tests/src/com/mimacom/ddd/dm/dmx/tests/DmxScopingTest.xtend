@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
@@ -23,11 +22,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
+import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
 class DmxScopingTest {
-	@Inject extension ParseHelper<DDomain> parseHelper
+	@Inject extension ParseHelper<DInformationModel> parseHelper
 	@Inject extension IScopeProvider
 	
 	val epackage = DmxPackage.eINSTANCE

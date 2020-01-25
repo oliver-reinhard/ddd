@@ -5,8 +5,11 @@ package com.mimacom.ddd.dm.dem.validation;
 
 import com.google.common.collect.Iterables;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DCaseConjunction;
-import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.dem.DActor;
+import com.mimacom.ddd.dm.dem.DCaseConjunction;
+import com.mimacom.ddd.dm.dem.DDomainEvent;
+import com.mimacom.ddd.dm.dem.DNotification;
 import com.mimacom.ddd.dm.dem.validation.AbstractDemValidator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -45,6 +48,31 @@ public class DemValidator extends AbstractDemValidator {
           }
         }
       }
+    }
+  }
+  
+  @Check
+  public void checkTypeNameStartsWithCapital(final DActor a) {
+    this.checkNameStartsWithCapital(a);
+  }
+  
+  @Check
+  public void checkTypeNameStartsWithCapital(final DDomainEvent de) {
+    this.checkNameStartsWithCapital(de);
+  }
+  
+  @Check
+  public void checkTypeNameStartsWithCapital(final DNotification n) {
+    this.checkNameStartsWithCapital(n);
+  }
+  
+  public void checkNameStartsWithCapital(final DNamedElement ne) {
+    this.checkNameStartsWithCapitalImpl(ne.getName(), ne);
+  }
+  
+  protected void checkNameStartsWithCapitalImpl(final String name, final DNamedElement ne) {
+    if ((((name != null) && (name.length() > 0)) && (!Character.isUpperCase(name.charAt(0))))) {
+      this.warning("Name should start with a capital", ne, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }
   }
 }

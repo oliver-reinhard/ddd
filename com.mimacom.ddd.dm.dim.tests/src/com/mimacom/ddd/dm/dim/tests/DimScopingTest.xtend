@@ -7,7 +7,6 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScopeProvider
@@ -20,11 +19,12 @@ import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Disabled
+import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DimInjectorProvider)
 class DimScopingTest {
-	@Inject extension ParseHelper<DDomain> parseHelper
+	@Inject extension ParseHelper<DInformationModel> parseHelper
 	@Inject extension IScopeProvider
 	
 	val epackage = BasePackage.eINSTANCE

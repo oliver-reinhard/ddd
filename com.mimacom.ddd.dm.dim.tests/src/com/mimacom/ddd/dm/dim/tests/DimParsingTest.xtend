@@ -4,7 +4,6 @@
 package com.mimacom.ddd.dm.dim.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DDomain
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -12,13 +11,14 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.junit.jupiter.api.Disabled
+import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DimInjectorProvider)
 @Disabled("XtextSyntaxDiagnostic: null:1 missing 'domain' at 'Hello', XtextSyntaxDiagnostic: null:1 missing EOF at 'Xtext' ==> expected: <true> but was: <false>")
 class DimParsingTest {
 	@Inject
-	ParseHelper<DDomain> parseHelper
+	ParseHelper<DInformationModel> parseHelper
 	
 	@Test
 	def void loadModel() {

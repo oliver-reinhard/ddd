@@ -83,7 +83,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			case SimPackage.SMORPH_RULE: return createSMorphRule();
 			case SimPackage.SFUSE_RULE: return createSFuseRule();
 			case SimPackage.SGRAB_AGGREGATE_RULE: return createSGrabAggregateRule();
-			case SimPackage.SGRAB_DOMAIN_RULE: return createSGrabDomainRule();
+			case SimPackage.SGRAB_MODEL_RULE: return createSGrabModelRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -349,10 +349,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SGrabDomainRule createSGrabDomainRule()
+	public SGrabModelRule createSGrabModelRule()
 	{
-		SGrabDomainRuleImpl sGrabDomainRule = new SGrabDomainRuleImpl();
-		return sGrabDomainRule;
+		SGrabModelRuleImpl sGrabModelRule = new SGrabModelRuleImpl();
+		return sGrabModelRule;
 	}
 
 	/**

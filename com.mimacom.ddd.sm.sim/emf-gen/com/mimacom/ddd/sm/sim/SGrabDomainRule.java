@@ -3,7 +3,7 @@
 package com.mimacom.ddd.sm.sim;
 
 import com.mimacom.ddd.dm.base.DDeductionRule;
-import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DInformationModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +32,6 @@ public interface SGrabDomainRule extends DDeductionRule
 	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	DDomain getDomain();
+	DInformationModel getDomain();
 
 } // SGrabDomainRule

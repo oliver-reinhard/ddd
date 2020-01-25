@@ -6,7 +6,6 @@ import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEntityOrigin
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
@@ -24,6 +23,7 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
+import com.mimacom.ddd.dm.base.DInformationModel
 
 class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 
@@ -44,8 +44,8 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve  "semantic" EMF model from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val DDomain domain = document.readOnly[
-            return if (contents.head instanceof DDomain) contents.head as DDomain else null
+        val DInformationModel domain = document.readOnly[
+            return if (contents.head instanceof DInformationModel) contents.head as DInformationModel else null
         ]
         
         if (domain !== null && ! (domain.types.empty && domain.aggregates.empty)) {
@@ -55,7 +55,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         }
 	}
 	
-	def domainTypes(DDomain domain) {
+	def domainTypes(DInformationModel domain) {
 		val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
 		val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[getType instanceof DEntityType]
 //		val allEntitiesReferencedWithinAggregate = allAssociations.filter[targetType.eContainer == eContainer.eContainer].map[targetType]

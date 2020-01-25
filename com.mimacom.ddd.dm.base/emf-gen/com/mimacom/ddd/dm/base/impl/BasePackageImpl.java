@@ -4,39 +4,32 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DAttribute;
-import com.mimacom.ddd.dm.base.DCaseConjunction;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DEntityOrigin;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DHumanActorRole;
 import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DMessage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DMultiplicityShorthand;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
@@ -45,6 +38,7 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -96,7 +90,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dDomainEClass = null;
+	private EClass dInformationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iDiagramRootEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +125,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass iStaticReferenceTargetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass iDeductionDefinitionEClass = null;
 
 	/**
@@ -139,6 +147,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dDeductionRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,13 +182,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dMultiplicityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iStaticReferenceTargetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -328,62 +336,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dStateEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dContextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dDomainEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dCaseConjunctionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dNotificationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dMessageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dActorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dHumanActorRoleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -563,9 +515,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDDomain()
+	public EClass getDInformationModel()
 	{
-		return dDomainEClass;
+		return dInformationModelEClass;
 	}
 
 	/**
@@ -574,9 +526,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_Events()
+	public EAttribute getDInformationModel_Domain()
 	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dInformationModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -585,9 +537,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_Actors()
+	public EClass getIDiagramRoot()
 	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(1);
+		return iDiagramRootEClass;
 	}
 
 	/**
@@ -654,6 +606,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getIFeatureContainer_Features()
 	{
 		return (EReference)iFeatureContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIStaticReferenceTarget()
+	{
+		return iStaticReferenceTargetEClass;
 	}
 
 	/**
@@ -742,6 +705,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDDeductionRule_NamedSource()
 	{
 		return (EReference)dDeductionRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDContext()
+	{
+		return dContextEClass;
 	}
 
 	/**
@@ -885,17 +859,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EAttribute getDMultiplicity_Shorthand()
 	{
 		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIStaticReferenceTarget()
-	{
-		return iStaticReferenceTargetEClass;
 	}
 
 	/**
@@ -1377,215 +1340,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDContext()
-	{
-		return dContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDDomainEvent()
-	{
-		return dDomainEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomainEvent_Context()
-	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomainEvent_Trigger()
-	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomainEvent_PreconditionsCNF()
-	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomainEvent_PostconditionsDNF()
-	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomainEvent_Notifications()
-	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDCaseConjunction()
-	{
-		return dCaseConjunctionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDCaseConjunction_Selector()
-	{
-		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDCaseConjunction_Otherwise()
-	{
-		return (EAttribute)dCaseConjunctionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDCaseConjunction_Predicates()
-	{
-		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDNotification()
-	{
-		return dNotificationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNotification_Message()
-	{
-		return (EReference)dNotificationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNotification_Notified()
-	{
-		return (EReference)dNotificationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDMessage()
-	{
-		return dMessageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDActor()
-	{
-		return dActorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDHumanActorRole()
-	{
-		return dHumanActorRoleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDHumanActorRole_Role()
-	{
-		return (EReference)dHumanActorRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDService()
-	{
-		return dServiceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getDMultiplicityShorthand()
 	{
 		return dMultiplicityShorthandEEnum;
@@ -1655,9 +1409,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dNamespaceEClass = createEClass(DNAMESPACE);
 		createEReference(dNamespaceEClass, DNAMESPACE__IMPORTS);
 
-		dDomainEClass = createEClass(DDOMAIN);
-		createEReference(dDomainEClass, DDOMAIN__EVENTS);
-		createEReference(dDomainEClass, DDOMAIN__ACTORS);
+		dInformationModelEClass = createEClass(DINFORMATION_MODEL);
+		createEAttribute(dInformationModelEClass, DINFORMATION_MODEL__DOMAIN);
+
+		iDiagramRootEClass = createEClass(IDIAGRAM_ROOT);
 
 		iAggregateContainerEClass = createEClass(IAGGREGATE_CONTAINER);
 		createEReference(iAggregateContainerEClass, IAGGREGATE_CONTAINER__AGGREGATES);
@@ -1667,6 +1422,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		iFeatureContainerEClass = createEClass(IFEATURE_CONTAINER);
 		createEReference(iFeatureContainerEClass, IFEATURE_CONTAINER__FEATURES);
+
+		iStaticReferenceTargetEClass = createEClass(ISTATIC_REFERENCE_TARGET);
 
 		iDeductionDefinitionEClass = createEClass(IDEDUCTION_DEFINITION);
 		createEReference(iDeductionDefinitionEClass, IDEDUCTION_DEFINITION__DEDUCTION_RULE);
@@ -1678,6 +1435,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDeductionRuleEClass = createEClass(DDEDUCTION_RULE);
 		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__SOURCE);
 		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__NAMED_SOURCE);
+
+		dContextEClass = createEClass(DCONTEXT);
 
 		dAggregateEClass = createEClass(DAGGREGATE);
 		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
@@ -1695,8 +1454,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MIN_OCCURS);
 		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MAX_OCCURS);
 		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__SHORTHAND);
-
-		iStaticReferenceTargetEClass = createEClass(ISTATIC_REFERENCE_TARGET);
 
 		iRichTextSegmentEClass = createEClass(IRICH_TEXT_SEGMENT);
 
@@ -1763,33 +1520,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dStateEventEClass = createEClass(DSTATE_EVENT);
 
-		dContextEClass = createEClass(DCONTEXT);
-
-		dDomainEventEClass = createEClass(DDOMAIN_EVENT);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__CONTEXT);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__TRIGGER);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__PRECONDITIONS_CNF);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__POSTCONDITIONS_DNF);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__NOTIFICATIONS);
-
-		dCaseConjunctionEClass = createEClass(DCASE_CONJUNCTION);
-		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__SELECTOR);
-		createEAttribute(dCaseConjunctionEClass, DCASE_CONJUNCTION__OTHERWISE);
-		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__PREDICATES);
-
-		dNotificationEClass = createEClass(DNOTIFICATION);
-		createEReference(dNotificationEClass, DNOTIFICATION__MESSAGE);
-		createEReference(dNotificationEClass, DNOTIFICATION__NOTIFIED);
-
-		dMessageEClass = createEClass(DMESSAGE);
-
-		dActorEClass = createEClass(DACTOR);
-
-		dHumanActorRoleEClass = createEClass(DHUMAN_ACTOR_ROLE);
-		createEReference(dHumanActorRoleEClass, DHUMAN_ACTOR_ROLE__ROLE);
-
-		dServiceEClass = createEClass(DSERVICE);
-
 		// Create enums
 		dMultiplicityShorthandEEnum = createEEnum(DMULTIPLICITY_SHORTHAND);
 		dEntityOriginEEnum = createEEnum(DENTITY_ORIGIN);
@@ -1826,19 +1556,22 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		// Add supertypes to classes
 		dNamespaceEClass.getESuperTypes().add(this.getDNamedElement());
-		dDomainEClass.getESuperTypes().add(this.getDNamespace());
-		dDomainEClass.getESuperTypes().add(this.getIAggregateContainer());
-		dDomainEClass.getESuperTypes().add(this.getITypeContainer());
-		dDomainEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
-		dDomainEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dInformationModelEClass.getESuperTypes().add(this.getDNamespace());
+		dInformationModelEClass.getESuperTypes().add(this.getIAggregateContainer());
+		dInformationModelEClass.getESuperTypes().add(this.getITypeContainer());
+		dInformationModelEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
+		dInformationModelEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dInformationModelEClass.getESuperTypes().add(this.getIDiagramRoot());
+		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
+		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dAggregateEClass.getESuperTypes().add(this.getDNamedElement());
 		dAggregateEClass.getESuperTypes().add(this.getITypeContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIFeatureContainer());
 		dAggregateEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dAggregateEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dAggregateEClass.getESuperTypes().add(this.getIDiagramRoot());
 		dNavigableMemberEClass.getESuperTypes().add(this.getDNamedElement());
-		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
 		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dRichTextEClass.getESuperTypes().add(this.getDExpression());
@@ -1870,18 +1603,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dQueryParameterEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dStateEClass.getESuperTypes().add(this.getDNavigableMember());
 		dStateEventEClass.getESuperTypes().add(this.getDNamedElement());
-		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
-		dDomainEventEClass.getESuperTypes().add(this.getDNamedElement());
-		dDomainEventEClass.getESuperTypes().add(this.getINavigableMemberContainer());
-		dDomainEventEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
-		dCaseConjunctionEClass.getESuperTypes().add(this.getDNamedElement());
-		dNotificationEClass.getESuperTypes().add(this.getDNavigableMember());
-		dNotificationEClass.getESuperTypes().add(this.getINavigableMemberContainer());
-		dMessageEClass.getESuperTypes().add(this.getDNavigableMember());
-		dActorEClass.getESuperTypes().add(this.getDNavigableMember());
-		dActorEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
-		dHumanActorRoleEClass.getESuperTypes().add(this.getDActor());
-		dServiceEClass.getESuperTypes().add(this.getDActor());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1895,9 +1616,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dNamespaceEClass, DNamespace.class, "DNamespace", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDNamespace_Imports(), this.getDImport(), null, "imports", null, 0, -1, DNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dInformationModelEClass, DInformationModel.class, "DInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDInformationModel_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, DInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iDiagramRootEClass, IDiagramRoot.class, "IDiagramRoot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iAggregateContainerEClass, IAggregateContainer.class, "IAggregateContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIAggregateContainer_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, IAggregateContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1907,6 +1629,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(iFeatureContainerEClass, IFeatureContainer.class, "IFeatureContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIFeatureContainer_Features(), this.getDFeature(), null, "features", null, 0, -1, IFeatureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iStaticReferenceTargetEClass, IStaticReferenceTarget.class, "IStaticReferenceTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iDeductionDefinitionEClass, IDeductionDefinition.class, "IDeductionDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIDeductionDefinition_DeductionRule(), this.getDDeductionRule(), null, "deductionRule", null, 0, 1, IDeductionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1918,6 +1642,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dDeductionRuleEClass, DDeductionRule.class, "DDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDDeductionRule_Source(), this.getIDeducibleElement(), null, "source", null, 0, 1, DDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDeductionRule_NamedSource(), this.getDNamedElement(), null, "namedSource", null, 0, 1, DDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(dContextEClass, DContext.class, "DContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAggregate_Roots(), this.getDEntityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1935,8 +1661,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEAttribute(getDMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDMultiplicity_Shorthand(), this.getDMultiplicityShorthand(), "shorthand", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(iStaticReferenceTargetEClass, IStaticReferenceTarget.class, "IStaticReferenceTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iRichTextSegmentEClass, IRichTextSegment.class, "IRichTextSegment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2003,33 +1727,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dStateEClass, DState.class, "DState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dStateEventEClass, DStateEvent.class, "DStateEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dContextEClass, DContext.class, "DContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dDomainEventEClass, DDomainEvent.class, "DDomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDDomainEvent_Context(), this.getDContext(), null, "context", null, 1, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_Trigger(), this.getDActor(), null, "trigger", null, 1, 1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_PreconditionsCNF(), this.getDNamedPredicate(), null, "preconditionsCNF", null, 0, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_PostconditionsDNF(), this.getDNamedElement(), null, "postconditionsDNF", null, 0, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_Notifications(), this.getDNotification(), null, "notifications", null, 0, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dCaseConjunctionEClass, DCaseConjunction.class, "DCaseConjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDCaseConjunction_Selector(), this.getDExpression(), null, "selector", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDCaseConjunction_Otherwise(), ecorePackage.getEBoolean(), "otherwise", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDCaseConjunction_Predicates(), this.getDNamedPredicate(), null, "predicates", null, 0, -1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dNotificationEClass, DNotification.class, "DNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDNotification_Message(), this.getDMessage(), null, "message", null, 0, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNotification_Notified(), this.getDActor(), null, "notified", null, 1, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dMessageEClass, DMessage.class, "DMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dActorEClass, DActor.class, "DActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dHumanActorRoleEClass, DHumanActorRole.class, "DHumanActorRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDHumanActorRole_Role(), this.getDEntityType(), null, "role", null, 0, 1, DHumanActorRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dServiceEClass, DService.class, "DService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(dMultiplicityShorthandEEnum, DMultiplicityShorthand.class, "DMultiplicityShorthand");

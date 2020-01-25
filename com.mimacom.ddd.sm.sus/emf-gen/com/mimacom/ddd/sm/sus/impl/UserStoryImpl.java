@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.sm.sus.impl;
 
-import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DImport;
 
 import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
@@ -11,6 +10,8 @@ import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
 import com.mimacom.ddd.sm.sus.Section;
 import com.mimacom.ddd.sm.sus.SusPackage;
 import com.mimacom.ddd.sm.sus.UserStory;
+
+import dem.DDomainEvent;
 
 import java.util.Collection;
 

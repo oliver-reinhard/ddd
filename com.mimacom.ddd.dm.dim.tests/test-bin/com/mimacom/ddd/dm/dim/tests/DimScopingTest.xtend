@@ -7,7 +7,7 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DInformationModel
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScopeProvider

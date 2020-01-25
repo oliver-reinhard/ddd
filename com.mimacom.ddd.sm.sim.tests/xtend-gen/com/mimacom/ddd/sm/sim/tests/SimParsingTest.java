@@ -5,7 +5,7 @@ package com.mimacom.ddd.sm.sim.tests;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
@@ -26,7 +26,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class SimParsingTest {
   @Inject
-  private ParseHelper<DDomain> dmParseHelper;
+  private ParseHelper<DInformationModel> dmParseHelper;
   
   @Inject
   private ParseHelper<SInformationModel> smParseHelper;
@@ -43,7 +43,7 @@ public class SimParsingTest {
       _builder.newLine();
       _builder.append("archetype DT { }");
       _builder.newLine();
-      final DDomain dm = this.dmParseHelper.parse(_builder, resourceSet);
+      final DInformationModel dm = this.dmParseHelper.parse(_builder, resourceSet);
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("base information model SM");
       _builder_1.newLine();

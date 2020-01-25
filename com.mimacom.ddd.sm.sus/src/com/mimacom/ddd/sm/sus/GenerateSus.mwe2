@@ -36,6 +36,7 @@ Workflow {
 			fileExtensions = "sus"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
+			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dem/model/dem.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.sm.sim/model/sim.genmodel"
 			referencedResource = "platform:/resource/${project}/model/sus.genmodel"
 

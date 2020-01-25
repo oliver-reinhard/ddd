@@ -5,17 +5,14 @@ package com.mimacom.ddd.dm.dem.formatting2;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DActor;
-import com.mimacom.ddd.dm.base.DCaseConjunction;
 import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.dem.DCaseConjunction;
+import com.mimacom.ddd.dm.dem.DDomainEvent;
+import com.mimacom.ddd.dm.dem.DNotification;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
@@ -37,38 +34,9 @@ public class DemFormatter extends DmxFormatter {
   @Extension
   private DemGrammarAccess _demGrammarAccess;
   
-  protected void _format(final DDomain domain, @Extension final IFormattableDocument document) {
-    document.<DRichText>format(domain.getDescription());
-    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._demGrammarAccess.getDDomainAccess().getNameAssignment_2()), _function);
-    EList<DImport> _imports = domain.getImports();
-    for (final DImport i : _imports) {
-      final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
-        DImport _last = IterableExtensions.<DImport>last(domain.getImports());
-        boolean _equals = Objects.equal(i, _last);
-        if (_equals) {
-          it.setNewLines(2);
-        } else {
-          it.newLine();
-        }
-      };
-      document.<DImport>append(i, _function_1);
-    }
-    EList<DDomainEvent> _events = domain.getEvents();
-    for (final DDomainEvent event : _events) {
-      document.<DDomainEvent>format(event);
-    }
-    EList<DActor> _actors = domain.getActors();
-    for (final DActor dActor : _actors) {
-      document.<DActor>format(dActor);
-    }
-  }
-  
   protected void _format(final DDomainEvent event, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getLeftCurlyBracketKeyword_4());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getRightCurlyBracketKeyword_11());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getLeftCurlyBracketKeyword_7());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getRightCurlyBracketKeyword_14());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -80,7 +48,7 @@ public class DemFormatter extends DmxFormatter {
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getContextKeyword_5()), _function_2);
+    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getContextKeyword_8()), _function_2);
     EList<DContext> _context = event.getContext();
     for (final DContext context : _context) {
       {
@@ -107,22 +75,22 @@ public class DemFormatter extends DmxFormatter {
     final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.prepend(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getTriggeredKeyword_7_0()), _function_3);
+    document.prepend(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getTriggeredKeyword_10_0()), _function_3);
     final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getByKeyword_7_1()), _function_4);
+    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getByKeyword_10_1()), _function_4);
     final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
     final Procedure1<IHiddenRegionFormatter> _function_6 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(document.surround(this.textRegionExtensions.regionFor(event).assignment(this._demGrammarAccess.getDDomainEventAccess().getTriggerAssignment_7_2()), _function_5), _function_6);
+    document.append(document.surround(this.textRegionExtensions.regionFor(event).assignment(this._demGrammarAccess.getDDomainEventAccess().getTriggerAssignment_10_2()), _function_5), _function_6);
     final Procedure1<IHiddenRegionFormatter> _function_7 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getNotificationsKeyword_8_0()), _function_7);
+    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getNotificationsKeyword_11_0()), _function_7);
     EList<DNotification> _notifications = event.getNotifications();
     for (final DNotification n : _notifications) {
       {
@@ -149,12 +117,12 @@ public class DemFormatter extends DmxFormatter {
     final Procedure1<IHiddenRegionFormatter> _function_8 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getPreconditionsKeyword_9_0()), _function_8);
+    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getPreconditionsKeyword_12_0()), _function_8);
     this.format(event.getPreconditionsCNF(), document);
     final Procedure1<IHiddenRegionFormatter> _function_9 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getPostconditionsKeyword_10_0()), _function_9);
+    document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDDomainEventAccess().getPostconditionsKeyword_13_0()), _function_9);
     this.format(event.getPostconditionsDNF(), document);
   }
   
@@ -221,49 +189,46 @@ public class DemFormatter extends DmxFormatter {
   protected void _format(final DContext context, @Extension final IFormattableDocument document) {
   }
   
-  public void format(final Object context, final IFormattableDocument document) {
-    if (context instanceof DContext) {
-      _format((DContext)context, document);
+  public void format(final Object event, final IFormattableDocument document) {
+    if (event instanceof DDomainEvent) {
+      _format((DDomainEvent)event, document);
       return;
-    } else if (context instanceof DDomain) {
-      _format((DDomain)context, document);
+    } else if (event instanceof DContext) {
+      _format((DContext)event, document);
       return;
-    } else if (context instanceof DDomainEvent) {
-      _format((DDomainEvent)context, document);
+    } else if (event instanceof DRichText) {
+      _format((DRichText)event, document);
       return;
-    } else if (context instanceof DRichText) {
-      _format((DRichText)context, document);
+    } else if (event instanceof DmxNamespace) {
+      _format((DmxNamespace)event, document);
       return;
-    } else if (context instanceof DmxNamespace) {
-      _format((DmxNamespace)context, document);
+    } else if (event instanceof XtextResource) {
+      _format((XtextResource)event, document);
       return;
-    } else if (context instanceof XtextResource) {
-      _format((XtextResource)context, document);
+    } else if (event instanceof DExpression) {
+      _format((DExpression)event, document);
       return;
-    } else if (context instanceof DCaseConjunction) {
-      _format((DCaseConjunction)context, document);
+    } else if (event instanceof DNamedPredicate) {
+      _format((DNamedPredicate)event, document);
       return;
-    } else if (context instanceof DExpression) {
-      _format((DExpression)context, document);
+    } else if (event instanceof DCaseConjunction) {
+      _format((DCaseConjunction)event, document);
       return;
-    } else if (context instanceof DNamedPredicate) {
-      _format((DNamedPredicate)context, document);
+    } else if (event instanceof List) {
+      _format((List<DNamedElement>)event, document);
       return;
-    } else if (context instanceof List) {
-      _format((List<DNamedElement>)context, document);
+    } else if (event instanceof EObject) {
+      _format((EObject)event, document);
       return;
-    } else if (context instanceof EObject) {
-      _format((EObject)context, document);
-      return;
-    } else if (context == null) {
+    } else if (event == null) {
       _format((Void)null, document);
       return;
-    } else if (context != null) {
-      _format(context, document);
+    } else if (event != null) {
+      _format(event, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(context, document).toString());
+        Arrays.<Object>asList(event, document).toString());
     }
   }
 }

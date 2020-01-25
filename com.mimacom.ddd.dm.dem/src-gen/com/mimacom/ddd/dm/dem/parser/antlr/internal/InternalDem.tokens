@@ -52,7 +52,7 @@
 '\u2265'=101
 ']'=60
 'actor'=34
-'alias'=18
+'alias'=19
 'all'=61
 'and'=94
 'archetype'=44
@@ -66,7 +66,7 @@
 'else'=64
 'end'=65
 'entity'=55
-'event'=19
+'event'=18
 'false'=70
 'filter'=46
 'human'=33

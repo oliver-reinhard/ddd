@@ -3,8 +3,9 @@
  */
 package com.mimacom.ddd.sm.sus;
 
-import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DNamespace;
+
+import dem.DDomainEvent;
 
 import org.eclipse.emf.common.util.EList;
 

@@ -23,6 +23,7 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -218,9 +219,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabAggregateRuleAdapter();
 			}
 			@Override
-			public Adapter caseSGrabDomainRule(SGrabDomainRule object)
+			public Adapter caseSGrabModelRule(SGrabModelRule object)
 			{
-				return createSGrabDomainRuleAdapter();
+				return createSGrabModelRuleAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -266,6 +267,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIDeducibleElement(IDeducibleElement object)
 			{
 				return createIDeducibleElementAdapter();
+			}
+			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
 			}
 			@Override
 			public Adapter caseDAggregate(DAggregate object)
@@ -725,16 +731,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SGrabDomainRule <em>SGrab Domain Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SGrabModelRule <em>SGrab Model Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SGrabDomainRule
+	 * @see com.mimacom.ddd.sm.sim.SGrabModelRule
 	 * @generated
 	 */
-	public Adapter createSGrabDomainRuleAdapter()
+	public Adapter createSGrabModelRuleAdapter()
 	{
 		return null;
 	}
@@ -870,6 +876,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIDeducibleElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
 	{
 		return null;
 	}

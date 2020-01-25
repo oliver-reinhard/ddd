@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dmx.scoping;
 
-import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.QualifiedName;
@@ -26,8 +26,8 @@ public class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespa
   @Override
   protected List<ImportNormalizer> internalGetImportedNamespaceResolvers(final EObject context, final boolean ignoreCase) {
     final List<ImportNormalizer> resolvers = super.internalGetImportedNamespaceResolvers(context, ignoreCase);
-    if ((context instanceof DDomain)) {
-      final String domainName = ((DDomain)context).getName();
+    if ((context instanceof DInformationModel)) {
+      final String domainName = ((DInformationModel)context).getName();
       if ((domainName != null)) {
         ImportNormalizer _createImportedNamespaceResolver = this.createImportedNamespaceResolver((domainName + ".*"), ignoreCase);
         resolvers.add(_createImportedNamespaceResolver);

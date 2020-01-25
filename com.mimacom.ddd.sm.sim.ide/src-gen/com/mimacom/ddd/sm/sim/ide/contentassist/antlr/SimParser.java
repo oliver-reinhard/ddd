@@ -59,7 +59,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSQueryDeductionAccess().getAlternatives_1_0_2(), "rule__SQueryDeduction__Alternatives_1_0_2");
 			builder.put(grammarAccess.getQueryParameterAccess().getAlternatives(), "rule__QueryParameter__Alternatives");
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getAlternatives_1(), "rule__SQueryParameterDeduction__Alternatives_1");
-			builder.put(grammarAccess.getDDomainAccess().getAlternatives_5(), "rule__DDomain__Alternatives_5");
+			builder.put(grammarAccess.getDInformationModelAccess().getAlternatives_8(), "rule__DInformationModel__Alternatives_8");
 			builder.put(grammarAccess.getDTypeAccess().getAlternatives(), "rule__DType__Alternatives");
 			builder.put(grammarAccess.getDDetailTypeAccess().getAlternatives_4(), "rule__DDetailType__Alternatives_4");
 			builder.put(grammarAccess.getDFeatureAccess().getAlternatives(), "rule__DFeature__Alternatives");
@@ -179,8 +179,8 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getGroup_1_0(), "rule__SQueryParameterDeduction__Group_1_0__0");
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getGroup_1_1(), "rule__SQueryParameterDeduction__Group_1_1__0");
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getGroup_1_2(), "rule__SQueryParameterDeduction__Group_1_2__0");
-			builder.put(grammarAccess.getDDomainAccess().getGroup(), "rule__DDomain__Group__0");
-			builder.put(grammarAccess.getDDomainAccess().getGroup_3(), "rule__DDomain__Group_3__0");
+			builder.put(grammarAccess.getDInformationModelAccess().getGroup(), "rule__DInformationModel__Group__0");
+			builder.put(grammarAccess.getDInformationModelAccess().getGroup_6(), "rule__DInformationModel__Group_6__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup(), "rule__DConstraint__Group__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup_2(), "rule__DConstraint__Group_2__0");
 			builder.put(grammarAccess.getDPrimitiveAccess().getGroup(), "rule__DPrimitive__Group__0");
@@ -304,7 +304,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSInformationModelAccess().getTypesAssignment_7_0(), "rule__SInformationModel__TypesAssignment_7_0");
 			builder.put(grammarAccess.getSInformationModelAccess().getAggregatesAssignment_7_1(), "rule__SInformationModel__AggregatesAssignment_7_1");
 			builder.put(grammarAccess.getSInformationModelAccess().getDomainProxiesAssignment_7_2(), "rule__SInformationModel__DomainProxiesAssignment_7_2");
-			builder.put(grammarAccess.getSGrabDomainRuleAccess().getSourceAssignment(), "rule__SGrabDomainRule__SourceAssignment");
+			builder.put(grammarAccess.getSGrabModelRuleAccess().getSourceAssignment(), "rule__SGrabModelRule__SourceAssignment");
 			builder.put(grammarAccess.getSGrabAggregateRuleAccess().getSourceAssignment_0(), "rule__SGrabAggregateRule__SourceAssignment_0");
 			builder.put(grammarAccess.getSGrabAggregateRuleAccess().getRenameToAssignment_1_1(), "rule__SGrabAggregateRule__RenameToAssignment_1_1");
 			builder.put(grammarAccess.getSGrabPrimitiveRuleAccess().getSourceAssignment_0(), "rule__SGrabPrimitiveRule__SourceAssignment_0");
@@ -417,12 +417,13 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getDeductionRuleAssignment_1_1_1(), "rule__SQueryParameterDeduction__DeductionRuleAssignment_1_1_1");
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getDeductionRuleAssignment_1_2_1(), "rule__SQueryParameterDeduction__DeductionRuleAssignment_1_2_1");
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getDescriptionAssignment_2(), "rule__SQueryParameterDeduction__DescriptionAssignment_2");
-			builder.put(grammarAccess.getDDomainAccess().getImportsAssignment_0(), "rule__DDomain__ImportsAssignment_0");
-			builder.put(grammarAccess.getDDomainAccess().getNameAssignment_2(), "rule__DDomain__NameAssignment_2");
-			builder.put(grammarAccess.getDDomainAccess().getAliasesAssignment_3_1(), "rule__DDomain__AliasesAssignment_3_1");
-			builder.put(grammarAccess.getDDomainAccess().getDescriptionAssignment_4(), "rule__DDomain__DescriptionAssignment_4");
-			builder.put(grammarAccess.getDDomainAccess().getTypesAssignment_5_0(), "rule__DDomain__TypesAssignment_5_0");
-			builder.put(grammarAccess.getDDomainAccess().getAggregatesAssignment_5_1(), "rule__DDomain__AggregatesAssignment_5_1");
+			builder.put(grammarAccess.getDInformationModelAccess().getImportsAssignment_0(), "rule__DInformationModel__ImportsAssignment_0");
+			builder.put(grammarAccess.getDInformationModelAccess().getDomainAssignment_2(), "rule__DInformationModel__DomainAssignment_2");
+			builder.put(grammarAccess.getDInformationModelAccess().getNameAssignment_5(), "rule__DInformationModel__NameAssignment_5");
+			builder.put(grammarAccess.getDInformationModelAccess().getAliasesAssignment_6_1(), "rule__DInformationModel__AliasesAssignment_6_1");
+			builder.put(grammarAccess.getDInformationModelAccess().getDescriptionAssignment_7(), "rule__DInformationModel__DescriptionAssignment_7");
+			builder.put(grammarAccess.getDInformationModelAccess().getTypesAssignment_8_0(), "rule__DInformationModel__TypesAssignment_8_0");
+			builder.put(grammarAccess.getDInformationModelAccess().getAggregatesAssignment_8_1(), "rule__DInformationModel__AggregatesAssignment_8_1");
 			builder.put(grammarAccess.getDConstraintAccess().getNameAssignment_1(), "rule__DConstraint__NameAssignment_1");
 			builder.put(grammarAccess.getDConstraintAccess().getAliasesAssignment_2_1(), "rule__DConstraint__AliasesAssignment_2_1");
 			builder.put(grammarAccess.getDConstraintAccess().getPredicateAssignment_4(), "rule__DConstraint__PredicateAssignment_4");

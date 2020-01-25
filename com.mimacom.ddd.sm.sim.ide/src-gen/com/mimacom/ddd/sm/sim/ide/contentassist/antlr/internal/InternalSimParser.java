@@ -274,23 +274,23 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleSInformationModel"
 
 
-    // $ANTLR start "entryRuleSGrabDomainRule"
-    // InternalSim.g:79:1: entryRuleSGrabDomainRule : ruleSGrabDomainRule EOF ;
-    public final void entryRuleSGrabDomainRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSGrabModelRule"
+    // InternalSim.g:79:1: entryRuleSGrabModelRule : ruleSGrabModelRule EOF ;
+    public final void entryRuleSGrabModelRule() throws RecognitionException {
         try {
-            // InternalSim.g:80:1: ( ruleSGrabDomainRule EOF )
-            // InternalSim.g:81:1: ruleSGrabDomainRule EOF
+            // InternalSim.g:80:1: ( ruleSGrabModelRule EOF )
+            // InternalSim.g:81:1: ruleSGrabModelRule EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSGrabDomainRuleRule()); 
+               before(grammarAccess.getSGrabModelRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleSGrabDomainRule();
+            ruleSGrabModelRule();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSGrabDomainRuleRule()); 
+               after(grammarAccess.getSGrabModelRuleRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -305,30 +305,30 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleSGrabDomainRule"
+    // $ANTLR end "entryRuleSGrabModelRule"
 
 
-    // $ANTLR start "ruleSGrabDomainRule"
-    // InternalSim.g:88:1: ruleSGrabDomainRule : ( ( rule__SGrabDomainRule__SourceAssignment ) ) ;
-    public final void ruleSGrabDomainRule() throws RecognitionException {
+    // $ANTLR start "ruleSGrabModelRule"
+    // InternalSim.g:88:1: ruleSGrabModelRule : ( ( rule__SGrabModelRule__SourceAssignment ) ) ;
+    public final void ruleSGrabModelRule() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:92:2: ( ( ( rule__SGrabDomainRule__SourceAssignment ) ) )
-            // InternalSim.g:93:2: ( ( rule__SGrabDomainRule__SourceAssignment ) )
+            // InternalSim.g:92:2: ( ( ( rule__SGrabModelRule__SourceAssignment ) ) )
+            // InternalSim.g:93:2: ( ( rule__SGrabModelRule__SourceAssignment ) )
             {
-            // InternalSim.g:93:2: ( ( rule__SGrabDomainRule__SourceAssignment ) )
-            // InternalSim.g:94:3: ( rule__SGrabDomainRule__SourceAssignment )
+            // InternalSim.g:93:2: ( ( rule__SGrabModelRule__SourceAssignment ) )
+            // InternalSim.g:94:3: ( rule__SGrabModelRule__SourceAssignment )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSGrabDomainRuleAccess().getSourceAssignment()); 
+               before(grammarAccess.getSGrabModelRuleAccess().getSourceAssignment()); 
             }
-            // InternalSim.g:95:3: ( rule__SGrabDomainRule__SourceAssignment )
-            // InternalSim.g:95:4: rule__SGrabDomainRule__SourceAssignment
+            // InternalSim.g:95:3: ( rule__SGrabModelRule__SourceAssignment )
+            // InternalSim.g:95:4: rule__SGrabModelRule__SourceAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__SGrabDomainRule__SourceAssignment();
+            rule__SGrabModelRule__SourceAssignment();
 
             state._fsp--;
             if (state.failed) return ;
@@ -336,7 +336,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSGrabDomainRuleAccess().getSourceAssignment()); 
+               after(grammarAccess.getSGrabModelRuleAccess().getSourceAssignment()); 
             }
 
             }
@@ -356,7 +356,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleSGrabDomainRule"
+    // $ANTLR end "ruleSGrabModelRule"
 
 
     // $ANTLR start "entryRuleSGrabAggregateRule"
@@ -66767,9 +66767,9 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SInformationModel__DomainProxiesAssignment_7_2"
 
 
-    // $ANTLR start "rule__SGrabDomainRule__SourceAssignment"
-    // InternalSim.g:19876:1: rule__SGrabDomainRule__SourceAssignment : ( ( ruleDQualifiedName ) ) ;
-    public final void rule__SGrabDomainRule__SourceAssignment() throws RecognitionException {
+    // $ANTLR start "rule__SGrabModelRule__SourceAssignment"
+    // InternalSim.g:19876:1: rule__SGrabModelRule__SourceAssignment : ( ( ruleDQualifiedName ) ) ;
+    public final void rule__SGrabModelRule__SourceAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -66781,13 +66781,13 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:19882:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0()); 
+               before(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0()); 
             }
             // InternalSim.g:19883:3: ( ruleDQualifiedName )
             // InternalSim.g:19884:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainDQualifiedNameParserRuleCall_0_1()); 
+               before(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelDQualifiedNameParserRuleCall_0_1()); 
             }
             pushFollow(FOLLOW_2);
             ruleDQualifiedName();
@@ -66795,13 +66795,13 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainDQualifiedNameParserRuleCall_0_1()); 
+               after(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelDQualifiedNameParserRuleCall_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0()); 
+               after(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0()); 
             }
 
             }
@@ -66821,7 +66821,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SGrabDomainRule__SourceAssignment"
+    // $ANTLR end "rule__SGrabModelRule__SourceAssignment"
 
 
     // $ANTLR start "rule__SGrabAggregateRule__SourceAssignment_0"
@@ -68274,28 +68274,28 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Domain__DeductionRuleAssignment_3"
-    // InternalSim.g:20398:1: rule__Domain__DeductionRuleAssignment_3 : ( ruleSGrabDomainRule ) ;
+    // InternalSim.g:20398:1: rule__Domain__DeductionRuleAssignment_3 : ( ruleSGrabModelRule ) ;
     public final void rule__Domain__DeductionRuleAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:20402:1: ( ( ruleSGrabDomainRule ) )
-            // InternalSim.g:20403:2: ( ruleSGrabDomainRule )
+            // InternalSim.g:20402:1: ( ( ruleSGrabModelRule ) )
+            // InternalSim.g:20403:2: ( ruleSGrabModelRule )
             {
-            // InternalSim.g:20403:2: ( ruleSGrabDomainRule )
-            // InternalSim.g:20404:3: ruleSGrabDomainRule
+            // InternalSim.g:20403:2: ( ruleSGrabModelRule )
+            // InternalSim.g:20404:3: ruleSGrabModelRule
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0()); 
+               before(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleSGrabDomainRule();
+            ruleSGrabModelRule();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0()); 
+               after(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0()); 
             }
 
             }

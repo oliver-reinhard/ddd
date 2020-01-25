@@ -6,7 +6,6 @@ import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.dmx.DmxArchetype
@@ -50,7 +49,7 @@ class DmxTypeDescriptorProvider {
 			DComplexType: new DmxComplexTypeDescriptor(obj, collection, util)
 			DState: new DmxStateDescriptor(obj, collection)
 			DAggregate: new DmxAggregateDescriptor(obj, collection)
-			DNotification: new DmxNotificationDescriptor(obj, collection)
+//			DNotification: new DmxNotificationDescriptor(obj, collection)
 			default: DmxTypeDescriptorProvider.UNDEFINED_TYPE
 		}
 	}

@@ -1,20 +1,26 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.dem
 Bundle-ManifestVersion: 2
-Bundle-Name: com.mimacom.ddd.dm.dem
-Bundle-Vendor: mimacom ag
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.dm.dem;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.base,
- com.mimacom.ddd.dm.dmx,
+Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
+ com.mimacom.ddd.dm.dmx;visibility:=reexport,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib;bundle-version="2.19.0",
  org.eclipse.xtext.util,
+ org.eclipse.emf.common,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
- org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.emf.mwe2.launch;bundle-version="2.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dem.parser.antlr,
  com.mimacom.ddd.dm.dem.validation,
@@ -22,6 +28,8 @@ Export-Package: com.mimacom.ddd.dm.dem.parser.antlr,
  com.mimacom.ddd.dm.dem.serializer,
  com.mimacom.ddd.dm.dem.generator,
  com.mimacom.ddd.dm.dem,
+ com.mimacom.ddd.dm.dem.impl,
+ com.mimacom.ddd.dm.dem.util,
  com.mimacom.ddd.dm.dem.formatting2,
  com.mimacom.ddd.dm.dem.parser.antlr.internal,
  com.mimacom.ddd.dm.dem.services

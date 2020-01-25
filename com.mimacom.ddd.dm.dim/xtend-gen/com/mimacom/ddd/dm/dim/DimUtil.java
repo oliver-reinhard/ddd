@@ -6,10 +6,10 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DPrimitive;
@@ -41,12 +41,12 @@ public class DimUtil extends DmxUtil {
     return features;
   }
   
-  public DDomain domain(final EObject obj) {
-    return EcoreUtil2.<DDomain>getContainerOfType(obj, DDomain.class);
+  public DInformationModel domain(final EObject obj) {
+    return EcoreUtil2.<DInformationModel>getContainerOfType(obj, DInformationModel.class);
   }
   
   public String domainName(final EObject obj) {
-    final DDomain d = this.domain(obj);
+    final DInformationModel d = this.domain(obj);
     String _xifexpression = null;
     if ((d != null)) {
       _xifexpression = d.getName();
@@ -74,18 +74,18 @@ public class DimUtil extends DmxUtil {
   /**
    * Precondition: d is the domain owning the association
    */
-  public boolean isTargetInsideDomain(final DAssociation a, final DDomain d) {
+  public boolean isTargetInsideDomain(final DAssociation a, final DInformationModel d) {
     DEntityType _targetType = a.getTargetType();
     boolean _tripleNotEquals = (_targetType != null);
     if (_tripleNotEquals) {
-      final DDomain targetDomain = this.domain(a.getTargetType());
+      final DInformationModel targetDomain = this.domain(a.getTargetType());
       return Objects.equal(d, targetDomain);
     }
     return false;
   }
   
   public boolean isTargetInsideDomain(final DAssociation a) {
-    final DDomain d = this.domain(a);
+    final DInformationModel d = this.domain(a);
     if ((d == null)) {
       return false;
     }
@@ -95,18 +95,18 @@ public class DimUtil extends DmxUtil {
   /**
    * Precondition: d is the domain owning the feature
    */
-  public boolean isTypeInsideDomain(final DFeature f, final DDomain d) {
+  public boolean isTypeInsideDomain(final DFeature f, final DInformationModel d) {
     DType _type = f.getType();
     boolean _tripleNotEquals = (_type != null);
     if (_tripleNotEquals) {
-      final DDomain targetDomain = this.domain(f.getType());
+      final DInformationModel targetDomain = this.domain(f.getType());
       return Objects.equal(d, targetDomain);
     }
     return false;
   }
   
   public boolean isTypeInsideDomain(final DFeature f) {
-    final DDomain d = this.domain(f);
+    final DInformationModel d = this.domain(f);
     if ((d == null)) {
       return false;
     }

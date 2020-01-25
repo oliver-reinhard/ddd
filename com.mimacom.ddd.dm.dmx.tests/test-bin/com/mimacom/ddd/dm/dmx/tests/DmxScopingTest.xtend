@@ -5,7 +5,7 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation

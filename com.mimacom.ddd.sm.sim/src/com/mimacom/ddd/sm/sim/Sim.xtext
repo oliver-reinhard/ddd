@@ -19,8 +19,8 @@ enum SInformationModelKind:
  * RULEs
  */
 
-SGrabDomainRule:
-	source=[DDomain|DQualifiedName];
+SGrabModelRule:
+	source=[DInformationModel|DQualifiedName];
 		
 SGrabAggregateRule:
 	source=[DAggregate|DQualifiedName]
@@ -95,7 +95,7 @@ enum SDetailType returns STristate:
 	
 Domain returns SDomainDeduction:
 	{SDomainDeduction}
-	'grab' 'domain' deductionRule=SGrabDomainRule;
+	'grab' 'domain' deductionRule=SGrabModelRule;
 
 Aggregate returns DAggregate:
 	SAggregateDeduction | DAggregate;

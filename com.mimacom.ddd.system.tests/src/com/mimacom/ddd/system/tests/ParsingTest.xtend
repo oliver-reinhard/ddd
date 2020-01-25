@@ -2,10 +2,11 @@ package com.mimacom.ddd.system.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider
 import java.net.URL
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
@@ -15,7 +16,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
-import org.eclipse.emf.ecore.resource.Resource
 
 /**
  * Provides integration tests for system test files.
@@ -36,7 +36,7 @@ class ParsingTest {
 
   // by default the parse helper injected is that of the "primary" injector returned by the injector provider
   @Inject
-  ParseHelper<DDomain> dimParseHelper
+  ParseHelper<DInformationModel> dimParseHelper
 
   var XtextResourceSet resourceSet = null
 

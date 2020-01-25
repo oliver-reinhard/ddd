@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.dem.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DInformationModel
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper

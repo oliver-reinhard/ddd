@@ -16,6 +16,7 @@ public abstract class AbstractDemValidator extends DmxValidator {
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dem"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
 		return result;

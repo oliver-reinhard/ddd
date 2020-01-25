@@ -9,4 +9,12 @@
             genModel="model/sus.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sus -->
+      <package
+            uri="http://www.mimacom.com/ddd/dm/dem"
+            class="dem.DemPackage"
+            genModel="model/sus.genmodel"/>
+   </extension>
+
 </plugin>

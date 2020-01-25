@@ -75,25 +75,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSGrabDomainRule
-entryRuleSGrabDomainRule
+// Entry rule entryRuleSGrabModelRule
+entryRuleSGrabModelRule
 :
-{ before(grammarAccess.getSGrabDomainRuleRule()); }
-	 ruleSGrabDomainRule
-{ after(grammarAccess.getSGrabDomainRuleRule()); } 
+{ before(grammarAccess.getSGrabModelRuleRule()); }
+	 ruleSGrabModelRule
+{ after(grammarAccess.getSGrabModelRuleRule()); } 
 	 EOF 
 ;
 
-// Rule SGrabDomainRule
-ruleSGrabDomainRule 
+// Rule SGrabModelRule
+ruleSGrabModelRule 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSGrabDomainRuleAccess().getSourceAssignment()); }
-		(rule__SGrabDomainRule__SourceAssignment)
-		{ after(grammarAccess.getSGrabDomainRuleAccess().getSourceAssignment()); }
+		{ before(grammarAccess.getSGrabModelRuleAccess().getSourceAssignment()); }
+		(rule__SGrabModelRule__SourceAssignment)
+		{ after(grammarAccess.getSGrabModelRuleAccess().getSourceAssignment()); }
 	)
 ;
 finally {
@@ -19873,19 +19873,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SGrabDomainRule__SourceAssignment
+rule__SGrabModelRule__SourceAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0()); }
+		{ before(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0()); }
 		(
-			{ before(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainDQualifiedNameParserRuleCall_0_1()); }
+			{ before(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelDQualifiedNameParserRuleCall_0_1()); }
 			ruleDQualifiedName
-			{ after(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainDQualifiedNameParserRuleCall_0_1()); }
+			{ after(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelDQualifiedNameParserRuleCall_0_1()); }
 		)
-		{ after(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0()); }
+		{ after(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0()); }
 	)
 ;
 finally {
@@ -20401,9 +20401,9 @@ rule__Domain__DeductionRuleAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0()); }
-		ruleSGrabDomainRule
-		{ after(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0()); }
+		{ before(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0()); }
+		ruleSGrabModelRule
+		{ after(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0()); }
 	)
 ;
 finally {

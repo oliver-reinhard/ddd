@@ -7,11 +7,11 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -37,7 +37,7 @@ public class DimFormatter extends DmxFormatter {
   @Extension
   private DimGrammarAccess _dimGrammarAccess;
   
-  protected void _format(final DDomain domain, @Extension final IFormattableDocument document) {
+  protected void _format(final DInformationModel domain, @Extension final IFormattableDocument document) {
     document.<DRichText>format(domain.getDescription());
     EList<DImport> _imports = domain.getImports();
     for (final DImport i : _imports) {
@@ -59,7 +59,7 @@ public class DimFormatter extends DmxFormatter {
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._dimGrammarAccess.getDDomainAccess().getNameAssignment_2()), _function_2);
+    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._dimGrammarAccess.getDInformationModelAccess().getNameAssignment_5()), _function_2);
     EList<DType> _types = domain.getTypes();
     for (final DType type : _types) {
       document.<DType>format(type);
@@ -178,8 +178,8 @@ public class DimFormatter extends DmxFormatter {
     } else if (en instanceof DAggregate) {
       _format((DAggregate)en, document);
       return;
-    } else if (en instanceof DDomain) {
-      _format((DDomain)en, document);
+    } else if (en instanceof DInformationModel) {
+      _format((DInformationModel)en, document);
       return;
     } else if (en instanceof DRichText) {
       _format((DRichText)en, document);

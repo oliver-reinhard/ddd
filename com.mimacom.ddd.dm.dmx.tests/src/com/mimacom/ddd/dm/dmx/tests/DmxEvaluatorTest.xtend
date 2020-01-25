@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxNamespace
@@ -26,7 +25,7 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import static org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-
+import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
@@ -36,7 +35,7 @@ class DmxEvaluatorTest {
 	@Inject Provider<ResourceSet> resourceSetProvider
 	@Inject extension DmxExpressionEvaluator
 	@Inject extension DmxTypeComputer
-	final ParseHelper<DDomain> dimParseHelper
+	final ParseHelper<DInformationModel> dimParseHelper
 	
 	new() {
 		val dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration()

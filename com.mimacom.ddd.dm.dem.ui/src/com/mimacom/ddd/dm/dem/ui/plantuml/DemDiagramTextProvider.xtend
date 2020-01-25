@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dem.ui.plantuml
 
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.dem.DDomainEvent
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
@@ -27,28 +27,24 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve the "semantic" EMF from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val DDomain domain = document.readOnly[
-            return if (contents.head instanceof DDomain) contents.head as DDomain else null
+        val DDomainEvent event = document.readOnly[
+            return if (contents.head instanceof DDomainEvent) contents.head as DDomainEvent else null
         ]
         
-        val events = domain?.events
-        
-        if (domain === null || events.empty) {
-        	return '''note "No domain events to show." as N1'''
+        if (event === null) {
+        	return '''note "No domain event to show." as N1'''
         }
         
        val result = '''
-       	«FOR e : events»
-       		(«e.name») as (event)
-       		actor «e.trigger.name»
-       		«FOR n : e.notifications.filter[notified!==null]»
-       			actor «n.notified.name»
-       		«ENDFOR»
-       		«IF e.trigger !== null»«e.trigger.name» --> (event) : triggers«ENDIF»
-       		«FOR n : e.notifications.filter[notified!==null]»
-       			«n.notified.name» <-- (event) : «n.name»
-       		«ENDFOR»
-       	«ENDFOR»
+   		(«event.name») as (event)
+   		actor «event.trigger.name»
+   		«FOR n : event.notifications.filter[notified!==null]»
+   			actor «n.notified.name»
+   		«ENDFOR»
+   		«IF event.trigger !== null»«event.trigger.name» --> (event) : triggers«ENDIF»
+   		«FOR n : event.notifications.filter[notified!==null]»
+   			«n.notified.name» <-- (event) : «n.name»
+   		«ENDFOR»
        '''
        return result
 	}

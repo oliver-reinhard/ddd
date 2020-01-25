@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.esm.tests.EsmInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,7 +25,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class EsmParsingTest {
   @Inject
-  private ParseHelper<DDomain> parseHelper;
+  private ParseHelper<DInformationModel> parseHelper;
   
   @Test
   public void loadModel() {
@@ -33,7 +33,7 @@ public class EsmParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final DDomain result = this.parseHelper.parse(_builder);
+      final DInformationModel result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

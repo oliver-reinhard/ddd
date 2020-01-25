@@ -16,7 +16,7 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
-import com.mimacom.ddd.sm.sim.SGrabDomainRule;
+import com.mimacom.ddd.sm.sim.SGrabModelRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
@@ -216,7 +216,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sGrabDomainRuleEClass = null;
+	private EClass sGrabModelRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -711,9 +711,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSGrabDomainRule()
+	public EClass getSGrabModelRule()
 	{
-		return sGrabDomainRuleEClass;
+		return sGrabModelRuleEClass;
 	}
 
 	/**
@@ -722,9 +722,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSGrabDomainRule_Domain()
+	public EReference getSGrabModelRule_DModel()
 	{
-		return (EReference)sGrabDomainRuleEClass.getEStructuralFeatures().get(0);
+		return (EReference)sGrabModelRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -840,8 +840,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sGrabAggregateRuleEClass = createEClass(SGRAB_AGGREGATE_RULE);
 		createEReference(sGrabAggregateRuleEClass, SGRAB_AGGREGATE_RULE__AGGREGATE);
 
-		sGrabDomainRuleEClass = createEClass(SGRAB_DOMAIN_RULE);
-		createEReference(sGrabDomainRuleEClass, SGRAB_DOMAIN_RULE__DOMAIN);
+		sGrabModelRuleEClass = createEClass(SGRAB_MODEL_RULE);
+		createEReference(sGrabModelRuleEClass, SGRAB_MODEL_RULE__DMODEL);
 
 		// Create enums
 		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
@@ -917,7 +917,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sMorphRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sFuseRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSRenameRule());
-		sGrabDomainRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
+		sGrabModelRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -981,8 +981,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sGrabAggregateRuleEClass, SGrabAggregateRule.class, "SGrabAggregateRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSGrabAggregateRule_Aggregate(), theBasePackage.getDAggregate(), null, "aggregate", null, 0, 1, SGrabAggregateRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(sGrabDomainRuleEClass, SGrabDomainRule.class, "SGrabDomainRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSGrabDomainRule_Domain(), theBasePackage.getDDomain(), null, "domain", null, 0, 1, SGrabDomainRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(sGrabModelRuleEClass, SGrabModelRule.class, "SGrabModelRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSGrabModelRule_DModel(), theBasePackage.getDInformationModel(), null, "dModel", null, 0, 1, SGrabModelRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");

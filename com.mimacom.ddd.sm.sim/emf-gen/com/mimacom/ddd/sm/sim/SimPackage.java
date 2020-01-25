@@ -2263,14 +2263,14 @@ public interface SimPackage extends EPackage
 	int SGRAB_AGGREGATE_RULE_OPERATION_COUNT = SRENAME_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl <em>SGrab Domain Rule</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl <em>SGrab Model Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
+	 * @see com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabModelRule()
 	 * @generated
 	 */
-	int SGRAB_DOMAIN_RULE = 23;
+	int SGRAB_MODEL_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2279,7 +2279,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_DOMAIN_RULE__SOURCE = BasePackage.DDEDUCTION_RULE__SOURCE;
+	int SGRAB_MODEL_RULE__SOURCE = BasePackage.DDEDUCTION_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Named Source</b></em>' reference.
@@ -2288,34 +2288,34 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_DOMAIN_RULE__NAMED_SOURCE = BasePackage.DDEDUCTION_RULE__NAMED_SOURCE;
+	int SGRAB_MODEL_RULE__NAMED_SOURCE = BasePackage.DDEDUCTION_RULE__NAMED_SOURCE;
 
 	/**
-	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * The feature id for the '<em><b>DModel</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_DOMAIN_RULE__DOMAIN = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SGRAB_MODEL_RULE__DMODEL = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>SGrab Domain Rule</em>' class.
+	 * The number of structural features of the '<em>SGrab Model Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_DOMAIN_RULE_FEATURE_COUNT = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 1;
+	int SGRAB_MODEL_RULE_FEATURE_COUNT = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>SGrab Domain Rule</em>' class.
+	 * The number of operations of the '<em>SGrab Model Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_DOMAIN_RULE_OPERATION_COUNT = BasePackage.DDEDUCTION_RULE_OPERATION_COUNT + 0;
+	int SGRAB_MODEL_RULE_OPERATION_COUNT = BasePackage.DDEDUCTION_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.
@@ -2722,25 +2722,25 @@ public interface SimPackage extends EPackage
 	EReference getSGrabAggregateRule_Aggregate();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabDomainRule <em>SGrab Domain Rule</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabModelRule <em>SGrab Model Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SGrab Domain Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SGrabDomainRule
+	 * @return the meta object for class '<em>SGrab Model Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SGrabModelRule
 	 * @generated
 	 */
-	EClass getSGrabDomainRule();
+	EClass getSGrabModelRule();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SGrabDomainRule#getDomain <em>Domain</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SGrabModelRule#getDModel <em>DModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Domain</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SGrabDomainRule#getDomain()
-	 * @see #getSGrabDomainRule()
+	 * @return the meta object for the reference '<em>DModel</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SGrabModelRule#getDModel()
+	 * @see #getSGrabModelRule()
 	 * @generated
 	 */
-	EReference getSGrabDomainRule_Domain();
+	EReference getSGrabModelRule_DModel();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}'.
@@ -3129,22 +3129,22 @@ public interface SimPackage extends EPackage
 		EReference SGRAB_AGGREGATE_RULE__AGGREGATE = eINSTANCE.getSGrabAggregateRule_Aggregate();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl <em>SGrab Domain Rule</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl <em>SGrab Model Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
+		 * @see com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabModelRule()
 		 * @generated
 		 */
-		EClass SGRAB_DOMAIN_RULE = eINSTANCE.getSGrabDomainRule();
+		EClass SGRAB_MODEL_RULE = eINSTANCE.getSGrabModelRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>DModel</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SGRAB_DOMAIN_RULE__DOMAIN = eINSTANCE.getSGrabDomainRule_Domain();
+		EReference SGRAB_MODEL_RULE__DMODEL = eINSTANCE.getSGrabModelRule_DModel();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.

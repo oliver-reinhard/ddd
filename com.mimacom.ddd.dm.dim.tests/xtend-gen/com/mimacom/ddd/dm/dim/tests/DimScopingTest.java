@@ -7,8 +7,8 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.tests.DimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
@@ -40,7 +40,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class DimScopingTest {
   @Inject
   @Extension
-  private ParseHelper<DDomain> parseHelper;
+  private ParseHelper<DInformationModel> parseHelper;
   
   @Inject
   @Extension
@@ -76,7 +76,7 @@ public class DimScopingTest {
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
-      final DDomain domain = this.parseHelper.parse(_builder);
+      final DInformationModel domain = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(domain);
       final EList<Resource.Diagnostic> errors = domain.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

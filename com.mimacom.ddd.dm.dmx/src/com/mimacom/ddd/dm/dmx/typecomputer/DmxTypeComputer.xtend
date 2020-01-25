@@ -9,7 +9,6 @@ import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DNavigableMember
-import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dmx.DmxAssignment
@@ -121,8 +120,8 @@ class DmxTypeComputer {
 		} else if (target instanceof DAggregate) {
 			return getTypeDescriptor(target, false)
 
-		} else if (target instanceof DNotification) {
-			return getTypeDescriptor(target, false)
+//		} else if (target instanceof DNotification) {
+//			return getTypeDescriptor(target, false)
 
 		} else if (target instanceof DNavigableMember) {
 			return getTypeDescriptor(target.type, target.isCollection || expr.all)

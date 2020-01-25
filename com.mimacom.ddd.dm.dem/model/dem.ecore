@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dem" nsURI="http://www.mimacom.com/ddd/dm/dem" nsPrefix="dem">
+  <eClassifiers xsi:type="ecore:EClass" name="DemModel" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DDomainEvent" eSuperTypes="#//DemModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" lowerBound="1"
+        eType="#//DActor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditionsCNF" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedPredicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postconditionsDNF" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notifications" upperBound="-1"
+        eType="#//DNotification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DCaseConjunction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedPredicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DNotification" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//DMessage"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notified" lowerBound="1"
+        eType="#//DActor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DMessage" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DemActorModel" abstract="true" eSuperTypes="#//DemModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//DActor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DActor" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DHumanActorRole" eSuperTypes="#//DActor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor"/>
+</ecore:EPackage>

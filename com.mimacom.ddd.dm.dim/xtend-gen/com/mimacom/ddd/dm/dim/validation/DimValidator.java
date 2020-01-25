@@ -7,24 +7,21 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DEntityOrigin;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
@@ -59,7 +56,7 @@ public class DimValidator extends AbstractDimValidator {
   private final String NAME_ALL_UPPERCASE = "Name should be all upercase";
   
   @Check
-  public void checkDomainDeclaresOnlyValueTypes(final DDomain d) {
+  public void checkDomainDeclaresOnlyValueTypes(final DInformationModel d) {
     EList<DType> _types = d.getTypes();
     for (final DType vt : _types) {
       if ((!(vt instanceof IValueType))) {
@@ -129,8 +126,8 @@ public class DimValidator extends AbstractDimValidator {
           }
         }
       }
-      final DDomain tDomain = EcoreUtil2.<DDomain>getContainerOfType(t, DDomain.class);
-      final DDomain superTypeDomain = EcoreUtil2.<DDomain>getContainerOfType(t.getSuperType(), DDomain.class);
+      final DInformationModel tDomain = EcoreUtil2.<DInformationModel>getContainerOfType(t, DInformationModel.class);
+      final DInformationModel superTypeDomain = EcoreUtil2.<DInformationModel>getContainerOfType(t.getSuperType(), DInformationModel.class);
       if ((superTypeDomain != tDomain)) {
         this.error("Supertype must be in same domain", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
@@ -263,7 +260,7 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkTypeNameStartsWithCapital(final DDomain d) {
+  public void checkTypeNameStartsWithCapital(final DInformationModel d) {
     String _name = d.getName();
     boolean _equals = Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, _name);
     if (_equals) {
@@ -286,21 +283,6 @@ public class DimValidator extends AbstractDimValidator {
   @Check
   public void checkTypeNameStartsWithCapital(final DNamedPredicate c) {
     this.checkNameStartsWithCapital(c);
-  }
-  
-  @Check
-  public void checkTypeNameStartsWithCapital(final DActor a) {
-    this.checkNameStartsWithCapital(a);
-  }
-  
-  @Check
-  public void checkTypeNameStartsWithCapital(final DDomainEvent de) {
-    this.checkNameStartsWithCapital(de);
-  }
-  
-  @Check
-  public void checkTypeNameStartsWithCapital(final DNotification n) {
-    this.checkNameStartsWithCapital(n);
   }
   
   public void checkNameStartsWithLowercase(final DNamedElement ne) {

@@ -6,8 +6,8 @@ package com.mimacom.ddd.dm.dmx.tests;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -47,7 +47,7 @@ public class DmxTypeCheckingTest {
   @Extension
   private DmxTypeComputer _dmxTypeComputer;
   
-  private final ParseHelper<DDomain> dimParseHelper;
+  private final ParseHelper<DInformationModel> dimParseHelper;
   
   public DmxTypeCheckingTest() {
     final Injector dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration();
@@ -140,7 +140,7 @@ public class DmxTypeCheckingTest {
       _builder_2.newLine();
       _builder_2.append("}");
       _builder_2.newLine();
-      final DDomain customTypes = this.dimParseHelper.parse(_builder_2, resourceSet);
+      final DInformationModel customTypes = this.dimParseHelper.parse(_builder_2, resourceSet);
       Assertions.assertNotNull(customTypes);
       final EList<Resource.Diagnostic> ctErrors = systemTypes.eResource().getErrors();
       boolean _isEmpty_1 = ctErrors.isEmpty();

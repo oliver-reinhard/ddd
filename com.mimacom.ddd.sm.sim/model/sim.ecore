@@ -61,8 +61,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SGrabDomainRule" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DDeductionRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DDomain"
+  <eClassifiers xsi:type="ecore:EClass" name="SGrabModelRule" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DDeductionRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dModel" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DInformationModel"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="STristate">

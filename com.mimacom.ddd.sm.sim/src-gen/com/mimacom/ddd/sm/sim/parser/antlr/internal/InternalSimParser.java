@@ -691,28 +691,28 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSInformationModel"
 
 
-    // $ANTLR start "entryRuleSGrabDomainRule"
-    // InternalSim.g:243:1: entryRuleSGrabDomainRule returns [EObject current=null] : iv_ruleSGrabDomainRule= ruleSGrabDomainRule EOF ;
-    public final EObject entryRuleSGrabDomainRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSGrabModelRule"
+    // InternalSim.g:243:1: entryRuleSGrabModelRule returns [EObject current=null] : iv_ruleSGrabModelRule= ruleSGrabModelRule EOF ;
+    public final EObject entryRuleSGrabModelRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabDomainRule = null;
+        EObject iv_ruleSGrabModelRule = null;
 
 
         try {
-            // InternalSim.g:243:56: (iv_ruleSGrabDomainRule= ruleSGrabDomainRule EOF )
-            // InternalSim.g:244:2: iv_ruleSGrabDomainRule= ruleSGrabDomainRule EOF
+            // InternalSim.g:243:55: (iv_ruleSGrabModelRule= ruleSGrabModelRule EOF )
+            // InternalSim.g:244:2: iv_ruleSGrabModelRule= ruleSGrabModelRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabDomainRuleRule()); 
+               newCompositeNode(grammarAccess.getSGrabModelRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabDomainRule=ruleSGrabDomainRule();
+            iv_ruleSGrabModelRule=ruleSGrabModelRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabDomainRule; 
+               current =iv_ruleSGrabModelRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -728,12 +728,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabDomainRule"
+    // $ANTLR end "entryRuleSGrabModelRule"
 
 
-    // $ANTLR start "ruleSGrabDomainRule"
-    // InternalSim.g:250:1: ruleSGrabDomainRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
-    public final EObject ruleSGrabDomainRule() throws RecognitionException {
+    // $ANTLR start "ruleSGrabModelRule"
+    // InternalSim.g:250:1: ruleSGrabModelRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
+    public final EObject ruleSGrabModelRule() throws RecognitionException {
         EObject current = null;
 
 
@@ -752,13 +752,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSGrabDomainRuleRule());
+              					current = createModelElement(grammarAccess.getSGrabModelRuleRule());
               				}
               			
             }
             if ( state.backtracking==0 ) {
 
-              				newCompositeNode(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0());
+              				newCompositeNode(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0());
               			
             }
             pushFollow(FOLLOW_2);
@@ -795,7 +795,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabDomainRule"
+    // $ANTLR end "ruleSGrabModelRule"
 
 
     // $ANTLR start "entryRuleSGrabAggregateRule"
@@ -3250,7 +3250,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDomain"
-    // InternalSim.g:1110:1: ruleDomain returns [EObject current=null] : ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabDomainRule ) ) ) ;
+    // InternalSim.g:1110:1: ruleDomain returns [EObject current=null] : ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabModelRule ) ) ) ;
     public final EObject ruleDomain() throws RecognitionException {
         EObject current = null;
 
@@ -3263,11 +3263,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1116:2: ( ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabDomainRule ) ) ) )
-            // InternalSim.g:1117:2: ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabDomainRule ) ) )
+            // InternalSim.g:1116:2: ( ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabModelRule ) ) ) )
+            // InternalSim.g:1117:2: ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabModelRule ) ) )
             {
-            // InternalSim.g:1117:2: ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabDomainRule ) ) )
-            // InternalSim.g:1118:3: () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabDomainRule ) )
+            // InternalSim.g:1117:2: ( () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabModelRule ) ) )
+            // InternalSim.g:1118:3: () otherlv_1= 'grab' otherlv_2= 'domain' ( (lv_deductionRule_3_0= ruleSGrabModelRule ) )
             {
             // InternalSim.g:1118:3: ()
             // InternalSim.g:1119:4: 
@@ -3294,19 +3294,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDomainAccess().getDomainKeyword_2());
               		
             }
-            // InternalSim.g:1133:3: ( (lv_deductionRule_3_0= ruleSGrabDomainRule ) )
-            // InternalSim.g:1134:4: (lv_deductionRule_3_0= ruleSGrabDomainRule )
+            // InternalSim.g:1133:3: ( (lv_deductionRule_3_0= ruleSGrabModelRule ) )
+            // InternalSim.g:1134:4: (lv_deductionRule_3_0= ruleSGrabModelRule )
             {
-            // InternalSim.g:1134:4: (lv_deductionRule_3_0= ruleSGrabDomainRule )
-            // InternalSim.g:1135:5: lv_deductionRule_3_0= ruleSGrabDomainRule
+            // InternalSim.g:1134:4: (lv_deductionRule_3_0= ruleSGrabModelRule )
+            // InternalSim.g:1135:5: lv_deductionRule_3_0= ruleSGrabModelRule
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0());
+              					newCompositeNode(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0());
               				
             }
             pushFollow(FOLLOW_2);
-            lv_deductionRule_3_0=ruleSGrabDomainRule();
+            lv_deductionRule_3_0=ruleSGrabModelRule();
 
             state._fsp--;
             if (state.failed) return current;
@@ -3319,7 +3319,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               						current,
               						"deductionRule",
               						lv_deductionRule_3_0,
-              						"com.mimacom.ddd.sm.sim.Sim.SGrabDomainRule");
+              						"com.mimacom.ddd.sm.sim.Sim.SGrabModelRule");
               					afterParserOrEnumRuleCall();
               				
             }

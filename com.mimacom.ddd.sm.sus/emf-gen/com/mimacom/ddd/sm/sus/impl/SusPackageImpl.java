@@ -11,6 +11,10 @@ import com.mimacom.ddd.sm.sus.SusFactory;
 import com.mimacom.ddd.sm.sus.SusPackage;
 import com.mimacom.ddd.sm.sus.UserStory;
 
+import dem.DemPackage;
+
+import dem.impl.DemPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -99,11 +103,17 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		// Initialize simple dependencies
 		BasePackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DemPackage.eNS_URI);
+		DemPackageImpl theDemPackage = (DemPackageImpl)(registeredPackage instanceof DemPackageImpl ? registeredPackage : DemPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theSusPackage.createPackageContents();
+		theDemPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSusPackage.initializePackageContents();
+		theDemPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSusPackage.freeze();
@@ -270,6 +280,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 
 		// Obtain other dependent packages
 		BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
+		DemPackage theDemPackage = (DemPackage)EPackage.Registry.INSTANCE.getEPackage(DemPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -281,7 +292,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		// Initialize classes, features, and operations; add parameters
 		initEClass(userStoryEClass, UserStory.class, "UserStory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUserStory_Sections(), this.getSection(), null, "sections", null, 0, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUserStory_Event(), theBasePackage.getDDomainEvent(), null, "event", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUserStory_Event(), theDemPackage.getDDomainEvent(), null, "event", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

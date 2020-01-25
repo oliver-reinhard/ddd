@@ -5,24 +5,21 @@ package com.mimacom.ddd.dm.dim.validation
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DActor
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
-import com.mimacom.ddd.dm.base.DDomain
-import com.mimacom.ddd.dm.base.DDomainEvent
 import com.mimacom.ddd.dm.base.DEntityOrigin
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNamedPredicate
 import com.mimacom.ddd.dm.base.DNavigableMember
-import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
@@ -48,7 +45,7 @@ class DimValidator extends AbstractDimValidator {
 	val NAME_ALL_UPPERCASE = "Name should be all upercase"
 
 	@Check
-	def checkDomainDeclaresOnlyValueTypes(DDomain d) {
+	def checkDomainDeclaresOnlyValueTypes(DInformationModel d) {
 		for (vt : d.types) {
 			if (! (vt instanceof IValueType)) {
 				error('Declared type is not a value type', vt, BasePackage.Literals.DNAMED_ELEMENT__NAME)
@@ -99,8 +96,8 @@ class DimValidator extends AbstractDimValidator {
 						BasePackage.Literals.DNAMED_ELEMENT__NAME)
 				}
 			}
-			val tDomain = EcoreUtil2.getContainerOfType(t, DDomain)
-			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DDomain)
+			val tDomain = EcoreUtil2.getContainerOfType(t, DInformationModel)
+			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DInformationModel)
 			if (superTypeDomain !== tDomain) {
 				error('Supertype must be in same domain', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
@@ -216,7 +213,7 @@ class DimValidator extends AbstractDimValidator {
 	}
 
 	@Check
-	def void checkTypeNameStartsWithCapital(DDomain d) {
+	def void checkTypeNameStartsWithCapital(DInformationModel d) {
 		if (DEFAULT_IMPORT_TYPES == d.name) {
 			return
 		} else if (d.name.startsWith(PREFIX + ".")) {
@@ -234,21 +231,6 @@ class DimValidator extends AbstractDimValidator {
 	@Check
 	def void checkTypeNameStartsWithCapital(DNamedPredicate c) {
 		checkNameStartsWithCapital(c)
-	}
-
-	@Check
-	def void checkTypeNameStartsWithCapital(DActor a) {
-		checkNameStartsWithCapital(a)
-	}
-
-	@Check
-	def void checkTypeNameStartsWithCapital(DDomainEvent de) {
-		checkNameStartsWithCapital(de)
-	}
-
-	@Check
-	def void checkTypeNameStartsWithCapital(DNotification n) {
-		checkNameStartsWithCapital(n)
 	}
 
 // // Naming: Elements whose names should start with a LOWERCASE

@@ -9,10 +9,10 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
@@ -92,9 +92,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DDETAIL_TYPE:
 				sequence_DComplexType_DDetailType(context, (DDetailType) semanticObject); 
 				return; 
-			case BasePackage.DDOMAIN:
-				sequence_DDomain(context, (DDomain) semanticObject); 
-				return; 
 			case BasePackage.DENTITY_TYPE:
 				sequence_DComplexType_DEntityType(context, (DEntityType) semanticObject); 
 				return; 
@@ -103,6 +100,9 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
+				return; 
+			case BasePackage.DINFORMATION_MODEL:
+				sequence_DInformationModel(context, (DInformationModel) semanticObject); 
 				return; 
 			case BasePackage.DLITERAL:
 				sequence_DLiteral(context, (DLiteral) semanticObject); 
@@ -430,18 +430,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DDomain returns DDomain
-	 *
-	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName aliases+=ID* description=DRichText? (types+=DType | aggregates+=DAggregate)*)
-	 */
-	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DType returns DEnumeration
 	 *     DEnumeration returns DEnumeration
 	 *
@@ -449,6 +437,25 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     (name=ID aliases+=ID* description=DRichText? (literals+=DLiteral literals+=DLiteral*)? constraints+=DConstraint*)
 	 */
 	protected void sequence_DEnumeration(ISerializationContext context, DEnumeration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DInformationModel returns DInformationModel
+	 *
+	 * Constraint:
+	 *     (
+	 *         imports+=DImport* 
+	 *         domain=DQualifiedName 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         description=DRichText? 
+	 *         (types+=DType | aggregates+=DAggregate)*
+	 *     )
+	 */
+	protected void sequence_DInformationModel(ISerializationContext context, DInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

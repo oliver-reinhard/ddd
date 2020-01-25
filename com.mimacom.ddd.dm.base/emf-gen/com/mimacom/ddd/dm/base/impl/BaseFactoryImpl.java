@@ -66,7 +66,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 		switch (eClass.getClassifierID())
 		{
 			case BasePackage.DIMPORT: return createDImport();
-			case BasePackage.DDOMAIN: return createDDomain();
+			case BasePackage.DINFORMATION_MODEL: return createDInformationModel();
+			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DAGGREGATE: return createDAggregate();
 			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
 			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
@@ -83,13 +84,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DQUERY_PARAMETER: return createDQueryParameter();
 			case BasePackage.DSTATE: return createDState();
 			case BasePackage.DSTATE_EVENT: return createDStateEvent();
-			case BasePackage.DCONTEXT: return createDContext();
-			case BasePackage.DDOMAIN_EVENT: return createDDomainEvent();
-			case BasePackage.DCASE_CONJUNCTION: return createDCaseConjunction();
-			case BasePackage.DNOTIFICATION: return createDNotification();
-			case BasePackage.DMESSAGE: return createDMessage();
-			case BasePackage.DHUMAN_ACTOR_ROLE: return createDHumanActorRole();
-			case BasePackage.DSERVICE: return createDService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -155,10 +149,22 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DDomain createDDomain()
+	public DInformationModel createDInformationModel()
 	{
-		DDomainImpl dDomain = new DDomainImpl();
-		return dDomain;
+		DInformationModelImpl dInformationModel = new DInformationModelImpl();
+		return dInformationModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DContext createDContext()
+	{
+		DContextImpl dContext = new DContextImpl();
+		return dContext;
 	}
 
 	/**
@@ -351,90 +357,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DStateEventImpl dStateEvent = new DStateEventImpl();
 		return dStateEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DContext createDContext()
-	{
-		DContextImpl dContext = new DContextImpl();
-		return dContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DDomainEvent createDDomainEvent()
-	{
-		DDomainEventImplCustom dDomainEvent = new DDomainEventImplCustom();
-		return dDomainEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DCaseConjunction createDCaseConjunction()
-	{
-		DCaseConjunctionImpl dCaseConjunction = new DCaseConjunctionImpl();
-		return dCaseConjunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DNotification createDNotification()
-	{
-		DNotificationImplCustom dNotification = new DNotificationImplCustom();
-		return dNotification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DMessage createDMessage()
-	{
-		DMessageImplCustom dMessage = new DMessageImplCustom();
-		return dMessage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DHumanActorRole createDHumanActorRole()
-	{
-		DHumanActorRoleImpl dHumanActorRole = new DHumanActorRoleImpl();
-		return dHumanActorRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DService createDService()
-	{
-		DServiceImpl dService = new DServiceImpl();
-		return dService;
 	}
 
 	/**

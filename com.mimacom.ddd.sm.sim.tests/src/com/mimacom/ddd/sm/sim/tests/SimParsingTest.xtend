@@ -5,7 +5,6 @@ package com.mimacom.ddd.sm.sim.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.testing.InjectWith
@@ -14,12 +13,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
 class SimParsingTest {
 	@Inject 
-	ParseHelper<DDomain> dmParseHelper
+	ParseHelper<DInformationModel> dmParseHelper
 	
 	@Inject 
 	ParseHelper<SInformationModel> smParseHelper

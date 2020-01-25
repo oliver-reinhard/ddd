@@ -23,6 +23,7 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -139,6 +140,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseINavigableMemberContainer(sAggregateDeduction);
 				if (result == null) result = caseIStaticReferenceTarget(sAggregateDeduction);
 				if (result == null) result = caseIDeducibleElement(sAggregateDeduction);
+				if (result == null) result = caseIDiagramRoot(sAggregateDeduction);
 				if (result == null) result = caseDNamedElement(sAggregateDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -371,11 +373,11 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SGRAB_DOMAIN_RULE:
+			case SimPackage.SGRAB_MODEL_RULE:
 			{
-				SGrabDomainRule sGrabDomainRule = (SGrabDomainRule)theEObject;
-				T result = caseSGrabDomainRule(sGrabDomainRule);
-				if (result == null) result = caseDDeductionRule(sGrabDomainRule);
+				SGrabModelRule sGrabModelRule = (SGrabModelRule)theEObject;
+				T result = caseSGrabModelRule(sGrabModelRule);
+				if (result == null) result = caseDDeductionRule(sGrabModelRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -752,17 +754,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SGrab Domain Rule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SGrab Model Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SGrab Domain Rule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SGrab Model Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSGrabDomainRule(SGrabDomainRule object)
+	public T caseSGrabModelRule(SGrabModelRule object)
 	{
 		return null;
 	}
@@ -907,6 +909,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIDeducibleElement(IDeducibleElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDiagramRoot(IDiagramRoot object)
 	{
 		return null;
 	}

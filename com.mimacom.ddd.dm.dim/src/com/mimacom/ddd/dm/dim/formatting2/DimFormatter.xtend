@@ -6,8 +6,8 @@ package com.mimacom.ddd.dm.dim.formatting2
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
@@ -17,7 +17,7 @@ class DimFormatter extends DmxFormatter {
 	
 	@Inject extension DimGrammarAccess
 
-	def dispatch void format(DDomain domain, extension IFormattableDocument document) {
+	def dispatch void format(DInformationModel domain, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		domain.description.format
 		
@@ -26,7 +26,7 @@ class DimFormatter extends DmxFormatter {
 		}
 		domain.imports.last.append[newLines = 2]
 		
-		domain.regionFor.assignment(DDomainAccess.nameAssignment_2).append[newLines = 2]
+		domain.regionFor.assignment(DInformationModelAccess.nameAssignment_5).append[newLines = 2]
 		
 		for (type : domain.types) {
 			type.format

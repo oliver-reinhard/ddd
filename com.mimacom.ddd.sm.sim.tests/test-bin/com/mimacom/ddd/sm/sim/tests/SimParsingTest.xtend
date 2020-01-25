@@ -5,7 +5,7 @@ package com.mimacom.ddd.sm.sim.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.testing.InjectWith

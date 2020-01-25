@@ -8,11 +8,11 @@ import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityOrigin;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -66,18 +66,18 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DDomain, XtextResource> _function = (XtextResource it) -> {
-      DDomain _xifexpression = null;
+    final IUnitOfWork<DInformationModel, XtextResource> _function = (XtextResource it) -> {
+      DInformationModel _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DDomain)) {
+      if ((_head instanceof DInformationModel)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DDomain) _head_1);
+        _xifexpression = ((DInformationModel) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final DDomain domain = document.<DDomain>readOnly(_function);
+    final DInformationModel domain = document.<DInformationModel>readOnly(_function);
     if (((domain != null) && (!(domain.getTypes().isEmpty() && domain.getAggregates().isEmpty())))) {
       return this.domainTypes(domain);
     } else {
@@ -87,7 +87,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
   }
   
-  public String domainTypes(final DDomain domain) {
+  public String domainTypes(final DInformationModel domain) {
     final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(domain, DAggregate.class);
     final Function1<DAssociation, Boolean> _function = (DAssociation it) -> {
       DType _type = it.getType();

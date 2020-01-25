@@ -44,7 +44,7 @@ import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "DDomain";
+    	return "DInformationModel";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
     }
 }
 
-// Entry rule entryRuleDDomain
-entryRuleDDomain returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDDomainRule()); }
-	iv_ruleDDomain=ruleDDomain
-	{ $current=$iv_ruleDDomain.current; }
+// Entry rule entryRuleDInformationModel
+entryRuleDInformationModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDInformationModelRule()); }
+	iv_ruleDInformationModel=ruleDInformationModel
+	{ $current=$iv_ruleDInformationModel.current; }
 	EOF;
 
-// Rule DDomain
-ruleDDomain returns [EObject current=null]
+// Rule DInformationModel
+ruleDInformationModel returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -80,12 +80,12 @@ ruleDDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getDInformationModelAccess().getImportsDImportParserRuleCall_0_0());
 				}
 				lv_imports_0_0=ruleDImport
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDDomainRule());
+						$current = createModelElementForParent(grammarAccess.getDInformationModelRule());
 					}
 					add(
 						$current,
@@ -98,46 +98,72 @@ ruleDDomain returns [EObject current=null]
 		)*
 		otherlv_1='domain'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDDomainAccess().getDomainKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getDInformationModelAccess().getDomainKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDInformationModelAccess().getDomainDQualifiedNameParserRuleCall_2_0());
 				}
-				lv_name_2_0=ruleDQualifiedName
+				lv_domain_2_0=ruleDQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDDomainRule());
+						$current = createModelElementForParent(grammarAccess.getDInformationModelRule());
 					}
 					set(
 						$current,
-						"name",
-						lv_name_2_0,
+						"domain",
+						lv_domain_2_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_3='information'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDInformationModelAccess().getInformationKeyword_3());
+		}
+		otherlv_4='model'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getDInformationModelAccess().getModelKeyword_4());
+		}
 		(
-			otherlv_3='alias'
+			(
+				lv_name_5_0=RULE_ID
+				{
+					newLeafNode(lv_name_5_0, grammarAccess.getDInformationModelAccess().getNameIDTerminalRuleCall_5_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDInformationModelRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_5_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		(
+			otherlv_6='alias'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getDDomainAccess().getAliasKeyword_3_0());
+				newLeafNode(otherlv_6, grammarAccess.getDInformationModelAccess().getAliasKeyword_6_0());
 			}
 			(
 				(
-					lv_aliases_4_0=RULE_ID
+					lv_aliases_7_0=RULE_ID
 					{
-						newLeafNode(lv_aliases_4_0, grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_3_1_0());
+						newLeafNode(lv_aliases_7_0, grammarAccess.getDInformationModelAccess().getAliasesIDTerminalRuleCall_6_1_0());
 					}
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDDomainRule());
+							$current = createModelElement(grammarAccess.getDInformationModelRule());
 						}
 						addWithLastConsumed(
 							$current,
 							"aliases",
-							lv_aliases_4_0,
+							lv_aliases_7_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.ID");
 					}
 				)
@@ -146,17 +172,17 @@ ruleDDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDInformationModelAccess().getDescriptionDRichTextParserRuleCall_7_0());
 				}
-				lv_description_5_0=ruleDRichText
+				lv_description_8_0=ruleDRichText
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDDomainRule());
+						$current = createModelElementForParent(grammarAccess.getDInformationModelRule());
 					}
 					set(
 						$current,
 						"description",
-						lv_description_5_0,
+						lv_description_8_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
@@ -166,17 +192,17 @@ ruleDDomain returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDDomainAccess().getTypesDTypeParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getDInformationModelAccess().getTypesDTypeParserRuleCall_8_0_0());
 					}
-					lv_types_6_0=ruleDType
+					lv_types_9_0=ruleDType
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDDomainRule());
+							$current = createModelElementForParent(grammarAccess.getDInformationModelRule());
 						}
 						add(
 							$current,
 							"types",
-							lv_types_6_0,
+							lv_types_9_0,
 							"com.mimacom.ddd.dm.dim.Dim.DType");
 						afterParserOrEnumRuleCall();
 					}
@@ -186,17 +212,17 @@ ruleDDomain returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDDomainAccess().getAggregatesDAggregateParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDInformationModelAccess().getAggregatesDAggregateParserRuleCall_8_1_0());
 					}
-					lv_aggregates_7_0=ruleDAggregate
+					lv_aggregates_10_0=ruleDAggregate
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDDomainRule());
+							$current = createModelElementForParent(grammarAccess.getDInformationModelRule());
 						}
 						add(
 							$current,
 							"aggregates",
-							lv_aggregates_7_0,
+							lv_aggregates_10_0,
 							"com.mimacom.ddd.dm.dim.Dim.DAggregate");
 						afterParserOrEnumRuleCall();
 					}

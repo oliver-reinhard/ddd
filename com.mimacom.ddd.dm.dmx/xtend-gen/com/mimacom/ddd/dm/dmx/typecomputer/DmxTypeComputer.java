@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -143,13 +142,9 @@ public class DmxTypeComputer {
         if ((target instanceof DAggregate)) {
           return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, false);
         } else {
-          if ((target instanceof DNotification)) {
-            return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, false);
-          } else {
-            if ((target instanceof DNavigableMember)) {
-              DType _type = ((DNavigableMember)target).getType();
-              return this._dmxTypeDescriptorProvider.getTypeDescriptor(_type, (((DNavigableMember)target).isCollection() || expr.isAll()));
-            }
+          if ((target instanceof DNavigableMember)) {
+            DType _type = ((DNavigableMember)target).getType();
+            return this._dmxTypeDescriptorProvider.getTypeDescriptor(_type, (((DNavigableMember)target).isCollection() || expr.isAll()));
           }
         }
       }

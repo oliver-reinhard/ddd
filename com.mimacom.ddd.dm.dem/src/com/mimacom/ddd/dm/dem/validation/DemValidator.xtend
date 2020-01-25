@@ -4,8 +4,11 @@
 package com.mimacom.ddd.dm.dem.validation
 
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DCaseConjunction
-import com.mimacom.ddd.dm.base.DDomainEvent
+import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.dem.DActor
+import com.mimacom.ddd.dm.dem.DCaseConjunction
+import com.mimacom.ddd.dm.dem.DDomainEvent
+import com.mimacom.ddd.dm.dem.DNotification
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -33,6 +36,36 @@ class DemValidator extends AbstractDemValidator {
 					error ("There can only be one 'otherwise' clause ", caseConjunctions.get(i), BASE.DNamedElement_Name)
 				}
 			}
+		}
+	}
+	
+
+	@Check
+	def void checkTypeNameStartsWithCapital(DActor a) {
+		checkNameStartsWithCapital(a)
+	}
+
+	@Check
+	def void checkTypeNameStartsWithCapital(DDomainEvent de) {
+		checkNameStartsWithCapital(de)
+	}
+
+	@Check
+	def void checkTypeNameStartsWithCapital(DNotification n) {
+		checkNameStartsWithCapital(n)
+	}
+	
+
+	def void checkNameStartsWithCapital(DNamedElement ne) {
+		checkNameStartsWithCapitalImpl(ne.name, ne)
+	}
+	
+
+	// // Naming: Elements whose names should start with a CAPITAL
+	protected def void checkNameStartsWithCapitalImpl(String name, DNamedElement ne) {
+		if (name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
+			warning("Name should start with a capital", ne, BasePackage.Literals::DNAMED_ELEMENT__NAME)
+
 		}
 	}
 }
