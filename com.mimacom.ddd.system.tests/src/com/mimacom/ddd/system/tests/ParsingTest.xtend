@@ -3,6 +3,8 @@ package com.mimacom.ddd.system.tests
 import com.google.inject.Inject
 import com.google.inject.Provider
 import com.mimacom.ddd.dm.base.DInformationModel
+import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider
 import java.net.URL
 import org.eclipse.emf.common.util.URI
@@ -36,7 +38,7 @@ class ParsingTest {
 
   // by default the parse helper injected is that of the "primary" injector returned by the injector provider
   @Inject
-  ParseHelper<DInformationModel> dimParseHelper
+  ParseHelper<DNamespace> dimParseHelper
 
   var XtextResourceSet resourceSet = null
 
@@ -51,6 +53,7 @@ class ParsingTest {
   def void parseBaseTypes() {
     val content = dimParseHelper.parse(new URL(BASE_TYPES_URI.toString).openStream, BASE_TYPES_URI, null, resourceSet)
     assertNotNull(content)
+    assertTrue(content.model instanceof DInformationModel)
     assertNoErrorsOnResource(content.eResource)
   }
 
@@ -61,6 +64,8 @@ class ParsingTest {
     val content = dmxParseHelper.parse(new URL(SYSTEM_FUNCTIONS_URI.toString).openStream, SYSTEM_FUNCTIONS_URI, null,
       resourceSet)
     assertNotNull(content)
+    assertTrue(content instanceof DNamespace)
+    assertTrue((content as DNamespace).model instanceof DmxModel)
     assertNoErrorsOnResource(content.eResource)
   }
 
@@ -71,6 +76,8 @@ class ParsingTest {
     val content = dmxParseHelper.parse(new URL(ASSIGNMENTS_URI.toString).openStream, ASSIGNMENTS_URI, null,
       resourceSet)
     assertNotNull(content)
+    assertTrue(content instanceof DNamespace)
+    assertTrue((content as DNamespace).model instanceof DmxModel)
     assertNoErrorsOnResource(content.eResource)
   }
 
@@ -79,6 +86,7 @@ class ParsingTest {
     val content = dimParseHelper.parse(new URL(CUSTOM_TYPES_URI.toString).openStream, CUSTOM_TYPES_URI, null,
       resourceSet)
     assertNotNull(content)
+    assertTrue(content.model instanceof DInformationModel)
     assertNoErrorsOnResource(content.eResource)
   }
 
@@ -89,6 +97,8 @@ class ParsingTest {
     val content = dmxParseHelper.parse(new URL(MATH_FUNCTIONS_URI.toString).openStream, MATH_FUNCTIONS_URI, null,
       resourceSet)
     assertNotNull(content)
+    assertTrue(content instanceof DNamespace)
+    assertTrue((content as DNamespace).model instanceof DmxModel)
     assertNoErrorsOnResource(content.eResource)
   }
 
@@ -99,6 +109,8 @@ class ParsingTest {
     val content = dmxParseHelper.parse(new URL(SYSTEM_TYPES_URI.toString).openStream, SYSTEM_TYPES_URI, null,
       resourceSet)
     assertNotNull(content)
+    assertTrue(content instanceof DNamespace)
+    assertTrue((content as DNamespace).model instanceof DmxModel)
     assertNoErrorsOnResource(content.eResource)
   }
   

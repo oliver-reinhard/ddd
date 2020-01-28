@@ -27,104 +27,132 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class DNamespaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DNamespace");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDomainKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModelDInformationModelParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
+		
+		//@Override
+		//DNamespace:
+		//	'domain'
+		//	name=DQualifiedName
+		//	imports+=DImport*
+		//	model=DInformationModel;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'domain' name=DQualifiedName imports+=DImport* model=DInformationModel
+		public Group getGroup() { return cGroup; }
+		
+		//'domain'
+		public Keyword getDomainKeyword_0() { return cDomainKeyword_0; }
+		
+		//name=DQualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//DQualifiedName
+		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
+		
+		//imports+=DImport*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
+		
+		//model=DInformationModel
+		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
+		
+		//DInformationModel
+		public RuleCall getModelDInformationModelParserRuleCall_3_0() { return cModelDInformationModelParserRuleCall_3_0; }
+	}
 	public class DInformationModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DInformationModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Keyword cDomainKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDomainAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDomainDQualifiedNameParserRuleCall_2_0 = (RuleCall)cDomainAssignment_2.eContents().get(0);
-		private final Keyword cInformationKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cNameIDTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cAliasKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cAliasesAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_6_1_0 = (RuleCall)cAliasesAssignment_6_1.eContents().get(0);
-		private final Assignment cDescriptionAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_7_0 = (RuleCall)cDescriptionAssignment_7.eContents().get(0);
-		private final Alternatives cAlternatives_8 = (Alternatives)cGroup.eContents().get(8);
-		private final Assignment cTypesAssignment_8_0 = (Assignment)cAlternatives_8.eContents().get(0);
-		private final RuleCall cTypesDTypeParserRuleCall_8_0_0 = (RuleCall)cTypesAssignment_8_0.eContents().get(0);
-		private final Assignment cAggregatesAssignment_8_1 = (Assignment)cAlternatives_8.eContents().get(1);
-		private final RuleCall cAggregatesDAggregateParserRuleCall_8_1_0 = (RuleCall)cAggregatesAssignment_8_1.eContents().get(0);
+		private final Keyword cInformationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cAliasesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cTypesAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final RuleCall cTypesDTypeParserRuleCall_6_0_0 = (RuleCall)cTypesAssignment_6_0.eContents().get(0);
+		private final Assignment cAggregatesAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
+		private final RuleCall cAggregatesDAggregateParserRuleCall_6_1_0 = (RuleCall)cAggregatesAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		///*
-		// * MODEL STRUCTURE
-		// */ DInformationModel:
-		//	imports+=DImport*
-		//	'domain'
-		//	domain=DQualifiedName
+		//DInformationModel:
 		//	'information' 'model'
 		//	name=ID ('alias' aliases+=ID)*
-		//	description=DRichText? (types+=DType | aggregates+=DAggregate)*;
+		//	description=DRichText?
+		//	'{' (types+=DType | aggregates+=DAggregate)*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=DImport* 'domain' domain=DQualifiedName 'information' 'model' name=ID ('alias' aliases+=ID)*
-		//description=DRichText? (types+=DType | aggregates+=DAggregate)*
+		//'information' 'model' name=ID ('alias' aliases+=ID)* description=DRichText? '{' (types+=DType | aggregates+=DAggregate)*
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//imports+=DImport*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
-		
-		//DImport
-		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
-		
-		//'domain'
-		public Keyword getDomainKeyword_1() { return cDomainKeyword_1; }
-		
-		//domain=DQualifiedName
-		public Assignment getDomainAssignment_2() { return cDomainAssignment_2; }
-		
-		//DQualifiedName
-		public RuleCall getDomainDQualifiedNameParserRuleCall_2_0() { return cDomainDQualifiedNameParserRuleCall_2_0; }
-		
 		//'information'
-		public Keyword getInformationKeyword_3() { return cInformationKeyword_3; }
+		public Keyword getInformationKeyword_0() { return cInformationKeyword_0; }
 		
 		//'model'
-		public Keyword getModelKeyword_4() { return cModelKeyword_4; }
+		public Keyword getModelKeyword_1() { return cModelKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_5_0() { return cNameIDTerminalRuleCall_5_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//('alias' aliases+=ID)*
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'alias'
-		public Keyword getAliasKeyword_6_0() { return cAliasKeyword_6_0; }
+		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
 		
 		//aliases+=ID
-		public Assignment getAliasesAssignment_6_1() { return cAliasesAssignment_6_1; }
+		public Assignment getAliasesAssignment_3_1() { return cAliasesAssignment_3_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_6_1_0() { return cAliasesIDTerminalRuleCall_6_1_0; }
+		public RuleCall getAliasesIDTerminalRuleCall_3_1_0() { return cAliasesIDTerminalRuleCall_3_1_0; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_7() { return cDescriptionAssignment_7; }
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_7_0() { return cDescriptionDRichTextParserRuleCall_7_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
 		//(types+=DType | aggregates+=DAggregate)*
-		public Alternatives getAlternatives_8() { return cAlternatives_8; }
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
 		//types+=DType
-		public Assignment getTypesAssignment_8_0() { return cTypesAssignment_8_0; }
+		public Assignment getTypesAssignment_6_0() { return cTypesAssignment_6_0; }
 		
 		//DType
-		public RuleCall getTypesDTypeParserRuleCall_8_0_0() { return cTypesDTypeParserRuleCall_8_0_0; }
+		public RuleCall getTypesDTypeParserRuleCall_6_0_0() { return cTypesDTypeParserRuleCall_6_0_0; }
 		
 		//aggregates+=DAggregate
-		public Assignment getAggregatesAssignment_8_1() { return cAggregatesAssignment_8_1; }
+		public Assignment getAggregatesAssignment_6_1() { return cAggregatesAssignment_6_1; }
 		
 		//DAggregate
-		public RuleCall getAggregatesDAggregateParserRuleCall_8_1_0() { return cAggregatesDAggregateParserRuleCall_8_1_0; }
+		public RuleCall getAggregatesDAggregateParserRuleCall_6_1_0() { return cAggregatesDAggregateParserRuleCall_6_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class DAggregateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DAggregate");
@@ -1403,6 +1431,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getINVERSE_COMPOSITEInverseKeyword_0() { return cINVERSE_COMPOSITEInverseKeyword_0; }
 	}
 	
+	private final DNamespaceElements pDNamespace;
 	private final DInformationModelElements pDInformationModel;
 	private final DAggregateElements pDAggregate;
 	private final DTypeElements pDType;
@@ -1436,6 +1465,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 			DmxGrammarAccess gaDmx) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
+		this.pDNamespace = new DNamespaceElements();
 		this.pDInformationModel = new DInformationModelElements();
 		this.pDAggregate = new DAggregateElements();
 		this.pDType = new DTypeElements();
@@ -1488,15 +1518,26 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	///*
-	// * MODEL STRUCTURE
-	// */ DInformationModel:
-	//	imports+=DImport*
+	//@Override
+	//DNamespace:
 	//	'domain'
-	//	domain=DQualifiedName
+	//	name=DQualifiedName
+	//	imports+=DImport*
+	//	model=DInformationModel;
+	public DNamespaceElements getDNamespaceAccess() {
+		return pDNamespace;
+	}
+	
+	public ParserRule getDNamespaceRule() {
+		return getDNamespaceAccess().getRule();
+	}
+	
+	//DInformationModel:
 	//	'information' 'model'
 	//	name=ID ('alias' aliases+=ID)*
-	//	description=DRichText? (types+=DType | aggregates+=DAggregate)*;
+	//	description=DRichText?
+	//	'{' (types+=DType | aggregates+=DAggregate)*
+	//	'}';
 	public DInformationModelElements getDInformationModelAccess() {
 		return pDInformationModel;
 	}
@@ -1778,20 +1819,17 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDQueryParameterAccess().getRule();
 	}
 	
-	//DmxNamespace:
-	//	imports+=DImport*
-	//	'namespace'
-	//	name=DQualifiedName
-	//	types+=DmxArchetype*
+	//DmxModel:
+	//	{DmxModel} types+=DmxArchetype*
 	//	filters+=DmxFilter*
 	//	// For unit-testing purposes:
 	//	tests+=DmxTest*;
-	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
-		return gaDmx.getDmxNamespaceAccess();
+	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
+		return gaDmx.getDmxModelAccess();
 	}
 	
-	public ParserRule getDmxNamespaceRule() {
-		return getDmxNamespaceAccess().getRule();
+	public ParserRule getDmxModelRule() {
+		return getDmxModelAccess().getRule();
 	}
 	
 	//DImport:

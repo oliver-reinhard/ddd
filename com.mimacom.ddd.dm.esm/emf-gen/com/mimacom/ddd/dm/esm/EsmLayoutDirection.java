@@ -73,6 +73,10 @@ public enum EsmLayoutDirection implements Enumerator
 	/**
 	 * The '<em><b>DEFAULT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DEFAULT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DEFAULT
 	 * @model
@@ -84,6 +88,10 @@ public enum EsmLayoutDirection implements Enumerator
 	/**
 	 * The '<em><b>DOWN</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DOWN</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DOWN
 	 * @model
@@ -95,6 +103,10 @@ public enum EsmLayoutDirection implements Enumerator
 	/**
 	 * The '<em><b>LEFT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>LEFT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LEFT
 	 * @model
@@ -106,6 +118,10 @@ public enum EsmLayoutDirection implements Enumerator
 	/**
 	 * The '<em><b>UP</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>UP</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UP
 	 * @model
@@ -117,6 +133,10 @@ public enum EsmLayoutDirection implements Enumerator
 	/**
 	 * The '<em><b>RIGHT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>RIGHT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RIGHT
 	 * @model
@@ -251,7 +271,6 @@ public enum EsmLayoutDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -262,7 +281,6 @@ public enum EsmLayoutDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -273,7 +291,6 @@ public enum EsmLayoutDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

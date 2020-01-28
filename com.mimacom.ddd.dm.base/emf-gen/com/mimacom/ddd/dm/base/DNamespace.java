@@ -14,10 +14,11 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DNamespace#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DNamespace#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDNamespace()
- * @model interface="true" abstract="true"
+ * @model
  * @generated
  */
 public interface DNamespace extends DNamedElement
@@ -33,5 +34,27 @@ public interface DNamespace extends DNamedElement
 	 * @generated
 	 */
 	EList<DImport> getImports();
+
+	/**
+	 * Returns the value of the '<em><b>Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model</em>' containment reference.
+	 * @see #setModel(DModel)
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNamespace_Model()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DModel getModel();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DNamespace#getModel <em>Model</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model</em>' containment reference.
+	 * @see #getModel()
+	 * @generated
+	 */
+	void setModel(DModel value);
 
 } // DNamespace

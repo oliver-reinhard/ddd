@@ -27,7 +27,7 @@ public class EsmParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "EsmDomain";
+		return "DNamespace";
 	}
 
 	public EsmGrammarAccess getGrammarAccess() {

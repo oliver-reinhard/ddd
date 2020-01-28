@@ -44,7 +44,7 @@ import com.mimacom.ddd.dm.esm.services.EsmGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "EsmDomain";
+    	return "DNamespace";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import com.mimacom.ddd.dm.esm.services.EsmGrammarAccess;
     }
 }
 
-// Entry rule entryRuleEsmDomain
-entryRuleEsmDomain returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEsmDomainRule()); }
-	iv_ruleEsmDomain=ruleEsmDomain
-	{ $current=$iv_ruleEsmDomain.current; }
+// Entry rule entryRuleDNamespace
+entryRuleDNamespace returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDNamespaceRule()); }
+	iv_ruleDNamespace=ruleDNamespace
+	{ $current=$iv_ruleDNamespace.current; }
 	EOF;
 
-// Rule EsmDomain
-ruleEsmDomain returns [EObject current=null]
+// Rule DNamespace
+ruleDNamespace returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -77,105 +77,62 @@ ruleEsmDomain returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEsmDomainAccess().getImportsDImportParserRuleCall_0_0());
-				}
-				lv_imports_0_0=ruleDImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEsmDomainRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_0_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_1='domain'
+		otherlv_0='domain'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getEsmDomainAccess().getDomainKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getDNamespaceAccess().getDomainKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEsmDomainAccess().getNameDQualifiedNameParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getNameDQualifiedNameParserRuleCall_1_0());
 				}
-				lv_name_2_0=ruleDQualifiedName
+				lv_name_1_0=ruleDQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEsmDomainRule());
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
 					}
 					set(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_1_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_3='alias'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getEsmDomainAccess().getAliasKeyword_3_0());
-			}
 			(
-				(
-					lv_aliases_4_0=RULE_ID
-					{
-						newLeafNode(lv_aliases_4_0, grammarAccess.getEsmDomainAccess().getAliasesIDTerminalRuleCall_3_1_0());
+				{
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0());
+				}
+				lv_imports_2_0=ruleDImport
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getEsmDomainRule());
-						}
-						addWithLastConsumed(
-							$current,
-							"aliases",
-							lv_aliases_4_0,
-							"com.mimacom.ddd.dm.dmx.Dmx.ID");
-					}
-				)
+					add(
+						$current,
+						"imports",
+						lv_imports_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)*
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEsmDomainAccess().getDescriptionDRichTextParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getModelEsmEntityStateModelParserRuleCall_3_0());
 				}
-				lv_description_5_0=ruleDRichText
+				lv_model_3_0=ruleEsmEntityStateModel
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEsmDomainRule());
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
 					}
 					set(
 						$current,
-						"description",
-						lv_description_5_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEsmDomainAccess().getStateModelEsmEntityStateModelParserRuleCall_5_0());
-				}
-				lv_stateModel_6_0=ruleEsmEntityStateModel
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEsmDomainRule());
-					}
-					set(
-						$current,
-						"stateModel",
-						lv_stateModel_6_0,
+						"model",
+						lv_model_3_0,
 						"com.mimacom.ddd.dm.esm.Esm.EsmEntityStateModel");
 					afterParserOrEnumRuleCall();
 				}

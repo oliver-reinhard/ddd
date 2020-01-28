@@ -85,7 +85,6 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ReferenceScope getScope() {
 		return scope;
 	}
@@ -95,7 +94,6 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setScope(ReferenceScope newScope) {
 		ReferenceScope oldScope = scope;
 		scope = newScope == null ? SCOPE_EDEFAULT : newScope;
@@ -108,7 +106,6 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ReferenceTarget getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -135,7 +132,6 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTarget(ReferenceTarget newTarget) {
 		ReferenceTarget oldTarget = target;
 		target = newTarget;

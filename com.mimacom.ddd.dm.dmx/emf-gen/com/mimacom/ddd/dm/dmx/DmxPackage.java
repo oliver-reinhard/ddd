@@ -62,14 +62,14 @@ public interface DmxPackage extends EPackage
 	DmxPackage eINSTANCE = com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl <em>Namespace</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxNamespace()
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxModelImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxModel()
 	 * @generated
 	 */
-	int DMX_NAMESPACE = 0;
+	int DMX_MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -78,7 +78,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__NAME = BasePackage.DNAMESPACE__NAME;
+	int DMX_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -87,7 +87,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__ALIASES = BasePackage.DNAMESPACE__ALIASES;
+	int DMX_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -96,16 +96,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_NAMESPACE__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
+	int DMX_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -114,7 +105,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__TYPES = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
+	int DMX_MODEL__TYPES = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
@@ -123,7 +114,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__FILTERS = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
+	int DMX_MODEL__FILTERS = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
@@ -132,25 +123,25 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__TESTS = BasePackage.DNAMESPACE_FEATURE_COUNT + 2;
+	int DMX_MODEL__TESTS = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Namespace</em>' class.
+	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 3;
+	int DMX_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Namespace</em>' class.
+	 * The number of operations of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE_OPERATION_COUNT = BasePackage.DNAMESPACE_OPERATION_COUNT + 0;
+	int DMX_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl <em>Test</em>}' class.
@@ -1997,36 +1988,36 @@ public interface DmxPackage extends EPackage
 
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxNamespace <em>Namespace</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Namespace</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxNamespace
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxModel
 	 * @generated
 	 */
-	EClass getDmxNamespace();
+	EClass getDmxModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxNamespace#getFilters <em>Filters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxModel#getFilters <em>Filters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Filters</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxNamespace#getFilters()
-	 * @see #getDmxNamespace()
+	 * @see com.mimacom.ddd.dm.dmx.DmxModel#getFilters()
+	 * @see #getDmxModel()
 	 * @generated
 	 */
-	EReference getDmxNamespace_Filters();
+	EReference getDmxModel_Filters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxNamespace#getTests <em>Tests</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxModel#getTests <em>Tests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Tests</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxNamespace#getTests()
-	 * @see #getDmxNamespace()
+	 * @see com.mimacom.ddd.dm.dmx.DmxModel#getTests()
+	 * @see #getDmxModel()
 	 * @generated
 	 */
-	EReference getDmxNamespace_Tests();
+	EReference getDmxModel_Tests();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxTest <em>Test</em>}'.
@@ -3051,14 +3042,14 @@ public interface DmxPackage extends EPackage
 	interface Literals
 	{
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl <em>Namespace</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxNamespace()
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxModelImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxModel()
 		 * @generated
 		 */
-		EClass DMX_NAMESPACE = eINSTANCE.getDmxNamespace();
+		EClass DMX_MODEL = eINSTANCE.getDmxModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Filters</b></em>' containment reference list feature.
@@ -3066,7 +3057,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DMX_NAMESPACE__FILTERS = eINSTANCE.getDmxNamespace_Filters();
+		EReference DMX_MODEL__FILTERS = eINSTANCE.getDmxModel_Filters();
 
 		/**
 		 * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
@@ -3074,7 +3065,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DMX_NAMESPACE__TESTS = eINSTANCE.getDmxNamespace_Tests();
+		EReference DMX_MODEL__TESTS = eINSTANCE.getDmxModel_Tests();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl <em>Test</em>}' class.

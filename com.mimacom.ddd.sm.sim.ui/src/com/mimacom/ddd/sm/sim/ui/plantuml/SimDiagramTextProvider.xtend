@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DType
@@ -50,9 +51,10 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve "semantic" EMF model from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val SInformationModel model = document.readOnly[
-            return if (contents.head instanceof SInformationModel) contents.head as SInformationModel else null
+        val namespace = document.readOnly[
+            return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
+        val model = namespace.model as SInformationModel
         if (model === null || model.types.filter[!(it instanceof IDeductionDefinition)].empty && model.aggregates.filter[!(it instanceof IDeductionDefinition)].empty) {
         	return '''note "No structures to show." as N1'''
         }

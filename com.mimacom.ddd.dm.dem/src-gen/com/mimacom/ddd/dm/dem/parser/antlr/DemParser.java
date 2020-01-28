@@ -27,7 +27,7 @@ public class DemParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "DemModel";
+		return "DNamespace";
 	}
 
 	public DemGrammarAccess getGrammarAccess() {

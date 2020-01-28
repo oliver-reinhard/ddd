@@ -5,15 +5,13 @@ package com.mimacom.ddd.sm.sus.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
+import com.mimacom.ddd.dm.dem.DemPackage;
+
 import com.mimacom.ddd.sm.sus.Paragraph;
 import com.mimacom.ddd.sm.sus.Section;
 import com.mimacom.ddd.sm.sus.SusFactory;
 import com.mimacom.ddd.sm.sus.SusPackage;
 import com.mimacom.ddd.sm.sus.UserStory;
-
-import dem.DemPackage;
-
-import dem.impl.DemPackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -80,7 +78,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link SusPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -95,29 +93,23 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		if (isInited) return (SusPackage)EPackage.Registry.INSTANCE.getEPackage(SusPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredSusPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		SusPackageImpl theSusPackage = registeredSusPackage instanceof SusPackageImpl ? (SusPackageImpl)registeredSusPackage : new SusPackageImpl();
+		SusPackageImpl theSusPackage = (SusPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SusPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SusPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
-
-		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DemPackage.eNS_URI);
-		DemPackageImpl theDemPackage = (DemPackageImpl)(registeredPackage instanceof DemPackageImpl ? registeredPackage : DemPackage.eINSTANCE);
+		DemPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSusPackage.createPackageContents();
-		theDemPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSusPackage.initializePackageContents();
-		theDemPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSusPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SusPackage.eNS_URI, theSusPackage);
 		return theSusPackage;
@@ -128,7 +120,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getUserStory()
 	{
 		return userStoryEClass;
@@ -139,7 +130,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getUserStory_Sections()
 	{
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(0);
@@ -150,7 +140,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getUserStory_Event()
 	{
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(1);
@@ -161,7 +150,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSection()
 	{
 		return sectionEClass;
@@ -172,7 +160,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSection_Name()
 	{
 		return (EAttribute)sectionEClass.getEStructuralFeatures().get(0);
@@ -183,7 +170,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSection_Paragraphs()
 	{
 		return (EReference)sectionEClass.getEStructuralFeatures().get(1);
@@ -194,7 +180,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getParagraph()
 	{
 		return paragraphEClass;
@@ -205,7 +190,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getParagraph_Text()
 	{
 		return (EReference)paragraphEClass.getEStructuralFeatures().get(0);
@@ -216,7 +200,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SusFactory getSusFactory()
 	{
 		return (SusFactory)getEFactoryInstance();
@@ -287,12 +270,12 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		userStoryEClass.getESuperTypes().add(theBasePackage.getDNamespace());
+		userStoryEClass.getESuperTypes().add(theBasePackage.getDModel());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(userStoryEClass, UserStory.class, "UserStory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUserStory_Sections(), this.getSection(), null, "sections", null, 0, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUserStory_Event(), theDemPackage.getDDomainEvent(), null, "event", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUserStory_Event(), theDemPackage.getDemDomainEvent(), null, "event", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

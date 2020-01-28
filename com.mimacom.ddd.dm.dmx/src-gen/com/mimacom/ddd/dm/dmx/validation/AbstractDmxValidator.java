@@ -13,8 +13,8 @@ public abstract class AbstractDmxValidator extends AbstractDeclarativeValidator 
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
 		return result;
 	}
 }

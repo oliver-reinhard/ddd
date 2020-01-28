@@ -24,15 +24,6 @@ public interface EsmFactory extends EFactory
 	EsmFactory eINSTANCE = com.mimacom.ddd.dm.esm.impl.EsmFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Domain</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain</em>'.
-	 * @generated
-	 */
-	EsmDomain createEsmDomain();
-
-	/**
 	 * Returns a new object of class '<em>Entity State Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

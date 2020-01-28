@@ -158,7 +158,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PubModel createPubModel() {
 		PubModelImpl pubModel = new PubModelImpl();
 		return pubModel;
@@ -169,7 +168,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Publication createPublication() {
 		PublicationImpl publication = new PublicationImpl();
 		return publication;
@@ -180,7 +178,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Component createComponent() {
 		ComponentImpl component = new ComponentImpl();
 		return component;
@@ -191,7 +188,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Reference createReference() {
 		ReferenceImpl reference = new ReferenceImpl();
 		return reference;
@@ -202,7 +198,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SegmentWithText createSegmentWithText() {
 		SegmentWithTextImpl segmentWithText = new SegmentWithTextImpl();
 		return segmentWithText;
@@ -213,7 +208,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Abstract createAbstract() {
 		AbstractImpl abstract_ = new AbstractImpl();
 		return abstract_;
@@ -224,7 +218,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Preface createPreface() {
 		PrefaceImpl preface = new PrefaceImpl();
 		return preface;
@@ -235,7 +228,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Epilogue createEpilogue() {
 		EpilogueImpl epilogue = new EpilogueImpl();
 		return epilogue;
@@ -246,7 +238,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SegmentWithTable createSegmentWithTable() {
 		SegmentWithTableImpl segmentWithTable = new SegmentWithTableImpl();
 		return segmentWithTable;
@@ -257,7 +248,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ChangeHistory createChangeHistory() {
 		ChangeHistoryImpl changeHistory = new ChangeHistoryImpl();
 		return changeHistory;
@@ -268,7 +258,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ChangeDescription createChangeDescription() {
 		ChangeDescriptionImpl changeDescription = new ChangeDescriptionImpl();
 		return changeDescription;
@@ -279,7 +268,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TOC createTOC() {
 		TOCImpl toc = new TOCImpl();
 		return toc;
@@ -290,7 +278,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Abbreviations createAbbreviations() {
 		AbbreviationsImpl abbreviations = new AbbreviationsImpl();
 		return abbreviations;
@@ -301,7 +288,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Abbreviation createAbbreviation() {
 		AbbreviationImpl abbreviation = new AbbreviationImpl();
 		return abbreviation;
@@ -312,7 +298,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ListOfTables createListOfTables() {
 		ListOfTablesImpl listOfTables = new ListOfTablesImpl();
 		return listOfTables;
@@ -323,7 +308,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ListOfFigures createListOfFigures() {
 		ListOfFiguresImpl listOfFigures = new ListOfFiguresImpl();
 		return listOfFigures;
@@ -334,7 +318,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Bibliography createBibliography() {
 		BibliographyImpl bibliography = new BibliographyImpl();
 		return bibliography;
@@ -345,7 +328,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public BibliographyEntry createBibliographyEntry() {
 		BibliographyEntryImpl bibliographyEntry = new BibliographyEntryImpl();
 		return bibliographyEntry;
@@ -356,7 +338,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Glossary createGlossary() {
 		GlossaryImpl glossary = new GlossaryImpl();
 		return glossary;
@@ -367,7 +348,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public GlossaryEntry createGlossaryEntry() {
 		GlossaryEntryImpl glossaryEntry = new GlossaryEntryImpl();
 		return glossaryEntry;
@@ -378,7 +358,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Index createIndex() {
 		IndexImpl index = new IndexImpl();
 		return index;
@@ -389,7 +368,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public IndexEntry createIndexEntry() {
 		IndexEntryImpl indexEntry = new IndexEntryImpl();
 		return indexEntry;
@@ -400,7 +378,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SegmentInclude createSegmentInclude() {
 		SegmentIncludeImpl segmentInclude = new SegmentIncludeImpl();
 		return segmentInclude;
@@ -411,7 +388,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PublicationBody createPublicationBody() {
 		PublicationBodyImpl publicationBody = new PublicationBodyImpl();
 		return publicationBody;
@@ -422,7 +398,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Part createPart() {
 		PartImpl part = new PartImpl();
 		return part;
@@ -433,7 +408,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Appendix createAppendix() {
 		AppendixImpl appendix = new AppendixImpl();
 		return appendix;
@@ -444,7 +418,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Chapter createChapter() {
 		ChapterImpl chapter = new ChapterImpl();
 		return chapter;
@@ -455,7 +428,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Section createSection() {
 		SectionImpl section = new SectionImpl();
 		return section;
@@ -466,7 +438,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Subsection createSubsection() {
 		SubsectionImpl subsection = new SubsectionImpl();
 		return subsection;
@@ -477,7 +448,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Subsubsection createSubsubsection() {
 		SubsubsectionImpl subsubsection = new SubsubsectionImpl();
 		return subsubsection;
@@ -488,7 +458,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Admonition createAdmonition() {
 		AdmonitionImpl admonition = new AdmonitionImpl();
 		return admonition;
@@ -499,7 +468,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public List createList() {
 		ListImpl list = new ListImpl();
 		return list;
@@ -510,7 +478,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ListItem createListItem() {
 		ListItemImpl listItem = new ListItemImpl();
 		return listItem;
@@ -521,7 +488,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Table createTable() {
 		TableImpl table = new TableImpl();
 		return table;
@@ -532,7 +498,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TableRow createTableRow() {
 		TableRowImpl tableRow = new TableRowImpl();
 		return tableRow;
@@ -543,7 +508,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TableCell createTableCell() {
 		TableCellImpl tableCell = new TableCellImpl();
 		return tableCell;
@@ -554,7 +518,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Figure createFigure() {
 		FigureImpl figure = new FigureImpl();
 		return figure;
@@ -565,7 +528,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Equation createEquation() {
 		EquationImpl equation = new EquationImpl();
 		return equation;
@@ -576,7 +538,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public CodeListing createCodeListing() {
 		CodeListingImpl codeListing = new CodeListingImpl();
 		return codeListing;
@@ -587,7 +548,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Paragraph createParagraph() {
 		ParagraphImpl paragraph = new ParagraphImpl();
 		return paragraph;
@@ -598,7 +558,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public UnformattedParagraph createUnformattedParagraph() {
 		UnformattedParagraphImpl unformattedParagraph = new UnformattedParagraphImpl();
 		return unformattedParagraph;
@@ -729,7 +688,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PubPackage getPubPackage() {
 		return (PubPackage)getEPackage();
 	}

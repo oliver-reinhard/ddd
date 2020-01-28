@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -30,7 +31,7 @@ import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -75,6 +76,9 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
+				return; 
+			case BasePackage.DNAMESPACE:
+				sequence_DNamespace(context, (DNamespace) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -233,8 +237,8 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
-			case DmxPackage.DMX_NAMESPACE:
-				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+			case DmxPackage.DMX_MODEL:
+				sequence_DmxModel(context, (DmxModel) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NATURAL_LITERAL:
 				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
@@ -279,6 +283,18 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DNamespace returns DNamespace
+	 *
+	 * Constraint:
+	 *     (name=DQualifiedName imports+=DImport* model=UserStory)
+	 */
+	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Paragraph returns Paragraph
 	 *
 	 * Constraint:
@@ -312,7 +328,7 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 	 *     UserStory returns UserStory
 	 *
 	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName event=[DDomainEvent|DQualifiedName]? description=DRichText? sections+=Section*)
+	 *     (name=DQualifiedName event=[DemDomainEvent|DQualifiedName]? description=DRichText? sections+=Section*)
 	 */
 	protected void sequence_UserStory(ISerializationContext context, UserStory semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

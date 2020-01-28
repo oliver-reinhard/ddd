@@ -14,7 +14,9 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
@@ -66,20 +68,22 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DInformationModel, XtextResource> _function = (XtextResource it) -> {
-      DInformationModel _xifexpression = null;
+    final IUnitOfWork<DNamespace, XtextResource> _function = (XtextResource it) -> {
+      DNamespace _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DInformationModel)) {
+      if ((_head instanceof DNamespace)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DInformationModel) _head_1);
+        _xifexpression = ((DNamespace) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final DInformationModel domain = document.<DInformationModel>readOnly(_function);
-    if (((domain != null) && (!(domain.getTypes().isEmpty() && domain.getAggregates().isEmpty())))) {
-      return this.domainTypes(domain);
+    final DNamespace namespace = document.<DNamespace>readOnly(_function);
+    DModel _model = namespace.getModel();
+    final DInformationModel model = ((DInformationModel) _model);
+    if (((model != null) && (!(model.getTypes().isEmpty() && model.getAggregates().isEmpty())))) {
+      return this.domainTypes(model);
     } else {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No structures to show.\" as N1");
@@ -87,15 +91,15 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
   }
   
-  public String domainTypes(final DInformationModel domain) {
-    final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(domain, DAggregate.class);
+  public String domainTypes(final DInformationModel model) {
+    final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(model, DAggregate.class);
     final Function1<DAssociation, Boolean> _function = (DAssociation it) -> {
       DType _type = it.getType();
       return Boolean.valueOf((_type instanceof DEntityType));
     };
-    final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(domain, DAssociation.class), _function);
+    final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(model, DAssociation.class), _function);
     final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
-      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && Objects.equal(this._dimUtil.domainName(it.getTargetType()), domain.getName())));
+      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && Objects.equal(this._dimUtil.domainName(it.getTargetType()), model.getName())));
     };
     final Function1<DAssociation, DEntityType> _function_2 = (DAssociation it) -> {
       return it.getTargetType();
@@ -107,7 +111,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final Iterable<DAggregate> allAggregatesReferencedWithinDomain = IterableExtensions.<DEntityType, DAggregate>map(allEntitiesReferencedWithinDomain, _function_3);
     final Function1<DAssociation, Boolean> _function_4 = (DAssociation it) -> {
-      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && (!Objects.equal(this._dimUtil.domainName(it.getTargetType()), domain.getName()))));
+      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && (!Objects.equal(this._dimUtil.domainName(it.getTargetType()), model.getName()))));
     };
     final Function1<DAssociation, DEntityType> _function_5 = (DAssociation it) -> {
       return it.getTargetType();
@@ -121,12 +125,12 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       DType _type = it.getType();
       return Boolean.valueOf((_type instanceof DDetailType));
     };
-    final Iterable<DAttribute> allDetailAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(domain, DAttribute.class), _function_7);
+    final Iterable<DAttribute> allDetailAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(model, DAttribute.class), _function_7);
     final Function1<DComplexType, Boolean> _function_8 = (DComplexType it) -> {
       DComplexType _superType = it.getSuperType();
       return Boolean.valueOf((_superType != null));
     };
-    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(domain, DComplexType.class), _function_8);
+    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_8);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(" ");
     _builder.append("hide empty members");
@@ -144,13 +148,13 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLine();
     _builder.newLine();
     {
-      boolean _isEmpty = domain.getTypes().isEmpty();
+      boolean _isEmpty = model.getTypes().isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
         _builder.append("\' all domain-level types");
         _builder.newLine();
         {
-          EList<DType> _types = domain.getTypes();
+          EList<DType> _types = model.getTypes();
           for(final DType t : _types) {
             CharSequence _generateType = this.generateType(t);
             _builder.append(_generateType);

@@ -27,6 +27,10 @@ public interface DmxIfExpression extends DExpression
 	/**
 	 * Returns the value of the '<em><b>If</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>If</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>If</em>' containment reference.
 	 * @see #setIf(DExpression)
@@ -49,6 +53,10 @@ public interface DmxIfExpression extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Then</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Then</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Then</em>' containment reference.
 	 * @see #setThen(DExpression)
@@ -71,6 +79,10 @@ public interface DmxIfExpression extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Else</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Else</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Else</em>' containment reference.
 	 * @see #setElse(DExpression)

@@ -3,15 +3,15 @@
  */
 package com.mimacom.ddd.sm.sus
 
-import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider
-import org.eclipse.xtext.naming.IQualifiedNameProvider
+import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class SusRuntimeModule extends AbstractSusRuntimeModule {
-	
-	override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider()  {
-		return DmxQualifiedNameProvider
+
+	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return DmxResourceDescriptionStrategy;
 	}
 }

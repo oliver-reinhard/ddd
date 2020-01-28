@@ -1,7 +1,10 @@
 domain dm.types
 
-detail Money {
-	currency : IsoCurrency
-	amount : Decimal
+information model BaseTypes {
+
+	detail Money {
+		currency : IsoCurrency
+		amount : Decimal
+	}
 }
 

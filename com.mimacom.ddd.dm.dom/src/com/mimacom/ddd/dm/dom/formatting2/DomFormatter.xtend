@@ -19,20 +19,15 @@ class DomFormatter extends DmxFormatter {
 
 	def dispatch void format(DomModel model, extension IFormattableDocument document) {
 		
-		for (i : model.imports) {
-			i.append[if (i == model.imports.last) newLines=2 else newLine]
-		}
-		
-		model.regionFor.assignment(domModelAccess.nameAssignment_2).append[newLines = 2]
-		
 		for (s : model.snapshots) {
 			s.format
 		}
 	}
 
 	def dispatch void format(DomSnapshot snapshot, extension IFormattableDocument document) {
-		val open = snapshot.regionFor.keyword(domSnapshotAccess.leftCurlyBracketKeyword_2)
-		val close = snapshot.regionFor.keyword(domSnapshotAccess.rightCurlyBracketKeyword_4)
+		snapshot.regionFor.assignment(domSnapshotAccess.nameAssignment_1).append[newLines = 2]
+		val open = snapshot.regionFor.keyword(domSnapshotAccess.leftCurlyBracketKeyword_4)
+		val close = snapshot.regionFor.keyword(domSnapshotAccess.rightCurlyBracketKeyword_6)
 		open.append[newLines=2]
 		interior(open, close) [indent]
 		

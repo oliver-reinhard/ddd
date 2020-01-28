@@ -1,11 +1,14 @@
 package com.mimacom.ddd.dm.dem.ui.plantuml;
 
-import com.mimacom.ddd.dm.dem.DActor;
-import com.mimacom.ddd.dm.dem.DDomainEvent;
-import com.mimacom.ddd.dm.dem.DNotification;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.dem.DemActor;
+import com.mimacom.ddd.dm.dem.DemDomainEvent;
+import com.mimacom.ddd.dm.dem.DemNotification;
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
@@ -39,18 +42,20 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DDomainEvent, XtextResource> _function = (XtextResource it) -> {
-      DDomainEvent _xifexpression = null;
+    final IUnitOfWork<DNamespace, XtextResource> _function = (XtextResource it) -> {
+      DNamespace _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DDomainEvent)) {
+      if ((_head instanceof DNamespace)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DDomainEvent) _head_1);
+        _xifexpression = ((DNamespace) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final DDomainEvent event = document.<DDomainEvent>readOnly(_function);
+    final DNamespace namespace = document.<DNamespace>readOnly(_function);
+    DModel _model = namespace.getModel();
+    final DemDomainEvent event = ((DemDomainEvent) _model);
     if ((event == null)) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No domain event to show.\" as N1");
@@ -62,17 +67,22 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder_1.append(_name);
     _builder_1.append(") as (event)");
     _builder_1.newLineIfNotEmpty();
-    _builder_1.append("actor ");
-    String _name_1 = event.getTrigger().getName();
-    _builder_1.append(_name_1);
-    _builder_1.newLineIfNotEmpty();
     {
-      final Function1<DNotification, Boolean> _function_1 = (DNotification it) -> {
-        DActor _notified = it.getNotified();
+      EList<DemActor> _triggers = event.getTriggers();
+      for(final DemActor t : _triggers) {
+        _builder_1.append("actor ");
+        String _name_1 = t.getName();
+        _builder_1.append(_name_1);
+        _builder_1.newLineIfNotEmpty();
+      }
+    }
+    {
+      final Function1<DemNotification, Boolean> _function_1 = (DemNotification it) -> {
+        DemActor _notified = it.getNotified();
         return Boolean.valueOf((_notified != null));
       };
-      Iterable<DNotification> _filter = IterableExtensions.<DNotification>filter(event.getNotifications(), _function_1);
-      for(final DNotification n : _filter) {
+      Iterable<DemNotification> _filter = IterableExtensions.<DemNotification>filter(event.getNotifications(), _function_1);
+      for(final DemNotification n : _filter) {
         _builder_1.append("actor ");
         String _name_2 = n.getNotified().getName();
         _builder_1.append(_name_2);
@@ -80,22 +90,21 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
       }
     }
     {
-      DActor _trigger = event.getTrigger();
-      boolean _tripleNotEquals = (_trigger != null);
-      if (_tripleNotEquals) {
-        String _name_3 = event.getTrigger().getName();
+      EList<DemActor> _triggers_1 = event.getTriggers();
+      for(final DemActor t_1 : _triggers_1) {
+        String _name_3 = t_1.getName();
         _builder_1.append(_name_3);
         _builder_1.append(" --> (event) : triggers");
+        _builder_1.newLineIfNotEmpty();
       }
     }
-    _builder_1.newLineIfNotEmpty();
     {
-      final Function1<DNotification, Boolean> _function_2 = (DNotification it) -> {
-        DActor _notified = it.getNotified();
+      final Function1<DemNotification, Boolean> _function_2 = (DemNotification it) -> {
+        DemActor _notified = it.getNotified();
         return Boolean.valueOf((_notified != null));
       };
-      Iterable<DNotification> _filter_1 = IterableExtensions.<DNotification>filter(event.getNotifications(), _function_2);
-      for(final DNotification n_1 : _filter_1) {
+      Iterable<DemNotification> _filter_1 = IterableExtensions.<DemNotification>filter(event.getNotifications(), _function_2);
+      for(final DemNotification n_1 : _filter_1) {
         String _name_4 = n_1.getNotified().getName();
         _builder_1.append(_name_4);
         _builder_1.append(" <-- (event) : ");

@@ -116,7 +116,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -126,7 +125,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -139,7 +137,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -149,7 +146,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -159,7 +155,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -172,7 +167,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PublicationClass getPublicationClass() {
 		if (publicationClass != null && publicationClass.eIsProxy()) {
 			InternalEObject oldPublicationClass = (InternalEObject)publicationClass;
@@ -199,7 +193,6 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setPublicationClass(PublicationClass newPublicationClass) {
 		PublicationClass oldPublicationClass = publicationClass;
 		publicationClass = newPublicationClass;

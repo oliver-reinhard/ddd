@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -30,7 +31,7 @@ import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -44,7 +45,6 @@ import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import com.mimacom.ddd.dm.esm.EsmCompositeState;
 import com.mimacom.ddd.dm.esm.EsmConcurrentState;
 import com.mimacom.ddd.dm.esm.EsmDerivedState;
-import com.mimacom.ddd.dm.esm.EsmDomain;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmState;
@@ -80,6 +80,9 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
+				return; 
+			case BasePackage.DNAMESPACE:
+				sequence_DNamespace(context, (DNamespace) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -213,8 +216,8 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
-			case DmxPackage.DMX_NAMESPACE:
-				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+			case DmxPackage.DMX_MODEL:
+				sequence_DmxModel(context, (DmxModel) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NATURAL_LITERAL:
 				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
@@ -252,9 +255,6 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 			case EsmPackage.ESM_DERIVED_STATE:
 				sequence_EsmDerivedState(context, (EsmDerivedState) semanticObject); 
 				return; 
-			case EsmPackage.ESM_DOMAIN:
-				sequence_EsmDomain(context, (EsmDomain) semanticObject); 
-				return; 
 			case EsmPackage.ESM_ENTITY_STATE_MODEL:
 				sequence_EsmEntityStateModel(context, (EsmEntityStateModel) semanticObject); 
 				return; 
@@ -271,6 +271,18 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     DNamespace returns DNamespace
+	 *
+	 * Constraint:
+	 *     (name=DQualifiedName imports+=DImport* model=EsmEntityStateModel)
+	 */
+	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -362,18 +374,6 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? expression=DExpression)
 	 */
 	protected void sequence_EsmDerivedState(ISerializationContext context, EsmDerivedState semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EsmDomain returns EsmDomain
-	 *
-	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName aliases+=ID* description=DRichText? stateModel=EsmEntityStateModel)
-	 */
-	protected void sequence_EsmDomain(ISerializationContext context, EsmDomain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

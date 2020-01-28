@@ -24,89 +24,123 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class DNamespaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.DNamespace");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNamespaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModelUserStoryParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
+		
+		//@Override
+		//DNamespace:
+		//	'namespace'
+		//	name=DQualifiedName
+		//	imports+=DImport*
+		//	model=UserStory;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'namespace' name=DQualifiedName imports+=DImport* model=UserStory
+		public Group getGroup() { return cGroup; }
+		
+		//'namespace'
+		public Keyword getNamespaceKeyword_0() { return cNamespaceKeyword_0; }
+		
+		//name=DQualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//DQualifiedName
+		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
+		
+		//imports+=DImport*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
+		
+		//model=UserStory
+		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
+		
+		//UserStory
+		public RuleCall getModelUserStoryParserRuleCall_3_0() { return cModelUserStoryParserRuleCall_3_0; }
+	}
 	public class UserStoryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.UserStory");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Keyword cUserKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cStoryKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
-		private final Keyword cRealisesKeyword_4_0_0 = (Keyword)cAlternatives_4_0.eContents().get(0);
-		private final Keyword cRealizesKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
-		private final Assignment cEventAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cEventDDomainEventCrossReference_4_1_0 = (CrossReference)cEventAssignment_4_1.eContents().get(0);
-		private final RuleCall cEventDDomainEventDQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cEventDDomainEventCrossReference_4_1_0.eContents().get(1);
-		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Assignment cSectionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cSectionsSectionParserRuleCall_6_0 = (RuleCall)cSectionsAssignment_6.eContents().get(0);
+		private final Keyword cUserKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cStoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Keyword cRealisesKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cRealizesKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
+		private final Assignment cEventAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cEventDemDomainEventCrossReference_3_1_0 = (CrossReference)cEventAssignment_3_1.eContents().get(0);
+		private final RuleCall cEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cEventDemDomainEventCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Assignment cSectionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSectionsSectionParserRuleCall_5_0 = (RuleCall)cSectionsAssignment_5.eContents().get(0);
 		
 		//UserStory:
-		//	imports+=DImport*
 		//	'user' 'story'
-		//	name=DQualifiedName (('realises' | 'realizes') event=[DDomainEvent|DQualifiedName])?
+		//	name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 		//	description=DRichText?
 		//	sections+=Section*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=DImport* 'user' 'story' name=DQualifiedName (('realises' | 'realizes') event=[DDomainEvent|DQualifiedName])?
+		//'user' 'story' name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 		//description=DRichText? sections+=Section*
 		public Group getGroup() { return cGroup; }
 		
-		//imports+=DImport*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
-		
-		//DImport
-		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
-		
 		//'user'
-		public Keyword getUserKeyword_1() { return cUserKeyword_1; }
+		public Keyword getUserKeyword_0() { return cUserKeyword_0; }
 		
 		//'story'
-		public Keyword getStoryKeyword_2() { return cStoryKeyword_2; }
+		public Keyword getStoryKeyword_1() { return cStoryKeyword_1; }
 		
 		//name=DQualifiedName
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_3_0() { return cNameDQualifiedNameParserRuleCall_3_0; }
+		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
 		
-		//(('realises' | 'realizes') event=[DDomainEvent|DQualifiedName])?
-		public Group getGroup_4() { return cGroup_4; }
+		//(('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//('realises' | 'realizes')
-		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
 		
 		//'realises'
-		public Keyword getRealisesKeyword_4_0_0() { return cRealisesKeyword_4_0_0; }
+		public Keyword getRealisesKeyword_3_0_0() { return cRealisesKeyword_3_0_0; }
 		
 		//'realizes'
-		public Keyword getRealizesKeyword_4_0_1() { return cRealizesKeyword_4_0_1; }
+		public Keyword getRealizesKeyword_3_0_1() { return cRealizesKeyword_3_0_1; }
 		
-		//event=[DDomainEvent|DQualifiedName]
-		public Assignment getEventAssignment_4_1() { return cEventAssignment_4_1; }
+		//event=[DemDomainEvent|DQualifiedName]
+		public Assignment getEventAssignment_3_1() { return cEventAssignment_3_1; }
 		
-		//[DDomainEvent|DQualifiedName]
-		public CrossReference getEventDDomainEventCrossReference_4_1_0() { return cEventDDomainEventCrossReference_4_1_0; }
+		//[DemDomainEvent|DQualifiedName]
+		public CrossReference getEventDemDomainEventCrossReference_3_1_0() { return cEventDemDomainEventCrossReference_3_1_0; }
 		
 		//DQualifiedName
-		public RuleCall getEventDDomainEventDQualifiedNameParserRuleCall_4_1_0_1() { return cEventDDomainEventDQualifiedNameParserRuleCall_4_1_0_1; }
+		public RuleCall getEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1() { return cEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
 		
 		//sections+=Section*
-		public Assignment getSectionsAssignment_6() { return cSectionsAssignment_6; }
+		public Assignment getSectionsAssignment_5() { return cSectionsAssignment_5; }
 		
 		//Section
-		public RuleCall getSectionsSectionParserRuleCall_6_0() { return cSectionsSectionParserRuleCall_6_0; }
+		public RuleCall getSectionsSectionParserRuleCall_5_0() { return cSectionsSectionParserRuleCall_5_0; }
 	}
 	public class SectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.Section");
@@ -157,6 +191,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	private final DNamespaceElements pDNamespace;
 	private final UserStoryElements pUserStory;
 	private final SectionElements pSection;
 	private final ParagraphElements pParagraph;
@@ -170,6 +205,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 			DmxGrammarAccess gaDmx) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
+		this.pDNamespace = new DNamespaceElements();
 		this.pUserStory = new UserStoryElements();
 		this.pSection = new SectionElements();
 		this.pParagraph = new ParagraphElements();
@@ -202,10 +238,23 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//UserStory:
+	//@Override
+	//DNamespace:
+	//	'namespace'
+	//	name=DQualifiedName
 	//	imports+=DImport*
+	//	model=UserStory;
+	public DNamespaceElements getDNamespaceAccess() {
+		return pDNamespace;
+	}
+	
+	public ParserRule getDNamespaceRule() {
+		return getDNamespaceAccess().getRule();
+	}
+	
+	//UserStory:
 	//	'user' 'story'
-	//	name=DQualifiedName (('realises' | 'realizes') event=[DDomainEvent|DQualifiedName])?
+	//	name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 	//	description=DRichText?
 	//	sections+=Section*;
 	public UserStoryElements getUserStoryAccess() {
@@ -237,20 +286,17 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getParagraphAccess().getRule();
 	}
 	
-	//DmxNamespace:
-	//	imports+=DImport*
-	//	'namespace'
-	//	name=DQualifiedName
-	//	types+=DmxArchetype*
+	//DmxModel:
+	//	{DmxModel} types+=DmxArchetype*
 	//	filters+=DmxFilter*
 	//	// For unit-testing purposes:
 	//	tests+=DmxTest*;
-	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
-		return gaDmx.getDmxNamespaceAccess();
+	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
+		return gaDmx.getDmxModelAccess();
 	}
 	
-	public ParserRule getDmxNamespaceRule() {
-		return getDmxNamespaceAccess().getRule();
+	public ParserRule getDmxModelRule() {
+		return getDmxModelAccess().getRule();
 	}
 	
 	//DImport:

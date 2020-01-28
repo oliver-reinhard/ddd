@@ -4,13 +4,12 @@ import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/dm/esm"
 
-EsmDomain:
-	(imports+=DImport)*
+@Override 
+DNamespace:
 	'domain'
 	name=DQualifiedName
-	('alias' aliases+=ID)*
-	(description=DRichText)?
-	stateModel=EsmEntityStateModel;
+	(imports+=DImport)*
+	model=EsmEntityStateModel;
 	
 EsmEntityStateModel:
 	'state' 'model' 

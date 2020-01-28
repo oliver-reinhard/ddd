@@ -23,13 +23,13 @@ public interface DmxFactory extends EFactory
 	DmxFactory eINSTANCE = com.mimacom.ddd.dm.dmx.impl.DmxFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Namespace</em>'.
+	 * Returns a new object of class '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Namespace</em>'.
+	 * @return a new object of class '<em>Model</em>'.
 	 * @generated
 	 */
-	DmxNamespace createDmxNamespace();
+	DmxModel createDmxModel();
 
 	/**
 	 * Returns a new object of class '<em>Test</em>'.

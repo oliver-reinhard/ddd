@@ -4,11 +4,12 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
 import com.mimacom.ddd.dm.esm.EsmCompositeState;
 import com.mimacom.ddd.dm.esm.EsmConcurrentState;
-import com.mimacom.ddd.dm.esm.EsmDomain;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmStateKind;
 import com.mimacom.ddd.dm.esm.EsmSubStateModel;
@@ -63,24 +64,24 @@ public class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<EsmDomain, XtextResource> _function = (XtextResource it) -> {
-      EsmDomain _xifexpression = null;
+    final IUnitOfWork<DNamespace, XtextResource> _function = (XtextResource it) -> {
+      DNamespace _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof EsmDomain)) {
+      if ((_head instanceof DNamespace)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((EsmDomain) _head_1);
+        _xifexpression = ((DNamespace) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final EsmDomain domain = document.<EsmDomain>readOnly(_function);
-    EsmEntityStateModel _stateModel = null;
-    if (domain!=null) {
-      _stateModel=domain.getStateModel();
+    final DNamespace ns = document.<DNamespace>readOnly(_function);
+    DModel _model = null;
+    if (ns!=null) {
+      _model=ns.getModel();
     }
-    final EsmEntityStateModel stateModel = _stateModel;
-    if (((domain == null) || (stateModel == null))) {
+    final EsmEntityStateModel stateModel = ((EsmEntityStateModel) _model);
+    if (((ns == null) || (stateModel == null))) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No state model to show.\" as N1");
       return _builder.toString();

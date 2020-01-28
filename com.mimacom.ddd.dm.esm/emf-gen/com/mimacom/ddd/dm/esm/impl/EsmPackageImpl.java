@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.esm.EsmCompositeState;
 import com.mimacom.ddd.dm.esm.EsmConcurrentState;
 import com.mimacom.ddd.dm.esm.EsmDerivedState;
-import com.mimacom.ddd.dm.esm.EsmDomain;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmFactory;
 import com.mimacom.ddd.dm.esm.EsmLayoutDirection;
@@ -42,7 +41,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass esmDomainEClass = null;
+	private EClass esmEntityStateModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,13 +56,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * @generated
 	 */
 	private EClass iEsmStateModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass esmEntityStateModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,7 +149,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link EsmPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -172,8 +164,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		if (isInited) return (EsmPackage)EPackage.Registry.INSTANCE.getEPackage(EsmPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredEsmPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		EsmPackageImpl theEsmPackage = registeredEsmPackage instanceof EsmPackageImpl ? (EsmPackageImpl)registeredEsmPackage : new EsmPackageImpl();
+		EsmPackageImpl theEsmPackage = (EsmPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EsmPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EsmPackageImpl());
 
 		isInited = true;
 
@@ -189,6 +180,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		// Mark meta-data to indicate it can't be changed
 		theEsmPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EsmPackage.eNS_URI, theEsmPackage);
 		return theEsmPackage;
@@ -199,84 +191,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getEsmDomain()
-	{
-		return esmDomainEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getEsmDomain_StateModel()
-	{
-		return (EReference)esmDomainEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIEsmLayout()
-	{
-		return iEsmLayoutEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIEsmLayout_Direction()
-	{
-		return (EAttribute)iEsmLayoutEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIEsmStateModel()
-	{
-		return iEsmStateModelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIEsmStateModel_States()
-	{
-		return (EReference)iEsmStateModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIEsmStateModel_Transitions()
-	{
-		return (EReference)iEsmStateModelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getEsmEntityStateModel()
 	{
 		return esmEntityStateModelEClass;
@@ -287,7 +201,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmEntityStateModel_ForType()
 	{
 		return (EReference)esmEntityStateModelEClass.getEStructuralFeatures().get(0);
@@ -298,7 +211,56 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public EClass getIEsmLayout()
+	{
+		return iEsmLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIEsmLayout_Direction()
+	{
+		return (EAttribute)iEsmLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIEsmStateModel()
+	{
+		return iEsmStateModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIEsmStateModel_States()
+	{
+		return (EReference)iEsmStateModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIEsmStateModel_Transitions()
+	{
+		return (EReference)iEsmStateModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIEsmState()
 	{
 		return iEsmStateEClass;
@@ -309,7 +271,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getIEsmState_State()
 	{
 		return (EReference)iEsmStateEClass.getEStructuralFeatures().get(0);
@@ -320,7 +281,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getIEsmState_Kind()
 	{
 		return (EAttribute)iEsmStateEClass.getEStructuralFeatures().get(1);
@@ -331,7 +291,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getIEsmState_Description()
 	{
 		return (EReference)iEsmStateEClass.getEStructuralFeatures().get(2);
@@ -342,7 +301,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEsmState()
 	{
 		return esmStateEClass;
@@ -353,7 +311,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEsmDerivedState()
 	{
 		return esmDerivedStateEClass;
@@ -364,7 +321,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmDerivedState_Expression()
 	{
 		return (EReference)esmDerivedStateEClass.getEStructuralFeatures().get(0);
@@ -375,7 +331,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEsmCompositeState()
 	{
 		return esmCompositeStateEClass;
@@ -386,7 +341,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEsmConcurrentState()
 	{
 		return esmConcurrentStateEClass;
@@ -397,7 +351,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmConcurrentState_SubStates()
 	{
 		return (EReference)esmConcurrentStateEClass.getEStructuralFeatures().get(0);
@@ -408,7 +361,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEsmSubStateModel()
 	{
 		return esmSubStateModelEClass;
@@ -419,7 +371,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEsmTransition()
 	{
 		return esmTransitionEClass;
@@ -430,7 +381,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmTransition_From()
 	{
 		return (EReference)esmTransitionEClass.getEStructuralFeatures().get(0);
@@ -441,7 +391,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmTransition_To()
 	{
 		return (EReference)esmTransitionEClass.getEStructuralFeatures().get(1);
@@ -452,7 +401,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmTransition_Event()
 	{
 		return (EReference)esmTransitionEClass.getEStructuralFeatures().get(2);
@@ -463,7 +411,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEsmTransition_Guard()
 	{
 		return (EReference)esmTransitionEClass.getEStructuralFeatures().get(3);
@@ -474,7 +421,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getEsmLayoutDirection()
 	{
 		return esmLayoutDirectionEEnum;
@@ -485,7 +431,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getEsmStateKind()
 	{
 		return esmStateKindEEnum;
@@ -496,7 +441,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmFactory getEsmFactory()
 	{
 		return (EsmFactory)getEFactoryInstance();
@@ -522,8 +466,8 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		isCreated = true;
 
 		// Create classes and their features
-		esmDomainEClass = createEClass(ESM_DOMAIN);
-		createEReference(esmDomainEClass, ESM_DOMAIN__STATE_MODEL);
+		esmEntityStateModelEClass = createEClass(ESM_ENTITY_STATE_MODEL);
+		createEReference(esmEntityStateModelEClass, ESM_ENTITY_STATE_MODEL__FOR_TYPE);
 
 		iEsmLayoutEClass = createEClass(IESM_LAYOUT);
 		createEAttribute(iEsmLayoutEClass, IESM_LAYOUT__DIRECTION);
@@ -531,9 +475,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		iEsmStateModelEClass = createEClass(IESM_STATE_MODEL);
 		createEReference(iEsmStateModelEClass, IESM_STATE_MODEL__STATES);
 		createEReference(iEsmStateModelEClass, IESM_STATE_MODEL__TRANSITIONS);
-
-		esmEntityStateModelEClass = createEClass(ESM_ENTITY_STATE_MODEL);
-		createEReference(esmEntityStateModelEClass, ESM_ENTITY_STATE_MODEL__FOR_TYPE);
 
 		iEsmStateEClass = createEClass(IESM_STATE);
 		createEReference(iEsmStateEClass, IESM_STATE__STATE);
@@ -595,11 +536,12 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		esmDomainEClass.getESuperTypes().add(theBasePackage.getDNamespace());
-		iEsmStateModelEClass.getESuperTypes().add(this.getIEsmLayout());
-		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getDModel());
 		esmEntityStateModelEClass.getESuperTypes().add(this.getIEsmStateModel());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
+		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
+		iEsmStateModelEClass.getESuperTypes().add(this.getIEsmLayout());
 		esmStateEClass.getESuperTypes().add(this.getIEsmState());
 		esmDerivedStateEClass.getESuperTypes().add(this.getEsmState());
 		esmCompositeStateEClass.getESuperTypes().add(this.getIEsmState());
@@ -609,8 +551,8 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		esmTransitionEClass.getESuperTypes().add(this.getIEsmLayout());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(esmDomainEClass, EsmDomain.class, "EsmDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEsmDomain_StateModel(), this.getEsmEntityStateModel(), null, "stateModel", null, 0, 1, EsmDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(esmEntityStateModelEClass, EsmEntityStateModel.class, "EsmEntityStateModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEsmEntityStateModel_ForType(), theBasePackage.getDEntityType(), null, "forType", null, 0, 1, EsmEntityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iEsmLayoutEClass, IEsmLayout.class, "IEsmLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIEsmLayout_Direction(), this.getEsmLayoutDirection(), "direction", null, 0, 1, IEsmLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -618,9 +560,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		initEClass(iEsmStateModelEClass, IEsmStateModel.class, "IEsmStateModel", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIEsmStateModel_States(), this.getIEsmState(), null, "states", null, 0, -1, IEsmStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIEsmStateModel_Transitions(), this.getEsmTransition(), null, "transitions", null, 0, -1, IEsmStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(esmEntityStateModelEClass, EsmEntityStateModel.class, "EsmEntityStateModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEsmEntityStateModel_ForType(), theBasePackage.getDEntityType(), null, "forType", null, 0, 1, EsmEntityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iEsmStateEClass, IEsmState.class, "IEsmState", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIEsmState_State(), theBasePackage.getDState(), null, "state", null, 0, 1, IEsmState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -26,187 +26,197 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.Model");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSApplicationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSServiceInterfaceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+	public class DNamespaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.DNamespace");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNamespaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Alternatives cModelAlternatives_3_0 = (Alternatives)cModelAssignment_3.eContents().get(0);
+		private final RuleCall cModelSApplicationParserRuleCall_3_0_0 = (RuleCall)cModelAlternatives_3_0.eContents().get(0);
+		private final RuleCall cModelSServiceInterfaceParserRuleCall_3_0_1 = (RuleCall)cModelAlternatives_3_0.eContents().get(1);
 		
-		//Model:
-		//	SApplication | SServiceInterface
-		//	//	(description=DRichText)?
-		//;
+		//@Override
+		//DNamespace:
+		//	'namespace'
+		//	name=DQualifiedName
+		//	imports+=DImport*
+		//	model=(SApplication | SServiceInterface);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SApplication | SServiceInterface
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//'namespace' name=DQualifiedName imports+=DImport* model=(SApplication | SServiceInterface)
+		public Group getGroup() { return cGroup; }
+		
+		//'namespace'
+		public Keyword getNamespaceKeyword_0() { return cNamespaceKeyword_0; }
+		
+		//name=DQualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//DQualifiedName
+		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
+		
+		//imports+=DImport*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
+		
+		//model=(SApplication | SServiceInterface)
+		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
+		
+		//(SApplication | SServiceInterface)
+		public Alternatives getModelAlternatives_3_0() { return cModelAlternatives_3_0; }
 		
 		//SApplication
-		public RuleCall getSApplicationParserRuleCall_0() { return cSApplicationParserRuleCall_0; }
+		public RuleCall getModelSApplicationParserRuleCall_3_0_0() { return cModelSApplicationParserRuleCall_3_0_0; }
 		
 		//SServiceInterface
-		public RuleCall getSServiceInterfaceParserRuleCall_1() { return cSServiceInterfaceParserRuleCall_1; }
+		public RuleCall getModelSServiceInterfaceParserRuleCall_3_0_1() { return cModelSServiceInterfaceParserRuleCall_3_0_1; }
 	}
 	public class SApplicationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SApplication");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Keyword cApplicationKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cInformationKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cModelAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cModelSInformationModelCrossReference_5_0 = (CrossReference)cModelAssignment_5.eContents().get(0);
-		private final RuleCall cModelSInformationModelDQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cModelSInformationModelCrossReference_5_0.eContents().get(1);
-		private final Assignment cActorsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActorsSActorParserRuleCall_6_0 = (RuleCall)cActorsAssignment_6.eContents().get(0);
+		private final Keyword cApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cInformationKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cModelKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cModelAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cModelSInformationModelCrossReference_4_0 = (CrossReference)cModelAssignment_4.eContents().get(0);
+		private final RuleCall cModelSInformationModelDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cModelSInformationModelCrossReference_4_0.eContents().get(1);
+		private final Assignment cActorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cActorsSActorParserRuleCall_5_0 = (RuleCall)cActorsAssignment_5.eContents().get(0);
 		
 		//SApplication:
-		//	imports+=DImport*
 		//	'application'
-		//	name=DQualifiedName
+		//	name=ID
 		//	'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=DImport* 'application' name=DQualifiedName 'information' 'model' model=[SInformationModel|DQualifiedName]
-		//actors+=SActor*
+		//'application' name=ID 'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*
 		public Group getGroup() { return cGroup; }
 		
-		//imports+=DImport*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
-		
-		//DImport
-		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
-		
 		//'application'
-		public Keyword getApplicationKeyword_1() { return cApplicationKeyword_1; }
+		public Keyword getApplicationKeyword_0() { return cApplicationKeyword_0; }
 		
-		//name=DQualifiedName
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//'information'
-		public Keyword getInformationKeyword_3() { return cInformationKeyword_3; }
+		public Keyword getInformationKeyword_2() { return cInformationKeyword_2; }
 		
 		//'model'
-		public Keyword getModelKeyword_4() { return cModelKeyword_4; }
+		public Keyword getModelKeyword_3() { return cModelKeyword_3; }
 		
 		//model=[SInformationModel|DQualifiedName]
-		public Assignment getModelAssignment_5() { return cModelAssignment_5; }
+		public Assignment getModelAssignment_4() { return cModelAssignment_4; }
 		
 		//[SInformationModel|DQualifiedName]
-		public CrossReference getModelSInformationModelCrossReference_5_0() { return cModelSInformationModelCrossReference_5_0; }
+		public CrossReference getModelSInformationModelCrossReference_4_0() { return cModelSInformationModelCrossReference_4_0; }
 		
 		//DQualifiedName
-		public RuleCall getModelSInformationModelDQualifiedNameParserRuleCall_5_0_1() { return cModelSInformationModelDQualifiedNameParserRuleCall_5_0_1; }
+		public RuleCall getModelSInformationModelDQualifiedNameParserRuleCall_4_0_1() { return cModelSInformationModelDQualifiedNameParserRuleCall_4_0_1; }
 		
 		//actors+=SActor*
-		public Assignment getActorsAssignment_6() { return cActorsAssignment_6; }
+		public Assignment getActorsAssignment_5() { return cActorsAssignment_5; }
 		
 		//SActor
-		public RuleCall getActorsSActorParserRuleCall_6_0() { return cActorsSActorParserRuleCall_6_0; }
+		public RuleCall getActorsSActorParserRuleCall_5_0() { return cActorsSActorParserRuleCall_5_0; }
 	}
 	public class SServiceInterfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SServiceInterface");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Keyword cServiceKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cInterfaceKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cInterfaceKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cInterfaceAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cInterfaceSInformationModelCrossReference_6_0 = (CrossReference)cInterfaceAssignment_6.eContents().get(0);
-		private final RuleCall cInterfaceSInformationModelDQualifiedNameParserRuleCall_6_0_1 = (RuleCall)cInterfaceSInformationModelCrossReference_6_0.eContents().get(1);
-		private final Keyword cCoreKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cModelKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cCoreAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cCoreSInformationModelCrossReference_9_0 = (CrossReference)cCoreAssignment_9.eContents().get(0);
-		private final RuleCall cCoreSInformationModelDQualifiedNameParserRuleCall_9_0_1 = (RuleCall)cCoreSInformationModelCrossReference_9_0.eContents().get(1);
-		private final Assignment cExceptionsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cExceptionsSExceptionParserRuleCall_10_0 = (RuleCall)cExceptionsAssignment_10.eContents().get(0);
-		private final Assignment cOperationsAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cOperationsSServiceOperationParserRuleCall_11_0 = (RuleCall)cOperationsAssignment_11.eContents().get(0);
+		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cInterfaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cInterfaceKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cInterfaceAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cInterfaceSInformationModelCrossReference_5_0 = (CrossReference)cInterfaceAssignment_5.eContents().get(0);
+		private final RuleCall cInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cInterfaceSInformationModelCrossReference_5_0.eContents().get(1);
+		private final Keyword cCoreKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cModelKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cCoreAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cCoreSInformationModelCrossReference_8_0 = (CrossReference)cCoreAssignment_8.eContents().get(0);
+		private final RuleCall cCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1 = (RuleCall)cCoreSInformationModelCrossReference_8_0.eContents().get(1);
+		private final Assignment cExceptionsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cExceptionsSExceptionParserRuleCall_9_0 = (RuleCall)cExceptionsAssignment_9.eContents().get(0);
+		private final Assignment cOperationsAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cOperationsSServiceOperationParserRuleCall_10_0 = (RuleCall)cOperationsAssignment_10.eContents().get(0);
 		
 		//SServiceInterface:
-		//	imports+=DImport*
 		//	'service' 'interface'
-		//	name=DQualifiedName
+		//	name=ID
 		//	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 		//	'core' 'model' core=[SInformationModel|DQualifiedName] exceptions+=SException*
 		//	operations+=SServiceOperation*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=DImport* 'service' 'interface' name=DQualifiedName 'interface' 'model'
-		//interface=[SInformationModel|DQualifiedName] 'core' 'model' core=[SInformationModel|DQualifiedName]
-		//exceptions+=SException* operations+=SServiceOperation*
+		//'service' 'interface' name=ID 'interface' 'model' interface=[SInformationModel|DQualifiedName] 'core' 'model'
+		//core=[SInformationModel|DQualifiedName] exceptions+=SException* operations+=SServiceOperation*
 		public Group getGroup() { return cGroup; }
 		
-		//imports+=DImport*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
-		
-		//DImport
-		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
-		
 		//'service'
-		public Keyword getServiceKeyword_1() { return cServiceKeyword_1; }
+		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
 		
 		//'interface'
-		public Keyword getInterfaceKeyword_2() { return cInterfaceKeyword_2; }
+		public Keyword getInterfaceKeyword_1() { return cInterfaceKeyword_1; }
 		
-		//name=DQualifiedName
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_3_0() { return cNameDQualifiedNameParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//'interface'
-		public Keyword getInterfaceKeyword_4() { return cInterfaceKeyword_4; }
+		public Keyword getInterfaceKeyword_3() { return cInterfaceKeyword_3; }
 		
 		//'model'
-		public Keyword getModelKeyword_5() { return cModelKeyword_5; }
+		public Keyword getModelKeyword_4() { return cModelKeyword_4; }
 		
 		//interface=[SInformationModel|DQualifiedName]
-		public Assignment getInterfaceAssignment_6() { return cInterfaceAssignment_6; }
+		public Assignment getInterfaceAssignment_5() { return cInterfaceAssignment_5; }
 		
 		//[SInformationModel|DQualifiedName]
-		public CrossReference getInterfaceSInformationModelCrossReference_6_0() { return cInterfaceSInformationModelCrossReference_6_0; }
+		public CrossReference getInterfaceSInformationModelCrossReference_5_0() { return cInterfaceSInformationModelCrossReference_5_0; }
 		
 		//DQualifiedName
-		public RuleCall getInterfaceSInformationModelDQualifiedNameParserRuleCall_6_0_1() { return cInterfaceSInformationModelDQualifiedNameParserRuleCall_6_0_1; }
+		public RuleCall getInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1() { return cInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1; }
 		
 		//'core'
-		public Keyword getCoreKeyword_7() { return cCoreKeyword_7; }
+		public Keyword getCoreKeyword_6() { return cCoreKeyword_6; }
 		
 		//'model'
-		public Keyword getModelKeyword_8() { return cModelKeyword_8; }
+		public Keyword getModelKeyword_7() { return cModelKeyword_7; }
 		
 		//core=[SInformationModel|DQualifiedName]
-		public Assignment getCoreAssignment_9() { return cCoreAssignment_9; }
+		public Assignment getCoreAssignment_8() { return cCoreAssignment_8; }
 		
 		//[SInformationModel|DQualifiedName]
-		public CrossReference getCoreSInformationModelCrossReference_9_0() { return cCoreSInformationModelCrossReference_9_0; }
+		public CrossReference getCoreSInformationModelCrossReference_8_0() { return cCoreSInformationModelCrossReference_8_0; }
 		
 		//DQualifiedName
-		public RuleCall getCoreSInformationModelDQualifiedNameParserRuleCall_9_0_1() { return cCoreSInformationModelDQualifiedNameParserRuleCall_9_0_1; }
+		public RuleCall getCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1() { return cCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1; }
 		
 		//exceptions+=SException*
-		public Assignment getExceptionsAssignment_10() { return cExceptionsAssignment_10; }
+		public Assignment getExceptionsAssignment_9() { return cExceptionsAssignment_9; }
 		
 		//SException
-		public RuleCall getExceptionsSExceptionParserRuleCall_10_0() { return cExceptionsSExceptionParserRuleCall_10_0; }
+		public RuleCall getExceptionsSExceptionParserRuleCall_9_0() { return cExceptionsSExceptionParserRuleCall_9_0; }
 		
 		//operations+=SServiceOperation*
-		public Assignment getOperationsAssignment_11() { return cOperationsAssignment_11; }
+		public Assignment getOperationsAssignment_10() { return cOperationsAssignment_10; }
 		
 		//SServiceOperation
-		public RuleCall getOperationsSServiceOperationParserRuleCall_11_0() { return cOperationsSServiceOperationParserRuleCall_11_0; }
+		public RuleCall getOperationsSServiceOperationParserRuleCall_10_0() { return cOperationsSServiceOperationParserRuleCall_10_0; }
 	}
 	public class SActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SActor");
@@ -573,7 +583,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getOUTBOUNDOutKeyword_1_0() { return cOUTBOUNDOutKeyword_1_0; }
 	}
 	
-	private final ModelElements pModel;
+	private final DNamespaceElements pDNamespace;
 	private final SApplicationElements pSApplication;
 	private final SServiceInterfaceElements pSServiceInterface;
 	private final SActorElements pSActor;
@@ -594,7 +604,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 			DmxGrammarAccess gaDmx) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
-		this.pModel = new ModelElements();
+		this.pDNamespace = new DNamespaceElements();
 		this.pSApplication = new SApplicationElements();
 		this.pSServiceInterface = new SServiceInterfaceElements();
 		this.pSActor = new SActorElements();
@@ -634,22 +644,23 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
-	//	SApplication | SServiceInterface
-	//	//	(description=DRichText)?
-	//;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//@Override
+	//DNamespace:
+	//	'namespace'
+	//	name=DQualifiedName
+	//	imports+=DImport*
+	//	model=(SApplication | SServiceInterface);
+	public DNamespaceElements getDNamespaceAccess() {
+		return pDNamespace;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getDNamespaceRule() {
+		return getDNamespaceAccess().getRule();
 	}
 	
 	//SApplication:
-	//	imports+=DImport*
 	//	'application'
-	//	name=DQualifiedName
+	//	name=ID
 	//	'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*;
 	public SApplicationElements getSApplicationAccess() {
 		return pSApplication;
@@ -660,9 +671,8 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SServiceInterface:
-	//	imports+=DImport*
 	//	'service' 'interface'
-	//	name=DQualifiedName
+	//	name=ID
 	//	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 	//	'core' 'model' core=[SInformationModel|DQualifiedName] exceptions+=SException*
 	//	operations+=SServiceOperation*;
@@ -767,20 +777,17 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getSDirectionAccess().getRule();
 	}
 	
-	//DmxNamespace:
-	//	imports+=DImport*
-	//	'namespace'
-	//	name=DQualifiedName
-	//	types+=DmxArchetype*
+	//DmxModel:
+	//	{DmxModel} types+=DmxArchetype*
 	//	filters+=DmxFilter*
 	//	// For unit-testing purposes:
 	//	tests+=DmxTest*;
-	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
-		return gaDmx.getDmxNamespaceAccess();
+	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
+		return gaDmx.getDmxModelAccess();
 	}
 	
-	public ParserRule getDmxNamespaceRule() {
-		return getDmxNamespaceAccess().getRule();
+	public ParserRule getDmxModelRule() {
+		return getDmxModelAccess().getRule();
 	}
 	
 	//DImport:

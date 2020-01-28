@@ -26,73 +26,48 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class EsmDomainElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmDomain");
+	public class DNamespaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.DNamespace");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Keyword cDomainKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAliasesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
-		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
-		private final Assignment cStateModelAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStateModelEsmEntityStateModelParserRuleCall_5_0 = (RuleCall)cStateModelAssignment_5.eContents().get(0);
+		private final Keyword cDomainKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModelEsmEntityStateModelParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
 		
-		//EsmDomain:
-		//	imports+=DImport*
+		//@Override
+		//DNamespace:
 		//	'domain'
-		//	name=DQualifiedName ('alias' aliases+=ID)*
-		//	description=DRichText?
-		//	stateModel=EsmEntityStateModel;
+		//	name=DQualifiedName
+		//	imports+=DImport*
+		//	model=EsmEntityStateModel;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=DImport* 'domain' name=DQualifiedName ('alias' aliases+=ID)* description=DRichText?
-		//stateModel=EsmEntityStateModel
+		//'domain' name=DQualifiedName imports+=DImport* model=EsmEntityStateModel
 		public Group getGroup() { return cGroup; }
 		
-		//imports+=DImport*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
-		
-		//DImport
-		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
-		
 		//'domain'
-		public Keyword getDomainKeyword_1() { return cDomainKeyword_1; }
+		public Keyword getDomainKeyword_0() { return cDomainKeyword_0; }
 		
 		//name=DQualifiedName
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
+		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
 		
-		//('alias' aliases+=ID)*
-		public Group getGroup_3() { return cGroup_3; }
+		//imports+=DImport*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
 		
-		//'alias'
-		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_3_1() { return cAliasesAssignment_3_1; }
-		
-		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_3_1_0() { return cAliasesIDTerminalRuleCall_3_1_0; }
-		
-		//description=DRichText?
-		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
-		
-		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
-		
-		//stateModel=EsmEntityStateModel
-		public Assignment getStateModelAssignment_5() { return cStateModelAssignment_5; }
+		//model=EsmEntityStateModel
+		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
 		
 		//EsmEntityStateModel
-		public RuleCall getStateModelEsmEntityStateModelParserRuleCall_5_0() { return cStateModelEsmEntityStateModelParserRuleCall_5_0; }
+		public RuleCall getModelEsmEntityStateModelParserRuleCall_3_0() { return cModelEsmEntityStateModelParserRuleCall_3_0; }
 	}
 	public class EsmEntityStateModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmEntityStateModel");
@@ -771,7 +746,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRIGHTRightKeyword_3_0() { return cRIGHTRightKeyword_3_0; }
 	}
 	
-	private final EsmDomainElements pEsmDomain;
+	private final DNamespaceElements pDNamespace;
 	private final EsmEntityStateModelElements pEsmEntityStateModel;
 	private final DExpressionElements pDExpression;
 	private final EsmStateElements pEsmState;
@@ -794,7 +769,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 			DmxGrammarAccess gaDmx) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
-		this.pEsmDomain = new EsmDomainElements();
+		this.pDNamespace = new DNamespaceElements();
 		this.pEsmEntityStateModel = new EsmEntityStateModelElements();
 		this.pDExpression = new DExpressionElements();
 		this.pEsmState = new EsmStateElements();
@@ -836,18 +811,18 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//EsmDomain:
-	//	imports+=DImport*
+	//@Override
+	//DNamespace:
 	//	'domain'
-	//	name=DQualifiedName ('alias' aliases+=ID)*
-	//	description=DRichText?
-	//	stateModel=EsmEntityStateModel;
-	public EsmDomainElements getEsmDomainAccess() {
-		return pEsmDomain;
+	//	name=DQualifiedName
+	//	imports+=DImport*
+	//	model=EsmEntityStateModel;
+	public DNamespaceElements getDNamespaceAccess() {
+		return pDNamespace;
 	}
 	
-	public ParserRule getEsmDomainRule() {
-		return getEsmDomainAccess().getRule();
+	public ParserRule getDNamespaceRule() {
+		return getDNamespaceAccess().getRule();
 	}
 	
 	//EsmEntityStateModel:
@@ -1010,20 +985,17 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxPrimaryExpressionAccess().getRule();
 	}
 	
-	//DmxNamespace:
-	//	imports+=DImport*
-	//	'namespace'
-	//	name=DQualifiedName
-	//	types+=DmxArchetype*
+	//DmxModel:
+	//	{DmxModel} types+=DmxArchetype*
 	//	filters+=DmxFilter*
 	//	// For unit-testing purposes:
 	//	tests+=DmxTest*;
-	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
-		return gaDmx.getDmxNamespaceAccess();
+	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
+		return gaDmx.getDmxModelAccess();
 	}
 	
-	public ParserRule getDmxNamespaceRule() {
-		return getDmxNamespaceAccess().getRule();
+	public ParserRule getDmxModelRule() {
+		return getDmxModelAccess().getRule();
 	}
 	
 	//DImport:

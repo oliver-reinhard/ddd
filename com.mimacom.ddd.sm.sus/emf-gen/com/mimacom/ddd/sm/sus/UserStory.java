@@ -3,9 +3,9 @@
  */
 package com.mimacom.ddd.sm.sus;
 
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.DModel;
 
-import dem.DDomainEvent;
+import com.mimacom.ddd.dm.dem.DemDomainEvent;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -26,12 +26,16 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UserStory extends DNamespace
+public interface UserStory extends DModel
 {
 	/**
 	 * Returns the value of the '<em><b>Sections</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sus.Section}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sections</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sections</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sus.SusPackage#getUserStory_Sections()
@@ -43,14 +47,18 @@ public interface UserStory extends DNamespace
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' reference.
-	 * @see #setEvent(DDomainEvent)
+	 * @see #setEvent(DemDomainEvent)
 	 * @see com.mimacom.ddd.sm.sus.SusPackage#getUserStory_Event()
 	 * @model
 	 * @generated
 	 */
-	DDomainEvent getEvent();
+	DemDomainEvent getEvent();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.sm.sus.UserStory#getEvent <em>Event</em>}' reference.
@@ -60,6 +68,6 @@ public interface UserStory extends DNamespace
 	 * @see #getEvent()
 	 * @generated
 	 */
-	void setEvent(DDomainEvent value);
+	void setEvent(DemDomainEvent value);
 
 } // UserStory

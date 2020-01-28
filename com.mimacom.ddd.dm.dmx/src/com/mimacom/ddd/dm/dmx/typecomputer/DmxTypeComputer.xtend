@@ -120,9 +120,6 @@ class DmxTypeComputer {
 		} else if (target instanceof DAggregate) {
 			return getTypeDescriptor(target, false)
 
-//		} else if (target instanceof DNotification) {
-//			return getTypeDescriptor(target, false)
-
 		} else if (target instanceof DNavigableMember) {
 			return getTypeDescriptor(target.type, target.isCollection || expr.all)
 		}

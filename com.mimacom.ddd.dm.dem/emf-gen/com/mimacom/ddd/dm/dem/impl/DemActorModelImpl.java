@@ -2,7 +2,9 @@
  */
 package com.mimacom.ddd.dm.dem.impl;
 
-import com.mimacom.ddd.dm.dem.DActor;
+import com.mimacom.ddd.dm.base.impl.DModelImpl;
+
+import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemActorModel;
 import com.mimacom.ddd.dm.dem.DemPackage;
 
@@ -31,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class DemActorModelImpl extends DemModelImpl implements DemActorModel
+public class DemActorModelImpl extends DModelImpl implements DemActorModel
 {
 	/**
 	 * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference list.
@@ -41,7 +43,7 @@ public abstract class DemActorModelImpl extends DemModelImpl implements DemActor
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DActor> actors;
+	protected EList<DemActor> actors;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,12 +71,11 @@ public abstract class DemActorModelImpl extends DemModelImpl implements DemActor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<DActor> getActors()
+	public EList<DemActor> getActors()
 	{
 		if (actors == null)
 		{
-			actors = new EObjectContainmentEList<DActor>(DActor.class, this, DemPackage.DEM_ACTOR_MODEL__ACTORS);
+			actors = new EObjectContainmentEList<DemActor>(DemActor.class, this, DemPackage.DEM_ACTOR_MODEL__ACTORS);
 		}
 		return actors;
 	}
@@ -124,7 +125,7 @@ public abstract class DemActorModelImpl extends DemModelImpl implements DemActor
 		{
 			case DemPackage.DEM_ACTOR_MODEL__ACTORS:
 				getActors().clear();
-				getActors().addAll((Collection<? extends DActor>)newValue);
+				getActors().addAll((Collection<? extends DemActor>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -66,7 +66,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case EsmPackage.ESM_DOMAIN: return createEsmDomain();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL: return createEsmEntityStateModel();
 			case EsmPackage.ESM_STATE: return createEsmState();
 			case EsmPackage.ESM_DERIVED_STATE: return createEsmDerivedState();
@@ -122,19 +121,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EsmDomain createEsmDomain()
-	{
-		EsmDomainImpl esmDomain = new EsmDomainImpl();
-		return esmDomain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EsmEntityStateModel createEsmEntityStateModel()
 	{
 		EsmEntityStateModelImplCustom esmEntityStateModel = new EsmEntityStateModelImplCustom();
@@ -146,7 +132,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmState createEsmState()
 	{
 		EsmStateImpl esmState = new EsmStateImpl();
@@ -158,7 +143,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmDerivedState createEsmDerivedState()
 	{
 		EsmDerivedStateImpl esmDerivedState = new EsmDerivedStateImpl();
@@ -170,7 +154,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmCompositeState createEsmCompositeState()
 	{
 		EsmCompositeStateImplCustom esmCompositeState = new EsmCompositeStateImplCustom();
@@ -182,7 +165,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmConcurrentState createEsmConcurrentState()
 	{
 		EsmConcurrentStateImpl esmConcurrentState = new EsmConcurrentStateImpl();
@@ -194,7 +176,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmSubStateModel createEsmSubStateModel()
 	{
 		EsmSubStateModelImplCustom esmSubStateModel = new EsmSubStateModelImplCustom();
@@ -206,7 +187,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmTransition createEsmTransition()
 	{
 		EsmTransitionImplCustom esmTransition = new EsmTransitionImplCustom();
@@ -262,7 +242,6 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmPackage getEsmPackage()
 	{
 		return (EsmPackage)getEPackage();

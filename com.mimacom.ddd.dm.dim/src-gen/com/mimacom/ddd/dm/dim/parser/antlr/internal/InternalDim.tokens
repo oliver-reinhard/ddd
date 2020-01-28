@@ -57,7 +57,7 @@
 'and'=106
 'archetype'=51
 'as'=62
-'component'=21
+'component'=23
 'concept'=86
 'constraint'=25
 'contains'=41
@@ -89,7 +89,7 @@
 'or'=102
 'physical'=34
 'primitive'=27
-'query'=23
+'query'=24
 'redefines'=28
 'references'=88
 'relationship'=87
@@ -103,9 +103,9 @@
 'virtual'=35
 'with'=54
 'xor'=104
-'{'=22
+'{'=21
 '|'=58
-'}'=24
+'}'=22
 RULE_ANY_OTHER=16
 RULE_ID=4
 RULE_LETTER=11

@@ -26,11 +26,15 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SServiceInterface extends Model
+public interface SServiceInterface extends AsmModel
 {
 	/**
 	 * Returns the value of the '<em><b>Interface</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Interface</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interface</em>' reference.
 	 * @see #setInterface(SInformationModel)
@@ -53,6 +57,10 @@ public interface SServiceInterface extends Model
 	/**
 	 * Returns the value of the '<em><b>Core</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Core</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Core</em>' reference.
 	 * @see #setCore(SInformationModel)
@@ -76,6 +84,10 @@ public interface SServiceInterface extends Model
 	 * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SException}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exceptions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exceptions</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceInterface_Exceptions()
@@ -88,6 +100,10 @@ public interface SServiceInterface extends Model
 	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SServiceOperation}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operations</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceInterface_Operations()

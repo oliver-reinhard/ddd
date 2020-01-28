@@ -66,12 +66,13 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 		switch (eClass.getClassifierID())
 		{
 			case BasePackage.DIMPORT: return createDImport();
-			case BasePackage.DINFORMATION_MODEL: return createDInformationModel();
-			case BasePackage.DCONTEXT: return createDContext();
-			case BasePackage.DAGGREGATE: return createDAggregate();
-			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
+			case BasePackage.DNAMESPACE: return createDNamespace();
 			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
 			case BasePackage.DRICH_TEXT: return createDRichText();
+			case BasePackage.DINFORMATION_MODEL: return createDInformationModel();
+			case BasePackage.DAGGREGATE: return createDAggregate();
+			case BasePackage.DCONTEXT: return createDContext();
+			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
 			case BasePackage.DNAMED_PREDICATE: return createDNamedPredicate();
 			case BasePackage.DPRIMITIVE: return createDPrimitive();
 			case BasePackage.DENUMERATION: return createDEnumeration();
@@ -149,46 +150,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DInformationModel createDInformationModel()
+	public DNamespace createDNamespace()
 	{
-		DInformationModelImpl dInformationModel = new DInformationModelImpl();
-		return dInformationModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DContext createDContext()
-	{
-		DContextImpl dContext = new DContextImpl();
-		return dContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DAggregate createDAggregate()
-	{
-		DAggregateImplCustom dAggregate = new DAggregateImplCustom();
-		return dAggregate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DMultiplicity createDMultiplicity()
-	{
-		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
-		return dMultiplicity;
+		DNamespaceImpl dNamespace = new DNamespaceImpl();
+		return dNamespace;
 	}
 
 	/**
@@ -213,6 +178,54 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DRichTextImpl dRichText = new DRichTextImpl();
 		return dRichText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DInformationModel createDInformationModel()
+	{
+		DInformationModelImpl dInformationModel = new DInformationModelImpl();
+		return dInformationModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DAggregate createDAggregate()
+	{
+		DAggregateImplCustom dAggregate = new DAggregateImplCustom();
+		return dAggregate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DContext createDContext()
+	{
+		DContextImpl dContext = new DContextImpl();
+		return dContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DMultiplicity createDMultiplicity()
+	{
+		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
+		return dMultiplicity;
 	}
 
 	/**

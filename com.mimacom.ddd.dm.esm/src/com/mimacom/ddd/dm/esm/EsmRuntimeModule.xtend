@@ -5,9 +5,9 @@ package com.mimacom.ddd.dm.esm
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
-import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider
+import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
-import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
@@ -16,13 +16,13 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
  */
 class EsmRuntimeModule extends AbstractEsmRuntimeModule {
 	
-	override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider()  {
-		return DmxQualifiedNameProvider
-	}
-	
 	override void configureIScopeProviderDelegate(Binder binder) {
 		binder.bind(IScopeProvider)
 		.annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
 		.to(DmxImportedNamespaceAwareLocalScopeProvider);
+	}
+
+	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return DmxResourceDescriptionStrategy;
 	}
 }

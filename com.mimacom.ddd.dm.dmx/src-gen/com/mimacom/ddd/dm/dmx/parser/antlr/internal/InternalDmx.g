@@ -44,7 +44,7 @@ import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "DmxNamespace";
+    	return "DNamespace";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess;
     }
 }
 
-// Entry rule entryRuleDmxNamespace
-entryRuleDmxNamespace returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDmxNamespaceRule()); }
-	iv_ruleDmxNamespace=ruleDmxNamespace
-	{ $current=$iv_ruleDmxNamespace.current; }
+// Entry rule entryRuleDNamespace
+entryRuleDNamespace returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDNamespaceRule()); }
+	iv_ruleDNamespace=ruleDNamespace
+	{ $current=$iv_ruleDNamespace.current; }
 	EOF;
 
-// Rule DmxNamespace
-ruleDmxNamespace returns [EObject current=null]
+// Rule DNamespace
+ruleDNamespace returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -77,43 +77,24 @@ ruleDmxNamespace returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDmxNamespaceAccess().getImportsDImportParserRuleCall_0_0());
-				}
-				lv_imports_0_0=ruleDImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDmxNamespaceRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_0_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_1='namespace'
+		otherlv_0='namespace'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDmxNamespaceAccess().getNamespaceKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDmxNamespaceAccess().getNameDQualifiedNameParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getNameDQualifiedNameParserRuleCall_1_0());
 				}
-				lv_name_2_0=ruleDQualifiedName
+				lv_name_1_0=ruleDQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDmxNamespaceRule());
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
 					}
 					set(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_1_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
@@ -122,17 +103,81 @@ ruleDmxNamespace returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDmxNamespaceAccess().getTypesDmxArchetypeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0());
 				}
-				lv_types_3_0=ruleDmxArchetype
+				lv_imports_2_0=ruleDImport
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDmxNamespaceRule());
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
+					}
+					add(
+						$current,
+						"imports",
+						lv_imports_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getModelDmxModelParserRuleCall_3_0());
+				}
+				lv_model_3_0=ruleDmxModel
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
+					}
+					set(
+						$current,
+						"model",
+						lv_model_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DmxModel");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleDmxModel
+entryRuleDmxModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDmxModelRule()); }
+	iv_ruleDmxModel=ruleDmxModel
+	{ $current=$iv_ruleDmxModel.current; }
+	EOF;
+
+// Rule DmxModel
+ruleDmxModel returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDmxModelAccess().getDmxModelAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDmxModelAccess().getTypesDmxArchetypeParserRuleCall_1_0());
+				}
+				lv_types_1_0=ruleDmxArchetype
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDmxModelRule());
 					}
 					add(
 						$current,
 						"types",
-						lv_types_3_0,
+						lv_types_1_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DmxArchetype");
 					afterParserOrEnumRuleCall();
 				}
@@ -141,17 +186,17 @@ ruleDmxNamespace returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDmxNamespaceAccess().getFiltersDmxFilterParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDmxModelAccess().getFiltersDmxFilterParserRuleCall_2_0());
 				}
-				lv_filters_4_0=ruleDmxFilter
+				lv_filters_2_0=ruleDmxFilter
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDmxNamespaceRule());
+						$current = createModelElementForParent(grammarAccess.getDmxModelRule());
 					}
 					add(
 						$current,
 						"filters",
-						lv_filters_4_0,
+						lv_filters_2_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DmxFilter");
 					afterParserOrEnumRuleCall();
 				}
@@ -160,17 +205,17 @@ ruleDmxNamespace returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDmxNamespaceAccess().getTestsDmxTestParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getDmxModelAccess().getTestsDmxTestParserRuleCall_3_0());
 				}
-				lv_tests_5_0=ruleDmxTest
+				lv_tests_3_0=ruleDmxTest
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDmxNamespaceRule());
+						$current = createModelElementForParent(grammarAccess.getDmxModelRule());
 					}
 					add(
 						$current,
 						"tests",
-						lv_tests_5_0,
+						lv_tests_3_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DmxTest");
 					afterParserOrEnumRuleCall();
 				}

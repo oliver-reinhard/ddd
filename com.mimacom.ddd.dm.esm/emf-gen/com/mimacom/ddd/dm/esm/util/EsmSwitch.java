@@ -3,9 +3,11 @@
  */
 package com.mimacom.ddd.dm.esm.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.esm.*;
 
@@ -77,12 +79,17 @@ public class EsmSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case EsmPackage.ESM_DOMAIN:
+			case EsmPackage.ESM_ENTITY_STATE_MODEL:
 			{
-				EsmDomain esmDomain = (EsmDomain)theEObject;
-				T result = caseEsmDomain(esmDomain);
-				if (result == null) result = caseDNamespace(esmDomain);
-				if (result == null) result = caseDNamedElement(esmDomain);
+				EsmEntityStateModel esmEntityStateModel = (EsmEntityStateModel)theEObject;
+				T result = caseEsmEntityStateModel(esmEntityStateModel);
+				if (result == null) result = caseDModel(esmEntityStateModel);
+				if (result == null) result = caseIEsmStateModel(esmEntityStateModel);
+				if (result == null) result = caseINavigableMemberContainer(esmEntityStateModel);
+				if (result == null) result = caseIStaticReferenceTarget(esmEntityStateModel);
+				if (result == null) result = caseIDiagramRoot(esmEntityStateModel);
+				if (result == null) result = caseDNamedElement(esmEntityStateModel);
+				if (result == null) result = caseIEsmLayout(esmEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,17 +105,6 @@ public class EsmSwitch<T> extends Switch<T>
 				IEsmStateModel iEsmStateModel = (IEsmStateModel)theEObject;
 				T result = caseIEsmStateModel(iEsmStateModel);
 				if (result == null) result = caseIEsmLayout(iEsmStateModel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsmPackage.ESM_ENTITY_STATE_MODEL:
-			{
-				EsmEntityStateModel esmEntityStateModel = (EsmEntityStateModel)theEObject;
-				T result = caseEsmEntityStateModel(esmEntityStateModel);
-				if (result == null) result = caseDNamedElement(esmEntityStateModel);
-				if (result == null) result = caseIEsmStateModel(esmEntityStateModel);
-				if (result == null) result = caseINavigableMemberContainer(esmEntityStateModel);
-				if (result == null) result = caseIEsmLayout(esmEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -176,17 +172,17 @@ public class EsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entity State Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entity State Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEsmDomain(EsmDomain object)
+	public T caseEsmEntityStateModel(EsmEntityStateModel object)
 	{
 		return null;
 	}
@@ -219,22 +215,6 @@ public class EsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIEsmStateModel(IEsmStateModel object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity State Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity State Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEsmEntityStateModel(EsmEntityStateModel object)
 	{
 		return null;
 	}
@@ -368,17 +348,17 @@ public class EsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNamespace(DNamespace object)
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}
@@ -395,6 +375,38 @@ public class EsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDiagramRoot(IDiagramRoot object)
 	{
 		return null;
 	}

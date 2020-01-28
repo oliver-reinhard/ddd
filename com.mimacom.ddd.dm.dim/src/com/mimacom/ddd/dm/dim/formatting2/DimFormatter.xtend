@@ -14,78 +14,75 @@ import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class DimFormatter extends DmxFormatter {
-	
+
 	@Inject extension DimGrammarAccess
 
-	def dispatch void format(DInformationModel domain, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		domain.description.format
-		
-		for (i : domain.imports) {
-			i.append[if (i == domain.imports.last) newLines=2 else newLine]
-		}
-		domain.imports.last.append[newLines = 2]
-		
-		domain.regionFor.assignment(DInformationModelAccess.nameAssignment_5).append[newLines = 2]
-		
-		for (type : domain.types) {
+	def dispatch void format(DInformationModel model, extension IFormattableDocument document) {
+		val open = model.regionFor.keyword(DInformationModelAccess.leftCurlyBracketKeyword_5)
+		val close = model.regionFor.keyword(DInformationModelAccess.rightCurlyBracketKeyword_7)
+		open.append[newLines = 2]
+		interior(open, close)[indent]
+		close.append[newLines = 2]
+
+		for (type : model.types) {
 			type.format
+			type.append[newLines = 2]
 		}
-		for (aggregate : domain.aggregates) {
+		for (aggregate : model.aggregates) {
 			aggregate.format
+			aggregate.append[newLines = (aggregate === model.aggregates.last ? 1 : 2)]
 		}
 	}
-	
+
 	def dispatch void format(DAggregate aggregate, extension IFormattableDocument document) {
 		val open = aggregate.regionFor.keyword(DAggregateAccess.leftCurlyBracketKeyword_4)
 		val close = aggregate.regionFor.keyword(DAggregateAccess.rightCurlyBracketKeyword_7)
 		open.append[newLines = 2]
-		interior(open, close) [indent]
-		
+		interior(open, close)[indent]
+
 		for (query : aggregate.features) {
 			query.format
+			query.append[newLines = 2]
 		}
-		
+
 		for (type : aggregate.types) {
 			type.format
+			type.append[newLines = (type === aggregate.types.last ? 1 : 2)]
 		}
 	}
-	
-	def dispatch void format(DEnumeration  en, extension IFormattableDocument document) {
+
+	def dispatch void format(DEnumeration en, extension IFormattableDocument document) {
 		if (en.literals.size > 3) {
 			val open = en.regionFor.keyword(DEnumerationAccess.leftCurlyBracketKeyword_4)
 			val close = en.regionFor.keyword(DEnumerationAccess.rightCurlyBracketKeyword_7)
 			open.append[newLine]
-			interior(open, close) [indent]
-			
-			for( literal : en.literals) {
+			interior(open, close)[indent]
+
+			for (literal : en.literals) {
 				literal.regionFor.assignment(DLiteralAccess.nameAssignment_0).surround[noSpace]
 			}
-			for( comma : en.regionFor.keywords(DEnumerationAccess.commaKeyword_5_1_0)) {
+			for (comma : en.regionFor.keywords(DEnumerationAccess.commaKeyword_5_1_0)) {
 				comma.append[newLine]
 			}
 			en.literals.last.append[newLine]
-		} 
-		en.append[newLines = 2]
+		}
 	}
-	
+
 	def dispatch void format(DComplexType type, extension IFormattableDocument document) {
 		val open = type.regionFor.keyword(DEntityTypeAccess.leftCurlyBracketKeyword_3)
 		val close = type.regionFor.keyword(DEntityTypeAccess.rightCurlyBracketKeyword_6)
 		open.append[newLine]
-		interior(open, close) [indent]
-		close.append[newLines = 2]
-		
-		for (feature: type.features) {
+		interior(open, close)[indent]
+
+		for (feature : type.features) {
 			feature.append[newLine]
 		}
-		
-		for (constraint: type.constraints) {
+
+		for (constraint : type.constraints) {
 			constraint.append[newLine]
 		}
 	}
-	
+
 	def dispatch void format(DType type, extension IFormattableDocument document) {
-		type.append[newLines = 2]
 	}
 }

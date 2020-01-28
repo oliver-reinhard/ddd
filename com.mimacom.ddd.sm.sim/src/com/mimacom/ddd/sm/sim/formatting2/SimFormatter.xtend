@@ -21,13 +21,7 @@ class SimFormatter extends AbstractFormatter2 {
 	@Inject extension SimGrammarAccess
 
 	def dispatch void format(SInformationModel model, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (i : model.imports) {
-			i.append[if (i == model.imports.last) newLines = 2 else newLine]
-		}
-		model.regionFor.assignment(SInformationModelAccess.nameAssignment_4).append[newLines = 2]
-
-		model.imports.last.append[newLines = 2]
+		model.regionFor.assignment(SInformationModelAccess.nameAssignment_3).append[newLines = 2]
 
 		for (type : model.types) {
 			type.format

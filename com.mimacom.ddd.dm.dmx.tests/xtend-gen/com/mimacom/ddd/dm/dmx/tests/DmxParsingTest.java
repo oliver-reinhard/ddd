@@ -5,12 +5,14 @@ package com.mimacom.ddd.dm.dmx.tests;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.impl.DRichTextImpl;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl;
@@ -45,7 +47,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class DmxParsingTest {
   @Inject
   @Extension
-  private ParseHelper<DmxNamespace> parseHelper;
+  private ParseHelper<DNamespace> parseHelper;
   
   @Inject
   @Extension
@@ -71,7 +73,7 @@ public class DmxParsingTest {
       _builder.newLine();
       _builder.append("test e6 { UNDEFINED }");
       _builder.newLine();
-      final DmxNamespace result = this.parseHelper.parse(_builder);
+      final DNamespace result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -80,7 +82,8 @@ public class DmxParsingTest {
       String _join = IterableExtensions.join(errors, "; ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      final EList<DmxTest> tests = result.getTests();
+      DModel _model = result.getModel();
+      final EList<DmxTest> tests = ((DmxModel) _model).getTests();
       final DExpression e0 = tests.get(0).getExpr();
       Assertions.assertEquals(DmxBooleanLiteralImpl.class, e0.getClass());
       Assertions.assertEquals(Boolean.valueOf(true), Boolean.valueOf(((DmxBooleanLiteralImpl) e0).isValue()));
@@ -145,7 +148,7 @@ public class DmxParsingTest {
       _builder.append(YY);
       _builder.append(" }");
       _builder.newLineIfNotEmpty();
-      final DmxNamespace result = this.parseHelper.parse(_builder);
+      final DNamespace result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -154,7 +157,8 @@ public class DmxParsingTest {
       String _join = IterableExtensions.join(errors, "; ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      final EList<DmxTest> tests = result.getTests();
+      DModel _model = result.getModel();
+      final EList<DmxTest> tests = ((DmxModel) _model).getTests();
       {
         final DExpression e = tests.get(0).getExpr();
         Assertions.assertEquals(DmxNaturalLiteralImpl.class, e.getClass());
@@ -211,7 +215,7 @@ public class DmxParsingTest {
       _builder.newLine();
       _builder.append("test T3 { A.b.c }");
       _builder.newLine();
-      final DmxNamespace result = this.parseHelper.parse(_builder);
+      final DNamespace result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -220,7 +224,8 @@ public class DmxParsingTest {
       String _join = IterableExtensions.join(errors, " } ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      final EList<DmxTest> tests = result.getTests();
+      DModel _model = result.getModel();
+      final EList<DmxTest> tests = ((DmxModel) _model).getTests();
       final DExpression e0 = tests.get(0).getExpr();
       Assertions.assertEquals(DmxMemberNavigationImpl.class, e0.getClass());
       Assertions.assertTrue(((DmxMemberNavigationImpl) e0).basicGetMember().eIsProxy());
@@ -275,7 +280,7 @@ public class DmxParsingTest {
       _builder.newLine();
       _builder.append("test T3 { A.b.c := 3 }");
       _builder.newLine();
-      final DmxNamespace result = this.parseHelper.parse(_builder);
+      final DNamespace result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -284,7 +289,8 @@ public class DmxParsingTest {
       String _join = IterableExtensions.join(errors, "; ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      final EList<DmxTest> tests = result.getTests();
+      DModel _model = result.getModel();
+      final EList<DmxTest> tests = ((DmxModel) _model).getTests();
       final DExpression e0 = tests.get(0).getExpr();
       Assertions.assertEquals(DmxAssignmentImpl.class, e0.getClass());
       Assertions.assertTrue(((DmxAssignmentImpl) e0).basicGetAssignToMember().eIsProxy());

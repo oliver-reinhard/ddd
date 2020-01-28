@@ -3,6 +3,7 @@ package com.mimacom.ddd.sm.sim.derivedState
 import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
@@ -27,8 +28,11 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		if (!preLinkingPhase && ! resource.parseResult.hasSyntaxErrors) {
 			derivedStateInstalled = true
 			context.init(resource)
-			val model = resource.allContents.head as SInformationModel
-			processInformationModel(model, context)
+			val namespace = resource.allContents.head as DNamespace
+			val model = namespace.model as SInformationModel
+			if (model !== null) {
+				processInformationModel(model, context)
+			}
 		}
 	}
 
@@ -59,7 +63,8 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 					val syntheticType = model.processTypeDeduction(definition, rule, context)
 					if (definition instanceof SComplexTypeDeduction) {
 						complexSyntheticTypes.add(
-							new SyntheticFeatureContainerDescriptor(syntheticType as DComplexType, definition, source as DComplexType))
+							new SyntheticFeatureContainerDescriptor(syntheticType as DComplexType, definition,
+								source as DComplexType))
 					}
 				}
 			}
@@ -74,7 +79,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		for (aggregate : originalAggregates) {
 			aggregate.processAggregateTypes(model, syntheticComplexTypesAcceptor, context)
 		}
-		
+
 		// Third: add the features to the new synthetic types:
 		for (syntheticComplexTypesDescriptor : syntheticComplexTypesAcceptor) {
 			syntheticComplexTypesDescriptor.addSyntheticFeatures(context)

@@ -3,9 +3,11 @@
  */
 package com.mimacom.ddd.dm.esm.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.esm.*;
 
@@ -80,9 +82,9 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 		new EsmSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseEsmDomain(EsmDomain object)
+			public Adapter caseEsmEntityStateModel(EsmEntityStateModel object)
 			{
-				return createEsmDomainAdapter();
+				return createEsmEntityStateModelAdapter();
 			}
 			@Override
 			public Adapter caseIEsmLayout(IEsmLayout object)
@@ -93,11 +95,6 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIEsmStateModel(IEsmStateModel object)
 			{
 				return createIEsmStateModelAdapter();
-			}
-			@Override
-			public Adapter caseEsmEntityStateModel(EsmEntityStateModel object)
-			{
-				return createEsmEntityStateModelAdapter();
 			}
 			@Override
 			public Adapter caseIEsmState(IEsmState object)
@@ -140,14 +137,24 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseDNamespace(DNamespace object)
+			public Adapter caseDModel(DModel object)
 			{
-				return createDNamespaceAdapter();
+				return createDModelAdapter();
 			}
 			@Override
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
 			{
 				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
+			{
+				return createIStaticReferenceTargetAdapter();
+			}
+			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -172,16 +179,16 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmDomain <em>Domain</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel <em>Entity State Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.esm.EsmDomain
+	 * @see com.mimacom.ddd.dm.esm.EsmEntityStateModel
 	 * @generated
 	 */
-	public Adapter createEsmDomainAdapter()
+	public Adapter createEsmEntityStateModelAdapter()
 	{
 		return null;
 	}
@@ -212,21 +219,6 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIEsmStateModelAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel <em>Entity State Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.esm.EsmEntityStateModel
-	 * @generated
-	 */
-	public Adapter createEsmEntityStateModelAdapter()
 	{
 		return null;
 	}
@@ -352,16 +344,16 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DModel <em>DModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @see com.mimacom.ddd.dm.base.DModel
 	 * @generated
 	 */
-	public Adapter createDNamespaceAdapter()
+	public Adapter createDModelAdapter()
 	{
 		return null;
 	}
@@ -377,6 +369,36 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @generated
+	 */
+	public Adapter createIStaticReferenceTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
 	{
 		return null;
 	}

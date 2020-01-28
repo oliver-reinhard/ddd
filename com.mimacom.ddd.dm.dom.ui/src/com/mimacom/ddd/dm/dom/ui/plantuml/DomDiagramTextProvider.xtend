@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.dmx.DmxComplexObject
 import com.mimacom.ddd.dm.dmx.DmxDetail
 import com.mimacom.ddd.dm.dmx.DmxEntity
@@ -55,12 +56,12 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
 		// Retrieve  "semantic" EMF model from XtextEditor
 		val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-		val DomModel model = document.readOnly [
-			return if (contents.head instanceof DomModel) contents.head as DomModel else null
+		val DNamespace ns = document.readOnly [
+			return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
 		]
-
+		val model = ns.model as DomModel
 		val result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).children
-		if (! result.empty) {
+		if (model !== null && ! result.empty) {
 			return "note \"Object model has validation errors.\" as N1"
 		} else if (model !== null && ! (model.snapshots.empty)) {
 			return snapshots(model)

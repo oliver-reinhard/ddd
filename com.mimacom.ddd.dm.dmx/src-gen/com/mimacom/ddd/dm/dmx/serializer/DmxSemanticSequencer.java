@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -30,7 +31,7 @@ import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -71,6 +72,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
+				return; 
+			case BasePackage.DNAMESPACE:
+				sequence_DNamespace(context, (DNamespace) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -229,8 +233,8 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
-			case DmxPackage.DMX_NAMESPACE:
-				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+			case DmxPackage.DMX_MODEL:
+				sequence_DmxModel(context, (DmxModel) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NATURAL_LITERAL:
 				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
@@ -287,6 +291,18 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (shorthand=DMultiplicityShorthand | (minOccurs=NATURAL maxOccurs=MULTIPLICITY))
 	 */
 	protected void sequence_DMultiplicity(ISerializationContext context, DMultiplicity semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DNamespace returns DNamespace
+	 *
+	 * Constraint:
+	 *     (name=DQualifiedName imports+=DImport* model=DmxModel)
+	 */
+	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -938,12 +954,12 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DmxNamespace returns DmxNamespace
+	 *     DmxModel returns DmxModel
 	 *
 	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName types+=DmxArchetype* filters+=DmxFilter* tests+=DmxTest*)
+	 *     (types+=DmxArchetype* filters+=DmxFilter* tests+=DmxTest*)
 	 */
-	protected void sequence_DmxNamespace(ISerializationContext context, DmxNamespace semanticObject) {
+	protected void sequence_DmxModel(ISerializationContext context, DmxModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

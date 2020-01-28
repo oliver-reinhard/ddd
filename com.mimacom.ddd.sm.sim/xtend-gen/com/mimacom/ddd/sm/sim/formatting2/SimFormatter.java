@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.sm.sim.formatting2;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
@@ -40,27 +39,10 @@ public class SimFormatter extends AbstractFormatter2 {
   private SimGrammarAccess _simGrammarAccess;
   
   protected void _format(final SInformationModel model, @Extension final IFormattableDocument document) {
-    EList<DImport> _imports = model.getImports();
-    for (final DImport i : _imports) {
-      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-        DImport _last = IterableExtensions.<DImport>last(model.getImports());
-        boolean _equals = Objects.equal(i, _last);
-        if (_equals) {
-          it.setNewLines(2);
-        } else {
-          it.newLine();
-        }
-      };
-      document.<DImport>append(i, _function);
-    }
-    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_4()), _function_1);
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.<DImport>append(IterableExtensions.<DImport>last(model.getImports()), _function_2);
+    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_3()), _function);
     EList<DType> _types = model.getTypes();
     for (final DType type : _types) {
       document.<DType>format(type);

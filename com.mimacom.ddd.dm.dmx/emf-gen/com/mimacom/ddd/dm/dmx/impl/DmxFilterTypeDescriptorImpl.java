@@ -123,7 +123,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DmxBaseType getSingle()
 	{
 		return single;
@@ -134,7 +133,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSingle(DmxBaseType newSingle)
 	{
 		DmxBaseType oldSingle = single;
@@ -148,7 +146,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DmxBaseTypeSet getMultiple()
 	{
 		if (multiple != null && multiple.eIsProxy())
@@ -179,7 +176,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMultiple(DmxBaseTypeSet newMultiple)
 	{
 		DmxBaseTypeSet oldMultiple = multiple;
@@ -193,7 +189,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isCollection()
 	{
 		return collection;
@@ -204,7 +199,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setCollection(boolean newCollection)
 	{
 		boolean oldCollection = collection;
@@ -218,7 +212,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isMultiTyped()
 	{
 		// TODO: implement this method to return the 'Multi Typed' attribute
@@ -231,7 +224,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMultiTyped(boolean newMultiTyped)
 	{
 		// TODO: implement this method to set the 'Multi Typed' attribute
@@ -244,7 +236,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isCompatible(DmxBaseType type, boolean collection)
 	{
 		// TODO: implement this method
@@ -257,7 +248,6 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isCompatible(DmxBaseType type)
 	{
 		// TODO: implement this method
@@ -390,7 +380,7 @@ public class DmxFilterTypeDescriptorImpl extends MinimalEObjectImpl.Container im
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (single: ");
 		result.append(single);
 		result.append(", collection: ");

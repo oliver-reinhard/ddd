@@ -12,8 +12,8 @@ import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
@@ -224,14 +224,19 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabModelRuleAdapter();
 			}
 			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
+			}
+			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
 			{
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseDNamespace(DNamespace object)
+			public Adapter caseDModel(DModel object)
 			{
-				return createDNamespaceAdapter();
+				return createDModelAdapter();
 			}
 			@Override
 			public Adapter caseIAggregateContainer(IAggregateContainer object)
@@ -267,11 +272,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIDeducibleElement(IDeducibleElement object)
 			{
 				return createIDeducibleElementAdapter();
-			}
-			@Override
-			public Adapter caseIDiagramRoot(IDiagramRoot object)
-			{
-				return createIDiagramRootAdapter();
 			}
 			@Override
 			public Adapter caseDAggregate(DAggregate object)
@@ -746,6 +746,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -761,16 +776,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DModel <em>DModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @see com.mimacom.ddd.dm.base.DModel
 	 * @generated
 	 */
-	public Adapter createDNamespaceAdapter()
+	public Adapter createDModelAdapter()
 	{
 		return null;
 	}
@@ -876,21 +891,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIDeducibleElementAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
-	 * @generated
-	 */
-	public Adapter createIDiagramRootAdapter()
 	{
 		return null;
 	}

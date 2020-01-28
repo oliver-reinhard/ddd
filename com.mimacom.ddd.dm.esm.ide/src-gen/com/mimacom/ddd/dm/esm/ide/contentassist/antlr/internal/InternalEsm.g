@@ -50,25 +50,25 @@ import com.mimacom.ddd.dm.esm.services.EsmGrammarAccess;
 	}
 }
 
-// Entry rule entryRuleEsmDomain
-entryRuleEsmDomain
+// Entry rule entryRuleDNamespace
+entryRuleDNamespace
 :
-{ before(grammarAccess.getEsmDomainRule()); }
-	 ruleEsmDomain
-{ after(grammarAccess.getEsmDomainRule()); } 
+{ before(grammarAccess.getDNamespaceRule()); }
+	 ruleDNamespace
+{ after(grammarAccess.getDNamespaceRule()); } 
 	 EOF 
 ;
 
-// Rule EsmDomain
-ruleEsmDomain 
+// Rule DNamespace
+ruleDNamespace 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getEsmDomainAccess().getGroup()); }
-		(rule__EsmDomain__Group__0)
-		{ after(grammarAccess.getEsmDomainAccess().getGroup()); }
+		{ before(grammarAccess.getDNamespaceAccess().getGroup()); }
+		(rule__DNamespace__Group__0)
+		{ after(grammarAccess.getDNamespaceAccess().getGroup()); }
 	)
 ;
 finally {
@@ -2732,215 +2732,107 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__0
+rule__DNamespace__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__EsmDomain__Group__0__Impl
-	rule__EsmDomain__Group__1
+	rule__DNamespace__Group__0__Impl
+	rule__DNamespace__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__0__Impl
+rule__DNamespace__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getEsmDomainAccess().getImportsAssignment_0()); }
-	(rule__EsmDomain__ImportsAssignment_0)*
-	{ after(grammarAccess.getEsmDomainAccess().getImportsAssignment_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__EsmDomain__Group__1__Impl
-	rule__EsmDomain__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getEsmDomainAccess().getDomainKeyword_1()); }
+	{ before(grammarAccess.getDNamespaceAccess().getDomainKeyword_0()); }
 	'domain'
-	{ after(grammarAccess.getEsmDomainAccess().getDomainKeyword_1()); }
+	{ after(grammarAccess.getDNamespaceAccess().getDomainKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__2
+rule__DNamespace__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__EsmDomain__Group__2__Impl
-	rule__EsmDomain__Group__3
+	rule__DNamespace__Group__1__Impl
+	rule__DNamespace__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__2__Impl
+rule__DNamespace__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getEsmDomainAccess().getNameAssignment_2()); }
-	(rule__EsmDomain__NameAssignment_2)
-	{ after(grammarAccess.getEsmDomainAccess().getNameAssignment_2()); }
+	{ before(grammarAccess.getDNamespaceAccess().getNameAssignment_1()); }
+	(rule__DNamespace__NameAssignment_1)
+	{ after(grammarAccess.getDNamespaceAccess().getNameAssignment_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__3
+rule__DNamespace__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__EsmDomain__Group__3__Impl
-	rule__EsmDomain__Group__4
+	rule__DNamespace__Group__2__Impl
+	rule__DNamespace__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__3__Impl
+rule__DNamespace__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getEsmDomainAccess().getGroup_3()); }
-	(rule__EsmDomain__Group_3__0)*
-	{ after(grammarAccess.getEsmDomainAccess().getGroup_3()); }
+	{ before(grammarAccess.getDNamespaceAccess().getImportsAssignment_2()); }
+	(rule__DNamespace__ImportsAssignment_2)*
+	{ after(grammarAccess.getDNamespaceAccess().getImportsAssignment_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__4
+rule__DNamespace__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__EsmDomain__Group__4__Impl
-	rule__EsmDomain__Group__5
+	rule__DNamespace__Group__3__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__Group__4__Impl
+rule__DNamespace__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getEsmDomainAccess().getDescriptionAssignment_4()); }
-	(rule__EsmDomain__DescriptionAssignment_4)?
-	{ after(grammarAccess.getEsmDomainAccess().getDescriptionAssignment_4()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group__5
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__EsmDomain__Group__5__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group__5__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getEsmDomainAccess().getStateModelAssignment_5()); }
-	(rule__EsmDomain__StateModelAssignment_5)
-	{ after(grammarAccess.getEsmDomainAccess().getStateModelAssignment_5()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__EsmDomain__Group_3__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__EsmDomain__Group_3__0__Impl
-	rule__EsmDomain__Group_3__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group_3__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getEsmDomainAccess().getAliasKeyword_3_0()); }
-	'alias'
-	{ after(grammarAccess.getEsmDomainAccess().getAliasKeyword_3_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group_3__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__EsmDomain__Group_3__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__Group_3__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getEsmDomainAccess().getAliasesAssignment_3_1()); }
-	(rule__EsmDomain__AliasesAssignment_3_1)
-	{ after(grammarAccess.getEsmDomainAccess().getAliasesAssignment_3_1()); }
+	{ before(grammarAccess.getDNamespaceAccess().getModelAssignment_3()); }
+	(rule__DNamespace__ModelAssignment_3)
+	{ after(grammarAccess.getDNamespaceAccess().getModelAssignment_3()); }
 )
 ;
 finally {
@@ -10726,75 +10618,45 @@ finally {
 }
 
 
-rule__EsmDomain__ImportsAssignment_0
+rule__DNamespace__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEsmDomainAccess().getImportsDImportParserRuleCall_0_0()); }
-		ruleDImport
-		{ after(grammarAccess.getEsmDomainAccess().getImportsDImportParserRuleCall_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__NameAssignment_2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEsmDomainAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
+		{ before(grammarAccess.getDNamespaceAccess().getNameDQualifiedNameParserRuleCall_1_0()); }
 		ruleDQualifiedName
-		{ after(grammarAccess.getEsmDomainAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
+		{ after(grammarAccess.getDNamespaceAccess().getNameDQualifiedNameParserRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__AliasesAssignment_3_1
+rule__DNamespace__ImportsAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEsmDomainAccess().getAliasesIDTerminalRuleCall_3_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getEsmDomainAccess().getAliasesIDTerminalRuleCall_3_1_0()); }
+		{ before(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0()); }
+		ruleDImport
+		{ after(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EsmDomain__DescriptionAssignment_4
+rule__DNamespace__ModelAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEsmDomainAccess().getDescriptionDRichTextParserRuleCall_4_0()); }
-		ruleDRichText
-		{ after(grammarAccess.getEsmDomainAccess().getDescriptionDRichTextParserRuleCall_4_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EsmDomain__StateModelAssignment_5
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEsmDomainAccess().getStateModelEsmEntityStateModelParserRuleCall_5_0()); }
+		{ before(grammarAccess.getDNamespaceAccess().getModelEsmEntityStateModelParserRuleCall_3_0()); }
 		ruleEsmEntityStateModel
-		{ after(grammarAccess.getEsmDomainAccess().getStateModelEsmEntityStateModelParserRuleCall_5_0()); }
+		{ after(grammarAccess.getDNamespaceAccess().getModelEsmEntityStateModelParserRuleCall_3_0()); }
 	)
 ;
 finally {

@@ -3,22 +3,60 @@
  */
 package com.mimacom.ddd.dm.dmx.formatting2;
 
+import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
+import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class DmxFormatter extends AbstractFormatter2 {
-  protected void _format(final DmxNamespace model, @Extension final IFormattableDocument document) {
+  @Inject
+  @Extension
+  private DmxGrammarAccess _dmxGrammarAccess;
+  
+  protected void _format(final DNamespace ns, @Extension final IFormattableDocument document) {
+    EList<DImport> _imports = ns.getImports();
+    for (final DImport i : _imports) {
+      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+        DImport _last = IterableExtensions.<DImport>last(ns.getImports());
+        boolean _equals = Objects.equal(i, _last);
+        if (_equals) {
+          it.setNewLines(2);
+        } else {
+          it.newLine();
+        }
+      };
+      document.<DImport>append(i, _function);
+    }
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(2);
+    };
+    document.<DImport>append(IterableExtensions.<DImport>last(ns.getImports()), _function_1);
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(2);
+    };
+    document.append(this.textRegionExtensions.regionFor(ns).assignment(this._dmxGrammarAccess.getDNamespaceAccess().getNameAssignment_1()), _function_2);
+    document.<DModel>format(ns.getModel());
+  }
+  
+  protected void _format(final DmxModel model, @Extension final IFormattableDocument document) {
     EList<DmxTest> _tests = model.getTests();
     for (final DmxTest test : _tests) {
       document.<DExpression>format(test.getExpr());
@@ -39,14 +77,17 @@ public class DmxFormatter extends AbstractFormatter2 {
     if (dRichText instanceof DRichText) {
       _format((DRichText)dRichText, document);
       return;
-    } else if (dRichText instanceof DmxNamespace) {
-      _format((DmxNamespace)dRichText, document);
+    } else if (dRichText instanceof DmxModel) {
+      _format((DmxModel)dRichText, document);
       return;
     } else if (dRichText instanceof XtextResource) {
       _format((XtextResource)dRichText, document);
       return;
     } else if (dRichText instanceof DExpression) {
       _format((DExpression)dRichText, document);
+      return;
+    } else if (dRichText instanceof DNamespace) {
+      _format((DNamespace)dRichText, document);
       return;
     } else if (dRichText instanceof EObject) {
       _format((EObject)dRichText, document);

@@ -32,40 +32,13 @@ public interface BaseFactory extends EFactory
 	DImport createDImport();
 
 	/**
-	 * Returns a new object of class '<em>DInformation Model</em>'.
+	 * Returns a new object of class '<em>DNamespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DInformation Model</em>'.
+	 * @return a new object of class '<em>DNamespace</em>'.
 	 * @generated
 	 */
-	DInformationModel createDInformationModel();
-
-	/**
-	 * Returns a new object of class '<em>DContext</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DContext</em>'.
-	 * @generated
-	 */
-	DContext createDContext();
-
-	/**
-	 * Returns a new object of class '<em>DAggregate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DAggregate</em>'.
-	 * @generated
-	 */
-	DAggregate createDAggregate();
-
-	/**
-	 * Returns a new object of class '<em>DMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DMultiplicity</em>'.
-	 * @generated
-	 */
-	DMultiplicity createDMultiplicity();
+	DNamespace createDNamespace();
 
 	/**
 	 * Returns a new object of class '<em>DText Segment</em>'.
@@ -84,6 +57,42 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DRichText createDRichText();
+
+	/**
+	 * Returns a new object of class '<em>DInformation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DInformation Model</em>'.
+	 * @generated
+	 */
+	DInformationModel createDInformationModel();
+
+	/**
+	 * Returns a new object of class '<em>DAggregate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DAggregate</em>'.
+	 * @generated
+	 */
+	DAggregate createDAggregate();
+
+	/**
+	 * Returns a new object of class '<em>DContext</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DContext</em>'.
+	 * @generated
+	 */
+	DContext createDContext();
+
+	/**
+	 * Returns a new object of class '<em>DMultiplicity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DMultiplicity</em>'.
+	 * @generated
+	 */
+	DMultiplicity createDMultiplicity();
 
 	/**
 	 * Returns a new object of class '<em>DNamed Predicate</em>'.

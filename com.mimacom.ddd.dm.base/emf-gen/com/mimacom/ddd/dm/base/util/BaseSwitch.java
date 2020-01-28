@@ -94,17 +94,11 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DINFORMATION_MODEL:
+			case BasePackage.DMODEL:
 			{
-				DInformationModel dInformationModel = (DInformationModel)theEObject;
-				T result = caseDInformationModel(dInformationModel);
-				if (result == null) result = caseDNamespace(dInformationModel);
-				if (result == null) result = caseIAggregateContainer(dInformationModel);
-				if (result == null) result = caseITypeContainer(dInformationModel);
-				if (result == null) result = caseIStaticReferenceTarget(dInformationModel);
-				if (result == null) result = caseIDeducibleElement(dInformationModel);
-				if (result == null) result = caseIDiagramRoot(dInformationModel);
-				if (result == null) result = caseDNamedElement(dInformationModel);
+				DModel dModel = (DModel)theEObject;
+				T result = caseDModel(dModel);
+				if (result == null) result = caseDNamedElement(dModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,98 +109,11 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.IAGGREGATE_CONTAINER:
-			{
-				IAggregateContainer iAggregateContainer = (IAggregateContainer)theEObject;
-				T result = caseIAggregateContainer(iAggregateContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.ITYPE_CONTAINER:
-			{
-				ITypeContainer iTypeContainer = (ITypeContainer)theEObject;
-				T result = caseITypeContainer(iTypeContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.IFEATURE_CONTAINER:
-			{
-				IFeatureContainer iFeatureContainer = (IFeatureContainer)theEObject;
-				T result = caseIFeatureContainer(iFeatureContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BasePackage.ISTATIC_REFERENCE_TARGET:
 			{
 				IStaticReferenceTarget iStaticReferenceTarget = (IStaticReferenceTarget)theEObject;
 				T result = caseIStaticReferenceTarget(iStaticReferenceTarget);
 				if (result == null) result = caseDNamedElement(iStaticReferenceTarget);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.IDEDUCTION_DEFINITION:
-			{
-				IDeductionDefinition iDeductionDefinition = (IDeductionDefinition)theEObject;
-				T result = caseIDeductionDefinition(iDeductionDefinition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.IDEDUCIBLE_ELEMENT:
-			{
-				IDeducibleElement iDeducibleElement = (IDeducibleElement)theEObject;
-				T result = caseIDeducibleElement(iDeducibleElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DDEDUCTION_RULE:
-			{
-				DDeductionRule dDeductionRule = (DDeductionRule)theEObject;
-				T result = caseDDeductionRule(dDeductionRule);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DCONTEXT:
-			{
-				DContext dContext = (DContext)theEObject;
-				T result = caseDContext(dContext);
-				if (result == null) result = caseDNavigableMember(dContext);
-				if (result == null) result = caseDNamedElement(dContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DAGGREGATE:
-			{
-				DAggregate dAggregate = (DAggregate)theEObject;
-				T result = caseDAggregate(dAggregate);
-				if (result == null) result = caseITypeContainer(dAggregate);
-				if (result == null) result = caseIFeatureContainer(dAggregate);
-				if (result == null) result = caseINavigableMemberContainer(dAggregate);
-				if (result == null) result = caseIStaticReferenceTarget(dAggregate);
-				if (result == null) result = caseIDeducibleElement(dAggregate);
-				if (result == null) result = caseIDiagramRoot(dAggregate);
-				if (result == null) result = caseDNamedElement(dAggregate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DNAVIGABLE_MEMBER:
-			{
-				DNavigableMember dNavigableMember = (DNavigableMember)theEObject;
-				T result = caseDNavigableMember(dNavigableMember);
-				if (result == null) result = caseDNamedElement(dNavigableMember);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.INAVIGABLE_MEMBER_CONTAINER:
-			{
-				INavigableMemberContainer iNavigableMemberContainer = (INavigableMemberContainer)theEObject;
-				T result = caseINavigableMemberContainer(iNavigableMemberContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DMULTIPLICITY:
-			{
-				DMultiplicity dMultiplicity = (DMultiplicity)theEObject;
-				T result = caseDMultiplicity(dMultiplicity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -239,6 +146,107 @@ public class BaseSwitch<T> extends Switch<T>
 				T result = caseDRichText(dRichText);
 				if (result == null) result = caseDExpression(dRichText);
 				if (result == null) result = caseIRichTextSegment(dRichText);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.IDEDUCTION_DEFINITION:
+			{
+				IDeductionDefinition iDeductionDefinition = (IDeductionDefinition)theEObject;
+				T result = caseIDeductionDefinition(iDeductionDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.IDEDUCIBLE_ELEMENT:
+			{
+				IDeducibleElement iDeducibleElement = (IDeducibleElement)theEObject;
+				T result = caseIDeducibleElement(iDeducibleElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DDEDUCTION_RULE:
+			{
+				DDeductionRule dDeductionRule = (DDeductionRule)theEObject;
+				T result = caseDDeductionRule(dDeductionRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DINFORMATION_MODEL:
+			{
+				DInformationModel dInformationModel = (DInformationModel)theEObject;
+				T result = caseDInformationModel(dInformationModel);
+				if (result == null) result = caseDModel(dInformationModel);
+				if (result == null) result = caseIAggregateContainer(dInformationModel);
+				if (result == null) result = caseITypeContainer(dInformationModel);
+				if (result == null) result = caseIStaticReferenceTarget(dInformationModel);
+				if (result == null) result = caseIDeducibleElement(dInformationModel);
+				if (result == null) result = caseIDiagramRoot(dInformationModel);
+				if (result == null) result = caseDNamedElement(dInformationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.IAGGREGATE_CONTAINER:
+			{
+				IAggregateContainer iAggregateContainer = (IAggregateContainer)theEObject;
+				T result = caseIAggregateContainer(iAggregateContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.ITYPE_CONTAINER:
+			{
+				ITypeContainer iTypeContainer = (ITypeContainer)theEObject;
+				T result = caseITypeContainer(iTypeContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.IFEATURE_CONTAINER:
+			{
+				IFeatureContainer iFeatureContainer = (IFeatureContainer)theEObject;
+				T result = caseIFeatureContainer(iFeatureContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DAGGREGATE:
+			{
+				DAggregate dAggregate = (DAggregate)theEObject;
+				T result = caseDAggregate(dAggregate);
+				if (result == null) result = caseITypeContainer(dAggregate);
+				if (result == null) result = caseIFeatureContainer(dAggregate);
+				if (result == null) result = caseINavigableMemberContainer(dAggregate);
+				if (result == null) result = caseIStaticReferenceTarget(dAggregate);
+				if (result == null) result = caseIDeducibleElement(dAggregate);
+				if (result == null) result = caseIDiagramRoot(dAggregate);
+				if (result == null) result = caseDNamedElement(dAggregate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DNAVIGABLE_MEMBER:
+			{
+				DNavigableMember dNavigableMember = (DNavigableMember)theEObject;
+				T result = caseDNavigableMember(dNavigableMember);
+				if (result == null) result = caseDNamedElement(dNavigableMember);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.INAVIGABLE_MEMBER_CONTAINER:
+			{
+				INavigableMemberContainer iNavigableMemberContainer = (INavigableMemberContainer)theEObject;
+				T result = caseINavigableMemberContainer(iNavigableMemberContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DCONTEXT:
+			{
+				DContext dContext = (DContext)theEObject;
+				T result = caseDContext(dContext);
+				if (result == null) result = caseDNavigableMember(dContext);
+				if (result == null) result = caseDNamedElement(dContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DMULTIPLICITY:
+			{
+				DMultiplicity dMultiplicity = (DMultiplicity)theEObject;
+				T result = caseDMultiplicity(dMultiplicity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -490,17 +498,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DInformation Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DInformation Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDInformationModel(DInformationModel object)
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}
@@ -522,54 +530,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IAggregate Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IAggregate Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIAggregateContainer(IAggregateContainer object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IType Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IType Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseITypeContainer(ITypeContainer object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IFeature Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IFeature Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIFeatureContainer(IFeatureContainer object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -581,134 +541,6 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIDeductionDefinition(IDeductionDefinition object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIDeducibleElement(IDeducibleElement object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDDeductionRule(DDeductionRule object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DContext</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DContext</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDContext(DContext object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DAggregate</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DAggregate</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDAggregate(DAggregate object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDNavigableMember(DNavigableMember object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINavigableMemberContainer(INavigableMemberContainer object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DMultiplicity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDMultiplicity(DMultiplicity object)
 	{
 		return null;
 	}
@@ -773,6 +605,198 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDRichText(DRichText object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDeductionDefinition(IDeductionDefinition object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDeducibleElement(IDeducibleElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDDeductionRule(DDeductionRule object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DInformation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DInformation Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDInformationModel(DInformationModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IAggregate Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IAggregate Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIAggregateContainer(IAggregateContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IType Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IType Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypeContainer(ITypeContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IFeature Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IFeature Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIFeatureContainer(IFeatureContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DAggregate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DAggregate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDAggregate(DAggregate object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNavigableMember(DNavigableMember object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DContext</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DContext</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDContext(DContext object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DMultiplicity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DMultiplicity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDMultiplicity(DMultiplicity object)
 	{
 		return null;
 	}

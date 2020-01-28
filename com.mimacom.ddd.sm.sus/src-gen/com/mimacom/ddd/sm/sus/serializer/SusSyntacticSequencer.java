@@ -25,7 +25,7 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
-	protected AbstractElementAlias match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1;
+	protected AbstractElementAlias match_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -34,7 +34,7 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
-		match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealisesKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealizesKeyword_4_0_1()));
+		match_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealisesKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealizesKeyword_3_0_1()));
 	}
 	
 	@Override
@@ -104,8 +104,8 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
 				emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1.equals(syntax))
-				emit_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1.equals(syntax))
+				emit_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -211,9 +211,9 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'realises' | 'realizes'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=DQualifiedName (ambiguity) event=[DDomainEvent|DQualifiedName]
+	 *     name=DQualifiedName (ambiguity) event=[DemDomainEvent|DQualifiedName]
 	 */
-	protected void emit_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

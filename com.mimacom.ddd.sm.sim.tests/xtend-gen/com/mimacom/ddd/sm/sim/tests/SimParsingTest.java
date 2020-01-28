@@ -5,8 +5,7 @@ package com.mimacom.ddd.sm.sim.tests;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.DInformationModel;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -26,10 +25,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class SimParsingTest {
   @Inject
-  private ParseHelper<DInformationModel> dmParseHelper;
+  private ParseHelper<DNamespace> dmxParseHelper;
   
   @Inject
-  private ParseHelper<SInformationModel> smParseHelper;
+  private ParseHelper<DNamespace> dmParseHelper;
+  
+  @Inject
+  private ParseHelper<DNamespace> smParseHelper;
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
@@ -38,34 +40,59 @@ public class SimParsingTest {
   public void grabArchetype() {
     try {
       final ResourceSet resourceSet = this.resourceSetProvider.get();
+      this.dmxParseHelper.fileExtension = ".dmx";
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("domain DM");
+      _builder.append("namespace dm.types");
       _builder.newLine();
-      _builder.append("archetype DT { }");
+      _builder.append("archetype DT is NUMBER");
       _builder.newLine();
-      final DInformationModel dm = this.dmParseHelper.parse(_builder, resourceSet);
+      final DNamespace dmx = this.dmxParseHelper.parse(_builder, resourceSet);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("base information model SM");
+      _builder_1.append("domain DM");
       _builder_1.newLine();
-      _builder_1.append("grab primitive DM.DT as ST ");
+      _builder_1.append("information model IM {");
       _builder_1.newLine();
-      final SInformationModel sm = this.smParseHelper.parse(_builder_1, resourceSet);
+      _builder_1.append("\t");
+      _builder_1.append("archetype DT { }");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      final DNamespace dm = this.dmParseHelper.parse(_builder_1, resourceSet);
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("namespace");
+      _builder_2.newLine();
+      _builder_2.append("base information model SM {");
+      _builder_2.newLine();
+      _builder_2.append("\t");
+      _builder_2.append("grab primitive DM.DT as ST ");
+      _builder_2.newLine();
+      _builder_2.append("}");
+      _builder_2.newLine();
+      final DNamespace sm = this.smParseHelper.parse(_builder_2, resourceSet);
+      Assertions.assertNotNull(dmx);
+      final EList<Resource.Diagnostic> dmxErrors = dmx.eResource().getErrors();
+      boolean _isEmpty = dmxErrors.isEmpty();
+      StringConcatenation _builder_3 = new StringConcatenation();
+      _builder_3.append("Unexpected errors in dmx: ");
+      String _join = IterableExtensions.join(dmxErrors, ", ");
+      _builder_3.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_3.toString());
       Assertions.assertNotNull(dm);
       final EList<Resource.Diagnostic> dmErrors = dm.eResource().getErrors();
-      boolean _isEmpty = dmErrors.isEmpty();
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("Unexpected errors in dm: ");
-      String _join = IterableExtensions.join(dmErrors, ", ");
-      _builder_2.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_2.toString());
+      boolean _isEmpty_1 = dmErrors.isEmpty();
+      StringConcatenation _builder_4 = new StringConcatenation();
+      _builder_4.append("Unexpected errors in dm: ");
+      String _join_1 = IterableExtensions.join(dmErrors, ", ");
+      _builder_4.append(_join_1);
+      Assertions.assertTrue(_isEmpty_1, _builder_4.toString());
       Assertions.assertNotNull(sm);
       final EList<Resource.Diagnostic> smErrors = sm.eResource().getErrors();
-      boolean _isEmpty_1 = smErrors.isEmpty();
-      StringConcatenation _builder_3 = new StringConcatenation();
-      _builder_3.append("Unexpected errors in sm: ");
-      String _join_1 = IterableExtensions.join(smErrors, ", ");
-      _builder_3.append(_join_1);
-      Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
+      boolean _isEmpty_2 = smErrors.isEmpty();
+      StringConcatenation _builder_5 = new StringConcatenation();
+      _builder_5.append("Unexpected errors in sm: ");
+      String _join_2 = IterableExtensions.join(smErrors, ", ");
+      _builder_5.append(_join_2);
+      Assertions.assertTrue(_isEmpty_2, _builder_5.toString());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

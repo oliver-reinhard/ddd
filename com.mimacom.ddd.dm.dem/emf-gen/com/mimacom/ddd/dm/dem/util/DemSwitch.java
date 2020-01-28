@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dem.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -79,52 +79,42 @@ public class DemSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case DemPackage.DEM_MODEL:
+			case DemPackage.DEM_DOMAIN_EVENT:
 			{
-				DemModel demModel = (DemModel)theEObject;
-				T result = caseDemModel(demModel);
-				if (result == null) result = caseDNamespace(demModel);
-				if (result == null) result = caseDNamedElement(demModel);
+				DemDomainEvent demDomainEvent = (DemDomainEvent)theEObject;
+				T result = caseDemDomainEvent(demDomainEvent);
+				if (result == null) result = caseDModel(demDomainEvent);
+				if (result == null) result = caseINavigableMemberContainer(demDomainEvent);
+				if (result == null) result = caseIStaticReferenceTarget(demDomainEvent);
+				if (result == null) result = caseIDiagramRoot(demDomainEvent);
+				if (result == null) result = caseDNamedElement(demDomainEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DemPackage.DDOMAIN_EVENT:
+			case DemPackage.DEM_CASE_CONJUNCTION:
 			{
-				DDomainEvent dDomainEvent = (DDomainEvent)theEObject;
-				T result = caseDDomainEvent(dDomainEvent);
-				if (result == null) result = caseDemModel(dDomainEvent);
-				if (result == null) result = caseINavigableMemberContainer(dDomainEvent);
-				if (result == null) result = caseIStaticReferenceTarget(dDomainEvent);
-				if (result == null) result = caseIDiagramRoot(dDomainEvent);
-				if (result == null) result = caseDNamespace(dDomainEvent);
-				if (result == null) result = caseDNamedElement(dDomainEvent);
+				DemCaseConjunction demCaseConjunction = (DemCaseConjunction)theEObject;
+				T result = caseDemCaseConjunction(demCaseConjunction);
+				if (result == null) result = caseDNamedElement(demCaseConjunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DemPackage.DCASE_CONJUNCTION:
+			case DemPackage.DEM_NOTIFICATION:
 			{
-				DCaseConjunction dCaseConjunction = (DCaseConjunction)theEObject;
-				T result = caseDCaseConjunction(dCaseConjunction);
-				if (result == null) result = caseDNamedElement(dCaseConjunction);
+				DemNotification demNotification = (DemNotification)theEObject;
+				T result = caseDemNotification(demNotification);
+				if (result == null) result = caseDNavigableMember(demNotification);
+				if (result == null) result = caseINavigableMemberContainer(demNotification);
+				if (result == null) result = caseDNamedElement(demNotification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DemPackage.DNOTIFICATION:
+			case DemPackage.DEM_MESSAGE:
 			{
-				DNotification dNotification = (DNotification)theEObject;
-				T result = caseDNotification(dNotification);
-				if (result == null) result = caseDNavigableMember(dNotification);
-				if (result == null) result = caseINavigableMemberContainer(dNotification);
-				if (result == null) result = caseDNamedElement(dNotification);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DemPackage.DMESSAGE:
-			{
-				DMessage dMessage = (DMessage)theEObject;
-				T result = caseDMessage(dMessage);
-				if (result == null) result = caseDNavigableMember(dMessage);
-				if (result == null) result = caseDNamedElement(dMessage);
+				DemMessage demMessage = (DemMessage)theEObject;
+				T result = caseDemMessage(demMessage);
+				if (result == null) result = caseDNavigableMember(demMessage);
+				if (result == null) result = caseDNamedElement(demMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,41 +122,40 @@ public class DemSwitch<T> extends Switch<T>
 			{
 				DemActorModel demActorModel = (DemActorModel)theEObject;
 				T result = caseDemActorModel(demActorModel);
-				if (result == null) result = caseDemModel(demActorModel);
-				if (result == null) result = caseDNamespace(demActorModel);
+				if (result == null) result = caseDModel(demActorModel);
 				if (result == null) result = caseDNamedElement(demActorModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DemPackage.DACTOR:
+			case DemPackage.DEM_ACTOR:
 			{
-				DActor dActor = (DActor)theEObject;
-				T result = caseDActor(dActor);
-				if (result == null) result = caseDNavigableMember(dActor);
-				if (result == null) result = caseIStaticReferenceTarget(dActor);
-				if (result == null) result = caseDNamedElement(dActor);
+				DemActor demActor = (DemActor)theEObject;
+				T result = caseDemActor(demActor);
+				if (result == null) result = caseDNavigableMember(demActor);
+				if (result == null) result = caseIStaticReferenceTarget(demActor);
+				if (result == null) result = caseDNamedElement(demActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DemPackage.DHUMAN_ACTOR_ROLE:
+			case DemPackage.DEM_HUMAN_ACTOR_ROLE:
 			{
-				DHumanActorRole dHumanActorRole = (DHumanActorRole)theEObject;
-				T result = caseDHumanActorRole(dHumanActorRole);
-				if (result == null) result = caseDActor(dHumanActorRole);
-				if (result == null) result = caseDNavigableMember(dHumanActorRole);
-				if (result == null) result = caseIStaticReferenceTarget(dHumanActorRole);
-				if (result == null) result = caseDNamedElement(dHumanActorRole);
+				DemHumanActorRole demHumanActorRole = (DemHumanActorRole)theEObject;
+				T result = caseDemHumanActorRole(demHumanActorRole);
+				if (result == null) result = caseDemActor(demHumanActorRole);
+				if (result == null) result = caseDNavigableMember(demHumanActorRole);
+				if (result == null) result = caseIStaticReferenceTarget(demHumanActorRole);
+				if (result == null) result = caseDNamedElement(demHumanActorRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DemPackage.DSERVICE:
+			case DemPackage.DEM_SERVICE:
 			{
-				DService dService = (DService)theEObject;
-				T result = caseDService(dService);
-				if (result == null) result = caseDActor(dService);
-				if (result == null) result = caseDNavigableMember(dService);
-				if (result == null) result = caseIStaticReferenceTarget(dService);
-				if (result == null) result = caseDNamedElement(dService);
+				DemService demService = (DemService)theEObject;
+				T result = caseDemService(demService);
+				if (result == null) result = caseDemActor(demService);
+				if (result == null) result = caseDNavigableMember(demService);
+				if (result == null) result = caseIStaticReferenceTarget(demService);
+				if (result == null) result = caseDNamedElement(demService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,81 +164,65 @@ public class DemSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Event</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDemModel(DemModel object)
+	public T caseDemDomainEvent(DemDomainEvent object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DDomain Event</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Case Conjunction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DDomain Event</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Case Conjunction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDDomainEvent(DDomainEvent object)
+	public T caseDemCaseConjunction(DemCaseConjunction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DCase Conjunction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Notification</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DCase Conjunction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Notification</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDCaseConjunction(DCaseConjunction object)
+	public T caseDemNotification(DemNotification object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNotification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNotification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Message</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNotification(DNotification object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DMessage</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DMessage</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDMessage(DMessage object)
+	public T caseDemMessage(DemMessage object)
 	{
 		return null;
 	}
@@ -271,49 +244,49 @@ public class DemSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DActor</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DActor</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Actor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDActor(DActor object)
+	public T caseDemActor(DemActor object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DHuman Actor Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Human Actor Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DHuman Actor Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Human Actor Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDHumanActorRole(DHumanActorRole object)
+	public T caseDemHumanActorRole(DemHumanActorRole object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DService</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DService</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDService(DService object)
+	public T caseDemService(DemService object)
 	{
 		return null;
 	}
@@ -335,17 +308,17 @@ public class DemSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNamespace(DNamespace object)
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}

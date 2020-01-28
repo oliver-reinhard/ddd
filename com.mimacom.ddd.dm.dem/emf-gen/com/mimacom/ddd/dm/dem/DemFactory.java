@@ -23,58 +23,67 @@ public interface DemFactory extends EFactory
 	DemFactory eINSTANCE = com.mimacom.ddd.dm.dem.impl.DemFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>DDomain Event</em>'.
+	 * Returns a new object of class '<em>Domain Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDomain Event</em>'.
+	 * @return a new object of class '<em>Domain Event</em>'.
 	 * @generated
 	 */
-	DDomainEvent createDDomainEvent();
+	DemDomainEvent createDemDomainEvent();
 
 	/**
-	 * Returns a new object of class '<em>DCase Conjunction</em>'.
+	 * Returns a new object of class '<em>Case Conjunction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DCase Conjunction</em>'.
+	 * @return a new object of class '<em>Case Conjunction</em>'.
 	 * @generated
 	 */
-	DCaseConjunction createDCaseConjunction();
+	DemCaseConjunction createDemCaseConjunction();
 
 	/**
-	 * Returns a new object of class '<em>DNotification</em>'.
+	 * Returns a new object of class '<em>Notification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DNotification</em>'.
+	 * @return a new object of class '<em>Notification</em>'.
 	 * @generated
 	 */
-	DNotification createDNotification();
+	DemNotification createDemNotification();
 
 	/**
-	 * Returns a new object of class '<em>DMessage</em>'.
+	 * Returns a new object of class '<em>Message</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DMessage</em>'.
+	 * @return a new object of class '<em>Message</em>'.
 	 * @generated
 	 */
-	DMessage createDMessage();
+	DemMessage createDemMessage();
 
 	/**
-	 * Returns a new object of class '<em>DHuman Actor Role</em>'.
+	 * Returns a new object of class '<em>Actor Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DHuman Actor Role</em>'.
+	 * @return a new object of class '<em>Actor Model</em>'.
 	 * @generated
 	 */
-	DHumanActorRole createDHumanActorRole();
+	DemActorModel createDemActorModel();
 
 	/**
-	 * Returns a new object of class '<em>DService</em>'.
+	 * Returns a new object of class '<em>Human Actor Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DService</em>'.
+	 * @return a new object of class '<em>Human Actor Role</em>'.
 	 * @generated
 	 */
-	DService createDService();
+	DemHumanActorRole createDemHumanActorRole();
+
+	/**
+	 * Returns a new object of class '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service</em>'.
+	 * @generated
+	 */
+	DemService createDemService();
 
 	/**
 	 * Returns the package supported by this factory.

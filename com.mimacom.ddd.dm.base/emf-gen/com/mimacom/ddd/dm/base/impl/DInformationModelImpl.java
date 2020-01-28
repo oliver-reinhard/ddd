@@ -4,7 +4,6 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IAggregateContainer;
@@ -37,28 +36,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DInformationModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DInformationModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DInformationModelImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DInformationModelImpl#isSynthetic <em>Synthetic</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DInformationModelImpl#getDomain <em>Domain</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DInformationModelImpl extends DNamedElementImpl implements DInformationModel
+public class DInformationModelImpl extends DModelImpl implements DInformationModel
 {
-	/**
-	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImports()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DImport> imports;
-
 	/**
 	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -110,26 +97,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	protected boolean synthetic = SYNTHETIC_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDomain()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DOMAIN_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDomain()
-	 * @generated
-	 * @ordered
-	 */
-	protected String domain = DOMAIN_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -148,21 +115,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DINFORMATION_MODEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<DImport> getImports()
-	{
-		if (imports == null)
-		{
-			imports = new EObjectContainmentEList<DImport>(DImport.class, this, BasePackage.DINFORMATION_MODEL__IMPORTS);
-		}
-		return imports;
 	}
 
 	/**
@@ -271,37 +223,10 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	 * @generated
 	 */
 	@Override
-	public String getDomain()
-	{
-		return domain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDomain(String newDomain)
-	{
-		String oldDomain = domain;
-		domain = newDomain;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DINFORMATION_MODEL__DOMAIN, oldDomain, domain));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
-			case BasePackage.DINFORMATION_MODEL__IMPORTS:
-				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 			case BasePackage.DINFORMATION_MODEL__TYPES:
@@ -320,8 +245,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	{
 		switch (featureID)
 		{
-			case BasePackage.DINFORMATION_MODEL__IMPORTS:
-				return getImports();
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				return getAggregates();
 			case BasePackage.DINFORMATION_MODEL__TYPES:
@@ -331,8 +254,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 				return basicGetDeducedFrom();
 			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
 				return isSynthetic();
-			case BasePackage.DINFORMATION_MODEL__DOMAIN:
-				return getDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,10 +269,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	{
 		switch (featureID)
 		{
-			case BasePackage.DINFORMATION_MODEL__IMPORTS:
-				getImports().clear();
-				getImports().addAll((Collection<? extends DImport>)newValue);
-				return;
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				getAggregates().addAll((Collection<? extends DAggregate>)newValue);
@@ -365,9 +282,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 				return;
 			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
-				return;
-			case BasePackage.DINFORMATION_MODEL__DOMAIN:
-				setDomain((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -383,9 +297,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	{
 		switch (featureID)
 		{
-			case BasePackage.DINFORMATION_MODEL__IMPORTS:
-				getImports().clear();
-				return;
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				return;
@@ -397,9 +308,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 				return;
 			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
 				setSynthetic(SYNTHETIC_EDEFAULT);
-				return;
-			case BasePackage.DINFORMATION_MODEL__DOMAIN:
-				setDomain(DOMAIN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -415,8 +323,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 	{
 		switch (featureID)
 		{
-			case BasePackage.DINFORMATION_MODEL__IMPORTS:
-				return imports != null && !imports.isEmpty();
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
 			case BasePackage.DINFORMATION_MODEL__TYPES:
@@ -425,8 +331,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 				return deducedFrom != null;
 			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
-			case BasePackage.DINFORMATION_MODEL__DOMAIN:
-				return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -544,8 +448,6 @@ public class DInformationModelImpl extends DNamedElementImpl implements DInforma
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (synthetic: ");
 		result.append(synthetic);
-		result.append(", domain: ");
-		result.append(domain);
 		result.append(')');
 		return result.toString();
 	}

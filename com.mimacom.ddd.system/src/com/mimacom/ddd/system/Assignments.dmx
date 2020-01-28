@@ -1,5 +1,6 @@
-import D.*
-namespace N
+namespace systemtest.assignments
+import systemtest.custom.*
+
 test T00 context a : Natural { a := 1 }		// ERROR: can only assign to attributes
 test T01 context a : A { a.a1 := 1 }  
 test T02 context a : A { a.a1 := "A" }		// ERROR: wrong type

@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.dm.dom;
 
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.DModel;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -23,12 +23,16 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DomModel extends DNamespace
+public interface DomModel extends DModel
 {
 	/**
 	 * Returns the value of the '<em><b>Snapshots</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dom.DomSnapshot}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Snapshots</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Snapshots</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dom.DomPackage#getDomModel_Snapshots()

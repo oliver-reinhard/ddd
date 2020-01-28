@@ -27,7 +27,7 @@ public class SusParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "UserStory";
+		return "DNamespace";
 	}
 
 	public SusGrammarAccess getGrammarAccess() {

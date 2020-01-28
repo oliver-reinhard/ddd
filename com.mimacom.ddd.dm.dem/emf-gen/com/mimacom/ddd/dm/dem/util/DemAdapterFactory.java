@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dem.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -82,29 +82,24 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 		new DemSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseDemModel(DemModel object)
+			public Adapter caseDemDomainEvent(DemDomainEvent object)
 			{
-				return createDemModelAdapter();
+				return createDemDomainEventAdapter();
 			}
 			@Override
-			public Adapter caseDDomainEvent(DDomainEvent object)
+			public Adapter caseDemCaseConjunction(DemCaseConjunction object)
 			{
-				return createDDomainEventAdapter();
+				return createDemCaseConjunctionAdapter();
 			}
 			@Override
-			public Adapter caseDCaseConjunction(DCaseConjunction object)
+			public Adapter caseDemNotification(DemNotification object)
 			{
-				return createDCaseConjunctionAdapter();
+				return createDemNotificationAdapter();
 			}
 			@Override
-			public Adapter caseDNotification(DNotification object)
+			public Adapter caseDemMessage(DemMessage object)
 			{
-				return createDNotificationAdapter();
-			}
-			@Override
-			public Adapter caseDMessage(DMessage object)
-			{
-				return createDMessageAdapter();
+				return createDemMessageAdapter();
 			}
 			@Override
 			public Adapter caseDemActorModel(DemActorModel object)
@@ -112,19 +107,19 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 				return createDemActorModelAdapter();
 			}
 			@Override
-			public Adapter caseDActor(DActor object)
+			public Adapter caseDemActor(DemActor object)
 			{
-				return createDActorAdapter();
+				return createDemActorAdapter();
 			}
 			@Override
-			public Adapter caseDHumanActorRole(DHumanActorRole object)
+			public Adapter caseDemHumanActorRole(DemHumanActorRole object)
 			{
-				return createDHumanActorRoleAdapter();
+				return createDemHumanActorRoleAdapter();
 			}
 			@Override
-			public Adapter caseDService(DService object)
+			public Adapter caseDemService(DemService object)
 			{
-				return createDServiceAdapter();
+				return createDemServiceAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -132,9 +127,9 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseDNamespace(DNamespace object)
+			public Adapter caseDModel(DModel object)
 			{
-				return createDNamespaceAdapter();
+				return createDModelAdapter();
 			}
 			@Override
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
@@ -179,76 +174,61 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemModel <em>Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemDomainEvent <em>Domain Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DemModel
+	 * @see com.mimacom.ddd.dm.dem.DemDomainEvent
 	 * @generated
 	 */
-	public Adapter createDemModelAdapter()
+	public Adapter createDemDomainEventAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DDomainEvent <em>DDomain Event</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemCaseConjunction <em>Case Conjunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DDomainEvent
+	 * @see com.mimacom.ddd.dm.dem.DemCaseConjunction
 	 * @generated
 	 */
-	public Adapter createDDomainEventAdapter()
+	public Adapter createDemCaseConjunctionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DCaseConjunction <em>DCase Conjunction</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemNotification <em>Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DCaseConjunction
+	 * @see com.mimacom.ddd.dm.dem.DemNotification
 	 * @generated
 	 */
-	public Adapter createDCaseConjunctionAdapter()
+	public Adapter createDemNotificationAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DNotification <em>DNotification</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemMessage <em>Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DNotification
+	 * @see com.mimacom.ddd.dm.dem.DemMessage
 	 * @generated
 	 */
-	public Adapter createDNotificationAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DMessage <em>DMessage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DMessage
-	 * @generated
-	 */
-	public Adapter createDMessageAdapter()
+	public Adapter createDemMessageAdapter()
 	{
 		return null;
 	}
@@ -269,46 +249,46 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DActor <em>DActor</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DActor
+	 * @see com.mimacom.ddd.dm.dem.DemActor
 	 * @generated
 	 */
-	public Adapter createDActorAdapter()
+	public Adapter createDemActorAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DHumanActorRole <em>DHuman Actor Role</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemHumanActorRole <em>Human Actor Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DHumanActorRole
+	 * @see com.mimacom.ddd.dm.dem.DemHumanActorRole
 	 * @generated
 	 */
-	public Adapter createDHumanActorRoleAdapter()
+	public Adapter createDemHumanActorRoleAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DService <em>DService</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemService <em>Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dem.DService
+	 * @see com.mimacom.ddd.dm.dem.DemService
 	 * @generated
 	 */
-	public Adapter createDServiceAdapter()
+	public Adapter createDemServiceAdapter()
 	{
 		return null;
 	}
@@ -329,16 +309,16 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DModel <em>DModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @see com.mimacom.ddd.dm.base.DModel
 	 * @generated
 	 */
-	public Adapter createDNamespaceAdapter()
+	public Adapter createDModelAdapter()
 	{
 		return null;
 	}

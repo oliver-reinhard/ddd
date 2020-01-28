@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
@@ -45,7 +46,7 @@ import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -131,6 +132,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case BasePackage.DNAMED_PREDICATE:
 				sequence_DConstraint(context, (DNamedPredicate) semanticObject); 
+				return; 
+			case BasePackage.DNAMESPACE:
+				sequence_DNamespace(context, (DNamespace) semanticObject); 
 				return; 
 			case BasePackage.DPRIMITIVE:
 				sequence_DPrimitive(context, (DPrimitive) semanticObject); 
@@ -304,8 +308,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
-			case DmxPackage.DMX_NAMESPACE:
-				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+			case DmxPackage.DMX_MODEL:
+				sequence_DmxModel(context, (DmxModel) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NATURAL_LITERAL:
 				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
@@ -501,8 +505,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
-	 *         features+=Feature? 
-	 *         (constraints+=DConstraint? features+=Feature?)* 
+	 *         constraints+=DConstraint? 
+	 *         (features+=Feature? constraints+=DConstraint?)* 
 	 *         (features+=DFeature | constraints+=DConstraint)*
 	 *     )
 	 */
@@ -543,6 +547,18 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (name=ID aliases+=ID* description=DRichText? (literals+=Literal literals+=Literal*)? constraints+=DConstraint*)
 	 */
 	protected void sequence_DEnumeration(ISerializationContext context, DEnumeration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DNamespace returns DNamespace
+	 *
+	 * Constraint:
+	 *     (name=DQualifiedName imports+=DImport* model=SInformationModel)
+	 */
+	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -876,14 +892,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SInformationModel returns SInformationModel
 	 *
 	 * Constraint:
-	 *     (
-	 *         imports+=DImport* 
-	 *         kind=SInformationModelKind 
-	 *         name=DQualifiedName 
-	 *         generate?='generate'? 
-	 *         description=DRichText? 
-	 *         (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*
-	 *     )
+	 *     (kind=SInformationModelKind name=ID generate?='generate'? description=DRichText? (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*)
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

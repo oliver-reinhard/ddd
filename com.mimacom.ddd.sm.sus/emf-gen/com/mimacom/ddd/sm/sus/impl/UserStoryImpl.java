@@ -3,15 +3,13 @@
  */
 package com.mimacom.ddd.sm.sus.impl;
 
-import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.impl.DModelImpl;
 
-import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+import com.mimacom.ddd.dm.dem.DemDomainEvent;
 
 import com.mimacom.ddd.sm.sus.Section;
 import com.mimacom.ddd.sm.sus.SusPackage;
 import com.mimacom.ddd.sm.sus.UserStory;
-
-import dem.DDomainEvent;
 
 import java.util.Collection;
 
@@ -36,25 +34,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getSections <em>Sections</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getEvent <em>Event</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UserStoryImpl extends DNamedElementImpl implements UserStory
+public class UserStoryImpl extends DModelImpl implements UserStory
 {
-	/**
-	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImports()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DImport> imports;
-
 	/**
 	 * The cached value of the '{@link #getSections() <em>Sections</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -73,7 +60,7 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * @generated
 	 * @ordered
 	 */
-	protected DDomainEvent event;
+	protected DemDomainEvent event;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,22 +88,6 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<DImport> getImports()
-	{
-		if (imports == null)
-		{
-			imports = new EObjectContainmentEList<DImport>(DImport.class, this, SusPackage.USER_STORY__IMPORTS);
-		}
-		return imports;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Section> getSections()
 	{
 		if (sections == null)
@@ -131,13 +102,12 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DDomainEvent getEvent()
+	public DemDomainEvent getEvent()
 	{
 		if (event != null && event.eIsProxy())
 		{
 			InternalEObject oldEvent = (InternalEObject)event;
-			event = (DDomainEvent)eResolveProxy(oldEvent);
+			event = (DemDomainEvent)eResolveProxy(oldEvent);
 			if (event != oldEvent)
 			{
 				if (eNotificationRequired())
@@ -152,7 +122,7 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DDomainEvent basicGetEvent()
+	public DemDomainEvent basicGetEvent()
 	{
 		return event;
 	}
@@ -162,10 +132,9 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setEvent(DDomainEvent newEvent)
+	public void setEvent(DemDomainEvent newEvent)
 	{
-		DDomainEvent oldEvent = event;
+		DemDomainEvent oldEvent = event;
 		event = newEvent;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SusPackage.USER_STORY__EVENT, oldEvent, event));
@@ -181,8 +150,6 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__IMPORTS:
-				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case SusPackage.USER_STORY__SECTIONS:
 				return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
 		}
@@ -199,8 +166,6 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__IMPORTS:
-				return getImports();
 			case SusPackage.USER_STORY__SECTIONS:
 				return getSections();
 			case SusPackage.USER_STORY__EVENT:
@@ -221,16 +186,12 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__IMPORTS:
-				getImports().clear();
-				getImports().addAll((Collection<? extends DImport>)newValue);
-				return;
 			case SusPackage.USER_STORY__SECTIONS:
 				getSections().clear();
 				getSections().addAll((Collection<? extends Section>)newValue);
 				return;
 			case SusPackage.USER_STORY__EVENT:
-				setEvent((DDomainEvent)newValue);
+				setEvent((DemDomainEvent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -246,14 +207,11 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__IMPORTS:
-				getImports().clear();
-				return;
 			case SusPackage.USER_STORY__SECTIONS:
 				getSections().clear();
 				return;
 			case SusPackage.USER_STORY__EVENT:
-				setEvent((DDomainEvent)null);
+				setEvent((DemDomainEvent)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -269,8 +227,6 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__IMPORTS:
-				return imports != null && !imports.isEmpty();
 			case SusPackage.USER_STORY__SECTIONS:
 				return sections != null && !sections.isEmpty();
 			case SusPackage.USER_STORY__EVENT:

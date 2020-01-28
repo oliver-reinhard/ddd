@@ -14,8 +14,8 @@ public class DmxPrimitiveDescriptor extends AbstractDmxTypeDescriptor<DPrimitive
       public DmxBaseType apply() {
         DmxBaseType _xifexpression = null;
         DPrimitive _redefines = type.getRedefines();
-        boolean _tripleEquals = (_redefines == null);
-        if (_tripleEquals) {
+        boolean _not = (!(_redefines instanceof DmxArchetype));
+        if (_not) {
           _xifexpression = DmxBaseType.VOID;
         } else {
           DPrimitive _redefines_1 = type.getRedefines();

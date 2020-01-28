@@ -28,6 +28,10 @@ public interface SFuseRule extends SStructureChangingRule
 	 * Returns the value of the '<em><b>Other Sources</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedElement}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Other Sources</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Other Sources</em>' reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSFuseRule_OtherSources()

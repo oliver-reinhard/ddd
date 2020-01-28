@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SApplicationImpl extends ModelImpl implements SApplication
+public class SApplicationImpl extends AsmModelImpl implements SApplication
 {
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
@@ -99,7 +99,6 @@ public class SApplicationImpl extends ModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SInformationModel getModel()
 	{
 		if (model != null && model.eIsProxy())
@@ -130,7 +129,6 @@ public class SApplicationImpl extends ModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setModel(SInformationModel newModel)
 	{
 		SInformationModel oldModel = model;
@@ -144,7 +142,6 @@ public class SApplicationImpl extends ModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SServiceInterface> getServices()
 	{
 		if (services == null)
@@ -159,7 +156,6 @@ public class SApplicationImpl extends ModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SActor> getActors()
 	{
 		if (actors == null)

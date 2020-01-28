@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.dm.dem;
 
+import com.mimacom.ddd.dm.base.DModel;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,21 +19,25 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dem.DemPackage#getDemActorModel()
- * @model abstract="true"
+ * @model
  * @generated
  */
-public interface DemActorModel extends DemModel
+public interface DemActorModel extends DModel
 {
 	/**
 	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.dem.DActor}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.dem.DemActor}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actors</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actors</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dem.DemPackage#getDemActorModel_Actors()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DActor> getActors();
+	EList<DemActor> getActors();
 
 } // DemActorModel

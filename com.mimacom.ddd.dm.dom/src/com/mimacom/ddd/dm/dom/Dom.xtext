@@ -4,14 +4,20 @@ import "http://www.mimacom.com/ddd/dm/dom"
 import "http://www.mimacom.com/ddd/dm/dmx"
 import "http://www.mimacom.com/ddd/dm/base" 
 
-DomModel:
+@Override 
+DNamespace:
 	(imports+=DImport)*
 	'domain'
 	name=DQualifiedName
+	model=DomModel;
+	
+DomModel:
 	(snapshots+=DomSnapshot)+;
 
 DomSnapshot:
 	'snapshot' name=ID
+	('alias' aliases+=ID)*
+	(description=DRichText)?
 	'{'
 	(objects+=DomObject)*
 	'}';

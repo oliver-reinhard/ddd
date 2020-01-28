@@ -3,8 +3,8 @@
  */
 package com.mimacom.ddd.sm.sus.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 
 import com.mimacom.ddd.sm.sus.*;
 
@@ -80,7 +80,7 @@ public class SusSwitch<T> extends Switch<T>
 			{
 				UserStory userStory = (UserStory)theEObject;
 				T result = caseUserStory(userStory);
-				if (result == null) result = caseDNamespace(userStory);
+				if (result == null) result = caseDModel(userStory);
 				if (result == null) result = caseDNamedElement(userStory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -168,17 +168,17 @@ public class SusSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNamespace(DNamespace object)
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}

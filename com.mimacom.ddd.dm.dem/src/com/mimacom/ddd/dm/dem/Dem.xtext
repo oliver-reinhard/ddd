@@ -6,28 +6,29 @@ import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dem"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-DemModel:
-	DDomainEvent | DemActorModel;
-
 /*
  * BEHAVIOUR
  */
-DDomainEvent:
-	(imports+=DImport)*
+@Override 
+DNamespace:
 	'domain'
-	domain=DQualifiedName
+	name=DQualifiedName
+	(imports+=DImport)*
+	model=(DemDomainEvent | DemActorModel);
+
+DemDomainEvent:
 	'event'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?
 	'{'
 		'context' (context+=DContext)+
-		('triggered' 'by' trigger=[DActor|ID])?
-		('notifications' (notifications+=DNotification)+)?
-		('preconditions' (preconditionsCNF+=DNamedPredicate)+)?
+		('triggered' 'by' triggers+=[DemActor|ID]+)?
+		('notifications' notifications+=DemNotification+)?
+		('preconditions' preconditionsCNF+=DNamedPredicate+)?
 		('postconditions'
-			(	(postconditionsDNF+=DCaseConjunction)+
-			|	(postconditionsDNF+=DNamedPredicate)+
+			(	postconditionsDNF+=DemCaseConjunction+
+			|	postconditionsDNF+=DNamedPredicate+
 			)
 		)? 
 	'}';
@@ -39,7 +40,7 @@ DNamedPredicate:
 	predicate=DExpression
 	(description=DRichText)?;
 
-DCaseConjunction:
+DemCaseConjunction:
 	'case'
 	name=ID
 	('alias' aliases+=ID)*
@@ -48,19 +49,19 @@ DCaseConjunction:
 	|	otherwise?='otherwise'
 	)
 	':'
-	(predicates+=DNamedPredicate)+
+	predicates+=DNamedPredicate+
 ;
 	
-DNotification:
+DemNotification:
 	// type always null
 	name=ID
 	('alias' aliases+=ID)*
 	':'
-	message=DMessage
-	'to' notified=[DActor|ID]
+	message=DemMessage
+	'to' notified=[DemActor|ID]
 	(description=DRichText)?;
 
-DMessage:
+DemMessage:
 	// implicit name: "message"
 	type=[DType|ID]  (multiplicity=DMultiplicity)?;
 	
@@ -72,21 +73,19 @@ DContext:
 	(description=DRichText)?;
 
 DemActorModel:
-	(imports+=DImport)*
-	'domain'
-	name=DQualifiedName
-	actors+=DActor*;
+	{DemActorModel}
+	actors+=DemActor*;
 
-DActor:
-	DHumanActorRole | DService;
+DemActor:
+	DemHumanActorRole | DemService;
 
-DHumanActorRole:
+DemHumanActorRole:
 	'human' 'actor' 'as'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?;
 	
-DService:
+DemService:
 	'service' 'actor'
 	name=ID
 	('alias' aliases+=ID)*

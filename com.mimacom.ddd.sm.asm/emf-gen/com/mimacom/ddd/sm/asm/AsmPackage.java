@@ -62,14 +62,14 @@ public interface AsmPackage extends EPackage
 	AsmPackage eINSTANCE = com.mimacom.ddd.sm.asm.impl.AsmPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.ModelImpl <em>Model</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.ModelImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getModel()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmModelImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmModel()
 	 * @generated
 	 */
-	int MODEL = 0;
+	int ASM_MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -78,7 +78,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = BasePackage.DNAMESPACE__NAME;
+	int ASM_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -87,7 +87,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ALIASES = BasePackage.DNAMESPACE__ALIASES;
+	int ASM_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -96,16 +96,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
+	int ASM_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -114,7 +105,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
+	int ASM_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -123,7 +114,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = BasePackage.DNAMESPACE_OPERATION_COUNT + 0;
+	int ASM_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl <em>SApplication</em>}' class.
@@ -142,7 +133,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__NAME = MODEL__NAME;
+	int SAPPLICATION__NAME = ASM_MODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -151,7 +142,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__ALIASES = MODEL__ALIASES;
+	int SAPPLICATION__ALIASES = ASM_MODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -160,16 +151,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__DESCRIPTION = MODEL__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SAPPLICATION__IMPORTS = MODEL__IMPORTS;
+	int SAPPLICATION__DESCRIPTION = ASM_MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -178,7 +160,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__MODEL = MODEL_FEATURE_COUNT + 0;
+	int SAPPLICATION__MODEL = ASM_MODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' reference list.
@@ -187,7 +169,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__SERVICES = MODEL_FEATURE_COUNT + 1;
+	int SAPPLICATION__SERVICES = ASM_MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -196,7 +178,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__ACTORS = MODEL_FEATURE_COUNT + 2;
+	int SAPPLICATION__ACTORS = ASM_MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>SApplication</em>' class.
@@ -205,7 +187,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION_FEATURE_COUNT = MODEL_FEATURE_COUNT + 3;
+	int SAPPLICATION_FEATURE_COUNT = ASM_MODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>SApplication</em>' class.
@@ -214,7 +196,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION_OPERATION_COUNT = MODEL_OPERATION_COUNT + 0;
+	int SAPPLICATION_OPERATION_COUNT = ASM_MODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl <em>SService Interface</em>}' class.
@@ -233,7 +215,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__NAME = MODEL__NAME;
+	int SSERVICE_INTERFACE__NAME = ASM_MODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -242,7 +224,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__ALIASES = MODEL__ALIASES;
+	int SSERVICE_INTERFACE__ALIASES = ASM_MODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -251,16 +233,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__DESCRIPTION = MODEL__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SSERVICE_INTERFACE__IMPORTS = MODEL__IMPORTS;
+	int SSERVICE_INTERFACE__DESCRIPTION = ASM_MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Interface</b></em>' reference.
@@ -269,7 +242,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__INTERFACE = MODEL_FEATURE_COUNT + 0;
+	int SSERVICE_INTERFACE__INTERFACE = ASM_MODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Core</b></em>' reference.
@@ -278,7 +251,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__CORE = MODEL_FEATURE_COUNT + 1;
+	int SSERVICE_INTERFACE__CORE = ASM_MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
@@ -287,7 +260,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__EXCEPTIONS = MODEL_FEATURE_COUNT + 2;
+	int SSERVICE_INTERFACE__EXCEPTIONS = ASM_MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -296,7 +269,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__OPERATIONS = MODEL_FEATURE_COUNT + 3;
+	int SSERVICE_INTERFACE__OPERATIONS = ASM_MODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>SService Interface</em>' class.
@@ -305,7 +278,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE_FEATURE_COUNT = MODEL_FEATURE_COUNT + 4;
+	int SSERVICE_INTERFACE_FEATURE_COUNT = ASM_MODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>SService Interface</em>' class.
@@ -314,7 +287,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE_OPERATION_COUNT = MODEL_OPERATION_COUNT + 0;
+	int SSERVICE_INTERFACE_OPERATION_COUNT = ASM_MODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
@@ -686,14 +659,14 @@ public interface AsmPackage extends EPackage
 
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.Model <em>Model</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Model</em>'.
-	 * @see com.mimacom.ddd.sm.asm.Model
+	 * @see com.mimacom.ddd.sm.asm.AsmModel
 	 * @generated
 	 */
-	EClass getModel();
+	EClass getAsmModel();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SApplication <em>SApplication</em>}'.
@@ -974,14 +947,14 @@ public interface AsmPackage extends EPackage
 	interface Literals
 	{
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.ModelImpl <em>Model</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.ModelImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getModel()
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmModelImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmModel()
 		 * @generated
 		 */
-		EClass MODEL = eINSTANCE.getModel();
+		EClass ASM_MODEL = eINSTANCE.getAsmModel();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl <em>SApplication</em>}' class.

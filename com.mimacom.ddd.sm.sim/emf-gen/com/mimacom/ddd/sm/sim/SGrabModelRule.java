@@ -26,6 +26,10 @@ public interface SGrabModelRule extends DDeductionRule
 	/**
 	 * Returns the value of the '<em><b>DModel</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>DModel</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>DModel</em>' reference.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSGrabModelRule_DModel()

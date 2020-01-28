@@ -66,7 +66,6 @@ public class ChangeHistoryImpl extends SegmentWithTableImpl implements ChangeHis
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ChangeDescription> getEntries() {
 		if (entries == null) {
 			entries = new EObjectContainmentEList<ChangeDescription>(ChangeDescription.class, this, PubPackage.CHANGE_HISTORY__ENTRIES);

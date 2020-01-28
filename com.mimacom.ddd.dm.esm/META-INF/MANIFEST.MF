@@ -31,5 +31,6 @@ Export-Package: com.mimacom.ddd.dm.esm,
  com.mimacom.ddd.dm.esm.impl,
  com.mimacom.ddd.dm.esm.util,
  com.mimacom.ddd.dm.esm.serializer,
- com.mimacom.ddd.dm.esm.scoping
+ com.mimacom.ddd.dm.esm.scoping,
+ com.mimacom.ddd.dm.esm.formatting2
 Import-Package: org.apache.log4j

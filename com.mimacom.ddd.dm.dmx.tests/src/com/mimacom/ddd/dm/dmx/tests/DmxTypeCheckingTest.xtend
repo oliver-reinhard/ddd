@@ -6,8 +6,10 @@ package com.mimacom.ddd.dm.dmx.tests
 import com.google.inject.Inject
 import com.google.inject.Provider
 import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DInformationModel
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
-import com.mimacom.ddd.dm.dmx.DmxNamespace
+import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxTest
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
@@ -19,18 +21,16 @@ import org.eclipse.emf.ecore.util.Diagnostician
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
-import static org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
-import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
 class DmxTypeCheckingTest {
 	
-	@Inject ParseHelper<DmxNamespace> dmxParseHelper
+	@Inject ParseHelper<DNamespace> dmxParseHelper
 	@Inject Provider<ResourceSet> resourceSetProvider
 	@Inject extension DmxTypeComputer
 	final ParseHelper<DInformationModel> dimParseHelper
@@ -90,7 +90,7 @@ class DmxTypeCheckingTest {
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		assertTrue(errors.isEmpty, '''Parse errors: «errors.join("; ")»''')
-		return result.tests
+		return (result.model as DmxModel).tests
 	}
 	
 	@Test

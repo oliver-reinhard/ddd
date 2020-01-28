@@ -6,10 +6,10 @@ package com.mimacom.ddd.dm.dem.validation;
 import com.google.common.collect.Iterables;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.dem.DActor;
-import com.mimacom.ddd.dm.dem.DCaseConjunction;
-import com.mimacom.ddd.dm.dem.DDomainEvent;
-import com.mimacom.ddd.dm.dem.DNotification;
+import com.mimacom.ddd.dm.dem.DemActor;
+import com.mimacom.ddd.dm.dem.DemCaseConjunction;
+import com.mimacom.ddd.dm.dem.DemDomainEvent;
+import com.mimacom.ddd.dm.dem.DemNotification;
 import com.mimacom.ddd.dm.dem.validation.AbstractDemValidator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -27,22 +27,22 @@ public class DemValidator extends AbstractDemValidator {
   private static final BasePackage BASE = BasePackage.eINSTANCE;
   
   @Check
-  public void checkOtherwiseClause(final DDomainEvent event) {
-    final Iterable<DCaseConjunction> caseConjunctions = Iterables.<DCaseConjunction>filter(event.getPostconditionsDNF(), DCaseConjunction.class);
-    final Function1<DCaseConjunction, Boolean> _function = (DCaseConjunction it) -> {
+  public void checkOtherwiseClause(final DemDomainEvent event) {
+    final Iterable<DemCaseConjunction> caseConjunctions = Iterables.<DemCaseConjunction>filter(event.getPostconditionsDNF(), DemCaseConjunction.class);
+    final Function1<DemCaseConjunction, Boolean> _function = (DemCaseConjunction it) -> {
       return Boolean.valueOf(it.isOtherwise());
     };
-    final int countOtherwise = IterableExtensions.size(IterableExtensions.<DCaseConjunction>filter(caseConjunctions, _function));
+    final int countOtherwise = IterableExtensions.size(IterableExtensions.<DemCaseConjunction>filter(caseConjunctions, _function));
     if ((countOtherwise == 1)) {
       for (int i = 0; (i < IterableExtensions.size(caseConjunctions)); i++) {
-        if (((((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i]).isOtherwise() && (i != (IterableExtensions.size(caseConjunctions) - 1)))) {
+        if (((((DemCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DemCaseConjunction.class))[i]).isOtherwise() && (i != (IterableExtensions.size(caseConjunctions) - 1)))) {
           this.error("The \'otherwise\' clause must be last", ((EObject[])Conversions.unwrapArray(caseConjunctions, EObject.class))[i], DemValidator.BASE.getDNamedElement_Name());
         }
       }
     } else {
       if ((countOtherwise > 1)) {
         for (int i = 0; (i < IterableExtensions.size(caseConjunctions)); i++) {
-          boolean _isOtherwise = (((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i]).isOtherwise();
+          boolean _isOtherwise = (((DemCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DemCaseConjunction.class))[i]).isOtherwise();
           if (_isOtherwise) {
             this.error("There can only be one \'otherwise\' clause ", ((EObject[])Conversions.unwrapArray(caseConjunctions, EObject.class))[i], DemValidator.BASE.getDNamedElement_Name());
           }
@@ -52,17 +52,17 @@ public class DemValidator extends AbstractDemValidator {
   }
   
   @Check
-  public void checkTypeNameStartsWithCapital(final DActor a) {
+  public void checkTypeNameStartsWithCapital(final DemActor a) {
     this.checkNameStartsWithCapital(a);
   }
   
   @Check
-  public void checkTypeNameStartsWithCapital(final DDomainEvent de) {
+  public void checkTypeNameStartsWithCapital(final DemDomainEvent de) {
     this.checkNameStartsWithCapital(de);
   }
   
   @Check
-  public void checkTypeNameStartsWithCapital(final DNotification n) {
+  public void checkTypeNameStartsWithCapital(final DemNotification n) {
     this.checkNameStartsWithCapital(n);
   }
   

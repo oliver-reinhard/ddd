@@ -26,68 +26,91 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class DmxNamespaceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxNamespace");
+	public class DNamespaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DNamespace");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Keyword cNamespaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cTypesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTypesDmxArchetypeParserRuleCall_3_0 = (RuleCall)cTypesAssignment_3.eContents().get(0);
-		private final Assignment cFiltersAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cFiltersDmxFilterParserRuleCall_4_0 = (RuleCall)cFiltersAssignment_4.eContents().get(0);
-		private final Assignment cTestsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTestsDmxTestParserRuleCall_5_0 = (RuleCall)cTestsAssignment_5.eContents().get(0);
+		private final Keyword cNamespaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModelDmxModelParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
 		
-		//DmxNamespace:
-		//	imports+=DImport*
+		//DNamespace:
 		//	'namespace'
 		//	name=DQualifiedName
-		//	types+=DmxArchetype*
+		//	imports+=DImport*
+		//	model=DmxModel;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'namespace' name=DQualifiedName imports+=DImport* model=DmxModel
+		public Group getGroup() { return cGroup; }
+		
+		//'namespace'
+		public Keyword getNamespaceKeyword_0() { return cNamespaceKeyword_0; }
+		
+		//name=DQualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//DQualifiedName
+		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
+		
+		//imports+=DImport*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
+		
+		//model=DmxModel
+		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
+		
+		//DmxModel
+		public RuleCall getModelDmxModelParserRuleCall_3_0() { return cModelDmxModelParserRuleCall_3_0; }
+	}
+	public class DmxModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDmxModelAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cTypesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypesDmxArchetypeParserRuleCall_1_0 = (RuleCall)cTypesAssignment_1.eContents().get(0);
+		private final Assignment cFiltersAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFiltersDmxFilterParserRuleCall_2_0 = (RuleCall)cFiltersAssignment_2.eContents().get(0);
+		private final Assignment cTestsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTestsDmxTestParserRuleCall_3_0 = (RuleCall)cTestsAssignment_3.eContents().get(0);
+		
+		//DmxModel:
+		//	{DmxModel} types+=DmxArchetype*
 		//	filters+=DmxFilter*
 		//	// For unit-testing purposes:
 		//	tests+=DmxTest*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//imports+=DImport* 'namespace' name=DQualifiedName types+=DmxArchetype* filters+=DmxFilter* // For unit-testing purposes:
+		//{DmxModel} types+=DmxArchetype* filters+=DmxFilter* // For unit-testing purposes:
 		//tests+=DmxTest*
 		public Group getGroup() { return cGroup; }
 		
-		//imports+=DImport*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
-		
-		//DImport
-		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
-		
-		//'namespace'
-		public Keyword getNamespaceKeyword_1() { return cNamespaceKeyword_1; }
-		
-		//name=DQualifiedName
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
+		//{DmxModel}
+		public Action getDmxModelAction_0() { return cDmxModelAction_0; }
 		
 		//types+=DmxArchetype*
-		public Assignment getTypesAssignment_3() { return cTypesAssignment_3; }
+		public Assignment getTypesAssignment_1() { return cTypesAssignment_1; }
 		
 		//DmxArchetype
-		public RuleCall getTypesDmxArchetypeParserRuleCall_3_0() { return cTypesDmxArchetypeParserRuleCall_3_0; }
+		public RuleCall getTypesDmxArchetypeParserRuleCall_1_0() { return cTypesDmxArchetypeParserRuleCall_1_0; }
 		
 		//filters+=DmxFilter*
-		public Assignment getFiltersAssignment_4() { return cFiltersAssignment_4; }
+		public Assignment getFiltersAssignment_2() { return cFiltersAssignment_2; }
 		
 		//DmxFilter
-		public RuleCall getFiltersDmxFilterParserRuleCall_4_0() { return cFiltersDmxFilterParserRuleCall_4_0; }
+		public RuleCall getFiltersDmxFilterParserRuleCall_2_0() { return cFiltersDmxFilterParserRuleCall_2_0; }
 		
 		//// For unit-testing purposes:
 		//tests+=DmxTest*
-		public Assignment getTestsAssignment_5() { return cTestsAssignment_5; }
+		public Assignment getTestsAssignment_3() { return cTestsAssignment_3; }
 		
 		//DmxTest
-		public RuleCall getTestsDmxTestParserRuleCall_5_0() { return cTestsDmxTestParserRuleCall_5_0; }
+		public RuleCall getTestsDmxTestParserRuleCall_3_0() { return cTestsDmxTestParserRuleCall_3_0; }
 	}
 	public class DImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DImport");
@@ -2918,7 +2941,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getZERO_OR_MOREAsteriskKeyword_2_0() { return cZERO_OR_MOREAsteriskKeyword_2_0; }
 	}
 	
-	private final DmxNamespaceElements pDmxNamespace;
+	private final DNamespaceElements pDNamespace;
+	private final DmxModelElements pDmxModel;
 	private final DImportElements pDImport;
 	private final DmxTestElements pDmxTest;
 	private final DmxTestContextElements pDmxTestContext;
@@ -3004,7 +3028,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	@Inject
 	public DmxGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.pDmxNamespace = new DmxNamespaceElements();
+		this.pDNamespace = new DNamespaceElements();
+		this.pDmxModel = new DmxModelElements();
 		this.pDImport = new DImportElements();
 		this.pDmxTest = new DmxTestElements();
 		this.pDmxTestContext = new DmxTestContextElements();
@@ -3109,20 +3134,30 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	
 
 	
-	//DmxNamespace:
-	//	imports+=DImport*
+	//DNamespace:
 	//	'namespace'
 	//	name=DQualifiedName
-	//	types+=DmxArchetype*
+	//	imports+=DImport*
+	//	model=DmxModel;
+	public DNamespaceElements getDNamespaceAccess() {
+		return pDNamespace;
+	}
+	
+	public ParserRule getDNamespaceRule() {
+		return getDNamespaceAccess().getRule();
+	}
+	
+	//DmxModel:
+	//	{DmxModel} types+=DmxArchetype*
 	//	filters+=DmxFilter*
 	//	// For unit-testing purposes:
 	//	tests+=DmxTest*;
-	public DmxNamespaceElements getDmxNamespaceAccess() {
-		return pDmxNamespace;
+	public DmxModelElements getDmxModelAccess() {
+		return pDmxModel;
 	}
 	
-	public ParserRule getDmxNamespaceRule() {
-		return getDmxNamespaceAccess().getRule();
+	public ParserRule getDmxModelRule() {
+		return getDmxModelAccess().getRule();
 	}
 	
 	//DImport:

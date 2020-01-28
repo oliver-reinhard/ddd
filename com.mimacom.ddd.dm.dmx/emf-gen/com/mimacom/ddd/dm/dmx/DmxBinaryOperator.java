@@ -212,6 +212,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>ADD</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ADD</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ADD
 	 * @model
@@ -223,6 +227,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>SUBTRACT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>SUBTRACT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SUBTRACT
 	 * @model
@@ -234,6 +242,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>MULTIPLY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>MULTIPLY</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MULTIPLY
 	 * @model
@@ -245,6 +257,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>DIVIDE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DIVIDE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DIVIDE
 	 * @model
@@ -256,6 +272,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>POWER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>POWER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #POWER
 	 * @model
@@ -267,6 +287,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>MODULO</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>MODULO</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MODULO
 	 * @model
@@ -278,6 +302,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>AND</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AND
 	 * @model
@@ -289,6 +317,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>OR</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>OR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #OR
 	 * @model
@@ -300,6 +332,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>XOR</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>XOR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #XOR
 	 * @model
@@ -311,6 +347,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>EQUAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>EQUAL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #EQUAL
 	 * @model
@@ -322,6 +362,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>NOT EQUAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NOT EQUAL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NOT_EQUAL
 	 * @model
@@ -333,6 +377,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>LESS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>LESS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LESS
 	 * @model
@@ -344,6 +392,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>LESS OR EQUAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>LESS OR EQUAL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LESS_OR_EQUAL
 	 * @model
@@ -355,6 +407,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>GREATER OR EQUAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>GREATER OR EQUAL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GREATER_OR_EQUAL
 	 * @model
@@ -366,6 +422,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>GREATER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>GREATER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GREATER
 	 * @model
@@ -377,6 +437,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>IN</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>IN</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #IN
 	 * @model
@@ -388,6 +452,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>UNTIL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>UNTIL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UNTIL
 	 * @model
@@ -399,6 +467,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>SINGLE ARROW</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>SINGLE ARROW</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SINGLE_ARROW
 	 * @model
@@ -410,6 +482,10 @@ public enum DmxBinaryOperator implements Enumerator
 	/**
 	 * The '<em><b>DOUBLE ARROW</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DOUBLE ARROW</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DOUBLE_ARROW
 	 * @model
@@ -572,7 +648,6 @@ public enum DmxBinaryOperator implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -583,7 +658,6 @@ public enum DmxBinaryOperator implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -594,7 +668,6 @@ public enum DmxBinaryOperator implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

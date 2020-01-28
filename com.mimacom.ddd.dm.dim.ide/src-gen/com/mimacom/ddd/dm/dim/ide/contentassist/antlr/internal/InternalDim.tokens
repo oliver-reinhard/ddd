@@ -52,12 +52,12 @@
 '\u2265'=63
 ']'=109
 'abstract'=116
-'alias'=80
+'alias'=81
 'all'=122
 'and'=55
 'archetype'=102
 'as'=27
-'component'=81
+'component'=82
 'concept'=21
 'constraint'=84
 'contains'=38
@@ -105,7 +105,7 @@
 'xor'=53
 '{'=18
 '|'=107
-'}'=82
+'}'=80
 RULE_ANY_OTHER=16
 RULE_ID=5
 RULE_LETTER=11

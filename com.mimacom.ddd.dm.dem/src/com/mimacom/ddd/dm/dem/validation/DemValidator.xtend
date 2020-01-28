@@ -5,11 +5,11 @@ package com.mimacom.ddd.dm.dem.validation
 
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DNamedElement
-import com.mimacom.ddd.dm.dem.DActor
-import com.mimacom.ddd.dm.dem.DCaseConjunction
-import com.mimacom.ddd.dm.dem.DDomainEvent
-import com.mimacom.ddd.dm.dem.DNotification
 import org.eclipse.xtext.validation.Check
+import com.mimacom.ddd.dm.dem.DemActor
+import com.mimacom.ddd.dm.dem.DemDomainEvent
+import com.mimacom.ddd.dm.dem.DemCaseConjunction
+import com.mimacom.ddd.dm.dem.DemNotification
 
 /**
  * This class contains custom validation rules. 
@@ -21,18 +21,18 @@ class DemValidator extends AbstractDemValidator {
 	static val BASE = BasePackage.eINSTANCE
 	
 	@Check
-	def checkOtherwiseClause(DDomainEvent event) {
-		val caseConjunctions =  event.postconditionsDNF.filter(DCaseConjunction)
-		val countOtherwise = caseConjunctions.filter[otherwise].size
+	def checkOtherwiseClause(DemDomainEvent event) {
+		val caseConjunctions =  event.postconditionsDNF.filter(DemCaseConjunction)
+		val countOtherwise = caseConjunctions.filter[isOtherwise].size
 		if (countOtherwise == 1) {
 			for(var i=0; i<caseConjunctions.size; i++) {
-				if (caseConjunctions.get(i).otherwise && i !=caseConjunctions.size-1) {
+				if (caseConjunctions.get(i).isOtherwise && i !=caseConjunctions.size-1) {
 					error ("The 'otherwise' clause must be last", caseConjunctions.get(i), BASE.DNamedElement_Name)
 				}
 			}
 		} else if (countOtherwise > 1) {
 			for(var i=0; i<caseConjunctions.size; i++) {
-				if (caseConjunctions.get(i).otherwise) {
+				if (caseConjunctions.get(i).isOtherwise) {
 					error ("There can only be one 'otherwise' clause ", caseConjunctions.get(i), BASE.DNamedElement_Name)
 				}
 			}
@@ -41,17 +41,17 @@ class DemValidator extends AbstractDemValidator {
 	
 
 	@Check
-	def void checkTypeNameStartsWithCapital(DActor a) {
+	def void checkTypeNameStartsWithCapital(DemActor a) {
 		checkNameStartsWithCapital(a)
 	}
 
 	@Check
-	def void checkTypeNameStartsWithCapital(DDomainEvent de) {
+	def void checkTypeNameStartsWithCapital(DemDomainEvent de) {
 		checkNameStartsWithCapital(de)
 	}
 
 	@Check
-	def void checkTypeNameStartsWithCapital(DNotification n) {
+	def void checkTypeNameStartsWithCapital(DemNotification n) {
 		checkNameStartsWithCapital(n)
 	}
 	

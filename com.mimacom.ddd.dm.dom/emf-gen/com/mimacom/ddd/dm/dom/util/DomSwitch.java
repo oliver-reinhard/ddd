@@ -3,9 +3,10 @@
  */
 package com.mimacom.ddd.dm.dom.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.dom.*;
@@ -82,7 +83,7 @@ public class DomSwitch<T> extends Switch<T>
 			{
 				DomModel domModel = (DomModel)theEObject;
 				T result = caseDomModel(domModel);
-				if (result == null) result = caseDNamespace(domModel);
+				if (result == null) result = caseDModel(domModel);
 				if (result == null) result = caseDNamedElement(domModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -91,7 +92,9 @@ public class DomSwitch<T> extends Switch<T>
 			{
 				DomSnapshot domSnapshot = (DomSnapshot)theEObject;
 				T result = caseDomSnapshot(domSnapshot);
+				if (result == null) result = caseDNamedElement(domSnapshot);
 				if (result == null) result = caseINavigableMemberContainer(domSnapshot);
+				if (result == null) result = caseIDiagramRoot(domSnapshot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,17 +202,17 @@ public class DomSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNamespace(DNamespace object)
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}
@@ -226,6 +229,22 @@ public class DomSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDiagramRoot(IDiagramRoot object)
 	{
 		return null;
 	}

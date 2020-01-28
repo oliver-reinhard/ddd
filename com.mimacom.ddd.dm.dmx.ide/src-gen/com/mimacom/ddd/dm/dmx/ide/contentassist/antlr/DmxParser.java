@@ -62,7 +62,8 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getGroup(), "rule__DmxNamespace__Group__0");
+			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
+			builder.put(grammarAccess.getDmxModelAccess().getGroup(), "rule__DmxModel__Group__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup(), "rule__DmxTest__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup_2(), "rule__DmxTest__Group_2__0");
@@ -162,11 +163,12 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getImportsAssignment_0(), "rule__DmxNamespace__ImportsAssignment_0");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getNameAssignment_2(), "rule__DmxNamespace__NameAssignment_2");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getTypesAssignment_3(), "rule__DmxNamespace__TypesAssignment_3");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getFiltersAssignment_4(), "rule__DmxNamespace__FiltersAssignment_4");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getTestsAssignment_5(), "rule__DmxNamespace__TestsAssignment_5");
+			builder.put(grammarAccess.getDNamespaceAccess().getNameAssignment_1(), "rule__DNamespace__NameAssignment_1");
+			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
+			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
+			builder.put(grammarAccess.getDmxModelAccess().getTypesAssignment_1(), "rule__DmxModel__TypesAssignment_1");
+			builder.put(grammarAccess.getDmxModelAccess().getFiltersAssignment_2(), "rule__DmxModel__FiltersAssignment_2");
+			builder.put(grammarAccess.getDmxModelAccess().getTestsAssignment_3(), "rule__DmxModel__TestsAssignment_3");
 			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getDmxTestAccess().getNameAssignment_1(), "rule__DmxTest__NameAssignment_1");
 			builder.put(grammarAccess.getDmxTestAccess().getContextAssignment_2_1(), "rule__DmxTest__ContextAssignment_2_1");

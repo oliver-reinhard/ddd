@@ -64,60 +64,63 @@ public class DmxTypeDescriptorProvider {
   
   public static final DmxBaseTypeDescriptor TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true);
   
-  public AbstractDmxTypeDescriptor<?> getTypeDescriptor(final Object obj, final boolean collection) {
-    AbstractDmxTypeDescriptor<?> _xblockexpression = null;
-    {
-      if (((obj instanceof EObject) && ((EObject) obj).eIsProxy())) {
-        return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
-      }
-      AbstractDmxTypeDescriptor<?> _switchResult = null;
-      boolean _matched = false;
-      if (obj instanceof DmxBaseType) {
-        _matched=true;
-        _switchResult = this.getBaseTypeDescriptor(((DmxBaseType)obj), collection);
-      }
-      if (!_matched) {
-        if (obj instanceof DmxArchetype) {
-          _matched=true;
-          _switchResult = new DmxPrimitiveDescriptor(((DmxArchetype)obj), collection);
-        }
-      }
-      if (!_matched) {
-        if (obj instanceof DPrimitive) {
-          _matched=true;
-          _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)obj), collection);
-        }
-      }
-      if (!_matched) {
-        if (obj instanceof DEnumeration) {
-          _matched=true;
-          _switchResult = new DmxEnumerationDescriptor(((DEnumeration)obj), collection);
-        }
-      }
-      if (!_matched) {
-        if (obj instanceof DComplexType) {
-          _matched=true;
-          _switchResult = new DmxComplexTypeDescriptor(((DComplexType)obj), collection, this.util);
-        }
-      }
-      if (!_matched) {
-        if (obj instanceof DState) {
-          _matched=true;
-          _switchResult = new DmxStateDescriptor(((DState)obj), collection);
-        }
-      }
-      if (!_matched) {
-        if (obj instanceof DAggregate) {
-          _matched=true;
-          _switchResult = new DmxAggregateDescriptor(((DAggregate)obj), collection);
-        }
-      }
-      if (!_matched) {
-        _switchResult = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
-      }
-      _xblockexpression = _switchResult;
+  public final AbstractDmxTypeDescriptor<?> getTypeDescriptor(final Object obj, final boolean collection) {
+    if (((obj instanceof EObject) && ((EObject) obj).eIsProxy())) {
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
-    return _xblockexpression;
+    return this.typeDescriptorSwitch(obj, collection);
+  }
+  
+  /**
+   * Use to override
+   */
+  public AbstractDmxTypeDescriptor<?> typeDescriptorSwitch(final Object obj, final boolean collection) {
+    AbstractDmxTypeDescriptor<?> _switchResult = null;
+    boolean _matched = false;
+    if (obj instanceof DmxBaseType) {
+      _matched=true;
+      _switchResult = this.getBaseTypeDescriptor(((DmxBaseType)obj), collection);
+    }
+    if (!_matched) {
+      if (obj instanceof DmxArchetype) {
+        _matched=true;
+        _switchResult = new DmxPrimitiveDescriptor(((DmxArchetype)obj), collection);
+      }
+    }
+    if (!_matched) {
+      if (obj instanceof DPrimitive) {
+        _matched=true;
+        _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)obj), collection);
+      }
+    }
+    if (!_matched) {
+      if (obj instanceof DEnumeration) {
+        _matched=true;
+        _switchResult = new DmxEnumerationDescriptor(((DEnumeration)obj), collection);
+      }
+    }
+    if (!_matched) {
+      if (obj instanceof DComplexType) {
+        _matched=true;
+        _switchResult = new DmxComplexTypeDescriptor(((DComplexType)obj), collection, this.util);
+      }
+    }
+    if (!_matched) {
+      if (obj instanceof DState) {
+        _matched=true;
+        _switchResult = new DmxStateDescriptor(((DState)obj), collection);
+      }
+    }
+    if (!_matched) {
+      if (obj instanceof DAggregate) {
+        _matched=true;
+        _switchResult = new DmxAggregateDescriptor(((DAggregate)obj), collection);
+      }
+    }
+    if (!_matched) {
+      _switchResult = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+    }
+    return _switchResult;
   }
   
   public AbstractDmxTypeDescriptor<?> toFromCollection(final AbstractDmxTypeDescriptor<?> obj, final boolean collection) {

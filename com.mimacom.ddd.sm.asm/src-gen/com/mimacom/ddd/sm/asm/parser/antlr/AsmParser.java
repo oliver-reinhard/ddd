@@ -27,7 +27,7 @@ public class AsmParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "DNamespace";
 	}
 
 	public AsmGrammarAccess getGrammarAccess() {

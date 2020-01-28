@@ -4,6 +4,9 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 import com.mimacom.ddd.dm.base.DInformationModel;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import com.mimacom.ddd.system.tests.SystemTestInjectorProvider;
 import java.net.URL;
@@ -102,7 +105,7 @@ public class ParsingTest {
   }.apply();
   
   @Inject
-  private ParseHelper<DInformationModel> dimParseHelper;
+  private ParseHelper<DNamespace> dimParseHelper;
   
   private XtextResourceSet resourceSet = null;
   
@@ -118,8 +121,10 @@ public class ParsingTest {
   public void parseBaseTypes() {
     try {
       String _string = ParsingTest.BASE_TYPES_URI.toString();
-      final DInformationModel content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.BASE_TYPES_URI, null, this.resourceSet);
+      final DNamespace content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.BASE_TYPES_URI, null, this.resourceSet);
       Assertions.assertNotNull(content);
+      DModel _model = content.getModel();
+      Assertions.assertTrue((_model instanceof DInformationModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -135,6 +140,9 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.SYSTEM_FUNCTIONS_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      Assertions.assertTrue((content instanceof DNamespace));
+      DModel _model = ((DNamespace) content).getModel();
+      Assertions.assertTrue((_model instanceof DmxModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -150,6 +158,9 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.ASSIGNMENTS_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      Assertions.assertTrue((content instanceof DNamespace));
+      DModel _model = ((DNamespace) content).getModel();
+      Assertions.assertTrue((_model instanceof DmxModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -160,9 +171,11 @@ public class ParsingTest {
   public void parseCustomTypes() {
     try {
       String _string = ParsingTest.CUSTOM_TYPES_URI.toString();
-      final DInformationModel content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.CUSTOM_TYPES_URI, null, 
+      final DNamespace content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.CUSTOM_TYPES_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      DModel _model = content.getModel();
+      Assertions.assertTrue((_model instanceof DInformationModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -178,6 +191,9 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.MATH_FUNCTIONS_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      Assertions.assertTrue((content instanceof DNamespace));
+      DModel _model = ((DNamespace) content).getModel();
+      Assertions.assertTrue((_model instanceof DmxModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -193,6 +209,9 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.SYSTEM_TYPES_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      Assertions.assertTrue((content instanceof DNamespace));
+      DModel _model = ((DNamespace) content).getModel();
+      Assertions.assertTrue((_model instanceof DmxModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

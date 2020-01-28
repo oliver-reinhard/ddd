@@ -3,9 +3,10 @@
  */
 package com.mimacom.ddd.dm.dom.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.dom.*;
@@ -106,14 +107,19 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseDNamespace(DNamespace object)
+			public Adapter caseDModel(DModel object)
 			{
-				return createDNamespaceAdapter();
+				return createDModelAdapter();
 			}
 			@Override
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
 			{
 				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
 			}
 			@Override
 			public Adapter caseDNavigableMember(DNavigableMember object)
@@ -218,16 +224,16 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DModel <em>DModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @see com.mimacom.ddd.dm.base.DModel
 	 * @generated
 	 */
-	public Adapter createDNamespaceAdapter()
+	public Adapter createDModelAdapter()
 	{
 		return null;
 	}
@@ -243,6 +249,21 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
 	{
 		return null;
 	}

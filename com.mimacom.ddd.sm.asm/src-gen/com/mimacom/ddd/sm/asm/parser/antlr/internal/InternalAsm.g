@@ -44,7 +44,7 @@ import com.mimacom.ddd.sm.asm.services.AsmGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Model";
+    	return "DNamespace";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import com.mimacom.ddd.sm.asm.services.AsmGrammarAccess;
     }
 }
 
-// Entry rule entryRuleModel
-entryRuleModel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getModelRule()); }
-	iv_ruleModel=ruleModel
-	{ $current=$iv_ruleModel.current; }
+// Entry rule entryRuleDNamespace
+entryRuleDNamespace returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDNamespaceRule()); }
+	iv_ruleDNamespace=ruleDNamespace
+	{ $current=$iv_ruleDNamespace.current; }
 	EOF;
 
-// Rule Model
-ruleModel returns [EObject current=null]
+// Rule DNamespace
+ruleDNamespace returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -77,23 +77,85 @@ ruleModel returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='namespace'
 		{
-			newCompositeNode(grammarAccess.getModelAccess().getSApplicationParserRuleCall_0());
+			newLeafNode(otherlv_0, grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0());
 		}
-		this_SApplication_0=ruleSApplication
-		{
-			$current = $this_SApplication_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getModelAccess().getSServiceInterfaceParserRuleCall_1());
-		}
-		this_SServiceInterface_1=ruleSServiceInterface
-		{
-			$current = $this_SServiceInterface_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getNameDQualifiedNameParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleDQualifiedName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0());
+				}
+				lv_imports_2_0=ruleDImport
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
+					}
+					add(
+						$current,
+						"imports",
+						lv_imports_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDNamespaceAccess().getModelSApplicationParserRuleCall_3_0_0());
+					}
+					lv_model_3_1=ruleSApplication
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
+						}
+						set(
+							$current,
+							"model",
+							lv_model_3_1,
+							"com.mimacom.ddd.sm.asm.Asm.SApplication");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getDNamespaceAccess().getModelSServiceInterfaceParserRuleCall_3_0_1());
+					}
+					lv_model_3_2=ruleSServiceInterface
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
+						}
+						set(
+							$current,
+							"model",
+							lv_model_3_2,
+							"com.mimacom.ddd.sm.asm.Asm.SServiceInterface");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
 	)
 ;
 
@@ -113,55 +175,35 @@ ruleSApplication returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_0_0());
-				}
-				lv_imports_0_0=ruleDImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_0_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_1='application'
+		otherlv_0='application'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getSApplicationAccess().getApplicationKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getSApplicationAccess().getApplicationKeyword_0());
 		}
 		(
 			(
+				lv_name_1_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_2_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getSApplicationAccess().getNameIDTerminalRuleCall_1_0());
 				}
-				lv_name_2_0=ruleDQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
+						$current = createModelElement(grammarAccess.getSApplicationRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
-					afterParserOrEnumRuleCall();
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
 				}
 			)
 		)
-		otherlv_3='information'
+		otherlv_2='information'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getSApplicationAccess().getInformationKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getSApplicationAccess().getInformationKeyword_2());
 		}
-		otherlv_4='model'
+		otherlv_3='model'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getSApplicationAccess().getModelKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getSApplicationAccess().getModelKeyword_3());
 		}
 		(
 			(
@@ -171,7 +213,7 @@ ruleSApplication returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getModelSInformationModelCrossReference_5_0());
+					newCompositeNode(grammarAccess.getSApplicationAccess().getModelSInformationModelCrossReference_4_0());
 				}
 				ruleDQualifiedName
 				{
@@ -182,9 +224,9 @@ ruleSApplication returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getActorsSActorParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getSApplicationAccess().getActorsSActorParserRuleCall_5_0());
 				}
-				lv_actors_6_0=ruleSActor
+				lv_actors_5_0=ruleSActor
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
@@ -192,7 +234,7 @@ ruleSApplication returns [EObject current=null]
 					add(
 						$current,
 						"actors",
-						lv_actors_6_0,
+						lv_actors_5_0,
 						"com.mimacom.ddd.sm.asm.Asm.SActor");
 					afterParserOrEnumRuleCall();
 				}
@@ -217,59 +259,39 @@ ruleSServiceInterface returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_0_0());
-				}
-				lv_imports_0_0=ruleDImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_0_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_1='service'
+		otherlv_0='service'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_0());
 		}
-		otherlv_2='interface'
+		otherlv_1='interface'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_1());
 		}
 		(
 			(
+				lv_name_2_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_3_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getSServiceInterfaceAccess().getNameIDTerminalRuleCall_2_0());
 				}
-				lv_name_3_0=ruleDQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
+						$current = createModelElement(grammarAccess.getSServiceInterfaceRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_3_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
-					afterParserOrEnumRuleCall();
+						lv_name_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
 				}
 			)
 		)
-		otherlv_4='interface'
+		otherlv_3='interface'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_3());
 		}
-		otherlv_5='model'
+		otherlv_4='model'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getSServiceInterfaceAccess().getModelKeyword_5());
+			newLeafNode(otherlv_4, grammarAccess.getSServiceInterfaceAccess().getModelKeyword_4());
 		}
 		(
 			(
@@ -279,7 +301,7 @@ ruleSServiceInterface returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelCrossReference_6_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelCrossReference_5_0());
 				}
 				ruleDQualifiedName
 				{
@@ -287,13 +309,13 @@ ruleSServiceInterface returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_7='core'
+		otherlv_6='core'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getSServiceInterfaceAccess().getCoreKeyword_7());
+			newLeafNode(otherlv_6, grammarAccess.getSServiceInterfaceAccess().getCoreKeyword_6());
 		}
-		otherlv_8='model'
+		otherlv_7='model'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getSServiceInterfaceAccess().getModelKeyword_8());
+			newLeafNode(otherlv_7, grammarAccess.getSServiceInterfaceAccess().getModelKeyword_7());
 		}
 		(
 			(
@@ -303,7 +325,7 @@ ruleSServiceInterface returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelCrossReference_9_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelCrossReference_8_0());
 				}
 				ruleDQualifiedName
 				{
@@ -314,9 +336,9 @@ ruleSServiceInterface returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getExceptionsSExceptionParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getExceptionsSExceptionParserRuleCall_9_0());
 				}
-				lv_exceptions_10_0=ruleSException
+				lv_exceptions_9_0=ruleSException
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
@@ -324,7 +346,7 @@ ruleSServiceInterface returns [EObject current=null]
 					add(
 						$current,
 						"exceptions",
-						lv_exceptions_10_0,
+						lv_exceptions_9_0,
 						"com.mimacom.ddd.sm.asm.Asm.SException");
 					afterParserOrEnumRuleCall();
 				}
@@ -333,9 +355,9 @@ ruleSServiceInterface returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getOperationsSServiceOperationParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getOperationsSServiceOperationParserRuleCall_10_0());
 				}
-				lv_operations_11_0=ruleSServiceOperation
+				lv_operations_10_0=ruleSServiceOperation
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
@@ -343,7 +365,7 @@ ruleSServiceInterface returns [EObject current=null]
 					add(
 						$current,
 						"operations",
-						lv_operations_11_0,
+						lv_operations_10_0,
 						"com.mimacom.ddd.sm.asm.Asm.SServiceOperation");
 					afterParserOrEnumRuleCall();
 				}

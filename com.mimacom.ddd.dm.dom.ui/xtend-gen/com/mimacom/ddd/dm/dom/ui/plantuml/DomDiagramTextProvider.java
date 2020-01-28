@@ -6,6 +6,8 @@ import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxDetail;
 import com.mimacom.ddd.dm.dmx.DmxEntity;
@@ -82,22 +84,22 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DomModel, XtextResource> _function = (XtextResource it) -> {
-      DomModel _xifexpression = null;
+    final IUnitOfWork<DNamespace, XtextResource> _function = (XtextResource it) -> {
+      DNamespace _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DomModel)) {
+      if ((_head instanceof DNamespace)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DomModel) _head_1);
+        _xifexpression = ((DNamespace) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final DomModel model = document.<DomModel>readOnly(_function);
+    final DNamespace ns = document.<DNamespace>readOnly(_function);
+    DModel _model = ns.getModel();
+    final DomModel model = ((DomModel) _model);
     final List<Diagnostic> result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
-    boolean _isEmpty = result.isEmpty();
-    boolean _not = (!_isEmpty);
-    if (_not) {
+    if (((model != null) && (!result.isEmpty()))) {
       return "note \"Object model has validation errors.\" as N1";
     } else {
       if (((model != null) && (!model.getSnapshots().isEmpty()))) {

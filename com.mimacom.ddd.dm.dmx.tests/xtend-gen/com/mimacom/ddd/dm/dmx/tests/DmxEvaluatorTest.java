@@ -8,8 +8,10 @@ import com.google.inject.Injector;
 import com.google.inject.Provider;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DInformationModel;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.evaluator.DmxExpressionEvaluator;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
@@ -41,7 +43,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class DmxEvaluatorTest {
   @Inject
-  private ParseHelper<DmxNamespace> dmxParseHelper;
+  private ParseHelper<DNamespace> dmxParseHelper;
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
@@ -75,7 +77,7 @@ public class DmxEvaluatorTest {
       _builder.newLine();
       _builder.append("archetype Timepoint\tis TIMEPOINT");
       _builder.newLine();
-      final DmxNamespace systemTypes = this.dmxParseHelper.parse(_builder, resourceSet);
+      final DNamespace systemTypes = this.dmxParseHelper.parse(_builder, resourceSet);
       Assertions.assertNotNull(systemTypes);
       final EList<Resource.Diagnostic> stErrors = systemTypes.eResource().getErrors();
       boolean _isEmpty = stErrors.isEmpty();
@@ -156,7 +158,7 @@ public class DmxEvaluatorTest {
       String _join_1 = IterableExtensions.join(ctErrors, ", ");
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
-      final DmxNamespace result = this.dmxParseHelper.parse(input, resourceSet);
+      final DNamespace result = this.dmxParseHelper.parse(input, resourceSet);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty_2 = errors.isEmpty();
@@ -165,7 +167,8 @@ public class DmxEvaluatorTest {
       String _join_2 = IterableExtensions.join(errors, "; ");
       _builder_4.append(_join_2);
       Assertions.assertTrue(_isEmpty_2, _builder_4.toString());
-      return result.getTests();
+      DModel _model = result.getModel();
+      return ((DmxModel) _model).getTests();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

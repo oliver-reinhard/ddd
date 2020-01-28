@@ -14,7 +14,6 @@ import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
 import com.mimacom.ddd.dm.dom.DomSnapshot;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -86,7 +85,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link DomPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -101,13 +100,11 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		if (isInited) return (DomPackage)EPackage.Registry.INSTANCE.getEPackage(DomPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredDomPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		DomPackageImpl theDomPackage = registeredDomPackage instanceof DomPackageImpl ? (DomPackageImpl)registeredDomPackage : new DomPackageImpl();
+		DomPackageImpl theDomPackage = (DomPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DomPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DomPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
 		DmxPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -119,6 +116,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Mark meta-data to indicate it can't be changed
 		theDomPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DomPackage.eNS_URI, theDomPackage);
 		return theDomPackage;
@@ -129,7 +127,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomModel()
 	{
 		return domModelEClass;
@@ -140,7 +137,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDomModel_Snapshots()
 	{
 		return (EReference)domModelEClass.getEStructuralFeatures().get(0);
@@ -151,7 +147,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomSnapshot()
 	{
 		return domSnapshotEClass;
@@ -162,21 +157,9 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getDomSnapshot_Name()
-	{
-		return (EAttribute)domSnapshotEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getDomSnapshot_Objects()
 	{
-		return (EReference)domSnapshotEClass.getEStructuralFeatures().get(1);
+		return (EReference)domSnapshotEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -184,7 +167,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomObject()
 	{
 		return domObjectEClass;
@@ -195,7 +177,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomNamedComplexObject()
 	{
 		return domNamedComplexObjectEClass;
@@ -206,7 +187,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDomNamedComplexObject_Object()
 	{
 		return (EReference)domNamedComplexObjectEClass.getEStructuralFeatures().get(0);
@@ -217,7 +197,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DomFactory getDomFactory()
 	{
 		return (DomFactory)getEFactoryInstance();
@@ -247,7 +226,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		createEReference(domModelEClass, DOM_MODEL__SNAPSHOTS);
 
 		domSnapshotEClass = createEClass(DOM_SNAPSHOT);
-		createEAttribute(domSnapshotEClass, DOM_SNAPSHOT__NAME);
 		createEReference(domSnapshotEClass, DOM_SNAPSHOT__OBJECTS);
 
 		domObjectEClass = createEClass(DOM_OBJECT);
@@ -289,8 +267,10 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		domModelEClass.getESuperTypes().add(theBasePackage.getDNamespace());
+		domModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		domSnapshotEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
 		domSnapshotEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		domSnapshotEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		domObjectEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		domNamedComplexObjectEClass.getESuperTypes().add(this.getDomObject());
 
@@ -299,7 +279,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		initEReference(getDomModel_Snapshots(), this.getDomSnapshot(), null, "snapshots", null, 0, -1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domSnapshotEClass, DomSnapshot.class, "DomSnapshot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDomSnapshot_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomSnapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomSnapshot_Objects(), this.getDomObject(), null, "objects", null, 0, -1, DomSnapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domObjectEClass, DomObject.class, "DomObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

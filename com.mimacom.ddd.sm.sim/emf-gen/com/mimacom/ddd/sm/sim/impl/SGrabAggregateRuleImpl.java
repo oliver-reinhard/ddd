@@ -50,7 +50,6 @@ public class SGrabAggregateRuleImpl extends SRenameRuleImpl implements SGrabAggr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DAggregate getAggregate()
 	{
 		// TODO: implement this method to return the 'Aggregate' reference

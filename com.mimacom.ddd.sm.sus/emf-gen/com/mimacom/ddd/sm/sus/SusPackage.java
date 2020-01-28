@@ -77,7 +77,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__NAME = BasePackage.DNAMESPACE__NAME;
+	int USER_STORY__NAME = BasePackage.DMODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -86,7 +86,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__ALIASES = BasePackage.DNAMESPACE__ALIASES;
+	int USER_STORY__ALIASES = BasePackage.DMODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -95,16 +95,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER_STORY__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
+	int USER_STORY__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Sections</b></em>' containment reference list.
@@ -113,7 +104,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__SECTIONS = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
+	int USER_STORY__SECTIONS = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.
@@ -122,7 +113,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__EVENT = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
+	int USER_STORY__EVENT = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>User Story</em>' class.
@@ -131,7 +122,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 2;
+	int USER_STORY_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>User Story</em>' class.
@@ -140,7 +131,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY_OPERATION_COUNT = BasePackage.DNAMESPACE_OPERATION_COUNT + 0;
+	int USER_STORY_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sus.impl.SectionImpl <em>Section</em>}' class.

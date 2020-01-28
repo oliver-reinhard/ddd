@@ -4,21 +4,21 @@
 package com.mimacom.ddd.sm.asm.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.sm.asm.Model
+import com.mimacom.ddd.dm.base.DNamespace
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.junit.jupiter.api.Disabled
 
 @ExtendWith(InjectionExtension)
 @InjectWith(AsmInjectorProvider)
 @Disabled
 class AsmParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<DNamespace> parseHelper
 	
 	@Test
 	def void loadModel() {

@@ -4,7 +4,7 @@
 package com.mimacom.ddd.sm.asm.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.asm.Model;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.sm.asm.tests.AsmInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,7 +25,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class AsmParsingTest {
   @Inject
-  private ParseHelper<Model> parseHelper;
+  private ParseHelper<DNamespace> parseHelper;
   
   @Test
   public void loadModel() {
@@ -33,7 +33,7 @@ public class AsmParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final Model result = this.parseHelper.parse(_builder);
+      final DNamespace result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

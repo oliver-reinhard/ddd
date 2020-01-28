@@ -70,7 +70,6 @@ public class EsmConcurrentStateImpl extends IEsmStateImpl implements EsmConcurre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<EsmSubStateModel> getSubStates()
 	{
 		if (subStates == null)

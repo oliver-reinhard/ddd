@@ -80,7 +80,6 @@ public class DmxCastExpressionImpl extends DExpressionImpl implements DmxCastExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getTarget()
 	{
 		return target;
@@ -108,7 +107,6 @@ public class DmxCastExpressionImpl extends DExpressionImpl implements DmxCastExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTarget(DExpression newTarget)
 	{
 		if (newTarget != target)
@@ -130,7 +128,6 @@ public class DmxCastExpressionImpl extends DExpressionImpl implements DmxCastExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DType getType()
 	{
 		if (type != null && type.eIsProxy())
@@ -161,7 +158,6 @@ public class DmxCastExpressionImpl extends DExpressionImpl implements DmxCastExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setType(DType newType)
 	{
 		DType oldType = type;

@@ -4,8 +4,8 @@ package com.mimacom.ddd.dm.dmx.util;
 
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DSimpleType;
@@ -87,13 +87,13 @@ public class DmxSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case DmxPackage.DMX_NAMESPACE:
+			case DmxPackage.DMX_MODEL:
 			{
-				DmxNamespace dmxNamespace = (DmxNamespace)theEObject;
-				T result = caseDmxNamespace(dmxNamespace);
-				if (result == null) result = caseDNamespace(dmxNamespace);
-				if (result == null) result = caseITypeContainer(dmxNamespace);
-				if (result == null) result = caseDNamedElement(dmxNamespace);
+				DmxModel dmxModel = (DmxModel)theEObject;
+				T result = caseDmxModel(dmxModel);
+				if (result == null) result = caseDModel(dmxModel);
+				if (result == null) result = caseITypeContainer(dmxModel);
+				if (result == null) result = caseDNamedElement(dmxModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -384,17 +384,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDmxNamespace(DmxNamespace object)
+	public T caseDmxModel(DmxModel object)
 	{
 		return null;
 	}
@@ -912,17 +912,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNamespace(DNamespace object)
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}

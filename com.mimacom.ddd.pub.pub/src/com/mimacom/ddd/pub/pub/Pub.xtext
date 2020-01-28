@@ -351,7 +351,7 @@ PubCodeListing returns CodeListing:
 		'{'
 			codeLines+=STRING*
 		'}'
-	|	'include' include=[ecore::EObject|DQualifiedName]
+	|	'include' include=[ecore::EObject|DQualifiedName]  // TODO: DQualifiedName is likely the cause of the ANTLR warning: Decision can match input such as "'.' RULE_ID" using multiple alternatives
 	);
 
 enum PubCodeLanguage returns CodeLanguage: 

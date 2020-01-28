@@ -9,6 +9,8 @@ import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityOrigin
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DInformationModel
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
@@ -23,7 +25,6 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
-import com.mimacom.ddd.dm.base.DInformationModel
 
 class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 
@@ -44,27 +45,27 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve  "semantic" EMF model from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val DInformationModel domain = document.readOnly[
-            return if (contents.head instanceof DInformationModel) contents.head as DInformationModel else null
+        val namespace = document.readOnly[
+            return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
-        
-        if (domain !== null && ! (domain.types.empty && domain.aggregates.empty)) {
-        	return domainTypes(domain)
+        val model = namespace.model as DInformationModel
+        if (model !== null && ! (model.types.empty && model.aggregates.empty)) {
+        	return domainTypes(model)
         } else {
         	return '''note "No structures to show." as N1'''
         }
 	}
 	
-	def domainTypes(DInformationModel domain) {
-		val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
-		val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[getType instanceof DEntityType]
+	def domainTypes(DInformationModel model) {
+		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate)
+		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[getType instanceof DEntityType]
 //		val allEntitiesReferencedWithinAggregate = allAssociations.filter[targetType.eContainer == eContainer.eContainer].map[targetType]
-		val allEntitiesReferencedWithinDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName == domain.name].map[targetType]
+		val allEntitiesReferencedWithinDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName == model.name].map[targetType]
 		val allAggregatesReferencedWithinDomain = allEntitiesReferencedWithinDomain.map[eContainer as DAggregate]
-		val allEntitiesReferencedOutsideDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName != domain.name].map[targetType]
+		val allEntitiesReferencedOutsideDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName != model.name].map[targetType]
 		val allDomainsReferencedOutsideDomain = allEntitiesReferencedOutsideDomain.map[domainName]
-		val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[getType instanceof DDetailType]
-		val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
+		val allDetailAttributes = EcoreUtil2.eAllOfType(model, DAttribute).filter[getType instanceof DDetailType]
+		val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
         
        val result = '''
 			 hide empty members
@@ -74,9 +75,9 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 				FontColor FireBrick
 			}
 			
-			«IF ! domain.types.empty»
+			«IF ! model.types.empty»
 				' all domain-level types
-				«FOR t:domain.types»
+				«FOR t:model.types»
 					«t.generateType»
 				«ENDFOR»
 			«ENDIF»

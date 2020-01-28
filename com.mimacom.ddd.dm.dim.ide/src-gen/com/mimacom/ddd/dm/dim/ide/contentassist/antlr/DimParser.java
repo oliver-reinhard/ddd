@@ -31,7 +31,7 @@ public class DimParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DimGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getDInformationModelAccess().getAlternatives_8(), "rule__DInformationModel__Alternatives_8");
+			builder.put(grammarAccess.getDInformationModelAccess().getAlternatives_6(), "rule__DInformationModel__Alternatives_6");
 			builder.put(grammarAccess.getDTypeAccess().getAlternatives(), "rule__DType__Alternatives");
 			builder.put(grammarAccess.getDEntityTypeAccess().getAlternatives_1(), "rule__DEntityType__Alternatives_1");
 			builder.put(grammarAccess.getDEntityTypeAccess().getAlternatives_1_1_1(), "rule__DEntityType__Alternatives_1_1_1");
@@ -71,8 +71,9 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
+			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
 			builder.put(grammarAccess.getDInformationModelAccess().getGroup(), "rule__DInformationModel__Group__0");
-			builder.put(grammarAccess.getDInformationModelAccess().getGroup_6(), "rule__DInformationModel__Group_6__0");
+			builder.put(grammarAccess.getDInformationModelAccess().getGroup_3(), "rule__DInformationModel__Group_3__0");
 			builder.put(grammarAccess.getDAggregateAccess().getGroup(), "rule__DAggregate__Group__0");
 			builder.put(grammarAccess.getDAggregateAccess().getGroup_5(), "rule__DAggregate__Group_5__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup(), "rule__DConstraint__Group__0");
@@ -111,7 +112,7 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQueryAccess().getGroup_3_1(), "rule__DQuery__Group_3_1__0");
 			builder.put(grammarAccess.getDQueryAccess().getGroup_8(), "rule__DQuery__Group_8__0");
 			builder.put(grammarAccess.getDQueryParameterAccess().getGroup(), "rule__DQueryParameter__Group__0");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getGroup(), "rule__DmxNamespace__Group__0");
+			builder.put(grammarAccess.getDmxModelAccess().getGroup(), "rule__DmxModel__Group__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup(), "rule__DmxTest__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup_2(), "rule__DmxTest__Group_2__0");
@@ -211,13 +212,14 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
-			builder.put(grammarAccess.getDInformationModelAccess().getImportsAssignment_0(), "rule__DInformationModel__ImportsAssignment_0");
-			builder.put(grammarAccess.getDInformationModelAccess().getDomainAssignment_2(), "rule__DInformationModel__DomainAssignment_2");
-			builder.put(grammarAccess.getDInformationModelAccess().getNameAssignment_5(), "rule__DInformationModel__NameAssignment_5");
-			builder.put(grammarAccess.getDInformationModelAccess().getAliasesAssignment_6_1(), "rule__DInformationModel__AliasesAssignment_6_1");
-			builder.put(grammarAccess.getDInformationModelAccess().getDescriptionAssignment_7(), "rule__DInformationModel__DescriptionAssignment_7");
-			builder.put(grammarAccess.getDInformationModelAccess().getTypesAssignment_8_0(), "rule__DInformationModel__TypesAssignment_8_0");
-			builder.put(grammarAccess.getDInformationModelAccess().getAggregatesAssignment_8_1(), "rule__DInformationModel__AggregatesAssignment_8_1");
+			builder.put(grammarAccess.getDNamespaceAccess().getNameAssignment_1(), "rule__DNamespace__NameAssignment_1");
+			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
+			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
+			builder.put(grammarAccess.getDInformationModelAccess().getNameAssignment_2(), "rule__DInformationModel__NameAssignment_2");
+			builder.put(grammarAccess.getDInformationModelAccess().getAliasesAssignment_3_1(), "rule__DInformationModel__AliasesAssignment_3_1");
+			builder.put(grammarAccess.getDInformationModelAccess().getDescriptionAssignment_4(), "rule__DInformationModel__DescriptionAssignment_4");
+			builder.put(grammarAccess.getDInformationModelAccess().getTypesAssignment_6_0(), "rule__DInformationModel__TypesAssignment_6_0");
+			builder.put(grammarAccess.getDInformationModelAccess().getAggregatesAssignment_6_1(), "rule__DInformationModel__AggregatesAssignment_6_1");
 			builder.put(grammarAccess.getDAggregateAccess().getNameAssignment_2(), "rule__DAggregate__NameAssignment_2");
 			builder.put(grammarAccess.getDAggregateAccess().getDescriptionAssignment_3(), "rule__DAggregate__DescriptionAssignment_3");
 			builder.put(grammarAccess.getDAggregateAccess().getFeaturesAssignment_5_1(), "rule__DAggregate__FeaturesAssignment_5_1");
@@ -289,11 +291,9 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQueryParameterAccess().getTypeAssignment_2(), "rule__DQueryParameter__TypeAssignment_2");
 			builder.put(grammarAccess.getDQueryParameterAccess().getMultiplicityAssignment_3(), "rule__DQueryParameter__MultiplicityAssignment_3");
 			builder.put(grammarAccess.getDQueryParameterAccess().getDescriptionAssignment_4(), "rule__DQueryParameter__DescriptionAssignment_4");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getImportsAssignment_0(), "rule__DmxNamespace__ImportsAssignment_0");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getNameAssignment_2(), "rule__DmxNamespace__NameAssignment_2");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getTypesAssignment_3(), "rule__DmxNamespace__TypesAssignment_3");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getFiltersAssignment_4(), "rule__DmxNamespace__FiltersAssignment_4");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getTestsAssignment_5(), "rule__DmxNamespace__TestsAssignment_5");
+			builder.put(grammarAccess.getDmxModelAccess().getTypesAssignment_1(), "rule__DmxModel__TypesAssignment_1");
+			builder.put(grammarAccess.getDmxModelAccess().getFiltersAssignment_2(), "rule__DmxModel__FiltersAssignment_2");
+			builder.put(grammarAccess.getDmxModelAccess().getTestsAssignment_3(), "rule__DmxModel__TestsAssignment_3");
 			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getDmxTestAccess().getNameAssignment_1(), "rule__DmxTest__NameAssignment_1");
 			builder.put(grammarAccess.getDmxTestAccess().getContextAssignment_2_1(), "rule__DmxTest__ContextAssignment_2_1");

@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterface
+public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInterface
 {
 	/**
 	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
@@ -109,7 +109,6 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SInformationModel getInterface()
 	{
 		if (interface_ != null && interface_.eIsProxy())
@@ -140,7 +139,6 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setInterface(SInformationModel newInterface)
 	{
 		SInformationModel oldInterface = interface_;
@@ -154,7 +152,6 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SInformationModel getCore()
 	{
 		if (core != null && core.eIsProxy())
@@ -185,7 +182,6 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setCore(SInformationModel newCore)
 	{
 		SInformationModel oldCore = core;
@@ -199,7 +195,6 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SException> getExceptions()
 	{
 		if (exceptions == null)
@@ -214,7 +209,6 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SServiceOperation> getOperations()
 	{
 		if (operations == null)

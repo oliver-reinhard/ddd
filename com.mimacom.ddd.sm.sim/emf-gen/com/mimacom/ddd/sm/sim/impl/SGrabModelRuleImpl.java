@@ -52,7 +52,6 @@ public class SGrabModelRuleImpl extends DDeductionRuleImplCustom implements SGra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DInformationModel getDModel()
 	{
 		// TODO: implement this method to return the 'DModel' reference

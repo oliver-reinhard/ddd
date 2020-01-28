@@ -66,7 +66,6 @@ public class AbbreviationsImpl extends SegmentWithTableImpl implements Abbreviat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Abbreviation> getEntries() {
 		if (entries == null) {
 			entries = new EObjectContainmentEList<Abbreviation>(Abbreviation.class, this, PubPackage.ABBREVIATIONS__ENTRIES);

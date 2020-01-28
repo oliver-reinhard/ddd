@@ -3,7 +3,12 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+
+import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
 
 import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
@@ -11,16 +16,12 @@ import com.mimacom.ddd.dm.dom.DomSnapshot;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,34 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getNavigableMembers <em>Navigable Members</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getObjects <em>Objects</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements DomSnapshot
+public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getObjects() <em>Objects</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -98,7 +78,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -113,32 +92,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName)
-	{
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomPackage.DOM_SNAPSHOT__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DomObject> getObjects()
 	{
 		if (objects == null)
@@ -176,8 +129,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 		{
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				return getNavigableMembers();
-			case DomPackage.DOM_SNAPSHOT__NAME:
-				return getName();
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				return getObjects();
 		}
@@ -198,9 +149,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
-				return;
-			case DomPackage.DOM_SNAPSHOT__NAME:
-				setName((String)newValue);
 				return;
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				getObjects().clear();
@@ -223,9 +171,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				return;
-			case DomPackage.DOM_SNAPSHOT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				getObjects().clear();
 				return;
@@ -245,8 +190,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 		{
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				return !getNavigableMembers().isEmpty();
-			case DomPackage.DOM_SNAPSHOT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				return objects != null && !objects.isEmpty();
 		}
@@ -259,15 +202,50 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * @generated
 	 */
 	@Override
-	public String toString()
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (eIsProxy()) return super.toString();
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS: return BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == IDiagramRoot.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS: return DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == IDiagramRoot.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DomSnapshotImpl

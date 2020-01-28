@@ -38,6 +38,10 @@ Workflow {
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
 			referencedResource = "platform:/resource/${project}/model/esm.genmodel"
 
+			formatter = {
+				generateStub = true
+			}
+
 			serializer = {
 				generateStub = false
 			}
@@ -57,6 +61,6 @@ Workflow {
 	
 	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
 		genModel = "${genModel}"
-       srcPath = "${rootPath}/${project}/src"
+		srcPath = "${rootPath}/${project}/src"
 	}
 }

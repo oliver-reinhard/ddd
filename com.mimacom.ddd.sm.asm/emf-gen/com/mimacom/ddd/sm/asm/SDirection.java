@@ -43,6 +43,10 @@ public enum SDirection implements Enumerator
 	/**
 	 * The '<em><b>INBOUND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>INBOUND</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INBOUND
 	 * @model
@@ -54,6 +58,10 @@ public enum SDirection implements Enumerator
 	/**
 	 * The '<em><b>OUTBOUND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>OUTBOUND</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #OUTBOUND
 	 * @model
@@ -182,7 +190,6 @@ public enum SDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -193,7 +200,6 @@ public enum SDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -204,7 +210,6 @@ public enum SDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

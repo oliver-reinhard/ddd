@@ -5,8 +5,8 @@ package com.mimacom.ddd.sm.sim;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
-import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;

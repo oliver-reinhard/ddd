@@ -27,7 +27,7 @@ public class DimParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "DInformationModel";
+		return "DNamespace";
 	}
 
 	public DimGrammarAccess getGrammarAccess() {

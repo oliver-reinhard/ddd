@@ -2,8 +2,9 @@
  */
 package com.mimacom.ddd.sm.sim;
 
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.IAggregateContainer;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 
@@ -27,11 +28,15 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SInformationModel extends DNamespace, IAggregateContainer, ITypeContainer, IStaticReferenceTarget
+public interface SInformationModel extends IDiagramRoot, DModel, IAggregateContainer, ITypeContainer, IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Generate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Generate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Generate</em>' attribute.
 	 * @see #setGenerate(boolean)
@@ -55,6 +60,10 @@ public interface SInformationModel extends DNamespace, IAggregateContainer, ITyp
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.sm.sim.SInformationModelKind}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Kind</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see com.mimacom.ddd.sm.sim.SInformationModelKind
@@ -80,6 +89,10 @@ public interface SInformationModel extends DNamespace, IAggregateContainer, ITyp
 	 * Returns the value of the '<em><b>Domain Proxies</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SDomainDeduction}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Domain Proxies</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Domain Proxies</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_DomainProxies()

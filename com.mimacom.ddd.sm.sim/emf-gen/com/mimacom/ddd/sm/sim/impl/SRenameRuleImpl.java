@@ -74,7 +74,6 @@ public abstract class SRenameRuleImpl extends DDeductionRuleImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getRenameTo()
 	{
 		return renameTo;
@@ -85,7 +84,6 @@ public abstract class SRenameRuleImpl extends DDeductionRuleImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setRenameTo(String newRenameTo)
 	{
 		String oldRenameTo = renameTo;
@@ -170,7 +168,7 @@ public abstract class SRenameRuleImpl extends DDeductionRuleImplCustom implement
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (renameTo: ");
 		result.append(renameTo);
 		result.append(')');

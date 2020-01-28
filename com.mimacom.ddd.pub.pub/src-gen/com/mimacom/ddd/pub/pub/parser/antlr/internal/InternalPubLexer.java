@@ -3979,10 +3979,10 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9152:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
-            // InternalPub.g:9152:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalPub.g:9235:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
+            // InternalPub.g:9235:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
             {
-            // InternalPub.g:9152:11: ( '^' )?
+            // InternalPub.g:9235:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -3991,7 +3991,7 @@ public class InternalPubLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalPub.g:9152:11: '^'
+                    // InternalPub.g:9235:11: '^'
                     {
                     match('^'); 
 
@@ -4009,7 +4009,7 @@ public class InternalPubLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPub.g:9152:34: ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalPub.g:9235:34: ( RULE_LETTER | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -4058,11 +4058,11 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9154:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalPub.g:9154:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalPub.g:9237:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalPub.g:9237:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalPub.g:9154:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalPub.g:9237:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -4078,7 +4078,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalPub.g:9154:20: '\\\\' .
+            	    // InternalPub.g:9237:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -4086,7 +4086,7 @@ public class InternalPubLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalPub.g:9154:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalPub.g:9237:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -4123,10 +4123,10 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_NATURAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9156:14: ( ( ( '0' .. '9' )+ | '\\u221E' ) )
-            // InternalPub.g:9156:16: ( ( '0' .. '9' )+ | '\\u221E' )
+            // InternalPub.g:9239:14: ( ( ( '0' .. '9' )+ | '\\u221E' ) )
+            // InternalPub.g:9239:16: ( ( '0' .. '9' )+ | '\\u221E' )
             {
-            // InternalPub.g:9156:16: ( ( '0' .. '9' )+ | '\\u221E' )
+            // InternalPub.g:9239:16: ( ( '0' .. '9' )+ | '\\u221E' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -4144,9 +4144,9 @@ public class InternalPubLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalPub.g:9156:17: ( '0' .. '9' )+
+                    // InternalPub.g:9239:17: ( '0' .. '9' )+
                     {
-                    // InternalPub.g:9156:17: ( '0' .. '9' )+
+                    // InternalPub.g:9239:17: ( '0' .. '9' )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -4160,7 +4160,7 @@ public class InternalPubLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalPub.g:9156:18: '0' .. '9'
+                    	    // InternalPub.g:9239:18: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -4180,7 +4180,7 @@ public class InternalPubLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPub.g:9156:29: '\\u221E'
+                    // InternalPub.g:9239:29: '\\u221E'
                     {
                     match('\u221E'); 
 
@@ -4203,8 +4203,8 @@ public class InternalPubLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalPub.g:9158:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
-            // InternalPub.g:9158:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
+            // InternalPub.g:9241:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
+            // InternalPub.g:9241:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u00FF') ) {
                 input.consume();
@@ -4227,8 +4227,8 @@ public class InternalPubLexer extends Lexer {
     // $ANTLR start "RULE_PLAIN_TEXT"
     public final void mRULE_PLAIN_TEXT() throws RecognitionException {
         try {
-            // InternalPub.g:9160:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
-            // InternalPub.g:9160:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
+            // InternalPub.g:9243:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
+            // InternalPub.g:9243:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='Z')||input.LA(1)=='\\'||(input.LA(1)>='^' && input.LA(1)<='\u00BA')||(input.LA(1)>='\u00BC' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -4253,11 +4253,11 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_ONLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9162:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalPub.g:9162:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalPub.g:9245:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalPub.g:9245:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match('\u00AB'); 
-            // InternalPub.g:9162:33: ( RULE_PLAIN_TEXT )*
+            // InternalPub.g:9245:33: ( RULE_PLAIN_TEXT )*
             loop6:
             do {
                 int alt6=2;
@@ -4270,7 +4270,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalPub.g:9162:33: RULE_PLAIN_TEXT
+            	    // InternalPub.g:9245:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -4299,11 +4299,11 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_RICH_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9164:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalPub.g:9164:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalPub.g:9247:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalPub.g:9247:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalPub.g:9164:33: ( RULE_PLAIN_TEXT )*
+            // InternalPub.g:9247:33: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -4316,7 +4316,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalPub.g:9164:33: RULE_PLAIN_TEXT
+            	    // InternalPub.g:9247:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -4345,11 +4345,11 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_RICH_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9166:23: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalPub.g:9166:25: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalPub.g:9249:23: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalPub.g:9249:25: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalPub.g:9166:29: ( RULE_PLAIN_TEXT )*
+            // InternalPub.g:9249:29: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -4362,7 +4362,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalPub.g:9166:29: RULE_PLAIN_TEXT
+            	    // InternalPub.g:9249:29: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -4391,11 +4391,11 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_RICH_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9168:20: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalPub.g:9168:22: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalPub.g:9251:20: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalPub.g:9251:22: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalPub.g:9168:26: ( RULE_PLAIN_TEXT )*
+            // InternalPub.g:9251:26: ( RULE_PLAIN_TEXT )*
             loop9:
             do {
                 int alt9=2;
@@ -4408,7 +4408,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalPub.g:9168:26: RULE_PLAIN_TEXT
+            	    // InternalPub.g:9251:26: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -4437,12 +4437,12 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9170:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalPub.g:9170:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalPub.g:9253:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalPub.g:9253:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalPub.g:9170:24: ( options {greedy=false; } : . )*
+            // InternalPub.g:9253:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -4467,7 +4467,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalPub.g:9170:52: .
+            	    // InternalPub.g:9253:52: .
             	    {
             	    matchAny(); 
 
@@ -4497,12 +4497,12 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9172:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalPub.g:9172:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalPub.g:9255:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalPub.g:9255:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalPub.g:9172:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalPub.g:9255:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -4515,7 +4515,7 @@ public class InternalPubLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalPub.g:9172:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalPub.g:9255:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -4535,7 +4535,7 @@ public class InternalPubLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalPub.g:9172:40: ( ( '\\r' )? '\\n' )?
+            // InternalPub.g:9255:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -4544,9 +4544,9 @@ public class InternalPubLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalPub.g:9172:41: ( '\\r' )? '\\n'
+                    // InternalPub.g:9255:41: ( '\\r' )? '\\n'
                     {
-                    // InternalPub.g:9172:41: ( '\\r' )?
+                    // InternalPub.g:9255:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -4555,7 +4555,7 @@ public class InternalPubLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // InternalPub.g:9172:41: '\\r'
+                            // InternalPub.g:9255:41: '\\r'
                             {
                             match('\r'); 
 
@@ -4587,10 +4587,10 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9174:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalPub.g:9174:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPub.g:9257:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalPub.g:9257:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalPub.g:9174:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPub.g:9257:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -4644,8 +4644,8 @@ public class InternalPubLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPub.g:9176:16: ( . )
-            // InternalPub.g:9176:18: .
+            // InternalPub.g:9259:16: ( . )
+            // InternalPub.g:9259:18: .
             {
             matchAny(); 
 

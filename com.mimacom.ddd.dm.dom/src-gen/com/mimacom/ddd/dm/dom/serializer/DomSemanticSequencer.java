@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -30,7 +31,7 @@ import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -73,6 +74,9 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
+				return; 
+			case BasePackage.DNAMESPACE:
+				sequence_DNamespace(context, (DNamespace) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -231,8 +235,8 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
-			case DmxPackage.DMX_NAMESPACE:
-				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+			case DmxPackage.DMX_MODEL:
+				sequence_DmxModel(context, (DmxModel) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NATURAL_LITERAL:
 				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
@@ -277,10 +281,22 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DNamespace returns DNamespace
+	 *
+	 * Constraint:
+	 *     (imports+=DImport* name=DQualifiedName model=DomModel)
+	 */
+	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DomModel returns DomModel
 	 *
 	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName snapshots+=DomSnapshot+)
+	 *     snapshots+=DomSnapshot+
 	 */
 	protected void sequence_DomModel(ISerializationContext context, DomModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -305,7 +321,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomSnapshot returns DomSnapshot
 	 *
 	 * Constraint:
-	 *     (name=ID objects+=DomObject*)
+	 *     (name=ID aliases+=ID* description=DRichText? objects+=DomObject*)
 	 */
 	protected void sequence_DomSnapshot(ISerializationContext context, DomSnapshot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

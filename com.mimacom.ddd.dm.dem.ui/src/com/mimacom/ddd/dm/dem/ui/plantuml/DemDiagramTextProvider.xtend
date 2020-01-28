@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dem.ui.plantuml
 
-import com.mimacom.ddd.dm.dem.DDomainEvent
+import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.dem.DemDomainEvent
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
@@ -27,9 +28,10 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve the "semantic" EMF from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val DDomainEvent event = document.readOnly[
-            return if (contents.head instanceof DDomainEvent) contents.head as DDomainEvent else null
+        val namespace = document.readOnly[
+            return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
+        val event = namespace.model as DemDomainEvent
         
         if (event === null) {
         	return '''note "No domain event to show." as N1'''
@@ -37,13 +39,17 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
         
        val result = '''
    		(«event.name») as (event)
-   		actor «event.trigger.name»
-   		«FOR n : event.notifications.filter[notified!==null]»
-   			actor «n.notified.name»
+   		«FOR t : event.triggers»
+   		   	actor «t.name»
    		«ENDFOR»
-   		«IF event.trigger !== null»«event.trigger.name» --> (event) : triggers«ENDIF»
-   		«FOR n : event.notifications.filter[notified!==null]»
-   			«n.notified.name» <-- (event) : «n.name»
+   		«FOR n : event.notifications.filter[getNotified!==null]»
+   			actor «n.getNotified.name»
+   		«ENDFOR»
+   		«FOR t : event.triggers»
+   		   	«t.name» --> (event) : triggers
+   		«ENDFOR»
+   		«FOR n : event.notifications.filter[getNotified!==null]»
+   			«n.getNotified.name» <-- (event) : «n.name»
    		«ENDFOR»
        '''
        return result

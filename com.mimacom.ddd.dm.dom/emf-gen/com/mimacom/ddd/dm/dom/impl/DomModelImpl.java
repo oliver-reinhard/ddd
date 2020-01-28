@@ -3,9 +3,7 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.base.DImport;
-
-import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+import com.mimacom.ddd.dm.base.impl.DModelImpl;
 
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomPackage;
@@ -31,24 +29,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomModelImpl#getSnapshots <em>Snapshots</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomModelImpl extends DNamedElementImpl implements DomModel
+public class DomModelImpl extends DModelImpl implements DomModel
 {
-	/**
-	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImports()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DImport> imports;
-
 	/**
 	 * The cached value of the '{@link #getSnapshots() <em>Snapshots</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -85,22 +72,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<DImport> getImports()
-	{
-		if (imports == null)
-		{
-			imports = new EObjectContainmentEList<DImport>(DImport.class, this, DomPackage.DOM_MODEL__IMPORTS);
-		}
-		return imports;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DomSnapshot> getSnapshots()
 	{
 		if (snapshots == null)
@@ -120,8 +91,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	{
 		switch (featureID)
 		{
-			case DomPackage.DOM_MODEL__IMPORTS:
-				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				return ((InternalEList<?>)getSnapshots()).basicRemove(otherEnd, msgs);
 		}
@@ -138,8 +107,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	{
 		switch (featureID)
 		{
-			case DomPackage.DOM_MODEL__IMPORTS:
-				return getImports();
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				return getSnapshots();
 		}
@@ -157,10 +124,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	{
 		switch (featureID)
 		{
-			case DomPackage.DOM_MODEL__IMPORTS:
-				getImports().clear();
-				getImports().addAll((Collection<? extends DImport>)newValue);
-				return;
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				getSnapshots().clear();
 				getSnapshots().addAll((Collection<? extends DomSnapshot>)newValue);
@@ -179,9 +142,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	{
 		switch (featureID)
 		{
-			case DomPackage.DOM_MODEL__IMPORTS:
-				getImports().clear();
-				return;
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				getSnapshots().clear();
 				return;
@@ -199,8 +159,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	{
 		switch (featureID)
 		{
-			case DomPackage.DOM_MODEL__IMPORTS:
-				return imports != null && !imports.isEmpty();
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				return snapshots != null && !snapshots.isEmpty();
 		}

@@ -64,12 +64,13 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case DemPackage.DDOMAIN_EVENT: return createDDomainEvent();
-			case DemPackage.DCASE_CONJUNCTION: return createDCaseConjunction();
-			case DemPackage.DNOTIFICATION: return createDNotification();
-			case DemPackage.DMESSAGE: return createDMessage();
-			case DemPackage.DHUMAN_ACTOR_ROLE: return createDHumanActorRole();
-			case DemPackage.DSERVICE: return createDService();
+			case DemPackage.DEM_DOMAIN_EVENT: return createDemDomainEvent();
+			case DemPackage.DEM_CASE_CONJUNCTION: return createDemCaseConjunction();
+			case DemPackage.DEM_NOTIFICATION: return createDemNotification();
+			case DemPackage.DEM_MESSAGE: return createDemMessage();
+			case DemPackage.DEM_ACTOR_MODEL: return createDemActorModel();
+			case DemPackage.DEM_HUMAN_ACTOR_ROLE: return createDemHumanActorRole();
+			case DemPackage.DEM_SERVICE: return createDemService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,11 +81,10 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DDomainEvent createDDomainEvent()
+	public DemDomainEvent createDemDomainEvent()
 	{
-		DDomainEventImplCustom dDomainEvent = new DDomainEventImplCustom();
-		return dDomainEvent;
+		DemDomainEventImplCustom demDomainEvent = new DemDomainEventImplCustom();
+		return demDomainEvent;
 	}
 
 	/**
@@ -92,11 +92,10 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DCaseConjunction createDCaseConjunction()
+	public DemCaseConjunction createDemCaseConjunction()
 	{
-		DCaseConjunctionImpl dCaseConjunction = new DCaseConjunctionImpl();
-		return dCaseConjunction;
+		DemCaseConjunctionImpl demCaseConjunction = new DemCaseConjunctionImpl();
+		return demCaseConjunction;
 	}
 
 	/**
@@ -104,11 +103,10 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DNotification createDNotification()
+	public DemNotification createDemNotification()
 	{
-		DNotificationImplCustom dNotification = new DNotificationImplCustom();
-		return dNotification;
+		DemNotificationImplCustom demNotification = new DemNotificationImplCustom();
+		return demNotification;
 	}
 
 	/**
@@ -116,11 +114,10 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DMessage createDMessage()
+	public DemMessage createDemMessage()
 	{
-		DMessageImplCustom dMessage = new DMessageImplCustom();
-		return dMessage;
+		DemMessageImplCustom demMessage = new DemMessageImplCustom();
+		return demMessage;
 	}
 
 	/**
@@ -128,11 +125,10 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DHumanActorRole createDHumanActorRole()
+	public DemActorModel createDemActorModel()
 	{
-		DHumanActorRoleImpl dHumanActorRole = new DHumanActorRoleImpl();
-		return dHumanActorRole;
+		DemActorModelImpl demActorModel = new DemActorModelImpl();
+		return demActorModel;
 	}
 
 	/**
@@ -140,11 +136,10 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DService createDService()
+	public DemHumanActorRole createDemHumanActorRole()
 	{
-		DServiceImpl dService = new DServiceImpl();
-		return dService;
+		DemHumanActorRoleImpl demHumanActorRole = new DemHumanActorRoleImpl();
+		return demHumanActorRole;
 	}
 
 	/**
@@ -152,7 +147,17 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public DemService createDemService()
+	{
+		DemServiceImpl demService = new DemServiceImpl();
+		return demService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DemPackage getDemPackage()
 	{
 		return (DemPackage)getEPackage();

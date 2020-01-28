@@ -3,17 +3,30 @@
  */
 package com.mimacom.ddd.dm.dmx.formatting2
 
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.dmx.DmxNamespace
+import com.mimacom.ddd.dm.dmx.DmxModel
+import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class DmxFormatter extends AbstractFormatter2 {
 	
-//	@Inject extension DmxGrammarAccess
+	@Inject extension DmxGrammarAccess
 
-	def dispatch void format(DmxNamespace model, extension IFormattableDocument document) {
+	def dispatch void format(DNamespace ns, extension IFormattableDocument document) {
+		for (i : ns.imports) {
+			i.append[if (i == ns.imports.last) newLines=2 else newLine]
+		}
+		ns.imports.last.append[newLines = 2]
+		
+		ns.regionFor.assignment(DNamespaceAccess.nameAssignment_1).append[newLines = 2]
+		ns.model.format
+	}
+
+	def dispatch void format(DmxModel model, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (test : model.tests) {
 			test.expr.format

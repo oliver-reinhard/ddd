@@ -172,6 +172,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>UNDEFINED</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>UNDEFINED</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UNDEFINED
 	 * @model
@@ -183,6 +187,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>AMBIGUOUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>AMBIGUOUS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AMBIGUOUS
 	 * @model
@@ -194,6 +202,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>VOID</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>VOID</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VOID
 	 * @model
@@ -205,6 +217,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>BOOLEAN</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>BOOLEAN</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BOOLEAN
 	 * @model
@@ -216,6 +232,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>NUMBER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NUMBER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NUMBER
 	 * @model
@@ -227,6 +247,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>TEXT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TEXT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TEXT
 	 * @model
@@ -238,6 +262,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>IDENTIFIER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>IDENTIFIER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #IDENTIFIER
 	 * @model
@@ -249,6 +277,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>TIMEPOINT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TIMEPOINT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TIMEPOINT
 	 * @model
@@ -260,6 +292,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>ENUM</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ENUM</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ENUM
 	 * @model
@@ -271,6 +307,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>STATE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>STATE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STATE
 	 * @model
@@ -282,6 +322,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>STATE EVENT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>STATE EVENT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STATE_EVENT
 	 * @model
@@ -293,6 +337,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>COMPLEX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>COMPLEX</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COMPLEX
 	 * @model
@@ -304,6 +352,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>AGGREGATE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>AGGREGATE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AGGREGATE
 	 * @model
@@ -315,6 +367,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>NOTIFICATION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NOTIFICATION</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NOTIFICATION
 	 * @model
@@ -326,6 +382,10 @@ public enum DmxBaseType implements Enumerator
 	/**
 	 * The '<em><b>SERVICE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>SERVICE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SERVICE
 	 * @model
@@ -480,7 +540,6 @@ public enum DmxBaseType implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -491,7 +550,6 @@ public enum DmxBaseType implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -502,7 +560,6 @@ public enum DmxBaseType implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

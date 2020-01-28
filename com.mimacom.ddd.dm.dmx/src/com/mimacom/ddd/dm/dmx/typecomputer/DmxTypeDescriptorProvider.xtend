@@ -36,11 +36,16 @@ class DmxTypeDescriptorProvider {
 	public static val TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true)
 	
 
-	def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
+	final def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
 		if (obj instanceof EObject && (obj as EObject).eIsProxy) {
 //			throw new IllegalStateException("Unresolved EObject (system type?): " + obj)
 			return DmxTypeDescriptorProvider.UNDEFINED_TYPE
 		}
+		return typeDescriptorSwitch(obj, collection)
+	}
+	
+	/* Use to override */
+	def AbstractDmxTypeDescriptor<?> typeDescriptorSwitch(Object obj, boolean collection) {
 		switch obj {
 			DmxBaseType: getBaseTypeDescriptor(obj, collection)
 			DmxArchetype: new DmxPrimitiveDescriptor(obj, collection)
@@ -49,7 +54,6 @@ class DmxTypeDescriptorProvider {
 			DComplexType: new DmxComplexTypeDescriptor(obj, collection, util)
 			DState: new DmxStateDescriptor(obj, collection)
 			DAggregate: new DmxAggregateDescriptor(obj, collection)
-//			DNotification: new DmxNotificationDescriptor(obj, collection)
 			default: DmxTypeDescriptorProvider.UNDEFINED_TYPE
 		}
 	}

@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dom;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -76,7 +75,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__NAME = BasePackage.DNAMESPACE__NAME;
+	int DOM_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -85,7 +84,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__ALIASES = BasePackage.DNAMESPACE__ALIASES;
+	int DOM_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -94,16 +93,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_MODEL__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
+	int DOM_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Snapshots</b></em>' containment reference list.
@@ -112,7 +102,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__SNAPSHOTS = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
+	int DOM_MODEL__SNAPSHOTS = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -121,7 +111,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
+	int DOM_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl <em>Snapshot</em>}' class.
@@ -134,22 +124,40 @@ public interface DomPackage extends EPackage
 	int DOM_SNAPSHOT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_SNAPSHOT__NAVIGABLE_MEMBERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
+	int DOM_SNAPSHOT__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_SNAPSHOT__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_SNAPSHOT__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_SNAPSHOT__NAVIGABLE_MEMBERS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -158,7 +166,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT__OBJECTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
+	int DOM_SNAPSHOT__OBJECTS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Snapshot</em>' class.
@@ -167,7 +175,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
+	int DOM_SNAPSHOT_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomObjectImpl <em>Object</em>}' class.
@@ -375,17 +383,6 @@ public interface DomPackage extends EPackage
 	EClass getDomSnapshot();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dom.DomSnapshot#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.dom.DomSnapshot#getName()
-	 * @see #getDomSnapshot()
-	 * @generated
-	 */
-	EAttribute getDomSnapshot_Name();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dom.DomSnapshot#getObjects <em>Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -477,14 +474,6 @@ public interface DomPackage extends EPackage
 		 * @generated
 		 */
 		EClass DOM_SNAPSHOT = eINSTANCE.getDomSnapshot();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOM_SNAPSHOT__NAME = eINSTANCE.getDomSnapshot_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Objects</b></em>' containment reference list feature.

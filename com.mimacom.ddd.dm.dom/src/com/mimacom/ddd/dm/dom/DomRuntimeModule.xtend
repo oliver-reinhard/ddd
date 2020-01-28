@@ -3,8 +3,10 @@
  */
 package com.mimacom.ddd.dm.dom
 
+import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -14,5 +16,8 @@ class DomRuntimeModule extends AbstractDomRuntimeModule {
 	def Class<? extends DmxTypeComputer> bindITypeComputer() {
 		return DomTypeComputer
 	}
-	
+
+	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return DmxResourceDescriptionStrategy;
+	}
 }

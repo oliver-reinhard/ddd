@@ -4,15 +4,15 @@ import com.google.common.collect.Maps
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
-import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy
 import org.eclipse.xtext.util.IAcceptor
 
 @Singleton
-class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy {
+class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 	
 	static val LOGGER = Logger.getLogger(SimResourceDescriptionStrategy);
 	public static val KEY_DEDUCED_FROM = "deducedFrom"

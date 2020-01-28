@@ -8,15 +8,21 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  * MODEL STRUCTURE
  */
 
-DInformationModel:
-	(imports+=DImport)*
+@Override 
+DNamespace:
 	'domain'
-	domain=DQualifiedName
+	name=DQualifiedName
+	(imports+=DImport)*
+	model=DInformationModel;
+
+DInformationModel:
 	'information' 'model'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?
-	(types+=DType | aggregates+=DAggregate)*;
+	'{'
+	(types+=DType | aggregates+=DAggregate)*
+	'}';
 
 	
 DAggregate:

@@ -4,8 +4,10 @@
 package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,11 +25,15 @@ import com.mimacom.ddd.dm.base.INavigableMemberContainer;
  * @model
  * @generated
  */
-public interface EsmEntityStateModel extends DNamedElement, IEsmStateModel, INavigableMemberContainer
+public interface EsmEntityStateModel extends DModel, IEsmStateModel, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
 {
 	/**
 	 * Returns the value of the '<em><b>For Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>For Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For Type</em>' reference.
 	 * @see #setForType(DEntityType)

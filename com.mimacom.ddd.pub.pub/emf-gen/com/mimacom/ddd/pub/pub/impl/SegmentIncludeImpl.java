@@ -61,7 +61,6 @@ public class SegmentIncludeImpl extends DocumentSegmentImpl implements SegmentIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DocumentSegment getInclude() {
 		if (include != null && include.eIsProxy()) {
 			InternalEObject oldInclude = (InternalEObject)include;
@@ -88,7 +87,6 @@ public class SegmentIncludeImpl extends DocumentSegmentImpl implements SegmentIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setInclude(DocumentSegment newInclude) {
 		DocumentSegment oldInclude = include;
 		include = newInclude;

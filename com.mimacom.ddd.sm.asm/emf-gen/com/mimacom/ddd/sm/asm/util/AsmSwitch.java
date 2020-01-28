@@ -3,9 +3,10 @@
  */
 package com.mimacom.ddd.sm.asm.util;
 
+import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
@@ -79,13 +80,14 @@ public class AsmSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case AsmPackage.MODEL:
+			case AsmPackage.ASM_MODEL:
 			{
-				Model model = (Model)theEObject;
-				T result = caseModel(model);
-				if (result == null) result = caseDNamespace(model);
-				if (result == null) result = caseIStaticReferenceTarget(model);
-				if (result == null) result = caseDNamedElement(model);
+				AsmModel asmModel = (AsmModel)theEObject;
+				T result = caseAsmModel(asmModel);
+				if (result == null) result = caseDModel(asmModel);
+				if (result == null) result = caseIDiagramRoot(asmModel);
+				if (result == null) result = caseIStaticReferenceTarget(asmModel);
+				if (result == null) result = caseDNamedElement(asmModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,8 +95,9 @@ public class AsmSwitch<T> extends Switch<T>
 			{
 				SApplication sApplication = (SApplication)theEObject;
 				T result = caseSApplication(sApplication);
-				if (result == null) result = caseModel(sApplication);
-				if (result == null) result = caseDNamespace(sApplication);
+				if (result == null) result = caseAsmModel(sApplication);
+				if (result == null) result = caseDModel(sApplication);
+				if (result == null) result = caseIDiagramRoot(sApplication);
 				if (result == null) result = caseIStaticReferenceTarget(sApplication);
 				if (result == null) result = caseDNamedElement(sApplication);
 				if (result == null) result = defaultCase(theEObject);
@@ -104,8 +107,9 @@ public class AsmSwitch<T> extends Switch<T>
 			{
 				SServiceInterface sServiceInterface = (SServiceInterface)theEObject;
 				T result = caseSServiceInterface(sServiceInterface);
-				if (result == null) result = caseModel(sServiceInterface);
-				if (result == null) result = caseDNamespace(sServiceInterface);
+				if (result == null) result = caseAsmModel(sServiceInterface);
+				if (result == null) result = caseDModel(sServiceInterface);
+				if (result == null) result = caseIDiagramRoot(sServiceInterface);
 				if (result == null) result = caseIStaticReferenceTarget(sServiceInterface);
 				if (result == null) result = caseDNamedElement(sServiceInterface);
 				if (result == null) result = defaultCase(theEObject);
@@ -174,7 +178,7 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModel(Model object)
+	public T caseAsmModel(AsmModel object)
 	{
 		return null;
 	}
@@ -324,17 +328,33 @@ public class AsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNamespace(DNamespace object)
+	public T caseDModel(DModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDiagramRoot(IDiagramRoot object)
 	{
 		return null;
 	}

@@ -5,8 +5,9 @@ package com.mimacom.ddd.pub.pub.formatting2;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Document;
@@ -41,8 +42,8 @@ public class PubFormatter extends DmxFormatter {
     if (component instanceof DRichText) {
       _format((DRichText)component, document);
       return;
-    } else if (component instanceof DmxNamespace) {
-      _format((DmxNamespace)component, document);
+    } else if (component instanceof DmxModel) {
+      _format((DmxModel)component, document);
       return;
     } else if (component instanceof Component) {
       _format((Component)component, document);
@@ -52,6 +53,9 @@ public class PubFormatter extends DmxFormatter {
       return;
     } else if (component instanceof DExpression) {
       _format((DExpression)component, document);
+      return;
+    } else if (component instanceof DNamespace) {
+      _format((DNamespace)component, document);
       return;
     } else if (component instanceof PubModel) {
       _format((PubModel)component, document);

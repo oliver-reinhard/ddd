@@ -5,12 +5,18 @@ import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dem" 
 import "http://www.mimacom.com/ddd/sm/sim"
 
-UserStory:
+@Override 
+DNamespace:
+	'namespace'
+	name=DQualifiedName
 	(imports+=DImport)*
+	model=UserStory;
+	
+UserStory:
 	'user' 'story'
 	name=DQualifiedName
 	(	('realises' | 'realizes')
-		event=[DDomainEvent|DQualifiedName]
+		event=[DemDomainEvent|DQualifiedName]
 	)?
 	(description=DRichText)?
 	(sections+=Section)*;

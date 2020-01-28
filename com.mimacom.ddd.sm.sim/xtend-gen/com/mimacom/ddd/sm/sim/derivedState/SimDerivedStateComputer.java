@@ -7,6 +7,8 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
+import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
@@ -58,8 +60,12 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       this.derivedStateInstalled = true;
       this.context.init(resource);
       EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
-      final SInformationModel model = ((SInformationModel) _head);
-      this.processInformationModel(model, this.context);
+      final DNamespace namespace = ((DNamespace) _head);
+      DModel _model = namespace.getModel();
+      final SInformationModel model = ((SInformationModel) _model);
+      if ((model != null)) {
+        this.processInformationModel(model, this.context);
+      }
     }
   }
   
@@ -99,7 +105,8 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
           if ((source instanceof DType)) {
             final DType syntheticType = this._sTypeDeductionRuleProcessor.processTypeDeduction(model, definition, rule, context);
             if ((definition instanceof SComplexTypeDeduction)) {
-              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((DComplexType) syntheticType), definition, ((DComplexType) source));
+              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((DComplexType) syntheticType), definition, 
+                ((DComplexType) source));
               complexSyntheticTypes.add(_syntheticFeatureContainerDescriptor);
             }
           }

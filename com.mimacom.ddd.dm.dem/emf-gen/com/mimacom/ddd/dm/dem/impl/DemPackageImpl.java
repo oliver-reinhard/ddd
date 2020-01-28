@@ -4,17 +4,16 @@ package com.mimacom.ddd.dm.dem.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
-import com.mimacom.ddd.dm.dem.DActor;
-import com.mimacom.ddd.dm.dem.DCaseConjunction;
-import com.mimacom.ddd.dm.dem.DDomainEvent;
-import com.mimacom.ddd.dm.dem.DHumanActorRole;
-import com.mimacom.ddd.dm.dem.DMessage;
-import com.mimacom.ddd.dm.dem.DNotification;
-import com.mimacom.ddd.dm.dem.DService;
+import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemActorModel;
+import com.mimacom.ddd.dm.dem.DemCaseConjunction;
+import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.DemFactory;
-import com.mimacom.ddd.dm.dem.DemModel;
+import com.mimacom.ddd.dm.dem.DemHumanActorRole;
+import com.mimacom.ddd.dm.dem.DemMessage;
+import com.mimacom.ddd.dm.dem.DemNotification;
 import com.mimacom.ddd.dm.dem.DemPackage;
+import com.mimacom.ddd.dm.dem.DemService;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -36,35 +35,28 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass demModelEClass = null;
+	private EClass demDomainEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dDomainEventEClass = null;
+	private EClass demCaseConjunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dCaseConjunctionEClass = null;
+	private EClass demNotificationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dNotificationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dMessageEClass = null;
+	private EClass demMessageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,21 +70,21 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dActorEClass = null;
+	private EClass demActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dHumanActorRoleEClass = null;
+	private EClass demHumanActorRoleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dServiceEClass = null;
+	private EClass demServiceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -123,7 +115,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link DemPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -138,8 +130,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		if (isInited) return (DemPackage)EPackage.Registry.INSTANCE.getEPackage(DemPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredDemPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		DemPackageImpl theDemPackage = registeredDemPackage instanceof DemPackageImpl ? (DemPackageImpl)registeredDemPackage : new DemPackageImpl();
+		DemPackageImpl theDemPackage = (DemPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DemPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DemPackageImpl());
 
 		isInited = true;
 
@@ -155,6 +146,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		// Mark meta-data to indicate it can't be changed
 		theDemPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DemPackage.eNS_URI, theDemPackage);
 		return theDemPackage;
@@ -165,10 +157,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDemModel()
+	public EClass getDemDomainEvent()
 	{
-		return demModelEClass;
+		return demDomainEventEClass;
 	}
 
 	/**
@@ -176,10 +167,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getDemModel_Domain()
+	public EReference getDemDomainEvent_Context()
 	{
-		return (EAttribute)demModelEClass.getEStructuralFeatures().get(0);
+		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -187,10 +177,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDDomainEvent()
+	public EReference getDemDomainEvent_Triggers()
 	{
-		return dDomainEventEClass;
+		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -198,10 +187,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDDomainEvent_Context()
+	public EReference getDemDomainEvent_PreconditionsCNF()
 	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(0);
+		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -209,10 +197,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDDomainEvent_Trigger()
+	public EReference getDemDomainEvent_PostconditionsDNF()
 	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(1);
+		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -220,10 +207,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDDomainEvent_PreconditionsCNF()
+	public EReference getDemDomainEvent_Notifications()
 	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(2);
+		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -231,10 +217,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDDomainEvent_PostconditionsDNF()
+	public EClass getDemCaseConjunction()
 	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(3);
+		return demCaseConjunctionEClass;
 	}
 
 	/**
@@ -242,10 +227,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDDomainEvent_Notifications()
+	public EReference getDemCaseConjunction_Selector()
 	{
-		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(4);
+		return (EReference)demCaseConjunctionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -253,10 +237,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDCaseConjunction()
+	public EAttribute getDemCaseConjunction_Otherwise()
 	{
-		return dCaseConjunctionEClass;
+		return (EAttribute)demCaseConjunctionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -264,10 +247,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDCaseConjunction_Selector()
+	public EReference getDemCaseConjunction_Predicates()
 	{
-		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(0);
+		return (EReference)demCaseConjunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -275,10 +257,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getDCaseConjunction_Otherwise()
+	public EClass getDemNotification()
 	{
-		return (EAttribute)dCaseConjunctionEClass.getEStructuralFeatures().get(1);
+		return demNotificationEClass;
 	}
 
 	/**
@@ -286,10 +267,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDCaseConjunction_Predicates()
+	public EReference getDemNotification_Message()
 	{
-		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(2);
+		return (EReference)demNotificationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -297,10 +277,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDNotification()
+	public EReference getDemNotification_Notified()
 	{
-		return dNotificationEClass;
+		return (EReference)demNotificationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -308,10 +287,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDNotification_Message()
+	public EClass getDemMessage()
 	{
-		return (EReference)dNotificationEClass.getEStructuralFeatures().get(0);
+		return demMessageEClass;
 	}
 
 	/**
@@ -319,29 +297,6 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getDNotification_Notified()
-	{
-		return (EReference)dNotificationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDMessage()
-	{
-		return dMessageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDemActorModel()
 	{
 		return demActorModelEClass;
@@ -352,7 +307,6 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDemActorModel_Actors()
 	{
 		return (EReference)demActorModelEClass.getEStructuralFeatures().get(0);
@@ -363,10 +317,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDActor()
+	public EClass getDemActor()
 	{
-		return dActorEClass;
+		return demActorEClass;
 	}
 
 	/**
@@ -374,10 +327,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDHumanActorRole()
+	public EClass getDemHumanActorRole()
 	{
-		return dHumanActorRoleEClass;
+		return demHumanActorRoleEClass;
 	}
 
 	/**
@@ -385,10 +337,9 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getDService()
+	public EClass getDemService()
 	{
-		return dServiceEClass;
+		return demServiceEClass;
 	}
 
 	/**
@@ -396,7 +347,6 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DemFactory getDemFactory()
 	{
 		return (DemFactory)getEFactoryInstance();
@@ -422,35 +372,32 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		isCreated = true;
 
 		// Create classes and their features
-		demModelEClass = createEClass(DEM_MODEL);
-		createEAttribute(demModelEClass, DEM_MODEL__DOMAIN);
+		demDomainEventEClass = createEClass(DEM_DOMAIN_EVENT);
+		createEReference(demDomainEventEClass, DEM_DOMAIN_EVENT__CONTEXT);
+		createEReference(demDomainEventEClass, DEM_DOMAIN_EVENT__TRIGGERS);
+		createEReference(demDomainEventEClass, DEM_DOMAIN_EVENT__PRECONDITIONS_CNF);
+		createEReference(demDomainEventEClass, DEM_DOMAIN_EVENT__POSTCONDITIONS_DNF);
+		createEReference(demDomainEventEClass, DEM_DOMAIN_EVENT__NOTIFICATIONS);
 
-		dDomainEventEClass = createEClass(DDOMAIN_EVENT);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__CONTEXT);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__TRIGGER);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__PRECONDITIONS_CNF);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__POSTCONDITIONS_DNF);
-		createEReference(dDomainEventEClass, DDOMAIN_EVENT__NOTIFICATIONS);
+		demCaseConjunctionEClass = createEClass(DEM_CASE_CONJUNCTION);
+		createEReference(demCaseConjunctionEClass, DEM_CASE_CONJUNCTION__SELECTOR);
+		createEAttribute(demCaseConjunctionEClass, DEM_CASE_CONJUNCTION__OTHERWISE);
+		createEReference(demCaseConjunctionEClass, DEM_CASE_CONJUNCTION__PREDICATES);
 
-		dCaseConjunctionEClass = createEClass(DCASE_CONJUNCTION);
-		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__SELECTOR);
-		createEAttribute(dCaseConjunctionEClass, DCASE_CONJUNCTION__OTHERWISE);
-		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__PREDICATES);
+		demNotificationEClass = createEClass(DEM_NOTIFICATION);
+		createEReference(demNotificationEClass, DEM_NOTIFICATION__MESSAGE);
+		createEReference(demNotificationEClass, DEM_NOTIFICATION__NOTIFIED);
 
-		dNotificationEClass = createEClass(DNOTIFICATION);
-		createEReference(dNotificationEClass, DNOTIFICATION__MESSAGE);
-		createEReference(dNotificationEClass, DNOTIFICATION__NOTIFIED);
-
-		dMessageEClass = createEClass(DMESSAGE);
+		demMessageEClass = createEClass(DEM_MESSAGE);
 
 		demActorModelEClass = createEClass(DEM_ACTOR_MODEL);
 		createEReference(demActorModelEClass, DEM_ACTOR_MODEL__ACTORS);
 
-		dActorEClass = createEClass(DACTOR);
+		demActorEClass = createEClass(DEM_ACTOR);
 
-		dHumanActorRoleEClass = createEClass(DHUMAN_ACTOR_ROLE);
+		demHumanActorRoleEClass = createEClass(DEM_HUMAN_ACTOR_ROLE);
 
-		dServiceEClass = createEClass(DSERVICE);
+		demServiceEClass = createEClass(DEM_SERVICE);
 	}
 
 	/**
@@ -485,51 +432,47 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		demModelEClass.getESuperTypes().add(theBasePackage.getDNamespace());
-		dDomainEventEClass.getESuperTypes().add(this.getDemModel());
-		dDomainEventEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
-		dDomainEventEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
-		dDomainEventEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
-		dCaseConjunctionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
-		dNotificationEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
-		dNotificationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
-		dMessageEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
-		demActorModelEClass.getESuperTypes().add(this.getDemModel());
-		dActorEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
-		dActorEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
-		dHumanActorRoleEClass.getESuperTypes().add(this.getDActor());
-		dServiceEClass.getESuperTypes().add(this.getDActor());
+		demDomainEventEClass.getESuperTypes().add(theBasePackage.getDModel());
+		demDomainEventEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		demDomainEventEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
+		demDomainEventEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
+		demCaseConjunctionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		demNotificationEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		demNotificationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		demMessageEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		demActorModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		demActorEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		demActorEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
+		demHumanActorRoleEClass.getESuperTypes().add(this.getDemActor());
+		demServiceEClass.getESuperTypes().add(this.getDemActor());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(demModelEClass, DemModel.class, "DemModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDemModel_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, DemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(demDomainEventEClass, DemDomainEvent.class, "DemDomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDemDomainEvent_Context(), theBasePackage.getDContext(), null, "context", null, 1, -1, DemDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemDomainEvent_Triggers(), this.getDemActor(), null, "triggers", null, 1, -1, DemDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemDomainEvent_PreconditionsCNF(), theBasePackage.getDNamedPredicate(), null, "preconditionsCNF", null, 0, -1, DemDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemDomainEvent_PostconditionsDNF(), theBasePackage.getDNamedElement(), null, "postconditionsDNF", null, 0, -1, DemDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemDomainEvent_Notifications(), this.getDemNotification(), null, "notifications", null, 0, -1, DemDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dDomainEventEClass, DDomainEvent.class, "DDomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDDomainEvent_Context(), theBasePackage.getDContext(), null, "context", null, 1, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_Trigger(), this.getDActor(), null, "trigger", null, 1, 1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_PreconditionsCNF(), theBasePackage.getDNamedPredicate(), null, "preconditionsCNF", null, 0, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_PostconditionsDNF(), theBasePackage.getDNamedElement(), null, "postconditionsDNF", null, 0, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomainEvent_Notifications(), this.getDNotification(), null, "notifications", null, 0, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(demCaseConjunctionEClass, DemCaseConjunction.class, "DemCaseConjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDemCaseConjunction_Selector(), theBasePackage.getDExpression(), null, "selector", null, 0, 1, DemCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDemCaseConjunction_Otherwise(), ecorePackage.getEBoolean(), "otherwise", null, 0, 1, DemCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemCaseConjunction_Predicates(), theBasePackage.getDNamedPredicate(), null, "predicates", null, 0, -1, DemCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dCaseConjunctionEClass, DCaseConjunction.class, "DCaseConjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDCaseConjunction_Selector(), theBasePackage.getDExpression(), null, "selector", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDCaseConjunction_Otherwise(), ecorePackage.getEBoolean(), "otherwise", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDCaseConjunction_Predicates(), theBasePackage.getDNamedPredicate(), null, "predicates", null, 0, -1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(demNotificationEClass, DemNotification.class, "DemNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDemNotification_Message(), this.getDemMessage(), null, "message", null, 0, 1, DemNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemNotification_Notified(), this.getDemActor(), null, "notified", null, 1, 1, DemNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dNotificationEClass, DNotification.class, "DNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDNotification_Message(), this.getDMessage(), null, "message", null, 0, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNotification_Notified(), this.getDActor(), null, "notified", null, 1, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(demMessageEClass, DemMessage.class, "DemMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dMessageEClass, DMessage.class, "DMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(demActorModelEClass, DemActorModel.class, "DemActorModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDemActorModel_Actors(), this.getDemActor(), null, "actors", null, 0, -1, DemActorModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(demActorModelEClass, DemActorModel.class, "DemActorModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDemActorModel_Actors(), this.getDActor(), null, "actors", null, 0, -1, DemActorModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(demActorEClass, DemActor.class, "DemActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dActorEClass, DActor.class, "DActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(demHumanActorRoleEClass, DemHumanActorRole.class, "DemHumanActorRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dHumanActorRoleEClass, DHumanActorRole.class, "DHumanActorRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dServiceEClass, DService.class, "DService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(demServiceEClass, DemService.class, "DemService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

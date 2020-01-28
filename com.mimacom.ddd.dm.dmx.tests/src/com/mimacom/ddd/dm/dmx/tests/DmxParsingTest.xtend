@@ -5,9 +5,10 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.impl.DRichTextImpl
-import com.mimacom.ddd.dm.dmx.DmxNamespace
+import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxBooleanLiteralImpl
@@ -32,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.*
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
 class DmxParsingTest {
-	@Inject extension ParseHelper<DmxNamespace> parseHelper
+	@Inject extension ParseHelper<DNamespace> parseHelper
 	@Inject extension DmxUtil
 
 	@Test
@@ -50,7 +51,7 @@ class DmxParsingTest {
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Literal errors: «errors.join("; ")»''')
-		val tests = result.tests
+		val tests = (result.model as DmxModel).tests
 
 		val e0 = tests.get(0).expr
 		assertEquals(DmxBooleanLiteralImpl, e0.class)
@@ -99,7 +100,7 @@ class DmxParsingTest {
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Primaries errors: «errors.join("; ")»''')
-		val tests = result.tests
+		val tests = (result.model as DmxModel).tests
 
 		{
 			val e = tests.get(0).expr
@@ -158,7 +159,7 @@ class DmxParsingTest {
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''MemberFeatureCalls errors: «errors.join(" } ")»''')
-		val tests = result.tests
+		val tests = (result.model as DmxModel).tests
 
 		val e0 = tests.get(0).expr
 		// DMemberFeatureCall -- memberContainer --> DSelfExpression
@@ -214,7 +215,7 @@ class DmxParsingTest {
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Assignment errors: «errors.join("; ")»''')
-		val tests = result.tests
+		val tests = (result.model as DmxModel).tests
 
 		val e0 = tests.get(0).expr
 		assertEquals(DmxAssignmentImpl, e0.class)

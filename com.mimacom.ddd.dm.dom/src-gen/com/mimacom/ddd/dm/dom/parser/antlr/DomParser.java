@@ -27,7 +27,7 @@ public class DomParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "DomModel";
+		return "DNamespace";
 	}
 
 	public DomGrammarAccess getGrammarAccess() {

@@ -31,7 +31,7 @@ public class AsmParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, AsmGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getModelAccess().getAlternatives(), "rule__Model__Alternatives");
+			builder.put(grammarAccess.getDNamespaceAccess().getModelAlternatives_3_0(), "rule__DNamespace__ModelAlternatives_3_0");
 			builder.put(grammarAccess.getSActorAccess().getAlternatives(), "rule__SActor__Alternatives");
 			builder.put(grammarAccess.getDmxTestContextAccess().getAlternatives_4_1(), "rule__DmxTestContext__Alternatives_4_1");
 			builder.put(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0(), "rule__DmxFilterTypeDescriptor__Alternatives_0");
@@ -66,6 +66,7 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
+			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
 			builder.put(grammarAccess.getSApplicationAccess().getGroup(), "rule__SApplication__Group__0");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getGroup(), "rule__SServiceInterface__Group__0");
 			builder.put(grammarAccess.getSWatchdogAccess().getGroup(), "rule__SWatchdog__Group__0");
@@ -79,7 +80,7 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSServiceOperationAccess().getGroup_8(), "rule__SServiceOperation__Group_8__0");
 			builder.put(grammarAccess.getSServiceParameterAccess().getGroup(), "rule__SServiceParameter__Group__0");
 			builder.put(grammarAccess.getSExceptionAccess().getGroup(), "rule__SException__Group__0");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getGroup(), "rule__DmxNamespace__Group__0");
+			builder.put(grammarAccess.getDmxModelAccess().getGroup(), "rule__DmxModel__Group__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup(), "rule__DmxTest__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup_2(), "rule__DmxTest__Group_2__0");
@@ -179,16 +180,17 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
-			builder.put(grammarAccess.getSApplicationAccess().getImportsAssignment_0(), "rule__SApplication__ImportsAssignment_0");
-			builder.put(grammarAccess.getSApplicationAccess().getNameAssignment_2(), "rule__SApplication__NameAssignment_2");
-			builder.put(grammarAccess.getSApplicationAccess().getModelAssignment_5(), "rule__SApplication__ModelAssignment_5");
-			builder.put(grammarAccess.getSApplicationAccess().getActorsAssignment_6(), "rule__SApplication__ActorsAssignment_6");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_0(), "rule__SServiceInterface__ImportsAssignment_0");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_3(), "rule__SServiceInterface__NameAssignment_3");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getInterfaceAssignment_6(), "rule__SServiceInterface__InterfaceAssignment_6");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getCoreAssignment_9(), "rule__SServiceInterface__CoreAssignment_9");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getExceptionsAssignment_10(), "rule__SServiceInterface__ExceptionsAssignment_10");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getOperationsAssignment_11(), "rule__SServiceInterface__OperationsAssignment_11");
+			builder.put(grammarAccess.getDNamespaceAccess().getNameAssignment_1(), "rule__DNamespace__NameAssignment_1");
+			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
+			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
+			builder.put(grammarAccess.getSApplicationAccess().getNameAssignment_1(), "rule__SApplication__NameAssignment_1");
+			builder.put(grammarAccess.getSApplicationAccess().getModelAssignment_4(), "rule__SApplication__ModelAssignment_4");
+			builder.put(grammarAccess.getSApplicationAccess().getActorsAssignment_5(), "rule__SApplication__ActorsAssignment_5");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_2(), "rule__SServiceInterface__NameAssignment_2");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getInterfaceAssignment_5(), "rule__SServiceInterface__InterfaceAssignment_5");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getCoreAssignment_8(), "rule__SServiceInterface__CoreAssignment_8");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getExceptionsAssignment_9(), "rule__SServiceInterface__ExceptionsAssignment_9");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getOperationsAssignment_10(), "rule__SServiceInterface__OperationsAssignment_10");
 			builder.put(grammarAccess.getSWatchdogAccess().getNameAssignment_1(), "rule__SWatchdog__NameAssignment_1");
 			builder.put(grammarAccess.getSHumanAccess().getNameAssignment_1(), "rule__SHuman__NameAssignment_1");
 			builder.put(grammarAccess.getSServiceOperationAccess().getNameAssignment_1(), "rule__SServiceOperation__NameAssignment_1");
@@ -205,11 +207,9 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSServiceParameterAccess().getDescriptionAssignment_5(), "rule__SServiceParameter__DescriptionAssignment_5");
 			builder.put(grammarAccess.getSExceptionAccess().getNameAssignment_1(), "rule__SException__NameAssignment_1");
 			builder.put(grammarAccess.getSExceptionAccess().getDescriptionAssignment_2(), "rule__SException__DescriptionAssignment_2");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getImportsAssignment_0(), "rule__DmxNamespace__ImportsAssignment_0");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getNameAssignment_2(), "rule__DmxNamespace__NameAssignment_2");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getTypesAssignment_3(), "rule__DmxNamespace__TypesAssignment_3");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getFiltersAssignment_4(), "rule__DmxNamespace__FiltersAssignment_4");
-			builder.put(grammarAccess.getDmxNamespaceAccess().getTestsAssignment_5(), "rule__DmxNamespace__TestsAssignment_5");
+			builder.put(grammarAccess.getDmxModelAccess().getTypesAssignment_1(), "rule__DmxModel__TypesAssignment_1");
+			builder.put(grammarAccess.getDmxModelAccess().getFiltersAssignment_2(), "rule__DmxModel__FiltersAssignment_2");
+			builder.put(grammarAccess.getDmxModelAccess().getTestsAssignment_3(), "rule__DmxModel__TestsAssignment_3");
 			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getDmxTestAccess().getNameAssignment_1(), "rule__DmxTest__NameAssignment_1");
 			builder.put(grammarAccess.getDmxTestAccess().getContextAssignment_2_1(), "rule__DmxTest__ContextAssignment_2_1");

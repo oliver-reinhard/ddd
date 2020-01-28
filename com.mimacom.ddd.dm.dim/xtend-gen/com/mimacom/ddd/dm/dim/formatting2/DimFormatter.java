@@ -3,21 +3,20 @@
  */
 package com.mimacom.ddd.dm.dim.formatting2;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
 import java.util.Arrays;
 import java.util.List;
@@ -37,36 +36,48 @@ public class DimFormatter extends DmxFormatter {
   @Extension
   private DimGrammarAccess _dimGrammarAccess;
   
-  protected void _format(final DInformationModel domain, @Extension final IFormattableDocument document) {
-    document.<DRichText>format(domain.getDescription());
-    EList<DImport> _imports = domain.getImports();
-    for (final DImport i : _imports) {
-      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-        DImport _last = IterableExtensions.<DImport>last(domain.getImports());
-        boolean _equals = Objects.equal(i, _last);
-        if (_equals) {
-          it.setNewLines(2);
-        } else {
-          it.newLine();
-        }
-      };
-      document.<DImport>append(i, _function);
-    }
-    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+  protected void _format(final DInformationModel model, @Extension final IFormattableDocument document) {
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDInformationModelAccess().getLeftCurlyBracketKeyword_5());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDInformationModelAccess().getRightCurlyBracketKeyword_7());
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<DImport>append(IterableExtensions.<DImport>last(domain.getImports()), _function_1);
+    document.append(open, _function);
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.indent();
+    };
+    document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._dimGrammarAccess.getDInformationModelAccess().getNameAssignment_5()), _function_2);
-    EList<DType> _types = domain.getTypes();
+    document.append(close, _function_2);
+    EList<DType> _types = model.getTypes();
     for (final DType type : _types) {
-      document.<DType>format(type);
+      {
+        document.<DType>format(type);
+        final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+          it.setNewLines(2);
+        };
+        document.<DType>append(type, _function_3);
+      }
     }
-    EList<DAggregate> _aggregates = domain.getAggregates();
+    EList<DAggregate> _aggregates = model.getAggregates();
     for (final DAggregate aggregate : _aggregates) {
-      document.<DAggregate>format(aggregate);
+      {
+        document.<DAggregate>format(aggregate);
+        final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+          int _xifexpression = (int) 0;
+          DAggregate _last = IterableExtensions.<DAggregate>last(model.getAggregates());
+          boolean _tripleEquals = (aggregate == _last);
+          if (_tripleEquals) {
+            _xifexpression = 1;
+          } else {
+            _xifexpression = 2;
+          }
+          it.setNewLines(_xifexpression);
+        };
+        document.<DAggregate>append(aggregate, _function_3);
+      }
     }
   }
   
@@ -83,11 +94,31 @@ public class DimFormatter extends DmxFormatter {
     document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
     EList<DFeature> _features = aggregate.getFeatures();
     for (final DFeature query : _features) {
-      document.<DFeature>format(query);
+      {
+        document.<DFeature>format(query);
+        final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+          it.setNewLines(2);
+        };
+        document.<DFeature>append(query, _function_2);
+      }
     }
     EList<DType> _types = aggregate.getTypes();
     for (final DType type : _types) {
-      document.<DType>format(type);
+      {
+        document.<DType>format(type);
+        final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+          int _xifexpression = (int) 0;
+          DType _last = IterableExtensions.<DType>last(aggregate.getTypes());
+          boolean _tripleEquals = (type == _last);
+          if (_tripleEquals) {
+            _xifexpression = 1;
+          } else {
+            _xifexpression = 2;
+          }
+          it.setNewLines(_xifexpression);
+        };
+        document.<DType>append(type, _function_2);
+      }
     }
   }
   
@@ -124,10 +155,6 @@ public class DimFormatter extends DmxFormatter {
       };
       document.<DLiteral>append(IterableExtensions.<DLiteral>last(en.getLiterals()), _function_4);
     }
-    final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.<DEnumeration>append(en, _function_5);
   }
   
   protected void _format(final DComplexType type, @Extension final IFormattableDocument document) {
@@ -141,31 +168,23 @@ public class DimFormatter extends DmxFormatter {
       it.indent();
     };
     document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.append(close, _function_2);
     EList<DFeature> _features = type.getFeatures();
     for (final DFeature feature : _features) {
-      final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<DFeature>append(feature, _function_3);
+      document.<DFeature>append(feature, _function_2);
     }
     EList<DNamedPredicate> _constraints = type.getConstraints();
     for (final DNamedPredicate constraint : _constraints) {
-      final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
+      final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<DNamedPredicate>append(constraint, _function_4);
+      document.<DNamedPredicate>append(constraint, _function_3);
     }
   }
   
   protected void _format(final DType type, @Extension final IFormattableDocument document) {
-    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.<DType>append(type, _function);
   }
   
   public void format(final Object en, final IFormattableDocument document) {
@@ -187,14 +206,17 @@ public class DimFormatter extends DmxFormatter {
     } else if (en instanceof DType) {
       _format((DType)en, document);
       return;
-    } else if (en instanceof DmxNamespace) {
-      _format((DmxNamespace)en, document);
+    } else if (en instanceof DmxModel) {
+      _format((DmxModel)en, document);
       return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
       return;
     } else if (en instanceof DExpression) {
       _format((DExpression)en, document);
+      return;
+    } else if (en instanceof DNamespace) {
+      _format((DNamespace)en, document);
       return;
     } else if (en instanceof EObject) {
       _format((EObject)en, document);

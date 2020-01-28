@@ -3,14 +3,13 @@
  */
 package com.mimacom.ddd.dm.dom.formatting2;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxField;
-import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
@@ -25,7 +24,6 @@ import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
@@ -35,23 +33,6 @@ public class DomFormatter extends DmxFormatter {
   private DomGrammarAccess _domGrammarAccess;
   
   protected void _format(final DomModel model, @Extension final IFormattableDocument document) {
-    EList<DImport> _imports = model.getImports();
-    for (final DImport i : _imports) {
-      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-        DImport _last = IterableExtensions.<DImport>last(model.getImports());
-        boolean _equals = Objects.equal(i, _last);
-        if (_equals) {
-          it.setNewLines(2);
-        } else {
-          it.newLine();
-        }
-      };
-      document.<DImport>append(i, _function);
-    }
-    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.append(this.textRegionExtensions.regionFor(model).assignment(this._domGrammarAccess.getDomModelAccess().getNameAssignment_2()), _function_1);
     EList<DomSnapshot> _snapshots = model.getSnapshots();
     for (final DomSnapshot s : _snapshots) {
       document.<DomSnapshot>format(s);
@@ -59,24 +40,28 @@ public class DomFormatter extends DmxFormatter {
   }
   
   protected void _format(final DomSnapshot snapshot, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getLeftCurlyBracketKeyword_2());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getRightCurlyBracketKeyword_4());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(open, _function);
+    document.append(this.textRegionExtensions.regionFor(snapshot).assignment(this._domGrammarAccess.getDomSnapshotAccess().getNameAssignment_1()), _function);
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getLeftCurlyBracketKeyword_4());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getRightCurlyBracketKeyword_6());
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(2);
+    };
+    document.append(open, _function_1);
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
-    document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
+    document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_2);
     EList<DomObject> _objects = snapshot.getObjects();
     for (final DomObject o : _objects) {
       document.<DomObject>format(o);
     }
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.prepend(close, _function_2);
+    document.prepend(close, _function_3);
   }
   
   protected void _format(final DomNamedComplexObject obj, @Extension final IFormattableDocument document) {
@@ -148,8 +133,8 @@ public class DomFormatter extends DmxFormatter {
     } else if (obj instanceof DmxField) {
       _format((DmxField)obj, document);
       return;
-    } else if (obj instanceof DmxNamespace) {
-      _format((DmxNamespace)obj, document);
+    } else if (obj instanceof DmxModel) {
+      _format((DmxModel)obj, document);
       return;
     } else if (obj instanceof DomModel) {
       _format((DomModel)obj, document);
@@ -159,6 +144,9 @@ public class DomFormatter extends DmxFormatter {
       return;
     } else if (obj instanceof DExpression) {
       _format((DExpression)obj, document);
+      return;
+    } else if (obj instanceof DNamespace) {
+      _format((DNamespace)obj, document);
       return;
     } else if (obj instanceof DomSnapshot) {
       _format((DomSnapshot)obj, document);

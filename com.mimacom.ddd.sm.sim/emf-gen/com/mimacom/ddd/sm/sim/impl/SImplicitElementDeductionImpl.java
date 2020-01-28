@@ -79,7 +79,6 @@ public class SImplicitElementDeductionImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -107,7 +106,6 @@ public class SImplicitElementDeductionImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)
@@ -129,7 +127,6 @@ public class SImplicitElementDeductionImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public IDeductionDefinition getOriginalDeductionDefinition()
 	{
 		if (originalDeductionDefinition != null && originalDeductionDefinition.eIsProxy())
@@ -160,7 +157,6 @@ public class SImplicitElementDeductionImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setOriginalDeductionDefinition(IDeductionDefinition newOriginalDeductionDefinition)
 	{
 		IDeductionDefinition oldOriginalDeductionDefinition = originalDeductionDefinition;

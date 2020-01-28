@@ -5,11 +5,13 @@ package com.mimacom.ddd.dm.dmx
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
-import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider
+import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
+import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
@@ -30,5 +32,9 @@ class DmxRuntimeModule extends AbstractDmxRuntimeModule {
 		binder.bind(IScopeProvider)
 		.annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
 		.to(DmxImportedNamespaceAwareLocalScopeProvider);
+	}
+
+	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return DmxResourceDescriptionStrategy;
 	}
 }
