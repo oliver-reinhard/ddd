@@ -12,6 +12,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -21,33 +22,39 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SimGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_ChangeComplexType_ToKeyword_0_q;
+	protected AbstractElementAlias match_DEnumeration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q;
 	protected AbstractElementAlias match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
+	protected AbstractElementAlias match_SAggregateDeduction___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_3__q;
 	protected AbstractElementAlias match_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0;
 	protected AbstractElementAlias match_SAssociationDeduction_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0;
 	protected AbstractElementAlias match_SAssociationDeduction_CompositeKeyword_1_2_1_1_or_ReferenceKeyword_1_2_1_0;
 	protected AbstractElementAlias match_SAttributeDeduction_AttributeKeyword_1_0_1_0_q;
 	protected AbstractElementAlias match_SAttributeDeduction_AttributeKeyword_1_1_1_0_q;
 	protected AbstractElementAlias match_SAttributeDeduction_AttributeKeyword_1_2_1_0_q;
+	protected AbstractElementAlias match_SEnumerationDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q;
+	protected AbstractElementAlias match_SPrimitiveDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
 	protected AbstractElementAlias match_SQueryDeduction_AsteriskKeyword_1_0_2_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SimGrammarAccess) access;
-		match_ChangeComplexType_ToKeyword_0_q = new TokenAlias(false, true, grammarAccess.getChangeComplexTypeAccess().getToKeyword_0());
+		match_DEnumeration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDEnumerationAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getDEnumerationAccess().getRightCurlyBracketKeyword_4_3()));
 		match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFalseKeyword_1_3()));
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
+		match_SAggregateDeduction___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSAggregateDeductionAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getSAggregateDeductionAccess().getRightCurlyBracketKeyword_5_3()));
 		match_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_0_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_0_1_0()));
 		match_SAssociationDeduction_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_1_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_1_1_0()));
 		match_SAssociationDeduction_CompositeKeyword_1_2_1_1_or_ReferenceKeyword_1_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_2_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_2_1_0()));
 		match_SAttributeDeduction_AttributeKeyword_1_0_1_0_q = new TokenAlias(false, true, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_0_1_0());
 		match_SAttributeDeduction_AttributeKeyword_1_1_1_0_q = new TokenAlias(false, true, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_1_1_0());
 		match_SAttributeDeduction_AttributeKeyword_1_2_1_0_q = new TokenAlias(false, true, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_2_1_0());
+		match_SEnumerationDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSEnumerationDeductionAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSEnumerationDeductionAccess().getRightCurlyBracketKeyword_3_3()));
+		match_SPrimitiveDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSPrimitiveDeductionAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSPrimitiveDeductionAccess().getRightCurlyBracketKeyword_3_2()));
 		match_SQueryDeduction_AsteriskKeyword_1_0_2_0_q = new TokenAlias(false, true, grammarAccess.getSQueryDeductionAccess().getAsteriskKeyword_1_0_2_0());
 	}
 	
@@ -110,8 +117,8 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_ChangeComplexType_ToKeyword_0_q.equals(syntax))
-				emit_ChangeComplexType_ToKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_DEnumeration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q.equals(syntax))
+				emit_DEnumeration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
@@ -120,6 +127,8 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
 				emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SAggregateDeduction___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_3__q.equals(syntax))
+				emit_SAggregateDeduction___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0.equals(syntax))
 				emit_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SAssociationDeduction_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0.equals(syntax))
@@ -132,6 +141,10 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_SAttributeDeduction_AttributeKeyword_1_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SAttributeDeduction_AttributeKeyword_1_2_1_0_q.equals(syntax))
 				emit_SAttributeDeduction_AttributeKeyword_1_2_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SEnumerationDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q.equals(syntax))
+				emit_SEnumerationDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SPrimitiveDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
+				emit_SPrimitiveDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SQueryDeduction_AsteriskKeyword_1_0_2_0_q.equals(syntax))
 				emit_SQueryDeduction_AsteriskKeyword_1_0_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -140,13 +153,14 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     'to'?
+	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     otherSources+=[DComplexType|DQualifiedName] (ambiguity) (rule end)
-	 *     source=[DComplexType|DQualifiedName] (ambiguity) (rule end)
+	 *     aliases+=ID (ambiguity) (rule end)
+	 *     description=DRichText (ambiguity) (rule end)
+	 *     name=ID (ambiguity) (rule end)
 	 */
-	protected void emit_ChangeComplexType_ToKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DEnumeration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -248,6 +262,18 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     ('{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     deductionRule=SGrabAggregateRule (ambiguity) (rule end)
+	 *     description=DRichText (ambiguity) (rule end)
+	 */
+	protected void emit_SAggregateDeduction___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     'reference' | 'composite'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -309,6 +335,32 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) 'ditch' (ambiguity) deductionRule=SDitchFeatureRule
 	 */
 	protected void emit_SAttributeDeduction_AttributeKeyword_1_2_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     deductionRule=SDitchEnumerationRule (ambiguity) (rule end)
+	 *     deductionRule=SGrabEnumerationRule (ambiguity) (rule end)
+	 *     description=DRichText (ambiguity) (rule end)
+	 */
+	protected void emit_SEnumerationDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     deductionRule=SDitchPrimitiveRule (ambiguity) (rule end)
+	 *     deductionRule=SGrabPrimitiveRule (ambiguity) (rule end)
+	 *     description=DRichText (ambiguity) (rule end)
+	 */
+	protected void emit_SPrimitiveDeduction___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

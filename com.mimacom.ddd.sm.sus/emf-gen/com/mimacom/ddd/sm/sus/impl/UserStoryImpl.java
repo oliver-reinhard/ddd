@@ -88,6 +88,7 @@ public class UserStoryImpl extends DModelImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Section> getSections()
 	{
 		if (sections == null)
@@ -102,6 +103,7 @@ public class UserStoryImpl extends DModelImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DemDomainEvent getEvent()
 	{
 		if (event != null && event.eIsProxy())
@@ -132,6 +134,7 @@ public class UserStoryImpl extends DModelImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEvent(DemDomainEvent newEvent)
 	{
 		DemDomainEvent oldEvent = event;

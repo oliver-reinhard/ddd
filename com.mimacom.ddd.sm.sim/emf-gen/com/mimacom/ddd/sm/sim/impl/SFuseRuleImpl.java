@@ -66,6 +66,7 @@ public class SFuseRuleImpl extends SStructureChangingRuleImpl implements SFuseRu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedElement> getOtherSources()
 	{
 		if (otherSources == null)

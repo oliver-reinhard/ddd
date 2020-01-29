@@ -451,7 +451,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         source=[DComplexType|DQualifiedName] 
 	 *         otherSources+=[DComplexType|DQualifiedName]+ 
 	 *         abstract=SAbstractType? 
-	 *         (rootEntity=SRootEntity | detail=SDetailType)? 
+	 *         (detail=SDetailType | (rootEntity=SRootEntity? detail=SEntityType)) 
 	 *         renameTo=ID? 
 	 *         extendFrom=[DComplexType|ID]?
 	 *     )
@@ -469,7 +469,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         source=[DComplexType|DQualifiedName] 
 	 *         abstract=SAbstractType? 
-	 *         (rootEntity=SRootEntity | detail=SDetailType)? 
+	 *         (detail=SDetailType | (rootEntity=SRootEntity? detail=SEntityType)) 
 	 *         renameTo=ID? 
 	 *         extendFrom=[DComplexType|ID]?
 	 *     )

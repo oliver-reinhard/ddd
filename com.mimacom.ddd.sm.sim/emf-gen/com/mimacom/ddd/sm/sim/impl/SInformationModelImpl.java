@@ -192,6 +192,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 		return name;
@@ -202,6 +203,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -215,6 +217,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getAliases()
 	{
 		if (aliases == null)
@@ -229,6 +232,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getDescription()
 	{
 		return description;
@@ -256,6 +260,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(DRichText newDescription)
 	{
 		if (newDescription != description)
@@ -277,6 +282,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -291,6 +297,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -305,6 +312,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerate()
 	{
 		return generate;
@@ -315,6 +323,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerate(boolean newGenerate)
 	{
 		boolean oldGenerate = generate;
@@ -328,6 +337,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SInformationModelKind getKind()
 	{
 		return kind;
@@ -338,6 +348,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(SInformationModelKind newKind)
 	{
 		SInformationModelKind oldKind = kind;
@@ -351,6 +362,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SDomainDeduction> getDomainProxies()
 	{
 		if (domainProxies == null)
@@ -635,7 +647,7 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", aliases: ");

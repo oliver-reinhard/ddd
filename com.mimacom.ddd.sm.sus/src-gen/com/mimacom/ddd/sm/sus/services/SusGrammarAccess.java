@@ -27,7 +27,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	public class DNamespaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.DNamespace");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNamespaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -37,17 +37,17 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//@Override
 		//DNamespace:
-		//	'namespace'
+		//	'system'
 		//	name=DQualifiedName
 		//	imports+=DImport*
 		//	model=UserStory;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'namespace' name=DQualifiedName imports+=DImport* model=UserStory
+		//'system' name=DQualifiedName imports+=DImport* model=UserStory
 		public Group getGroup() { return cGroup; }
 		
-		//'namespace'
-		public Keyword getNamespaceKeyword_0() { return cNamespaceKeyword_0; }
+		//'system'
+		public Keyword getSystemKeyword_0() { return cSystemKeyword_0; }
 		
 		//name=DQualifiedName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -240,7 +240,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//@Override
 	//DNamespace:
-	//	'namespace'
+	//	'system'
 	//	name=DQualifiedName
 	//	imports+=DImport*
 	//	model=UserStory;

@@ -7,7 +7,7 @@ import "http://www.mimacom.com/ddd/sm/sim"
 
 @Override 
 DNamespace:
-	'namespace'
+	'system'
 	name=DQualifiedName
 	(imports+=DImport)*
 	model=UserStory;

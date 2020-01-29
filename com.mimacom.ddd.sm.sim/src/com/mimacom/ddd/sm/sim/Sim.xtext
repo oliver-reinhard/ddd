@@ -7,7 +7,7 @@ import "http://www.mimacom.com/ddd/sm/sim"
 
 @Override 
 DNamespace:
-	'namespace'
+	'system'
 	name=DQualifiedName
 	(imports+=DImport)*
 	model=SInformationModel;
@@ -73,12 +73,13 @@ SFuseComplexTypeRule returns SFuseRule:
 	ChangeComplexType;
 
 fragment ChangeComplexType returns SStructureChangingRule:
-	(	'to' 
-		(abstract=SAbstractType)?
-		(rootEntity=SRootEntity | detail=SDetailType)?
-		(renameTo=ID)?
-		('extends' extendFrom=[DComplexType|ID])?
-	)?;
+	'to' 
+	abstract=SAbstractType? 
+	(	detail=SDetailType
+	|	rootEntity=SRootEntity? detail=SEntityType
+	)
+	(renameTo=ID)?
+	('extends' extendFrom=[DComplexType|ID])?;
 
 SGrabFeatureRule returns SGrabRule:
 	source=[DFeature|ID]
@@ -100,7 +101,10 @@ enum SRootEntity returns STristate:
 	FALSE='nonroot' | TRUE='root';
 	
 enum SDetailType returns STristate:
-	FALSE='entity' | TRUE='detail';
+	TRUE='detail';
+
+enum SEntityType returns STristate:
+	FALSE='entity';
 	
 Domain returns SDomainDeduction:
 	{SDomainDeduction}
@@ -113,10 +117,11 @@ SAggregateDeduction:
 	{SAggregateDeduction}
 	'grab' 'aggregate' deductionRule=SGrabAggregateRule
 	(description=DRichText)?
-	'{'
-		(features+=SQueryDeduction | 'query' features+=DQuery)*
-		( types+=Type)*
-	'}';
+	(	'{'
+			(features+=SQueryDeduction | 'query' features+=DQuery)*
+			( types+=Type)*
+		'}'
+	)?;
 		
 @Override 
 DAggregate:
@@ -144,9 +149,10 @@ SPrimitiveDeduction:
 	|	'ditch' 'primitive' deductionRule=SDitchPrimitiveRule
 	)
 	(description=DRichText)?
-	'{'
+	(	'{'
 		(constraints+=DConstraint)*
-	'}';
+		'}'
+	)?;
 	
 SEnumerationDeduction:
 	{SEnumerationDeduction} 
@@ -154,10 +160,11 @@ SEnumerationDeduction:
 	|	'ditch' 'enumeration' deductionRule=SDitchEnumerationRule
 	)
 	(description=DRichText)?
-	'{'
-	 	(literals+=Literal (',' literals+=Literal)*)?
-		(constraints+=DConstraint)*
-	 '}';
+	(	'{'
+		 	(literals+=Literal (',' literals+=Literal)*)?
+			(constraints+=DConstraint)*
+		 '}'
+	)?;
 	 
 @Override 
 DEnumeration:
@@ -165,10 +172,11 @@ DEnumeration:
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?
-	'{'
-	 	(literals+=Literal (',' literals+=Literal)*)?
-		(constraints+=DConstraint)*
-	 '}';
+	(	'{'
+		 	(literals+=Literal (',' literals+=Literal)*)?
+			(constraints+=DConstraint)*
+		 '}'
+	)?;
 	 
 Literal returns DLiteral:
 	SLiteralDeduction | DLiteral;
@@ -188,7 +196,7 @@ SEntityTypeDeduction:
 	|	'fuse'(root?='root')?  'entity' deductionRule=SFuseComplexTypeRule
 	)
 	(description=DRichText)?
-	SComplexTypeFeatures;
+	SComplexTypeFeatures?;
 
 SDetailTypeDeduction:
 	{SDetailTypeDeduction} 
@@ -198,12 +206,15 @@ SDetailTypeDeduction:
 	|	'fuse' 'detail' deductionRule=SFuseComplexTypeRule
 	)
 	(description=DRichText)?
-	SComplexTypeFeatures;
+	SComplexTypeFeatures?;
 
 fragment SComplexTypeFeatures returns DComplexType:
-	'{'
-		(features+=Feature | constraints+=DConstraint)*
-	'}';
+	(	'add'
+		'{'
+			(features+=Feature | constraints+=DConstraint)*
+		'}'
+	|	'{' '}'
+	);
 
 @Override 
 DEntityType:

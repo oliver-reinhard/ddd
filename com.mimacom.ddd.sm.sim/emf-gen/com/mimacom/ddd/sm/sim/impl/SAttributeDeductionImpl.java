@@ -71,6 +71,7 @@ public class SAttributeDeductionImpl extends DAttributeImpl implements SAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -98,6 +99,7 @@ public class SAttributeDeductionImpl extends DAttributeImpl implements SAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)

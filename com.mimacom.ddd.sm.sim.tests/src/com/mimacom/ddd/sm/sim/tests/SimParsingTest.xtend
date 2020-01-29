@@ -6,6 +6,8 @@ package com.mimacom.ddd.sm.sim.tests
 import com.google.inject.Inject
 import com.google.inject.Provider
 import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.dim.DimStandaloneSetup
+import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
@@ -18,35 +20,38 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @InjectWith(SimInjectorProvider)
 class SimParsingTest {
 	@Inject 
-	ParseHelper<DNamespace> dmxParseHelper
+	ParseHelper<DNamespace> simParseHelper
 	
-	@Inject 
-	ParseHelper<DNamespace> dmParseHelper
-	
-	@Inject 
-	ParseHelper<DNamespace> smParseHelper
+	final ParseHelper<DNamespace> dmxParseHelper
+	final ParseHelper<DNamespace> dimParseHelper
 	
 	@Inject
 	Provider<ResourceSet> resourceSetProvider
 	
+	new() {
+		val dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration()
+		dimParseHelper = dimInjector.getInstance(ParseHelper)
+		val dmxInjector = new DmxStandaloneSetup().createInjectorAndDoEMFRegistration()
+		dmxParseHelper = dmxInjector.getInstance(ParseHelper)
+	}
+	
 	@Test
 	def void grabArchetype() {
 		val resourceSet = resourceSetProvider.get
-		dmxParseHelper.fileExtension = ".dmx"
 		val dmx = dmxParseHelper.parse('''
 			namespace dm.types
-			archetype DT is NUMBER
+			archetype AT is NUMBER
 		''', resourceSet)
-		val dm = dmParseHelper.parse('''
+		val dm = dimParseHelper.parse('''
 			domain DM
 			information model IM {
-				archetype DT { }
+				primitive DT redefines AT
 			}
 		''', resourceSet)
-		val sm = smParseHelper.parse('''
-			namespace
-			base information model SM {
-				grab primitive DM.DT as ST 
+		val sm = simParseHelper.parse('''
+			system SM
+			base information model SM1 {
+				grab primitive DM.DT as ST
 			}
 		''', resourceSet)
 		Assertions.assertNotNull(dmx)

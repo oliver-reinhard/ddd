@@ -65,8 +65,8 @@ public class SimFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final SAggregateDeduction aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getLeftCurlyBracketKeyword_5());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getRightCurlyBracketKeyword_8());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getLeftCurlyBracketKeyword_5_0());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getRightCurlyBracketKeyword_5_3());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -85,8 +85,8 @@ public class SimFormatter extends AbstractFormatter2 {
     int _size = en.getLiterals().size();
     boolean _greaterThan = (_size > 3);
     if (_greaterThan) {
-      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getLeftCurlyBracketKeyword_3());
-      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getRightCurlyBracketKeyword_6());
+      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getLeftCurlyBracketKeyword_3_0());
+      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getRightCurlyBracketKeyword_3_3());
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
@@ -100,9 +100,9 @@ public class SimFormatter extends AbstractFormatter2 {
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.noSpace();
         };
-        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSEnumerationDeductionAccess().getLiteralsAssignment_4_0()), _function_2);
+        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSEnumerationDeductionAccess().getLiteralsAssignment_3_1_0()), _function_2);
       }
-      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSEnumerationDeductionAccess().getCommaKeyword_4_1_0());
+      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSEnumerationDeductionAccess().getCommaKeyword_3_1_1_0());
       for (final ISemanticRegion comma : _keywords) {
         final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
           it.newLine();
@@ -121,8 +121,8 @@ public class SimFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final SComplexTypeDeduction type, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0_1());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_0_3());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };

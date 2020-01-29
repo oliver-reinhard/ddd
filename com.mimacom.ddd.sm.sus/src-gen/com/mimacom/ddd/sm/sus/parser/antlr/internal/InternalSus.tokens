@@ -68,13 +68,13 @@
 'in'=31
 'is'=35
 'isa'=43
-'namespace'=17
 'not'=102
 'or'=81
 'realises'=20
 'realizes'=21
 'section'=22
 'story'=19
+'system'=17
 'test'=24
 'then'=54
 'true'=59

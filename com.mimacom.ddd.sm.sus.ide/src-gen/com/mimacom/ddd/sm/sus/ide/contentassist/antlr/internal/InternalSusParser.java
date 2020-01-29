@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalSusParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'realises'", "'realizes'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'namespace'", "'user'", "'story'", "'section'", "'import'", "'test'", "'}'", "'context'", "','", "':'", "'('", "')'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'entity'", "'detail'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'realises'", "'realizes'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'system'", "'user'", "'story'", "'section'", "'import'", "'test'", "'}'", "'context'", "','", "':'", "'('", "')'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'entity'", "'detail'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -9887,24 +9887,24 @@ public class InternalSusParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DNamespace__Group__0__Impl"
-    // InternalSus.g:2617:1: rule__DNamespace__Group__0__Impl : ( 'namespace' ) ;
+    // InternalSus.g:2617:1: rule__DNamespace__Group__0__Impl : ( 'system' ) ;
     public final void rule__DNamespace__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSus.g:2621:1: ( ( 'namespace' ) )
-            // InternalSus.g:2622:1: ( 'namespace' )
+            // InternalSus.g:2621:1: ( ( 'system' ) )
+            // InternalSus.g:2622:1: ( 'system' )
             {
-            // InternalSus.g:2622:1: ( 'namespace' )
-            // InternalSus.g:2623:2: 'namespace'
+            // InternalSus.g:2622:1: ( 'system' )
+            // InternalSus.g:2623:2: 'system'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0()); 
+               before(grammarAccess.getDNamespaceAccess().getSystemKeyword_0()); 
             }
             match(input,72,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0()); 
+               after(grammarAccess.getDNamespaceAccess().getSystemKeyword_0()); 
             }
 
             }

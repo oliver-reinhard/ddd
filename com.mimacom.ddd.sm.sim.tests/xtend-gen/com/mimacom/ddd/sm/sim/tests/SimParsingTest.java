@@ -4,8 +4,11 @@
 package com.mimacom.ddd.sm.sim.tests;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.google.inject.Provider;
 import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
+import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,26 +28,30 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class SimParsingTest {
   @Inject
-  private ParseHelper<DNamespace> dmxParseHelper;
+  private ParseHelper<DNamespace> simParseHelper;
   
-  @Inject
-  private ParseHelper<DNamespace> dmParseHelper;
+  private final ParseHelper<DNamespace> dmxParseHelper;
   
-  @Inject
-  private ParseHelper<DNamespace> smParseHelper;
+  private final ParseHelper<DNamespace> dimParseHelper;
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
+  
+  public SimParsingTest() {
+    final Injector dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration();
+    this.dimParseHelper = dimInjector.<ParseHelper>getInstance(ParseHelper.class);
+    final Injector dmxInjector = new DmxStandaloneSetup().createInjectorAndDoEMFRegistration();
+    this.dmxParseHelper = dmxInjector.<ParseHelper>getInstance(ParseHelper.class);
+  }
   
   @Test
   public void grabArchetype() {
     try {
       final ResourceSet resourceSet = this.resourceSetProvider.get();
-      this.dmxParseHelper.fileExtension = ".dmx";
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("namespace dm.types");
       _builder.newLine();
-      _builder.append("archetype DT is NUMBER");
+      _builder.append("archetype AT is NUMBER");
       _builder.newLine();
       final DNamespace dmx = this.dmxParseHelper.parse(_builder, resourceSet);
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -53,22 +60,22 @@ public class SimParsingTest {
       _builder_1.append("information model IM {");
       _builder_1.newLine();
       _builder_1.append("\t");
-      _builder_1.append("archetype DT { }");
+      _builder_1.append("primitive DT redefines AT");
       _builder_1.newLine();
       _builder_1.append("}");
       _builder_1.newLine();
-      final DNamespace dm = this.dmParseHelper.parse(_builder_1, resourceSet);
+      final DNamespace dm = this.dimParseHelper.parse(_builder_1, resourceSet);
       StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("namespace");
+      _builder_2.append("system SM");
       _builder_2.newLine();
-      _builder_2.append("base information model SM {");
+      _builder_2.append("base information model SM1 {");
       _builder_2.newLine();
       _builder_2.append("\t");
-      _builder_2.append("grab primitive DM.DT as ST ");
+      _builder_2.append("grab primitive DM.DT as ST");
       _builder_2.newLine();
       _builder_2.append("}");
       _builder_2.newLine();
-      final DNamespace sm = this.smParseHelper.parse(_builder_2, resourceSet);
+      final DNamespace sm = this.simParseHelper.parse(_builder_2, resourceSet);
       Assertions.assertNotNull(dmx);
       final EList<Resource.Diagnostic> dmxErrors = dmx.eResource().getErrors();
       boolean _isEmpty = dmxErrors.isEmpty();

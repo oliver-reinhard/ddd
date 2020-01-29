@@ -41,8 +41,8 @@ class SimFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(SAggregateDeduction aggregate, extension IFormattableDocument document) {
-		val open = aggregate.regionFor.keyword(SAggregateDeductionAccess.leftCurlyBracketKeyword_5)
-		val close = aggregate.regionFor.keyword(SAggregateDeductionAccess.rightCurlyBracketKeyword_8)
+		val open = aggregate.regionFor.keyword(SAggregateDeductionAccess.leftCurlyBracketKeyword_5_0)
+		val close = aggregate.regionFor.keyword(SAggregateDeductionAccess.rightCurlyBracketKeyword_5_3)
 		open.append[newLines = 2]
 		interior(open, close)[indent]
 
@@ -53,15 +53,15 @@ class SimFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(SEnumerationDeduction en, extension IFormattableDocument document) {
 		if (en.literals.size > 3) {
-			val open = en.regionFor.keyword(SEnumerationDeductionAccess.leftCurlyBracketKeyword_3)
-			val close = en.regionFor.keyword(SEnumerationDeductionAccess.rightCurlyBracketKeyword_6)
+			val open = en.regionFor.keyword(SEnumerationDeductionAccess.leftCurlyBracketKeyword_3_0)
+			val close = en.regionFor.keyword(SEnumerationDeductionAccess.rightCurlyBracketKeyword_3_3)
 			open.append[newLine]
 			interior(open, close)[indent]
 
 			for (literal : en.literals) {
-				literal.regionFor.assignment(SEnumerationDeductionAccess.literalsAssignment_4_0).surround[noSpace]
+				literal.regionFor.assignment(SEnumerationDeductionAccess.literalsAssignment_3_1_0).surround[noSpace]
 			}
-			for (comma : en.regionFor.keywords(SEnumerationDeductionAccess.commaKeyword_4_1_0)) {
+			for (comma : en.regionFor.keywords(SEnumerationDeductionAccess.commaKeyword_3_1_1_0)) {
 				comma.append[newLine]
 			}
 			en.literals.last.append[newLine]
@@ -70,8 +70,8 @@ class SimFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(SComplexTypeDeduction type, extension IFormattableDocument document) {
-		val open = type.regionFor.keyword(SComplexTypeFeaturesAccess.leftCurlyBracketKeyword_0)
-		val close = type.regionFor.keyword(SComplexTypeFeaturesAccess.rightCurlyBracketKeyword_2)
+		val open = type.regionFor.keyword(SComplexTypeFeaturesAccess.leftCurlyBracketKeyword_0_1)
+		val close = type.regionFor.keyword(SComplexTypeFeaturesAccess.rightCurlyBracketKeyword_0_3)
 		open.append[newLine]
 		interior(open, close)[indent]
 		close.append[newLines = 2]

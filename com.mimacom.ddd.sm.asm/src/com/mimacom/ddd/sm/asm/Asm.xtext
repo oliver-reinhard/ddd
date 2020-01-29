@@ -8,7 +8,7 @@ import "http://www.mimacom.com/ddd/sm/asm"
 
 @Override 
 DNamespace:
-	'namespace'
+	'system'
 	name=DQualifiedName
 	(imports+=DImport)*
 	model=(SApplication | SServiceInterface);

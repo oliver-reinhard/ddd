@@ -52,10 +52,6 @@ public enum STristate implements Enumerator
 	/**
 	 * The '<em><b>DONT CARE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DONT CARE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DONT_CARE
 	 * @model
@@ -67,10 +63,6 @@ public enum STristate implements Enumerator
 	/**
 	 * The '<em><b>FALSE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FALSE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FALSE
 	 * @model
@@ -82,10 +74,6 @@ public enum STristate implements Enumerator
 	/**
 	 * The '<em><b>TRUE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>TRUE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TRUE
 	 * @model
@@ -216,6 +204,7 @@ public enum STristate implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue()
 	{
 	  return value;
@@ -226,6 +215,7 @@ public enum STristate implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 	  return name;
@@ -236,6 +226,7 @@ public enum STristate implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral()
 	{
 	  return literal;

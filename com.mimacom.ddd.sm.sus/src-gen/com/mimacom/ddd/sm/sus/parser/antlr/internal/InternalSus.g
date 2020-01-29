@@ -77,9 +77,9 @@ ruleDNamespace returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='namespace'
+		otherlv_0='system'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getDNamespaceAccess().getSystemKeyword_0());
 		}
 		(
 			(
