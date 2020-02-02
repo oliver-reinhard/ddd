@@ -255,6 +255,10 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createFigureAdapter();
 			}
 			@Override
+			public Adapter caseFigureRenderer(FigureRenderer object) {
+				return createFigureRendererAdapter();
+			}
+			@Override
 			public Adapter caseEquation(Equation object) {
 				return createEquationAdapter();
 			}
@@ -939,6 +943,20 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFigureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.FigureRenderer <em>Figure Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.FigureRenderer
+	 * @generated
+	 */
+	public Adapter createFigureRendererAdapter() {
 		return null;
 	}
 

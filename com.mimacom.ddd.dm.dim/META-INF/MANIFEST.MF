@@ -4,9 +4,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: com.mimacom.ddd.dm.dim
 Bundle-Vendor: mimacom ag
 Bundle-Version: 0.1.0.qualifier
-Bundle-SymbolicName: com.mimacom.ddd.dm.dim; singleton:=true
+Bundle-SymbolicName: com.mimacom.ddd.dm.dim;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
+Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
+ com.mimacom.ddd.dm.dmx;visibility:=reexport,
+ com.mimacom.ddd.pub.pub,
+ com.mimacom.ddd.util,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -14,10 +17,11 @@ Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
- com.mimacom.ddd.dm.base
+ org.eclipse.core.runtime;bundle-version="3.16.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j
 Export-Package: com.mimacom.ddd.dm.dim,
+ com.mimacom.ddd.dm.dim.diagramProvider,
  com.mimacom.ddd.dm.dim.formatting2,
  com.mimacom.ddd.dm.dim.generator,
  com.mimacom.ddd.dm.dim.parser.antlr,

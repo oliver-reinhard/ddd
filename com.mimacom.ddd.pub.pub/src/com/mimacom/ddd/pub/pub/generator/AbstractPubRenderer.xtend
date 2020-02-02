@@ -85,7 +85,7 @@ abstract class AbstractPubRenderer {
 
 	abstract def CharSequence renderTable(Table t, NestedContentBlockGenerator g)
 
-	abstract def CharSequence renderFigure(Figure f)
+	abstract def CharSequence renderFigure(Figure f, String fileUri)
 
 	abstract def CharSequence renderEquation(Equation e)
 

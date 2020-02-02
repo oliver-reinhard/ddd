@@ -9,10 +9,11 @@ Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.sm.sim;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dim;visibility:=reexport,
+ com.mimacom.ddd.pub.pub,
+ com.mimacom.ddd.util,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- com.mimacom.ddd.dm.base;visibility:=reexport,
  org.eclipse.emf.common,
  org.eclipse.xtext,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
@@ -24,6 +25,7 @@ Require-Bundle: com.mimacom.ddd.dm.dim;visibility:=reexport,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.sm.sim,
  com.mimacom.ddd.sm.sim.derivedState,
+ com.mimacom.ddd.sm.sim.diagramProvider,
  com.mimacom.ddd.sm.sim.formatting2,
  com.mimacom.ddd.sm.sim.generator,
  com.mimacom.ddd.sm.sim.impl,

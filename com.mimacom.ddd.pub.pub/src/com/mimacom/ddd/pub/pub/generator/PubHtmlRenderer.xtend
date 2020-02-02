@@ -215,8 +215,8 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		return b.toString
 	}
 
-	override CharSequence renderFigure(Figure f) '''
-		-- figure (TODO)
+	override CharSequence renderFigure(Figure f, String fileUri) '''
+		-- FIGURE («fileUri»)
 	'''
 
 	override CharSequence renderEquation(Equation e) '''

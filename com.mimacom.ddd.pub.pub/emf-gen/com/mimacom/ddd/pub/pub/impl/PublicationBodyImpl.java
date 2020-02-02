@@ -67,6 +67,7 @@ public class PublicationBodyImpl extends DocumentSegmentImpl implements Publicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Division> getDivisions() {
 		if (divisions == null) {
 			divisions = new EObjectContainmentEList<Division>(Division.class, this, PubPackage.PUBLICATION_BODY__DIVISIONS);

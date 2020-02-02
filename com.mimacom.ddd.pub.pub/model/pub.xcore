@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DImport
 import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.IDiagramRoot
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.proto.PublicationClass
@@ -13,6 +14,7 @@ import com.mimacom.ddd.pub.proto.PublicationClass
 class PubModel {
 	contains DImport[] imports
 	contains Document document
+	contains transient FigureRenderer[] figureRenderers
 }
 
 //
@@ -351,6 +353,13 @@ class TableCell extends BlockContainer {
 
 class Figure extends TitledBlock {
 	String fileUri
+	refers IDiagramRoot diagramRoot
+	refers FigureRenderer renderer
+}
+
+class FigureRenderer {
+	String ^id
+	String diagramName
 }
 
 class Equation extends TitledBlock {

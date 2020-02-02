@@ -355,6 +355,15 @@ public interface PubFactory extends EFactory {
 	Figure createFigure();
 
 	/**
+	 * Returns a new object of class '<em>Figure Renderer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Figure Renderer</em>'.
+	 * @generated
+	 */
+	FigureRenderer createFigureRenderer();
+
+	/**
 	 * Returns a new object of class '<em>Equation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

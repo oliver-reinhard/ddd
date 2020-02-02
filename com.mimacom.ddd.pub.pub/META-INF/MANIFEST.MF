@@ -11,6 +11,9 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  com.mimacom.ddd.dm.dmx;visibility:=reexport,
  com.mimacom.ddd.pub.proto;visibility:=reexport,
+ net.sourceforge.plantuml.eclipse;bundle-version="1.1.23",
+ net.sourceforge.plantuml.text;bundle-version="1.1.23",
+ net.sourceforge.plantuml.lib;bundle-version="1.2019.11",
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -24,6 +27,7 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  com.google.guava
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.pub.pub,
+ com.mimacom.ddd.pub.pub.diagramProvider,
  com.mimacom.ddd.pub.pub.formatting2,
  com.mimacom.ddd.pub.pub.generator,
  com.mimacom.ddd.pub.pub.impl,

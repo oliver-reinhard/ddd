@@ -5,6 +5,7 @@ package com.mimacom.ddd.pub.pub.impl;
 import com.mimacom.ddd.dm.base.DImport;
 
 import com.mimacom.ddd.pub.pub.Document;
+import com.mimacom.ddd.pub.pub.FigureRenderer;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getDocument <em>Document</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getFigureRenderers <em>Figure Renderers</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +62,16 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	protected Document document;
 
 	/**
+	 * The cached value of the '{@link #getFigureRenderers() <em>Figure Renderers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFigureRenderers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FigureRenderer> figureRenderers;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -83,6 +95,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DImport> getImports() {
 		if (imports == null) {
 			imports = new EObjectContainmentEList<DImport>(DImport.class, this, PubPackage.PUB_MODEL__IMPORTS);
@@ -95,6 +108,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Document getDocument() {
 		return document;
 	}
@@ -119,6 +133,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDocument(Document newDocument) {
 		if (newDocument != document) {
 			NotificationChain msgs = null;
@@ -139,12 +154,27 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * @generated
 	 */
 	@Override
+	public EList<FigureRenderer> getFigureRenderers() {
+		if (figureRenderers == null) {
+			figureRenderers = new EObjectContainmentEList<FigureRenderer>(FigureRenderer.class, this, PubPackage.PUB_MODEL__FIGURE_RENDERERS);
+		}
+		return figureRenderers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PubPackage.PUB_MODEL__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case PubPackage.PUB_MODEL__DOCUMENT:
 				return basicSetDocument(null, msgs);
+			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
+				return ((InternalEList<?>)getFigureRenderers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -161,6 +191,8 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 				return getImports();
 			case PubPackage.PUB_MODEL__DOCUMENT:
 				return getDocument();
+			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
+				return getFigureRenderers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,6 +213,10 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 			case PubPackage.PUB_MODEL__DOCUMENT:
 				setDocument((Document)newValue);
 				return;
+			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
+				getFigureRenderers().clear();
+				getFigureRenderers().addAll((Collection<? extends FigureRenderer>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,6 +235,9 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 			case PubPackage.PUB_MODEL__DOCUMENT:
 				setDocument((Document)null);
 				return;
+			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
+				getFigureRenderers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -215,6 +254,8 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 				return imports != null && !imports.isEmpty();
 			case PubPackage.PUB_MODEL__DOCUMENT:
 				return document != null;
+			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
+				return figureRenderers != null && !figureRenderers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

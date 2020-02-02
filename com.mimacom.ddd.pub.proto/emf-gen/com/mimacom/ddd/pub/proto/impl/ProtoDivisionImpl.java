@@ -82,6 +82,7 @@ public abstract class ProtoDivisionImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
 	}
@@ -91,6 +92,7 @@ public abstract class ProtoDivisionImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoSequenceNumberStyle getNumberingStyle() {
 		return numberingStyle;
 	}
@@ -100,6 +102,7 @@ public abstract class ProtoDivisionImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNumberingStyle(ProtoSequenceNumberStyle newNumberingStyle) {
 		ProtoSequenceNumberStyle oldNumberingStyle = numberingStyle;
 		numberingStyle = newNumberingStyle == null ? NUMBERING_STYLE_EDEFAULT : newNumberingStyle;

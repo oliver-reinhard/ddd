@@ -82,7 +82,7 @@ public abstract class AbstractPubRenderer {
   
   public abstract CharSequence renderTable(final Table t, final NestedContentBlockGenerator g);
   
-  public abstract CharSequence renderFigure(final Figure f);
+  public abstract CharSequence renderFigure(final Figure f, final String fileUri);
   
   public abstract CharSequence renderEquation(final Equation e);
   

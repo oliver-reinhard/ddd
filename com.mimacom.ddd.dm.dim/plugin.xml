@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="com.mimacom.ddd.dm.dim.structure.png"
+            diagramName="Domain Information Structure (PNG)"
+            diagramType="informationStructure"
+            modelClass="com.mimacom.ddd.dm.base.DInformationModel"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimDiagramRendererPNG">
+      </renderer>
+      <diagramType
+            id="informationStructure"
+            name="Information Structure">
+      </diagramType>
+   </extension>
+
+</plugin>

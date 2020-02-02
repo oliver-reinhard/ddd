@@ -14,5 +14,16 @@
             class="com.mimacom.ddd.sm.sim.SimPackage"
             genModel="model/sim.genmodel"/>
    </extension>
+   <extension
+         point="com.mimacom.ddd.util.diagramProvider">
+      <renderer
+            id="com.mimacom.ddd.dm.sim.structure.png"
+            diagramName="System Information Structure (PNG)"
+            diagramType="informationStructure"
+            modelClass="com.mimacom.ddd.sm.sim.SInformationModel"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimDiagramRendererPNG">
+      </renderer>
+   </extension>
 
 </plugin>

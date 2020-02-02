@@ -66,6 +66,7 @@ public class BibliographyImpl extends SegmentWithTableImpl implements Bibliograp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<BibliographyEntry> getEntries() {
 		if (entries == null) {
 			entries = new EObjectContainmentEList<BibliographyEntry>(BibliographyEntry.class, this, PubPackage.BIBLIOGRAPHY__ENTRIES);

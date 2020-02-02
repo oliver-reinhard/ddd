@@ -89,13 +89,22 @@ public interface PubPackage extends EPackage {
 	int PUB_MODEL__DOCUMENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Figure Renderers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUB_MODEL__FIGURE_RENDERERS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUB_MODEL_FEATURE_COUNT = 2;
+	int PUB_MODEL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -3932,13 +3941,31 @@ public interface PubPackage extends EPackage {
 	int FIGURE__FILE_URI = TITLED_BLOCK_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Diagram Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIGURE__DIAGRAM_ROOT = TITLED_BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Renderer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIGURE__RENDERER = TITLED_BLOCK_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Figure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 1;
+	int FIGURE_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Id</em>' operation.
@@ -3968,6 +3995,52 @@ public interface PubPackage extends EPackage {
 	int FIGURE_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl <em>Figure Renderer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.FigureRendererImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
+	 * @generated
+	 */
+	int FIGURE_RENDERER = 46;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIGURE_RENDERER__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Diagram Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIGURE_RENDERER__DIAGRAM_NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Figure Renderer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIGURE_RENDERER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Figure Renderer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIGURE_RENDERER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.EquationImpl <em>Equation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3975,7 +4048,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getEquation()
 	 * @generated
 	 */
-	int EQUATION = 46;
+	int EQUATION = 47;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4093,7 +4166,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeListing()
 	 * @generated
 	 */
-	int CODE_LISTING = 47;
+	int CODE_LISTING = 48;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4229,7 +4302,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 48;
+	int PARAGRAPH = 49;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
@@ -4275,7 +4348,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getUnformattedParagraph()
 	 * @generated
 	 */
-	int UNFORMATTED_PARAGRAPH = 49;
+	int UNFORMATTED_PARAGRAPH = 50;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -4312,7 +4385,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPublicationNature()
 	 * @generated
 	 */
-	int PUBLICATION_NATURE = 50;
+	int PUBLICATION_NATURE = 51;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ReferenceScope <em>Reference Scope</em>}' enum.
@@ -4322,7 +4395,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getReferenceScope()
 	 * @generated
 	 */
-	int REFERENCE_SCOPE = 51;
+	int REFERENCE_SCOPE = 52;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.AdmonitionKind <em>Admonition Kind</em>}' enum.
@@ -4332,7 +4405,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAdmonitionKind()
 	 * @generated
 	 */
-	int ADMONITION_KIND = 52;
+	int ADMONITION_KIND = 53;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ListStyle <em>List Style</em>}' enum.
@@ -4342,7 +4415,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListStyle()
 	 * @generated
 	 */
-	int LIST_STYLE = 53;
+	int LIST_STYLE = 54;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
@@ -4352,7 +4425,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
 	 * @generated
 	 */
-	int CODE_LANGUAGE = 54;
+	int CODE_LANGUAGE = 55;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.
@@ -4362,7 +4435,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraphStyle()
 	 * @generated
 	 */
-	int PARAGRAPH_STYLE = 55;
+	int PARAGRAPH_STYLE = 56;
 
 
 	/**
@@ -4396,6 +4469,17 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPubModel_Document();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.PubModel#getFigureRenderers <em>Figure Renderers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Figure Renderers</em>'.
+	 * @see com.mimacom.ddd.pub.pub.PubModel#getFigureRenderers()
+	 * @see #getPubModel()
+	 * @generated
+	 */
+	EReference getPubModel_FigureRenderers();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Document <em>Document</em>}'.
@@ -5631,6 +5715,60 @@ public interface PubPackage extends EPackage {
 	EAttribute getFigure_FileUri();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.Figure#getDiagramRoot <em>Diagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Diagram Root</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Figure#getDiagramRoot()
+	 * @see #getFigure()
+	 * @generated
+	 */
+	EReference getFigure_DiagramRoot();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.Figure#getRenderer <em>Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Renderer</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Figure#getRenderer()
+	 * @see #getFigure()
+	 * @generated
+	 */
+	EReference getFigure_Renderer();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.FigureRenderer <em>Figure Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Figure Renderer</em>'.
+	 * @see com.mimacom.ddd.pub.pub.FigureRenderer
+	 * @generated
+	 */
+	EClass getFigureRenderer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.mimacom.ddd.pub.pub.FigureRenderer#getId()
+	 * @see #getFigureRenderer()
+	 * @generated
+	 */
+	EAttribute getFigureRenderer_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getDiagramName <em>Diagram Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Diagram Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.FigureRenderer#getDiagramName()
+	 * @see #getFigureRenderer()
+	 * @generated
+	 */
+	EAttribute getFigureRenderer_DiagramName();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Equation <em>Equation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5855,6 +5993,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PUB_MODEL__DOCUMENT = eINSTANCE.getPubModel_Document();
+
+		/**
+		 * The meta object literal for the '<em><b>Figure Renderers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PUB_MODEL__FIGURE_RENDERERS = eINSTANCE.getPubModel_FigureRenderers();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl <em>Document</em>}' class.
@@ -6881,6 +7027,48 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FIGURE__FILE_URI = eINSTANCE.getFigure_FileUri();
+
+		/**
+		 * The meta object literal for the '<em><b>Diagram Root</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIGURE__DIAGRAM_ROOT = eINSTANCE.getFigure_DiagramRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Renderer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIGURE__RENDERER = eINSTANCE.getFigure_Renderer();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl <em>Figure Renderer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.FigureRendererImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
+		 * @generated
+		 */
+		EClass FIGURE_RENDERER = eINSTANCE.getFigureRenderer();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIGURE_RENDERER__ID = eINSTANCE.getFigureRenderer_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Diagram Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIGURE_RENDERER__DIAGRAM_NAME = eINSTANCE.getFigureRenderer_DiagramName();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.EquationImpl <em>Equation</em>}' class.

@@ -461,6 +461,12 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PubPackage.FIGURE_RENDERER: {
+				FigureRenderer figureRenderer = (FigureRenderer)theEObject;
+				T result = caseFigureRenderer(figureRenderer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PubPackage.EQUATION: {
 				Equation equation = (Equation)theEObject;
 				T result = caseEquation(equation);
@@ -1186,6 +1192,21 @@ public class PubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFigure(Figure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Figure Renderer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Figure Renderer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFigureRenderer(FigureRenderer object) {
 		return null;
 	}
 

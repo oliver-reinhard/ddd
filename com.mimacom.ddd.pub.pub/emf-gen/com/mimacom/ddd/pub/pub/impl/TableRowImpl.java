@@ -115,6 +115,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getHeight() {
 		return height;
 	}
@@ -124,6 +125,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHeight(int newHeight) {
 		int oldHeight = height;
 		height = newHeight;
@@ -136,6 +138,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsHeading() {
 		return isHeading;
 	}
@@ -145,6 +148,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsHeading(boolean newIsHeading) {
 		boolean oldIsHeading = isHeading;
 		isHeading = newIsHeading;
@@ -157,6 +161,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TableCell> getCells() {
 		if (cells == null) {
 			cells = new EObjectContainmentWithInverseEList<TableCell>(TableCell.class, this, PubPackage.TABLE_ROW__CELLS, PubPackage.TABLE_CELL__ROW);
@@ -169,6 +174,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Table getTable() {
 		if (eContainerFeatureID() != PubPackage.TABLE_ROW__TABLE) return null;
 		return (Table)eContainer();
@@ -199,6 +205,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTable(Table newTable) {
 		if (newTable != eInternalContainer() || (eContainerFeatureID() != PubPackage.TABLE_ROW__TABLE && newTable != null)) {
 			if (EcoreUtil.isAncestor(this, newTable))

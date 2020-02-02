@@ -67,6 +67,7 @@ public class SegmentWithTextImpl extends DocumentSegmentImpl implements SegmentW
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContentBlock> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList<ContentBlock>(ContentBlock.class, this, PubPackage.SEGMENT_WITH_TEXT__CONTENTS);

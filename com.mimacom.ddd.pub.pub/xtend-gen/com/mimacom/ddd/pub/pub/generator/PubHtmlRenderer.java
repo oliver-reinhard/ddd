@@ -498,10 +498,12 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderFigure(final Figure f) {
+  public CharSequence renderFigure(final Figure f, final String fileUri) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("-- figure (TODO)");
-    _builder.newLine();
+    _builder.append("-- FIGURE (");
+    _builder.append(fileUri);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

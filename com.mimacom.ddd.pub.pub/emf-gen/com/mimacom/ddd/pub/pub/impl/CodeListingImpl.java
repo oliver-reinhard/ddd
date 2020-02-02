@@ -100,6 +100,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CodeLanguage getFormat() {
 		return format;
 	}
@@ -109,6 +110,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(CodeLanguage newFormat) {
 		CodeLanguage oldFormat = format;
 		format = newFormat == null ? FORMAT_EDEFAULT : newFormat;
@@ -121,6 +123,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getCodeLines() {
 		if (codeLines == null) {
 			codeLines = new EDataTypeEList<String>(String.class, this, PubPackage.CODE_LISTING__CODE_LINES);
@@ -133,6 +136,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getInclude() {
 		if (include != null && include.eIsProxy()) {
 			InternalEObject oldInclude = (InternalEObject)include;
@@ -159,6 +163,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInclude(EObject newInclude) {
 		EObject oldInclude = include;
 		include = newInclude;

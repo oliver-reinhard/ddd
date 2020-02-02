@@ -334,7 +334,11 @@ PubFigure returns Figure:
 	'Figure'
 	PubTitledBlockHeader
 	'{'
-	'uri:' fileUri=STRING // TODO Validation
+	(	'include'
+		'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+		'diagram:' renderer=[FigureRenderer|DQualifiedName]
+	|	'uri:' fileUri=STRING // TODO Validation
+	)
 	'}'; 
 
 PubEquation returns Equation:

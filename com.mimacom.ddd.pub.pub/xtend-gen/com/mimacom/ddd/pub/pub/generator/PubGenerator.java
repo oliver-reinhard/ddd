@@ -32,11 +32,14 @@ import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
 import com.mimacom.ddd.pub.pub.generator.PubHtmlRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -47,8 +50,10 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.serializer.ISerializer;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -72,6 +77,11 @@ public class PubGenerator extends AbstractGenerator {
   @Inject
   private ISerializer serializer;
   
+  @Inject
+  private DiagramProviderRegistry registry;
+  
+  private IFileSystemAccess2 fileSystemAccess;
+  
   private List<Division> allDivisionsInSequenceOfOccurrenceCache;
   
   private List<Table> allTablesInSequenceOfOccurrenceCache;
@@ -86,24 +96,25 @@ public class PubGenerator extends AbstractGenerator {
   };
   
   @Override
-  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  public synchronized void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    this.fileSystemAccess = fsa;
     EObject _get = resource.getContents().get(0);
     final PubModel model = ((PubModel) _get);
     Document _document = model.getDocument();
     boolean _tripleNotEquals = (_document != null);
     if (_tripleNotEquals) {
       this._pubHtmlRenderer.prepare(model.getDocument(), fsa);
-      final CharSequence text = this.genDocument(model.getDocument(), fsa);
+      final CharSequence text = this.genDocument(model.getDocument());
       fsa.generateFile(this._pubHtmlRenderer.fileName(model.getDocument()), text);
       this._pubHtmlRenderer.finish(model.getDocument(), fsa);
     }
   }
   
-  protected CharSequence _genDocument(final Publication pub, final IFileSystemAccess2 fsa) {
+  protected CharSequence _genDocument(final Publication pub) {
     return null;
   }
   
-  protected CharSequence _genDocument(final Component comp, final IFileSystemAccess2 fsa) {
+  protected CharSequence _genDocument(final Component comp) {
     CharSequence _xblockexpression = null;
     {
       this.initialiseNumberingCaches(comp);
@@ -376,7 +387,37 @@ public class PubGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _genTitledBlock(final Figure f) {
-    return this._pubHtmlRenderer.renderFigure(f);
+    CharSequence _xifexpression = null;
+    String _fileUri = f.getFileUri();
+    boolean _tripleNotEquals = (_fileUri != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this._pubHtmlRenderer.renderFigure(f, f.getFileUri());
+    } else {
+      CharSequence _xblockexpression = null;
+      {
+        final DiagramRendererProxy[] providers = this.registry.getDiagramProviders();
+        CharSequence _xifexpression_1 = null;
+        boolean _isEmpty = ((List<DiagramRendererProxy>)Conversions.doWrapArray(providers)).isEmpty();
+        boolean _not = (!_isEmpty);
+        if (_not) {
+          CharSequence _xblockexpression_1 = null;
+          {
+            final DiagramRendererProxy renderer = IterableExtensions.<DiagramRendererProxy>head(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(providers)));
+            String _tieredNumber = this._pubNumberingUtil.tieredNumber(f);
+            final String fileName = ("figures/figure_" + _tieredNumber);
+            final String fileExtension = renderer.format.name().toLowerCase();
+            final InputStream inputStream = renderer.render(f.getDiagramRoot());
+            final String file = ((fileName + ".") + fileExtension);
+            this.fileSystemAccess.generateFile(file, inputStream);
+            _xblockexpression_1 = this._pubHtmlRenderer.renderFigure(f, file);
+          }
+          _xifexpression_1 = _xblockexpression_1;
+        }
+        _xblockexpression = _xifexpression_1;
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
   }
   
   protected CharSequence _genTitledBlock(final Equation e) {
@@ -430,14 +471,14 @@ public class PubGenerator extends AbstractGenerator {
     throw new IllegalArgumentException(_plus);
   }
   
-  public CharSequence genDocument(final Document comp, final IFileSystemAccess2 fsa) {
+  public CharSequence genDocument(final Document comp) {
     if (comp instanceof Component) {
-      return _genDocument((Component)comp, fsa);
+      return _genDocument((Component)comp);
     } else if (comp instanceof Publication) {
-      return _genDocument((Publication)comp, fsa);
+      return _genDocument((Publication)comp);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(comp, fsa).toString());
+        Arrays.<Object>asList(comp).toString());
     }
   }
   

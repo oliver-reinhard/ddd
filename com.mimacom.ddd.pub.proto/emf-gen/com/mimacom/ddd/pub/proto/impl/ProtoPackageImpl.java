@@ -274,6 +274,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPublicationClass() {
 		return publicationClassEClass;
 	}
@@ -283,6 +284,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPublicationClass_Name() {
 		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(0);
 	}
@@ -292,6 +294,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPublicationClass_Title() {
 		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(1);
 	}
@@ -301,6 +304,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPublicationClass_Nature() {
 		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(2);
 	}
@@ -310,6 +314,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPublicationClass_Segments() {
 		return (EReference)publicationClassEClass.getEStructuralFeatures().get(3);
 	}
@@ -319,6 +324,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPublicationClass_Divisions() {
 		return (EReference)publicationClassEClass.getEStructuralFeatures().get(4);
 	}
@@ -328,6 +334,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoDocumentSegment() {
 		return protoDocumentSegmentEClass;
 	}
@@ -337,6 +344,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoDocumentSegment_Name() {
 		return (EAttribute)protoDocumentSegmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -346,6 +354,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoDocumentSegment_Title() {
 		return (EAttribute)protoDocumentSegmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -355,6 +364,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoDocumentSegment_Optional() {
 		return (EAttribute)protoDocumentSegmentEClass.getEStructuralFeatures().get(2);
 	}
@@ -364,6 +374,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProtoDocumentSegment_Parent() {
 		return (EReference)protoDocumentSegmentEClass.getEStructuralFeatures().get(3);
 	}
@@ -373,6 +384,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoAbstract() {
 		return protoAbstractEClass;
 	}
@@ -382,6 +394,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoPreface() {
 		return protoPrefaceEClass;
 	}
@@ -391,6 +404,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoEpilogue() {
 		return protoEpilogueEClass;
 	}
@@ -400,6 +414,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoPublicationBody() {
 		return protoPublicationBodyEClass;
 	}
@@ -409,6 +424,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoPublicationBody_AllowParts() {
 		return (EAttribute)protoPublicationBodyEClass.getEStructuralFeatures().get(0);
 	}
@@ -418,6 +434,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoPublicationBody_AllowAppendix() {
 		return (EAttribute)protoPublicationBodyEClass.getEStructuralFeatures().get(1);
 	}
@@ -427,6 +444,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoChangeHistory() {
 		return protoChangeHistoryEClass;
 	}
@@ -436,6 +454,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoTOC() {
 		return protoTOCEClass;
 	}
@@ -445,6 +464,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoTOC_MaxLevel() {
 		return (EAttribute)protoTOCEClass.getEStructuralFeatures().get(0);
 	}
@@ -454,6 +474,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoAbbreviations() {
 		return protoAbbreviationsEClass;
 	}
@@ -463,6 +484,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoListOfTables() {
 		return protoListOfTablesEClass;
 	}
@@ -472,6 +494,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoListOfFigures() {
 		return protoListOfFiguresEClass;
 	}
@@ -481,6 +504,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoBibliography() {
 		return protoBibliographyEClass;
 	}
@@ -490,6 +514,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoGlossary() {
 		return protoGlossaryEClass;
 	}
@@ -499,6 +524,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoIndex() {
 		return protoIndexEClass;
 	}
@@ -508,6 +534,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoDivision() {
 		return protoDivisionEClass;
 	}
@@ -517,6 +544,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoDivision_Name() {
 		return (EAttribute)protoDivisionEClass.getEStructuralFeatures().get(0);
 	}
@@ -526,6 +554,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProtoDivision_NumberingStyle() {
 		return (EAttribute)protoDivisionEClass.getEStructuralFeatures().get(1);
 	}
@@ -535,6 +564,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoPart() {
 		return protoPartEClass;
 	}
@@ -544,6 +574,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoAppendix() {
 		return protoAppendixEClass;
 	}
@@ -553,6 +584,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoChapter() {
 		return protoChapterEClass;
 	}
@@ -562,6 +594,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoSection() {
 		return protoSectionEClass;
 	}
@@ -571,6 +604,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoSubsection() {
 		return protoSubsectionEClass;
 	}
@@ -580,6 +614,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProtoSubsubsection() {
 		return protoSubsubsectionEClass;
 	}
@@ -589,6 +624,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPublicationNature() {
 		return publicationNatureEEnum;
 	}
@@ -598,6 +634,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getProtoSequenceNumberStyle() {
 		return protoSequenceNumberStyleEEnum;
 	}
@@ -607,6 +644,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoFactory getProtoFactory() {
 		return (ProtoFactory)getEFactoryInstance();
 	}

@@ -29,6 +29,7 @@ import com.mimacom.ddd.pub.pub.TOC
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -46,7 +47,10 @@ class PubGenerator extends AbstractGenerator {
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer
+	@Inject DiagramProviderRegistry registry
 
+	var IFileSystemAccess2 fileSystemAccess
+//	var IGeneratorContext generatorContext
 	var java.util.List<Division> allDivisionsInSequenceOfOccurrenceCache
 	var java.util.List<Table> allTablesInSequenceOfOccurrenceCache
 	var java.util.List<Figure> allFiguresInSequenceOfOccurrenceCache
@@ -58,11 +62,13 @@ class PubGenerator extends AbstractGenerator {
 		}
 	}
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+	override synchronized void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		this.fileSystemAccess = fsa
+//		this.generatorContext = context
 		val model = resource.contents.get(0) as PubModel
 		if (model.document !== null) {
 			model.document.prepare(fsa)
-			val text = model.document.genDocument(fsa)
+			val text = model.document.genDocument
 			fsa.generateFile(model.document.fileName, text)
 			model.document.finish(fsa)
 		}
@@ -71,10 +77,10 @@ class PubGenerator extends AbstractGenerator {
 	//
 	// Documents
 	//
-	def dispatch CharSequence genDocument(Publication pub, IFileSystemAccess2 fsa) {
+	def dispatch CharSequence genDocument(Publication pub) {
 	}
 
-	def dispatch CharSequence genDocument(Component comp, IFileSystemAccess2 fsa) {
+	def dispatch CharSequence genDocument(Component comp) {
 		comp.initialiseNumberingCaches
 		val segmentIterator = '''
 		«FOR seg : comp.segments»
@@ -209,7 +215,21 @@ class PubGenerator extends AbstractGenerator {
 	}
 
 	def dispatch CharSequence genTitledBlock(Figure f) {
-		renderFigure(f)
+		if (f.fileUri !== null) {
+			// TODO copy file to output
+			renderFigure(f, f.fileUri)
+		} else {
+			val providers = registry.diagramProviders
+			if (! providers.empty) {
+				val renderer = providers.head // TODO pass proper renderer
+				val fileName = "figures/figure_" + f.tieredNumber
+				val fileExtension = renderer.format.name.toLowerCase
+				val inputStream = renderer.render(f.diagramRoot)
+				val file = fileName + "." + fileExtension
+				fileSystemAccess.generateFile(file, inputStream)
+				renderFigure(f, file)
+			}
+		}
 	}
 
 	def dispatch CharSequence genTitledBlock(Equation e) {
