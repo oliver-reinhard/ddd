@@ -15,6 +15,6 @@ public class DimDiagramTextProviderWrapper extends AbstractInjectingDiagramTextP
 
 	@Override
 	protected Class<? extends DiagramTextProvider> getDiagramTextProviderClass() {
-		return DimDiagramTextProvider.class;
+		return DimTypeDiagramTextProvider.class;
 	}
 }

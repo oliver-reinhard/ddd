@@ -6,12 +6,15 @@ import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DType
+import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
 import org.eclipse.xtext.naming.QualifiedName
 
 class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
+
+	static final Logger LOGGER = Logger.getLogger(DmxQualifiedNameProvider);
 
 	override QualifiedName computeFullyQualifiedName(EObject obj) {
 		val qualifiedName = switch obj {
@@ -26,7 +29,9 @@ class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 			default:
 				super.computeFullyQualifiedName(obj)
 		}
-//		System.err.println(qualifiedName?.toString("|") + " - " + obj)
+		if (LOGGER.infoEnabled) {
+			LOGGER.info(qualifiedName?.toString("|") + " - " + obj)
+		}
 		return qualifiedName;
 	}
 

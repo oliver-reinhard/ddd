@@ -6,6 +6,7 @@ import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DType;
+import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
@@ -13,6 +14,8 @@ import org.eclipse.xtext.naming.QualifiedName;
 
 @SuppressWarnings("all")
 public class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
+  private static final Logger LOGGER = Logger.getLogger(DmxQualifiedNameProvider.class);
+  
   @Override
   public QualifiedName computeFullyQualifiedName(final EObject obj) {
     QualifiedName _switchResult = null;
@@ -49,6 +52,16 @@ public class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNamePro
       _switchResult = super.computeFullyQualifiedName(obj);
     }
     final QualifiedName qualifiedName = _switchResult;
+    boolean _isInfoEnabled = DmxQualifiedNameProvider.LOGGER.isInfoEnabled();
+    if (_isInfoEnabled) {
+      String _string = null;
+      if (qualifiedName!=null) {
+        _string=qualifiedName.toString("|");
+      }
+      String _plus = (_string + " - ");
+      String _plus_1 = (_plus + obj);
+      DmxQualifiedNameProvider.LOGGER.info(_plus_1);
+    }
     return qualifiedName;
   }
   

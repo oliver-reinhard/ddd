@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dim.ui.plantuml;
+package com.mimacom.ddd.dm.dim.plantuml;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
@@ -14,84 +14,37 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.DimUtil;
-import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
+import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.model.XtextDocument;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
+public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DInformationModel> {
   @Inject
   @Extension
   private DimUtil _dimUtil;
   
-  public DimDiagramTextProvider() {
-    this.setEditorType(XtextEditor.class);
+  @Override
+  public boolean canProvide(final DInformationModel model) {
+    return ((model != null) && (!(model.getTypes().isEmpty() && model.getAggregates().isEmpty())));
   }
   
   @Override
-  public boolean supportsEditor(final IEditorPart editorPart) {
-    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DimActivator.COM_MIMACOM_DDD_DM_DIM_DIM));
-  }
-  
-  @Override
-  public boolean supportsSelection(final ISelection sel) {
-    return false;
-  }
-  
-  @Override
-  protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
-    IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
-    final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DNamespace, XtextResource> _function = (XtextResource it) -> {
-      DNamespace _xifexpression = null;
-      EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DNamespace)) {
-        EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DNamespace) _head_1);
-      } else {
-        _xifexpression = null;
-      }
-      return _xifexpression;
-    };
-    final DNamespace namespace = document.<DNamespace>readOnly(_function);
-    DModel _model = namespace.getModel();
-    final DInformationModel model = ((DInformationModel) _model);
-    if (((model != null) && (!(model.getTypes().isEmpty() && model.getAggregates().isEmpty())))) {
-      return this.domainTypes(model);
-    } else {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("note \"No structures to show.\" as N1");
-      return _builder.toString();
-    }
-  }
-  
-  public String domainTypes(final DInformationModel model) {
+  public String diagramText(final DInformationModel model) {
     final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(model, DAggregate.class);
     final Function1<DAssociation, Boolean> _function = (DAssociation it) -> {
       DType _type = it.getType();
@@ -132,7 +85,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_8);
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append(" ");
+    _builder.append("@startuml");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("hide empty members");
     _builder.newLine();
     _builder.newLine();
@@ -272,6 +227,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
+    _builder.append("@enduml");
+    _builder.newLine();
     final String result = _builder.toString();
     return result;
   }

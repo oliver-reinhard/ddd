@@ -112,7 +112,8 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
   
   public String snapshots(final DomModel model) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append(" ");
+    _builder.append("@startuml");
+    _builder.newLine();
     _builder.append("hide empty members");
     _builder.newLine();
     _builder.newLine();
@@ -179,6 +180,8 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("@enduml");
+    _builder.newLine();
     final String result = _builder.toString();
     return result;
   }

@@ -15,14 +15,14 @@
             genModel="model/sim.genmodel"/>
    </extension>
    <extension
-         point="com.mimacom.ddd.util.diagramProvider">
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
       <renderer
-            id="com.mimacom.ddd.dm.sim.structure.png"
+            id="sim.typeDiagram.png"
             diagramName="System Information Structure (PNG)"
             diagramType="informationStructure"
             modelClass="com.mimacom.ddd.sm.sim.SInformationModel"
             outputFileFormat="PNG"
-            rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimDiagramRendererPNG">
+            rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRendererPNG">
       </renderer>
    </extension>
 

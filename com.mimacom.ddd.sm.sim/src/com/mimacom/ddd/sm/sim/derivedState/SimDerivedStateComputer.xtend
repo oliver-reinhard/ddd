@@ -38,15 +38,19 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 
 	override discardDerivedState(DerivedStateAwareResource resource) {
 		if (derivedStateInstalled) {
-			// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
-			val syntheticElements = resource.allContents.filter(IDeducibleElement).filter[synthetic]
-			val list = Lists.newArrayList
-			while (syntheticElements.hasNext)
-				list.add(syntheticElements.next)
-			for (e : list) {
-				EcoreUtil.remove(e)
+			try {
+				// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
+				val syntheticElements = resource.allContents.filter(IDeducibleElement).filter[synthetic]
+				val list = Lists.newArrayList
+				while (syntheticElements.hasNext)
+					list.add(syntheticElements.next)
+				for (e : list) {
+					EcoreUtil.remove(e)
+				}
+
+			} finally {
+				derivedStateInstalled = false
 			}
-			derivedStateInstalled = false
 		}
 	}
 

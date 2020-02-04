@@ -72,18 +72,21 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   @Override
   public void discardDerivedState(final DerivedStateAwareResource resource) {
     if (this.derivedStateInstalled) {
-      final Function1<IDeducibleElement, Boolean> _function = (IDeducibleElement it) -> {
-        return Boolean.valueOf(it.isSynthetic());
-      };
-      final Iterator<IDeducibleElement> syntheticElements = IteratorExtensions.<IDeducibleElement>filter(Iterators.<IDeducibleElement>filter(resource.getAllContents(), IDeducibleElement.class), _function);
-      final ArrayList<IDeducibleElement> list = Lists.<IDeducibleElement>newArrayList();
-      while (syntheticElements.hasNext()) {
-        list.add(syntheticElements.next());
+      try {
+        final Function1<IDeducibleElement, Boolean> _function = (IDeducibleElement it) -> {
+          return Boolean.valueOf(it.isSynthetic());
+        };
+        final Iterator<IDeducibleElement> syntheticElements = IteratorExtensions.<IDeducibleElement>filter(Iterators.<IDeducibleElement>filter(resource.getAllContents(), IDeducibleElement.class), _function);
+        final ArrayList<IDeducibleElement> list = Lists.<IDeducibleElement>newArrayList();
+        while (syntheticElements.hasNext()) {
+          list.add(syntheticElements.next());
+        }
+        for (final IDeducibleElement e : list) {
+          EcoreUtil.remove(e);
+        }
+      } finally {
+        this.derivedStateInstalled = false;
       }
-      for (final IDeducibleElement e : list) {
-        EcoreUtil.remove(e);
-      }
-      this.derivedStateInstalled = false;
     }
   }
   

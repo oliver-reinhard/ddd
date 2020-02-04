@@ -73,7 +73,8 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 	def snapshots(DomModel model) {
 
 		val result = '''
-			 hide empty members
+			@startuml
+			hide empty members
 			
 			skinparam backgroundColor transparent 
 			skinparam shadowing false
@@ -101,6 +102,7 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 			«FOR s : model.snapshots»
 				«s.generateSnapshot»
 			«ENDFOR»
+			@enduml
 		    '''
 		return result
 	}

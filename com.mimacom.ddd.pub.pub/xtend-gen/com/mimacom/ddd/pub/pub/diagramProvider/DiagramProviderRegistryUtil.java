@@ -26,7 +26,7 @@ public class DiagramProviderRegistryUtil {
   
   public static final String ATTR_DIAGRAM_TYPE_NAME = "name";
   
-  public String identify(final IConfigurationElement el, final String attribute) {
+  public static String identify(final IConfigurationElement el, final String attribute) {
     final StringBuilder b = new StringBuilder();
     b.append("Extension ");
     b.append(DiagramProviderRegistryUtil.EXTENSION_POINT_ID);
@@ -42,7 +42,7 @@ public class DiagramProviderRegistryUtil {
     return b.toString();
   }
   
-  public String identify(final IConfigurationElement el) {
-    return this.identify(el, null);
+  public static String identify(final IConfigurationElement el) {
+    return DiagramProviderRegistryUtil.identify(el, null);
   }
 }

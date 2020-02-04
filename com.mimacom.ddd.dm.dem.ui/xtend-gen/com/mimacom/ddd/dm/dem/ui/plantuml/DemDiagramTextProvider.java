@@ -62,6 +62,8 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
       return _builder.toString();
     }
     StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("@startuml");
+    _builder_1.newLine();
     _builder_1.append("(");
     String _name = event.getName();
     _builder_1.append(_name);
@@ -70,9 +72,10 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
     {
       EList<DemActor> _triggers = event.getTriggers();
       for(final DemActor t : _triggers) {
+        _builder_1.append(" \t\t");
         _builder_1.append("actor ");
         String _name_1 = t.getName();
-        _builder_1.append(_name_1);
+        _builder_1.append(_name_1, " \t\t");
         _builder_1.newLineIfNotEmpty();
       }
     }
@@ -83,17 +86,19 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
       };
       Iterable<DemNotification> _filter = IterableExtensions.<DemNotification>filter(event.getNotifications(), _function_1);
       for(final DemNotification n : _filter) {
+        _builder_1.append(" \t\t");
         _builder_1.append("actor ");
         String _name_2 = n.getNotified().getName();
-        _builder_1.append(_name_2);
+        _builder_1.append(_name_2, " \t\t");
         _builder_1.newLineIfNotEmpty();
       }
     }
     {
       EList<DemActor> _triggers_1 = event.getTriggers();
       for(final DemActor t_1 : _triggers_1) {
+        _builder_1.append(" \t\t");
         String _name_3 = t_1.getName();
-        _builder_1.append(_name_3);
+        _builder_1.append(_name_3, " \t\t");
         _builder_1.append(" --> (event) : triggers");
         _builder_1.newLineIfNotEmpty();
       }
@@ -105,14 +110,17 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
       };
       Iterable<DemNotification> _filter_1 = IterableExtensions.<DemNotification>filter(event.getNotifications(), _function_2);
       for(final DemNotification n_1 : _filter_1) {
+        _builder_1.append(" \t\t");
         String _name_4 = n_1.getNotified().getName();
-        _builder_1.append(_name_4);
+        _builder_1.append(_name_4, " \t\t");
         _builder_1.append(" <-- (event) : ");
         String _name_5 = n_1.getName();
-        _builder_1.append(_name_5);
+        _builder_1.append(_name_5, " \t\t");
         _builder_1.newLineIfNotEmpty();
       }
     }
+    _builder_1.append("@enduml");
+    _builder_1.newLine();
     final String result = _builder_1.toString();
     return result;
   }

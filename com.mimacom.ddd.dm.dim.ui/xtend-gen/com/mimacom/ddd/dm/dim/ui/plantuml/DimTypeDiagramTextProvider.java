@@ -1,11 +1,11 @@
-package com.mimacom.ddd.sm.sim.ui.plantuml;
+package com.mimacom.ddd.dm.dim.ui.plantuml;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamespace;
-import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;
-import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;
+import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl;
+import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
 import org.eclipse.emf.ecore.EObject;
@@ -21,17 +21,17 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
+public class DimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
   @Inject
-  private SimTypeDiagramTextProviderImpl actualProvider;
+  private DimTypeDiagramTextProviderImpl actualProvider;
   
-  public SimDiagramTextProvider() {
+  public DimTypeDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   
   @Override
   public boolean supportsEditor(final IEditorPart editorPart) {
-    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(SimActivator.COM_MIMACOM_DDD_SM_SIM_SIM));
+    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DimActivator.COM_MIMACOM_DDD_DM_DIM_DIM));
   }
   
   @Override
@@ -56,7 +56,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
     DModel _model = namespace.getModel();
-    final SInformationModel model = ((SInformationModel) _model);
+    final DInformationModel model = ((DInformationModel) _model);
     boolean _canProvide = this.actualProvider.canProvide(model);
     if (_canProvide) {
       return this.actualProvider.diagramText(model);

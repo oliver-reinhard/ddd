@@ -216,7 +216,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	}
 
 	override CharSequence renderFigure(Figure f, String fileUri) '''
-		-- FIGURE («fileUri»)
+		<img src="«fileUri»" alt="«f.title.renderRichText»">
 	'''
 
 	override CharSequence renderEquation(Equation e) '''

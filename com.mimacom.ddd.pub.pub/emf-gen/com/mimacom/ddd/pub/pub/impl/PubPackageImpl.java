@@ -1793,7 +1793,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFigureRenderer_Id() {
+	public EAttribute getFigureRenderer_Name() {
 		return (EAttribute)figureRendererEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2176,7 +2176,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEReference(figureEClass, FIGURE__RENDERER);
 
 		figureRendererEClass = createEClass(FIGURE_RENDERER);
-		createEAttribute(figureRendererEClass, FIGURE_RENDERER__ID);
+		createEAttribute(figureRendererEClass, FIGURE_RENDERER__NAME);
 		createEAttribute(figureRendererEClass, FIGURE_RENDERER__DIAGRAM_NAME);
 
 		equationEClass = createEClass(EQUATION);
@@ -2469,7 +2469,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEReference(getFigure_Renderer(), this.getFigureRenderer(), null, "renderer", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(figureRendererEClass, FigureRenderer.class, "FigureRenderer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFigureRenderer_Id(), theEcorePackage.getEString(), "id", null, 0, 1, FigureRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFigureRenderer_Name(), theEcorePackage.getEString(), "name", null, 0, 1, FigureRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFigureRenderer_DiagramName(), theEcorePackage.getEString(), "diagramName", null, 0, 1, FigureRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(equationEClass, Equation.class, "Equation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

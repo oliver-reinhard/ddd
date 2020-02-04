@@ -4005,13 +4005,13 @@ public interface PubPackage extends EPackage {
 	int FIGURE_RENDERER = 46;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_RENDERER__ID = 0;
+	int FIGURE_RENDERER__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Name</b></em>' attribute.
@@ -5747,15 +5747,15 @@ public interface PubPackage extends EPackage {
 	EClass getFigureRenderer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see com.mimacom.ddd.pub.pub.FigureRenderer#getId()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.FigureRenderer#getName()
 	 * @see #getFigureRenderer()
 	 * @generated
 	 */
-	EAttribute getFigureRenderer_Id();
+	EAttribute getFigureRenderer_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getDiagramName <em>Diagram Name</em>}'.
@@ -7055,12 +7055,12 @@ public interface PubPackage extends EPackage {
 		EClass FIGURE_RENDERER = eINSTANCE.getFigureRenderer();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIGURE_RENDERER__ID = eINSTANCE.getFigureRenderer_Id();
+		EAttribute FIGURE_RENDERER__NAME = eINSTANCE.getFigureRenderer_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Diagram Name</b></em>' attribute feature.

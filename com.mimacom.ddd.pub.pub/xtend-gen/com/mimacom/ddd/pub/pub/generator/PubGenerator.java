@@ -42,6 +42,7 @@ import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -50,10 +51,8 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.serializer.ISerializer;
-import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -79,6 +78,8 @@ public class PubGenerator extends AbstractGenerator {
   
   @Inject
   private DiagramProviderRegistry registry;
+  
+  private static final Logger LOGGER = Logger.getLogger(PubGenerator.class);
   
   private IFileSystemAccess2 fileSystemAccess;
   
@@ -395,23 +396,26 @@ public class PubGenerator extends AbstractGenerator {
     } else {
       CharSequence _xblockexpression = null;
       {
-        final DiagramRendererProxy[] providers = this.registry.getDiagramProviders();
+        final DiagramRendererProxy provider = this.registry.getDiagramProvider(f.getRenderer().getName());
         CharSequence _xifexpression_1 = null;
-        boolean _isEmpty = ((List<DiagramRendererProxy>)Conversions.doWrapArray(providers)).isEmpty();
-        boolean _not = (!_isEmpty);
-        if (_not) {
+        if ((provider != null)) {
           CharSequence _xblockexpression_1 = null;
           {
-            final DiagramRendererProxy renderer = IterableExtensions.<DiagramRendererProxy>head(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(providers)));
             String _tieredNumber = this._pubNumberingUtil.tieredNumber(f);
             final String fileName = ("figures/figure_" + _tieredNumber);
-            final String fileExtension = renderer.format.name().toLowerCase();
-            final InputStream inputStream = renderer.render(f.getDiagramRoot());
+            final String fileExtension = provider.format.name().toLowerCase();
+            final InputStream inputStream = provider.render(f.getDiagramRoot());
             final String file = ((fileName + ".") + fileExtension);
             this.fileSystemAccess.generateFile(file, inputStream);
             _xblockexpression_1 = this._pubHtmlRenderer.renderFigure(f, file);
           }
           _xifexpression_1 = _xblockexpression_1;
+        } else {
+          String _name = f.getRenderer().getName();
+          String _plus = ("Figure renderer \'" + _name);
+          final String msg = (_plus + "\' not found.");
+          PubGenerator.LOGGER.error(msg);
+          return ("ERROR: " + msg);
         }
         _xblockexpression = _xifexpression_1;
       }

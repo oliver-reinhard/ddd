@@ -58,6 +58,7 @@ class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 
 	def String genStateModel(IEsmStateModel model) '''
+		@startuml
 		' Additional, synthetic transitions: Initial state --> state:
 		«FOR s : model.states.filter[s | s.kind == EsmStateKind.INITIAL && s.state !== null && ! s.state.eIsProxy]»«STATE_INITIAL_FINAL» -«model.direction.literal.toLowerCase»-> «s.stateName»
 		«ENDFOR»
@@ -82,6 +83,7 @@ class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
 				«ENDFOR»
 			}
 		«ENDFOR»
+		@enduml
 	'''
 
 	protected def String stateName(DState state) {

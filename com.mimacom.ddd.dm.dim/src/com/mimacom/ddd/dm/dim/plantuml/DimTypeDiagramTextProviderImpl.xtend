@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dim.ui.plantuml
+package com.mimacom.ddd.dm.dim.plantuml
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
@@ -10,53 +10,23 @@ import com.mimacom.ddd.dm.base.DEntityOrigin
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DInformationModel
-import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dim.DimUtil
-import com.mimacom.ddd.dm.dim.ui.internal.DimActivator
-import java.util.Map
-import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
-import org.eclipse.jface.viewers.ISelection
-import org.eclipse.ui.IEditorInput
-import org.eclipse.ui.IEditorPart
+import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider
 import org.eclipse.xtext.EcoreUtil2
-import org.eclipse.xtext.ui.editor.XtextEditor
-import org.eclipse.xtext.ui.editor.model.XtextDocument
 
-class DimDiagramTextProvider extends AbstractDiagramTextProvider {
+class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DInformationModel> {
 
 	@Inject extension DimUtil
 	
-	new () {
-        editorType = typeof(XtextEditor)
-    }
-    
-	override supportsEditor(IEditorPart editorPart) {
-		super.supportsEditor(editorPart) && (editorPart as XtextEditor).languageName.equals(DimActivator.COM_MIMACOM_DDD_DM_DIM_DIM)
+	override canProvide(DInformationModel model) {
+		model !== null && ! (model.types.empty && model.aggregates.empty)
 	}
 	
-	override supportsSelection(ISelection sel) {
-		return false;
-	}
-				
-	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
-        // Retrieve  "semantic" EMF model from XtextEditor
-        val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val namespace = document.readOnly[
-            return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
-        ]
-        val model = namespace.model as DInformationModel
-        if (model !== null && ! (model.types.empty && model.aggregates.empty)) {
-        	return domainTypes(model)
-        } else {
-        	return '''note "No structures to show." as N1'''
-        }
-	}
-	
-	def domainTypes(DInformationModel model) {
+	override String diagramText(DInformationModel model) {
 		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate)
 		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[getType instanceof DEntityType]
 //		val allEntitiesReferencedWithinAggregate = allAssociations.filter[targetType.eContainer == eContainer.eContainer].map[targetType]
@@ -68,7 +38,9 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 		val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
         
        val result = '''
-			 hide empty members
+			@startuml
+			
+			hide empty members
 			
 			skinparam package {
 				BorderColor FireBrick
@@ -123,6 +95,8 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 			«FOR s:allSubtypes»
 				«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
 			«ENDFOR»
+			
+			@enduml
         '''
        return result
 	}
@@ -221,4 +195,5 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 		val maxOccurs = if (member.multiplicity.maxOccurs == -1) "*" else member.multiplicity.maxOccurs.toString
 		return "("+member.multiplicity.minOccurs+","+maxOccurs+")"
 	}
+	
 }

@@ -3,7 +3,7 @@ package com.mimacom.ddd.pub.pub.diagramProvider;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil;
@@ -16,16 +16,12 @@ import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
+@Singleton
 @SuppressWarnings("all")
 public class DiagramProviderRegistry {
-  @Inject
-  @Extension
-  private DiagramProviderRegistryUtil UTIL;
-  
   private static final Logger LOGGER = Logger.getLogger(DiagramProviderRegistry.class);
   
   private List<DiagramRendererProxy> cachedRenderers;
@@ -41,7 +37,7 @@ public class DiagramProviderRegistry {
     Iterable<IConfigurationElement> _filter = IterableExtensions.<IConfigurationElement>filter(((Iterable<IConfigurationElement>)Conversions.doWrapArray(Platform.getExtensionRegistry().getConfigurationElementsFor(DiagramProviderRegistryUtil.EXTENSION_POINT_ID))), _function);
     for (final IConfigurationElement ext : _filter) {
       {
-        String _identify = this.UTIL.identify(ext);
+        String _identify = DiagramProviderRegistryUtil.identify(ext);
         String _plus = (_identify + ": extension loaded");
         DiagramProviderRegistry.LOGGER.info(_plus);
         try {
@@ -64,7 +60,7 @@ public class DiagramProviderRegistry {
     Iterable<IConfigurationElement> _filter_1 = IterableExtensions.<IConfigurationElement>filter(((Iterable<IConfigurationElement>)Conversions.doWrapArray(Platform.getExtensionRegistry().getConfigurationElementsFor(DiagramProviderRegistryUtil.EXTENSION_POINT_ID))), _function_1);
     for (final IConfigurationElement ext_1 : _filter_1) {
       {
-        String _identify = this.UTIL.identify(ext_1);
+        String _identify = DiagramProviderRegistryUtil.identify(ext_1);
         String _plus = (_identify + ": extension loaded");
         DiagramProviderRegistry.LOGGER.info(_plus);
         try {
@@ -84,17 +80,17 @@ public class DiagramProviderRegistry {
             this.cachedRenderers.add(_diagramRendererProxy);
           } catch (final Throwable _t) {
             if (_t instanceof IllegalArgumentException) {
-              String _identify_1 = this.UTIL.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_OUTPUT_FILE_FORMAT);
+              String _identify_1 = DiagramProviderRegistryUtil.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_OUTPUT_FILE_FORMAT);
               String _plus_2 = (_identify_1 + ": unsupported format");
               DiagramProviderRegistry.LOGGER.error(_plus_2);
             } else if (_t instanceof ClassNotFoundException) {
-              String _identify_2 = this.UTIL.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_MODEL_CLASS);
+              String _identify_2 = DiagramProviderRegistryUtil.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_MODEL_CLASS);
               String _plus_3 = (_identify_2 + ": class not found: ");
               String _plus_4 = (_plus_3 + modelClassName);
               DiagramProviderRegistry.LOGGER.error(_plus_4);
             } else if (_t instanceof Throwable) {
               final Throwable ex_2 = (Throwable)_t;
-              DiagramProviderRegistry.LOGGER.error(this.UTIL.identify(ext_1), ex_2);
+              DiagramProviderRegistry.LOGGER.error(DiagramProviderRegistryUtil.identify(ext_1), ex_2);
             } else {
               throw Exceptions.sneakyThrow(_t);
             }
@@ -121,6 +117,18 @@ public class DiagramProviderRegistry {
       this.loadExtensions();
     }
     return ((DiagramRendererProxy[])Conversions.unwrapArray(this.cachedRenderers, DiagramRendererProxy.class));
+  }
+  
+  public DiagramRendererProxy getDiagramProvider(final String id) {
+    final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
+      return Boolean.valueOf(Objects.equal(it.id, id));
+    };
+    final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getDiagramProviders())), _function);
+    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
+    if (_isEmpty) {
+      return null;
+    }
+    return IterableExtensions.<DiagramRendererProxy>head(candidates);
   }
   
   public DiagramRendererProxy getDiagramProvider(final Class<? extends DModel> modelClass, final DiagramFileFormat format) {
@@ -153,7 +161,7 @@ public class DiagramProviderRegistry {
     } catch (final Throwable _t) {
       if (_t instanceof InvalidRegistryObjectException) {
         final InvalidRegistryObjectException ex = (InvalidRegistryObjectException)_t;
-        String _identify = this.UTIL.identify(el, attributeName);
+        String _identify = DiagramProviderRegistryUtil.identify(el, attributeName);
         String _plus = (_identify + ": unknown attribute");
         DiagramProviderRegistry.LOGGER.error(_plus);
         throw ex;

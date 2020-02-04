@@ -1,10 +1,9 @@
-package com.mimacom.ddd.sm.sim.ui.plantuml
+package com.mimacom.ddd.dm.dim.ui.plantuml
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DNamespace
-import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl
-import com.mimacom.ddd.sm.sim.ui.internal.SimActivator
+import com.mimacom.ddd.dm.dim.ui.internal.DimActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
 import org.eclipse.jface.viewers.ISelection
@@ -12,31 +11,31 @@ import org.eclipse.ui.IEditorInput
 import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
+import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl
 
-class SimDiagramTextProvider extends AbstractDiagramTextProvider {
+class DimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
 
-	@Inject SimTypeDiagramTextProviderImpl actualProvider
-
+	@Inject DimTypeDiagramTextProviderImpl actualProvider
+	
 	new () {
         editorType = typeof(XtextEditor)
     }
     
 	override supportsEditor(IEditorPart editorPart) {
-		super.supportsEditor(editorPart) && (editorPart as XtextEditor).languageName.equals(SimActivator.COM_MIMACOM_DDD_SM_SIM_SIM)
+		super.supportsEditor(editorPart) && (editorPart as XtextEditor).languageName.equals(DimActivator.COM_MIMACOM_DDD_DM_DIM_DIM)
 	}
 	
 	override supportsSelection(ISelection sel) {
 		return false;
 	}
 				
-	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
-        // Retrieve "semantic" EMF model from XtextEditor
+	override protected String getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
+        // Retrieve  "semantic" EMF model from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
         val namespace = document.readOnly[
             return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
-        
-        val model = namespace.model as SInformationModel
+        val model = namespace.model as DInformationModel
         if (actualProvider.canProvide(model)) {
         	return actualProvider.diagramText(model)
         }

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl#getId <em>Id</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl#getDiagramName <em>Diagram Name</em>}</li>
  * </ul>
  *
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class FigureRendererImpl extends MinimalEObjectImpl.Container implements FigureRenderer {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDiagramName() <em>Diagram Name</em>}' attribute.
@@ -92,8 +92,8 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FIGURE_RENDERER__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FIGURE_RENDERER__NAME, oldName, name));
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.FIGURE_RENDERER__ID:
-				return getId();
+			case PubPackage.FIGURE_RENDERER__NAME:
+				return getName();
 			case PubPackage.FIGURE_RENDERER__DIAGRAM_NAME:
 				return getDiagramName();
 		}
@@ -156,8 +156,8 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.FIGURE_RENDERER__ID:
-				setId((String)newValue);
+			case PubPackage.FIGURE_RENDERER__NAME:
+				setName((String)newValue);
 				return;
 			case PubPackage.FIGURE_RENDERER__DIAGRAM_NAME:
 				setDiagramName((String)newValue);
@@ -174,8 +174,8 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.FIGURE_RENDERER__ID:
-				setId(ID_EDEFAULT);
+			case PubPackage.FIGURE_RENDERER__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case PubPackage.FIGURE_RENDERER__DIAGRAM_NAME:
 				setDiagramName(DIAGRAM_NAME_EDEFAULT);
@@ -192,8 +192,8 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.FIGURE_RENDERER__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case PubPackage.FIGURE_RENDERER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PubPackage.FIGURE_RENDERER__DIAGRAM_NAME:
 				return DIAGRAM_NAME_EDEFAULT == null ? diagramName != null : !DIAGRAM_NAME_EDEFAULT.equals(diagramName);
 		}
@@ -210,8 +210,8 @@ public class FigureRendererImpl extends MinimalEObjectImpl.Container implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(", diagramName: ");
 		result.append(diagramName);
 		result.append(')');

@@ -1,9 +1,9 @@
 package com.mimacom.ddd.pub.pub.diagramProvider
 
 import com.google.common.collect.Lists
-import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DModel
 import com.mimacom.ddd.dm.base.IDiagramRoot
+import java.io.ByteArrayInputStream
 import java.io.InputStream
 import org.apache.log4j.Logger
 import org.eclipse.core.runtime.IConfigurationElement
@@ -12,9 +12,10 @@ import org.eclipse.core.runtime.SafeRunner
 
 import static com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil.*
 
+import static extension com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil.identify
+
 class DiagramRendererProxy {
 
-	@Inject extension DiagramProviderRegistryUtil UTIL
 
 	static final Logger LOGGER = Logger.getLogger(DiagramRendererProxy);
 	
@@ -45,7 +46,12 @@ class DiagramRendererProxy {
 			}
 
 			override void run() throws Exception {
-				result.add(getRenderer.render(root)); // result must be final
+				if (getRenderer.canRender(root)) { 
+					result.add(getRenderer.render(root)); // result must be final
+				} else {
+					LOGGER.info("Renderer " + id + " has nothing to render")
+					result.add(new ByteArrayInputStream(#[])) // empty array
+				}
 			}
 		};
 		SafeRunner.run(runnable);

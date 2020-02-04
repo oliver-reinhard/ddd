@@ -18,7 +18,7 @@ class DiagramProviderRegistryUtil {
 	public static val ATTR_DIAGRAM_TYPE_ID = "id"
 	public static val ATTR_DIAGRAM_TYPE_NAME = "name"
 
-	def String identify(IConfigurationElement el, String attribute) {
+	static def String identify(IConfigurationElement el, String attribute) {
 		val b = new StringBuilder
 		b.append("Extension ")
 		b.append(EXTENSION_POINT_ID)
@@ -35,7 +35,7 @@ class DiagramProviderRegistryUtil {
 	}
 	
 	
-	def String identify(IConfigurationElement el) {
+	static def String identify(IConfigurationElement el) {
 		identify(el, null)
 	}
 }

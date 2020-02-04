@@ -6,8 +6,12 @@ package com.mimacom.ddd.pub.pub;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.pub.pub.AbstractPubRuntimeModule;
 import com.mimacom.ddd.pub.pub.indexing.PubQualifiedNameProvider;
+import com.mimacom.ddd.pub.pub.scoping.ExtensionPointsScopeElementsDerivedStateComputer;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.DerivedStateAwareResource;
+import org.eclipse.xtext.resource.IDerivedStateComputer;
+import org.eclipse.xtext.resource.XtextResource;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -22,5 +26,14 @@ public class PubRuntimeModule extends AbstractPubRuntimeModule {
   @Override
   public Class<? extends IValueConverterService> bindIValueConverterService() {
     return DmxValueConverters.class;
+  }
+  
+  @Override
+  public Class<? extends XtextResource> bindXtextResource() {
+    return DerivedStateAwareResource.class;
+  }
+  
+  public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
+    return ExtensionPointsScopeElementsDerivedStateComputer.class;
   }
 }

@@ -4,11 +4,21 @@
  */
 package com.mimacom.ddd.pub.pub.scoping
 
+import com.google.common.collect.Lists
+import com.google.inject.Inject
+import com.mimacom.ddd.pub.pub.Figure
+import com.mimacom.ddd.pub.pub.PubModel
 import com.mimacom.ddd.pub.pub.PubPackage
 import com.mimacom.ddd.pub.pub.Reference
+import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.resource.EObjectDescription
+import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.impl.SimpleScope
 
 /**
  * This class contains custom scoping description.
@@ -19,6 +29,8 @@ import org.eclipse.xtext.scoping.IScope
 class PubScopeProvider extends AbstractPubScopeProvider {
 
 	static val PUB = PubPackage.eINSTANCE
+
+	@Inject IQualifiedNameProvider qualifiedNameProvider
 
 	override IScope getScope(EObject context, EReference reference) {
 
@@ -43,7 +55,26 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 				default: PUB.referenceTarget
 			}
 			return getDefaultScopeOfType(context, targetScope)
+
+		} else if (reference == PUB.figure_Renderer && context instanceof Figure) {
+			val model = EcoreUtil2.getContainerOfType(context, PubModel)
+			if (model !== null) {
+				// model.figureRenderers are installed by ExtensionPointsScopeElementsDerivedStateComputer
+				if (model.figureRenderers.empty) {
+					return IScope.NULLSCOPE
+				}
+				// Scopes.scopeFor does not use an IQualifiedNameProvider to compute the qualified name of the objects
+				return createScopeWithQualifiedNames(model.figureRenderers)
+			}
 		}
 		return super.getScope(context, reference)
+	}
+
+	protected def createScopeWithQualifiedNames(List<? extends EObject> objects) {
+		val List<IEObjectDescription> descriptions = Lists.newArrayList
+		for (obj : objects) {
+			descriptions.add(new EObjectDescription(qualifiedNameProvider.getFullyQualifiedName(obj), obj, null))
+		}
+		return new SimpleScope(descriptions)
 	}
 }

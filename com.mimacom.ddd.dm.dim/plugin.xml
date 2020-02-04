@@ -4,12 +4,12 @@
    <extension
          point="com.mimacom.ddd.pub.pub.diagramProvider">
       <renderer
-            id="com.mimacom.ddd.dm.dim.structure.png"
+            id="dim.typeDiagram.png"
             diagramName="Domain Information Structure (PNG)"
             diagramType="informationStructure"
             modelClass="com.mimacom.ddd.dm.base.DInformationModel"
             outputFileFormat="PNG"
-            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimDiagramRendererPNG">
+            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNG">
       </renderer>
       <diagramType
             id="informationStructure"

@@ -92,6 +92,8 @@ public class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
   
   public String genStateModel(final IEsmStateModel model) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@startuml");
+    _builder.newLine();
     _builder.append("\' Additional, synthetic transitions: Initial state --> state:");
     _builder.newLine();
     {
@@ -196,6 +198,8 @@ public class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.newLine();
       }
     }
+    _builder.append("@enduml");
+    _builder.newLine();
     return _builder.toString();
   }
   

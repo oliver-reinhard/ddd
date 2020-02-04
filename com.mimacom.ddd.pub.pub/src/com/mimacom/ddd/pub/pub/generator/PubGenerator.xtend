@@ -30,6 +30,7 @@ import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
+import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -48,6 +49,8 @@ class PubGenerator extends AbstractGenerator {
 	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer
 	@Inject DiagramProviderRegistry registry
+	
+	static final Logger LOGGER = Logger.getLogger(PubGenerator);
 
 	var IFileSystemAccess2 fileSystemAccess
 //	var IGeneratorContext generatorContext
@@ -219,15 +222,18 @@ class PubGenerator extends AbstractGenerator {
 			// TODO copy file to output
 			renderFigure(f, f.fileUri)
 		} else {
-			val providers = registry.diagramProviders
-			if (! providers.empty) {
-				val renderer = providers.head // TODO pass proper renderer
+			val provider = registry.getDiagramProvider(f.renderer.name)
+			if (provider !== null) {
 				val fileName = "figures/figure_" + f.tieredNumber
-				val fileExtension = renderer.format.name.toLowerCase
-				val inputStream = renderer.render(f.diagramRoot)
+				val fileExtension = provider.format.name.toLowerCase
+				val inputStream = provider.render(f.diagramRoot)
 				val file = fileName + "." + fileExtension
 				fileSystemAccess.generateFile(file, inputStream)
 				renderFigure(f, file)
+			} else {
+				val msg = "Figure renderer '" + f.renderer.name + "' not found."
+				LOGGER.error(msg)
+				return "ERROR: " + msg
 			}
 		}
 	}

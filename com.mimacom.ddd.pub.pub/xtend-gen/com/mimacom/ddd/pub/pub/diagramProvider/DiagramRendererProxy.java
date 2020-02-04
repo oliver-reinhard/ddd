@@ -1,12 +1,12 @@
 package com.mimacom.ddd.pub.pub.diagramProvider;
 
 import com.google.common.collect.Lists;
-import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil;
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
@@ -14,15 +14,10 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class DiagramRendererProxy {
-  @Inject
-  @Extension
-  private DiagramProviderRegistryUtil UTIL;
-  
   private static final Logger LOGGER = Logger.getLogger(DiagramRendererProxy.class);
   
   public final Class<? extends DModel> modelClass;
@@ -53,14 +48,21 @@ public class DiagramRendererProxy {
     final ISafeRunnable runnable = new ISafeRunnable() {
       @Override
       public void handleException(final Throwable ex) {
-        String _identify = DiagramRendererProxy.this.UTIL.identify(DiagramRendererProxy.this.configElement);
+        String _identify = DiagramProviderRegistryUtil.identify(DiagramRendererProxy.this.configElement);
         String _plus = (_identify + ": rendering failed");
         DiagramRendererProxy.LOGGER.error(_plus, ex);
       }
       
       @Override
       public void run() throws Exception {
-        result.add(DiagramRendererProxy.this.getRenderer().render(root));
+        boolean _canRender = DiagramRendererProxy.this.getRenderer().canRender(root);
+        if (_canRender) {
+          result.add(DiagramRendererProxy.this.getRenderer().render(root));
+        } else {
+          DiagramRendererProxy.LOGGER.info((("Renderer " + DiagramRendererProxy.this.id) + " has nothing to render"));
+          ByteArrayInputStream _byteArrayInputStream = new ByteArrayInputStream(new byte[] {});
+          result.add(_byteArrayInputStream);
+        }
       }
     };
     SafeRunner.run(runnable);
@@ -76,7 +78,7 @@ public class DiagramRendererProxy {
         } catch (final Throwable _t) {
           if (_t instanceof Exception) {
             final Exception ex = (Exception)_t;
-            DiagramRendererProxy.LOGGER.error(this.UTIL.identify(this.configElement, DiagramProviderRegistryUtil.ATTR_RENDERER_CLASS), ex);
+            DiagramRendererProxy.LOGGER.error(DiagramProviderRegistryUtil.identify(this.configElement, DiagramProviderRegistryUtil.ATTR_RENDERER_CLASS), ex);
             throw ex;
           } else {
             throw Exceptions.sneakyThrow(_t);

@@ -500,9 +500,12 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   @Override
   public CharSequence renderFigure(final Figure f, final String fileUri) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("-- FIGURE (");
+    _builder.append("<img src=\"");
     _builder.append(fileUri);
-    _builder.append(")");
+    _builder.append("\" alt=\"");
+    CharSequence _renderRichText = this.renderRichText(f.getTitle());
+    _builder.append(_renderRichText);
+    _builder.append("\">");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

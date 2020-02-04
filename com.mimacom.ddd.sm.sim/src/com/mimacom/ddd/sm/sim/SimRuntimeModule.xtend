@@ -41,6 +41,8 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 		.to(DmxImportedNamespaceAwareLocalScopeProvider);
 	}
 
+	// derived state:
+	
 	override bindXtextResource() {
 		DerivedStateAwareResource
 	}

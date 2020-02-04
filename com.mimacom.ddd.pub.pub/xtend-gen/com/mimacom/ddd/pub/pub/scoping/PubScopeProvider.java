@@ -4,14 +4,25 @@
 package com.mimacom.ddd.pub.pub.scoping;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Lists;
+import com.google.inject.Inject;
+import com.mimacom.ddd.pub.pub.Figure;
+import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.ReferenceScope;
 import com.mimacom.ddd.pub.pub.scoping.AbstractPubScopeProvider;
+import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.resource.EObjectDescription;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.impl.SimpleScope;
 
 /**
  * This class contains custom scoping description.
@@ -22,6 +33,9 @@ import org.eclipse.xtext.scoping.IScope;
 @SuppressWarnings("all")
 public class PubScopeProvider extends AbstractPubScopeProvider {
   private static final PubPackage PUB = PubPackage.eINSTANCE;
+  
+  @Inject
+  private IQualifiedNameProvider qualifiedNameProvider;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
@@ -87,7 +101,28 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
       }
       final EClass targetScope = _switchResult;
       return this.getDefaultScopeOfType(context, targetScope);
+    } else {
+      if ((Objects.equal(reference, PubScopeProvider.PUB.getFigure_Renderer()) && (context instanceof Figure))) {
+        final PubModel model = EcoreUtil2.<PubModel>getContainerOfType(context, PubModel.class);
+        if ((model != null)) {
+          boolean _isEmpty = model.getFigureRenderers().isEmpty();
+          if (_isEmpty) {
+            return IScope.NULLSCOPE;
+          }
+          return this.createScopeWithQualifiedNames(model.getFigureRenderers());
+        }
+      }
     }
     return super.getScope(context, reference);
+  }
+  
+  protected SimpleScope createScopeWithQualifiedNames(final List<? extends EObject> objects) {
+    final List<IEObjectDescription> descriptions = Lists.<IEObjectDescription>newArrayList();
+    for (final EObject obj : objects) {
+      QualifiedName _fullyQualifiedName = this.qualifiedNameProvider.getFullyQualifiedName(obj);
+      EObjectDescription _eObjectDescription = new EObjectDescription(_fullyQualifiedName, obj, null);
+      descriptions.add(_eObjectDescription);
+    }
+    return new SimpleScope(descriptions);
   }
 }

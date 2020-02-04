@@ -38,19 +38,21 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
         }
         
        val result = '''
-   		(«event.name») as (event)
-   		«FOR t : event.triggers»
-   		   	actor «t.name»
-   		«ENDFOR»
-   		«FOR n : event.notifications.filter[getNotified!==null]»
-   			actor «n.getNotified.name»
-   		«ENDFOR»
-   		«FOR t : event.triggers»
-   		   	«t.name» --> (event) : triggers
-   		«ENDFOR»
-   		«FOR n : event.notifications.filter[getNotified!==null]»
-   			«n.getNotified.name» <-- (event) : «n.name»
-   		«ENDFOR»
+		@startuml
+		(«event.name») as (event)
+ 		«FOR t : event.triggers»
+ 			actor «t.name»
+ 		«ENDFOR»
+ 		«FOR n : event.notifications.filter[getNotified!==null]»
+ 			actor «n.getNotified.name»
+ 		«ENDFOR»
+ 		«FOR t : event.triggers»
+ 			«t.name» --> (event) : triggers
+ 		«ENDFOR»
+ 		«FOR n : event.notifications.filter[getNotified!==null]»
+ 			«n.getNotified.name» <-- (event) : «n.name»
+ 		«ENDFOR»
+		@enduml
        '''
        return result
 	}

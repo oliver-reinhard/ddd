@@ -2,7 +2,7 @@ package com.mimacom.ddd.pub.pub.diagramProvider
 
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
-import com.google.inject.Inject
+import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DModel
 import java.util.List
 import java.util.Map
@@ -13,9 +13,10 @@ import org.eclipse.core.runtime.Platform
 
 import static com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil.*
 
-class DiagramProviderRegistry {
+import static extension com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil.identify
 
-	@Inject extension DiagramProviderRegistryUtil UTIL
+@Singleton
+class DiagramProviderRegistry {
 
 	static final Logger LOGGER = Logger.getLogger(DiagramProviderRegistry);
 
@@ -82,6 +83,14 @@ class DiagramProviderRegistry {
 			loadExtensions()
 		}
 		return cachedRenderers
+	}
+
+	def DiagramRendererProxy getDiagramProvider(String id) {
+		val candidates = diagramProviders.filter [it.id == id]
+		if (candidates.empty) {
+			return null
+		}
+		return candidates.head
 	}
 
 	def DiagramRendererProxy getDiagramProvider(Class<? extends DModel> modelClass, DiagramFileFormat format) {

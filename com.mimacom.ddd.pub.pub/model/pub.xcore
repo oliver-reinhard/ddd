@@ -358,7 +358,7 @@ class Figure extends TitledBlock {
 }
 
 class FigureRenderer {
-	String ^id
+	String name
 	String diagramName
 }
 
