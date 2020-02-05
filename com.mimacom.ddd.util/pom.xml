@@ -15,7 +15,7 @@
   <packaging>eclipse-plugin</packaging>
 
   <name>Util</name>
-  
+
   <build>
     <plugins>
       <plugin>

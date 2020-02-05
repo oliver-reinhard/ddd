@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Util
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
 Bundle-SymbolicName: com.mimacom.ddd.util
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: mimacom.com
 Automatic-Module-Name: com.mimacom.ddd.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: net.sourceforge.plantuml.eclipse;bundle-version="1.1.23";visibility:=reexport,
