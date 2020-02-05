@@ -27,11 +27,13 @@ import static org.junit.jupiter.api.Assertions.*
 class ParsingTest {
 
   static val PATH_PREFIX = "platform:/plugin/com.mimacom.ddd.system/src/com/mimacom/ddd/system/"
+  static val CURRENT_PATH = "platform:/plugin/com.mimacom.ddd.system.tests/src/com/mimacom/ddd/system/tests/"
 
+  static val ASSIGNMENTS_URI = URI.createURI('''«com.mimacom.ddd.system.tests.ParsingTest.CURRENT_PATH»/Assignments.dmx''')
+  static val CUSTOM_TYPES_URI = URI.createURI('''«com.mimacom.ddd.system.tests.ParsingTest.CURRENT_PATH»/CustomTypes.dim''')
+  
   // files of a referenced OSGi bundle are loaded, hence test is executed as a plug-in test
-  static val ASSIGNMENTS_URI = URI.createURI('''«PATH_PREFIX»/Assignments.dmx''')
   static val BASE_TYPES_URI = URI.createURI('''«PATH_PREFIX»/BaseTypes.dim''')
-  static val CUSTOM_TYPES_URI = URI.createURI('''«PATH_PREFIX»/CustomTypes.dim''')
   static val MATH_FUNCTIONS_URI = URI.createURI('''«PATH_PREFIX»/MathFunctions.dmx''')
   static val SYSTEM_FUNCTIONS_URI = URI.createURI('''«PATH_PREFIX»/SystemFunctions.dmx''')
   static val SYSTEM_TYPES_URI = URI.createURI('''«PATH_PREFIX»/SystemTypes.dmx''')
@@ -78,6 +80,8 @@ class ParsingTest {
     assertNotNull(content)
     assertTrue(content instanceof DNamespace)
     assertTrue((content as DNamespace).model instanceof DmxModel)
+    // FIXME tests should fail, there *are* errors on the resource; why are they not detected?
+    //  is the DmxValidator executed?
     assertNoErrorsOnResource(content.eResource)
   }
 

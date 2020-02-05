@@ -38,12 +38,25 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class ParsingTest {
   private static final String PATH_PREFIX = "platform:/plugin/com.mimacom.ddd.system/src/com/mimacom/ddd/system/";
   
+  private static final String CURRENT_PATH = "platform:/plugin/com.mimacom.ddd.system.tests/src/com/mimacom/ddd/system/tests/";
+  
   private static final URI ASSIGNMENTS_URI = new Function0<URI>() {
     @Override
     public URI apply() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append(ParsingTest.PATH_PREFIX);
+      _builder.append(ParsingTest.CURRENT_PATH);
       _builder.append("/Assignments.dmx");
+      URI _createURI = URI.createURI(_builder.toString());
+      return _createURI;
+    }
+  }.apply();
+  
+  private static final URI CUSTOM_TYPES_URI = new Function0<URI>() {
+    @Override
+    public URI apply() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(ParsingTest.CURRENT_PATH);
+      _builder.append("/CustomTypes.dim");
       URI _createURI = URI.createURI(_builder.toString());
       return _createURI;
     }
@@ -55,17 +68,6 @@ public class ParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append(ParsingTest.PATH_PREFIX);
       _builder.append("/BaseTypes.dim");
-      URI _createURI = URI.createURI(_builder.toString());
-      return _createURI;
-    }
-  }.apply();
-  
-  private static final URI CUSTOM_TYPES_URI = new Function0<URI>() {
-    @Override
-    public URI apply() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append(ParsingTest.PATH_PREFIX);
-      _builder.append("/CustomTypes.dim");
       URI _createURI = URI.createURI(_builder.toString());
       return _createURI;
     }
