@@ -1,0 +1,43 @@
+{
+	"name": "Dmx",
+    "scopeName": "text.dmx",
+    "fileTypes": [
+        "dmx"
+    ],
+    "patterns": [
+        {
+            "include": "#general"
+        }
+    ],
+    "repository": {
+        "general": {
+            "patterns": [
+                {
+                    "include": "#linecomment"
+                },
+                {
+                    "include": "#blockcomment"
+                },
+                {
+                    "include": "#keyword"
+                }
+            ]
+        },
+        "linecomment": {
+            "name": "comment.line.double-dash.dmx",
+            "begin": "(^[ \\t]+)?(?=//)",
+			"end": "(?=$)"
+        },
+        "blockcomment": {
+            "name": "comment.block.dmx",
+            "begin": "/\\*(\\*)?(?!/)",
+			"end": "\\*/"
+        },
+        "keyword": {
+            "name": "keyword.control.dmx",
+            "match": "\\b(@before|AND|AS|BOOLEAN|COMPLEX|E|FALSE|IDENTIFIER|IN|ISA|NOT|NOTIFICATION|NUMBER|OR|SERVICE|STATE|STATE_EVENT|TEXT|TIMEPOINT|TRUE|UNDEFINED|VOID|XOR|all|and|archetype|as|context|detail|e|else|end|entity|false|filter|if|import|in|is|isa|namespace|not|or|test|then|true|undefined|with|xor)\\b|!"
+
+        }
+    },
+    "uuid": "9fa7b2be-da86-4e39-ad90-4b28bd471187"
+}

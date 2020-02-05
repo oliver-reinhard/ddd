@@ -1,0 +1,10 @@
+diff a/pom.xml b/pom.xml	(rejected hunks)
+@@ -83,6 +83,8 @@
+     <module>com.mimacom.ddd.sm.sus.feature</module>
+     <!-- system -->
+     <module>com.mimacom.ddd.system</module>
++    <!-- lsp -->
++    <module>lsp</module>
+   </modules>
+ 
+   <build>

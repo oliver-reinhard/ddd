@@ -1,0 +1,43 @@
+{
+	"name": "Dim",
+    "scopeName": "text.dim",
+    "fileTypes": [
+        "dim"
+    ],
+    "patterns": [
+        {
+            "include": "#general"
+        }
+    ],
+    "repository": {
+        "general": {
+            "patterns": [
+                {
+                    "include": "#linecomment"
+                },
+                {
+                    "include": "#blockcomment"
+                },
+                {
+                    "include": "#keyword"
+                }
+            ]
+        },
+        "linecomment": {
+            "name": "comment.line.double-dash.dim",
+            "begin": "(^[ \\t]+)?(?=//)",
+			"end": "(?=$)"
+        },
+        "blockcomment": {
+            "name": "comment.block.dim",
+            "begin": "/\\*(\\*)?(?!/)",
+			"end": "\\*/"
+        },
+        "keyword": {
+            "name": "keyword.control.dim",
+            "match": "\\b(@before|AND|AS|BOOLEAN|COMPLEX|E|FALSE|IDENTIFIER|IN|ISA|NOT|NOTIFICATION|NUMBER|OR|SERVICE|STATE|STATE_EVENT|TEXT|TIMEPOINT|TRUE|UNDEFINED|VOID|XOR|abstract|alias|all|and|archetype|as|component|concept|constraint|contains|context|derived|detail|domain|e|else|end|entity|enumeration|events|extends|false|filter|if|import|in|inverse|is|isa|key|main|not|object|or|physical|primitive|query|redefines|references|relationship|returns|root|states|test|then|true|undefined|virtual|with|xor)\\b|!"
+
+        }
+    },
+    "uuid": "64c2553d-846a-4fbc-a116-a636dc1b4519"
+}

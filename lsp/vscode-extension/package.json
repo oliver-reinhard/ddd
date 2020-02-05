@@ -1,0 +1,87 @@
+{
+	"name": "ddd-lsp",
+	"displayName": "DDD VS Code Extension",
+	"description": "VS Code Extension for DDD languages",
+	"version": "0.1.0",
+	"publisher": "ddd",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/johanwannheden/ddd.git"
+	},
+	"license": "UNLICENSED",
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onCommand:extension.helloWorld",
+		"onLanguage:dmx",
+		"onLanguage:dim"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "dmx",
+				"aliases": [
+					"dmx"
+				],
+				"extensions": [
+					".dmx"
+				],
+				"configuration": "./dmx.configuration.json"
+			},
+			{
+				"id": "dim",
+				"aliases": [
+					"dim"
+				],
+				"extensions": [
+					".dim"
+				],
+				"configuration": "./dim.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "dmx",
+				"scopeName": "text.dmx",
+				"path": "./syntaxes/dmx.tmLanguage.json"
+			},
+			{
+				"language": "dim",
+				"scopeName": "text.dim",
+				"path": "./syntaxes/dim.tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc --build",
+		"watch": "tsc --build --watch",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.40.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^5.2.1"
+	}
+}

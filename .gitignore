@@ -8,4 +8,4 @@ target/
 *.xtendbin
 .antlr-generator-*.jar
 .DS_Store
-.vscode/
+**/node_modules/

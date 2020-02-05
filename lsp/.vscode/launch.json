@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - RunServer",
+            "request": "launch",
+            "mainClass": "com.mimacom.ddd.lsp.server.RunServer"
+        }
+    ]
+}
