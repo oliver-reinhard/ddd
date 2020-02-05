@@ -2,9 +2,11 @@ domain dm.types
 
 information model BaseTypes {
 
+	primitive IsoCurrency redefines ShortText «Example: CHF»
+
 	detail Money {
 		currency : IsoCurrency
-		amount : Decimal
+		amount : Real
 	}
 }
 
