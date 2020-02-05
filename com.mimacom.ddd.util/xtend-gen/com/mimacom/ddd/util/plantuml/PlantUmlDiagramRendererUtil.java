@@ -22,7 +22,7 @@ public class PlantUmlDiagramRendererUtil {
     if ((Objects.equal(format, PlantUmlFileFormat.PNG) || Objects.equal(format, PlantUmlFileFormat.JPG))) {
       final ImageData imageData = Diagram.getImage(plantUmlText);
       if ((imageData == null)) {
-        throw new NullPointerException("No PlantUML image was generated: \'@startuml\' missing?");
+        throw new NullPointerException("No image was generated: leading \'@startuml\' tag missing in PlantUML text?");
       }
       final ImageLoader imageLoader = new ImageLoader();
       imageLoader.data = new ImageData[] { imageData };

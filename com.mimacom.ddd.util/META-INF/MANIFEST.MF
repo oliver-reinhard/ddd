@@ -8,7 +8,7 @@ Automatic-Module-Name: com.mimacom.ddd.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: net.sourceforge.plantuml.eclipse;bundle-version="1.1.23";visibility:=reexport,
  net.sourceforge.plantuml.text;bundle-version="1.1.23";visibility:=reexport,
- net.sourceforge.plantuml.lib;bundle-version="1.2019.11",
+ net.sourceforge.plantuml.lib,
  org.eclipse.jface,
  org.eclipse.ui,
  com.google.inject;bundle-version="3.0.0";resolution:=optional,

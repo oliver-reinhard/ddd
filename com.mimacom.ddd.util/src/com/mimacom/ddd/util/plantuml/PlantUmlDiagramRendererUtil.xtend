@@ -20,7 +20,7 @@ class PlantUmlDiagramRendererUtil {
 		if (format == PNG || format == JPG) {
 			val imageData = Diagram::getImage(plantUmlText)
 			if (imageData === null) {
-				throw new NullPointerException("No PlantUML image was generated: '@startuml' missing?")
+				throw new NullPointerException("No image was generated: leading '@startuml' tag missing in PlantUML text?")
 			}
 			val imageLoader = new ImageLoader();
 			imageLoader.data = #[imageData]
