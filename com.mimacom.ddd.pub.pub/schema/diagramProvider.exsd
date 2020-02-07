@@ -66,13 +66,13 @@
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="modelClass" type="string" use="required">
+         <attribute name="diagramRootClass" type="string" use="required">
             <annotation>
                <documentation>
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":com.mimacom.ddd.dm.base.DModel"/>
+                  <meta.attribute kind="java" basedOn=":com.mimacom.ddd.dm.base.IDiagramRoot"/>
                </appInfo>
             </annotation>
          </attribute>

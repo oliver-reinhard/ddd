@@ -78,7 +78,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__NAME = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 0;
+	int SINFORMATION_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -87,7 +87,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__ALIASES = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 1;
+	int SINFORMATION_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -96,7 +96,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DESCRIPTION = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 2;
+	int SINFORMATION_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -105,7 +105,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__AGGREGATES = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 3;
+	int SINFORMATION_MODEL__AGGREGATES = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -114,7 +114,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__TYPES = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 4;
+	int SINFORMATION_MODEL__TYPES = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Generate</b></em>' attribute.
@@ -123,7 +123,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__GENERATE = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 5;
+	int SINFORMATION_MODEL__GENERATE = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -132,7 +132,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__KIND = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 6;
+	int SINFORMATION_MODEL__KIND = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Domain Proxies</b></em>' containment reference list.
@@ -141,7 +141,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DOMAIN_PROXIES = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 7;
+	int SINFORMATION_MODEL__DOMAIN_PROXIES = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
@@ -150,7 +150,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_FEATURE_COUNT = BasePackage.IDIAGRAM_ROOT_FEATURE_COUNT + 8;
+	int SINFORMATION_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>SInformation Model</em>' class.
@@ -159,7 +159,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.IDIAGRAM_ROOT_OPERATION_COUNT + 0;
+	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.

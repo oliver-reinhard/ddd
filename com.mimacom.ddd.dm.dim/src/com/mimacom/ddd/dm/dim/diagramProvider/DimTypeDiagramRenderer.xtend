@@ -10,24 +10,30 @@ import com.mimacom.ddd.util.plantuml.PlantUmlFileFormat
 import java.io.InputStream
 import org.apache.log4j.Logger
 
-class DimTypeDiagramRendererPNG implements IDiagramRenderer {
+class DimTypeDiagramRenderer implements IDiagramRenderer {
+	
+	static final Logger LOGGER = Logger.getLogger(DimTypeDiagramRenderer);
 	
 	@Inject DimTypeDiagramTextProviderImpl actualProvider
 	@Inject PlantUmlDiagramRendererUtil plantUmlDiagramRenderer
 	
-	static final Logger LOGGER = Logger.getLogger(DimTypeDiagramRendererPNG);
+	val PlantUmlFileFormat outputFormat
+	
+	new (PlantUmlFileFormat outputFormat) {
+		this.outputFormat = outputFormat
+	}
 	
 	override canRender(IDiagramRoot root) {
 		return root instanceof DInformationModel && actualProvider.canProvide(root as DInformationModel)
 	}
 	
 	override InputStream render(IDiagramRoot root) {
-		LOGGER.info(DimTypeDiagramRendererPNG.getName() + " for " + root)
+		LOGGER.info(DimTypeDiagramRenderer.getName() + " for " + root)
 		
 		var plantUmlText = actualProvider.diagramText(root as DInformationModel)
 		if (plantUmlText === null) {
 			plantUmlText = ""
 		}
-		return plantUmlDiagramRenderer.render(plantUmlText, PlantUmlFileFormat.PNG)
+		return plantUmlDiagramRenderer.render(plantUmlText, outputFormat)
 	}
 }

@@ -1,7 +1,6 @@
 package com.mimacom.ddd.pub.pub.diagramProvider
 
 import com.google.common.collect.Lists
-import com.mimacom.ddd.dm.base.DModel
 import com.mimacom.ddd.dm.base.IDiagramRoot
 import java.io.ByteArrayInputStream
 import java.io.InputStream
@@ -19,7 +18,7 @@ class DiagramRendererProxy {
 
 	static final Logger LOGGER = Logger.getLogger(DiagramRendererProxy);
 	
-	public val Class<? extends DModel> modelClass
+	public val Class<? extends IDiagramRoot> diagramRootClass
 	public val String id
 	public val String diagramName
 	public val String diagramTypeID
@@ -28,10 +27,10 @@ class DiagramRendererProxy {
 	val IConfigurationElement configElement
 	var IDiagramRenderer renderer = null
 
-	new(String id, String diagramName, Class<? extends DModel> modelClass, String diagramTypeID, IConfigurationElement configElement, DiagramFileFormat format) {
+	new(String id, String diagramName, Class<? extends IDiagramRoot> diagramRootClass, String diagramTypeID, IConfigurationElement configElement, DiagramFileFormat format) {
 		this.id = id
 		this.diagramName = diagramName
-		this.modelClass = modelClass
+		this.diagramRootClass = diagramRootClass
 		this.diagramTypeID = diagramTypeID
 		this.configElement = configElement
 		this.format = format
@@ -56,6 +55,16 @@ class DiagramRendererProxy {
 		};
 		SafeRunner.run(runnable);
 		return result.head
+	}
+	
+
+	def boolean canRender(IDiagramRoot root) {
+		try {
+			return getRenderer.canRender(root)
+		} catch (Throwable t) {
+			LOGGER.error(t)
+			return false
+		}
 	}
 
 	private def IDiagramRenderer getRenderer() {

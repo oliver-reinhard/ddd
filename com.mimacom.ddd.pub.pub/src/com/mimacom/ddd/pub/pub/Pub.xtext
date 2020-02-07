@@ -334,8 +334,8 @@ PubFigure returns Figure:
 	'Figure'
 	PubTitledBlockHeader
 	'{'
-	(	'include'
-		'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	'include'
+	(	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 		'diagram:' renderer=[FigureRenderer|DQualifiedName]
 	|	'uri:' fileUri=STRING // TODO Validation
 	)
@@ -345,7 +345,7 @@ PubEquation returns Equation:
 	'Equation'
 	PubTitledBlockHeader
 	'{'
-	'uri:' fileUri=STRING // TODO Validation
+	'include' 'uri:' fileUri=STRING // TODO Validation
 	'}'; 
 
 PubCodeListing returns CodeListing:

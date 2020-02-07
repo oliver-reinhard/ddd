@@ -15,6 +15,7 @@ import com.mimacom.ddd.pub.pub.CodeListing
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
+import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
@@ -27,6 +28,7 @@ import com.mimacom.ddd.pub.pub.Subsubsection
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TableRow
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.generator.PubElementNames
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
@@ -45,6 +47,7 @@ class PubValidator extends AbstractPubValidator {
 	@Inject extension PubElementNames
 	@Inject extension PubNumberingUtil
 	@Inject ISerializer serializer
+	@Inject DiagramProviderRegistry registry
 
 	static val BASE = BasePackage.eINSTANCE
 	static val PUB = PubPackage.eINSTANCE
@@ -281,4 +284,18 @@ class PubValidator extends AbstractPubValidator {
 				row.cells.length - 1)
 		}
 	}
+	
+	//
+	// Figure Diagram Renderers
+	//
+	@Check(NORMAL)
+	def diagramCanRender(Figure f) {
+		if (f.diagramRoot !== null && f.renderer !== null && f.renderer.name !== null) {
+			val provider = registry.getDiagramProvider(f.renderer.name)
+			if (! provider.canRender(f.diagramRoot)) {
+				error("The referenced model does not provide content, the generated diagram will be empty", PUB.figure_DiagramRoot)
+			}
+		}
+	}
+	
 }

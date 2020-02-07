@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SInformationModel extends IDiagramRoot, DModel, IAggregateContainer, ITypeContainer, IStaticReferenceTarget
+public interface SInformationModel extends DModel, IDiagramRoot, IAggregateContainer, ITypeContainer, IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Generate</b></em>' attribute.

@@ -2,7 +2,6 @@ package com.mimacom.ddd.sm.sim.diagramProvider;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNG;
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;
@@ -13,14 +12,20 @@ import org.apache.log4j.Logger;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
-public class SimTypeDiagramRendererPNG implements IDiagramRenderer {
+public class SimTypeDiagramRenderer implements IDiagramRenderer {
+  private static final Logger LOGGER = Logger.getLogger(SimTypeDiagramRenderer.class);
+  
   @Inject
   private SimTypeDiagramTextProviderImpl actualProvider;
   
   @Inject
   private PlantUmlDiagramRendererUtil plantUmlDiagramRenderer;
   
-  private static final Logger LOGGER = Logger.getLogger(DimTypeDiagramRendererPNG.class);
+  private final PlantUmlFileFormat outputFormat;
+  
+  public SimTypeDiagramRenderer(final PlantUmlFileFormat outputFormat) {
+    this.outputFormat = outputFormat;
+  }
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
@@ -30,15 +35,15 @@ public class SimTypeDiagramRendererPNG implements IDiagramRenderer {
   @Override
   public InputStream render(final IDiagramRoot root) {
     try {
-      String _name = SimTypeDiagramRendererPNG.class.getName();
+      String _name = SimTypeDiagramRenderer.class.getName();
       String _plus = (_name + " for ");
       String _plus_1 = (_plus + root);
-      SimTypeDiagramRendererPNG.LOGGER.info(_plus_1);
+      SimTypeDiagramRenderer.LOGGER.info(_plus_1);
       String plantUmlText = this.actualProvider.diagramText(((SInformationModel) root));
       if ((plantUmlText == null)) {
         plantUmlText = "";
       }
-      return this.plantUmlDiagramRenderer.render(plantUmlText, PlantUmlFileFormat.PNG);
+      return this.plantUmlDiagramRenderer.render(plantUmlText, this.outputFormat);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

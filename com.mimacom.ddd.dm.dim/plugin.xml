@@ -7,9 +7,17 @@
             id="dim.typeDiagram.png"
             diagramName="Domain Information Structure (PNG)"
             diagramType="informationStructure"
-            modelClass="com.mimacom.ddd.dm.base.DInformationModel"
+            diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
             outputFileFormat="PNG"
-            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNG">
+            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
+      </renderer>
+      <renderer
+            id="dim.typeDiagram.svg"
+            diagramName="Domain Information Structure (SVG)"
+            diagramType="informationStructure"
+            diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
       <diagramType
             id="informationStructure"

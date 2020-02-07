@@ -4,8 +4,8 @@
     editorDirectory="/com.mimacom.ddd.sm.sim.editor/src" modelPluginID="com.mimacom.ddd.sm.sim"
     modelName="Sim" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>sim.ecore</foreignModel>
   <genPackages prefix="Sim" basePackage="com.mimacom.ddd.sm" disposableProviderFactory="true"
       ecorePackage="sim.ecore#/">
@@ -22,16 +22,7 @@
     <genClasses ecoreClass="sim.ecore#//SInformationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/generate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/kind"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/queries"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/aggregates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/domainProxies"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SCoreQuery">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SCoreQuery/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SCoreQuery/returns"/>
     </genClasses>
     <genClasses ecoreClass="sim.ecore#//SImplicitElementDeduction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SImplicitElementDeduction/originalDeductionDefinition"/>
@@ -73,8 +64,8 @@
     <genClasses ecoreClass="sim.ecore#//SGrabAggregateRule">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SGrabAggregateRule/aggregate"/>
     </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SGrabDomainRule">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SGrabDomainRule/domain"/>
+    <genClasses ecoreClass="sim.ecore#//SGrabModelRule">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SGrabModelRule/dModel"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

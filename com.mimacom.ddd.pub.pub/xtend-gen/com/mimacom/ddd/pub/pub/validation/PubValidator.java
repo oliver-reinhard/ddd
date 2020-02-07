@@ -19,6 +19,7 @@ import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
+import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Part;
@@ -32,6 +33,8 @@ import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.PubElementNames;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import com.mimacom.ddd.pub.pub.impl.PubConstants;
@@ -72,6 +75,9 @@ public class PubValidator extends AbstractPubValidator {
   
   @Inject
   private ISerializer serializer;
+  
+  @Inject
+  private DiagramProviderRegistry registry;
   
   private static final BasePackage BASE = BasePackage.eINSTANCE;
   
@@ -398,6 +404,18 @@ public class PubValidator extends AbstractPubValidator {
       int _length_1 = ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length;
       int _minus_1 = (_length_1 - 1);
       this.error("The cells of this row span less than the declared row height.", _tableRow_Cells_1, _minus_1);
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void diagramCanRender(final Figure f) {
+    if ((((f.getDiagramRoot() != null) && (f.getRenderer() != null)) && (f.getRenderer().getName() != null))) {
+      final DiagramRendererProxy provider = this.registry.getDiagramProvider(f.getRenderer().getName());
+      boolean _canRender = provider.canRender(f.getDiagramRoot());
+      boolean _not = (!_canRender);
+      if (_not) {
+        this.error("The referenced model does not provide content, the generated diagram will be empty", PubValidator.PUB.getFigure_DiagramRoot());
+      }
     }
   }
 }

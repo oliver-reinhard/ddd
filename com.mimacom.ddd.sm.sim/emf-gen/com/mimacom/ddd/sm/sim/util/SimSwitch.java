@@ -105,8 +105,8 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
 				T result = caseSInformationModel(sInformationModel);
-				if (result == null) result = caseIDiagramRoot(sInformationModel);
 				if (result == null) result = caseDModel(sInformationModel);
+				if (result == null) result = caseIDiagramRoot(sInformationModel);
 				if (result == null) result = caseIAggregateContainer(sInformationModel);
 				if (result == null) result = caseITypeContainer(sInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(sInformationModel);
@@ -771,22 +771,6 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIDiagramRoot(IDiagramRoot object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -814,6 +798,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDModel(DModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDiagramRoot(IDiagramRoot object)
 	{
 		return null;
 	}

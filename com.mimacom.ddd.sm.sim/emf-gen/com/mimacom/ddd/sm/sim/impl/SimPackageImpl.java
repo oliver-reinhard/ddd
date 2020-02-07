@@ -880,8 +880,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIAggregateContainer());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getITypeContainer());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());

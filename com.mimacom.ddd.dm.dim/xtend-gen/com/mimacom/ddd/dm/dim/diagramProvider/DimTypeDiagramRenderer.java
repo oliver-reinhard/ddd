@@ -12,14 +12,20 @@ import org.apache.log4j.Logger;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
-public class DimTypeDiagramRendererPNG implements IDiagramRenderer {
+public class DimTypeDiagramRenderer implements IDiagramRenderer {
+  private static final Logger LOGGER = Logger.getLogger(DimTypeDiagramRenderer.class);
+  
   @Inject
   private DimTypeDiagramTextProviderImpl actualProvider;
   
   @Inject
   private PlantUmlDiagramRendererUtil plantUmlDiagramRenderer;
   
-  private static final Logger LOGGER = Logger.getLogger(DimTypeDiagramRendererPNG.class);
+  private final PlantUmlFileFormat outputFormat;
+  
+  public DimTypeDiagramRenderer(final PlantUmlFileFormat outputFormat) {
+    this.outputFormat = outputFormat;
+  }
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
@@ -29,15 +35,15 @@ public class DimTypeDiagramRendererPNG implements IDiagramRenderer {
   @Override
   public InputStream render(final IDiagramRoot root) {
     try {
-      String _name = DimTypeDiagramRendererPNG.class.getName();
+      String _name = DimTypeDiagramRenderer.class.getName();
       String _plus = (_name + " for ");
       String _plus_1 = (_plus + root);
-      DimTypeDiagramRendererPNG.LOGGER.info(_plus_1);
+      DimTypeDiagramRenderer.LOGGER.info(_plus_1);
       String plantUmlText = this.actualProvider.diagramText(((DInformationModel) root));
       if ((plantUmlText == null)) {
         plantUmlText = "";
       }
-      return this.plantUmlDiagramRenderer.render(plantUmlText, PlantUmlFileFormat.PNG);
+      return this.plantUmlDiagramRenderer.render(plantUmlText, this.outputFormat);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

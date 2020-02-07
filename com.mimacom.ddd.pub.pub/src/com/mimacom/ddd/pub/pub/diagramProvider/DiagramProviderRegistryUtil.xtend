@@ -9,7 +9,7 @@ class DiagramProviderRegistryUtil {
 	public static val ELEMENT_RENDERER = "renderer"
 	public static val ATTR_RENDERER_ID = "id"
 	public static val ATTR_RENDERER_DIAGRAM_NAME = "diagramName"
-	public static val ATTR_RENDERER_MODEL_CLASS = "modelClass"
+	public static val ATTR_RENDERER_DIAGRAM_ROOT_CLASS = "diagramRootClass"
 	public static val ATTR_RENDERER_DIAGRAM_TYPE_ID = "diagramType"
 	public static val ATTR_RENDERER_CLASS = "rendererClass"
 	public static val ATTR_RENDERER_OUTPUT_FILE_FORMAT = "outputFileFormat"

@@ -4084,15 +4084,15 @@ rulePubFigure returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getPubFigureAccess().getLeftCurlyBracketKeyword_2());
 		}
+		otherlv_3='include'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPubFigureAccess().getIncludeKeyword_3());
+		}
 		(
 			(
-				otherlv_3='include'
-				{
-					newLeafNode(otherlv_3, grammarAccess.getPubFigureAccess().getIncludeKeyword_3_0_0());
-				}
 				otherlv_4='root:'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getPubFigureAccess().getRootKeyword_3_0_1());
+					newLeafNode(otherlv_4, grammarAccess.getPubFigureAccess().getRootKeyword_4_0_0());
 				}
 				(
 					(
@@ -4102,7 +4102,7 @@ rulePubFigure returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getPubFigureAccess().getDiagramRootIDiagramRootCrossReference_3_0_2_0());
+							newCompositeNode(grammarAccess.getPubFigureAccess().getDiagramRootIDiagramRootCrossReference_4_0_1_0());
 						}
 						ruleDQualifiedName
 						{
@@ -4112,7 +4112,7 @@ rulePubFigure returns [EObject current=null]
 				)
 				otherlv_6='diagram:'
 				{
-					newLeafNode(otherlv_6, grammarAccess.getPubFigureAccess().getDiagramKeyword_3_0_3());
+					newLeafNode(otherlv_6, grammarAccess.getPubFigureAccess().getDiagramKeyword_4_0_2());
 				}
 				(
 					(
@@ -4122,7 +4122,7 @@ rulePubFigure returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getPubFigureAccess().getRendererFigureRendererCrossReference_3_0_4_0());
+							newCompositeNode(grammarAccess.getPubFigureAccess().getRendererFigureRendererCrossReference_4_0_3_0());
 						}
 						ruleDQualifiedName
 						{
@@ -4135,13 +4135,13 @@ rulePubFigure returns [EObject current=null]
 			(
 				otherlv_8='uri:'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getPubFigureAccess().getUriKeyword_3_1_0());
+					newLeafNode(otherlv_8, grammarAccess.getPubFigureAccess().getUriKeyword_4_1_0());
 				}
 				(
 					(
 						lv_fileUri_9_0=RULE_STRING
 						{
-							newLeafNode(lv_fileUri_9_0, grammarAccess.getPubFigureAccess().getFileUriSTRINGTerminalRuleCall_3_1_1_0());
+							newLeafNode(lv_fileUri_9_0, grammarAccess.getPubFigureAccess().getFileUriSTRINGTerminalRuleCall_4_1_1_0());
 						}
 						{
 							if ($current==null) {
@@ -4159,7 +4159,7 @@ rulePubFigure returns [EObject current=null]
 		)
 		otherlv_10='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getPubFigureAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_10, grammarAccess.getPubFigureAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -4199,15 +4199,19 @@ rulePubEquation returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getPubEquationAccess().getLeftCurlyBracketKeyword_2());
 		}
-		otherlv_3='uri:'
+		otherlv_3='include'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getPubEquationAccess().getUriKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getPubEquationAccess().getIncludeKeyword_3());
+		}
+		otherlv_4='uri:'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getPubEquationAccess().getUriKeyword_4());
 		}
 		(
 			(
-				lv_fileUri_4_0=RULE_STRING
+				lv_fileUri_5_0=RULE_STRING
 				{
-					newLeafNode(lv_fileUri_4_0, grammarAccess.getPubEquationAccess().getFileUriSTRINGTerminalRuleCall_4_0());
+					newLeafNode(lv_fileUri_5_0, grammarAccess.getPubEquationAccess().getFileUriSTRINGTerminalRuleCall_5_0());
 				}
 				{
 					if ($current==null) {
@@ -4216,14 +4220,14 @@ rulePubEquation returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"fileUri",
-						lv_fileUri_4_0,
+						lv_fileUri_5_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.STRING");
 				}
 			)
 		)
-		otherlv_5='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getPubEquationAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getPubEquationAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

@@ -1,7 +1,6 @@
 package com.mimacom.ddd.pub.pub.diagramProvider;
 
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil;
@@ -20,7 +19,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class DiagramRendererProxy {
   private static final Logger LOGGER = Logger.getLogger(DiagramRendererProxy.class);
   
-  public final Class<? extends DModel> modelClass;
+  public final Class<? extends IDiagramRoot> diagramRootClass;
   
   public final String id;
   
@@ -34,10 +33,10 @@ public class DiagramRendererProxy {
   
   private IDiagramRenderer renderer = null;
   
-  public DiagramRendererProxy(final String id, final String diagramName, final Class<? extends DModel> modelClass, final String diagramTypeID, final IConfigurationElement configElement, final DiagramFileFormat format) {
+  public DiagramRendererProxy(final String id, final String diagramName, final Class<? extends IDiagramRoot> diagramRootClass, final String diagramTypeID, final IConfigurationElement configElement, final DiagramFileFormat format) {
     this.id = id;
     this.diagramName = diagramName;
-    this.modelClass = modelClass;
+    this.diagramRootClass = diagramRootClass;
     this.diagramTypeID = diagramTypeID;
     this.configElement = configElement;
     this.format = format;
@@ -67,6 +66,20 @@ public class DiagramRendererProxy {
     };
     SafeRunner.run(runnable);
     return IterableExtensions.<InputStream>head(result);
+  }
+  
+  public boolean canRender(final IDiagramRoot root) {
+    try {
+      return this.getRenderer().canRender(root);
+    } catch (final Throwable _t) {
+      if (_t instanceof Throwable) {
+        final Throwable t = (Throwable)_t;
+        DiagramRendererProxy.LOGGER.error(t);
+        return false;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
   }
   
   private IDiagramRenderer getRenderer() {

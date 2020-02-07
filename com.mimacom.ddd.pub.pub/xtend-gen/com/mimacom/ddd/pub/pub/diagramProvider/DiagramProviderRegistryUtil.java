@@ -12,7 +12,7 @@ public class DiagramProviderRegistryUtil {
   
   public static final String ATTR_RENDERER_DIAGRAM_NAME = "diagramName";
   
-  public static final String ATTR_RENDERER_MODEL_CLASS = "modelClass";
+  public static final String ATTR_RENDERER_DIAGRAM_ROOT_CLASS = "diagramRootClass";
   
   public static final String ATTR_RENDERER_DIAGRAM_TYPE_ID = "diagramType";
   

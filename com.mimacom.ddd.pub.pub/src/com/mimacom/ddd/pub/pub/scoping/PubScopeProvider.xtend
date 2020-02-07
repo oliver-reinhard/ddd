@@ -10,6 +10,7 @@ import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.PubModel
 import com.mimacom.ddd.pub.pub.PubPackage
 import com.mimacom.ddd.pub.pub.Reference
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -31,6 +32,7 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 	static val PUB = PubPackage.eINSTANCE
 
 	@Inject IQualifiedNameProvider qualifiedNameProvider
+	@Inject DiagramProviderRegistry registry
 
 	override IScope getScope(EObject context, EReference reference) {
 
@@ -57,20 +59,25 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 			return getDefaultScopeOfType(context, targetScope)
 
 		} else if (reference == PUB.figure_Renderer && context instanceof Figure) {
+			val figure = context as Figure
 			val model = EcoreUtil2.getContainerOfType(context, PubModel)
 			if (model !== null) {
 				// model.figureRenderers are installed by ExtensionPointsScopeElementsDerivedStateComputer
 				if (model.figureRenderers.empty) {
 					return IScope.NULLSCOPE
+					
+				} else if (figure.diagramRoot !== null) {
+					// limit figure renderers to those providing for the class of the given diagram-root: 
+					val diagramProviderIds = registry.getDiagramProviders(figure.diagramRoot.class).map[it.id].toList
+					// Scopes.scopeFor does not use an IQualifiedNameProvider to compute the qualified name of the objects
+					return createScopeWithQualifiedNames(model.figureRenderers.filter[diagramProviderIds.contains(it.name)])
 				}
-				// Scopes.scopeFor does not use an IQualifiedNameProvider to compute the qualified name of the objects
-				return createScopeWithQualifiedNames(model.figureRenderers)
 			}
 		}
 		return super.getScope(context, reference)
 	}
 
-	protected def createScopeWithQualifiedNames(List<? extends EObject> objects) {
+	protected def createScopeWithQualifiedNames(Iterable<? extends EObject> objects) {
 		val List<IEObjectDescription> descriptions = Lists.newArrayList
 		for (obj : objects) {
 			descriptions.add(new EObjectDescription(qualifiedNameProvider.getFullyQualifiedName(obj), obj, null))

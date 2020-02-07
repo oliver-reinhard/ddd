@@ -2643,34 +2643,34 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFigureKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cPubTitledBlockHeaderParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
-		private final Keyword cIncludeKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Keyword cRootKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
-		private final Assignment cDiagramRootAssignment_3_0_2 = (Assignment)cGroup_3_0.eContents().get(2);
-		private final CrossReference cDiagramRootIDiagramRootCrossReference_3_0_2_0 = (CrossReference)cDiagramRootAssignment_3_0_2.eContents().get(0);
-		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_3_0_2_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_3_0_2_0.eContents().get(1);
-		private final Keyword cDiagramKeyword_3_0_3 = (Keyword)cGroup_3_0.eContents().get(3);
-		private final Assignment cRendererAssignment_3_0_4 = (Assignment)cGroup_3_0.eContents().get(4);
-		private final CrossReference cRendererFigureRendererCrossReference_3_0_4_0 = (CrossReference)cRendererAssignment_3_0_4.eContents().get(0);
-		private final RuleCall cRendererFigureRendererDQualifiedNameParserRuleCall_3_0_4_0_1 = (RuleCall)cRendererFigureRendererCrossReference_3_0_4_0.eContents().get(1);
-		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cUriKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cFileUriAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cFileUriSTRINGTerminalRuleCall_3_1_1_0 = (RuleCall)cFileUriAssignment_3_1_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cIncludeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
+		private final Keyword cRootKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Assignment cDiagramRootAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final CrossReference cDiagramRootIDiagramRootCrossReference_4_0_1_0 = (CrossReference)cDiagramRootAssignment_4_0_1.eContents().get(0);
+		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_4_0_1_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_4_0_1_0.eContents().get(1);
+		private final Keyword cDiagramKeyword_4_0_2 = (Keyword)cGroup_4_0.eContents().get(2);
+		private final Assignment cRendererAssignment_4_0_3 = (Assignment)cGroup_4_0.eContents().get(3);
+		private final CrossReference cRendererFigureRendererCrossReference_4_0_3_0 = (CrossReference)cRendererAssignment_4_0_3.eContents().get(0);
+		private final RuleCall cRendererFigureRendererDQualifiedNameParserRuleCall_4_0_3_0_1 = (RuleCall)cRendererFigureRendererCrossReference_4_0_3_0.eContents().get(1);
+		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
+		private final Keyword cUriKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cFileUriAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cFileUriSTRINGTerminalRuleCall_4_1_1_0 = (RuleCall)cFileUriAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//PubFigure Figure:
 		//	'Figure'
 		//	PubTitledBlockHeader
-		//	'{' ('include'
-		//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+		//	'{'
+		//	'include' ('root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 		//	'diagram:' renderer=[FigureRenderer|DQualifiedName] | 'uri:' fileUri=STRING // TODO Validation
 		//)
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Figure' PubTitledBlockHeader '{' ('include' 'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:'
+		//'Figure' PubTitledBlockHeader '{' 'include' ('root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:'
 		//renderer=[FigureRenderer|DQualifiedName] | 'uri:' fileUri=STRING // TODO Validation
 		//) '}'
 		public Group getGroup() { return cGroup; }
@@ -2684,55 +2684,55 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('include' 'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:' renderer=[FigureRenderer|DQualifiedName] |
-		//'uri:' fileUri=STRING // TODO Validation
-		//)
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-		
-		//'include' 'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:' renderer=[FigureRenderer|DQualifiedName]
-		public Group getGroup_3_0() { return cGroup_3_0; }
-		
 		//'include'
-		public Keyword getIncludeKeyword_3_0_0() { return cIncludeKeyword_3_0_0; }
+		public Keyword getIncludeKeyword_3() { return cIncludeKeyword_3; }
+		
+		//('root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:' renderer=[FigureRenderer|DQualifiedName] | 'uri:'
+		//fileUri=STRING // TODO Validation
+		//)
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		
+		//'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:' renderer=[FigureRenderer|DQualifiedName]
+		public Group getGroup_4_0() { return cGroup_4_0; }
 		
 		//'root:'
-		public Keyword getRootKeyword_3_0_1() { return cRootKeyword_3_0_1; }
+		public Keyword getRootKeyword_4_0_0() { return cRootKeyword_4_0_0; }
 		
 		//diagramRoot=[IDiagramRoot|DQualifiedName]
-		public Assignment getDiagramRootAssignment_3_0_2() { return cDiagramRootAssignment_3_0_2; }
+		public Assignment getDiagramRootAssignment_4_0_1() { return cDiagramRootAssignment_4_0_1; }
 		
 		//[IDiagramRoot|DQualifiedName]
-		public CrossReference getDiagramRootIDiagramRootCrossReference_3_0_2_0() { return cDiagramRootIDiagramRootCrossReference_3_0_2_0; }
+		public CrossReference getDiagramRootIDiagramRootCrossReference_4_0_1_0() { return cDiagramRootIDiagramRootCrossReference_4_0_1_0; }
 		
 		//DQualifiedName
-		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_3_0_2_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_3_0_2_0_1; }
+		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_4_0_1_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_4_0_1_0_1; }
 		
 		//'diagram:'
-		public Keyword getDiagramKeyword_3_0_3() { return cDiagramKeyword_3_0_3; }
+		public Keyword getDiagramKeyword_4_0_2() { return cDiagramKeyword_4_0_2; }
 		
 		//renderer=[FigureRenderer|DQualifiedName]
-		public Assignment getRendererAssignment_3_0_4() { return cRendererAssignment_3_0_4; }
+		public Assignment getRendererAssignment_4_0_3() { return cRendererAssignment_4_0_3; }
 		
 		//[FigureRenderer|DQualifiedName]
-		public CrossReference getRendererFigureRendererCrossReference_3_0_4_0() { return cRendererFigureRendererCrossReference_3_0_4_0; }
+		public CrossReference getRendererFigureRendererCrossReference_4_0_3_0() { return cRendererFigureRendererCrossReference_4_0_3_0; }
 		
 		//DQualifiedName
-		public RuleCall getRendererFigureRendererDQualifiedNameParserRuleCall_3_0_4_0_1() { return cRendererFigureRendererDQualifiedNameParserRuleCall_3_0_4_0_1; }
+		public RuleCall getRendererFigureRendererDQualifiedNameParserRuleCall_4_0_3_0_1() { return cRendererFigureRendererDQualifiedNameParserRuleCall_4_0_3_0_1; }
 		
 		//'uri:' fileUri=STRING
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		public Group getGroup_4_1() { return cGroup_4_1; }
 		
 		//'uri:'
-		public Keyword getUriKeyword_3_1_0() { return cUriKeyword_3_1_0; }
+		public Keyword getUriKeyword_4_1_0() { return cUriKeyword_4_1_0; }
 		
 		//fileUri=STRING
-		public Assignment getFileUriAssignment_3_1_1() { return cFileUriAssignment_3_1_1; }
+		public Assignment getFileUriAssignment_4_1_1() { return cFileUriAssignment_4_1_1; }
 		
 		//STRING
-		public RuleCall getFileUriSTRINGTerminalRuleCall_3_1_1_0() { return cFileUriSTRINGTerminalRuleCall_3_1_1_0; }
+		public RuleCall getFileUriSTRINGTerminalRuleCall_4_1_1_0() { return cFileUriSTRINGTerminalRuleCall_4_1_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class PubEquationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubEquation");
@@ -2740,20 +2740,21 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEquationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cPubTitledBlockHeaderParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cUriKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cFileUriAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cFileUriSTRINGTerminalRuleCall_4_0 = (RuleCall)cFileUriAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cIncludeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cUriKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cFileUriAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFileUriSTRINGTerminalRuleCall_5_0 = (RuleCall)cFileUriAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//PubEquation Equation:
 		//	'Equation'
 		//	PubTitledBlockHeader
 		//	'{'
-		//	'uri:' fileUri=STRING // TODO Validation
+		//	'include' 'uri:' fileUri=STRING // TODO Validation
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Equation' PubTitledBlockHeader '{' 'uri:' fileUri=STRING // TODO Validation
+		//'Equation' PubTitledBlockHeader '{' 'include' 'uri:' fileUri=STRING // TODO Validation
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -2766,18 +2767,21 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
+		//'include'
+		public Keyword getIncludeKeyword_3() { return cIncludeKeyword_3; }
+		
 		//'uri:'
-		public Keyword getUriKeyword_3() { return cUriKeyword_3; }
+		public Keyword getUriKeyword_4() { return cUriKeyword_4; }
 		
 		//fileUri=STRING
-		public Assignment getFileUriAssignment_4() { return cFileUriAssignment_4; }
+		public Assignment getFileUriAssignment_5() { return cFileUriAssignment_5; }
 		
 		//STRING
-		public RuleCall getFileUriSTRINGTerminalRuleCall_4_0() { return cFileUriSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getFileUriSTRINGTerminalRuleCall_5_0() { return cFileUriSTRINGTerminalRuleCall_5_0; }
 		
 		//// TODO Validation
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class PubCodeListingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubCodeListing");
@@ -4095,8 +4099,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//PubFigure Figure:
 	//	'Figure'
 	//	PubTitledBlockHeader
-	//	'{' ('include'
-	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	//	'{'
+	//	'include' ('root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	//	'diagram:' renderer=[FigureRenderer|DQualifiedName] | 'uri:' fileUri=STRING // TODO Validation
 	//)
 	//	'}';
@@ -4112,7 +4116,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Equation'
 	//	PubTitledBlockHeader
 	//	'{'
-	//	'uri:' fileUri=STRING // TODO Validation
+	//	'include' 'uri:' fileUri=STRING // TODO Validation
 	//	'}';
 	public PubEquationElements getPubEquationAccess() {
 		return pPubEquation;

@@ -3,10 +3,11 @@ package com.mimacom.ddd.pub.pub.diagramProvider
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.DModel
+import com.mimacom.ddd.dm.base.IDiagramRoot
 import java.util.List
 import java.util.Map
 import org.apache.log4j.Logger
+import org.eclipse.core.runtime.ContributorFactoryOSGi
 import org.eclipse.core.runtime.IConfigurationElement
 import org.eclipse.core.runtime.InvalidRegistryObjectException
 import org.eclipse.core.runtime.Platform
@@ -22,10 +23,12 @@ class DiagramProviderRegistry {
 
 	var List<DiagramRendererProxy> cachedRenderers
 	var Map<String, String> cachedDiagramTypes
-	
+
 	private def loadExtensions() {
 		cachedDiagramTypes = Maps.newHashMap
-		for (ext : Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID).filter[name == ELEMENT_DIAGRAM_TYPE]) {
+		for (ext : Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID).filter [
+			name == ELEMENT_DIAGRAM_TYPE
+		]) {
 			LOGGER.info(ext.identify + ": extension loaded")
 
 			try {
@@ -37,30 +40,35 @@ class DiagramProviderRegistry {
 				// already handled by loadAttribute
 			}
 		}
-		
+
 		cachedRenderers = Lists.newArrayList
-		for (ext : Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID).filter[name == ELEMENT_RENDERER]) {
+		for (ext : Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID).filter [
+			name == ELEMENT_RENDERER
+		]) {
 			LOGGER.info(ext.identify + ": extension loaded")
 
 			try {
 				val id = ext.loadAttributeAndLogException(ATTR_RENDERER_ID)
 				val diagramName = ext.loadAttributeAndLogException(ATTR_RENDERER_DIAGRAM_NAME)
 				val diagramTypeID = ext.loadAttributeAndLogException(ATTR_RENDERER_DIAGRAM_TYPE_ID)
-				val modelClassName = ext.loadAttributeAndLogException(ATTR_RENDERER_MODEL_CLASS)
+				val diagramRootClassName = ext.loadAttributeAndLogException(ATTR_RENDERER_DIAGRAM_ROOT_CLASS)
 				val outputFileFormatName = ext.loadAttributeAndLogException(ATTR_RENDERER_OUTPUT_FILE_FORMAT)
 
 				try {
-					val modelClass = Class.forName(modelClassName) as Class<? extends DModel>
-					LOGGER.info("renderer model class loaded: " + modelClass.name)
+					val diagramRootClass = ext.loadDiagramRootClass(diagramRootClassName) // throws ClassNotFoundException
+					LOGGER.info("diagram root class loaded: " + diagramRootClass.name)
 					val outputFileFormat = DiagramFileFormat.valueOf(outputFileFormatName.toUpperCase)
 
 					cachedRenderers.add(
-						new DiagramRendererProxy(id, diagramName, modelClass, diagramTypeID, ext, outputFileFormat))
+						new DiagramRendererProxy(id, diagramName, diagramRootClass, diagramTypeID, ext,
+							outputFileFormat))
 
 				} catch (IllegalArgumentException ex) {
-					LOGGER.error(ext.identify(ATTR_RENDERER_OUTPUT_FILE_FORMAT) + ": unsupported format")
+					LOGGER.error(ext.identify(ATTR_RENDERER_OUTPUT_FILE_FORMAT) + ": Unsupported format: " +
+						outputFileFormatName)
 				} catch (ClassNotFoundException ex) {
-					LOGGER.error(ext.identify(ATTR_RENDERER_MODEL_CLASS) + ": class not found: " + modelClassName)
+					LOGGER.error(ext.identify(ATTR_RENDERER_DIAGRAM_ROOT_CLASS) + ": Class not found: " +
+						diagramRootClassName)
 				} catch (Throwable ex) {
 					LOGGER.error(ext.identify, ex)
 				}
@@ -86,16 +94,27 @@ class DiagramProviderRegistry {
 	}
 
 	def DiagramRendererProxy getDiagramProvider(String id) {
-		val candidates = diagramProviders.filter [it.id == id]
+		val candidates = diagramProviders.filter[it.id == id]
 		if (candidates.empty) {
 			return null
 		}
 		return candidates.head
 	}
 
-	def DiagramRendererProxy getDiagramProvider(Class<? extends DModel> modelClass, DiagramFileFormat format) {
+	def Iterable<DiagramRendererProxy> getDiagramProviders(Class<? extends IDiagramRoot> diagramRootClass) {
 		val candidates = diagramProviders.filter [
-			it.modelClass.isAssignableFrom(modelClass) && it.format == format
+			it.diagramRootClass.isAssignableFrom(diagramRootClass)
+		]
+		if (candidates.empty) {
+			return null
+		}
+		return candidates
+	}
+
+	def DiagramRendererProxy getDiagramProvider(Class<? extends IDiagramRoot> diagramRootClass,
+		DiagramFileFormat format) {
+		val candidates = diagramProviders.filter [
+			it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.format == format
 		]
 		if (candidates.empty) {
 			return null
@@ -103,10 +122,11 @@ class DiagramProviderRegistry {
 		return candidates.head
 	}
 
-	def DiagramRendererProxy getDiagramProvider(Class<? extends DModel> modelClass, String diagramTypeID,
+	def DiagramRendererProxy getDiagramProvider(Class<? extends IDiagramRoot> diagramRootClass, String diagramTypeID,
 		DiagramFileFormat format) {
 		val candidates = diagramProviders.filter [
-			it.modelClass.isAssignableFrom(modelClass) && it.diagramTypeID.equals(diagramTypeID) && it.format == format
+			it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.diagramTypeID.equals(diagramTypeID) &&
+				it.format == format
 		]
 		if (candidates.empty) {
 			return null
@@ -121,5 +141,12 @@ class DiagramProviderRegistry {
 			LOGGER.error(el.identify(attributeName) + ": unknown attribute")
 			throw ex
 		}
+	}
+
+	private def Class<? extends IDiagramRoot> loadDiagramRootClass(IConfigurationElement el,
+		String diagramRootClassName) throws ClassNotFoundException {
+		val bundle = ContributorFactoryOSGi.resolve(el.contributor)
+		val clazz = bundle.loadClass(diagramRootClassName) as Class<? extends IDiagramRoot>
+		return clazz
 	}
 }

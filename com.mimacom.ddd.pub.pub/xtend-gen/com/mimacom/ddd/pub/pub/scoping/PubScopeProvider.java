@@ -6,11 +6,15 @@ package com.mimacom.ddd.pub.pub.scoping;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.Figure;
+import com.mimacom.ddd.pub.pub.FigureRenderer;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.ReferenceScope;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.scoping.AbstractPubScopeProvider;
 import java.util.List;
 import org.eclipse.emf.ecore.EClass;
@@ -23,6 +27,8 @@ import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * This class contains custom scoping description.
@@ -36,6 +42,9 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
   
   @Inject
   private IQualifiedNameProvider qualifiedNameProvider;
+  
+  @Inject
+  private DiagramProviderRegistry registry;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
@@ -103,20 +112,33 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
       return this.getDefaultScopeOfType(context, targetScope);
     } else {
       if ((Objects.equal(reference, PubScopeProvider.PUB.getFigure_Renderer()) && (context instanceof Figure))) {
+        final Figure figure = ((Figure) context);
         final PubModel model = EcoreUtil2.<PubModel>getContainerOfType(context, PubModel.class);
         if ((model != null)) {
           boolean _isEmpty = model.getFigureRenderers().isEmpty();
           if (_isEmpty) {
             return IScope.NULLSCOPE;
+          } else {
+            IDiagramRoot _diagramRoot = figure.getDiagramRoot();
+            boolean _tripleNotEquals = (_diagramRoot != null);
+            if (_tripleNotEquals) {
+              final Function1<DiagramRendererProxy, String> _function = (DiagramRendererProxy it) -> {
+                return it.id;
+              };
+              final List<String> diagramProviderIds = IterableExtensions.<String>toList(IterableExtensions.<DiagramRendererProxy, String>map(this.registry.getDiagramProviders(figure.getDiagramRoot().getClass()), _function));
+              final Function1<FigureRenderer, Boolean> _function_1 = (FigureRenderer it) -> {
+                return Boolean.valueOf(diagramProviderIds.contains(it.getName()));
+              };
+              return this.createScopeWithQualifiedNames(IterableExtensions.<FigureRenderer>filter(model.getFigureRenderers(), _function_1));
+            }
           }
-          return this.createScopeWithQualifiedNames(model.getFigureRenderers());
         }
       }
     }
     return super.getScope(context, reference);
   }
   
-  protected SimpleScope createScopeWithQualifiedNames(final List<? extends EObject> objects) {
+  protected SimpleScope createScopeWithQualifiedNames(final Iterable<? extends EObject> objects) {
     final List<IEObjectDescription> descriptions = Lists.<IEObjectDescription>newArrayList();
     for (final EObject obj : objects) {
       QualifiedName _fullyQualifiedName = this.qualifiedNameProvider.getFullyQualifiedName(obj);

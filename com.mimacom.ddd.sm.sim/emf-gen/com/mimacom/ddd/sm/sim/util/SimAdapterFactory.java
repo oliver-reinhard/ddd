@@ -224,11 +224,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabModelRuleAdapter();
 			}
 			@Override
-			public Adapter caseIDiagramRoot(IDiagramRoot object)
-			{
-				return createIDiagramRootAdapter();
-			}
-			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
 			{
 				return createDNamedElementAdapter();
@@ -237,6 +232,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDModel(DModel object)
 			{
 				return createDModelAdapter();
+			}
+			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
 			}
 			@Override
 			public Adapter caseIAggregateContainer(IAggregateContainer object)
@@ -746,21 +746,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
-	 * @generated
-	 */
-	public Adapter createIDiagramRootAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -786,6 +771,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
 	{
 		return null;
 	}

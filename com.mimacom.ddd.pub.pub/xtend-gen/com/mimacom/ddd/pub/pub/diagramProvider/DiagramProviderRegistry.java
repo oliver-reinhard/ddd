@@ -4,13 +4,14 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.inject.Singleton;
-import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.ContributorFactoryOSGi;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.core.runtime.Platform;
@@ -18,6 +19,7 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.osgi.framework.Bundle;
 
 @Singleton
 @SuppressWarnings("all")
@@ -67,27 +69,27 @@ public class DiagramProviderRegistry {
           final String id = this.loadAttributeAndLogException(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_ID);
           final String diagramName = this.loadAttributeAndLogException(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_DIAGRAM_NAME);
           final String diagramTypeID = this.loadAttributeAndLogException(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_DIAGRAM_TYPE_ID);
-          final String modelClassName = this.loadAttributeAndLogException(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_MODEL_CLASS);
+          final String diagramRootClassName = this.loadAttributeAndLogException(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_DIAGRAM_ROOT_CLASS);
           final String outputFileFormatName = this.loadAttributeAndLogException(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_OUTPUT_FILE_FORMAT);
           try {
-            Class<?> _forName = Class.forName(modelClassName);
-            final Class<? extends DModel> modelClass = ((Class<? extends DModel>) _forName);
-            String _name = modelClass.getName();
-            String _plus_1 = ("renderer model class loaded: " + _name);
+            final Class<? extends IDiagramRoot> diagramRootClass = this.loadDiagramRootClass(ext_1, diagramRootClassName);
+            String _name = diagramRootClass.getName();
+            String _plus_1 = ("diagram root class loaded: " + _name);
             DiagramProviderRegistry.LOGGER.info(_plus_1);
             final DiagramFileFormat outputFileFormat = DiagramFileFormat.valueOf(outputFileFormatName.toUpperCase());
-            DiagramRendererProxy _diagramRendererProxy = new DiagramRendererProxy(id, diagramName, modelClass, diagramTypeID, ext_1, outputFileFormat);
+            DiagramRendererProxy _diagramRendererProxy = new DiagramRendererProxy(id, diagramName, diagramRootClass, diagramTypeID, ext_1, outputFileFormat);
             this.cachedRenderers.add(_diagramRendererProxy);
           } catch (final Throwable _t) {
             if (_t instanceof IllegalArgumentException) {
               String _identify_1 = DiagramProviderRegistryUtil.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_OUTPUT_FILE_FORMAT);
-              String _plus_2 = (_identify_1 + ": unsupported format");
-              DiagramProviderRegistry.LOGGER.error(_plus_2);
+              String _plus_2 = (_identify_1 + ": Unsupported format: ");
+              String _plus_3 = (_plus_2 + outputFileFormatName);
+              DiagramProviderRegistry.LOGGER.error(_plus_3);
             } else if (_t instanceof ClassNotFoundException) {
-              String _identify_2 = DiagramProviderRegistryUtil.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_MODEL_CLASS);
-              String _plus_3 = (_identify_2 + ": class not found: ");
-              String _plus_4 = (_plus_3 + modelClassName);
-              DiagramProviderRegistry.LOGGER.error(_plus_4);
+              String _identify_2 = DiagramProviderRegistryUtil.identify(ext_1, DiagramProviderRegistryUtil.ATTR_RENDERER_DIAGRAM_ROOT_CLASS);
+              String _plus_4 = (_identify_2 + ": Class not found: ");
+              String _plus_5 = (_plus_4 + diagramRootClassName);
+              DiagramProviderRegistry.LOGGER.error(_plus_5);
             } else if (_t instanceof Throwable) {
               final Throwable ex_2 = (Throwable)_t;
               DiagramProviderRegistry.LOGGER.error(DiagramProviderRegistryUtil.identify(ext_1), ex_2);
@@ -131,9 +133,21 @@ public class DiagramProviderRegistry {
     return IterableExtensions.<DiagramRendererProxy>head(candidates);
   }
   
-  public DiagramRendererProxy getDiagramProvider(final Class<? extends DModel> modelClass, final DiagramFileFormat format) {
+  public Iterable<DiagramRendererProxy> getDiagramProviders(final Class<? extends IDiagramRoot> diagramRootClass) {
     final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
-      return Boolean.valueOf((it.modelClass.isAssignableFrom(modelClass) && Objects.equal(it.format, format)));
+      return Boolean.valueOf(it.diagramRootClass.isAssignableFrom(diagramRootClass));
+    };
+    final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getDiagramProviders())), _function);
+    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
+    if (_isEmpty) {
+      return null;
+    }
+    return candidates;
+  }
+  
+  public DiagramRendererProxy getDiagramProvider(final Class<? extends IDiagramRoot> diagramRootClass, final DiagramFileFormat format) {
+    final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
+      return Boolean.valueOf((it.diagramRootClass.isAssignableFrom(diagramRootClass) && Objects.equal(it.format, format)));
     };
     final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getDiagramProviders())), _function);
     boolean _isEmpty = IterableExtensions.isEmpty(candidates);
@@ -143,9 +157,10 @@ public class DiagramProviderRegistry {
     return IterableExtensions.<DiagramRendererProxy>head(candidates);
   }
   
-  public DiagramRendererProxy getDiagramProvider(final Class<? extends DModel> modelClass, final String diagramTypeID, final DiagramFileFormat format) {
+  public DiagramRendererProxy getDiagramProvider(final Class<? extends IDiagramRoot> diagramRootClass, final String diagramTypeID, final DiagramFileFormat format) {
     final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
-      return Boolean.valueOf(((it.modelClass.isAssignableFrom(modelClass) && it.diagramTypeID.equals(diagramTypeID)) && Objects.equal(it.format, format)));
+      return Boolean.valueOf(((it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.diagramTypeID.equals(diagramTypeID)) && 
+        Objects.equal(it.format, format)));
     };
     final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getDiagramProviders())), _function);
     boolean _isEmpty = IterableExtensions.isEmpty(candidates);
@@ -169,5 +184,12 @@ public class DiagramProviderRegistry {
         throw Exceptions.sneakyThrow(_t);
       }
     }
+  }
+  
+  private Class<? extends IDiagramRoot> loadDiagramRootClass(final IConfigurationElement el, final String diagramRootClassName) throws ClassNotFoundException {
+    final Bundle bundle = ContributorFactoryOSGi.resolve(el.getContributor());
+    Class<?> _loadClass = bundle.loadClass(diagramRootClassName);
+    final Class<? extends IDiagramRoot> clazz = ((Class<? extends IDiagramRoot>) _loadClass);
+    return clazz;
   }
 }
