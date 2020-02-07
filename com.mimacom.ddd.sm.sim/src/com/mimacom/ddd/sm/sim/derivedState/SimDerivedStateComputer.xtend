@@ -57,7 +57,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	def void processInformationModel(SInformationModel model, TransformationContext context) {
 		// First: process the types defined by the model:
 		val typeDeductionDefinitions = model.types.filter(STypeDeduction)?.toList // cannot sort iterable 
-		if (typeDeductionDefinitions !== null) {
+		if (! typeDeductionDefinitions.empty) {
 			Collections.sort(typeDeductionDefinitions, new TypeSorter)
 			val complexSyntheticTypes = Lists.newArrayList
 			for (definition : typeDeductionDefinitions) {

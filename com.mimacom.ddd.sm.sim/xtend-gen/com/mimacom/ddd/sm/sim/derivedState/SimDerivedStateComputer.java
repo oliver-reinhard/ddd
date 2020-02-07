@@ -97,7 +97,9 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       _list=IterableExtensions.<STypeDeduction>toList(_filter);
     }
     final List<STypeDeduction> typeDeductionDefinitions = _list;
-    if ((typeDeductionDefinitions != null)) {
+    boolean _isEmpty = typeDeductionDefinitions.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
       TypeSorter _typeSorter = new TypeSorter();
       Collections.<STypeDeduction>sort(typeDeductionDefinitions, _typeSorter);
       final ArrayList<SyntheticFeatureContainerDescriptor> complexSyntheticTypes = Lists.<SyntheticFeatureContainerDescriptor>newArrayList();
