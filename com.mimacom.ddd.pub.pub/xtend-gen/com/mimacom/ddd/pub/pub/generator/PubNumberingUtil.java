@@ -10,14 +10,14 @@ import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
-import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.NumberedElement;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
-import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import com.mimacom.ddd.pub.pub.TitledFigure;
+import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.generator.PubElementNames;
 import com.mimacom.ddd.pub.pub.impl.PubConstants;
 import java.util.Arrays;
@@ -332,15 +332,15 @@ public class PubNumberingUtil {
     }
   }
   
-  public List<Table> gatherAllTablesInSequenceAndSetSequenceNumbers(final Component compo) {
-    final List<Table> acceptor = Lists.<Table>newArrayList();
-    this.<Table>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Table.class, acceptor);
+  public List<TitledTable> gatherAllTablesInSequenceAndSetSequenceNumbers(final Component compo) {
+    final List<TitledTable> acceptor = Lists.<TitledTable>newArrayList();
+    this.<TitledTable>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, TitledTable.class, acceptor);
     return acceptor;
   }
   
-  public List<Figure> gatherAllFiguresInSequenceAndSetSequenceNumbers(final Component compo) {
-    final List<Figure> acceptor = Lists.<Figure>newArrayList();
-    this.<Figure>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Figure.class, acceptor);
+  public List<TitledFigure> gatherAllFiguresInSequenceAndSetSequenceNumbers(final Component compo) {
+    final List<TitledFigure> acceptor = Lists.<TitledFigure>newArrayList();
+    this.<TitledFigure>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, TitledFigure.class, acceptor);
     return acceptor;
   }
   

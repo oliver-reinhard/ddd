@@ -14,8 +14,6 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
@@ -412,8 +410,8 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         String _name_1 = q.getType().getName();
         _builder.append(_name_1);
         _builder.append(" ");
-        String _generateMultiplicity = this.generateMultiplicity(q);
-        _builder.append(_generateMultiplicity);
+        String _multiplicityText = this._dimUtil.multiplicityText(q);
+        _builder.append(_multiplicityText);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -437,8 +435,8 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
       }
     }
     _builder.append(" ");
-    String _generateMultiplicity = this.generateMultiplicity(a);
-    _builder.append(_generateMultiplicity);
+    String _multiplicityText = this._dimUtil.multiplicityText(a);
+    _builder.append(_multiplicityText);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -458,8 +456,8 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         String _name_1 = q.getType().getName();
         _builder.append(_name_1);
         _builder.append(" ");
-        String _generateMultiplicity = this.generateMultiplicity(q);
-        _builder.append(_generateMultiplicity);
+        String _multiplicityText = this._dimUtil.multiplicityText(q);
+        _builder.append(_multiplicityText);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -488,8 +486,8 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         String _name_1 = p.getType().getName();
         _builder.append(_name_1);
         _builder.append(" ");
-        String _generateMultiplicity = this.generateMultiplicity(p);
-        _builder.append(_generateMultiplicity);
+        String _multiplicityText = this._dimUtil.multiplicityText(p);
+        _builder.append(_multiplicityText);
       }
     }
     return _builder;
@@ -561,28 +559,6 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
       return this._dimUtil.aggregateName(target);
     }
     return this._dimUtil.domainName(target);
-  }
-  
-  public String generateMultiplicity(final DNavigableMember member) {
-    DMultiplicity _multiplicity = member.getMultiplicity();
-    boolean _tripleEquals = (_multiplicity == null);
-    if (_tripleEquals) {
-      return "";
-    }
-    String _xifexpression = null;
-    int _maxOccurs = member.getMultiplicity().getMaxOccurs();
-    boolean _equals = (_maxOccurs == (-1));
-    if (_equals) {
-      _xifexpression = "*";
-    } else {
-      _xifexpression = Integer.valueOf(member.getMultiplicity().getMaxOccurs()).toString();
-    }
-    final String maxOccurs = _xifexpression;
-    int _minOccurs = member.getMultiplicity().getMinOccurs();
-    String _plus = ("(" + Integer.valueOf(_minOccurs));
-    String _plus_1 = (_plus + ",");
-    String _plus_2 = (_plus_1 + maxOccurs);
-    return (_plus_2 + ")");
   }
   
   public CharSequence generateType(final DType e) {

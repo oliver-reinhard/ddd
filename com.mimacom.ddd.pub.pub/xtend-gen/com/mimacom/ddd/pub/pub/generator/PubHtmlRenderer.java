@@ -12,27 +12,29 @@ import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
+import com.mimacom.ddd.pub.pub.AbstractFigure;
 import com.mimacom.ddd.pub.pub.Admonition;
-import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
-import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
-import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
+import com.mimacom.ddd.pub.pub.RichTextParagraph;
+import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph;
 import com.mimacom.ddd.pub.pub.SegmentWithTable;
 import com.mimacom.ddd.pub.pub.SegmentWithText;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import com.mimacom.ddd.pub.pub.TitledCodeListing;
+import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
 import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
@@ -40,6 +42,7 @@ import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
@@ -61,6 +64,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   private PubGeneratorUtil _pubGeneratorUtil;
   
   public static final String DOCUMENT_SUFFIX = "html";
+  
+  public static final String CSS_FILENAME = "pubstyles.css";
   
   @Override
   public String fileSuffix(final Document doc) {
@@ -111,7 +116,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("}");
     _builder.newLine();
     final String css = _builder.toString();
-    fsa.generateFile("styles.css", css);
+    fsa.generateFile(PubHtmlRenderer.CSS_FILENAME, css);
   }
   
   @Override
@@ -137,8 +142,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("</title>");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
-    _builder.append("<link rel=\"stylesheet\" href=\"styles.css\">");
-    _builder.newLine();
+    _builder.append("<link rel=\"stylesheet\" href=\"");
+    _builder.append(PubHtmlRenderer.CSS_FILENAME, "  ");
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
     _builder.append("</head>");
     _builder.newLine();
     _builder.newLine();
@@ -498,12 +505,13 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderFigure(final Figure f, final String fileUri) {
+  public CharSequence renderFigure(final AbstractFigure f, final String fileUri) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<img src=\"");
     _builder.append(fileUri);
     _builder.append("\" alt=\"");
-    CharSequence _renderRichText = this.renderRichText(f.getTitle());
+    EObject _eContainer = f.eContainer();
+    CharSequence _renderRichText = this.renderRichText(((TitledFigure) _eContainer).getTitle());
     _builder.append(_renderRichText);
     _builder.append("\">");
     _builder.newLineIfNotEmpty();
@@ -519,7 +527,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderCodeListing(final CodeListing cl, final java.util.List<String> codeLines) {
+  public CharSequence renderCodeListing(final TitledCodeListing cl, final java.util.List<String> codeLines) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<pre>");
     _builder.newLine();
@@ -534,7 +542,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderPlainParagraph(final Paragraph para) {
+  public CharSequence renderPlainParagraph(final RichTextParagraph para) {
     StringConcatenation _builder = new StringConcatenation();
     {
       boolean _isOnlyContentBlockOfTableCell = this.isOnlyContentBlockOfTableCell(para);
@@ -556,7 +564,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderQuotedParagraph(final Paragraph para) {
+  public CharSequence renderQuotedParagraph(final RichTextParagraph para) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<p><blockquote>");
     CharSequence _renderRichText = this.renderRichText(para.getText());
@@ -578,6 +586,24 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
         _builder.append("<p>");
         String _text_1 = para.getText();
         _builder.append(_text_1);
+        _builder.append("</p>");
+      }
+    }
+    return _builder;
+  }
+  
+  @Override
+  public CharSequence renderRichTextReferencingParagraph(final RichTextReferencingParagraph para) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isOnlyContentBlockOfTableCell = this.isOnlyContentBlockOfTableCell(para);
+      if (_isOnlyContentBlockOfTableCell) {
+        CharSequence _renderRichText = this.renderRichText(para.getText());
+        _builder.append(_renderRichText);
+      } else {
+        _builder.append("<p>");
+        CharSequence _renderRichText_1 = this.renderRichText(para.getText());
+        _builder.append(_renderRichText_1);
         _builder.append("</p>");
       }
     }

@@ -15,8 +15,7 @@ import static extension com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderR
 
 class DiagramRendererProxy {
 
-
-	static final Logger LOGGER = Logger.getLogger(DiagramRendererProxy);
+	static val Logger LOGGER = Logger.getLogger(DiagramRendererProxy);
 	
 	public val Class<? extends IDiagramRoot> diagramRootClass
 	public val String id

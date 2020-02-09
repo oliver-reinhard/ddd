@@ -428,13 +428,26 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PubPackage.TITLED_TABLE: {
+				TitledTable titledTable = (TitledTable)theEObject;
+				T result = caseTitledTable(titledTable);
+				if (result == null) result = caseTitledBlock(titledTable);
+				if (result == null) result = caseContentBlock(titledTable);
+				if (result == null) result = caseNumberedElement(titledTable);
+				if (result == null) result = caseReferenceTarget(titledTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.ABSTRACT_TABLE: {
+				AbstractTable abstractTable = (AbstractTable)theEObject;
+				T result = caseAbstractTable(abstractTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PubPackage.TABLE: {
 				Table table = (Table)theEObject;
 				T result = caseTable(table);
-				if (result == null) result = caseTitledBlock(table);
-				if (result == null) result = caseContentBlock(table);
-				if (result == null) result = caseNumberedElement(table);
-				if (result == null) result = caseReferenceTarget(table);
+				if (result == null) result = caseAbstractTable(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -451,13 +464,46 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PubPackage.FIGURE: {
-				Figure figure = (Figure)theEObject;
-				T result = caseFigure(figure);
-				if (result == null) result = caseTitledBlock(figure);
-				if (result == null) result = caseContentBlock(figure);
-				if (result == null) result = caseNumberedElement(figure);
-				if (result == null) result = caseReferenceTarget(figure);
+			case PubPackage.PROVIDED_TABLE: {
+				ProvidedTable providedTable = (ProvidedTable)theEObject;
+				T result = caseProvidedTable(providedTable);
+				if (result == null) result = caseAbstractTable(providedTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.TABLE_RENDERER: {
+				TableRenderer tableRenderer = (TableRenderer)theEObject;
+				T result = caseTableRenderer(tableRenderer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.TITLED_FIGURE: {
+				TitledFigure titledFigure = (TitledFigure)theEObject;
+				T result = caseTitledFigure(titledFigure);
+				if (result == null) result = caseTitledBlock(titledFigure);
+				if (result == null) result = caseContentBlock(titledFigure);
+				if (result == null) result = caseNumberedElement(titledFigure);
+				if (result == null) result = caseReferenceTarget(titledFigure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.ABSTRACT_FIGURE: {
+				AbstractFigure abstractFigure = (AbstractFigure)theEObject;
+				T result = caseAbstractFigure(abstractFigure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.INCLUDED_FIGURE: {
+				IncludedFigure includedFigure = (IncludedFigure)theEObject;
+				T result = caseIncludedFigure(includedFigure);
+				if (result == null) result = caseAbstractFigure(includedFigure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.PROVIDED_FIGURE: {
+				ProvidedFigure providedFigure = (ProvidedFigure)theEObject;
+				T result = caseProvidedFigure(providedFigure);
+				if (result == null) result = caseAbstractFigure(providedFigure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -477,13 +523,13 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PubPackage.CODE_LISTING: {
-				CodeListing codeListing = (CodeListing)theEObject;
-				T result = caseCodeListing(codeListing);
-				if (result == null) result = caseTitledBlock(codeListing);
-				if (result == null) result = caseContentBlock(codeListing);
-				if (result == null) result = caseNumberedElement(codeListing);
-				if (result == null) result = caseReferenceTarget(codeListing);
+			case PubPackage.TITLED_CODE_LISTING: {
+				TitledCodeListing titledCodeListing = (TitledCodeListing)theEObject;
+				T result = caseTitledCodeListing(titledCodeListing);
+				if (result == null) result = caseTitledBlock(titledCodeListing);
+				if (result == null) result = caseContentBlock(titledCodeListing);
+				if (result == null) result = caseNumberedElement(titledCodeListing);
+				if (result == null) result = caseReferenceTarget(titledCodeListing);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -494,9 +540,25 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PubPackage.RICH_TEXT_PARAGRAPH: {
+				RichTextParagraph richTextParagraph = (RichTextParagraph)theEObject;
+				T result = caseRichTextParagraph(richTextParagraph);
+				if (result == null) result = caseParagraph(richTextParagraph);
+				if (result == null) result = caseContentBlock(richTextParagraph);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PubPackage.RICH_TEXT_REFERENCING_PARAGRAPH: {
+				RichTextReferencingParagraph richTextReferencingParagraph = (RichTextReferencingParagraph)theEObject;
+				T result = caseRichTextReferencingParagraph(richTextReferencingParagraph);
+				if (result == null) result = caseContentBlock(richTextReferencingParagraph);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PubPackage.UNFORMATTED_PARAGRAPH: {
 				UnformattedParagraph unformattedParagraph = (UnformattedParagraph)theEObject;
 				T result = caseUnformattedParagraph(unformattedParagraph);
+				if (result == null) result = caseParagraph(unformattedParagraph);
 				if (result == null) result = caseContentBlock(unformattedParagraph);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1136,6 +1198,36 @@ public class PubSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Titled Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Titled Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTitledTable(TitledTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractTable(AbstractTable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1181,17 +1273,92 @@ public class PubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Figure</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Figure</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Provided Table</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFigure(Figure object) {
+	public T caseProvidedTable(ProvidedTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Renderer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Renderer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTableRenderer(TableRenderer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Titled Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Titled Figure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTitledFigure(TitledFigure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Figure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractFigure(AbstractFigure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Included Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Included Figure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIncludedFigure(IncludedFigure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Provided Figure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProvidedFigure(ProvidedFigure object) {
 		return null;
 	}
 
@@ -1226,17 +1393,17 @@ public class PubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Code Listing</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Titled Code Listing</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Code Listing</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Titled Code Listing</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCodeListing(CodeListing object) {
+	public T caseTitledCodeListing(TitledCodeListing object) {
 		return null;
 	}
 
@@ -1252,6 +1419,36 @@ public class PubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParagraph(Paragraph object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rich Text Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rich Text Paragraph</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRichTextParagraph(RichTextParagraph object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rich Text Referencing Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rich Text Referencing Paragraph</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRichTextReferencingParagraph(RichTextReferencingParagraph object) {
 		return null;
 	}
 

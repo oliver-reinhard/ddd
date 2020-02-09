@@ -7,15 +7,19 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.FigureRenderer;
+import com.mimacom.ddd.pub.pub.ProvidedFigure;
+import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.ReferenceScope;
+import com.mimacom.ddd.pub.pub.TableRenderer;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.scoping.AbstractPubScopeProvider;
+import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry;
+import com.mimacom.ddd.pub.pub.tableProvider.TableRendererProxy;
 import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -44,7 +48,10 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
   private IQualifiedNameProvider qualifiedNameProvider;
   
   @Inject
-  private DiagramProviderRegistry registry;
+  private TableProviderRegistry tableProviderRegistry;
+  
+  @Inject
+  private DiagramProviderRegistry diagramProviderRegistry;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
@@ -78,16 +85,16 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
             _switchResult = PubScopeProvider.PUB.getSubsubsection();
             break;
           case TABLE:
-            _switchResult = PubScopeProvider.PUB.getTable();
+            _switchResult = PubScopeProvider.PUB.getTitledTable();
             break;
           case FIGURE:
-            _switchResult = PubScopeProvider.PUB.getFigure();
+            _switchResult = PubScopeProvider.PUB.getTitledFigure();
             break;
           case EQUATION:
             _switchResult = PubScopeProvider.PUB.getEquation();
             break;
           case CODE_LISTING:
-            _switchResult = PubScopeProvider.PUB.getCodeListing();
+            _switchResult = PubScopeProvider.PUB.getTitledCodeListing();
             break;
           case ADMONITION:
             _switchResult = PubScopeProvider.PUB.getAdmonition();
@@ -111,25 +118,49 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
       final EClass targetScope = _switchResult;
       return this.getDefaultScopeOfType(context, targetScope);
     } else {
-      if ((Objects.equal(reference, PubScopeProvider.PUB.getFigure_Renderer()) && (context instanceof Figure))) {
-        final Figure figure = ((Figure) context);
+      if ((Objects.equal(reference, PubScopeProvider.PUB.getProvidedTable_Renderer()) && (context instanceof ProvidedTable))) {
+        final ProvidedTable table = ((ProvidedTable) context);
         final PubModel model = EcoreUtil2.<PubModel>getContainerOfType(context, PubModel.class);
         if ((model != null)) {
-          boolean _isEmpty = model.getFigureRenderers().isEmpty();
+          boolean _isEmpty = model.getTableRenderers().isEmpty();
           if (_isEmpty) {
             return IScope.NULLSCOPE;
           } else {
-            IDiagramRoot _diagramRoot = figure.getDiagramRoot();
+            IDiagramRoot _diagramRoot = table.getDiagramRoot();
             boolean _tripleNotEquals = (_diagramRoot != null);
             if (_tripleNotEquals) {
-              final Function1<DiagramRendererProxy, String> _function = (DiagramRendererProxy it) -> {
+              final Function1<TableRendererProxy, String> _function = (TableRendererProxy it) -> {
                 return it.id;
               };
-              final List<String> diagramProviderIds = IterableExtensions.<String>toList(IterableExtensions.<DiagramRendererProxy, String>map(this.registry.getDiagramProviders(figure.getDiagramRoot().getClass()), _function));
-              final Function1<FigureRenderer, Boolean> _function_1 = (FigureRenderer it) -> {
-                return Boolean.valueOf(diagramProviderIds.contains(it.getName()));
+              final List<String> tableRendererIds = IterableExtensions.<String>toList(IterableExtensions.<TableRendererProxy, String>map(this.tableProviderRegistry.getTableRenderers(table.getDiagramRoot().getClass()), _function));
+              final Function1<TableRenderer, Boolean> _function_1 = (TableRenderer it) -> {
+                return Boolean.valueOf(tableRendererIds.contains(it.getName()));
               };
-              return this.createScopeWithQualifiedNames(IterableExtensions.<FigureRenderer>filter(model.getFigureRenderers(), _function_1));
+              return this.createScopeWithQualifiedNames(IterableExtensions.<TableRenderer>filter(model.getTableRenderers(), _function_1));
+            }
+          }
+        }
+      } else {
+        if ((Objects.equal(reference, PubScopeProvider.PUB.getProvidedFigure_Renderer()) && (context instanceof ProvidedFigure))) {
+          final ProvidedFigure figure = ((ProvidedFigure) context);
+          final PubModel model_1 = EcoreUtil2.<PubModel>getContainerOfType(context, PubModel.class);
+          if ((model_1 != null)) {
+            boolean _isEmpty_1 = model_1.getFigureRenderers().isEmpty();
+            if (_isEmpty_1) {
+              return IScope.NULLSCOPE;
+            } else {
+              IDiagramRoot _diagramRoot_1 = figure.getDiagramRoot();
+              boolean _tripleNotEquals_1 = (_diagramRoot_1 != null);
+              if (_tripleNotEquals_1) {
+                final Function1<DiagramRendererProxy, String> _function_2 = (DiagramRendererProxy it) -> {
+                  return it.id;
+                };
+                final List<String> diagramProviderIds = IterableExtensions.<String>toList(IterableExtensions.<DiagramRendererProxy, String>map(this.diagramProviderRegistry.getDiagramRenderers(figure.getDiagramRoot().getClass()), _function_2));
+                final Function1<FigureRenderer, Boolean> _function_3 = (FigureRenderer it) -> {
+                  return Boolean.valueOf(diagramProviderIds.contains(it.getName()));
+                };
+                return this.createScopeWithQualifiedNames(IterableExtensions.<FigureRenderer>filter(model_1.getFigureRenderers(), _function_3));
+              }
             }
           }
         }

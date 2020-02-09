@@ -8,6 +8,7 @@ import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.FigureRenderer;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
+import com.mimacom.ddd.pub.pub.TableRenderer;
 
 import java.util.Collection;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getDocument <em>Document</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getFigureRenderers <em>Figure Renderers</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.PubModelImpl#getTableRenderers <em>Table Renderers</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +72,16 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * @ordered
 	 */
 	protected EList<FigureRenderer> figureRenderers;
+
+	/**
+	 * The cached value of the '{@link #getTableRenderers() <em>Table Renderers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTableRenderers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TableRenderer> tableRenderers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,6 +179,19 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * @generated
 	 */
 	@Override
+	public EList<TableRenderer> getTableRenderers() {
+		if (tableRenderers == null) {
+			tableRenderers = new EObjectContainmentEList<TableRenderer>(TableRenderer.class, this, PubPackage.PUB_MODEL__TABLE_RENDERERS);
+		}
+		return tableRenderers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PubPackage.PUB_MODEL__IMPORTS:
@@ -175,6 +200,8 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 				return basicSetDocument(null, msgs);
 			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
 				return ((InternalEList<?>)getFigureRenderers()).basicRemove(otherEnd, msgs);
+			case PubPackage.PUB_MODEL__TABLE_RENDERERS:
+				return ((InternalEList<?>)getTableRenderers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -193,6 +220,8 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 				return getDocument();
 			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
 				return getFigureRenderers();
+			case PubPackage.PUB_MODEL__TABLE_RENDERERS:
+				return getTableRenderers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,6 +246,10 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 				getFigureRenderers().clear();
 				getFigureRenderers().addAll((Collection<? extends FigureRenderer>)newValue);
 				return;
+			case PubPackage.PUB_MODEL__TABLE_RENDERERS:
+				getTableRenderers().clear();
+				getTableRenderers().addAll((Collection<? extends TableRenderer>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -238,6 +271,9 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
 				getFigureRenderers().clear();
 				return;
+			case PubPackage.PUB_MODEL__TABLE_RENDERERS:
+				getTableRenderers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +292,8 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 				return document != null;
 			case PubPackage.PUB_MODEL__FIGURE_RENDERERS:
 				return figureRenderers != null && !figureRenderers.isEmpty();
+			case PubPackage.PUB_MODEL__TABLE_RENDERERS:
+				return tableRenderers != null && !tableRenderers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

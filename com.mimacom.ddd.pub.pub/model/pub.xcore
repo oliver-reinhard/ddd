@@ -15,6 +15,7 @@ class PubModel {
 	contains DImport[] imports
 	contains Document document
 	contains transient FigureRenderer[] figureRenderers
+	contains transient TableRenderer[] tableRenderers
 }
 
 //
@@ -331,11 +332,18 @@ abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarge
 	}
 }
 
-class Table extends TitledBlock {
-	int columns
+class TitledTable extends TitledBlock {
+	contains AbstractTable table
+}
+
+abstract class AbstractTable {
 	int widthPercent = "100"
-	boolean hideGrid
+}
+
+class Table extends AbstractTable {
+	int columns
 	contains TableRow[] rows opposite table
+	boolean hideGrid
 }
 
 class TableRow {
@@ -351,8 +359,28 @@ class TableCell extends BlockContainer {
 	container TableRow row opposite cells
 }
 
-class Figure extends TitledBlock {
+
+class ProvidedTable extends AbstractTable {
+	refers IDiagramRoot diagramRoot
+	refers TableRenderer renderer
+}
+
+class TableRenderer {
+	String name
+	String tableName
+}
+
+class TitledFigure extends TitledBlock {
+	contains AbstractFigure figure
+}
+
+abstract class AbstractFigure { }
+
+class IncludedFigure extends AbstractFigure {
 	String fileUri
+}
+
+class ProvidedFigure extends AbstractFigure {
 	refers IDiagramRoot diagramRoot
 	refers FigureRenderer renderer
 }
@@ -366,7 +394,7 @@ class Equation extends TitledBlock {
 	String fileUri
 }
 
-class CodeListing extends TitledBlock {
+class TitledCodeListing extends TitledBlock {
 	CodeLanguage format
 	String[] codeLines
 	refers EObject include
@@ -379,13 +407,31 @@ enum CodeLanguage {
 	, XML
 }
 
-class Paragraph extends ContentBlock {
+
+abstract class Paragraph extends ContentBlock { }
+
+class RichTextParagraph extends Paragraph {
 	ParagraphStyle style
 	contains DRichText text
 }
 
-// Internal, not exposed to user
-class UnformattedParagraph extends ContentBlock {
+/*
+ * Internal, not referenced by PUB grammar. 
+ * 
+ * Used to by table providers to reference DRichText elements of models instead of 
+ * 	- copying the full DRichText structure (which creates challenges in resolving cross-references) or 
+ * 	- changing the DRichText element's eContainer (which causes problems for the former eContainer)
+ */
+class RichTextReferencingParagraph extends ContentBlock {
+	refers DRichText text
+}
+
+/*
+ * Internal, not referenced by PUB grammar. 
+ * 
+ * Used to reduce the complexity of table cells for simple content which is a very frequent case.
+ */ 
+class UnformattedParagraph extends Paragraph {
 	String text
 }
 

@@ -246,7 +246,7 @@ PubSubsubsection returns Subsubsection:
 //
 
 PubContentBlock returns ContentBlock:
-	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubParagraph;
+	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph;
 
 PubAdmonition returns Admonition:
 	'Admonition'
@@ -292,14 +292,20 @@ fragment PubTitledBlockHeader returns TitledBlock:
 	PubReferenceTargetName?
 	title=DRichText;
 
-PubTable returns Table:
+PubTable returns TitledTable:
 	'Table'
 	PubTitledBlockHeader
+	'{'
+	table=AbstractTable
+	'}';
+	
+AbstractTable:
+	Table | ProvidedTable;
+	
+Table:
 	'columns:' columns=NATURAL
 	('widthPercent:' widthPercent=NATURAL)?
-	'{'
-	rows+=PubTableRow*
-	'}';
+	rows+=PubTableRow*;
 
 PubTableRow returns TableRow:
 	{TableRow}
@@ -330,16 +336,26 @@ PubTableSimpleCell returns TableCell:
 	contents+=PubParagraphTextOnly '|'
 ;
 
-PubFigure returns Figure:
+ProvidedTable:
+	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	'table:' renderer=[TableRenderer|DQualifiedName];
+
+PubFigure returns TitledFigure:
 	'Figure'
 	PubTitledBlockHeader
 	'{'
-	'include'
-	(	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
-		'diagram:' renderer=[FigureRenderer|DQualifiedName]
-	|	'uri:' fileUri=STRING // TODO Validation
-	)
-	'}'; 
+	figure=AbstractFigure
+	'}';
+
+AbstractFigure:
+	IncludedFigure | ProvidedFigure; 
+	
+IncludedFigure:
+	'uri:' fileUri=STRING; // TODO Validation
+
+ProvidedFigure:
+	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	'figure:' renderer=[FigureRenderer|DQualifiedName];
 
 PubEquation returns Equation:
 	'Equation'
@@ -348,7 +364,7 @@ PubEquation returns Equation:
 	'include' 'uri:' fileUri=STRING // TODO Validation
 	'}'; 
 
-PubCodeListing returns CodeListing:
+PubCodeListing returns TitledCodeListing:
 	'CodeListing'
 	PubTitledBlockHeader
 	(	('format:' format=PubCodeLanguage)?
@@ -361,12 +377,12 @@ PubCodeListing returns CodeListing:
 enum PubCodeLanguage returns CodeLanguage: 
 	Java='Java' | JavaScript='JavaScript' | HTML='HTML' | XML='XML';
 	
-PubParagraph returns Paragraph:
+PubRichTextParagraph returns RichTextParagraph:
 	('Paragraph' | 'P') 
 	(style=PubParagraphStyle)?
 	text=DRichText;
 	
-PubParagraphTextOnly returns Paragraph:
+PubParagraphTextOnly returns RichTextParagraph:
 	text=DRichText;
 	
 enum PubParagraphStyle returns ParagraphStyle: 

@@ -4,23 +4,24 @@ import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.dm.styledText.parser.NullErrorMessageAcceptor
+import com.mimacom.ddd.pub.pub.AbstractFigure
 import com.mimacom.ddd.pub.pub.Admonition
-import com.mimacom.ddd.pub.pub.CodeListing
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
-import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
-import com.mimacom.ddd.pub.pub.Paragraph
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.ReferenceTarget
+import com.mimacom.ddd.pub.pub.RichTextParagraph
+import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph
 import com.mimacom.ddd.pub.pub.SegmentWithTable
 import com.mimacom.ddd.pub.pub.SegmentWithText
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledCodeListing
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import org.eclipse.xtext.generator.IFileSystemAccess2
 
@@ -85,17 +86,19 @@ abstract class AbstractPubRenderer {
 
 	abstract def CharSequence renderTable(Table t, NestedContentBlockGenerator g)
 
-	abstract def CharSequence renderFigure(Figure f, String fileUri)
+	abstract def CharSequence renderFigure(AbstractFigure f, String fileUri)
 
 	abstract def CharSequence renderEquation(Equation e)
 
-	abstract def CharSequence renderCodeListing(CodeListing cl, java.util.List<String> lines)
+	abstract def CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> lines)
 
-	abstract def CharSequence renderPlainParagraph(Paragraph para) 
+	abstract def CharSequence renderPlainParagraph(RichTextParagraph para) 
 	
-	abstract def CharSequence renderQuotedParagraph(Paragraph para)
+	abstract def CharSequence renderQuotedParagraph(RichTextParagraph para)
 	
 	abstract def CharSequence renderUnformattedParagraph(UnformattedParagraph para)
+	
+	abstract def CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
 
 	//
 	// RichText

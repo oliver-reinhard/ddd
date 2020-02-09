@@ -12,23 +12,26 @@ import com.mimacom.ddd.pub.pub.Bibliography
 import com.mimacom.ddd.pub.pub.ChangeHistory
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.DocumentSegment
-import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.Glossary
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
 import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.PubFactory
+import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.ReferenceTarget
 import com.mimacom.ddd.pub.pub.TOC
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledFigure
+import com.mimacom.ddd.pub.pub.TitledTable
 import java.util.List
 
 class PubGeneratorUtil {
 
 	@Inject extension RichTextUtil
 	@Inject extension PubUtil
+	@Inject extension PubTableUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubElementNames
 	
@@ -122,7 +125,7 @@ class PubGeneratorUtil {
 		return t
 	}
 
-	def Table toTable(ListOfTables seg, List<Table> allTablesInSequence) {
+	def Table toTable(ListOfTables seg, List<TitledTable> allTablesInSequence) {
 		val Table lot = createTableWithHeader(#["Table", "Title", "Reference/Page"])
 		lot.hideGrid = true
 		for (t : allTablesInSequence) {
@@ -133,7 +136,7 @@ class PubGeneratorUtil {
 		return lot
 	}
 
-	def Table toTable(ListOfFigures seg, List<Figure> allFiguresInSequence) {
+	def Table toTable(ListOfFigures seg, List<TitledFigure> allFiguresInSequence) {
 		val Table lof = createTableWithHeader(#["Figure", "Title", "Reference/Page"])
 		lof.hideGrid = true
 		for (f : allFiguresInSequence) {

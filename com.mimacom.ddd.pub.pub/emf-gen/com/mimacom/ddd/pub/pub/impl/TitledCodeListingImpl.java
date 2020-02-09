@@ -3,8 +3,8 @@
 package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.pub.pub.CodeLanguage;
-import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.PubPackage;
+import com.mimacom.ddd.pub.pub.TitledCodeListing;
 
 import java.util.Collection;
 
@@ -22,20 +22,20 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Code Listing</b></em>'.
+ * An implementation of the model object '<em><b>Titled Code Listing</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl#getCodeLines <em>Code Lines</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl#getInclude <em>Include</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#getCodeLines <em>Code Lines</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#getInclude <em>Include</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
+public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCodeListing {
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CodeListingImpl() {
+	protected TitledCodeListingImpl() {
 		super();
 	}
 
@@ -92,7 +92,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PubPackage.Literals.CODE_LISTING;
+		return PubPackage.Literals.TITLED_CODE_LISTING;
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 		CodeLanguage oldFormat = format;
 		format = newFormat == null ? FORMAT_EDEFAULT : newFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.CODE_LISTING__FORMAT, oldFormat, format));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_CODE_LISTING__FORMAT, oldFormat, format));
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	@Override
 	public EList<String> getCodeLines() {
 		if (codeLines == null) {
-			codeLines = new EDataTypeEList<String>(String.class, this, PubPackage.CODE_LISTING__CODE_LINES);
+			codeLines = new EDataTypeEList<String>(String.class, this, PubPackage.TITLED_CODE_LISTING__CODE_LINES);
 		}
 		return codeLines;
 	}
@@ -143,7 +143,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 			include = eResolveProxy(oldInclude);
 			if (include != oldInclude) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.CODE_LISTING__INCLUDE, oldInclude, include));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.TITLED_CODE_LISTING__INCLUDE, oldInclude, include));
 			}
 		}
 		return include;
@@ -168,7 +168,7 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 		EObject oldInclude = include;
 		include = newInclude;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.CODE_LISTING__INCLUDE, oldInclude, include));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_CODE_LISTING__INCLUDE, oldInclude, include));
 	}
 
 	/**
@@ -179,11 +179,11 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.CODE_LISTING__FORMAT:
+			case PubPackage.TITLED_CODE_LISTING__FORMAT:
 				return getFormat();
-			case PubPackage.CODE_LISTING__CODE_LINES:
+			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				return getCodeLines();
-			case PubPackage.CODE_LISTING__INCLUDE:
+			case PubPackage.TITLED_CODE_LISTING__INCLUDE:
 				if (resolve) return getInclude();
 				return basicGetInclude();
 		}
@@ -199,14 +199,14 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.CODE_LISTING__FORMAT:
+			case PubPackage.TITLED_CODE_LISTING__FORMAT:
 				setFormat((CodeLanguage)newValue);
 				return;
-			case PubPackage.CODE_LISTING__CODE_LINES:
+			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				getCodeLines().clear();
 				getCodeLines().addAll((Collection<? extends String>)newValue);
 				return;
-			case PubPackage.CODE_LISTING__INCLUDE:
+			case PubPackage.TITLED_CODE_LISTING__INCLUDE:
 				setInclude((EObject)newValue);
 				return;
 		}
@@ -221,13 +221,13 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.CODE_LISTING__FORMAT:
+			case PubPackage.TITLED_CODE_LISTING__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case PubPackage.CODE_LISTING__CODE_LINES:
+			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				getCodeLines().clear();
 				return;
-			case PubPackage.CODE_LISTING__INCLUDE:
+			case PubPackage.TITLED_CODE_LISTING__INCLUDE:
 				setInclude((EObject)null);
 				return;
 		}
@@ -242,11 +242,11 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.CODE_LISTING__FORMAT:
+			case PubPackage.TITLED_CODE_LISTING__FORMAT:
 				return format != FORMAT_EDEFAULT;
-			case PubPackage.CODE_LISTING__CODE_LINES:
+			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				return codeLines != null && !codeLines.isEmpty();
-			case PubPackage.CODE_LISTING__INCLUDE:
+			case PubPackage.TITLED_CODE_LISTING__INCLUDE:
 				return include != null;
 		}
 		return super.eIsSet(featureID);
@@ -270,4 +270,4 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 		return result.toString();
 	}
 
-} //CodeListingImpl
+} //TitledCodeListingImpl

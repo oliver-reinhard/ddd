@@ -11,26 +11,28 @@ import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
+import com.mimacom.ddd.pub.pub.AbstractFigure
 import com.mimacom.ddd.pub.pub.Admonition
-import com.mimacom.ddd.pub.pub.CodeListing
 import com.mimacom.ddd.pub.pub.ContentBlock
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
-import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
-import com.mimacom.ddd.pub.pub.Paragraph
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.Reference
 import com.mimacom.ddd.pub.pub.ReferenceTarget
+import com.mimacom.ddd.pub.pub.RichTextParagraph
+import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph
 import com.mimacom.ddd.pub.pub.SegmentWithTable
 import com.mimacom.ddd.pub.pub.SegmentWithText
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TableCell
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledCodeListing
+import com.mimacom.ddd.pub.pub.TitledFigure
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -42,6 +44,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	@Inject extension PubGeneratorUtil
 
 	static public val DOCUMENT_SUFFIX = "html"
+	static public val CSS_FILENAME = "pubstyles.css"
 
 	override String fileSuffix(Document doc) {
 		DOCUMENT_SUFFIX
@@ -66,7 +69,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				padding-left: 5px;
 			}
 		'''
-		fsa.generateFile("styles.css", css)
+		fsa.generateFile(CSS_FILENAME, css)
 	}
 
 	override finish(Document doc, IFileSystemAccess2 fsa) {
@@ -81,7 +84,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		<head>
 		  <meta charset="UTF-8">
 		  <title>«doc.title»</title>
-		  <link rel="stylesheet" href="styles.css">
+		  <link rel="stylesheet" href="«CSS_FILENAME»">
 		</head>
 		
 		<!-- Document class: «guard(doc.publicationClass.title, "")» («doc.publicationClass.name») -->
@@ -215,33 +218,37 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		return b.toString
 	}
 
-	override CharSequence renderFigure(Figure f, String fileUri) '''
-		<img src="«fileUri»" alt="«f.title.renderRichText»">
+	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
+		<img src="«fileUri»" alt="«(f.eContainer as TitledFigure).title.renderRichText»">
 	'''
 
 	override CharSequence renderEquation(Equation e) '''
 		-- equation (TODO)
 	'''
 
-	override CharSequence renderCodeListing(CodeListing cl, java.util.List<String> codeLines) '''
+	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
 		<pre>
 		«FOR line : codeLines»«line»«ENDFOR»</pre>
 	'''
 
-	override CharSequence renderPlainParagraph(
-		Paragraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
+	override CharSequence renderPlainParagraph(RichTextParagraph para)
+		'''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
 
 	protected def boolean isOnlyContentBlockOfTableCell(ContentBlock para) {
 		return para.eContainer instanceof TableCell && (para.eContainer as TableCell).contents.length == 1
 	}
 
-	override CharSequence renderQuotedParagraph(Paragraph para) '''
+	override CharSequence renderQuotedParagraph(RichTextParagraph para) '''
 		<p><blockquote>«para.text.renderRichText»</blockquote></p>
 	'''
 
-	override CharSequence renderUnformattedParagraph(
-		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text»«ELSE»<p>«para.text»</p>«ENDIF»'''
+	override CharSequence renderUnformattedParagraph(UnformattedParagraph para)
+		'''«IF para.isOnlyContentBlockOfTableCell»«para.text»«ELSE»<p>«para.text»</p>«ENDIF»'''
 
+
+	override CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
+		'''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
+	
 	override createRichTextRenderer(ErrorMessageAcceptor acceptor) {
 		return new AbstractRichTextToHtmlRenderer {
 

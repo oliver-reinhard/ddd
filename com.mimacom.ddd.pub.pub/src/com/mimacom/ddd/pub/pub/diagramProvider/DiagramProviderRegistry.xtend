@@ -86,23 +86,23 @@ class DiagramProviderRegistry {
 		return cachedDiagramTypes.get(id)
 	}
 
-	def DiagramRendererProxy[] getDiagramProviders() {
+	def DiagramRendererProxy[] getAllDiagramRenderers() {
 		if (cachedRenderers === null) {
 			loadExtensions()
 		}
 		return cachedRenderers
 	}
 
-	def DiagramRendererProxy getDiagramProvider(String id) {
-		val candidates = diagramProviders.filter[it.id == id]
+	def DiagramRendererProxy getDiagramRenderer(String id) {
+		val candidates = allDiagramRenderers.filter[it.id == id]
 		if (candidates.empty) {
 			return null
 		}
 		return candidates.head
 	}
 
-	def Iterable<DiagramRendererProxy> getDiagramProviders(Class<? extends IDiagramRoot> diagramRootClass) {
-		val candidates = diagramProviders.filter [
+	def Iterable<DiagramRendererProxy> getDiagramRenderers(Class<? extends IDiagramRoot> diagramRootClass) {
+		val candidates = allDiagramRenderers.filter [
 			it.diagramRootClass.isAssignableFrom(diagramRootClass)
 		]
 		if (candidates.empty) {
@@ -111,9 +111,9 @@ class DiagramProviderRegistry {
 		return candidates
 	}
 
-	def DiagramRendererProxy getDiagramProvider(Class<? extends IDiagramRoot> diagramRootClass,
+	def DiagramRendererProxy getDiagramRenderer(Class<? extends IDiagramRoot> diagramRootClass,
 		DiagramFileFormat format) {
-		val candidates = diagramProviders.filter [
+		val candidates = allDiagramRenderers.filter [
 			it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.format == format
 		]
 		if (candidates.empty) {
@@ -122,9 +122,9 @@ class DiagramProviderRegistry {
 		return candidates.head
 	}
 
-	def DiagramRendererProxy getDiagramProvider(Class<? extends IDiagramRoot> diagramRootClass, String diagramTypeID,
+	def DiagramRendererProxy getDiagramRenderer(Class<? extends IDiagramRoot> diagramRootClass, String diagramTypeID,
 		DiagramFileFormat format) {
-		val candidates = diagramProviders.filter [
+		val candidates = allDiagramRenderers.filter [
 			it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.diagramTypeID.equals(diagramTypeID) &&
 				it.format == format
 		]

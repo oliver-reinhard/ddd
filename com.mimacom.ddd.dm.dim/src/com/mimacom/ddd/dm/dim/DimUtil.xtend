@@ -7,7 +7,10 @@ import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DLiteral
+import com.mimacom.ddd.dm.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DType
@@ -17,8 +20,6 @@ import java.util.LinkedHashSet
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
-import com.mimacom.ddd.dm.base.DNamedPredicate
-import com.mimacom.ddd.dm.base.DInformationModel
 
 class DimUtil extends DmxUtil {
 	
@@ -51,6 +52,12 @@ class DimUtil extends DmxUtil {
 	def String aggregateName(EObject obj) {
 			val a = obj.aggregate
 			return if (a !== null) a.name else "default" 
+	}
+	
+	def multiplicityText(DNavigableMember member) {
+		if (member.multiplicity === null) return "(1,1)"
+		val maxOccurs = if (member.multiplicity.maxOccurs == -1) "*" else member.multiplicity.maxOccurs.toString
+		return "("+member.multiplicity.minOccurs+","+maxOccurs+")"
 	}
 	
 	/*

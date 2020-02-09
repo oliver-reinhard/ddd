@@ -1971,16 +1971,16 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPubFigureParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cPubEquationParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cPubCodeListingParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cPubParagraphParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cPubRichTextParagraphParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		////
 		//// ACTUAL CONTENT
 		////
 		//PubContentBlock ContentBlock:
-		//	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubParagraph;
+		//	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubParagraph
+		//PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//PubAdmonition
@@ -2001,8 +2001,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubCodeListing
 		public RuleCall getPubCodeListingParserRuleCall_5() { return cPubCodeListingParserRuleCall_5; }
 		
-		//PubParagraph
-		public RuleCall getPubParagraphParserRuleCall_6() { return cPubParagraphParserRuleCall_6; }
+		//PubRichTextParagraph
+		public RuleCall getPubRichTextParagraphParserRuleCall_6() { return cPubRichTextParagraphParserRuleCall_6; }
 	}
 	public class PubAdmonitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubAdmonition");
@@ -2304,29 +2304,20 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTableKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cPubTitledBlockHeaderParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Keyword cColumnsKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cColumnsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cColumnsNATURALTerminalRuleCall_3_0 = (RuleCall)cColumnsAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cWidthPercentKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cWidthPercentAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cWidthPercentNATURALTerminalRuleCall_4_1_0 = (RuleCall)cWidthPercentAssignment_4_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cRowsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cRowsPubTableRowParserRuleCall_6_0 = (RuleCall)cRowsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTableAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTableAbstractTableParserRuleCall_3_0 = (RuleCall)cTableAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//PubTable Table:
+		//PubTable TitledTable:
 		//	'Table'
 		//	PubTitledBlockHeader
-		//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)?
 		//	'{'
-		//	rows+=PubTableRow*
+		//	table=AbstractTable
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Table' PubTitledBlockHeader 'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? '{' rows+=PubTableRow*
-		//'}'
+		//'Table' PubTitledBlockHeader '{' table=AbstractTable '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Table'
@@ -2335,38 +2326,84 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubTitledBlockHeader
 		public RuleCall getPubTitledBlockHeaderParserRuleCall_1() { return cPubTitledBlockHeaderParserRuleCall_1; }
 		
-		//'columns:'
-		public Keyword getColumnsKeyword_2() { return cColumnsKeyword_2; }
-		
-		//columns=NATURAL
-		public Assignment getColumnsAssignment_3() { return cColumnsAssignment_3; }
-		
-		//NATURAL
-		public RuleCall getColumnsNATURALTerminalRuleCall_3_0() { return cColumnsNATURALTerminalRuleCall_3_0; }
-		
-		//('widthPercent:' widthPercent=NATURAL)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'widthPercent:'
-		public Keyword getWidthPercentKeyword_4_0() { return cWidthPercentKeyword_4_0; }
-		
-		//widthPercent=NATURAL
-		public Assignment getWidthPercentAssignment_4_1() { return cWidthPercentAssignment_4_1; }
-		
-		//NATURAL
-		public RuleCall getWidthPercentNATURALTerminalRuleCall_4_1_0() { return cWidthPercentNATURALTerminalRuleCall_4_1_0; }
-		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//rows+=PubTableRow*
-		public Assignment getRowsAssignment_6() { return cRowsAssignment_6; }
+		//table=AbstractTable
+		public Assignment getTableAssignment_3() { return cTableAssignment_3; }
 		
-		//PubTableRow
-		public RuleCall getRowsPubTableRowParserRuleCall_6_0() { return cRowsPubTableRowParserRuleCall_6_0; }
+		//AbstractTable
+		public RuleCall getTableAbstractTableParserRuleCall_3_0() { return cTableAbstractTableParserRuleCall_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class AbstractTableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.AbstractTable");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTableParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cProvidedTableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AbstractTable:
+		//	Table | ProvidedTable;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Table | ProvidedTable
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Table
+		public RuleCall getTableParserRuleCall_0() { return cTableParserRuleCall_0; }
+		
+		//ProvidedTable
+		public RuleCall getProvidedTableParserRuleCall_1() { return cProvidedTableParserRuleCall_1; }
+	}
+	public class TableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.Table");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cColumnsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cColumnsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cColumnsNATURALTerminalRuleCall_1_0 = (RuleCall)cColumnsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cWidthPercentKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cWidthPercentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cWidthPercentNATURALTerminalRuleCall_2_1_0 = (RuleCall)cWidthPercentAssignment_2_1.eContents().get(0);
+		private final Assignment cRowsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRowsPubTableRowParserRuleCall_3_0 = (RuleCall)cRowsAssignment_3.eContents().get(0);
+		
+		//Table:
+		//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)?
+		//	rows+=PubTableRow*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? rows+=PubTableRow*
+		public Group getGroup() { return cGroup; }
+		
+		//'columns:'
+		public Keyword getColumnsKeyword_0() { return cColumnsKeyword_0; }
+		
+		//columns=NATURAL
+		public Assignment getColumnsAssignment_1() { return cColumnsAssignment_1; }
+		
+		//NATURAL
+		public RuleCall getColumnsNATURALTerminalRuleCall_1_0() { return cColumnsNATURALTerminalRuleCall_1_0; }
+		
+		//('widthPercent:' widthPercent=NATURAL)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'widthPercent:'
+		public Keyword getWidthPercentKeyword_2_0() { return cWidthPercentKeyword_2_0; }
+		
+		//widthPercent=NATURAL
+		public Assignment getWidthPercentAssignment_2_1() { return cWidthPercentAssignment_2_1; }
+		
+		//NATURAL
+		public RuleCall getWidthPercentNATURALTerminalRuleCall_2_1_0() { return cWidthPercentNATURALTerminalRuleCall_2_1_0; }
+		
+		//rows+=PubTableRow*
+		public Assignment getRowsAssignment_3() { return cRowsAssignment_3; }
+		
+		//PubTableRow
+		public RuleCall getRowsPubTableRowParserRuleCall_3_0() { return cRowsPubTableRowParserRuleCall_3_0; }
 	}
 	public class PubTableRowElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubTableRow");
@@ -2637,42 +2674,69 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'|'
 		public Keyword getVerticalLineKeyword_2() { return cVerticalLineKeyword_2; }
 	}
+	public class ProvidedTableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.ProvidedTable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRootKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDiagramRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cDiagramRootIDiagramRootCrossReference_1_0 = (CrossReference)cDiagramRootAssignment_1.eContents().get(0);
+		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_1_0.eContents().get(1);
+		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRendererAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cRendererTableRendererCrossReference_3_0 = (CrossReference)cRendererAssignment_3.eContents().get(0);
+		private final RuleCall cRendererTableRendererDQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cRendererTableRendererCrossReference_3_0.eContents().get(1);
+		
+		//ProvidedTable:
+		//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+		//	'table:' renderer=[TableRenderer|DQualifiedName];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'table:' renderer=[TableRenderer|DQualifiedName]
+		public Group getGroup() { return cGroup; }
+		
+		//'root:'
+		public Keyword getRootKeyword_0() { return cRootKeyword_0; }
+		
+		//diagramRoot=[IDiagramRoot|DQualifiedName]
+		public Assignment getDiagramRootAssignment_1() { return cDiagramRootAssignment_1; }
+		
+		//[IDiagramRoot|DQualifiedName]
+		public CrossReference getDiagramRootIDiagramRootCrossReference_1_0() { return cDiagramRootIDiagramRootCrossReference_1_0; }
+		
+		//DQualifiedName
+		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1; }
+		
+		//'table:'
+		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
+		
+		//renderer=[TableRenderer|DQualifiedName]
+		public Assignment getRendererAssignment_3() { return cRendererAssignment_3; }
+		
+		//[TableRenderer|DQualifiedName]
+		public CrossReference getRendererTableRendererCrossReference_3_0() { return cRendererTableRendererCrossReference_3_0; }
+		
+		//DQualifiedName
+		public RuleCall getRendererTableRendererDQualifiedNameParserRuleCall_3_0_1() { return cRendererTableRendererDQualifiedNameParserRuleCall_3_0_1; }
+	}
 	public class PubFigureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubFigure");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFigureKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cPubTitledBlockHeaderParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cIncludeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
-		private final Keyword cRootKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
-		private final Assignment cDiagramRootAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
-		private final CrossReference cDiagramRootIDiagramRootCrossReference_4_0_1_0 = (CrossReference)cDiagramRootAssignment_4_0_1.eContents().get(0);
-		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_4_0_1_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_4_0_1_0.eContents().get(1);
-		private final Keyword cDiagramKeyword_4_0_2 = (Keyword)cGroup_4_0.eContents().get(2);
-		private final Assignment cRendererAssignment_4_0_3 = (Assignment)cGroup_4_0.eContents().get(3);
-		private final CrossReference cRendererFigureRendererCrossReference_4_0_3_0 = (CrossReference)cRendererAssignment_4_0_3.eContents().get(0);
-		private final RuleCall cRendererFigureRendererDQualifiedNameParserRuleCall_4_0_3_0_1 = (RuleCall)cRendererFigureRendererCrossReference_4_0_3_0.eContents().get(1);
-		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
-		private final Keyword cUriKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cFileUriAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cFileUriSTRINGTerminalRuleCall_4_1_1_0 = (RuleCall)cFileUriAssignment_4_1_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cFigureAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cFigureAbstractFigureParserRuleCall_3_0 = (RuleCall)cFigureAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//PubFigure Figure:
+		//PubFigure TitledFigure:
 		//	'Figure'
 		//	PubTitledBlockHeader
 		//	'{'
-		//	'include' ('root:' diagramRoot=[IDiagramRoot|DQualifiedName]
-		//	'diagram:' renderer=[FigureRenderer|DQualifiedName] | 'uri:' fileUri=STRING // TODO Validation
-		//)
+		//	figure=AbstractFigure
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Figure' PubTitledBlockHeader '{' 'include' ('root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:'
-		//renderer=[FigureRenderer|DQualifiedName] | 'uri:' fileUri=STRING // TODO Validation
-		//) '}'
+		//'Figure' PubTitledBlockHeader '{' figure=AbstractFigure '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Figure'
@@ -2684,55 +2748,101 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'include'
-		public Keyword getIncludeKeyword_3() { return cIncludeKeyword_3; }
+		//figure=AbstractFigure
+		public Assignment getFigureAssignment_3() { return cFigureAssignment_3; }
 		
-		//('root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:' renderer=[FigureRenderer|DQualifiedName] | 'uri:'
-		//fileUri=STRING // TODO Validation
-		//)
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
-		
-		//'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'diagram:' renderer=[FigureRenderer|DQualifiedName]
-		public Group getGroup_4_0() { return cGroup_4_0; }
-		
-		//'root:'
-		public Keyword getRootKeyword_4_0_0() { return cRootKeyword_4_0_0; }
-		
-		//diagramRoot=[IDiagramRoot|DQualifiedName]
-		public Assignment getDiagramRootAssignment_4_0_1() { return cDiagramRootAssignment_4_0_1; }
-		
-		//[IDiagramRoot|DQualifiedName]
-		public CrossReference getDiagramRootIDiagramRootCrossReference_4_0_1_0() { return cDiagramRootIDiagramRootCrossReference_4_0_1_0; }
-		
-		//DQualifiedName
-		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_4_0_1_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_4_0_1_0_1; }
-		
-		//'diagram:'
-		public Keyword getDiagramKeyword_4_0_2() { return cDiagramKeyword_4_0_2; }
-		
-		//renderer=[FigureRenderer|DQualifiedName]
-		public Assignment getRendererAssignment_4_0_3() { return cRendererAssignment_4_0_3; }
-		
-		//[FigureRenderer|DQualifiedName]
-		public CrossReference getRendererFigureRendererCrossReference_4_0_3_0() { return cRendererFigureRendererCrossReference_4_0_3_0; }
-		
-		//DQualifiedName
-		public RuleCall getRendererFigureRendererDQualifiedNameParserRuleCall_4_0_3_0_1() { return cRendererFigureRendererDQualifiedNameParserRuleCall_4_0_3_0_1; }
-		
-		//'uri:' fileUri=STRING
-		public Group getGroup_4_1() { return cGroup_4_1; }
-		
-		//'uri:'
-		public Keyword getUriKeyword_4_1_0() { return cUriKeyword_4_1_0; }
-		
-		//fileUri=STRING
-		public Assignment getFileUriAssignment_4_1_1() { return cFileUriAssignment_4_1_1; }
-		
-		//STRING
-		public RuleCall getFileUriSTRINGTerminalRuleCall_4_1_1_0() { return cFileUriSTRINGTerminalRuleCall_4_1_1_0; }
+		//AbstractFigure
+		public RuleCall getFigureAbstractFigureParserRuleCall_3_0() { return cFigureAbstractFigureParserRuleCall_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class AbstractFigureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.AbstractFigure");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIncludedFigureParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cProvidedFigureParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AbstractFigure:
+		//	IncludedFigure | ProvidedFigure;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//IncludedFigure | ProvidedFigure
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//IncludedFigure
+		public RuleCall getIncludedFigureParserRuleCall_0() { return cIncludedFigureParserRuleCall_0; }
+		
+		//ProvidedFigure
+		public RuleCall getProvidedFigureParserRuleCall_1() { return cProvidedFigureParserRuleCall_1; }
+	}
+	public class IncludedFigureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.IncludedFigure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cUriKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFileUriAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFileUriSTRINGTerminalRuleCall_1_0 = (RuleCall)cFileUriAssignment_1.eContents().get(0);
+		
+		//IncludedFigure:
+		//	'uri:' fileUri=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'uri:' fileUri=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'uri:'
+		public Keyword getUriKeyword_0() { return cUriKeyword_0; }
+		
+		//fileUri=STRING
+		public Assignment getFileUriAssignment_1() { return cFileUriAssignment_1; }
+		
+		//STRING
+		public RuleCall getFileUriSTRINGTerminalRuleCall_1_0() { return cFileUriSTRINGTerminalRuleCall_1_0; }
+	}
+	public class ProvidedFigureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.ProvidedFigure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRootKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDiagramRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cDiagramRootIDiagramRootCrossReference_1_0 = (CrossReference)cDiagramRootAssignment_1.eContents().get(0);
+		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_1_0.eContents().get(1);
+		private final Keyword cFigureKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRendererAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cRendererFigureRendererCrossReference_3_0 = (CrossReference)cRendererAssignment_3.eContents().get(0);
+		private final RuleCall cRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cRendererFigureRendererCrossReference_3_0.eContents().get(1);
+		
+		//// TODO Validation
+		//ProvidedFigure:
+		//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+		//	'figure:' renderer=[FigureRenderer|DQualifiedName];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'figure:' renderer=[FigureRenderer|DQualifiedName]
+		public Group getGroup() { return cGroup; }
+		
+		//'root:'
+		public Keyword getRootKeyword_0() { return cRootKeyword_0; }
+		
+		//diagramRoot=[IDiagramRoot|DQualifiedName]
+		public Assignment getDiagramRootAssignment_1() { return cDiagramRootAssignment_1; }
+		
+		//[IDiagramRoot|DQualifiedName]
+		public CrossReference getDiagramRootIDiagramRootCrossReference_1_0() { return cDiagramRootIDiagramRootCrossReference_1_0; }
+		
+		//DQualifiedName
+		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1; }
+		
+		//'figure:'
+		public Keyword getFigureKeyword_2() { return cFigureKeyword_2; }
+		
+		//renderer=[FigureRenderer|DQualifiedName]
+		public Assignment getRendererAssignment_3() { return cRendererAssignment_3; }
+		
+		//[FigureRenderer|DQualifiedName]
+		public CrossReference getRendererFigureRendererCrossReference_3_0() { return cRendererFigureRendererCrossReference_3_0; }
+		
+		//DQualifiedName
+		public RuleCall getRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1() { return cRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1; }
 	}
 	public class PubEquationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubEquation");
@@ -2804,7 +2914,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cIncludeEObjectCrossReference_2_1_1_0 = (CrossReference)cIncludeAssignment_2_1_1.eContents().get(0);
 		private final RuleCall cIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1 = (RuleCall)cIncludeEObjectCrossReference_2_1_1_0.eContents().get(1);
 		
-		//PubCodeListing CodeListing:
+		//PubCodeListing TitledCodeListing:
 		//	'CodeListing'
 		//	PubTitledBlockHeader (('format:' format=PubCodeLanguage)?
 		//	'{'
@@ -2868,8 +2978,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1() { return cIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1; }
 	}
-	public class PubParagraphElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubParagraph");
+	public class PubRichTextParagraphElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubRichTextParagraph");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Keyword cParagraphKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
@@ -2879,7 +2989,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTextDRichTextParserRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
 		
-		//PubParagraph Paragraph:
+		//PubRichTextParagraph RichTextParagraph:
 		//	('Paragraph' | 'P') style=PubParagraphStyle?
 		//	text=DRichText;
 		@Override public ParserRule getRule() { return rule; }
@@ -2913,7 +3023,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cTextDRichTextParserRuleCall_0 = (RuleCall)cTextAssignment.eContents().get(0);
 		
-		//PubParagraphTextOnly Paragraph:
+		//PubParagraphTextOnly RichTextParagraph:
 		//	text=DRichText;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -3414,14 +3524,20 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	private final PubListItemElements pPubListItem;
 	private final PubTitledBlockHeaderElements pPubTitledBlockHeader;
 	private final PubTableElements pPubTable;
+	private final AbstractTableElements pAbstractTable;
+	private final TableElements pTable;
 	private final PubTableRowElements pPubTableRow;
 	private final PubTableCellElements pPubTableCell;
 	private final PubTableSimpleCellElements pPubTableSimpleCell;
+	private final ProvidedTableElements pProvidedTable;
 	private final PubFigureElements pPubFigure;
+	private final AbstractFigureElements pAbstractFigure;
+	private final IncludedFigureElements pIncludedFigure;
+	private final ProvidedFigureElements pProvidedFigure;
 	private final PubEquationElements pPubEquation;
 	private final PubCodeListingElements pPubCodeListing;
 	private final PubCodeLanguageElements ePubCodeLanguage;
-	private final PubParagraphElements pPubParagraph;
+	private final PubRichTextParagraphElements pPubRichTextParagraph;
 	private final PubParagraphTextOnlyElements pPubParagraphTextOnly;
 	private final PubParagraphStyleElements ePubParagraphStyle;
 	private final DmxPrimaryExpressionElements pDmxPrimaryExpression;
@@ -3478,14 +3594,20 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPubListItem = new PubListItemElements();
 		this.pPubTitledBlockHeader = new PubTitledBlockHeaderElements();
 		this.pPubTable = new PubTableElements();
+		this.pAbstractTable = new AbstractTableElements();
+		this.pTable = new TableElements();
 		this.pPubTableRow = new PubTableRowElements();
 		this.pPubTableCell = new PubTableCellElements();
 		this.pPubTableSimpleCell = new PubTableSimpleCellElements();
+		this.pProvidedTable = new ProvidedTableElements();
 		this.pPubFigure = new PubFigureElements();
+		this.pAbstractFigure = new AbstractFigureElements();
+		this.pIncludedFigure = new IncludedFigureElements();
+		this.pProvidedFigure = new ProvidedFigureElements();
 		this.pPubEquation = new PubEquationElements();
 		this.pPubCodeListing = new PubCodeListingElements();
 		this.ePubCodeLanguage = new PubCodeLanguageElements();
-		this.pPubParagraph = new PubParagraphElements();
+		this.pPubRichTextParagraph = new PubRichTextParagraphElements();
 		this.pPubParagraphTextOnly = new PubParagraphTextOnlyElements();
 		this.ePubParagraphStyle = new PubParagraphStyleElements();
 		this.pDmxPrimaryExpression = new DmxPrimaryExpressionElements();
@@ -3955,7 +4077,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//// ACTUAL CONTENT
 	////
 	//PubContentBlock ContentBlock:
-	//	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubParagraph;
+	//	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph;
 	public PubContentBlockElements getPubContentBlockAccess() {
 		return pPubContentBlock;
 	}
@@ -4047,12 +4169,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		return getPubTitledBlockHeaderAccess().getRule();
 	}
 	
-	//PubTable Table:
+	//PubTable TitledTable:
 	//	'Table'
 	//	PubTitledBlockHeader
-	//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)?
 	//	'{'
-	//	rows+=PubTableRow*
+	//	table=AbstractTable
 	//	'}';
 	public PubTableElements getPubTableAccess() {
 		return pPubTable;
@@ -4060,6 +4181,27 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPubTableRule() {
 		return getPubTableAccess().getRule();
+	}
+	
+	//AbstractTable:
+	//	Table | ProvidedTable;
+	public AbstractTableElements getAbstractTableAccess() {
+		return pAbstractTable;
+	}
+	
+	public ParserRule getAbstractTableRule() {
+		return getAbstractTableAccess().getRule();
+	}
+	
+	//Table:
+	//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)?
+	//	rows+=PubTableRow*;
+	public TableElements getTableAccess() {
+		return pTable;
+	}
+	
+	public ParserRule getTableRule() {
+		return getTableAccess().getRule();
 	}
 	
 	//PubTableRow TableRow:
@@ -4096,13 +4238,22 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		return getPubTableSimpleCellAccess().getRule();
 	}
 	
-	//PubFigure Figure:
+	//ProvidedTable:
+	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	//	'table:' renderer=[TableRenderer|DQualifiedName];
+	public ProvidedTableElements getProvidedTableAccess() {
+		return pProvidedTable;
+	}
+	
+	public ParserRule getProvidedTableRule() {
+		return getProvidedTableAccess().getRule();
+	}
+	
+	//PubFigure TitledFigure:
 	//	'Figure'
 	//	PubTitledBlockHeader
 	//	'{'
-	//	'include' ('root:' diagramRoot=[IDiagramRoot|DQualifiedName]
-	//	'diagram:' renderer=[FigureRenderer|DQualifiedName] | 'uri:' fileUri=STRING // TODO Validation
-	//)
+	//	figure=AbstractFigure
 	//	'}';
 	public PubFigureElements getPubFigureAccess() {
 		return pPubFigure;
@@ -4110,6 +4261,38 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPubFigureRule() {
 		return getPubFigureAccess().getRule();
+	}
+	
+	//AbstractFigure:
+	//	IncludedFigure | ProvidedFigure;
+	public AbstractFigureElements getAbstractFigureAccess() {
+		return pAbstractFigure;
+	}
+	
+	public ParserRule getAbstractFigureRule() {
+		return getAbstractFigureAccess().getRule();
+	}
+	
+	//IncludedFigure:
+	//	'uri:' fileUri=STRING;
+	public IncludedFigureElements getIncludedFigureAccess() {
+		return pIncludedFigure;
+	}
+	
+	public ParserRule getIncludedFigureRule() {
+		return getIncludedFigureAccess().getRule();
+	}
+	
+	//// TODO Validation
+	//ProvidedFigure:
+	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	//	'figure:' renderer=[FigureRenderer|DQualifiedName];
+	public ProvidedFigureElements getProvidedFigureAccess() {
+		return pProvidedFigure;
+	}
+	
+	public ParserRule getProvidedFigureRule() {
+		return getProvidedFigureAccess().getRule();
 	}
 	
 	//PubEquation Equation:
@@ -4126,7 +4309,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		return getPubEquationAccess().getRule();
 	}
 	
-	//PubCodeListing CodeListing:
+	//PubCodeListing TitledCodeListing:
 	//	'CodeListing'
 	//	PubTitledBlockHeader (('format:' format=PubCodeLanguage)?
 	//	'{'
@@ -4151,18 +4334,18 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		return getPubCodeLanguageAccess().getRule();
 	}
 	
-	//PubParagraph Paragraph:
+	//PubRichTextParagraph RichTextParagraph:
 	//	('Paragraph' | 'P') style=PubParagraphStyle?
 	//	text=DRichText;
-	public PubParagraphElements getPubParagraphAccess() {
-		return pPubParagraph;
+	public PubRichTextParagraphElements getPubRichTextParagraphAccess() {
+		return pPubRichTextParagraph;
 	}
 	
-	public ParserRule getPubParagraphRule() {
-		return getPubParagraphAccess().getRule();
+	public ParserRule getPubRichTextParagraphRule() {
+		return getPubRichTextParagraphAccess().getRule();
 	}
 	
-	//PubParagraphTextOnly Paragraph:
+	//PubParagraphTextOnly RichTextParagraph:
 	//	text=DRichText;
 	public PubParagraphTextOnlyElements getPubParagraphTextOnlyAccess() {
 		return pPubParagraphTextOnly;

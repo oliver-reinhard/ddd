@@ -24,5 +24,20 @@
             name="Information Structure">
       </diagramType>
    </extension>
+   
+   <extension
+         point="com.mimacom.ddd.pub.pub.tableProvider">
+      <renderer
+            id="dim.typesAndFeaturesTable"
+            tableName="All Types and Features"
+            tableType="typesAndFeatures"
+            tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimTypesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimTypesTableRenderer">
+      </renderer>
+      <diagramType
+            id="typesAndFeatures"
+            name="All Types and Features">
+      </diagramType>
+   </extension>
 
 </plugin>

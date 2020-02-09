@@ -239,6 +239,14 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createTitledBlockAdapter();
 			}
 			@Override
+			public Adapter caseTitledTable(TitledTable object) {
+				return createTitledTableAdapter();
+			}
+			@Override
+			public Adapter caseAbstractTable(AbstractTable object) {
+				return createAbstractTableAdapter();
+			}
+			@Override
 			public Adapter caseTable(Table object) {
 				return createTableAdapter();
 			}
@@ -251,8 +259,28 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createTableCellAdapter();
 			}
 			@Override
-			public Adapter caseFigure(Figure object) {
-				return createFigureAdapter();
+			public Adapter caseProvidedTable(ProvidedTable object) {
+				return createProvidedTableAdapter();
+			}
+			@Override
+			public Adapter caseTableRenderer(TableRenderer object) {
+				return createTableRendererAdapter();
+			}
+			@Override
+			public Adapter caseTitledFigure(TitledFigure object) {
+				return createTitledFigureAdapter();
+			}
+			@Override
+			public Adapter caseAbstractFigure(AbstractFigure object) {
+				return createAbstractFigureAdapter();
+			}
+			@Override
+			public Adapter caseIncludedFigure(IncludedFigure object) {
+				return createIncludedFigureAdapter();
+			}
+			@Override
+			public Adapter caseProvidedFigure(ProvidedFigure object) {
+				return createProvidedFigureAdapter();
 			}
 			@Override
 			public Adapter caseFigureRenderer(FigureRenderer object) {
@@ -263,12 +291,20 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createEquationAdapter();
 			}
 			@Override
-			public Adapter caseCodeListing(CodeListing object) {
-				return createCodeListingAdapter();
+			public Adapter caseTitledCodeListing(TitledCodeListing object) {
+				return createTitledCodeListingAdapter();
 			}
 			@Override
 			public Adapter caseParagraph(Paragraph object) {
 				return createParagraphAdapter();
+			}
+			@Override
+			public Adapter caseRichTextParagraph(RichTextParagraph object) {
+				return createRichTextParagraphAdapter();
+			}
+			@Override
+			public Adapter caseRichTextReferencingParagraph(RichTextReferencingParagraph object) {
+				return createRichTextReferencingParagraphAdapter();
 			}
 			@Override
 			public Adapter caseUnformattedParagraph(UnformattedParagraph object) {
@@ -891,6 +927,34 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.TitledTable <em>Titled Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.TitledTable
+	 * @generated
+	 */
+	public Adapter createTitledTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.AbstractTable <em>Abstract Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.AbstractTable
+	 * @generated
+	 */
+	public Adapter createAbstractTableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -933,16 +997,86 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.Figure <em>Figure</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.ProvidedTable <em>Provided Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.pub.pub.Figure
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTable
 	 * @generated
 	 */
-	public Adapter createFigureAdapter() {
+	public Adapter createProvidedTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.TableRenderer <em>Table Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.TableRenderer
+	 * @generated
+	 */
+	public Adapter createTableRendererAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.TitledFigure <em>Titled Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.TitledFigure
+	 * @generated
+	 */
+	public Adapter createTitledFigureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.AbstractFigure <em>Abstract Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.AbstractFigure
+	 * @generated
+	 */
+	public Adapter createAbstractFigureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.IncludedFigure <em>Included Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.IncludedFigure
+	 * @generated
+	 */
+	public Adapter createIncludedFigureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.ProvidedFigure <em>Provided Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure
+	 * @generated
+	 */
+	public Adapter createProvidedFigureAdapter() {
 		return null;
 	}
 
@@ -975,16 +1109,16 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.CodeListing <em>Code Listing</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.TitledCodeListing <em>Titled Code Listing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.pub.pub.CodeListing
+	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing
 	 * @generated
 	 */
-	public Adapter createCodeListingAdapter() {
+	public Adapter createTitledCodeListingAdapter() {
 		return null;
 	}
 
@@ -999,6 +1133,34 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParagraphAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.RichTextParagraph <em>Rich Text Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.RichTextParagraph
+	 * @generated
+	 */
+	public Adapter createRichTextParagraphAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.RichTextReferencingParagraph <em>Rich Text Referencing Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.RichTextReferencingParagraph
+	 * @generated
+	 */
+	public Adapter createRichTextReferencingParagraphAdapter() {
 		return null;
 	}
 

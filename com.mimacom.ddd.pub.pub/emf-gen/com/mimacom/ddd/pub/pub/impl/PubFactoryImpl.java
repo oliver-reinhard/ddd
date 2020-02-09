@@ -90,14 +90,20 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 			case PubPackage.ADMONITION: return createAdmonition();
 			case PubPackage.LIST: return createList();
 			case PubPackage.LIST_ITEM: return createListItem();
+			case PubPackage.TITLED_TABLE: return createTitledTable();
 			case PubPackage.TABLE: return createTable();
 			case PubPackage.TABLE_ROW: return createTableRow();
 			case PubPackage.TABLE_CELL: return createTableCell();
-			case PubPackage.FIGURE: return createFigure();
+			case PubPackage.PROVIDED_TABLE: return createProvidedTable();
+			case PubPackage.TABLE_RENDERER: return createTableRenderer();
+			case PubPackage.TITLED_FIGURE: return createTitledFigure();
+			case PubPackage.INCLUDED_FIGURE: return createIncludedFigure();
+			case PubPackage.PROVIDED_FIGURE: return createProvidedFigure();
 			case PubPackage.FIGURE_RENDERER: return createFigureRenderer();
 			case PubPackage.EQUATION: return createEquation();
-			case PubPackage.CODE_LISTING: return createCodeListing();
-			case PubPackage.PARAGRAPH: return createParagraph();
+			case PubPackage.TITLED_CODE_LISTING: return createTitledCodeListing();
+			case PubPackage.RICH_TEXT_PARAGRAPH: return createRichTextParagraph();
+			case PubPackage.RICH_TEXT_REFERENCING_PARAGRAPH: return createRichTextReferencingParagraph();
 			case PubPackage.UNFORMATTED_PARAGRAPH: return createUnformattedParagraph();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -523,6 +529,17 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	@Override
+	public TitledTable createTitledTable() {
+		TitledTableImpl titledTable = new TitledTableImpl();
+		return titledTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Table createTable() {
 		TableImpl table = new TableImpl();
 		return table;
@@ -556,9 +573,53 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	@Override
-	public Figure createFigure() {
-		FigureImpl figure = new FigureImpl();
-		return figure;
+	public ProvidedTable createProvidedTable() {
+		ProvidedTableImpl providedTable = new ProvidedTableImpl();
+		return providedTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableRenderer createTableRenderer() {
+		TableRendererImpl tableRenderer = new TableRendererImpl();
+		return tableRenderer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TitledFigure createTitledFigure() {
+		TitledFigureImpl titledFigure = new TitledFigureImpl();
+		return titledFigure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IncludedFigure createIncludedFigure() {
+		IncludedFigureImpl includedFigure = new IncludedFigureImpl();
+		return includedFigure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProvidedFigure createProvidedFigure() {
+		ProvidedFigureImpl providedFigure = new ProvidedFigureImpl();
+		return providedFigure;
 	}
 
 	/**
@@ -589,9 +650,9 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	@Override
-	public CodeListing createCodeListing() {
-		CodeListingImpl codeListing = new CodeListingImpl();
-		return codeListing;
+	public TitledCodeListing createTitledCodeListing() {
+		TitledCodeListingImpl titledCodeListing = new TitledCodeListingImpl();
+		return titledCodeListing;
 	}
 
 	/**
@@ -600,9 +661,20 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	@Override
-	public Paragraph createParagraph() {
-		ParagraphImpl paragraph = new ParagraphImpl();
-		return paragraph;
+	public RichTextParagraph createRichTextParagraph() {
+		RichTextParagraphImpl richTextParagraph = new RichTextParagraphImpl();
+		return richTextParagraph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RichTextReferencingParagraph createRichTextReferencingParagraph() {
+		RichTextReferencingParagraphImpl richTextReferencingParagraph = new RichTextReferencingParagraphImpl();
+		return richTextReferencingParagraph;
 	}
 
 	/**

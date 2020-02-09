@@ -36,6 +36,7 @@ Export-Package: com.mimacom.ddd.pub.pub,
  com.mimacom.ddd.pub.pub.scoping,
  com.mimacom.ddd.pub.pub.serializer,
  com.mimacom.ddd.pub.pub.services,
+ com.mimacom.ddd.pub.pub.tableProvider,
  com.mimacom.ddd.pub.pub.util,
  com.mimacom.ddd.pub.pub.validation
 Import-Package: org.apache.log4j

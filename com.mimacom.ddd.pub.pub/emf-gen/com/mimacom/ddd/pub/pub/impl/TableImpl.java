@@ -30,14 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#getWidthPercent <em>Width Percent</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#isHideGrid <em>Hide Grid</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#getRows <em>Rows</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#isHideGrid <em>Hide Grid</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TableImpl extends TitledBlockImpl implements Table {
+public class TableImpl extends AbstractTableImpl implements Table {
 	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,24 +58,14 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	protected int columns = COLUMNS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getWidthPercent() <em>Width Percent</em>}' attribute.
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWidthPercent()
+	 * @see #getRows()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WIDTH_PERCENT_EDEFAULT = 100;
-
-	/**
-	 * The cached value of the '{@link #getWidthPercent() <em>Width Percent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWidthPercent()
-	 * @generated
-	 * @ordered
-	 */
-	protected int widthPercent = WIDTH_PERCENT_EDEFAULT;
+	protected EList<TableRow> rows;
 
 	/**
 	 * The default value of the '{@link #isHideGrid() <em>Hide Grid</em>}' attribute.
@@ -97,16 +86,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected boolean hideGrid = HIDE_GRID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRows() <em>Rows</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRows()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TableRow> rows;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,21 +135,11 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @generated
 	 */
 	@Override
-	public int getWidthPercent() {
-		return widthPercent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setWidthPercent(int newWidthPercent) {
-		int oldWidthPercent = widthPercent;
-		widthPercent = newWidthPercent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TABLE__WIDTH_PERCENT, oldWidthPercent, widthPercent));
+	public EList<TableRow> getRows() {
+		if (rows == null) {
+			rows = new EObjectContainmentWithInverseEList<TableRow>(TableRow.class, this, PubPackage.TABLE__ROWS, PubPackage.TABLE_ROW__TABLE);
+		}
+		return rows;
 	}
 
 	/**
@@ -194,19 +163,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 		hideGrid = newHideGrid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TABLE__HIDE_GRID, oldHideGrid, hideGrid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<TableRow> getRows() {
-		if (rows == null) {
-			rows = new EObjectContainmentWithInverseEList<TableRow>(TableRow.class, this, PubPackage.TABLE__ROWS, PubPackage.TABLE_ROW__TABLE);
-		}
-		return rows;
 	}
 
 	/**
@@ -248,12 +204,10 @@ public class TableImpl extends TitledBlockImpl implements Table {
 		switch (featureID) {
 			case PubPackage.TABLE__COLUMNS:
 				return getColumns();
-			case PubPackage.TABLE__WIDTH_PERCENT:
-				return getWidthPercent();
-			case PubPackage.TABLE__HIDE_GRID:
-				return isHideGrid();
 			case PubPackage.TABLE__ROWS:
 				return getRows();
+			case PubPackage.TABLE__HIDE_GRID:
+				return isHideGrid();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,15 +224,12 @@ public class TableImpl extends TitledBlockImpl implements Table {
 			case PubPackage.TABLE__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
-			case PubPackage.TABLE__WIDTH_PERCENT:
-				setWidthPercent((Integer)newValue);
-				return;
-			case PubPackage.TABLE__HIDE_GRID:
-				setHideGrid((Boolean)newValue);
-				return;
 			case PubPackage.TABLE__ROWS:
 				getRows().clear();
 				getRows().addAll((Collection<? extends TableRow>)newValue);
+				return;
+			case PubPackage.TABLE__HIDE_GRID:
+				setHideGrid((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,14 +246,11 @@ public class TableImpl extends TitledBlockImpl implements Table {
 			case PubPackage.TABLE__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
-			case PubPackage.TABLE__WIDTH_PERCENT:
-				setWidthPercent(WIDTH_PERCENT_EDEFAULT);
+			case PubPackage.TABLE__ROWS:
+				getRows().clear();
 				return;
 			case PubPackage.TABLE__HIDE_GRID:
 				setHideGrid(HIDE_GRID_EDEFAULT);
-				return;
-			case PubPackage.TABLE__ROWS:
-				getRows().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -318,12 +266,10 @@ public class TableImpl extends TitledBlockImpl implements Table {
 		switch (featureID) {
 			case PubPackage.TABLE__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
-			case PubPackage.TABLE__WIDTH_PERCENT:
-				return widthPercent != WIDTH_PERCENT_EDEFAULT;
-			case PubPackage.TABLE__HIDE_GRID:
-				return hideGrid != HIDE_GRID_EDEFAULT;
 			case PubPackage.TABLE__ROWS:
 				return rows != null && !rows.isEmpty();
+			case PubPackage.TABLE__HIDE_GRID:
+				return hideGrid != HIDE_GRID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -340,8 +286,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (columns: ");
 		result.append(columns);
-		result.append(", widthPercent: ");
-		result.append(widthPercent);
 		result.append(", hideGrid: ");
 		result.append(hideGrid);
 		result.append(')');

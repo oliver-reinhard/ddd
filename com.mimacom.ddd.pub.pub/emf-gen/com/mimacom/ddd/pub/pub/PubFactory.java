@@ -319,6 +319,15 @@ public interface PubFactory extends EFactory {
 	ListItem createListItem();
 
 	/**
+	 * Returns a new object of class '<em>Titled Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Titled Table</em>'.
+	 * @generated
+	 */
+	TitledTable createTitledTable();
+
+	/**
 	 * Returns a new object of class '<em>Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,13 +355,49 @@ public interface PubFactory extends EFactory {
 	TableCell createTableCell();
 
 	/**
-	 * Returns a new object of class '<em>Figure</em>'.
+	 * Returns a new object of class '<em>Provided Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Figure</em>'.
+	 * @return a new object of class '<em>Provided Table</em>'.
 	 * @generated
 	 */
-	Figure createFigure();
+	ProvidedTable createProvidedTable();
+
+	/**
+	 * Returns a new object of class '<em>Table Renderer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Renderer</em>'.
+	 * @generated
+	 */
+	TableRenderer createTableRenderer();
+
+	/**
+	 * Returns a new object of class '<em>Titled Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Titled Figure</em>'.
+	 * @generated
+	 */
+	TitledFigure createTitledFigure();
+
+	/**
+	 * Returns a new object of class '<em>Included Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Included Figure</em>'.
+	 * @generated
+	 */
+	IncludedFigure createIncludedFigure();
+
+	/**
+	 * Returns a new object of class '<em>Provided Figure</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provided Figure</em>'.
+	 * @generated
+	 */
+	ProvidedFigure createProvidedFigure();
 
 	/**
 	 * Returns a new object of class '<em>Figure Renderer</em>'.
@@ -373,22 +418,31 @@ public interface PubFactory extends EFactory {
 	Equation createEquation();
 
 	/**
-	 * Returns a new object of class '<em>Code Listing</em>'.
+	 * Returns a new object of class '<em>Titled Code Listing</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Code Listing</em>'.
+	 * @return a new object of class '<em>Titled Code Listing</em>'.
 	 * @generated
 	 */
-	CodeListing createCodeListing();
+	TitledCodeListing createTitledCodeListing();
 
 	/**
-	 * Returns a new object of class '<em>Paragraph</em>'.
+	 * Returns a new object of class '<em>Rich Text Paragraph</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Paragraph</em>'.
+	 * @return a new object of class '<em>Rich Text Paragraph</em>'.
 	 * @generated
 	 */
-	Paragraph createParagraph();
+	RichTextParagraph createRichTextParagraph();
+
+	/**
+	 * Returns a new object of class '<em>Rich Text Referencing Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rich Text Referencing Paragraph</em>'.
+	 * @generated
+	 */
+	RichTextReferencingParagraph createRichTextReferencingParagraph();
 
 	/**
 	 * Returns a new object of class '<em>Unformatted Paragraph</em>'.

@@ -7,30 +7,37 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.pub.pub.AbstractFigure;
+import com.mimacom.ddd.pub.pub.AbstractTable;
 import com.mimacom.ddd.pub.pub.Admonition;
 import com.mimacom.ddd.pub.pub.ChangeHistory;
-import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
-import com.mimacom.ddd.pub.pub.Figure;
+import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
 import com.mimacom.ddd.pub.pub.ListStyle;
-import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.ParagraphStyle;
+import com.mimacom.ddd.pub.pub.ProvidedFigure;
+import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.Publication;
 import com.mimacom.ddd.pub.pub.PublicationBody;
+import com.mimacom.ddd.pub.pub.RichTextParagraph;
+import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph;
 import com.mimacom.ddd.pub.pub.SegmentWithText;
 import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import com.mimacom.ddd.pub.pub.TitledCodeListing;
+import com.mimacom.ddd.pub.pub.TitledFigure;
+import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
@@ -39,6 +46,8 @@ import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
 import com.mimacom.ddd.pub.pub.generator.PubHtmlRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
+import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry;
+import com.mimacom.ddd.pub.pub.tableProvider.TableRendererProxy;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
@@ -77,7 +86,10 @@ public class PubGenerator extends AbstractGenerator {
   private ISerializer serializer;
   
   @Inject
-  private DiagramProviderRegistry registry;
+  private TableProviderRegistry tableProviderRegistry;
+  
+  @Inject
+  private DiagramProviderRegistry diagramProviderRegistry;
   
   private static final Logger LOGGER = Logger.getLogger(PubGenerator.class);
   
@@ -85,9 +97,9 @@ public class PubGenerator extends AbstractGenerator {
   
   private List<Division> allDivisionsInSequenceOfOccurrenceCache;
   
-  private List<Table> allTablesInSequenceOfOccurrenceCache;
+  private List<TitledTable> allTablesInSequenceOfOccurrenceCache;
   
-  private List<Figure> allFiguresInSequenceOfOccurrenceCache;
+  private List<TitledFigure> allFiguresInSequenceOfOccurrenceCache;
   
   private final NestedContentBlockGenerator nestedContentBlockGenerator = new NestedContentBlockGenerator() {
     @Override
@@ -383,52 +395,81 @@ public class PubGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  protected CharSequence _genTitledBlock(final Table t) {
+  protected CharSequence _genTitledBlock(final TitledTable t) {
+    return this.genTable(t.getTable());
+  }
+  
+  protected CharSequence _genTable(final Table t) {
     return this._pubHtmlRenderer.renderTable(t, this.nestedContentBlockGenerator);
   }
   
-  protected CharSequence _genTitledBlock(final Figure f) {
-    CharSequence _xifexpression = null;
-    String _fileUri = f.getFileUri();
-    boolean _tripleNotEquals = (_fileUri != null);
-    if (_tripleNotEquals) {
-      _xifexpression = this._pubHtmlRenderer.renderFigure(f, f.getFileUri());
-    } else {
-      CharSequence _xblockexpression = null;
-      {
-        final DiagramRendererProxy provider = this.registry.getDiagramProvider(f.getRenderer().getName());
-        CharSequence _xifexpression_1 = null;
-        if ((provider != null)) {
-          CharSequence _xblockexpression_1 = null;
-          {
-            String _tieredNumber = this._pubNumberingUtil.tieredNumber(f);
-            final String fileName = ("figures/figure_" + _tieredNumber);
-            final String fileExtension = provider.format.name().toLowerCase();
-            final InputStream inputStream = provider.render(f.getDiagramRoot());
-            final String file = ((fileName + ".") + fileExtension);
-            this.fileSystemAccess.generateFile(file, inputStream);
-            _xblockexpression_1 = this._pubHtmlRenderer.renderFigure(f, file);
-          }
-          _xifexpression_1 = _xblockexpression_1;
-        } else {
-          String _name = f.getRenderer().getName();
-          String _plus = ("Figure renderer \'" + _name);
-          final String msg = (_plus + "\' not found.");
-          PubGenerator.LOGGER.error(msg);
-          return ("ERROR: " + msg);
+  protected CharSequence _genTable(final ProvidedTable t) {
+    CharSequence _xblockexpression = null;
+    {
+      final TableRendererProxy provider = this.tableProviderRegistry.getTableRenderer(t.getRenderer().getName());
+      CharSequence _xifexpression = null;
+      if ((provider != null)) {
+        CharSequence _xblockexpression_1 = null;
+        {
+          final Table table = provider.render(t.getDiagramRoot());
+          _xblockexpression_1 = this._pubHtmlRenderer.renderTable(table, this.nestedContentBlockGenerator);
         }
-        _xblockexpression = _xifexpression_1;
+        _xifexpression = _xblockexpression_1;
+      } else {
+        String _name = t.getRenderer().getName();
+        String _plus = ("Table renderer \'" + _name);
+        final String msg = (_plus + "\' not found.");
+        PubGenerator.LOGGER.error(msg);
+        return ("ERROR: " + msg);
       }
-      _xifexpression = _xblockexpression;
+      _xblockexpression = _xifexpression;
     }
-    return _xifexpression;
+    return _xblockexpression;
+  }
+  
+  protected CharSequence _genTitledBlock(final TitledFigure f) {
+    return this.genFigure(f.getFigure());
+  }
+  
+  protected CharSequence _genFigure(final IncludedFigure f) {
+    return this._pubHtmlRenderer.renderFigure(f, f.getFileUri());
+  }
+  
+  protected CharSequence _genFigure(final ProvidedFigure f) {
+    CharSequence _xblockexpression = null;
+    {
+      final DiagramRendererProxy provider = this.diagramProviderRegistry.getDiagramRenderer(f.getRenderer().getName());
+      CharSequence _xifexpression = null;
+      if ((provider != null)) {
+        CharSequence _xblockexpression_1 = null;
+        {
+          EObject _eContainer = f.eContainer();
+          String _tieredNumber = this._pubNumberingUtil.tieredNumber(((TitledFigure) _eContainer));
+          final String fileName = ("figures/figure_" + _tieredNumber);
+          final String fileExtension = provider.format.name().toLowerCase();
+          final InputStream inputStream = provider.render(f.getDiagramRoot());
+          final String file = ((fileName + ".") + fileExtension);
+          this.fileSystemAccess.generateFile(file, inputStream);
+          _xblockexpression_1 = this._pubHtmlRenderer.renderFigure(f, file);
+        }
+        _xifexpression = _xblockexpression_1;
+      } else {
+        String _name = f.getRenderer().getName();
+        String _plus = ("Figure renderer \'" + _name);
+        final String msg = (_plus + "\' not found.");
+        PubGenerator.LOGGER.error(msg);
+        return ("ERROR: " + msg);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
   }
   
   protected CharSequence _genTitledBlock(final Equation e) {
     return this._pubHtmlRenderer.renderEquation(e);
   }
   
-  protected CharSequence _genTitledBlock(final CodeListing cl) {
+  protected CharSequence _genTitledBlock(final TitledCodeListing cl) {
     CharSequence _xifexpression = null;
     EObject _include = cl.getInclude();
     boolean _tripleNotEquals = (_include != null);
@@ -455,7 +496,7 @@ public class PubGenerator extends AbstractGenerator {
     return _xifexpression;
   }
   
-  protected CharSequence _genBlock(final Paragraph para) {
+  protected CharSequence _genBlock(final RichTextParagraph para) {
     ParagraphStyle _style = para.getStyle();
     boolean _equals = Objects.equal(_style, ParagraphStyle.QUOTE);
     if (_equals) {
@@ -467,6 +508,10 @@ public class PubGenerator extends AbstractGenerator {
   
   protected CharSequence _genBlock(final UnformattedParagraph para) {
     return this._pubHtmlRenderer.renderUnformattedParagraph(para);
+  }
+  
+  protected CharSequence _genBlock(final RichTextReferencingParagraph para) {
+    return this._pubHtmlRenderer.renderRichTextReferencingParagraph(para);
   }
   
   protected CharSequence _genBlock(final ContentBlock block) {
@@ -509,37 +554,61 @@ public class PubGenerator extends AbstractGenerator {
     }
   }
   
-  public CharSequence genBlock(final ContentBlock a) {
-    if (a instanceof Admonition) {
-      return _genBlock((Admonition)a);
-    } else if (a instanceof com.mimacom.ddd.pub.pub.List) {
-      return _genBlock((com.mimacom.ddd.pub.pub.List)a);
-    } else if (a instanceof Paragraph) {
-      return _genBlock((Paragraph)a);
-    } else if (a instanceof TitledBlock) {
-      return _genBlock((TitledBlock)a);
-    } else if (a instanceof UnformattedParagraph) {
-      return _genBlock((UnformattedParagraph)a);
-    } else if (a != null) {
-      return _genBlock(a);
+  public CharSequence genBlock(final ContentBlock para) {
+    if (para instanceof RichTextParagraph) {
+      return _genBlock((RichTextParagraph)para);
+    } else if (para instanceof UnformattedParagraph) {
+      return _genBlock((UnformattedParagraph)para);
+    } else if (para instanceof Admonition) {
+      return _genBlock((Admonition)para);
+    } else if (para instanceof com.mimacom.ddd.pub.pub.List) {
+      return _genBlock((com.mimacom.ddd.pub.pub.List)para);
+    } else if (para instanceof RichTextReferencingParagraph) {
+      return _genBlock((RichTextReferencingParagraph)para);
+    } else if (para instanceof TitledBlock) {
+      return _genBlock((TitledBlock)para);
+    } else if (para != null) {
+      return _genBlock(para);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(a).toString());
+        Arrays.<Object>asList(para).toString());
     }
   }
   
-  public CharSequence genTitledBlock(final TitledBlock cl) {
-    if (cl instanceof CodeListing) {
-      return _genTitledBlock((CodeListing)cl);
-    } else if (cl instanceof Equation) {
-      return _genTitledBlock((Equation)cl);
-    } else if (cl instanceof Figure) {
-      return _genTitledBlock((Figure)cl);
-    } else if (cl instanceof Table) {
-      return _genTitledBlock((Table)cl);
+  public CharSequence genTitledBlock(final TitledBlock e) {
+    if (e instanceof Equation) {
+      return _genTitledBlock((Equation)e);
+    } else if (e instanceof TitledCodeListing) {
+      return _genTitledBlock((TitledCodeListing)e);
+    } else if (e instanceof TitledFigure) {
+      return _genTitledBlock((TitledFigure)e);
+    } else if (e instanceof TitledTable) {
+      return _genTitledBlock((TitledTable)e);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(cl).toString());
+        Arrays.<Object>asList(e).toString());
+    }
+  }
+  
+  public CharSequence genTable(final AbstractTable t) {
+    if (t instanceof ProvidedTable) {
+      return _genTable((ProvidedTable)t);
+    } else if (t instanceof Table) {
+      return _genTable((Table)t);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(t).toString());
+    }
+  }
+  
+  public CharSequence genFigure(final AbstractFigure f) {
+    if (f instanceof IncludedFigure) {
+      return _genFigure((IncludedFigure)f);
+    } else if (f instanceof ProvidedFigure) {
+      return _genFigure((ProvidedFigure)f);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(f).toString());
     }
   }
 }

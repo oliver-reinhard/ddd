@@ -29,8 +29,8 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_PubListItem_HyphenMinusKeyword_1_1_0_or_ItemKeyword_1_0_0;
 	protected AbstractElementAlias match_PubListItem___LeftCurlyBracketKeyword_1_0_3_0_0_RightCurlyBracketKeyword_1_0_3_0_2__q;
 	protected AbstractElementAlias match_PubList_NumberSignKeyword_2_1_q;
-	protected AbstractElementAlias match_PubParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0;
 	protected AbstractElementAlias match_PubReferenceTargetName_NumberSignKeyword_1_q;
+	protected AbstractElementAlias match_PubRichTextParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0;
 	protected AbstractElementAlias match_PubSubsection_SubKeyword_0_0_or_SubsectionKeyword_0_1;
 	protected AbstractElementAlias match_PubSubsubsection_SubsubKeyword_0_0_or_SubsubsectionKeyword_0_1;
 	protected AbstractElementAlias match_PubTableCell___LeftCurlyBracketKeyword_4_0_0_RightCurlyBracketKeyword_4_0_2__q;
@@ -48,8 +48,8 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_PubListItem_HyphenMinusKeyword_1_1_0_or_ItemKeyword_1_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getHyphenMinusKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getItemKeyword_1_0_0()));
 		match_PubListItem___LeftCurlyBracketKeyword_1_0_3_0_0_RightCurlyBracketKeyword_1_0_3_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getLeftCurlyBracketKeyword_1_0_3_0_0()), new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getRightCurlyBracketKeyword_1_0_3_0_2()));
 		match_PubList_NumberSignKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getPubListAccess().getNumberSignKeyword_2_1());
-		match_PubParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubParagraphAccess().getPKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getPubParagraphAccess().getParagraphKeyword_0_0()));
 		match_PubReferenceTargetName_NumberSignKeyword_1_q = new TokenAlias(false, true, grammarAccess.getPubReferenceTargetNameAccess().getNumberSignKeyword_1());
+		match_PubRichTextParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubRichTextParagraphAccess().getPKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getPubRichTextParagraphAccess().getParagraphKeyword_0_0()));
 		match_PubSubsection_SubKeyword_0_0_or_SubsectionKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubSubsectionAccess().getSubKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPubSubsectionAccess().getSubsectionKeyword_0_1()));
 		match_PubSubsubsection_SubsubKeyword_0_0_or_SubsubsectionKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubSubsubsectionAccess().getSubsubKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPubSubsubsectionAccess().getSubsubsectionKeyword_0_1()));
 		match_PubTableCell___LeftCurlyBracketKeyword_4_0_0_RightCurlyBracketKeyword_4_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableCellAccess().getLeftCurlyBracketKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableCellAccess().getRightCurlyBracketKeyword_4_0_2()));
@@ -131,10 +131,10 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_PubListItem___LeftCurlyBracketKeyword_1_0_3_0_0_RightCurlyBracketKeyword_1_0_3_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubList_NumberSignKeyword_2_1_q.equals(syntax))
 				emit_PubList_NumberSignKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PubParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0.equals(syntax))
-				emit_PubParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubReferenceTargetName_NumberSignKeyword_1_q.equals(syntax))
 				emit_PubReferenceTargetName_NumberSignKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PubRichTextParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0.equals(syntax))
+				emit_PubRichTextParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubSubsection_SubKeyword_0_0_or_SubsectionKeyword_0_1.equals(syntax))
 				emit_PubSubsection_SubKeyword_0_0_or_SubsectionKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubSubsubsection_SubsubKeyword_0_0_or_SubsubsectionKeyword_0_1.equals(syntax))
@@ -288,18 +288,6 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'Paragraph' | 'P'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) style=PubParagraphStyle
-	 *     (rule start) (ambiguity) text=DRichText
-	 */
-	protected void emit_PubParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     '#'?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -319,6 +307,18 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) ('Subsub' | 'Subsubsection') '(' (ambiguity) name=ID
 	 */
 	protected void emit_PubReferenceTargetName_NumberSignKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Paragraph' | 'P'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) style=PubParagraphStyle
+	 *     (rule start) (ambiguity) text=DRichText
+	 */
+	protected void emit_PubRichTextParagraph_PKeyword_0_1_or_ParagraphKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

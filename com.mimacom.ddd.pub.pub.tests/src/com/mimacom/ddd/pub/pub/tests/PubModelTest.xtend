@@ -258,7 +258,7 @@ package class PubModelTest {
 
 		val d00 = PUB.createPart
 		body.divisions.add(d00)
-		val t00 = PUB.createTable
+		val t00 = PUB.createTitledTable
 		t00.sequenceNumber = 0
 		d00.contents.add(t00)
 
@@ -266,7 +266,7 @@ package class PubModelTest {
 		d00.divisions.add(d10)
 		val d11 = PUB.createChapter
 		d00.divisions.add(d11)
-		val t11 = PUB.createTable
+		val t11 = PUB.createTitledTable
 		t11.sequenceNumber = 1
 		d11.contents.add(t11)
 
@@ -274,13 +274,13 @@ package class PubModelTest {
 		d10.divisions.add(d20)
 		val d21 = PUB.createSection
 		d10.divisions.add(d21)
-		val t21 = PUB.createTable
+		val t21 = PUB.createTitledTable
 		t21.sequenceNumber = 2
 		d21.contents.add(t21)
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTable
+		val t30 = PUB.createTitledTable
 		t30.sequenceNumber = 3
 		d30.contents.add(t30)
 
@@ -288,7 +288,7 @@ package class PubModelTest {
 		d30.divisions.add(d40)
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTable
+		val t41 = PUB.createTitledTable
 		t41.sequenceNumber = 4
 		d41.contents.add(t41)
 		
@@ -303,7 +303,7 @@ package class PubModelTest {
 		t11.name = "a"
 		assertEquals("a", t11.id)
 
-		val t41a = PUB.createTable
+		val t41a = PUB.createTitledTable
 		d41.contents.add(t41)
 		assertEquals("table-" + t41a.hashCode, t41a.id)
 

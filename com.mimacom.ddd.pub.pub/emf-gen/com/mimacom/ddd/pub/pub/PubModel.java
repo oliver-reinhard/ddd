@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.mimacom.ddd.pub.pub.PubModel#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.PubModel#getDocument <em>Document</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.PubModel#getFigureRenderers <em>Figure Renderers</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.PubModel#getTableRenderers <em>Table Renderers</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getPubModel()
@@ -72,5 +73,17 @@ public interface PubModel extends EObject {
 	 * @generated
 	 */
 	EList<FigureRenderer> getFigureRenderers();
+
+	/**
+	 * Returns the value of the '<em><b>Table Renderers</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.pub.pub.TableRenderer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Table Renderers</em>' containment reference list.
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getPubModel_TableRenderers()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	EList<TableRenderer> getTableRenderers();
 
 } // PubModel

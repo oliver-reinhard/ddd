@@ -11,14 +11,13 @@ import com.mimacom.ddd.dm.base.DTextSegment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.pub.pub.Chapter
-import com.mimacom.ddd.pub.pub.CodeListing
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
-import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
+import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.PubPackage
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
@@ -28,6 +27,8 @@ import com.mimacom.ddd.pub.pub.Subsubsection
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TableRow
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledCodeListing
+import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.generator.PubElementNames
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
@@ -131,7 +132,7 @@ class PubValidator extends AbstractPubValidator {
 	}
 
 	@Check(NORMAL)
-	def includedCodeSyntax(CodeListing cl) {
+	def includedCodeSyntax(TitledCodeListing cl) {
 		if (cl.include !== null) {
 			var hasErrors = false
 			val res = cl.include.eResource
@@ -147,7 +148,7 @@ class PubValidator extends AbstractPubValidator {
 				}
 			}
 			if (hasErrors) {
-				error("Code for the included expression has errors.", PUB.codeListing_Include)
+				error("Code for the included expression has errors.", PUB.titledCodeListing_Include)
 			}
 		}
 	}
@@ -211,7 +212,11 @@ class PubValidator extends AbstractPubValidator {
 			return
 		}
 		if (t.rows.empty) {
-			warning("Table has no rows.", PUB.titledBlock_Title)
+			if (t.eContainer instanceof TitledTable) {
+				warning("Table has no rows.", t.eContainer, PUB.titledBlock_Title)
+			} else {
+				warning("Table has no rows.",PUB.table_Rows) // this warning will be propagated to table's container
+			}
 		}
 	}
 
@@ -289,11 +294,11 @@ class PubValidator extends AbstractPubValidator {
 	// Figure Diagram Renderers
 	//
 	@Check(NORMAL)
-	def diagramCanRender(Figure f) {
+	def diagramCanRender(ProvidedFigure f) {
 		if (f.diagramRoot !== null && f.renderer !== null && f.renderer.name !== null) {
-			val provider = registry.getDiagramProvider(f.renderer.name)
+			val provider = registry.getDiagramRenderer(f.renderer.name)
 			if (! provider.canRender(f.diagramRoot)) {
-				error("The referenced model does not provide content, the generated diagram will be empty", PUB.figure_DiagramRoot)
+				error("The referenced model does not provide content, the generated diagram will be empty", PUB.providedFigure_DiagramRoot)
 			}
 		}
 	}

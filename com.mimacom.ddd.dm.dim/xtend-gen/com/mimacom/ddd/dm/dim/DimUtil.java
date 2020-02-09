@@ -11,7 +11,9 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
@@ -69,6 +71,28 @@ public class DimUtil extends DmxUtil {
       _xifexpression = "default";
     }
     return _xifexpression;
+  }
+  
+  public String multiplicityText(final DNavigableMember member) {
+    DMultiplicity _multiplicity = member.getMultiplicity();
+    boolean _tripleEquals = (_multiplicity == null);
+    if (_tripleEquals) {
+      return "(1,1)";
+    }
+    String _xifexpression = null;
+    int _maxOccurs = member.getMultiplicity().getMaxOccurs();
+    boolean _equals = (_maxOccurs == (-1));
+    if (_equals) {
+      _xifexpression = "*";
+    } else {
+      _xifexpression = Integer.valueOf(member.getMultiplicity().getMaxOccurs()).toString();
+    }
+    final String maxOccurs = _xifexpression;
+    int _minOccurs = member.getMultiplicity().getMinOccurs();
+    String _plus = ("(" + Integer.valueOf(_minOccurs));
+    String _plus_1 = (_plus + ",");
+    String _plus_2 = (_plus_1 + maxOccurs);
+    return (_plus_2 + ")");
   }
   
   /**

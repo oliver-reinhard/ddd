@@ -500,7 +500,7 @@ package class PubNumberingUtilTest {
 
 		val d00 = PUB.createPart
 		body.divisions.add(d00)
-		val t00 = PUB.createTable
+		val t00 = PUB.createTitledTable
 		t00.sequenceNumber = 0
 		d00.contents.add(t00)
 
@@ -508,7 +508,7 @@ package class PubNumberingUtilTest {
 		d00.divisions.add(d10)
 		val d11 = PUB.createChapter
 		d00.divisions.add(d11)
-		val t11 = PUB.createTable
+		val t11 = PUB.createTitledTable
 		t11.sequenceNumber = 1
 		d11.contents.add(t11)
 
@@ -516,13 +516,13 @@ package class PubNumberingUtilTest {
 		d10.divisions.add(d20)
 		val d21 = PUB.createSection
 		d10.divisions.add(d21)
-		val t21 = PUB.createTable
+		val t21 = PUB.createTitledTable
 		t21.sequenceNumber = 2
 		d21.contents.add(t21)
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTable
+		val t30 = PUB.createTitledTable
 		t30.sequenceNumber = 3
 		d30.contents.add(t30)
 
@@ -530,7 +530,7 @@ package class PubNumberingUtilTest {
 		d30.divisions.add(d40)
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTable
+		val t41 = PUB.createTitledTable
 		t41.sequenceNumber = 4
 		d41.contents.add(t41)
 
@@ -543,7 +543,7 @@ package class PubNumberingUtilTest {
 		t11.name = "a"
 		assertEquals("a", t11.id)
 
-		val t41a = PUB.createTable
+		val t41a = PUB.createTitledTable
 		d41.contents.add(t41)
 		assertEquals("table-" + t41a.hashCode, t41a.id)
 	}
@@ -555,17 +555,17 @@ package class PubNumberingUtilTest {
 
 		val d00 = PUB.createPart
 		body.divisions.add(d00)
-		val t00 = PUB.createTable
+		val t00 = PUB.createTitledTable
 		d00.contents.add(t00)
 
 		val d10 = PUB.createChapter // CHAPTER
 		d00.divisions.add(d10)
-		val t10 = PUB.createTable
+		val t10 = PUB.createTitledTable
 		d10.contents.add(t10)
 
 		val d11 = PUB.createChapter // CHAPTER
 		d00.divisions.add(d11)
-		val t11 = PUB.createTable
+		val t11 = PUB.createTitledTable
 		d11.contents.add(t11)
 
 		val d20 = PUB.createSection
@@ -573,7 +573,7 @@ package class PubNumberingUtilTest {
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTable
+		val t30 = PUB.createTitledTable
 		d30.contents.add(t30)
 
 		val d40 = PUB.createSubsubsection
@@ -581,12 +581,12 @@ package class PubNumberingUtilTest {
 
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTable
+		val t41 = PUB.createTitledTable
 		d41.contents.add(t41)
 
 		val d21 = PUB.createSection
 		d11.divisions.add(d21)
-		val t21 = PUB.createTable
+		val t21 = PUB.createTitledTable
 		d21.contents.add(t21)
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
@@ -624,12 +624,12 @@ package class PubNumberingUtilTest {
 		// No parts!
 		val a00 = PUB.createChapter // -> level 0
 		abody.divisions.add(a00)
-		val ta00 = PUB.createTable
+		val ta00 = PUB.createTitledTable
 		a00.contents.add(ta00)
 
 		val a000 = PUB.createSection
 		a00.divisions.add(a000)
-		val ta000 = PUB.createTable
+		val ta000 = PUB.createTitledTable
 		a000.contents.add(ta000)
 
 		val Component b = PUB.createComponent
@@ -638,22 +638,22 @@ package class PubNumberingUtilTest {
 
 		val b00 = PUB.createPart
 		bbody.divisions.add(b00)
-		val tb00 = PUB.createTable
+		val tb00 = PUB.createTitledTable
 		b00.contents.add(tb00)
 
 		val b10 = PUB.createChapter // CHAPTER -> level 1
 		b00.divisions.add(b10)
-		val tb10 = PUB.createTable
+		val tb10 = PUB.createTitledTable
 		b10.contents.add(tb10)
 
 		val b20 = PUB.createSection
 		b10.divisions.add(b20)
-		val tb20 = PUB.createTable
+		val tb20 = PUB.createTitledTable
 		b10.contents.add(tb20)
 
 		val b11 = PUB.createChapter // CHAPTER
 		b00.divisions.add(b11)
-		val tb11 = PUB.createTable
+		val tb11 = PUB.createTitledTable
 		b11.contents.add(tb11)
 
 		val b21 = PUB.createSection

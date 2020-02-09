@@ -9,6 +9,6 @@ class PubDiagramRenderer {
 	val DiagramProviderRegistry renderers = null
 	
 	def void render() {
-		renderers.diagramProviders
+		renderers.allDiagramRenderers
 	}
 }

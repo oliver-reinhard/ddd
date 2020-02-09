@@ -8,6 +8,12 @@ package com.mimacom.ddd.pub.pub;
  * A representation of the model object '<em><b>Unformatted Paragraph</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Internal, not referenced by PUB grammar.
+ * 
+ * Used to reduce the complexity of table cells for simple content which is a very frequent case.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -19,7 +25,7 @@ package com.mimacom.ddd.pub.pub;
  * @model
  * @generated
  */
-public interface UnformattedParagraph extends ContentBlock {
+public interface UnformattedParagraph extends Paragraph {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->

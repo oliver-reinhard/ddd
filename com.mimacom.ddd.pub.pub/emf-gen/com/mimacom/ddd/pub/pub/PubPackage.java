@@ -98,13 +98,22 @@ public interface PubPackage extends EPackage {
 	int PUB_MODEL__FIGURE_RENDERERS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Table Renderers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUB_MODEL__TABLE_RENDERERS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUB_MODEL_FEATURE_COUNT = 3;
+	int PUB_MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -3586,14 +3595,14 @@ public interface PubPackage extends EPackage {
 	int TITLED_BLOCK_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TableImpl <em>Table</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TitledTableImpl <em>Titled Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.impl.TableImpl
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTable()
+	 * @see com.mimacom.ddd.pub.pub.impl.TitledTableImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledTable()
 	 * @generated
 	 */
-	int TABLE = 42;
+	int TITLED_TABLE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -3602,7 +3611,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__LEVEL = TITLED_BLOCK__LEVEL;
+	int TITLED_TABLE__LEVEL = TITLED_BLOCK__LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
@@ -3611,7 +3620,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+	int TITLED_TABLE__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3620,7 +3629,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__NAME = TITLED_BLOCK__NAME;
+	int TITLED_TABLE__NAME = TITLED_BLOCK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3629,7 +3638,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__ID = TITLED_BLOCK__ID;
+	int TITLED_TABLE__ID = TITLED_BLOCK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' containment reference.
@@ -3638,7 +3647,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__TITLE = TITLED_BLOCK__TITLE;
+	int TITLED_TABLE__TITLE = TITLED_BLOCK__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
@@ -3647,7 +3656,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+	int TITLED_TABLE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
@@ -3656,52 +3665,25 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
+	int TITLED_TABLE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * The feature id for the '<em><b>Table</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__COLUMNS = TITLED_BLOCK_FEATURE_COUNT + 0;
+	int TITLED_TABLE__TABLE = TITLED_BLOCK_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
+	 * The number of structural features of the '<em>Titled Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__WIDTH_PERCENT = TITLED_BLOCK_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Hide Grid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__HIDE_GRID = TITLED_BLOCK_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__ROWS = TITLED_BLOCK_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Table</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 4;
+	int TITLED_TABLE_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Id</em>' operation.
@@ -3710,7 +3692,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___GET_ID = TITLED_BLOCK___GET_ID;
+	int TITLED_TABLE___GET_ID = TITLED_BLOCK___GET_ID;
 
 	/**
 	 * The operation id for the '<em>Parent</em>' operation.
@@ -3719,7 +3701,108 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___PARENT = TITLED_BLOCK___PARENT;
+	int TITLED_TABLE___PARENT = TITLED_BLOCK___PARENT;
+
+	/**
+	 * The number of operations of the '<em>Titled Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_TABLE_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.AbstractTableImpl <em>Abstract Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.AbstractTableImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractTable()
+	 * @generated
+	 */
+	int ABSTRACT_TABLE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TABLE__WIDTH_PERCENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Abstract Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TableImpl <em>Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.TableImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTable()
+	 * @generated
+	 */
+	int TABLE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__WIDTH_PERCENT = ABSTRACT_TABLE__WIDTH_PERCENT;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__COLUMNS = ABSTRACT_TABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = ABSTRACT_TABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Hide Grid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__HIDE_GRID = ABSTRACT_TABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -3728,7 +3811,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
+	int TABLE_OPERATION_COUNT = ABSTRACT_TABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -3738,7 +3821,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 43;
+	int TABLE_ROW = 45;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -3802,7 +3885,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableCell()
 	 * @generated
 	 */
-	int TABLE_CELL = 44;
+	int TABLE_CELL = 46;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -3859,86 +3942,23 @@ public interface PubPackage extends EPackage {
 	int TABLE_CELL_OPERATION_COUNT = BLOCK_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.FigureImpl <em>Figure</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl <em>Provided Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.impl.FigureImpl
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigure()
+	 * @see com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedTable()
 	 * @generated
 	 */
-	int FIGURE = 45;
+	int PROVIDED_TABLE = 47;
 
 	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE__LEVEL = TITLED_BLOCK__LEVEL;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__NAME = TITLED_BLOCK__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__ID = TITLED_BLOCK__ID;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__TITLE = TITLED_BLOCK__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
-
-	/**
-	 * The feature id for the '<em><b>File Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIGURE__FILE_URI = TITLED_BLOCK_FEATURE_COUNT + 0;
+	int PROVIDED_TABLE__WIDTH_PERCENT = ABSTRACT_TABLE__WIDTH_PERCENT;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Root</b></em>' reference.
@@ -3947,7 +3967,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE__DIAGRAM_ROOT = TITLED_BLOCK_FEATURE_COUNT + 1;
+	int PROVIDED_TABLE__DIAGRAM_ROOT = ABSTRACT_TABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Renderer</b></em>' reference.
@@ -3956,16 +3976,162 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE__RENDERER = TITLED_BLOCK_FEATURE_COUNT + 2;
+	int PROVIDED_TABLE__RENDERER = ABSTRACT_TABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Figure</em>' class.
+	 * The number of structural features of the '<em>Provided Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 3;
+	int PROVIDED_TABLE_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Provided Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_TABLE_OPERATION_COUNT = ABSTRACT_TABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TableRendererImpl <em>Table Renderer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.TableRendererImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRenderer()
+	 * @generated
+	 */
+	int TABLE_RENDERER = 48;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_RENDERER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_RENDERER__TABLE_NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Table Renderer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_RENDERER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Table Renderer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_RENDERER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TitledFigureImpl <em>Titled Figure</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.TitledFigureImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledFigure()
+	 * @generated
+	 */
+	int TITLED_FIGURE = 49;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__LEVEL = TITLED_BLOCK__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__NAME = TITLED_BLOCK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__ID = TITLED_BLOCK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__TITLE = TITLED_BLOCK__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
+
+	/**
+	 * The feature id for the '<em><b>Figure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__FIGURE = TITLED_BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Titled Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Id</em>' operation.
@@ -3974,7 +4140,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE___GET_ID = TITLED_BLOCK___GET_ID;
+	int TITLED_FIGURE___GET_ID = TITLED_BLOCK___GET_ID;
 
 	/**
 	 * The operation id for the '<em>Parent</em>' operation.
@@ -3983,16 +4149,127 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE___PARENT = TITLED_BLOCK___PARENT;
+	int TITLED_FIGURE___PARENT = TITLED_BLOCK___PARENT;
 
 	/**
-	 * The number of operations of the '<em>Figure</em>' class.
+	 * The number of operations of the '<em>Titled Figure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
+	int TITLED_FIGURE_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.AbstractFigureImpl <em>Abstract Figure</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.AbstractFigureImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractFigure()
+	 * @generated
+	 */
+	int ABSTRACT_FIGURE = 50;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_FIGURE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_FIGURE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.IncludedFigureImpl <em>Included Figure</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.IncludedFigureImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getIncludedFigure()
+	 * @generated
+	 */
+	int INCLUDED_FIGURE = 51;
+
+	/**
+	 * The feature id for the '<em><b>File Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDED_FIGURE__FILE_URI = ABSTRACT_FIGURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Included Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDED_FIGURE_FEATURE_COUNT = ABSTRACT_FIGURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Included Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDED_FIGURE_OPERATION_COUNT = ABSTRACT_FIGURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl <em>Provided Figure</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedFigure()
+	 * @generated
+	 */
+	int PROVIDED_FIGURE = 52;
+
+	/**
+	 * The feature id for the '<em><b>Diagram Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_FIGURE__DIAGRAM_ROOT = ABSTRACT_FIGURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Renderer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_FIGURE__RENDERER = ABSTRACT_FIGURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Provided Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_FIGURE_FEATURE_COUNT = ABSTRACT_FIGURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Provided Figure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_FIGURE_OPERATION_COUNT = ABSTRACT_FIGURE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl <em>Figure Renderer</em>}' class.
@@ -4002,7 +4279,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
 	 * @generated
 	 */
-	int FIGURE_RENDERER = 46;
+	int FIGURE_RENDERER = 53;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4048,7 +4325,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getEquation()
 	 * @generated
 	 */
-	int EQUATION = 47;
+	int EQUATION = 54;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4159,14 +4436,14 @@ public interface PubPackage extends EPackage {
 	int EQUATION_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl <em>Code Listing</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl <em>Titled Code Listing</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.impl.CodeListingImpl
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeListing()
+	 * @see com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledCodeListing()
 	 * @generated
 	 */
-	int CODE_LISTING = 48;
+	int TITLED_CODE_LISTING = 55;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4175,7 +4452,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__LEVEL = TITLED_BLOCK__LEVEL;
+	int TITLED_CODE_LISTING__LEVEL = TITLED_BLOCK__LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
@@ -4184,7 +4461,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+	int TITLED_CODE_LISTING__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4193,7 +4470,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__NAME = TITLED_BLOCK__NAME;
+	int TITLED_CODE_LISTING__NAME = TITLED_BLOCK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4202,7 +4479,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__ID = TITLED_BLOCK__ID;
+	int TITLED_CODE_LISTING__ID = TITLED_BLOCK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' containment reference.
@@ -4211,7 +4488,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__TITLE = TITLED_BLOCK__TITLE;
+	int TITLED_CODE_LISTING__TITLE = TITLED_BLOCK__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
@@ -4220,7 +4497,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+	int TITLED_CODE_LISTING__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
@@ -4229,7 +4506,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
+	int TITLED_CODE_LISTING__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -4238,7 +4515,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__FORMAT = TITLED_BLOCK_FEATURE_COUNT + 0;
+	int TITLED_CODE_LISTING__FORMAT = TITLED_BLOCK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Code Lines</b></em>' attribute list.
@@ -4247,7 +4524,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__CODE_LINES = TITLED_BLOCK_FEATURE_COUNT + 1;
+	int TITLED_CODE_LISTING__CODE_LINES = TITLED_BLOCK_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference.
@@ -4256,16 +4533,16 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING__INCLUDE = TITLED_BLOCK_FEATURE_COUNT + 2;
+	int TITLED_CODE_LISTING__INCLUDE = TITLED_BLOCK_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Code Listing</em>' class.
+	 * The number of structural features of the '<em>Titled Code Listing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 3;
+	int TITLED_CODE_LISTING_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Id</em>' operation.
@@ -4274,7 +4551,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING___GET_ID = TITLED_BLOCK___GET_ID;
+	int TITLED_CODE_LISTING___GET_ID = TITLED_BLOCK___GET_ID;
 
 	/**
 	 * The operation id for the '<em>Parent</em>' operation.
@@ -4283,16 +4560,16 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING___PARENT = TITLED_BLOCK___PARENT;
+	int TITLED_CODE_LISTING___PARENT = TITLED_BLOCK___PARENT;
 
 	/**
-	 * The number of operations of the '<em>Code Listing</em>' class.
+	 * The number of operations of the '<em>Titled Code Listing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
+	int TITLED_CODE_LISTING_OPERATION_COUNT = TITLED_BLOCK_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -4302,25 +4579,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 49;
-
-	/**
-	 * The feature id for the '<em><b>Style</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__STYLE = CONTENT_BLOCK_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__TEXT = CONTENT_BLOCK_FEATURE_COUNT + 1;
+	int PARAGRAPH = 56;
 
 	/**
 	 * The number of structural features of the '<em>Paragraph</em>' class.
@@ -4329,7 +4588,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAGRAPH_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 2;
+	int PARAGRAPH_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Paragraph</em>' class.
@@ -4341,6 +4600,89 @@ public interface PubPackage extends EPackage {
 	int PARAGRAPH_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.RichTextParagraphImpl <em>Rich Text Paragraph</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.RichTextParagraphImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextParagraph()
+	 * @generated
+	 */
+	int RICH_TEXT_PARAGRAPH = 57;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_PARAGRAPH__STYLE = PARAGRAPH_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_PARAGRAPH__TEXT = PARAGRAPH_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Rich Text Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_PARAGRAPH_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Rich Text Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_PARAGRAPH_OPERATION_COUNT = PARAGRAPH_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.RichTextReferencingParagraphImpl <em>Rich Text Referencing Paragraph</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.RichTextReferencingParagraphImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextReferencingParagraph()
+	 * @generated
+	 */
+	int RICH_TEXT_REFERENCING_PARAGRAPH = 58;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_REFERENCING_PARAGRAPH__TEXT = CONTENT_BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Rich Text Referencing Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_REFERENCING_PARAGRAPH_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Rich Text Referencing Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RICH_TEXT_REFERENCING_PARAGRAPH_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.UnformattedParagraphImpl <em>Unformatted Paragraph</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4348,7 +4690,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getUnformattedParagraph()
 	 * @generated
 	 */
-	int UNFORMATTED_PARAGRAPH = 50;
+	int UNFORMATTED_PARAGRAPH = 59;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -4357,7 +4699,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNFORMATTED_PARAGRAPH__TEXT = CONTENT_BLOCK_FEATURE_COUNT + 0;
+	int UNFORMATTED_PARAGRAPH__TEXT = PARAGRAPH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Unformatted Paragraph</em>' class.
@@ -4366,7 +4708,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNFORMATTED_PARAGRAPH_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 1;
+	int UNFORMATTED_PARAGRAPH_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Unformatted Paragraph</em>' class.
@@ -4375,7 +4717,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNFORMATTED_PARAGRAPH_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
+	int UNFORMATTED_PARAGRAPH_OPERATION_COUNT = PARAGRAPH_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.PublicationNature <em>Publication Nature</em>}' enum.
@@ -4385,7 +4727,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPublicationNature()
 	 * @generated
 	 */
-	int PUBLICATION_NATURE = 51;
+	int PUBLICATION_NATURE = 60;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ReferenceScope <em>Reference Scope</em>}' enum.
@@ -4395,7 +4737,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getReferenceScope()
 	 * @generated
 	 */
-	int REFERENCE_SCOPE = 52;
+	int REFERENCE_SCOPE = 61;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.AdmonitionKind <em>Admonition Kind</em>}' enum.
@@ -4405,7 +4747,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAdmonitionKind()
 	 * @generated
 	 */
-	int ADMONITION_KIND = 53;
+	int ADMONITION_KIND = 62;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ListStyle <em>List Style</em>}' enum.
@@ -4415,7 +4757,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListStyle()
 	 * @generated
 	 */
-	int LIST_STYLE = 54;
+	int LIST_STYLE = 63;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
@@ -4425,7 +4767,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
 	 * @generated
 	 */
-	int CODE_LANGUAGE = 55;
+	int CODE_LANGUAGE = 64;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.
@@ -4435,7 +4777,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraphStyle()
 	 * @generated
 	 */
-	int PARAGRAPH_STYLE = 56;
+	int PARAGRAPH_STYLE = 65;
 
 
 	/**
@@ -4480,6 +4822,17 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPubModel_FigureRenderers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.PubModel#getTableRenderers <em>Table Renderers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Table Renderers</em>'.
+	 * @see com.mimacom.ddd.pub.pub.PubModel#getTableRenderers()
+	 * @see #getPubModel()
+	 * @generated
+	 */
+	EReference getPubModel_TableRenderers();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Document <em>Document</em>}'.
@@ -5543,6 +5896,48 @@ public interface PubPackage extends EPackage {
 	EOperation getTitledBlock__Parent();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TitledTable <em>Titled Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Titled Table</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TitledTable
+	 * @generated
+	 */
+	EClass getTitledTable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.TitledTable#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Table</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TitledTable#getTable()
+	 * @see #getTitledTable()
+	 * @generated
+	 */
+	EReference getTitledTable_Table();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.AbstractTable <em>Abstract Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Table</em>'.
+	 * @see com.mimacom.ddd.pub.pub.AbstractTable
+	 * @generated
+	 */
+	EClass getAbstractTable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.AbstractTable#getWidthPercent <em>Width Percent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width Percent</em>'.
+	 * @see com.mimacom.ddd.pub.pub.AbstractTable#getWidthPercent()
+	 * @see #getAbstractTable()
+	 * @generated
+	 */
+	EAttribute getAbstractTable_WidthPercent();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5564,15 +5959,15 @@ public interface PubPackage extends EPackage {
 	EAttribute getTable_Columns();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Table#getWidthPercent <em>Width Percent</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.Table#getRows <em>Rows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Width Percent</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Table#getWidthPercent()
+	 * @return the meta object for the containment reference list '<em>Rows</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Table#getRows()
 	 * @see #getTable()
 	 * @generated
 	 */
-	EAttribute getTable_WidthPercent();
+	EReference getTable_Rows();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Table#isHideGrid <em>Hide Grid</em>}'.
@@ -5584,17 +5979,6 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTable_HideGrid();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.Table#getRows <em>Rows</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rows</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Table#getRows()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EReference getTable_Rows();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TableRow <em>Table Row</em>}'.
@@ -5694,47 +6078,152 @@ public interface PubPackage extends EPackage {
 	EReference getTableCell_Row();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Figure <em>Figure</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.ProvidedTable <em>Provided Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Figure</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Figure
+	 * @return the meta object for class '<em>Provided Table</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTable
 	 * @generated
 	 */
-	EClass getFigure();
+	EClass getProvidedTable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Figure#getFileUri <em>File Uri</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File Uri</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Figure#getFileUri()
-	 * @see #getFigure()
-	 * @generated
-	 */
-	EAttribute getFigure_FileUri();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.Figure#getDiagramRoot <em>Diagram Root</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedTable#getDiagramRoot <em>Diagram Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Diagram Root</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Figure#getDiagramRoot()
-	 * @see #getFigure()
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTable#getDiagramRoot()
+	 * @see #getProvidedTable()
 	 * @generated
 	 */
-	EReference getFigure_DiagramRoot();
+	EReference getProvidedTable_DiagramRoot();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.Figure#getRenderer <em>Renderer</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedTable#getRenderer <em>Renderer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Renderer</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Figure#getRenderer()
-	 * @see #getFigure()
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTable#getRenderer()
+	 * @see #getProvidedTable()
 	 * @generated
 	 */
-	EReference getFigure_Renderer();
+	EReference getProvidedTable_Renderer();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TableRenderer <em>Table Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Renderer</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TableRenderer
+	 * @generated
+	 */
+	EClass getTableRenderer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TableRenderer#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TableRenderer#getName()
+	 * @see #getTableRenderer()
+	 * @generated
+	 */
+	EAttribute getTableRenderer_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TableRenderer#getTableName <em>Table Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TableRenderer#getTableName()
+	 * @see #getTableRenderer()
+	 * @generated
+	 */
+	EAttribute getTableRenderer_TableName();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TitledFigure <em>Titled Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Titled Figure</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TitledFigure
+	 * @generated
+	 */
+	EClass getTitledFigure();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.TitledFigure#getFigure <em>Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Figure</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TitledFigure#getFigure()
+	 * @see #getTitledFigure()
+	 * @generated
+	 */
+	EReference getTitledFigure_Figure();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.AbstractFigure <em>Abstract Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Figure</em>'.
+	 * @see com.mimacom.ddd.pub.pub.AbstractFigure
+	 * @generated
+	 */
+	EClass getAbstractFigure();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.IncludedFigure <em>Included Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Included Figure</em>'.
+	 * @see com.mimacom.ddd.pub.pub.IncludedFigure
+	 * @generated
+	 */
+	EClass getIncludedFigure();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.IncludedFigure#getFileUri <em>File Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Uri</em>'.
+	 * @see com.mimacom.ddd.pub.pub.IncludedFigure#getFileUri()
+	 * @see #getIncludedFigure()
+	 * @generated
+	 */
+	EAttribute getIncludedFigure_FileUri();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.ProvidedFigure <em>Provided Figure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Provided Figure</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure
+	 * @generated
+	 */
+	EClass getProvidedFigure();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramRoot <em>Diagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Diagram Root</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramRoot()
+	 * @see #getProvidedFigure()
+	 * @generated
+	 */
+	EReference getProvidedFigure_DiagramRoot();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getRenderer <em>Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Renderer</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure#getRenderer()
+	 * @see #getProvidedFigure()
+	 * @generated
+	 */
+	EReference getProvidedFigure_Renderer();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.FigureRenderer <em>Figure Renderer</em>}'.
@@ -5790,47 +6279,47 @@ public interface PubPackage extends EPackage {
 	EAttribute getEquation_FileUri();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.CodeListing <em>Code Listing</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TitledCodeListing <em>Titled Code Listing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Code Listing</em>'.
-	 * @see com.mimacom.ddd.pub.pub.CodeListing
+	 * @return the meta object for class '<em>Titled Code Listing</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing
 	 * @generated
 	 */
-	EClass getCodeListing();
+	EClass getTitledCodeListing();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.CodeListing#getFormat <em>Format</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getFormat <em>Format</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see com.mimacom.ddd.pub.pub.CodeListing#getFormat()
-	 * @see #getCodeListing()
+	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing#getFormat()
+	 * @see #getTitledCodeListing()
 	 * @generated
 	 */
-	EAttribute getCodeListing_Format();
+	EAttribute getTitledCodeListing_Format();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.pub.pub.CodeListing#getCodeLines <em>Code Lines</em>}'.
+	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getCodeLines <em>Code Lines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Code Lines</em>'.
-	 * @see com.mimacom.ddd.pub.pub.CodeListing#getCodeLines()
-	 * @see #getCodeListing()
+	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing#getCodeLines()
+	 * @see #getTitledCodeListing()
 	 * @generated
 	 */
-	EAttribute getCodeListing_CodeLines();
+	EAttribute getTitledCodeListing_CodeLines();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.CodeListing#getInclude <em>Include</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getInclude <em>Include</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Include</em>'.
-	 * @see com.mimacom.ddd.pub.pub.CodeListing#getInclude()
-	 * @see #getCodeListing()
+	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing#getInclude()
+	 * @see #getTitledCodeListing()
 	 * @generated
 	 */
-	EReference getCodeListing_Include();
+	EReference getTitledCodeListing_Include();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Paragraph <em>Paragraph</em>}'.
@@ -5843,26 +6332,57 @@ public interface PubPackage extends EPackage {
 	EClass getParagraph();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Paragraph#getStyle <em>Style</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.RichTextParagraph <em>Rich Text Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rich Text Paragraph</em>'.
+	 * @see com.mimacom.ddd.pub.pub.RichTextParagraph
+	 * @generated
+	 */
+	EClass getRichTextParagraph();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.RichTextParagraph#getStyle <em>Style</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Style</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Paragraph#getStyle()
-	 * @see #getParagraph()
+	 * @see com.mimacom.ddd.pub.pub.RichTextParagraph#getStyle()
+	 * @see #getRichTextParagraph()
 	 * @generated
 	 */
-	EAttribute getParagraph_Style();
+	EAttribute getRichTextParagraph_Style();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.Paragraph#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.RichTextParagraph#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Text</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Paragraph#getText()
-	 * @see #getParagraph()
+	 * @see com.mimacom.ddd.pub.pub.RichTextParagraph#getText()
+	 * @see #getRichTextParagraph()
 	 * @generated
 	 */
-	EReference getParagraph_Text();
+	EReference getRichTextParagraph_Text();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.RichTextReferencingParagraph <em>Rich Text Referencing Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rich Text Referencing Paragraph</em>'.
+	 * @see com.mimacom.ddd.pub.pub.RichTextReferencingParagraph
+	 * @generated
+	 */
+	EClass getRichTextReferencingParagraph();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.RichTextReferencingParagraph#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Text</em>'.
+	 * @see com.mimacom.ddd.pub.pub.RichTextReferencingParagraph#getText()
+	 * @see #getRichTextReferencingParagraph()
+	 * @generated
+	 */
+	EReference getRichTextReferencingParagraph_Text();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.UnformattedParagraph <em>Unformatted Paragraph</em>}'.
@@ -6001,6 +6521,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PUB_MODEL__FIGURE_RENDERERS = eINSTANCE.getPubModel_FigureRenderers();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Renderers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PUB_MODEL__TABLE_RENDERERS = eINSTANCE.getPubModel_TableRenderers();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl <em>Document</em>}' class.
@@ -6893,6 +7421,42 @@ public interface PubPackage extends EPackage {
 		EOperation TITLED_BLOCK___PARENT = eINSTANCE.getTitledBlock__Parent();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TitledTableImpl <em>Titled Table</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.TitledTableImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledTable()
+		 * @generated
+		 */
+		EClass TITLED_TABLE = eINSTANCE.getTitledTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TITLED_TABLE__TABLE = eINSTANCE.getTitledTable_Table();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.AbstractTableImpl <em>Abstract Table</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.AbstractTableImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractTable()
+		 * @generated
+		 */
+		EClass ABSTRACT_TABLE = eINSTANCE.getAbstractTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Width Percent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_TABLE__WIDTH_PERCENT = eINSTANCE.getAbstractTable_WidthPercent();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6911,12 +7475,12 @@ public interface PubPackage extends EPackage {
 		EAttribute TABLE__COLUMNS = eINSTANCE.getTable_Columns();
 
 		/**
-		 * The meta object literal for the '<em><b>Width Percent</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Rows</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE__WIDTH_PERCENT = eINSTANCE.getTable_WidthPercent();
+		EReference TABLE__ROWS = eINSTANCE.getTable_Rows();
 
 		/**
 		 * The meta object literal for the '<em><b>Hide Grid</b></em>' attribute feature.
@@ -6925,14 +7489,6 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE__HIDE_GRID = eINSTANCE.getTable_HideGrid();
-
-		/**
-		 * The meta object literal for the '<em><b>Rows</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE__ROWS = eINSTANCE.getTable_Rows();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -7011,22 +7567,14 @@ public interface PubPackage extends EPackage {
 		EReference TABLE_CELL__ROW = eINSTANCE.getTableCell_Row();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.FigureImpl <em>Figure</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl <em>Provided Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.impl.FigureImpl
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigure()
+		 * @see com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedTable()
 		 * @generated
 		 */
-		EClass FIGURE = eINSTANCE.getFigure();
-
-		/**
-		 * The meta object literal for the '<em><b>File Uri</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FIGURE__FILE_URI = eINSTANCE.getFigure_FileUri();
+		EClass PROVIDED_TABLE = eINSTANCE.getProvidedTable();
 
 		/**
 		 * The meta object literal for the '<em><b>Diagram Root</b></em>' reference feature.
@@ -7034,7 +7582,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIGURE__DIAGRAM_ROOT = eINSTANCE.getFigure_DiagramRoot();
+		EReference PROVIDED_TABLE__DIAGRAM_ROOT = eINSTANCE.getProvidedTable_DiagramRoot();
 
 		/**
 		 * The meta object literal for the '<em><b>Renderer</b></em>' reference feature.
@@ -7042,7 +7590,105 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIGURE__RENDERER = eINSTANCE.getFigure_Renderer();
+		EReference PROVIDED_TABLE__RENDERER = eINSTANCE.getProvidedTable_Renderer();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableRendererImpl <em>Table Renderer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.TableRendererImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRenderer()
+		 * @generated
+		 */
+		EClass TABLE_RENDERER = eINSTANCE.getTableRenderer();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_RENDERER__NAME = eINSTANCE.getTableRenderer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_RENDERER__TABLE_NAME = eINSTANCE.getTableRenderer_TableName();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TitledFigureImpl <em>Titled Figure</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.TitledFigureImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledFigure()
+		 * @generated
+		 */
+		EClass TITLED_FIGURE = eINSTANCE.getTitledFigure();
+
+		/**
+		 * The meta object literal for the '<em><b>Figure</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TITLED_FIGURE__FIGURE = eINSTANCE.getTitledFigure_Figure();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.AbstractFigureImpl <em>Abstract Figure</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.AbstractFigureImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractFigure()
+		 * @generated
+		 */
+		EClass ABSTRACT_FIGURE = eINSTANCE.getAbstractFigure();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.IncludedFigureImpl <em>Included Figure</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.IncludedFigureImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getIncludedFigure()
+		 * @generated
+		 */
+		EClass INCLUDED_FIGURE = eINSTANCE.getIncludedFigure();
+
+		/**
+		 * The meta object literal for the '<em><b>File Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INCLUDED_FIGURE__FILE_URI = eINSTANCE.getIncludedFigure_FileUri();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl <em>Provided Figure</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedFigure()
+		 * @generated
+		 */
+		EClass PROVIDED_FIGURE = eINSTANCE.getProvidedFigure();
+
+		/**
+		 * The meta object literal for the '<em><b>Diagram Root</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDED_FIGURE__DIAGRAM_ROOT = eINSTANCE.getProvidedFigure_DiagramRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Renderer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDED_FIGURE__RENDERER = eINSTANCE.getProvidedFigure_Renderer();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl <em>Figure Renderer</em>}' class.
@@ -7089,14 +7735,14 @@ public interface PubPackage extends EPackage {
 		EAttribute EQUATION__FILE_URI = eINSTANCE.getEquation_FileUri();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl <em>Code Listing</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl <em>Titled Code Listing</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.impl.CodeListingImpl
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeListing()
+		 * @see com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledCodeListing()
 		 * @generated
 		 */
-		EClass CODE_LISTING = eINSTANCE.getCodeListing();
+		EClass TITLED_CODE_LISTING = eINSTANCE.getTitledCodeListing();
 
 		/**
 		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -7104,7 +7750,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CODE_LISTING__FORMAT = eINSTANCE.getCodeListing_Format();
+		EAttribute TITLED_CODE_LISTING__FORMAT = eINSTANCE.getTitledCodeListing_Format();
 
 		/**
 		 * The meta object literal for the '<em><b>Code Lines</b></em>' attribute list feature.
@@ -7112,7 +7758,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CODE_LISTING__CODE_LINES = eINSTANCE.getCodeListing_CodeLines();
+		EAttribute TITLED_CODE_LISTING__CODE_LINES = eINSTANCE.getTitledCodeListing_CodeLines();
 
 		/**
 		 * The meta object literal for the '<em><b>Include</b></em>' reference feature.
@@ -7120,7 +7766,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CODE_LISTING__INCLUDE = eINSTANCE.getCodeListing_Include();
+		EReference TITLED_CODE_LISTING__INCLUDE = eINSTANCE.getTitledCodeListing_Include();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -7133,12 +7779,22 @@ public interface PubPackage extends EPackage {
 		EClass PARAGRAPH = eINSTANCE.getParagraph();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.RichTextParagraphImpl <em>Rich Text Paragraph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.RichTextParagraphImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextParagraph()
+		 * @generated
+		 */
+		EClass RICH_TEXT_PARAGRAPH = eINSTANCE.getRichTextParagraph();
+
+		/**
 		 * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAGRAPH__STYLE = eINSTANCE.getParagraph_Style();
+		EAttribute RICH_TEXT_PARAGRAPH__STYLE = eINSTANCE.getRichTextParagraph_Style();
 
 		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
@@ -7146,7 +7802,25 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAGRAPH__TEXT = eINSTANCE.getParagraph_Text();
+		EReference RICH_TEXT_PARAGRAPH__TEXT = eINSTANCE.getRichTextParagraph_Text();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.RichTextReferencingParagraphImpl <em>Rich Text Referencing Paragraph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.RichTextReferencingParagraphImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextReferencingParagraph()
+		 * @generated
+		 */
+		EClass RICH_TEXT_REFERENCING_PARAGRAPH = eINSTANCE.getRichTextReferencingParagraph();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RICH_TEXT_REFERENCING_PARAGRAPH__TEXT = eINSTANCE.getRichTextReferencingParagraph_Text();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.UnformattedParagraphImpl <em>Unformatted Paragraph</em>}' class.

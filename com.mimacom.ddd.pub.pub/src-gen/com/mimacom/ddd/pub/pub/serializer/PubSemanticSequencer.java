@@ -52,27 +52,28 @@ import com.mimacom.ddd.pub.pub.BibliographyEntry;
 import com.mimacom.ddd.pub.pub.ChangeDescription;
 import com.mimacom.ddd.pub.pub.ChangeHistory;
 import com.mimacom.ddd.pub.pub.Chapter;
-import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Epilogue;
 import com.mimacom.ddd.pub.pub.Equation;
-import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.Glossary;
 import com.mimacom.ddd.pub.pub.GlossaryEntry;
+import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.IndexEntry;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
-import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.Preface;
+import com.mimacom.ddd.pub.pub.ProvidedFigure;
+import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Publication;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Reference;
+import com.mimacom.ddd.pub.pub.RichTextParagraph;
 import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.SegmentInclude;
 import com.mimacom.ddd.pub.pub.Subsection;
@@ -81,6 +82,9 @@ import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
+import com.mimacom.ddd.pub.pub.TitledCodeListing;
+import com.mimacom.ddd.pub.pub.TitledFigure;
+import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.services.PubGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -332,9 +336,6 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 			case PubPackage.CHAPTER:
 				sequence_PubChapter_PubDivisionHeader_PubReferenceTargetName(context, (Chapter) semanticObject); 
 				return; 
-			case PubPackage.CODE_LISTING:
-				sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(context, (CodeListing) semanticObject); 
-				return; 
 			case PubPackage.COMPONENT:
 				sequence_PubComponent_PubReferenceTargetName(context, (Component) semanticObject); 
 				return; 
@@ -344,14 +345,14 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 			case PubPackage.EQUATION:
 				sequence_PubEquation_PubReferenceTargetName_PubTitledBlockHeader(context, (Equation) semanticObject); 
 				return; 
-			case PubPackage.FIGURE:
-				sequence_PubFigure_PubReferenceTargetName_PubTitledBlockHeader(context, (Figure) semanticObject); 
-				return; 
 			case PubPackage.GLOSSARY:
 				sequence_PubGlossary(context, (Glossary) semanticObject); 
 				return; 
 			case PubPackage.GLOSSARY_ENTRY:
 				sequence_PubGlossaryEntry(context, (GlossaryEntry) semanticObject); 
+				return; 
+			case PubPackage.INCLUDED_FIGURE:
+				sequence_IncludedFigure(context, (IncludedFigure) semanticObject); 
 				return; 
 			case PubPackage.INDEX:
 				sequence_PubIndex(context, (Index) semanticObject); 
@@ -371,22 +372,17 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 			case PubPackage.LIST_OF_TABLES:
 				sequence_PubListOfTables(context, (ListOfTables) semanticObject); 
 				return; 
-			case PubPackage.PARAGRAPH:
-				if (rule == grammarAccess.getPubParagraphTextOnlyRule()) {
-					sequence_PubParagraphTextOnly(context, (Paragraph) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getPubContentBlockRule()
-						|| rule == grammarAccess.getPubParagraphRule()) {
-					sequence_PubParagraph(context, (Paragraph) semanticObject); 
-					return; 
-				}
-				else break;
 			case PubPackage.PART:
 				sequence_PubDivisionHeader_PubPart_PubReferenceTargetName(context, (Part) semanticObject); 
 				return; 
 			case PubPackage.PREFACE:
 				sequence_PubPreface(context, (Preface) semanticObject); 
+				return; 
+			case PubPackage.PROVIDED_FIGURE:
+				sequence_ProvidedFigure(context, (ProvidedFigure) semanticObject); 
+				return; 
+			case PubPackage.PROVIDED_TABLE:
+				sequence_ProvidedTable(context, (ProvidedTable) semanticObject); 
 				return; 
 			case PubPackage.PUB_MODEL:
 				sequence_PubModel(context, (PubModel) semanticObject); 
@@ -400,6 +396,17 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 			case PubPackage.REFERENCE:
 				sequence_PubReference(context, (Reference) semanticObject); 
 				return; 
+			case PubPackage.RICH_TEXT_PARAGRAPH:
+				if (rule == grammarAccess.getPubParagraphTextOnlyRule()) {
+					sequence_PubParagraphTextOnly(context, (RichTextParagraph) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPubContentBlockRule()
+						|| rule == grammarAccess.getPubRichTextParagraphRule()) {
+					sequence_PubRichTextParagraph(context, (RichTextParagraph) semanticObject); 
+					return; 
+				}
+				else break;
 			case PubPackage.SECTION:
 				sequence_PubDivisionHeader_PubReferenceTargetName_PubSection(context, (Section) semanticObject); 
 				return; 
@@ -416,7 +423,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 				sequence_PubTOC(context, (TOC) semanticObject); 
 				return; 
 			case PubPackage.TABLE:
-				sequence_PubReferenceTargetName_PubTable_PubTitledBlockHeader(context, (Table) semanticObject); 
+				sequence_Table(context, (Table) semanticObject); 
 				return; 
 			case PubPackage.TABLE_CELL:
 				if (rule == grammarAccess.getPubTableCellRule()) {
@@ -431,10 +438,82 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 			case PubPackage.TABLE_ROW:
 				sequence_PubTableRow(context, (TableRow) semanticObject); 
 				return; 
+			case PubPackage.TITLED_CODE_LISTING:
+				sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(context, (TitledCodeListing) semanticObject); 
+				return; 
+			case PubPackage.TITLED_FIGURE:
+				sequence_PubFigure_PubReferenceTargetName_PubTitledBlockHeader(context, (TitledFigure) semanticObject); 
+				return; 
+			case PubPackage.TITLED_TABLE:
+				sequence_PubReferenceTargetName_PubTable_PubTitledBlockHeader(context, (TitledTable) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     AbstractFigure returns IncludedFigure
+	 *     IncludedFigure returns IncludedFigure
+	 *
+	 * Constraint:
+	 *     fileUri=STRING
+	 */
+	protected void sequence_IncludedFigure(ISerializationContext context, IncludedFigure semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.INCLUDED_FIGURE__FILE_URI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.INCLUDED_FIGURE__FILE_URI));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIncludedFigureAccess().getFileUriSTRINGTerminalRuleCall_1_0(), semanticObject.getFileUri());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFigure returns ProvidedFigure
+	 *     ProvidedFigure returns ProvidedFigure
+	 *
+	 * Constraint:
+	 *     (diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[FigureRenderer|DQualifiedName])
+	 */
+	protected void sequence_ProvidedFigure(ISerializationContext context, ProvidedFigure semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__DIAGRAM_ROOT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__DIAGRAM_ROOT));
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__RENDERER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__RENDERER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getProvidedFigureAccess().getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_FIGURE__DIAGRAM_ROOT, false));
+		feeder.accept(grammarAccess.getProvidedFigureAccess().getRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_FIGURE__RENDERER, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractTable returns ProvidedTable
+	 *     ProvidedTable returns ProvidedTable
+	 *
+	 * Constraint:
+	 *     (diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[TableRenderer|DQualifiedName])
+	 */
+	protected void sequence_ProvidedTable(ISerializationContext context, ProvidedTable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_TABLE__DIAGRAM_ROOT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_TABLE__DIAGRAM_ROOT));
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_TABLE__RENDERER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_TABLE__RENDERER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getProvidedTableAccess().getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_TABLE__DIAGRAM_ROOT, false));
+		feeder.accept(grammarAccess.getProvidedTableAccess().getRendererTableRendererDQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_TABLE__RENDERER, false));
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -580,13 +659,13 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PubContentBlock returns CodeListing
-	 *     PubCodeListing returns CodeListing
+	 *     PubContentBlock returns TitledCodeListing
+	 *     PubCodeListing returns TitledCodeListing
 	 *
 	 * Constraint:
 	 *     (name=ID? title=DRichText ((format=PubCodeLanguage? codeLines+=STRING*) | include=[EObject|DQualifiedName])?)
 	 */
-	protected void sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, CodeListing semanticObject) {
+	protected void sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, TitledCodeListing semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -680,13 +759,13 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PubContentBlock returns Figure
-	 *     PubFigure returns Figure
+	 *     PubContentBlock returns TitledFigure
+	 *     PubFigure returns TitledFigure
 	 *
 	 * Constraint:
-	 *     (name=ID? title=DRichText ((diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[FigureRenderer|DQualifiedName]) | fileUri=STRING))
+	 *     (name=ID? title=DRichText figure=AbstractFigure)
 	 */
-	protected void sequence_PubFigure_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, Figure semanticObject) {
+	protected void sequence_PubFigure_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, TitledFigure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -806,32 +885,19 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PubParagraphTextOnly returns Paragraph
+	 *     PubParagraphTextOnly returns RichTextParagraph
 	 *
 	 * Constraint:
 	 *     text=DRichText
 	 */
-	protected void sequence_PubParagraphTextOnly(ISerializationContext context, Paragraph semanticObject) {
+	protected void sequence_PubParagraphTextOnly(ISerializationContext context, RichTextParagraph semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PARAGRAPH__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PARAGRAPH__TEXT));
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.RICH_TEXT_PARAGRAPH__TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.RICH_TEXT_PARAGRAPH__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPubParagraphTextOnlyAccess().getTextDRichTextParserRuleCall_0(), semanticObject.getText());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PubContentBlock returns Paragraph
-	 *     PubParagraph returns Paragraph
-	 *
-	 * Constraint:
-	 *     (style=PubParagraphStyle? text=DRichText)
-	 */
-	protected void sequence_PubParagraph(ISerializationContext context, Paragraph semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -876,13 +942,13 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PubContentBlock returns Table
-	 *     PubTable returns Table
+	 *     PubContentBlock returns TitledTable
+	 *     PubTable returns TitledTable
 	 *
 	 * Constraint:
-	 *     (name=ID? title=DRichText columns=NATURAL widthPercent=NATURAL? rows+=PubTableRow*)
+	 *     (name=ID? title=DRichText table=AbstractTable)
 	 */
-	protected void sequence_PubReferenceTargetName_PubTable_PubTitledBlockHeader(ISerializationContext context, Table semanticObject) {
+	protected void sequence_PubReferenceTargetName_PubTable_PubTitledBlockHeader(ISerializationContext context, TitledTable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -920,6 +986,19 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     (scope=PubReferenceScope? target=[ReferenceTarget|DQualifiedName])
 	 */
 	protected void sequence_PubReference(ISerializationContext context, Reference semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PubContentBlock returns RichTextParagraph
+	 *     PubRichTextParagraph returns RichTextParagraph
+	 *
+	 * Constraint:
+	 *     (style=PubParagraphStyle? text=DRichText)
+	 */
+	protected void sequence_PubRichTextParagraph(ISerializationContext context, RichTextParagraph semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -991,6 +1070,19 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     contents+=PubParagraphTextOnly
 	 */
 	protected void sequence_PubTableSimpleCell(ISerializationContext context, TableCell semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractTable returns Table
+	 *     Table returns Table
+	 *
+	 * Constraint:
+	 *     (columns=NATURAL widthPercent=NATURAL? rows+=PubTableRow*)
+	 */
+	protected void sequence_Table(ISerializationContext context, Table semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

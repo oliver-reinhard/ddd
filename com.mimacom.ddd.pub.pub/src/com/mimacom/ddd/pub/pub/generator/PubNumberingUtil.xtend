@@ -6,14 +6,14 @@ import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.pub.Chapter
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
-import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
-import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledFigure
+import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import java.util.List
 import org.eclipse.xtext.EcoreUtil2
@@ -230,15 +230,15 @@ class PubNumberingUtil {
 		}
 	}
 
-	def List<Table> gatherAllTablesInSequenceAndSetSequenceNumbers(Component compo) {
-		val List<Table> acceptor = Lists.newArrayList
-		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Table, acceptor)
+	def List<TitledTable> gatherAllTablesInSequenceAndSetSequenceNumbers(Component compo) {
+		val List<TitledTable> acceptor = Lists.newArrayList
+		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, TitledTable, acceptor)
 		return acceptor
 	}
 
-	def List<Figure> gatherAllFiguresInSequenceAndSetSequenceNumbers(Component compo) {
-		val List<Figure> acceptor = Lists.newArrayList
-		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Figure, acceptor)
+	def List<TitledFigure> gatherAllFiguresInSequenceAndSetSequenceNumbers(Component compo) {
+		val List<TitledFigure> acceptor = Lists.newArrayList
+		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, TitledFigure, acceptor)
 		return acceptor
 	}
 

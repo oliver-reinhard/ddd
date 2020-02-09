@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class UnformattedParagraphImpl extends ContentBlockImpl implements UnformattedParagraph {
+public class UnformattedParagraphImpl extends ParagraphImpl implements UnformattedParagraph {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->

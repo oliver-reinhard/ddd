@@ -10,7 +10,6 @@ import com.mimacom.ddd.dm.base.DEntityOrigin
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DInformationModel
-import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DType
@@ -146,17 +145,17 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 	
 	def generateStaticQuery(DQuery q) '''
 	   «IF q.getType !== null»
-	   		{static} «q.name»(«q.generateQueryParameters») : «q.getType.name» «q.generateMultiplicity»
+	   		{static} «q.name»(«q.generateQueryParameters») : «q.getType.name» «q.multiplicityText»
 	   	«ENDIF»
 	 '''
 	
 	def dispatch generateFeature(DAttribute a) '''
-		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name»«ENDIF» «a.generateMultiplicity»
+		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name»«ENDIF» «a.multiplicityText»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
 	   «IF q.getType !== null»
-	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» «q.generateMultiplicity»
+	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» «q.multiplicityText»
 	   	«ENDIF»
 	 '''
 	
@@ -164,7 +163,7 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 	'''
 	
 	def generateQueryParameters(DQuery q) 
-	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.generateMultiplicity»«ENDFOR»'''
+	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.multiplicityText»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
 		return switch a.kind {
@@ -188,12 +187,6 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 			return  target.aggregateName
 		}
 		return target.domainName
-	}
-	
-	def generateMultiplicity(DNavigableMember member) {
-		if (member.multiplicity === null) return ""
-		val maxOccurs = if (member.multiplicity.maxOccurs == -1) "*" else member.multiplicity.maxOccurs.toString
-		return "("+member.multiplicity.minOccurs+","+maxOccurs+")"
 	}
 	
 }

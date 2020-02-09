@@ -15,14 +15,13 @@ import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.pub.Chapter;
-import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
-import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Part;
+import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
@@ -33,6 +32,8 @@ import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import com.mimacom.ddd.pub.pub.TitledCodeListing;
+import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.PubElementNames;
@@ -206,7 +207,7 @@ public class PubValidator extends AbstractPubValidator {
   }
   
   @Check(CheckType.NORMAL)
-  public void includedCodeSyntax(final CodeListing cl) {
+  public void includedCodeSyntax(final TitledCodeListing cl) {
     EObject _include = cl.getInclude();
     boolean _tripleNotEquals = (_include != null);
     if (_tripleNotEquals) {
@@ -227,7 +228,7 @@ public class PubValidator extends AbstractPubValidator {
         }
       }
       if (hasErrors) {
-        this.error("Code for the included expression has errors.", PubValidator.PUB.getCodeListing_Include());
+        this.error("Code for the included expression has errors.", PubValidator.PUB.getTitledCodeListing_Include());
       }
     }
   }
@@ -305,7 +306,12 @@ public class PubValidator extends AbstractPubValidator {
     }
     boolean _isEmpty = t.getRows().isEmpty();
     if (_isEmpty) {
-      this.warning("Table has no rows.", PubValidator.PUB.getTitledBlock_Title());
+      EObject _eContainer = t.eContainer();
+      if ((_eContainer instanceof TitledTable)) {
+        this.warning("Table has no rows.", t.eContainer(), PubValidator.PUB.getTitledBlock_Title());
+      } else {
+        this.warning("Table has no rows.", PubValidator.PUB.getTable_Rows());
+      }
     }
   }
   
@@ -408,13 +414,13 @@ public class PubValidator extends AbstractPubValidator {
   }
   
   @Check(CheckType.NORMAL)
-  public void diagramCanRender(final Figure f) {
+  public void diagramCanRender(final ProvidedFigure f) {
     if ((((f.getDiagramRoot() != null) && (f.getRenderer() != null)) && (f.getRenderer().getName() != null))) {
-      final DiagramRendererProxy provider = this.registry.getDiagramProvider(f.getRenderer().getName());
+      final DiagramRendererProxy provider = this.registry.getDiagramRenderer(f.getRenderer().getName());
       boolean _canRender = provider.canRender(f.getDiagramRoot());
       boolean _not = (!_canRender);
       if (_not) {
-        this.error("The referenced model does not provide content, the generated diagram will be empty", PubValidator.PUB.getFigure_DiagramRoot());
+        this.error("The referenced model does not provide content, the generated diagram will be empty", PubValidator.PUB.getProvidedFigure_DiagramRoot());
       }
     }
   }

@@ -9,6 +9,6 @@ public class PubDiagramRenderer {
   private final DiagramProviderRegistry renderers = null;
   
   public void render() {
-    this.renderers.getDiagramProviders();
+    this.renderers.getAllDiagramRenderers();
   }
 }

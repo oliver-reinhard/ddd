@@ -7,29 +7,35 @@ import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.ChangeHistory
-import com.mimacom.ddd.pub.pub.CodeListing
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.ContentBlock
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
-import com.mimacom.ddd.pub.pub.Figure
+import com.mimacom.ddd.pub.pub.IncludedFigure
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
-import com.mimacom.ddd.pub.pub.Paragraph
 import com.mimacom.ddd.pub.pub.ParagraphStyle
+import com.mimacom.ddd.pub.pub.ProvidedFigure
+import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubModel
 import com.mimacom.ddd.pub.pub.Publication
 import com.mimacom.ddd.pub.pub.PublicationBody
+import com.mimacom.ddd.pub.pub.RichTextParagraph
+import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph
 import com.mimacom.ddd.pub.pub.SegmentWithText
 import com.mimacom.ddd.pub.pub.TOC
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledCodeListing
+import com.mimacom.ddd.pub.pub.TitledFigure
+import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
+import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
@@ -48,15 +54,16 @@ class PubGenerator extends AbstractGenerator {
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer
-	@Inject DiagramProviderRegistry registry
-	
+	@Inject TableProviderRegistry tableProviderRegistry
+	@Inject DiagramProviderRegistry diagramProviderRegistry
+
 	static final Logger LOGGER = Logger.getLogger(PubGenerator);
 
 	var IFileSystemAccess2 fileSystemAccess
 //	var IGeneratorContext generatorContext
 	var java.util.List<Division> allDivisionsInSequenceOfOccurrenceCache
-	var java.util.List<Table> allTablesInSequenceOfOccurrenceCache
-	var java.util.List<Figure> allFiguresInSequenceOfOccurrenceCache
+	var java.util.List<TitledTable> allTablesInSequenceOfOccurrenceCache
+	var java.util.List<TitledFigure> allFiguresInSequenceOfOccurrenceCache
 
 	val nestedContentBlockGenerator = new NestedContentBlockGenerator {
 
@@ -213,28 +220,48 @@ class PubGenerator extends AbstractGenerator {
 		renderTitledBlock(b, [blockBodyDispatcher])
 	}
 
-	def dispatch CharSequence genTitledBlock(Table t) {
+	def dispatch CharSequence genTitledBlock(TitledTable t) {
+		genTable(t.table)
+	}
+
+	def dispatch CharSequence genTable(Table t) {
 		renderTable(t, nestedContentBlockGenerator)
 	}
 
-	def dispatch CharSequence genTitledBlock(Figure f) {
-		if (f.fileUri !== null) {
-			// TODO copy file to output
-			renderFigure(f, f.fileUri)
+	def dispatch CharSequence genTable(ProvidedTable t) {
+		val provider = tableProviderRegistry.getTableRenderer(t.renderer.name)
+		if (provider !== null) {
+			val table = provider.render(t.diagramRoot)
+			renderTable(table, nestedContentBlockGenerator)
 		} else {
-			val provider = registry.getDiagramProvider(f.renderer.name)
-			if (provider !== null) {
-				val fileName = "figures/figure_" + f.tieredNumber
-				val fileExtension = provider.format.name.toLowerCase
-				val inputStream = provider.render(f.diagramRoot)
-				val file = fileName + "." + fileExtension
-				fileSystemAccess.generateFile(file, inputStream)
-				renderFigure(f, file)
-			} else {
-				val msg = "Figure renderer '" + f.renderer.name + "' not found."
-				LOGGER.error(msg)
-				return "ERROR: " + msg
-			}
+			val msg = "Table renderer '" + t.renderer.name + "' not found."
+			LOGGER.error(msg)
+			return "ERROR: " + msg
+		}
+	}
+
+	def dispatch CharSequence genTitledBlock(TitledFigure f) {
+		genFigure(f.figure)
+	}
+
+	def dispatch CharSequence genFigure(IncludedFigure f) {
+		// TODO copy file to output
+		renderFigure(f, f.fileUri)
+	}
+
+	def dispatch CharSequence genFigure(ProvidedFigure f) {
+		val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
+		if (provider !== null) {
+			val fileName = "figures/figure_" + (f.eContainer as TitledFigure).tieredNumber
+			val fileExtension = provider.format.name.toLowerCase
+			val inputStream = provider.render(f.diagramRoot)
+			val file = fileName + "." + fileExtension
+			fileSystemAccess.generateFile(file, inputStream)
+			renderFigure(f, file)
+		} else {
+			val msg = "Figure renderer '" + f.renderer.name + "' not found."
+			LOGGER.error(msg)
+			return "ERROR: " + msg
 		}
 	}
 
@@ -242,7 +269,7 @@ class PubGenerator extends AbstractGenerator {
 		renderEquation(e)
 	}
 
-	def dispatch CharSequence genTitledBlock(CodeListing cl) {
+	def dispatch CharSequence genTitledBlock(TitledCodeListing cl) {
 		if (cl.include !== null) {
 			try {
 				var formattedCode = serializer.serialize(cl.include) // throws RuntimeException
@@ -256,7 +283,7 @@ class PubGenerator extends AbstractGenerator {
 		}
 	}
 
-	def dispatch CharSequence genBlock(Paragraph para) {
+	def dispatch CharSequence genBlock(RichTextParagraph para) {
 		if (para.style == ParagraphStyle.QUOTE) {
 			return para.renderQuotedParagraph
 		} else {
@@ -266,6 +293,10 @@ class PubGenerator extends AbstractGenerator {
 
 	def dispatch CharSequence genBlock(UnformattedParagraph para) {
 		para.renderUnformattedParagraph
+	}
+
+	def dispatch CharSequence genBlock(RichTextReferencingParagraph para) {
+		para.renderRichTextReferencingParagraph
 	}
 
 	def dispatch CharSequence genBlock(ContentBlock block) {
