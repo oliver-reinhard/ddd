@@ -18,6 +18,7 @@ import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.ProvidedFigure
+import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubPackage
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
@@ -25,14 +26,13 @@ import com.mimacom.ddd.pub.pub.Section
 import com.mimacom.ddd.pub.pub.Subsection
 import com.mimacom.ddd.pub.pub.Subsubsection
 import com.mimacom.ddd.pub.pub.Table
-import com.mimacom.ddd.pub.pub.TableRow
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.TitledCodeListing
-import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.generator.PubElementNames
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
+import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.validation.Check
@@ -44,14 +44,17 @@ import org.eclipse.xtext.validation.Check
  */
 class PubValidator extends AbstractPubValidator {
 
+	static val BASE = BasePackage.eINSTANCE
+	static val PUB = PubPackage.eINSTANCE
+	
 	@Inject extension PubUtil
 	@Inject extension PubElementNames
 	@Inject extension PubNumberingUtil
 	@Inject ISerializer serializer
-	@Inject DiagramProviderRegistry registry
+	@Inject TableProviderRegistry tableProviderRegistry
+	@Inject DiagramProviderRegistry diagramProviderRegistry
 
-	static val BASE = BasePackage.eINSTANCE
-	static val PUB = PubPackage.eINSTANCE
+	val tableValidator = new PubTableValidator(this)
 
 	@Check
 	def publicationClass(Document doc) {
@@ -206,99 +209,32 @@ class PubValidator extends AbstractPubValidator {
 	// Tables
 	//
 	@Check
-	def tableHasRows(Table t) {
-		if (t.columns <= 0) {
-			error("Table must have 1 or more columns.", PUB.table_Columns)
-			return
-		}
-		if (t.rows.empty) {
-			if (t.eContainer instanceof TitledTable) {
-				warning("Table has no rows.", t.eContainer, PUB.titledBlock_Title)
-			} else {
-				warning("Table has no rows.",PUB.table_Rows) // this warning will be propagated to table's container
-			}
-		}
-	}
-
-	@Check
-	def tableRowHasCells(Table t) {
-		for (var i = 0; i < t.rows.length; i++) {
-			if (t.rows.get(i).cells.empty) {
-				warning("Table row has no cells.", PUB.table_Rows, i)
-			}
-		}
-	}
-
-	@Check
-	def cellSizes(TableRow row) {
-		if (row.height <= 0) {
-			error("Row height must be 1 or more.", PUB.tableRow_Height)
-			return
-		}
-		var error = false
-		for (var i = 0; i < row.cells.length; i++) {
-			val cell = row.cells.get(i)
-			if (cell.width <= 0 || cell.height <= 0) {
-				error("Cell height and width must be 1 or more.", PUB.tableRow_Cells, i)
-				error = true
-			}
-			if (cell.height > row.height) {
-				error("Cell height exceeds row height.", PUB.tableRow_Cells, i)
-				error = true
-			}
-		}
-		if (error) {
-			return
-		}
-		val tableWidth = row.table.columns
-		var width = 0
-		var height = 0
-		for (var i = 0; i < row.cells.length; i++) {
-			val cell = row.cells.get(i)
-			if (height == 0) {
-				// this is a cell in the top line of the row
-				width = width + cell.width
-				if (width > tableWidth) {
-					error("Cell causes row width to exceed declared number of table columns.", PUB.tableRow_Cells, i)
-					error = true
-				}
-			} else if (i > 0) {
-				val prevCell = row.cells.get(i - 1)
-				if (cell.width != prevCell.width) {
-					error("Cell width does not match width of cell above.", PUB.tableRow_Cells, i)
-					error = true
-				}
-			}
-			height = height + cell.height
-			if (height > row.height) {
-				error("Cell causes row height to exceed declared row height.", PUB.tableRow_Cells, i)
-				error = true
-			} else if (height == row.height) {
-				height = 0
-			}
-			if (error) {
-				return
-			}
-		}
-		if (width < tableWidth) {
-			error("The cells of this row span less than the declared number of table columns.", PUB.tableRow_Cells,
-				row.cells.length - 1)
-		}
-		if (height > 0 && height < row.height) {
-			error("The cells of this row span less than the declared row height.", PUB.tableRow_Cells,
-				row.cells.length - 1)
-		}
+	def table(Table t) {
+		tableValidator.validate(t)
 	}
 	
 	//
-	// Figure Diagram Renderers
+	// Figure / Diagram Renderers
 	//
 	@Check(NORMAL)
 	def diagramCanRender(ProvidedFigure f) {
 		if (f.diagramRoot !== null && f.renderer !== null && f.renderer.name !== null) {
-			val provider = registry.getDiagramRenderer(f.renderer.name)
+			val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
 			if (! provider.canRender(f.diagramRoot)) {
 				error("The referenced model does not provide content, the generated diagram will be empty", PUB.providedFigure_DiagramRoot)
+			}
+		}
+	}
+	
+	//
+	// Table Renderers
+	//
+	@Check(NORMAL)
+	def tableCanRender(ProvidedTable t) {
+		if (t.diagramRoot !== null && t.renderer !== null && t.renderer.name !== null) {
+			val provider = tableProviderRegistry.getTableRenderer(t.renderer.name)
+			if (! provider.canRender(t.diagramRoot)) {
+				error("The referenced model does not provide content, the generated table will be empty", PUB.providedTable_DiagramRoot)
 			}
 		}
 	}

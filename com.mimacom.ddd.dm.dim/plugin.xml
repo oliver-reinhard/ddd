@@ -11,6 +11,7 @@
             outputFileFormat="PNG"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
+      
       <renderer
             id="dim.typeDiagram.svg"
             diagramName="Domain Information Structure (SVG)"
@@ -19,6 +20,7 @@
             outputFileFormat="SVG"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
+      
       <diagramType
             id="informationStructure"
             name="Information Structure">
@@ -28,16 +30,30 @@
    <extension
          point="com.mimacom.ddd.pub.pub.tableProvider">
       <renderer
-            id="dim.typesAndFeaturesTable"
-            tableName="All Types and Features"
-            tableType="typesAndFeatures"
+            id="dim.allTypesOverviewTable"
+            tableName="All Types (Overview)"
+            tableType="typesOverview"
             tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
-            rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimTypesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimTypesTableRenderer">
+            rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimAllTypesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimAllTypesTableRenderer">
       </renderer>
-      <diagramType
-            id="typesAndFeatures"
-            name="All Types and Features">
-      </diagramType>
+      
+      <tableType
+            id="typesOverview"
+            name="Descriptions of Types">
+      </tableType>
+      
+      <renderer
+            id="dim.allFeaturesOverviewTable"
+            tableName="All Features (Overview)"
+            tableType="featuresOverview"
+            tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimAllFeaturesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimAllFeaturesTableRenderer">
+      </renderer>
+      
+      <tableType
+            id="featuresOverview"
+            name="Descriptions of Features">
+      </tableType>
    </extension>
 
 </plugin>

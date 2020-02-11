@@ -18,7 +18,7 @@ public class TableProviderRegistryUtil {
   
   public static final String ATTR_RENDERER_CLASS = "rendererClass";
   
-  public static final String ELEMENT_TABLE_TYPE = "renderer";
+  public static final String ELEMENT_TABLE_TYPE = "tableType";
   
   public static final String ATTR_TABLE_TYPE_ID = "id";
   

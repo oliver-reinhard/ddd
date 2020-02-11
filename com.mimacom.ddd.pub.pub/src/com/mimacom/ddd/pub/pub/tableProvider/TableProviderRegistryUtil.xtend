@@ -13,7 +13,7 @@ class TableProviderRegistryUtil {
 	public static val ATTR_RENDERER_TABLE_TYPE_ID = "tableType"
 	public static val ATTR_RENDERER_CLASS = "rendererClass"
 	
-	public static val ELEMENT_TABLE_TYPE = "renderer"
+	public static val ELEMENT_TABLE_TYPE = "tableType"
 	public static val ATTR_TABLE_TYPE_ID = "id"
 	public static val ATTR_TABLE_TYPE_NAME = "name"
 

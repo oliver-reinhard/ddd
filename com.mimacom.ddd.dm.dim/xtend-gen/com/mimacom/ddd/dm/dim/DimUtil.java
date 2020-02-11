@@ -161,7 +161,7 @@ public class DimUtil extends DmxUtil {
         String _xifexpression = null;
         boolean _isRoot = ((DEntityType)type).isRoot();
         if (_isRoot) {
-          _xifexpression = "Root ";
+          _xifexpression = "Root Entity ";
         } else {
           _xifexpression = "Entity ";
         }

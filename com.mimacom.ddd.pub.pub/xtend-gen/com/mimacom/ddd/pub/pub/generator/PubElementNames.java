@@ -8,7 +8,7 @@ import java.util.Arrays;
 @SuppressWarnings("all")
 public class PubElementNames {
   protected String _displayName(final TitledBlock b) {
-    return b.getClass().getSimpleName().replace("Impl", "");
+    return b.getClass().getSimpleName().replace("Titled", "").replace("Impl", "");
   }
   
   protected String _displayName(final Division div) {

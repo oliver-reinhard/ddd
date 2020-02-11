@@ -104,7 +104,7 @@ class DimUtil extends DmxUtil {
 		val typeLabel = switch type {
 			DPrimitive: "Primitive "
 			DEnumeration: "Enumeration "
-			DEntityType: if (type.root) "Root " else "Entity "
+			DEntityType: if (type.root) "Root Entity " else "Entity "
 			DDetailType: "Detail "
 			DAssociation: switch type.kind {
 				case REFERENCE: "Reference to "

@@ -22,6 +22,7 @@ import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
+import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
@@ -29,22 +30,21 @@ import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.Subsection;
 import com.mimacom.ddd.pub.pub.Subsubsection;
 import com.mimacom.ddd.pub.pub.Table;
-import com.mimacom.ddd.pub.pub.TableCell;
-import com.mimacom.ddd.pub.pub.TableRow;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledCodeListing;
-import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.PubElementNames;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import com.mimacom.ddd.pub.pub.impl.PubConstants;
+import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry;
+import com.mimacom.ddd.pub.pub.tableProvider.TableRendererProxy;
 import com.mimacom.ddd.pub.pub.validation.AbstractPubValidator;
+import com.mimacom.ddd.pub.pub.validation.PubTableValidator;
 import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
@@ -62,6 +62,10 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 @SuppressWarnings("all")
 public class PubValidator extends AbstractPubValidator {
+  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  
+  private static final PubPackage PUB = PubPackage.eINSTANCE;
+  
   @Inject
   @Extension
   private PubUtil _pubUtil;
@@ -78,11 +82,12 @@ public class PubValidator extends AbstractPubValidator {
   private ISerializer serializer;
   
   @Inject
-  private DiagramProviderRegistry registry;
+  private TableProviderRegistry tableProviderRegistry;
   
-  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  @Inject
+  private DiagramProviderRegistry diagramProviderRegistry;
   
-  private static final PubPackage PUB = PubPackage.eINSTANCE;
+  private final PubTableValidator tableValidator = new PubTableValidator(this);
   
   @Check
   public void publicationClass(final Document doc) {
@@ -297,130 +302,30 @@ public class PubValidator extends AbstractPubValidator {
   }
   
   @Check
-  public void tableHasRows(final Table t) {
-    int _columns = t.getColumns();
-    boolean _lessEqualsThan = (_columns <= 0);
-    if (_lessEqualsThan) {
-      this.error("Table must have 1 or more columns.", PubValidator.PUB.getTable_Columns());
-      return;
-    }
-    boolean _isEmpty = t.getRows().isEmpty();
-    if (_isEmpty) {
-      EObject _eContainer = t.eContainer();
-      if ((_eContainer instanceof TitledTable)) {
-        this.warning("Table has no rows.", t.eContainer(), PubValidator.PUB.getTitledBlock_Title());
-      } else {
-        this.warning("Table has no rows.", PubValidator.PUB.getTable_Rows());
-      }
-    }
-  }
-  
-  @Check
-  public void tableRowHasCells(final Table t) {
-    for (int i = 0; (i < ((Object[])Conversions.unwrapArray(t.getRows(), Object.class)).length); i++) {
-      boolean _isEmpty = t.getRows().get(i).getCells().isEmpty();
-      if (_isEmpty) {
-        this.warning("Table row has no cells.", PubValidator.PUB.getTable_Rows(), i);
-      }
-    }
-  }
-  
-  @Check
-  public void cellSizes(final TableRow row) {
-    int _height = row.getHeight();
-    boolean _lessEqualsThan = (_height <= 0);
-    if (_lessEqualsThan) {
-      this.error("Row height must be 1 or more.", PubValidator.PUB.getTableRow_Height());
-      return;
-    }
-    boolean error = false;
-    for (int i = 0; (i < ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length); i++) {
-      {
-        final TableCell cell = row.getCells().get(i);
-        if (((cell.getWidth() <= 0) || (cell.getHeight() <= 0))) {
-          this.error("Cell height and width must be 1 or more.", PubValidator.PUB.getTableRow_Cells(), i);
-          error = true;
-        }
-        int _height_1 = cell.getHeight();
-        int _height_2 = row.getHeight();
-        boolean _greaterThan = (_height_1 > _height_2);
-        if (_greaterThan) {
-          this.error("Cell height exceeds row height.", PubValidator.PUB.getTableRow_Cells(), i);
-          error = true;
-        }
-      }
-    }
-    if (error) {
-      return;
-    }
-    final int tableWidth = row.getTable().getColumns();
-    int width = 0;
-    int height = 0;
-    for (int i = 0; (i < ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length); i++) {
-      {
-        final TableCell cell = row.getCells().get(i);
-        if ((height == 0)) {
-          int _width = cell.getWidth();
-          int _plus = (width + _width);
-          width = _plus;
-          if ((width > tableWidth)) {
-            this.error("Cell causes row width to exceed declared number of table columns.", PubValidator.PUB.getTableRow_Cells(), i);
-            error = true;
-          }
-        } else {
-          if ((i > 0)) {
-            final TableCell prevCell = row.getCells().get((i - 1));
-            int _width_1 = cell.getWidth();
-            int _width_2 = prevCell.getWidth();
-            boolean _notEquals = (_width_1 != _width_2);
-            if (_notEquals) {
-              this.error("Cell width does not match width of cell above.", PubValidator.PUB.getTableRow_Cells(), i);
-              error = true;
-            }
-          }
-        }
-        int _height_1 = cell.getHeight();
-        int _plus_1 = (height + _height_1);
-        height = _plus_1;
-        int _height_2 = row.getHeight();
-        boolean _greaterThan = (height > _height_2);
-        if (_greaterThan) {
-          this.error("Cell causes row height to exceed declared row height.", PubValidator.PUB.getTableRow_Cells(), i);
-          error = true;
-        } else {
-          int _height_3 = row.getHeight();
-          boolean _equals = (height == _height_3);
-          if (_equals) {
-            height = 0;
-          }
-        }
-        if (error) {
-          return;
-        }
-      }
-    }
-    if ((width < tableWidth)) {
-      EReference _tableRow_Cells = PubValidator.PUB.getTableRow_Cells();
-      int _length = ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length;
-      int _minus = (_length - 1);
-      this.error("The cells of this row span less than the declared number of table columns.", _tableRow_Cells, _minus);
-    }
-    if (((height > 0) && (height < row.getHeight()))) {
-      EReference _tableRow_Cells_1 = PubValidator.PUB.getTableRow_Cells();
-      int _length_1 = ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length;
-      int _minus_1 = (_length_1 - 1);
-      this.error("The cells of this row span less than the declared row height.", _tableRow_Cells_1, _minus_1);
-    }
+  public void table(final Table t) {
+    this.tableValidator.validate(t);
   }
   
   @Check(CheckType.NORMAL)
   public void diagramCanRender(final ProvidedFigure f) {
     if ((((f.getDiagramRoot() != null) && (f.getRenderer() != null)) && (f.getRenderer().getName() != null))) {
-      final DiagramRendererProxy provider = this.registry.getDiagramRenderer(f.getRenderer().getName());
+      final DiagramRendererProxy provider = this.diagramProviderRegistry.getDiagramRenderer(f.getRenderer().getName());
       boolean _canRender = provider.canRender(f.getDiagramRoot());
       boolean _not = (!_canRender);
       if (_not) {
         this.error("The referenced model does not provide content, the generated diagram will be empty", PubValidator.PUB.getProvidedFigure_DiagramRoot());
+      }
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void tableCanRender(final ProvidedTable t) {
+    if ((((t.getDiagramRoot() != null) && (t.getRenderer() != null)) && (t.getRenderer().getName() != null))) {
+      final TableRendererProxy provider = this.tableProviderRegistry.getTableRenderer(t.getRenderer().getName());
+      boolean _canRender = provider.canRender(t.getDiagramRoot());
+      boolean _not = (!_canRender);
+      if (_not) {
+        this.error("The referenced model does not provide content, the generated table will be empty", PubValidator.PUB.getProvidedTable_DiagramRoot());
       }
     }
   }

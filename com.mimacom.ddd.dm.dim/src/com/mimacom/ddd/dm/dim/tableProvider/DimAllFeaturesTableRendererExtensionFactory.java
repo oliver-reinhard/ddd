@@ -5,11 +5,11 @@ import org.eclipse.core.runtime.IExecutableExtensionFactory;
 
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 
-public class DimTypesTableRendererExtensionFactory implements IExecutableExtensionFactory {
+public class DimAllFeaturesTableRendererExtensionFactory implements IExecutableExtensionFactory {
 
 	@Override
 	public Object create() throws CoreException {;
-		return new DimStandaloneSetup().createInjector().getInstance(DimTypesTableRenderer.class);
+		return new DimStandaloneSetup().createInjector().getInstance(DimAllFeaturesTableRenderer.class);
 	}
 
 }

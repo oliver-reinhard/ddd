@@ -6,16 +6,59 @@ import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer;
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistryUtil;
+import com.mimacom.ddd.pub.pub.validation.PubTableValidator;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.SafeRunner;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class TableRendererProxy {
+  private static class InvalidTableStructureException extends Exception {
+    public InvalidTableStructureException() {
+      super("See error log for details");
+    }
+  }
+  
+  private static class TableValidationMessageAcceptor implements ValidationMessageAcceptor {
+    public boolean error = false;
+    
+    @Override
+    public void acceptError(final String message, final EObject object, final EStructuralFeature feature, final int index, final String code, final String... issueData) {
+      TableRendererProxy.LOGGER.error(((((((message + ": ") + object) + ", feature: ") + feature) + ", index: ") + Integer.valueOf(index)));
+      this.error = true;
+    }
+    
+    @Override
+    public void acceptError(final String message, final EObject object, final int offset, final int length, final String code, final String... issueData) {
+      throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public void acceptInfo(final String message, final EObject object, final EStructuralFeature feature, final int index, final String code, final String... issueData) {
+    }
+    
+    @Override
+    public void acceptInfo(final String message, final EObject object, final int offset, final int length, final String code, final String... issueData) {
+    }
+    
+    @Override
+    public void acceptWarning(final String message, final EObject object, final EStructuralFeature feature, final int index, final String code, final String... issueData) {
+      TableRendererProxy.LOGGER.warn(((((((message + ": ") + object) + ", feature: ") + feature) + ", index: ") + Integer.valueOf(index)));
+    }
+    
+    @Override
+    public void acceptWarning(final String message, final EObject object, final int offset, final int length, final String code, final String... issueData) {
+      throw new UnsupportedOperationException();
+    }
+  }
+  
   private static final Logger LOGGER = Logger.getLogger(TableRendererProxy.class);
   
   private static final PubFactory PUB = PubFactory.eINSTANCE;
@@ -54,15 +97,29 @@ public class TableRendererProxy {
       public void run() throws Exception {
         boolean _canRender = TableRendererProxy.this.getRenderer().canRender(root);
         if (_canRender) {
-          result.add(TableRendererProxy.this.getRenderer().render(root));
+          final Table table = TableRendererProxy.this.getRenderer().render(root);
+          final TableRendererProxy.TableValidationMessageAcceptor errorAcceptor = new TableRendererProxy.TableValidationMessageAcceptor();
+          final PubTableValidator tableValidator = new PubTableValidator(errorAcceptor);
+          tableValidator.validate(table);
+          if (errorAcceptor.error) {
+            throw new TableRendererProxy.InvalidTableStructureException();
+          }
+          result.add(table);
         } else {
           TableRendererProxy.LOGGER.info((("Renderer " + TableRendererProxy.this.id) + " has nothing to render"));
-          result.add(TableRendererProxy.PUB.createTable());
         }
       }
     };
     SafeRunner.run(runnable);
-    return IterableExtensions.<Table>head(result);
+    Table _xifexpression = null;
+    boolean _isEmpty = result.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      _xifexpression = IterableExtensions.<Table>head(result);
+    } else {
+      _xifexpression = TableRendererProxy.PUB.createTable();
+    }
+    return _xifexpression;
   }
   
   public boolean canRender(final IDiagramRoot root) {
