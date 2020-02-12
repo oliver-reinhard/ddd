@@ -55,11 +55,13 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
-    DModel _model = namespace.getModel();
-    final SInformationModel model = ((SInformationModel) _model);
-    boolean _canProvide = this.actualProvider.canProvide(model);
-    if (_canProvide) {
-      return this.actualProvider.diagramText(model);
+    if ((namespace != null)) {
+      DModel _model = namespace.getModel();
+      final SInformationModel model = ((SInformationModel) _model);
+      boolean _canProvide = this.actualProvider.canProvide(model);
+      if (_canProvide) {
+        return this.actualProvider.diagramText(model);
+      }
     }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("note \"No structures to show.\" as N1");

@@ -36,9 +36,11 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
             return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
         
-        val model = namespace.model as SInformationModel
-        if (actualProvider.canProvide(model)) {
-        	return actualProvider.diagramText(model)
+        if (namespace !== null) {        	
+	        val model = namespace.model as SInformationModel
+	        if (actualProvider.canProvide(model)) {
+	        	return actualProvider.diagramText(model)
+        	}
         }
         return '''note "No structures to show." as N1'''
 	}
