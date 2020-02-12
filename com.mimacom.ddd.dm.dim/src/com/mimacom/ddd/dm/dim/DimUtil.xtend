@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 
 class DimUtil extends DmxUtil {
-	
+
 	/*
 	 * Returns the names of all the inherited features of the given type (but not its own features).
 	 */
@@ -34,32 +34,32 @@ class DimUtil extends DmxUtil {
 		}
 		return features
 	}
-	
+
 	def DInformationModel domain(EObject obj) {
-			return EcoreUtil2.getContainerOfType(obj, DInformationModel) // global types are not owned by a domain => null
+		return EcoreUtil2.getContainerOfType(obj, DInformationModel) // global types are not owned by a domain => null
 	}
-	
-	
+
 	def String domainName(EObject obj) {
-			val d = obj.domain
-			return if (d !== null) d.name else "NO_DOMAIN" 
+		val d = obj.domain
+		return if (d !== null) d.name else "NO_DOMAIN"
 	}
-	
+
 	def DAggregate aggregate(EObject obj) {
-			return EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
+		return EcoreUtil2.getContainerOfType(obj, DAggregate) // global types are not owned by a domain => null
 	}
-	
+
 	def String aggregateName(EObject obj) {
-			val a = obj.aggregate
-			return if (a !== null) a.name else "default" 
+		val a = obj.aggregate
+		return if (a !== null) a.name else "default"
 	}
-	
+
 	def multiplicityText(DNavigableMember member) {
-		if (member.multiplicity === null) return "(1,1)"
-		val maxOccurs = if (member.multiplicity.maxOccurs == -1) "*" else member.multiplicity.maxOccurs.toString
-		return "("+member.multiplicity.minOccurs+","+maxOccurs+")"
+		val m = member.multiplicity
+		if (m === null || m.minOccurs == 1 && m.maxOccurs == 1) return ""
+		val maxOccurs = if (m.maxOccurs == -1) "*" else m.maxOccurs.toString
+		return "(" + m.minOccurs + "," + maxOccurs + ")"
 	}
-	
+
 	/*
 	 * Precondition: d is the domain owning the association
 	 */
@@ -70,13 +70,13 @@ class DimUtil extends DmxUtil {
 		}
 		return false
 	}
-	
+
 	def boolean isTargetInsideDomain(DAssociation a) {
 		val d = a.domain
 		if (d === null) return false
 		return a.isTargetInsideDomain(d)
 	}
-	
+
 	/*
 	 * Precondition: d is the domain owning the feature
 	 */
@@ -87,48 +87,53 @@ class DimUtil extends DmxUtil {
 		}
 		return false
 	}
-	
+
 	def boolean isTypeInsideDomain(DFeature f) {
 		val d = f.domain
 		if (d === null) return false
 		return f.isTypeInsideDomain(d)
 	}
-	
-	//// Labels
-	
+
+	// // Labels
 	def String label(DAggregate a) {
 		return "Component " + a.name
 	}
-	
+
 	def String label(DType type) {
 		val typeLabel = switch type {
-			DPrimitive: "Primitive "
-			DEnumeration: "Enumeration "
-			DEntityType: if (type.root) "Root Entity " else "Entity "
-			DDetailType: "Detail "
-			DAssociation: switch type.kind {
-				case REFERENCE: "Reference to "
-				case COMPOSITE: "Composite to "
-				case INVERSE_COMPOSITE: "Inverse Composite to "
-				default: type.kind.toString
-			}
-			default: type.class.simpleName
+			DPrimitive:
+				"Primitive "
+			DEnumeration:
+				"Enumeration "
+			DEntityType:
+				if (type.root) "Root Entity " else "Entity "
+			DDetailType:
+				"Detail "
+			DAssociation:
+				switch type.kind {
+					case REFERENCE: "Reference to "
+					case COMPOSITE: "Composite to "
+					case INVERSE_COMPOSITE: "Inverse Composite to "
+					default: type.kind.toString
+				}
+			default:
+				type.class.simpleName
 		}
 		return typeLabel + type?.name
 	}
-	
+
 	def String label(DFeature f) {
 		return f.name + " : " + f.getType?.label
 	}
-	
+
 	def String label(DQueryParameter p) {
 		return p.name + " : " + p.getType?.label
 	}
-	
+
 	def String label(DNamedPredicate c) {
 		return "Constraint " + c.name
 	}
-	
+
 	def String label(IDeducibleElement e) {
 		switch e {
 			DAggregate: e.label

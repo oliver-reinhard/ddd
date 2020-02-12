@@ -125,7 +125,7 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 		}
 	'''
 	
-	def dispatch generateType(DType t)  '''
+	def dispatch generateType(DType t) '''
 	'''
 	
 	def getSpot(DAggregate a) {
@@ -150,7 +150,7 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 	 '''
 	
 	def dispatch generateFeature(DAttribute a) '''
-		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name»«ENDIF» «a.multiplicityText»
+		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name» «a.multiplicityText»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
@@ -162,19 +162,20 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 	def dispatch generateFeature(DAssociation a)  '''
 	'''
 	
-	def generateQueryParameters(DQuery q) 
-	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.multiplicityText»«ENDFOR»'''
+	def generateQueryParameters(DQuery q) '''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.multiplicityText»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
+		val targetLabel = a.name + " " + a.multiplicityText
 		return switch a.kind {
-			case REFERENCE: generateLink('', a.eContainer as DType, a.getType, a.name, '>')
-			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.getType, a.name, '>')
-			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.getType, a.name, '*')
+			case REFERENCE: generateLink('', a.eContainer as DType, a.getType, targetLabel, '>')
+			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.getType, targetLabel, '>')
+			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.getType, targetLabel, '*')
 		}
 	}
 	
 	def generateLink(DAttribute a) {
-		return generateLink('+', a.eContainer as DType, a.getType, a.name, "")
+		val label = a.name + " " + a.multiplicityText
+		return generateLink('+', a.eContainer as DType, a.getType, label, "")
 	}
 	
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''
@@ -188,5 +189,5 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 		}
 		return target.domainName
 	}
-	
+
 }

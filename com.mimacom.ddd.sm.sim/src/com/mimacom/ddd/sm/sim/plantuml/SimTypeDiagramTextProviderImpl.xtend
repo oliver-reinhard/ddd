@@ -27,19 +27,23 @@ import org.eclipse.xtext.EcoreUtil2
 class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SInformationModel> {
 
 	@Inject extension DimUtil
-	
+
 	override canProvide(SInformationModel model) {
-		model === null || model.types.filter[!(it instanceof IDeductionDefinition)].empty && model.aggregates.filter[!(it instanceof IDeductionDefinition)].empty
+		model !== null && !(model.types.filter[!(it instanceof IDeductionDefinition)].empty && model.aggregates.filter [
+			!(it instanceof IDeductionDefinition)
+		].empty)
 	}
-	
+
 	override String diagramText(SInformationModel model) {
-        val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof SAggregateDeduction)]
-        val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof SAssociationDeduction)]
-        val allReferencedDomains = allAssociations.filter[targetType.modelName != model.name].map[targetType.modelName]
-        val allComplexAttributes = EcoreUtil2.eAllOfType(model, DAttribute).filter[!(it instanceof SAttributeDeduction) && !(eContainer instanceof SComplexTypeDeduction)]
-        val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
-        
-       val result = '''
+		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof SAggregateDeduction)]
+		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof SAssociationDeduction)]
+		val allReferencedDomains = allAssociations.filter[targetType.modelName != model.name].map[targetType.modelName]
+		val allComplexAttributes = EcoreUtil2.eAllOfType(model, DAttribute).filter [
+			!(it instanceof SAttributeDeduction) && !(eContainer instanceof SComplexTypeDeduction)
+		]
+		val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
+
+		val result = '''
 			@startuml
 			hide empty members
 			
@@ -54,107 +58,121 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 				FontColor MediumBlue
 			}
 			
-			«FOR t:model.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+			«FOR t : model.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
 			
-			«FOR a:allAggregates»
+			«FOR a : allAggregates»
 				package «a.aggregateName» <<Rectangle>> {
+				«IF ! a.features.empty»«a.generateAggregateQueries»«ENDIF»
 				«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
 				}
 				«FOR d:allReferencedDomains»package «d» <<Frame>> { 
-				}
-           	«ENDFOR»
-    		«ENDFOR»
-            «FOR a:allAssociations»«a.generateAssociation»
-            «ENDFOR»
-            «FOR a:allComplexAttributes.filter[getType instanceof DDetailType]»«a.generateLink»
-            «ENDFOR»
-            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
-            «ENDFOR»
+					}
+					«ENDFOR»
+				«ENDFOR»
+				«FOR a : allAssociations»«a.generateAssociation»
+				«ENDFOR»
+				«FOR a : allComplexAttributes.filter[getType instanceof DDetailType]»«a.generateLink»
+				«ENDFOR»
+				«FOR s : allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
+			         «ENDFOR»
 			@enduml
-        '''
-       return result
+		     '''
+		return result
 	}
-	
+
 	def String modelName(EObject obj) {
-			val d = EcoreUtil2.getContainerOfType(obj, SInformationModel)
-			return if (d !== null) d.name else "undefined" 
+		val d = EcoreUtil2.getContainerOfType(obj, SInformationModel)
+		return if (d !== null) d.name else "undefined"
 	}
 	
-	def dispatch  generateType(DComplexType c) '''	
-		«IF c.abstract»abstract «ENDIF»class «c.qualifiedlName» «c.getSpot» {
-			«FOR f:c.features.filter[!(it instanceof SFeatureDeduction)]»«f.generateFeature»«ENDFOR»
+	def  generateAggregateQueries(DAggregate a) '''	
+		' aggregate «a.name» static queries
+		abstract class «a.name».«a.name» «a.getSpot» {
+			«FOR q : a.features»«(q as DQuery).generateStaticQuery»«ENDFOR»
 		}
 	'''
-	
-	def dispatch  generateType(DPrimitive p) '''	
+
+	def dispatch generateType(DComplexType c) '''	
+		«IF c.abstract»abstract «ENDIF»class «c.qualifiedlName» «c.getSpot» {
+			«FOR f : c.features.filter[!(it instanceof SFeatureDeduction)]»«f.generateFeature»«ENDFOR»
+		}
+	'''
+
+	def dispatch generateType(DPrimitive p) '''	
 		class «p.name» «p.getSpot»
 	'''
-	
-	def dispatch  generateType(DEnumeration e)  '''
+
+	def dispatch generateType(DEnumeration e) '''
 		enum «e.name» «e.getSpot» {
-			«FOR f:e.literals»
+			«FOR f : e.literals»
 				«f.name»
 			«ENDFOR»
 		}
 	'''
 	
-	def dispatch generateType(DType t)  '''
+	def dispatch generateType(DType t) '''
 	'''
+	
+	def getSpot(DAggregate a) {
+		"<< (Q,Gold) >>"
+	}
 	
 	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
 		switch t {
-		DEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
-		DDetailType : "<< (D,#FAE55F) >>"
-		DEnumeration: "<< (e,#66B371) >>"
-		DPrimitive:  "<< (p,#9AF78F) >>"
-		default:""
+			DEntityType: if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
+			DDetailType: "<< (D,#FAE55F) >>"
+			DEnumeration: "<< (e,#66B371) >>"
+			DPrimitive: "<< (p,#9AF78F) >>"
+			default: ""
 		}
 	}
 	
-	
-	def dispatch generateFeature(DAttribute a) '''
-	  	«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType?.name»«ENDIF»
-	  '''
-
-	def dispatch generateFeature(DQuery q) '''
+	def generateStaticQuery(DQuery q) '''
 	   «IF q.getType !== null»
-	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» 
+	   		{static} «q.name»(«q.generateQueryParameters») : «q.getType.name» «q.multiplicityText»
 	   	«ENDIF»
 	 '''
 	
-	def dispatch generateFeature(DAssociation a)  '''
+	def dispatch generateFeature(DAttribute a) '''
+		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name» «a.multiplicityText»«ENDIF»
+	  '''
+
+	def dispatch generateFeature(DQuery q) '''
+		«IF q.getType !== null»
+			«q.name»(«q.generateQueryParameters») : «q.getType.name» 
+			«ENDIF»
 	'''
 	
-	def generateQueryParameters(DQuery q) 
-	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name»«ENDFOR»'''
+	def generateQueryParameters(DQuery q) '''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.multiplicityText»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
+		val targetLabel = a.name + " " + a.multiplicityText
 		return switch a.kind {
-			case REFERENCE: generateLink('', a.eContainer as DType, a.getType, a.name, '>')
-			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.getType, a.name, '>')
-			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.getType, a.name, '*')
+			case REFERENCE: generateLink('', a.eContainer as DType, a.getType, targetLabel, '>')
+			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.getType, targetLabel, '>')
+			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.getType, targetLabel, '*')
 		}
 	}
-	
+
 	def generateLink(DAttribute a) {
-		return generateLink('+', a.eContainer as DType, a.getType, a.name, "")
+		val label = a.name + " " + a.multiplicityText
+		return generateLink('+', a.eContainer as DType, a.getType, label, "")
 	}
-	
+
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''
 		«source.qualifiedlName» «sourceArrowhead»--«targetArrowhead» «targetName(source,target)» : «targetRole»
 	'''
-	def qualifiedlName(DType t) 
-	'''«if (t.eContainer instanceof DAggregate) t.aggregateName».«t.name»'''
-	
+
+	def qualifiedlName(DType t) '''«if (t.eContainer instanceof DAggregate) t.aggregateName».«t.name»'''
+
 	def targetName(DType source, DType target) {
 		if (source.modelName == target.modelName) {
 			if (source.aggregateName == target.aggregateName) {
 				return target.qualifiedlName
 			}
-			return  target.aggregateName
+			return target.aggregateName
 		}
 		return target.modelName
 	}
-	
 }

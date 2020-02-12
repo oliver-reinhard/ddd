@@ -43,11 +43,11 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   
   @Override
   public boolean canProvide(final SInformationModel model) {
-    return ((model == null) || (IterableExtensions.isEmpty(IterableExtensions.<DType>filter(model.getTypes(), ((Function1<DType, Boolean>) (DType it) -> {
+    return ((model != null) && (!(IterableExtensions.isEmpty(IterableExtensions.<DType>filter(model.getTypes(), ((Function1<DType, Boolean>) (DType it) -> {
       return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
     }))) && IterableExtensions.isEmpty(IterableExtensions.<DAggregate>filter(model.getAggregates(), ((Function1<DAggregate, Boolean>) (DAggregate it) -> {
       return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
-    })))));
+    }))))));
   }
   
   @Override
@@ -129,6 +129,15 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
         {
+          boolean _isEmpty = a.getFeatures().isEmpty();
+          boolean _not = (!_isEmpty);
+          if (_not) {
+            CharSequence _generateAggregateQueries = this.generateAggregateQueries(a);
+            _builder.append(_generateAggregateQueries);
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        {
           final Function1<DType, Boolean> _function_7 = (DType it) -> {
             return Boolean.valueOf((!(it instanceof STypeDeduction)));
           };
@@ -147,21 +156,22 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
             _builder.append(d);
             _builder.append(" <<Frame>> { ");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t");
             _builder.append("}");
             _builder.newLine();
           }
         }
       }
     }
-    _builder.append("            ");
+    _builder.append("\t");
     {
       for(final DAssociation a_1 : allAssociations) {
         CharSequence _generateAssociation = this.generateAssociation(a_1);
-        _builder.append(_generateAssociation, "            ");
+        _builder.append(_generateAssociation, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("            ");
+    _builder.append("\t");
     {
       final Function1<DAttribute, Boolean> _function_8 = (DAttribute it) -> {
         DType _type = it.getType();
@@ -170,21 +180,21 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
       Iterable<DAttribute> _filter_2 = IterableExtensions.<DAttribute>filter(allComplexAttributes, _function_8);
       for(final DAttribute a_2 : _filter_2) {
         CharSequence _generateLink = this.generateLink(a_2);
-        _builder.append(_generateLink, "            ");
+        _builder.append(_generateLink, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("            ");
+    _builder.append("\t");
     {
       for(final DComplexType s : allSubtypes) {
         String _aggregateName_1 = this._dimUtil.aggregateName(s);
-        _builder.append(_aggregateName_1, "            ");
+        _builder.append(_aggregateName_1, "\t");
         _builder.append(".");
         String _name = s.getName();
-        _builder.append(_name, "            ");
+        _builder.append(_name, "\t");
         _builder.append(" --|> ");
         String _aggregateName_2 = this._dimUtil.aggregateName(s.getSuperType());
-        _builder.append(_aggregateName_2, "            ");
+        _builder.append(_aggregateName_2, "\t");
         {
           String _aggregateName_3 = this._dimUtil.aggregateName(s);
           String _aggregateName_4 = this._dimUtil.aggregateName(s.getSuperType());
@@ -192,7 +202,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
           if (_tripleEquals) {
             _builder.append(".");
             String _name_1 = s.getSuperType().getName();
-            _builder.append(_name_1, "            ");
+            _builder.append(_name_1, "\t");
           }
         }
         _builder.newLineIfNotEmpty();
@@ -213,6 +223,38 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
       _xifexpression = "undefined";
     }
     return _xifexpression;
+  }
+  
+  public CharSequence generateAggregateQueries(final DAggregate a) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\' aggregate ");
+    String _name = a.getName();
+    _builder.append(_name);
+    _builder.append(" static queries");
+    _builder.newLineIfNotEmpty();
+    _builder.append("abstract class ");
+    String _name_1 = a.getName();
+    _builder.append(_name_1);
+    _builder.append(".");
+    String _name_2 = a.getName();
+    _builder.append(_name_2);
+    _builder.append(" ");
+    String _spot = this.getSpot(a);
+    _builder.append(_spot);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<DFeature> _features = a.getFeatures();
+      for(final DFeature q : _features) {
+        CharSequence _generateStaticQuery = this.generateStaticQuery(((DQuery) q));
+        _builder.append(_generateStaticQuery, "\t");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   protected CharSequence _generateType(final DComplexType c) {
@@ -289,6 +331,10 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     return _builder;
   }
   
+  public String getSpot(final DAggregate a) {
+    return "<< (Q,Gold) >>";
+  }
+  
   public String getSpot(final DType t) {
     String _switchResult = null;
     boolean _matched = false;
@@ -327,6 +373,30 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     return _switchResult;
   }
   
+  public CharSequence generateStaticQuery(final DQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      DType _type = q.getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        _builder.append("{static} ");
+        String _name = q.getName();
+        _builder.append(_name);
+        _builder.append("(");
+        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
+        _builder.append(_generateQueryParameters);
+        _builder.append(") : ");
+        String _name_1 = q.getType().getName();
+        _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(q);
+        _builder.append(_multiplicityText);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
   protected CharSequence _generateFeature(final DAttribute a) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -339,12 +409,11 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         String _name = a.getName();
         _builder.append(_name);
         _builder.append(" : ");
-        DType _type_1 = a.getType();
-        String _name_1 = null;
-        if (_type_1!=null) {
-          _name_1=_type_1.getName();
-        }
+        String _name_1 = a.getType().getName();
         _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(a);
+        _builder.append(_multiplicityText);
       }
     }
     _builder.newLineIfNotEmpty();
@@ -372,11 +441,6 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     return _builder;
   }
   
-  protected CharSequence _generateFeature(final DAssociation a) {
-    StringConcatenation _builder = new StringConcatenation();
-    return _builder;
-  }
-  
   public CharSequence generateQueryParameters(final DQuery q) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -393,27 +457,34 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         _builder.append(":");
         String _name_1 = p.getType().getName();
         _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(p);
+        _builder.append(_multiplicityText);
       }
     }
     return _builder;
   }
   
   public CharSequence generateAssociation(final DAssociation a) {
+    String _name = a.getName();
+    String _plus = (_name + " ");
+    String _multiplicityText = this._dimUtil.multiplicityText(a);
+    final String targetLabel = (_plus + _multiplicityText);
     CharSequence _switchResult = null;
     DAssociationKind _kind = a.getKind();
     if (_kind != null) {
       switch (_kind) {
         case REFERENCE:
           EObject _eContainer = a.eContainer();
-          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), a.getName(), ">");
+          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), targetLabel, ">");
           break;
         case COMPOSITE:
           EObject _eContainer_1 = a.eContainer();
-          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), a.getName(), ">");
+          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), targetLabel, ">");
           break;
         case INVERSE_COMPOSITE:
           EObject _eContainer_2 = a.eContainer();
-          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), a.getName(), "*");
+          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), targetLabel, "*");
           break;
         default:
           break;
@@ -423,8 +494,12 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   public CharSequence generateLink(final DAttribute a) {
+    String _name = a.getName();
+    String _plus = (_name + " ");
+    String _multiplicityText = this._dimUtil.multiplicityText(a);
+    final String label = (_plus + _multiplicityText);
     EObject _eContainer = a.eContainer();
-    return this.generateLink("+", ((DType) _eContainer), a.getType(), a.getName(), "");
+    return this.generateLink("+", ((DType) _eContainer), a.getType(), label, "");
   }
   
   public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
@@ -490,9 +565,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   public CharSequence generateFeature(final DFeature a) {
-    if (a instanceof DAssociation) {
-      return _generateFeature((DAssociation)a);
-    } else if (a instanceof DAttribute) {
+    if (a instanceof DAttribute) {
       return _generateFeature((DAttribute)a);
     } else if (a instanceof DQuery) {
       return _generateFeature((DQuery)a);

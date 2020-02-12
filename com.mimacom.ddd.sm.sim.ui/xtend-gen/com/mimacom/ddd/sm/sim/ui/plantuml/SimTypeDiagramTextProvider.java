@@ -21,11 +21,11 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
+public class SimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
   @Inject
   private SimTypeDiagramTextProviderImpl actualProvider;
   
-  public SimDiagramTextProvider() {
+  public SimTypeDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   

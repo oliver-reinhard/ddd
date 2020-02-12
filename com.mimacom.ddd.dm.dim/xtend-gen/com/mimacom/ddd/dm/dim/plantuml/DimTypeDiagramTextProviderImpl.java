@@ -432,11 +432,11 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         _builder.append(" : ");
         String _name_1 = a.getType().getName();
         _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(a);
+        _builder.append(_multiplicityText);
       }
     }
-    _builder.append(" ");
-    String _multiplicityText = this._dimUtil.multiplicityText(a);
-    _builder.append(_multiplicityText);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -494,21 +494,25 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   public CharSequence generateAssociation(final DAssociation a) {
+    String _name = a.getName();
+    String _plus = (_name + " ");
+    String _multiplicityText = this._dimUtil.multiplicityText(a);
+    final String targetLabel = (_plus + _multiplicityText);
     CharSequence _switchResult = null;
     DAssociationKind _kind = a.getKind();
     if (_kind != null) {
       switch (_kind) {
         case REFERENCE:
           EObject _eContainer = a.eContainer();
-          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), a.getName(), ">");
+          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), targetLabel, ">");
           break;
         case COMPOSITE:
           EObject _eContainer_1 = a.eContainer();
-          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), a.getName(), ">");
+          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), targetLabel, ">");
           break;
         case INVERSE_COMPOSITE:
           EObject _eContainer_2 = a.eContainer();
-          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), a.getName(), "*");
+          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), targetLabel, "*");
           break;
         default:
           break;
@@ -518,8 +522,12 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   public CharSequence generateLink(final DAttribute a) {
+    String _name = a.getName();
+    String _plus = (_name + " ");
+    String _multiplicityText = this._dimUtil.multiplicityText(a);
+    final String label = (_plus + _multiplicityText);
     EObject _eContainer = a.eContainer();
-    return this.generateLink("+", ((DType) _eContainer), a.getType(), a.getName(), "");
+    return this.generateLink("+", ((DType) _eContainer), a.getType(), label, "");
   }
   
   public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {

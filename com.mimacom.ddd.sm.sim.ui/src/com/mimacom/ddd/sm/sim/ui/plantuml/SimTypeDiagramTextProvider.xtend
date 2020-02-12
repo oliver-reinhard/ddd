@@ -13,7 +13,7 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
 
-class SimDiagramTextProvider extends AbstractDiagramTextProvider {
+class SimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
 
 	@Inject SimTypeDiagramTextProviderImpl actualProvider
 

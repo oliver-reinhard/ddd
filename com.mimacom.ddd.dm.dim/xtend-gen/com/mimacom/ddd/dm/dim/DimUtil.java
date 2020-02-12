@@ -74,21 +74,20 @@ public class DimUtil extends DmxUtil {
   }
   
   public String multiplicityText(final DNavigableMember member) {
-    DMultiplicity _multiplicity = member.getMultiplicity();
-    boolean _tripleEquals = (_multiplicity == null);
-    if (_tripleEquals) {
-      return "(1,1)";
+    final DMultiplicity m = member.getMultiplicity();
+    if (((m == null) || ((m.getMinOccurs() == 1) && (m.getMaxOccurs() == 1)))) {
+      return "";
     }
     String _xifexpression = null;
-    int _maxOccurs = member.getMultiplicity().getMaxOccurs();
+    int _maxOccurs = m.getMaxOccurs();
     boolean _equals = (_maxOccurs == (-1));
     if (_equals) {
       _xifexpression = "*";
     } else {
-      _xifexpression = Integer.valueOf(member.getMultiplicity().getMaxOccurs()).toString();
+      _xifexpression = Integer.valueOf(m.getMaxOccurs()).toString();
     }
     final String maxOccurs = _xifexpression;
-    int _minOccurs = member.getMultiplicity().getMinOccurs();
+    int _minOccurs = m.getMinOccurs();
     String _plus = ("(" + Integer.valueOf(_minOccurs));
     String _plus_1 = (_plus + ",");
     String _plus_2 = (_plus_1 + maxOccurs);
