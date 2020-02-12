@@ -1,13 +1,3 @@
-## Getting started
-
-Clone the repository and build with Maven in the repository root:
-```
-$ git clone https://github.com/oliver-reinhard/ddd.git
-$ cd ddd
-$ mvn clean package
-```
-Once the build has successfully finished, find the ZIP file `releng/com.mimacom.ddd.repository/target/products/com.mimacom.ddd.product-macosx.cocoa.x86_64.zip`. Unpack and launch the executable Eclipse product.
-
 ## Developer Guide
 
 ### Code style

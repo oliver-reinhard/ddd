@@ -21,7 +21,6 @@ import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.eclipse.xtext.serializer.tokens.ICrossReferenceSerializer
-import com.mimacom.ddd.sm.sim.generator.SimCompositeGenerator
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -63,9 +62,4 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	def Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
 		SimCrossReferenceSerializer // TODO remove if bug has been fixed
 	}
-
-	override bindIGenerator2() {
-		SimCompositeGenerator
-	}
-	
 }

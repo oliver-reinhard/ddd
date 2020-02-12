@@ -9,12 +9,10 @@ import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvide
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
-import com.mimacom.ddd.sm.sim.generator.SimCompositeGenerator;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
 import com.mimacom.ddd.sm.sim.scoping.SimCrossReferenceSerializer;
 import org.eclipse.xtext.conversion.IValueConverterService;
-import org.eclipse.xtext.generator.IGenerator2;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager;
@@ -65,10 +63,5 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   public Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
     return SimCrossReferenceSerializer.class;
-  }
-  
-  @Override
-  public Class<? extends IGenerator2> bindIGenerator2() {
-    return SimCompositeGenerator.class;
   }
 }
