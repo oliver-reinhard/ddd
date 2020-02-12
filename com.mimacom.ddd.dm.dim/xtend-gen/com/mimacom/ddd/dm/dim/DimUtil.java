@@ -88,10 +88,10 @@ public class DimUtil extends DmxUtil {
     }
     final String maxOccurs = _xifexpression;
     int _minOccurs = m.getMinOccurs();
-    String _plus = ("(" + Integer.valueOf(_minOccurs));
+    String _plus = ("[" + Integer.valueOf(_minOccurs));
     String _plus_1 = (_plus + ",");
     String _plus_2 = (_plus_1 + maxOccurs);
-    return (_plus_2 + ")");
+    return (_plus_2 + "]");
   }
   
   /**

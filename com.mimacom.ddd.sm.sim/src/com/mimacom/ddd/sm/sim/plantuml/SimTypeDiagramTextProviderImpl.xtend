@@ -144,6 +144,9 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 			«ENDIF»
 	'''
 	
+	def dispatch generateFeature(DAssociation a)  '''
+	'''
+	
 	def generateQueryParameters(DQuery q) '''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.multiplicityText»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {

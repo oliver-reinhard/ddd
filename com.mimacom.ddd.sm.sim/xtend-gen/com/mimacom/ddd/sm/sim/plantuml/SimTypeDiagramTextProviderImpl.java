@@ -441,6 +441,11 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     return _builder;
   }
   
+  protected CharSequence _generateFeature(final DAssociation a) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
   public CharSequence generateQueryParameters(final DQuery q) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -565,7 +570,9 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   public CharSequence generateFeature(final DFeature a) {
-    if (a instanceof DAttribute) {
+    if (a instanceof DAssociation) {
+      return _generateFeature((DAssociation)a);
+    } else if (a instanceof DAttribute) {
       return _generateFeature((DAttribute)a);
     } else if (a instanceof DQuery) {
       return _generateFeature((DQuery)a);

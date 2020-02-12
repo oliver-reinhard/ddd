@@ -57,7 +57,7 @@ class DimUtil extends DmxUtil {
 		val m = member.multiplicity
 		if (m === null || m.minOccurs == 1 && m.maxOccurs == 1) return ""
 		val maxOccurs = if (m.maxOccurs == -1) "*" else m.maxOccurs.toString
-		return "(" + m.minOccurs + "," + maxOccurs + ")"
+		return "[" + m.minOccurs + "," + maxOccurs + "]"
 	}
 
 	/*
