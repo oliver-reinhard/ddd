@@ -3,7 +3,17 @@
  */
 package com.mimacom.ddd.pub.pub.ui.outline;
 
+import com.google.common.collect.Iterables;
+import com.mimacom.ddd.pub.pub.Component;
+import com.mimacom.ddd.pub.pub.Division;
+import com.mimacom.ddd.pub.pub.DocumentSegment;
+import com.mimacom.ddd.pub.pub.PubModel;
+import com.mimacom.ddd.pub.pub.PublicationBody;
+import com.mimacom.ddd.pub.pub.TitledBlock;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
+import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
 
 /**
  * Customization of the default outline structure.
@@ -12,4 +22,37 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
  */
 @SuppressWarnings("all")
 public class PubOutlineTreeProvider extends DefaultOutlineTreeProvider {
+  public void _createChildren(final IOutlineNode parentNode, final PubModel m) {
+    this.createNode(parentNode, m.getDocument());
+  }
+  
+  public void _createNode(final IOutlineNode parentNode, final Component c) {
+    EList<DocumentSegment> _segments = c.getSegments();
+    for (final DocumentSegment seg : _segments) {
+      this.createNode(parentNode, seg);
+    }
+  }
+  
+  public void _createNode(final IOutlineNode parentNode, final PublicationBody b) {
+    EList<Division> _divisions = b.getDivisions();
+    for (final Division div : _divisions) {
+      this.createNode(parentNode, div);
+    }
+  }
+  
+  public void _createNode(final IOutlineNode parentNode, final Division d) {
+    final EObjectNode node = this.createEObjectNode(parentNode, d, this.imageDispatcher.invoke(d), this.textDispatcher.invoke(d), (this.isLeafDispatcher.invoke(d)).booleanValue());
+    Iterable<TitledBlock> _filter = Iterables.<TitledBlock>filter(d.getContents(), TitledBlock.class);
+    for (final TitledBlock c : _filter) {
+      this.createNode(node, c);
+    }
+    EList<Division> _divisions = d.getDivisions();
+    for (final Division div : _divisions) {
+      this.createNode(node, div);
+    }
+  }
+  
+  public EObjectNode _createNode(final IOutlineNode parentNode, final TitledBlock tb) {
+    return this.createEObjectNode(parentNode, tb, this.imageDispatcher.invoke(tb), this.textDispatcher.invoke(tb), true);
+  }
 }

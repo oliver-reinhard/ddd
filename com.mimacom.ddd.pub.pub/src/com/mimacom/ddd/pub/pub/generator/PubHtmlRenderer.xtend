@@ -23,6 +23,7 @@ import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.Paragraph
+import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.Reference
 import com.mimacom.ddd.pub.pub.ReferenceTarget
@@ -38,6 +39,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 class PubHtmlRenderer extends AbstractPubRenderer {
 
 	@Inject extension RichTextUtil
+	@Inject extension PubUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 

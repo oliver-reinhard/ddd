@@ -1,4 +1,4 @@
-package com.mimacom.ddd.pub.pub.generator
+package com.mimacom.ddd.pub.pub
 
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.DocumentSegment

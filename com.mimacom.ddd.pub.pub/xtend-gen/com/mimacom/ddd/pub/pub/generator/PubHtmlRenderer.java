@@ -24,6 +24,7 @@ import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.Paragraph;
+import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
@@ -51,6 +52,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   @Inject
   @Extension
   private RichTextUtil _richTextUtil;
+  
+  @Inject
+  @Extension
+  private PubUtil _pubUtil;
   
   @Inject
   @Extension
@@ -143,7 +148,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.newLine();
     _builder.append("<!-- Document class: ");
-    String _guard = this._pubGeneratorUtil.guard(doc.getPublicationClass().getTitle(), "");
+    String _guard = this._pubUtil.guard(doc.getPublicationClass().getTitle(), "");
     _builder.append(_guard);
     _builder.append(" (");
     String _name = doc.getPublicationClass().getName();
@@ -626,7 +631,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   protected String staticReferenceLinkText(final DmxStaticReference ref) {
-    boolean _isEmpty = this._pubGeneratorUtil.guard(ref.getDisplayName(), "").isEmpty();
+    boolean _isEmpty = this._pubUtil.guard(ref.getDisplayName(), "").isEmpty();
     boolean _not = (!_isEmpty);
     if (_not) {
       boolean _isPlural = ref.isPlural();

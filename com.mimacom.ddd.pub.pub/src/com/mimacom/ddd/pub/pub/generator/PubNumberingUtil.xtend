@@ -10,6 +10,7 @@ import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.Part
+import com.mimacom.ddd.pub.pub.PubElementNames
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.Table

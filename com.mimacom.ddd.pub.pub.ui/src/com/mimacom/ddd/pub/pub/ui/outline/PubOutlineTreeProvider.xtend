@@ -3,6 +3,12 @@
  */
 package com.mimacom.ddd.pub.pub.ui.outline
 
+import com.mimacom.ddd.pub.pub.Component
+import com.mimacom.ddd.pub.pub.Division
+import com.mimacom.ddd.pub.pub.PubModel
+import com.mimacom.ddd.pub.pub.PublicationBody
+import com.mimacom.ddd.pub.pub.TitledBlock
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 
 /**
@@ -11,5 +17,41 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
 class PubOutlineTreeProvider extends DefaultOutlineTreeProvider {
-
+	
+	def _createChildren(IOutlineNode parentNode, PubModel m) {
+		createNode(parentNode, m.document);
+		// suppress other children like imports, figureRenderers or tableRenderers
+	}
+//	
+	def _createNode(IOutlineNode parentNode, Component c) {
+		// suppress Component node;
+		// add Component children to parent of Component:
+		for (seg : c.segments) {
+			createNode(parentNode, seg);
+		}
+	}
+	
+	def _createNode(IOutlineNode parentNode, PublicationBody b) {
+		// suppress PublicationBody node;
+		// add PublicationBody children to parent of PublicationBody:
+		for (div : b.divisions) {
+			createNode(parentNode, div);
+		}
+	}
+	
+	def _createNode(IOutlineNode parentNode, Division d) {
+		val node = createEObjectNode(parentNode, d, imageDispatcher.invoke(d),	textDispatcher.invoke(d), isLeafDispatcher.invoke(d));
+		// suppress containment feature 'title'; only display titled contents. then contained subdivisions 
+		for (c : d.contents.filter(TitledBlock)) {
+			createNode(node, c);
+		}
+		for (div : d.divisions) {
+			createNode(node, div);
+		}
+	}
+	
+	def _createNode(IOutlineNode parentNode, TitledBlock tb) {
+		createEObjectNode(parentNode, tb, imageDispatcher.invoke(tb),	textDispatcher.invoke(tb), true);
+		// suppress children
+	}
 }

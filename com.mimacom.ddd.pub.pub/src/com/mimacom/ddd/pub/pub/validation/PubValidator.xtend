@@ -19,6 +19,7 @@ import com.mimacom.ddd.pub.pub.Figure
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
+import com.mimacom.ddd.pub.pub.PubElementNames
 import com.mimacom.ddd.pub.pub.PubPackage
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
@@ -29,7 +30,6 @@ import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TableRow
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
-import com.mimacom.ddd.pub.pub.generator.PubElementNames
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import org.eclipse.xtext.resource.XtextResource
