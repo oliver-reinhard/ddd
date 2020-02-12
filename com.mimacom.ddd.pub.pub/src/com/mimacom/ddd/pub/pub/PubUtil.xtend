@@ -1,6 +1,12 @@
 package com.mimacom.ddd.pub.pub
 
+import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer
+import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxStaticReference
+import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations
 import com.mimacom.ddd.pub.proto.ProtoAbstract
 import com.mimacom.ddd.pub.proto.ProtoAppendix
@@ -23,9 +29,17 @@ import com.mimacom.ddd.pub.proto.ProtoSubsubsection
 import com.mimacom.ddd.pub.proto.ProtoTOC
 
 class PubUtil {
+	
+	@Inject extension RichTextUtil
 
 	def boolean empty(DRichText text) {
 		return text === null || text.segments.empty
+	}
+	
+	def String guard(String subject, String alternative) {
+		if(subject !== null && ! subject.empty) return subject
+		if(alternative !== null) return alternative
+		return ""
 	}
 
 	/**
@@ -91,5 +105,40 @@ class PubUtil {
 		val result = pubClass.divisions.filter(prototypeType)
 		if(result.empty) return null
 		return result.head
+	}
+
+	def String toPlainText(DRichText text) {
+		if (! (text.eContainer instanceof TitledBlock || text.eContainer instanceof Division)) {
+			throw new IllegalArgumentException("Text is not the title of a TitledBlock or a Division")
+		}
+		val renderer = new AbstractRichTextToPlainTextRenderer {
+			
+			override protected getSourceText(DExpression expr) {
+				expr.getSourceTextFromXtextResource
+			}
+
+			override protected renderStyleExpression(DExpression expr, String parsedText) {
+				switch expr {
+					DmxContextReference:
+						super.renderStyleExpression(expr, expr.target.name)
+					DmxStaticReference:
+						super.renderStyleExpression(expr, expr.plainlinkText)
+					default:
+						throw new IllegalArgumentException("Unsupported content-block type: " + expr.class.name)
+				}
+			}
+			
+		}
+		renderer.render(text) as String
+	}
+
+	protected def String plainlinkText(DmxStaticReference ref) {
+		if (! guard(ref.displayName, "").empty) {
+			if (ref.plural) {
+				return ref.displayName + "s"
+			}
+			return ref.displayName
+		}
+		return ref.target.name + "." + ref.member.name
 	}
 }

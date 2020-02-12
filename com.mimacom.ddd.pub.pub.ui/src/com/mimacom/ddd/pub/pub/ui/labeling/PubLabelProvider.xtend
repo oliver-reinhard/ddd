@@ -4,6 +4,14 @@
 package com.mimacom.ddd.pub.pub.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.pub.pub.Chapter
+import com.mimacom.ddd.pub.pub.DocumentSegment
+import com.mimacom.ddd.pub.pub.Part
+import com.mimacom.ddd.pub.pub.PubUtil
+import com.mimacom.ddd.pub.pub.Section
+import com.mimacom.ddd.pub.pub.Subsection
+import com.mimacom.ddd.pub.pub.Subsubsection
+import com.mimacom.ddd.pub.pub.TitledBlock
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
@@ -13,19 +21,52 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 class PubLabelProvider extends DefaultEObjectLabelProvider {
+	
+	@Inject extension PubUtil
 
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
-	// Labels and icons can be computed like this:
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
+	def text(DocumentSegment seg) {
+		'Seg ' + seg.prototype.title
+	}
+	
+	def text(Part p) {
+		'Part ' + p.title.toPlainText
+	}
+	
+	def text(Chapter ch) {
+		'Chap ' + ch.title.toPlainText
+	}
+	
+	def text(Section s) {
+		'Sec ' + s.title.toPlainText
+	}
+	
+	def text(Subsection s) {
+		'Sub ' + s.title.toPlainText
+	}
+	
+	def text(Subsubsection s) {
+		'Subsub ' + s.title.toPlainText
+	}
+	
+	def text(TitledBlock div) {
+		'Block ' + div.title.toPlainText
+	}
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'
 //	}
+
+
+	protected def simpleName(Object obj) {
+		val name = obj.class.simpleName
+		if (name.endsWith("Impl")) {
+			return name.substring(0, name.length - 4)
+		}
+		return name
+	}
 }

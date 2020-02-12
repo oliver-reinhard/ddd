@@ -4,13 +4,10 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DDeductionRule;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
-import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
@@ -94,13 +91,6 @@ public class SAggregateDeductionRuleProcessor {
           IDeducibleElement _source = rule.getSource();
           final SyntheticFeatureContainerDescriptor desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, definition, ((IFeatureContainer) _source));
           this._sFeatureDeductionRuleProcessor.addSyntheticFeatures(desc, context);
-        }
-        final Function1<DFeature, Boolean> _function_1 = (DFeature it) -> {
-          return Boolean.valueOf((!((it instanceof SFeatureDeduction) || it.isSynthetic())));
-        };
-        Iterable<DFeature> genuineStaticQueries = IterableExtensions.<DFeature>filter(((SAggregateDeduction)dAggregate).getFeatures(), _function_1);
-        for (final DFeature query : genuineStaticQueries) {
-          this._syntheticModelElementsFactory.addSyntheticQueryAsCopy(syntheticAggregate, ((DQuery) query), context);
         }
       }
     }

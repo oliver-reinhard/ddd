@@ -1,4 +1,4 @@
-package com.mimacom.ddd.pub.pub.generator
+package com.mimacom.ddd.pub.pub
 
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.DocumentSegment
@@ -7,7 +7,7 @@ import com.mimacom.ddd.pub.pub.TitledBlock
 class PubElementNames {
 	
 	def dispatch String displayName(TitledBlock b) {
-		b.class.simpleName.replace("Titled", "").replace("Impl", "")
+		b.class.simpleName.replace("Impl", "")
 	}
 	
 	def dispatch String displayName(Division div) {

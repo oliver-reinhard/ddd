@@ -4,8 +4,17 @@
 package com.mimacom.ddd.pub.pub.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.pub.pub.Chapter;
+import com.mimacom.ddd.pub.pub.DocumentSegment;
+import com.mimacom.ddd.pub.pub.Part;
+import com.mimacom.ddd.pub.pub.PubUtil;
+import com.mimacom.ddd.pub.pub.Section;
+import com.mimacom.ddd.pub.pub.Subsection;
+import com.mimacom.ddd.pub.pub.Subsubsection;
+import com.mimacom.ddd.pub.pub.TitledBlock;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * Provides labels for EObjects.
@@ -15,7 +24,57 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 @SuppressWarnings("all")
 public class PubLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
+  @Extension
+  private PubUtil _pubUtil;
+  
+  @Inject
   public PubLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  public String text(final DocumentSegment seg) {
+    String _title = this._pubUtil.prototype(seg).getTitle();
+    return ("Seg " + _title);
+  }
+  
+  public String text(final Part p) {
+    String _plainText = this._pubUtil.toPlainText(p.getTitle());
+    return ("Part " + _plainText);
+  }
+  
+  public String text(final Chapter ch) {
+    String _plainText = this._pubUtil.toPlainText(ch.getTitle());
+    return ("Chap " + _plainText);
+  }
+  
+  public String text(final Section s) {
+    String _plainText = this._pubUtil.toPlainText(s.getTitle());
+    return ("Sec " + _plainText);
+  }
+  
+  public String text(final Subsection s) {
+    String _plainText = this._pubUtil.toPlainText(s.getTitle());
+    return ("Sub " + _plainText);
+  }
+  
+  public String text(final Subsubsection s) {
+    String _plainText = this._pubUtil.toPlainText(s.getTitle());
+    return ("Subsub " + _plainText);
+  }
+  
+  public String text(final TitledBlock div) {
+    String _plainText = this._pubUtil.toPlainText(div.getTitle());
+    return ("Block " + _plainText);
+  }
+  
+  protected String simpleName(final Object obj) {
+    final String name = obj.getClass().getSimpleName();
+    boolean _endsWith = name.endsWith("Impl");
+    if (_endsWith) {
+      int _length = name.length();
+      int _minus = (_length - 4);
+      return name.substring(0, _minus);
+    }
+    return name;
   }
 }

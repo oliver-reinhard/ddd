@@ -2,11 +2,9 @@ package com.mimacom.ddd.sm.sim.derivedState
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.IFeatureContainer
 import com.mimacom.ddd.dm.base.ITypeContainer
 import com.mimacom.ddd.sm.sim.SAggregateDeduction
-import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SInformationModelKind
@@ -53,13 +51,7 @@ class SAggregateDeductionRuleProcessor {
 				// Process queries grabbed from domain aggregate:
 				if (model.kind == SInformationModelKind.CORE) {
 					val desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, definition, rule.source as IFeatureContainer)
-					desc.addSyntheticFeatures(context)
-				}
-				
-				// Copy queries added to the rule:
-				var genuineStaticQueries = dAggregate.features.filter [! (it instanceof SFeatureDeduction || it.synthetic)]
-				for (query : genuineStaticQueries) {
-					syntheticAggregate.addSyntheticQueryAsCopy(query as DQuery, context)
+					desc.addSyntheticFeatures(context) // = queries
 				}
 			}
 		}

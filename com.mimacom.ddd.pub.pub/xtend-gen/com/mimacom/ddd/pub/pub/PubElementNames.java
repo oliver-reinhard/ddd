@@ -1,4 +1,4 @@
-package com.mimacom.ddd.pub.pub.generator;
+package com.mimacom.ddd.pub.pub;
 
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 @SuppressWarnings("all")
 public class PubElementNames {
   protected String _displayName(final TitledBlock b) {
-    return b.getClass().getSimpleName().replace("Titled", "").replace("Impl", "");
+    return b.getClass().getSimpleName().replace("Impl", "");
   }
   
   protected String _displayName(final Division div) {
