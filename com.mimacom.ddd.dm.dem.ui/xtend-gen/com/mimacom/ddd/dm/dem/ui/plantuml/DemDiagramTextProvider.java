@@ -54,8 +54,15 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
+    DemDomainEvent _xifexpression = null;
     DModel _model = namespace.getModel();
-    final DemDomainEvent event = ((DemDomainEvent) _model);
+    if ((_model instanceof DemDomainEvent)) {
+      DModel _model_1 = namespace.getModel();
+      _xifexpression = ((DemDomainEvent) _model_1);
+    } else {
+      _xifexpression = null;
+    }
+    final DemDomainEvent event = _xifexpression;
     if ((event == null)) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No domain event to show.\" as N1");

@@ -31,7 +31,7 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
         val namespace = document.readOnly[
             return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
-        val event = namespace.model as DemDomainEvent
+        val event = namespace.model instanceof DemDomainEvent ? namespace.model as DemDomainEvent : null
         
         if (event === null) {
         	return '''note "No domain event to show." as N1'''
