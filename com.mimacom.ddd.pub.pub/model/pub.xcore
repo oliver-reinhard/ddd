@@ -312,7 +312,7 @@ abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarge
 	transient int sequenceNumberInChapter = "-1" // -1 = not set (undefined)
 	op String getId() {
 		if (name === null || name.empty) {
-			val blockType = class.simpleName.replace("Impl", "").toLowerCase
+			val blockType = class.simpleName.replace("Titled", "").replace("Impl", "").toLowerCase
 			if (getSequenceNumber() != -1) {
 				return blockType + '-' + getSequenceNumber()
 			}

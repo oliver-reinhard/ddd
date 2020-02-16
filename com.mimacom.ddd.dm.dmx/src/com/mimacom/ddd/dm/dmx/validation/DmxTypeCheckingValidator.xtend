@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxCallArguments
@@ -48,7 +49,8 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	protected static val DMX = DmxPackage.eINSTANCE
 
 	protected static val TYPE_MISMATCH = "Type Mismatch"
-	protected static val COMPARABLE_TYPES = (Lists.newArrayList(NUMBER, TEXT, TIMEPOINT) as Object) as List<AbstractDmxTypeDescriptor<?>>
+	protected static val COMPARABLE_TYPES = (Lists.newArrayList(NUMBER, TEXT,
+		TIMEPOINT) as Object) as List<AbstractDmxTypeDescriptor<?>>
 	protected static val NO_INDEX = -1
 
 	@Check
@@ -98,7 +100,8 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			for (var fIndex = 1; fIndex < formal.parameters.size; fIndex++) {
 				val aIndex = fIndex - 1
 				if (aIndex < actualParameters.size) {
-					expectFilterParameterType(formal, fIndex, actualParameters, aIndex, DMX.dmxMemberNavigation_CallArguments)
+					expectFilterParameterType(formal, fIndex, actualParameters, aIndex,
+						DMX.dmxMemberNavigation_CallArguments)
 
 				} else if (aIndex == actualParameters.size) {
 					errorParameterValuesMissing(actual, actual.callArguments, aIndex)
@@ -116,7 +119,8 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			for (var fIndex = 0; fIndex < formal.parameters.size; fIndex++) {
 				val aIndex = fIndex
 				if (fIndex < actualParameters.size) {
-					expectFilterParameterType(formal, fIndex, actualParameters, aIndex, DMX.dmxFunctionCall_CallArguments)
+					expectFilterParameterType(formal, fIndex, actualParameters, aIndex,
+						DMX.dmxFunctionCall_CallArguments)
 
 				} else if (fIndex == actualParameters.size) {
 					errorParameterValuesMissing(actual, actual.callArguments, aIndex)
@@ -126,7 +130,8 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 		}
 	}
 
-	protected def boolean expectFilterParameterType(DmxFilter formal, int fIndex, List<DExpression> actualParameters, int aIndex, EReference ref) {
+	protected def boolean expectFilterParameterType(DmxFilter formal, int fIndex, List<DExpression> actualParameters,
+		int aIndex, EReference ref) {
 		val formalParamTypeDesc = formal.parameters.get(fIndex).typeDesc
 		val actualType = getTypeAndCheckNotNull(actualParameters.get(aIndex), ref)
 		expectType(actualType, formalParamTypeDesc.typeDescriptors, ref)
@@ -149,7 +154,8 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	protected def void checkTooManyActualParameters(int formalParametersSize, DmxCallArguments actualParameters) {
 		if (actualParameters !== null) {
 			for (var aIndex = formalParametersSize; aIndex < actualParameters.arguments.size; aIndex++) {
-				error("More actual parameters than formal parameters.", actualParameters, DMX.dmxCallArguments_Arguments, aIndex)
+				error("More actual parameters than formal parameters.", actualParameters,
+					DMX.dmxCallArguments_Arguments, aIndex)
 			}
 		}
 	}
@@ -161,25 +167,29 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	@Check
 	def checkType(DmxBinaryOperation expr) {
 		val leftType = getTypeAndCheckNotNull(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
+		val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+		if (leftType == UNDEFINED_TYPE || rightType == UNDEFINED_TYPE) {
+			// don't compare, it's useless and will only generate more validation errors
+			return
+		}
 		switch expr.operator {
 			case OR,
 			case XOR,
 			case AND,
 			case DOUBLE_ARROW /* logical "implies" */ : {
-				expectBoolean(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
-				expectBoolean(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+				expectBoolean(leftType, DMX.dmxBinaryOperation_LeftOperand)
+				expectBoolean(rightType, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case EQUAL,
 			case NOT_EQUAL: {
-				val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 				if (leftType.isCompatibleWith(TIMEPOINT)) {
 					// allow string literals as Timepoints 
-					expectTimepointValue(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+					expectTimepointValue(expr.rightOperand, rightType, leftType, DMX.dmxBinaryOperation_RightOperand)
 				} else if (leftType.collection && rightType == UNDEFINED_TYPE_COLLECTION) {
 					// support empty list as a comparison value; type compatibility not applicable (empty list has no type)
 				} else {
 					// left and right types have to be compatible but no restriction on what kind of type
-					expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+					expectType(rightType, leftType, DMX.dmxBinaryOperation_RightOperand)
 				}
 			}
 			case LESS,
@@ -188,39 +198,37 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			case GREATER: {
 				if (leftType.isCompatibleWith(TIMEPOINT)) {
 					// allow string literals as Timepoints 
-					expectTimepointValue(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+					expectTimepointValue(expr.rightOperand, rightType, leftType, DMX.dmxBinaryOperation_RightOperand)
 				} else if (expectType(leftType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)) {
-					expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+					expectType(rightType, leftType, DMX.dmxBinaryOperation_RightOperand)
 				} else {
-					val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
 				}
 			}
 			case ADD: {
 				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
 				if (expectedType == TIMEPOINT) {
-					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+					expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
 				} else if (expectedType == TEXT) {
-					val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
 				} else {
-					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
-					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+					expectNumber(leftType, DMX.dmxBinaryOperation_LeftOperand)
+					expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
 				}
 			}
 			case SUBTRACT: {
 				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
 				if (expectedType != TIMEPOINT) {
-					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
+					expectNumber(leftType, DMX.dmxBinaryOperation_LeftOperand)
 				}
-				expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+				expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case MULTIPLY,
 			case DIVIDE,
 			case POWER,
 			case MODULO: {
-				expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
-				expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+				expectNumber(leftType, DMX.dmxBinaryOperation_LeftOperand)
+				expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case IN: {
 				var hasError = false
@@ -228,17 +236,16 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 					error("Cannot be a collection", expr, DMX.dmxBinaryOperation_LeftOperand)
 					hasError = true
 				}
-				val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 				if (! rightType.collection) {
 					error("Must be a collection", expr, DMX.dmxBinaryOperation_RightOperand)
 					hasError = true
 				}
 				if (! hasError) {
-					expectType(expr.rightOperand, leftType.toFromCollection(true), DMX.dmxBinaryOperation_RightOperand)
+					expectType(rightType, leftType.toFromCollection(true), DMX.dmxBinaryOperation_RightOperand)
 				}
 			}
 			case UNTIL: {
-				expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+				expectType(rightType, leftType, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case SINGLE_ARROW: {
 				throw new UnsupportedOperationException(expr.operator.literal) // TODO no semantics yet
@@ -255,7 +262,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	@Check
 	def checkType(DmxListExpression expr) {
 		if (expr.elements.size <= 1) return // this is an empty list or a list with just one element
-		val expectedType = getTypeAndCheckNotNull(expr.elements.head, DMX.dmxListExpression_Elements, 0)
+		val expectedType = getTypeDescAndCheckNotNull(expr.elements.head, DMX.dmxListExpression_Elements, 0)
 		for (var i = 1; i < expr.elements.size; i++) {
 			expectType(expr.elements.get(i), expectedType, DMX.dmxListExpression_Elements, i)
 		}
@@ -264,7 +271,11 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	@Check
 	def checkType(DmxTestContext expr) {
 		if (expr.value !== null) {
-			val expectedType = getTypeDescriptor(expr.type, expr.collection)
+			val expectedType = getTypeDescAndCheckNotNull(expr.type, expr.collection, BASE.DNavigableMember_Type)
+			if (expectedType == UNDEFINED_TYPE) {
+				// don't look at value, it's useless and will only generate more validation errors
+				return
+			}
 			expectType(expr.value, expectedType, DMX.dmxTestContext_Value)
 		}
 	}
@@ -272,10 +283,15 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	@Check
 	def checkType(DmxAssignment expr) {
 		val target = expr.assignToMember
-		val targetType = getTypeDescriptor(target.type, target.collection)
+		val targetType = getTypeDescAndCheckNotNull(target.type, target.collection, BASE.DNavigableMember_Type)
+		if (targetType == UNDEFINED_TYPE) {
+			// don't look at value, it's useless and will only generate more validation errors
+			return
+		}
 		if (targetType.isCompatibleWith(TIMEPOINT)) {
 			// allow string literals as Timepoints 
-			expectTimepointValue(expr.value, targetType, DMX.dmxAssignment_Value)
+			val actualType = getTypeAndCheckNotNull(expr.value, DMX.dmxAssignment_Value)
+			expectTimepointValue(expr.value, actualType, targetType, DMX.dmxAssignment_Value)
 		} else if (expr.value instanceof DmxListExpression && (expr.value as DmxListExpression).elements.isEmpty) {
 			// support empty list as a value
 		} else {
@@ -290,12 +306,13 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 		val valueType = getTypeAndCheckNotNull(expr.value, DMX.dmxField_Value)
 		if (featureType.isCompatibleWith(TIMEPOINT)) {
 			// allow string literals as Timepoints 
-			expectTimepointValue(expr.value, featureType, DMX.dmxField_Value)
+			val actualType = getTypeAndCheckNotNull(expr.value, DMX.dmxField_Value)
+			expectTimepointValue(expr.value, actualType, featureType, DMX.dmxField_Value)
 		} else if (featureType.isCompatibleWith(IDENTIFIER)) {
 			// allow number literals as identifiers 
 			expectType(expr.value, NUMBER, DMX.dmxField_Value)
 		} else if (featureType.collection && valueType == UNDEFINED_TYPE_COLLECTION) {
-				// support empty list as field value; type compatibility not applicable (empty list has no type)
+			// support empty list as field value; type compatibility not applicable (empty list has no type)
 		} else {
 			expectType(expr.value, featureType, DMX.dmxField_Value)
 		}
@@ -308,21 +325,76 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 		}
 	}
 
-	// ------------------------------
+	//
+	// Check type conformance:
+	//
+	protected def AbstractDmxTypeDescriptor<?> getTypeDescAndCheckNotNull(DExpression expr, EReference ref, int index) {
+		val typeDesc = expr?.typeFor
+		if (typeDesc === null) {
+			val errorText = "Undefined type"
+			if (index == NO_INDEX) {
+				error(errorText, ref, TYPE_MISMATCH)
+			} else {
+				error(errorText, ref, index, TYPE_MISMATCH)
+			}
+			return UNDEFINED_TYPE
+		}
+		return typeDesc
+	}
+
+	protected def AbstractDmxTypeDescriptor<?> getTypeDescAndCheckNotNull(DType type, boolean collection, EReference ref) {
+		if (type === null || type.eIsProxy) {
+			error("Unresolved type reference", ref, TYPE_MISMATCH)
+			return UNDEFINED_TYPE
+		}
+		val typeDesc = getTypeDescriptor(type, collection)
+		if (typeDesc === null) {
+			error("Undefined type", ref, TYPE_MISMATCH)
+			return UNDEFINED_TYPE
+		}
+		return typeDesc
+	}
+
 	protected def expectBoolean(DExpression expr, EReference ref) {
 		return expectType(expr, BOOLEAN, ref)
+	}
+
+	protected def expectBoolean(AbstractDmxTypeDescriptor<?> actualType, EReference ref) {
+		return expectType(actualType, BOOLEAN, ref)
 	}
 
 	protected def expectNumber(DExpression expr, EReference ref) {
 		return expectType(expr, NUMBER, ref)
 	}
 
+	protected def expectNumber(AbstractDmxTypeDescriptor<?> actualType, EReference ref) {
+		return expectType(actualType, NUMBER, ref)
+	}
+
+	protected def expectTimepointValue(DExpression actualExpression, AbstractDmxTypeDescriptor<?> actualType,
+		AbstractDmxTypeDescriptor<?> expectedType, EReference ref) {
+		if (actualExpression instanceof DmxStringLiteral) {
+			if (parseTimepoint(actualExpression.value) === null) {
+				error("Invalid Timepoint format, should be: " + DmxUtil::TIMEPOINT_SYNTAX, actualExpression,
+					DMX.dmxStringLiteral_Value)
+			}
+		} else {
+			expectType(actualType, expectedType, ref)
+		}
+	}
+
+	protected def expectType(DExpression expr, AbstractDmxTypeDescriptor<?> expectedType, EReference ref, int index) {
+		val actualType = getTypeDescAndCheckNotNull(expr, ref, index)
+		return expectType(actualType, expectedType, ref, index)
+	}
+
+	// Convenience method:
 	protected def expectType(DExpression expr, AbstractDmxTypeDescriptor<?> expectedType, EReference ref) {
 		return expectType(expr, expectedType, ref, NO_INDEX)
 	}
 
-	protected def expectType(DExpression expr, AbstractDmxTypeDescriptor<?> expectedType, EReference ref, int index) {
-		val actualType = getTypeAndCheckNotNull(expr, ref, index)
+	protected def expectType(AbstractDmxTypeDescriptor<?> actualType, AbstractDmxTypeDescriptor<?> expectedType,
+		EReference ref, int index) {
 		if (actualType.isCompatibleWith(expectedType)) {
 			return true
 		}
@@ -335,41 +407,26 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 		return false
 	}
 
-	protected def expectType(AbstractDmxTypeDescriptor<?> actualType, List<AbstractDmxTypeDescriptor<?>> expectedTypes, EReference ref) {
+	// Convenience method:
+	protected def expectType(AbstractDmxTypeDescriptor<?> actualType, AbstractDmxTypeDescriptor<?> expectedType,
+		EReference ref) {
+		expectType(actualType, expectedType, ref, NO_INDEX)
+	}
+
+	protected def expectType(AbstractDmxTypeDescriptor<?> actualType, List<AbstractDmxTypeDescriptor<?>> expectedTypes,
+		EReference ref) {
 		for (e : expectedTypes) {
 			if (e.isCompatibleWith(actualType)) {
 				return true
 			}
 		}
-		error("Expected one of " + expectedTypes.map[displayName] + " types, but was " + actualType.displayName, ref, TYPE_MISMATCH)
+		error("Expected one of " + expectedTypes.map[displayName] + " types, but was " + actualType.displayName, ref,
+			TYPE_MISMATCH)
 		return false
 	}
 
+	// Convenience method:
 	protected def AbstractDmxTypeDescriptor<?> getTypeAndCheckNotNull(DExpression expr, EReference ref) {
-		return getTypeAndCheckNotNull(expr, ref, NO_INDEX)
-	}
-
-	protected def expectTimepointValue(DExpression actualExpression, AbstractDmxTypeDescriptor<?> expectedType, EReference ref) {
-		if (actualExpression instanceof DmxStringLiteral) {
-			if (parseTimepoint(actualExpression.value) === null) {
-				error("Invalid Timepoint format, should be: " + DmxUtil::TIMEPOINT_SYNTAX, actualExpression, DMX.dmxStringLiteral_Value)
-			}
-		} else {
-			expectType(actualExpression, expectedType, ref)
-		}
-	}
-
-	protected def AbstractDmxTypeDescriptor<?> getTypeAndCheckNotNull(DExpression expr, EReference ref, int index) {
-		val type = expr?.typeFor
-		if (type === null) {
-			val errorText = "Undefined type"
-			if (index == NO_INDEX) {
-				error(errorText, ref, TYPE_MISMATCH)
-			} else {
-				error(errorText, ref, index, TYPE_MISMATCH)
-			}
-			return UNDEFINED_TYPE
-		}
-		return type
+		return getTypeDescAndCheckNotNull(expr, ref, NO_INDEX)
 	}
 }

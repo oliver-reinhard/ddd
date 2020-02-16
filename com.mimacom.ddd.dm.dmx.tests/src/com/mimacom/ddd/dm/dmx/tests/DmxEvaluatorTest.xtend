@@ -5,6 +5,7 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DNamespace
@@ -12,6 +13,7 @@ import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxTest
 import com.mimacom.ddd.dm.dmx.evaluator.DmxExpressionEvaluator
+import com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
@@ -33,11 +35,13 @@ import static org.junit.jupiter.api.Assertions.*
 @InjectWith(DmxInjectorProvider)
 class DmxEvaluatorTest {
 	
-	@Inject ParseHelper<DNamespace> dmxParseHelper
+	protected static val BASE = BasePackage.eINSTANCE
+	
 	@Inject Provider<ResourceSet> resourceSetProvider
+	@Inject ParseHelper<DNamespace> dmxParseHelper
+	final ParseHelper<DNamespace> dimParseHelper
 	@Inject extension DmxExpressionEvaluator
 	@Inject extension DmxTypeComputer
-	final ParseHelper<DInformationModel> dimParseHelper
 	
 	new() {
 		val dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration()
@@ -58,36 +62,46 @@ class DmxEvaluatorTest {
 		assertNotNull(systemTypes)
 		val stErrors = systemTypes.eResource.errors
 		assertTrue(stErrors.isEmpty, '''Parse errors in system types: «stErrors.join(", ")»''')
+		val systemTypesModel = systemTypes.model as DmxModel
+		assertNotNull(systemTypesModel)
+		assertEquals(DmxArchetypeImpl, systemTypesModel.types.get(0).class)
 		
 		// Provide custom types:
 		val customTypes = dimParseHelper.parse('''
 			domain D
-			primitive P1 redefines Natural
-			enumeration E1 { L1, L2 }
-			detail A {
-				a0 : Text
-				a1 : Natural?
-				a2 : Natural
-				a3 : E1
-				a4 : Natural*
-				a5 : Timepoint
-				a6 : Boolean
-				a7 : A
-				detail b1 : B
-				detail b2 : B+
-				q0(): Natural
-				q1(p:P1) : Natural
-				q2(left:P1, right:P1) : Natural
-				q3() : B
-			}
-			detail B {
-				b1 : Natural
-				q5(p:P1) : Natural
+			information model CustomTypes {
+				primitive P1 redefines Natural
+				enumeration E1 { L1, L2 }
+				detail A {
+					a0 : Text
+					a1 : Natural?
+					a2 : Natural
+					a3 : E1
+					a4 : Natural*
+					a5 : Timepoint
+					a6 : Boolean
+					a7 : A
+					detail b1 : B
+					detail b2 : B+
+					q0(): Natural
+					q1(p:P1) : Natural
+					q2(left:P1, right:P1) : Natural
+					q3() : B
+				}
+				detail B {
+					b1 : Natural
+					q5(p:P1) : Natural
+				}
 			}
 		''', resourceSet)
 		assertNotNull(customTypes)
-		val ctErrors = systemTypes.eResource.errors
+		val ctErrors = customTypes.eResource.errors
 		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
+		val dimModel = customTypes.model as DInformationModel
+		assertNotNull(dimModel)
+		assertEquals(BASE.DPrimitive, dimModel.types.get(0).eClass)
+		assertEquals(BASE.DEnumeration, dimModel.types.get(1).eClass)
+		assertEquals(BASE.DDetailType, dimModel.types.get(2).eClass)
 		
 		// Parse actual expression
 		val result = dmxParseHelper.parse(input, resourceSet)
@@ -189,8 +203,8 @@ class DmxEvaluatorTest {
 	@Test
 	def void testTimepoints() {
 		val tests = parse('''
-		import D.*
 		namespace N
+		import D.*
 		test T00 context a : Timepoint, b : Timepoint { a = b }
 		test T01 context a : A, b : Timepoint { a.a5 := b }  
 		test T02 context a : A { a.a5 := "2019-05-15" }			// right-hand side parsed as date
@@ -220,8 +234,8 @@ class DmxEvaluatorTest {
 	@Test
 	def void testLists() {
 		val tests = parse('''
-			import D.*
 			namespace N
+			import D.*
 			test T00 {  {}  }  // empty collection
 			test T01 { {1} }
 			test T02 { {1,2} }
@@ -262,8 +276,8 @@ class DmxEvaluatorTest {
 	@Test
 	def void testEquality() {
 		val tests = parse('''
-			import D.*
 			namespace N
+			import D.*
 			test T00  { 3 = 3 }
 			test T01  { 3 != 3 }
 			test T02  { 3 <> 3 }
@@ -309,8 +323,8 @@ class DmxEvaluatorTest {
 	@Test
 	def void testTest() {
 		val tests = parse('''
-			import D.*
 			namespace N
+			import D.*
 			test T00 context a : A := detail A { a4 = {1, 2, 3} } { a.a4 <> {1, 2} }
 		''')
 		assertNoValidationErrors(tests.head.eContainer)

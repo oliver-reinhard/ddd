@@ -44,6 +44,9 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> implements Clon
   
   @Override
   public boolean equals(final Object other) {
+    if ((other == this)) {
+      return true;
+    }
     if (((other == null) || (other.getClass() != this.getClass()))) {
       return false;
     }

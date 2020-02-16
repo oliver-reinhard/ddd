@@ -65,8 +65,12 @@ public class DmxTypeDescriptorProvider {
   public static final DmxBaseTypeDescriptor TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true);
   
   public final AbstractDmxTypeDescriptor<?> getTypeDescriptor(final Object obj, final boolean collection) {
-    if (((obj instanceof EObject) && ((EObject) obj).eIsProxy())) {
-      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+    if ((obj == null)) {
+      return null;
+    } else {
+      if (((obj instanceof EObject) && ((EObject) obj).eIsProxy())) {
+        return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+      }
     }
     return this.typeDescriptorSwitch(obj, collection);
   }

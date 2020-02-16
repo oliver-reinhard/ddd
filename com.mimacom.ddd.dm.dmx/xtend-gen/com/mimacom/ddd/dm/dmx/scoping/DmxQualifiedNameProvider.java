@@ -52,15 +52,15 @@ public class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNamePro
       _switchResult = super.computeFullyQualifiedName(obj);
     }
     final QualifiedName qualifiedName = _switchResult;
-    boolean _isInfoEnabled = DmxQualifiedNameProvider.LOGGER.isInfoEnabled();
-    if (_isInfoEnabled) {
+    boolean _isDebugEnabled = DmxQualifiedNameProvider.LOGGER.isDebugEnabled();
+    if (_isDebugEnabled) {
       String _string = null;
       if (qualifiedName!=null) {
         _string=qualifiedName.toString("|");
       }
       String _plus = (_string + " - ");
       String _plus_1 = (_plus + obj);
-      DmxQualifiedNameProvider.LOGGER.info(_plus_1);
+      DmxQualifiedNameProvider.LOGGER.debug(_plus_1);
     }
     return qualifiedName;
   }

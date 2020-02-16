@@ -21,6 +21,7 @@ import com.mimacom.ddd.dm.dmx.impl.DmxContextReferenceImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxDecimalLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl;
+import com.mimacom.ddd.dm.dmx.impl.DmxListExpressionImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxNaturalLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl;
@@ -109,7 +110,7 @@ public class DmxParsingTest {
   }
   
   @Test
-  public void testPrimaries() {
+  public void testDmxPrimaryExpressions() {
     try {
       final String XX = "«";
       final String YY = "»";
@@ -118,17 +119,17 @@ public class DmxParsingTest {
       _builder.newLine();
       _builder.append("test e0 { (4) }");
       _builder.newLine();
-      _builder.append("test e1 { f() }");
+      _builder.append("test e1 { {} }");
       _builder.newLine();
-      _builder.append("test e2 { f(6) }");
+      _builder.append("test e2 { { 0 } }");
       _builder.newLine();
-      _builder.append("test e3 { f(6, \"A\") }");
+      _builder.append("test e3 { { \"a\", \"b\", \"c\" } }");
       _builder.newLine();
-      _builder.append("test e4 { new X }");
+      _builder.append("test e4 { f() }");
       _builder.newLine();
-      _builder.append("test e5 { new X(9) }");
+      _builder.append("test e5 { f(6) }");
       _builder.newLine();
-      _builder.append("test e6 { new X(9, \"A\") }");
+      _builder.append("test e6 { f(6, \"A\") }");
       _builder.newLine();
       _builder.append("test e7 {");
       _builder.append(XX);
@@ -166,20 +167,35 @@ public class DmxParsingTest {
       }
       {
         final DExpression e = tests.get(1).getExpr();
+        Assertions.assertEquals(DmxListExpressionImpl.class, e.getClass());
+        Assertions.assertEquals(0, ((DmxListExpressionImpl) e).getElements().size());
+      }
+      {
+        final DExpression e = tests.get(2).getExpr();
+        Assertions.assertEquals(DmxListExpressionImpl.class, e.getClass());
+        Assertions.assertEquals(1, ((DmxListExpressionImpl) e).getElements().size());
+      }
+      {
+        final DExpression e = tests.get(3).getExpr();
+        Assertions.assertEquals(DmxListExpressionImpl.class, e.getClass());
+        Assertions.assertEquals(3, ((DmxListExpressionImpl) e).getElements().size());
+      }
+      {
+        final DExpression e = tests.get(4).getExpr();
         Assertions.assertEquals(DmxFunctionCallImpl.class, e.getClass());
         Assertions.assertTrue(((DmxFunctionCallImpl) e).basicGetFunction().eIsProxy());
         Assertions.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
         Assertions.assertEquals(0, this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e)).size());
       }
       {
-        final DExpression e = tests.get(2).getExpr();
+        final DExpression e = tests.get(5).getExpr();
         Assertions.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
         final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e));
         Assertions.assertEquals(1, args.size());
         Assertions.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
       }
       {
-        final DExpression e = tests.get(3).getExpr();
+        final DExpression e = tests.get(6).getExpr();
         Assertions.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
         final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e));
         Assertions.assertEquals(2, args.size());

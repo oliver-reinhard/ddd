@@ -37,7 +37,9 @@ class DmxTypeDescriptorProvider {
 	
 
 	final def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
-		if (obj instanceof EObject && (obj as EObject).eIsProxy) {
+		if (obj === null) {
+			return null
+		} else if (obj instanceof EObject && (obj as EObject).eIsProxy) {
 //			throw new IllegalStateException("Unresolved EObject (system type?): " + obj)
 			return DmxTypeDescriptorProvider.UNDEFINED_TYPE
 		}

@@ -29,8 +29,8 @@ class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 			default:
 				super.computeFullyQualifiedName(obj)
 		}
-		if (LOGGER.infoEnabled) {
-			LOGGER.info(qualifiedName?.toString("|") + " - " + obj)
+		if (LOGGER.debugEnabled) {
+			LOGGER.debug(qualifiedName?.toString("|") + " - " + obj)
 		}
 		return qualifiedName;
 	}

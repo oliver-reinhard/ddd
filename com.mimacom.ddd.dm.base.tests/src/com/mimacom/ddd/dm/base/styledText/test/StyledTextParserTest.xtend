@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue
 
 class StyledTextParserTest {
 
-	static boolean debug = true
+	static boolean debug = false
 
 	@Test def void testSimple() {
 		val String text = "aaaa"

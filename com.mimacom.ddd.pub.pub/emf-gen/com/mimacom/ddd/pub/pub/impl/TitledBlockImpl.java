@@ -250,7 +250,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	@Override
 	public String getId() {
 		if (((this.getName() == null) || this.getName().isEmpty())) {
-			final String blockType = this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
+			final String blockType = this.getClass().getSimpleName().replace("Titled", "").replace("Impl", "").toLowerCase();
 			int _sequenceNumber = this.getSequenceNumber();
 			boolean _notEquals = (_sequenceNumber != (-1));
 			if (_notEquals) {

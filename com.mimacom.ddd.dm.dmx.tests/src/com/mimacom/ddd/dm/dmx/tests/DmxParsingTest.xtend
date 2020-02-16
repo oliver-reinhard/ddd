@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.dmx.impl.DmxContextReferenceImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxDecimalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl
+import com.mimacom.ddd.dm.dmx.impl.DmxListExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxNaturalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl
@@ -81,18 +82,18 @@ class DmxParsingTest {
 	}
 
 	@Test
-	def void testPrimaries() {
+	def void testDmxPrimaryExpressions() {
 		val XX = "«"
 		val YY = "»"
 		val result = parseHelper.parse('''
 			namespace N
 			test e0 { (4) }
-			test e1 { f() }
-			test e2 { f(6) }
-			test e3 { f(6, "A") }
-			test e4 { new X }
-			test e5 { new X(9) }
-			test e6 { new X(9, "A") }
+			test e1 { {} }
+			test e2 { { 0 } }
+			test e3 { { "a", "b", "c" } }
+			test e4 { f() }
+			test e5 { f(6) }
+			test e6 { f(6, "A") }
 			test e7 {«XX»[[A]]«YY» }
 			test e8 {«XX»[[A#a]]«YY» }
 			test e9 {«XX»[A]«YY» }
@@ -109,6 +110,21 @@ class DmxParsingTest {
 		}
 		{
 			val e = tests.get(1).expr
+			assertEquals(DmxListExpressionImpl, e.class)
+			assertEquals(0, (e as DmxListExpressionImpl).elements.size)
+		}
+		{
+			val e = tests.get(2).expr
+			assertEquals(DmxListExpressionImpl, e.class)
+			assertEquals(1, (e as DmxListExpressionImpl).elements.size)
+		}
+		{
+			val e = tests.get(3).expr
+			assertEquals(DmxListExpressionImpl, e.class)
+			assertEquals(3, (e as DmxListExpressionImpl).elements.size)
+		}
+		{
+			val e = tests.get(4).expr
 			assertEquals(DmxFunctionCallImpl, e.class)
 			// actual value of 'e1.function' cross reference is a proxy that gets resolved upon access => Exception => use basicGetFunction
 			assertTrue((e as DmxFunctionCallImpl).basicGetFunction.eIsProxy)
@@ -116,14 +132,14 @@ class DmxParsingTest {
 			assertEquals(0, (e as DmxFunctionCallImpl).nullSafeCallArguments.size)
 		}
 		{
-			val e = tests.get(2).expr
+			val e = tests.get(5).expr
 			assertEquals(DmxFilterImpl, (e as DmxFunctionCallImpl).basicGetFunction.class)
 			val args = (e as DmxFunctionCallImpl).nullSafeCallArguments
 			assertEquals(1, args.size)
 			assertEquals(DmxNaturalLiteralImpl, args.get(0).class)
 		}
 		{
-			val e = tests.get(3).expr
+			val e = tests.get(6).expr
 			assertEquals(DmxFilterImpl, (e as DmxFunctionCallImpl).basicGetFunction.class)
 			val args = (e as DmxFunctionCallImpl).nullSafeCallArguments
 			assertEquals(2, args.size)
@@ -166,7 +182,7 @@ class DmxParsingTest {
 		assertEquals(DmxMemberNavigationImpl, e0.class)
 		// actual value of 'e0.member' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e0 as DmxMemberNavigationImpl).basicGetMember.eIsProxy)
-//		assertEquals(DmxSelfExpressionImpl, (e0 as DmxMemberNavigationImpl).precedingNavigationSegment.class)
+
 		val e1 = tests.get(1).expr
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DSelfExpression
 		assertEquals(DmxMemberNavigationImpl, e1.class)
@@ -175,7 +191,7 @@ class DmxParsingTest {
 		assertEquals(DmxMemberNavigationImpl, e1_1.precedingNavigationSegment.class)
 		val e1_2 = e1_1.precedingNavigationSegment as DmxMemberNavigationImpl
 		assertTrue(e1_2.basicGetMember.eIsProxy)
-//		assertEquals(DmxSelfExpressionImpl, e1_2.precedingNavigationSegment.class)
+
 		val e2 = tests.get(2).expr
 		// DMemberFeatureCall -- memberContainer --> DContextReference
 		assertEquals(DmxMemberNavigationImpl, e2.class)

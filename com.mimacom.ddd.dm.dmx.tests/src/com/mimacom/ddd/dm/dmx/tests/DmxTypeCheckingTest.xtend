@@ -5,12 +5,14 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxTest
+import com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
@@ -30,10 +32,12 @@ import static org.junit.jupiter.api.Assertions.*
 @InjectWith(DmxInjectorProvider)
 class DmxTypeCheckingTest {
 	
-	@Inject ParseHelper<DNamespace> dmxParseHelper
-	@Inject Provider<ResourceSet> resourceSetProvider
+	protected static val BASE = BasePackage.eINSTANCE
+	
 	@Inject extension DmxTypeComputer
-	final ParseHelper<DInformationModel> dimParseHelper
+	@Inject Provider<ResourceSet> resourceSetProvider
+	@Inject ParseHelper<DNamespace> dmxParseHelper
+	final ParseHelper<DNamespace> dimParseHelper
 	
 	new() {
 		val dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration()
@@ -54,36 +58,46 @@ class DmxTypeCheckingTest {
 		assertNotNull(systemTypes)
 		val stErrors = systemTypes.eResource.errors
 		assertTrue(stErrors.isEmpty, '''Parse errors in system types: «stErrors.join(", ")»''')
+		val systemTypesModel = systemTypes.model as DmxModel
+		assertNotNull(systemTypesModel)
+		assertEquals(DmxArchetypeImpl, systemTypesModel.types.get(0).class)
 		
 		// Provide custom types:
 		val customTypes = dimParseHelper.parse('''
 			domain D
-			primitive P1 redefines Natural
-			enumeration E1 { L1, L2 }
-			detail A {
-				a0 : Text
-				a1 : Natural?
-				a2 : Natural
-				a3 : E1
-				a4 : Natural*
-				a5 : Timepoint
-				a6 : Boolean
-				a7 : A
-				detail b1 : B
-				detail b2 : B+
-				q0(): Natural
-				q1(p:P1) : Natural
-				q2(left:P1, right:P1) : Natural
-				q3() : B
-			}
-			detail B {
-				b1 : Natural
-				q5(p:P1) : Natural
+			information model CustomTypes {
+				primitive P1 redefines Natural
+				enumeration E1 { L1, L2 }
+				detail A {
+					a0 : Text
+					a1 : Natural?
+					a2 : Natural
+					a3 : E1
+					a4 : Natural*
+					a5 : Timepoint
+					a6 : Boolean
+					a7 : A
+					detail b1 : B
+					detail b2 : B+
+					q0(): Natural
+					q1(p:P1) : Natural
+					q2(left:P1, right:P1) : Natural
+					q3() : B
+				}
+				detail B {
+					b1 : Natural
+					q5(p:P1) : Natural
+				}
 			}
 		''', resourceSet)
 		assertNotNull(customTypes)
-		val ctErrors = systemTypes.eResource.errors
+		val ctErrors = customTypes.eResource.errors
 		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
+		val dimModel = customTypes.model as DInformationModel
+		assertNotNull(dimModel)
+		assertEquals(BASE.DPrimitive, dimModel.types.get(0).eClass)
+		assertEquals(BASE.DEnumeration, dimModel.types.get(1).eClass)
+		assertEquals(BASE.DDetailType, dimModel.types.get(2).eClass)
 		
 		// Parse actual expression
 		val result = dmxParseHelper.parse(input, resourceSet)
@@ -198,11 +212,11 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testTestContextValueType() {
 		val tests = parse('''
-		import D.*
 		namespace N
+		import D.*
 		test T00 context a : Natural := 1 { a }
 		test T01 context a : Natural := "a"  { a } 						// ERROR
-		test T02 context a : A := detail A { a2 = 1 }  { a.a2 = 1 }
+		test T02 context a : A := detail A { a2 = 1 }  { 1 = a.a2 }
 		test T03 context a : A := detail A { a2 = "a" }  { a.a2 = 1 } // ERROR
 		test T04 context a : A+ := { detail A { a2 = 1 }}  { true }  // List
 		''')
@@ -213,26 +227,26 @@ class DmxTypeCheckingTest {
 		
 		val e01 = tests.get(1).expr
 		assertNumber(e01)
-		assertHasValidationERRORS(e01.eContainer) // do not just validate the expression but the TestContext)
+		assertHasValidationERRORS(e01.eContainer) // do not just validate the expression but the TestContext
 		
 		val e02 = tests.get(2).expr
 		assertBoolean(e02)
-		assertNoValidationErrors(e02.eContainer) // do not just validate the expression but the TestContext)
+		assertNoValidationErrors(e02.eContainer) // do not just validate the expression but the TestContext
 		
 		val e03 = tests.get(3).expr
 		assertBoolean(e03)
-		assertHasValidationERRORS(e03.eContainer) // do not just validate the expression but the TestContext)
+		assertHasValidationERRORS(e03.eContainer) // do not just validate the expression but the TestContext
 		
 		val e04 = tests.get(4).expr
 		assertBoolean(e04)
-		assertNoValidationErrors(e04.eContainer) // do not just validate the expression but the TestContext)
+		assertNoValidationErrors(e04.eContainer) // do not just validate the expression but the TestContext
 	}
 	
 	@Test
 	def void testTimepoints() {
 		val tests = parse('''
-		import D.*
 		namespace N
+		import D.*
 		test T00 context a : Timepoint, b : Timepoint { a = b }
 		test T01 context a : A, b : Timepoint { a.a5 := b }  
 		test T02 context a : A { a.a5 := "2019-05-15" }			// right-hand side parsed as date
@@ -275,8 +289,8 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testLists() {
 		val tests = parse('''
-			import D.*
 			namespace N
+			import D.*
 			test T00 {  {}  }  // empty collection
 			test T01 { {1} }
 			test T02 { {1,2} }
@@ -318,8 +332,8 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testIn() {
 		val tests = parse('''
-		import D.*
 		namespace N
+		import D.*
 		test T00 context a : A { a.a2 in {3,4} }
 		test T01 context a : A { {3, "a"} }  				// ERROR: first element determines type
 		test T02 context a : A { a.a4 = 3 }   			// ERROR: not a collection
@@ -347,8 +361,8 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testEquality() {
 		val tests = parse('''
-			import D.*
 			namespace N
+			import D.*
 			test T00 context a : Natural, b : Natural { a = b }
 			test T01 context a : Natural, b : Natural { a != b }
 			test T02 context a : Natural, b : Natural { a <> b }
@@ -395,8 +409,8 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testRelationalOperators() {
 		val tests = parse('''
-			import D.*
 			namespace N
+			import D.*
 			// "comparable" types:
 			test T00 context a : Natural, b : Natural { a > b }
 			test T01 context a : Text, b : Text { a > b }
@@ -483,8 +497,8 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testAssignments() {
 		val tests = parse('''
-		import D.*
 		namespace N
+		import D.*
 		test T00 context a : Natural { a := 1 }		// ERROR: can only assign to attributes
 		test T01 context a : A { a.a1 := 1 }  
 		test T02 context a : A { a.a1 := "A" }		// ERROR: wrong type
@@ -547,8 +561,8 @@ class DmxTypeCheckingTest {
 	@Test
 	def void testFunctionCalls() {
 		val tests = parse('''
-		import D.*
 		namespace N
+		import D.*
 		test T00 context a : A { a.q0 } 
 		test T01 context a : A { a.q0() } 
 		test T02 context a : A { a.q0(1) } 				// ERROR: too many parameter values

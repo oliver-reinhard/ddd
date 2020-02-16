@@ -22,7 +22,7 @@ public class StyledTextParserTest {
     }
   }
   
-  private static boolean debug = true;
+  private static boolean debug = false;
   
   @Test
   public void testSimple() {

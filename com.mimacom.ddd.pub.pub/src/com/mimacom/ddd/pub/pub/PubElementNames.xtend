@@ -7,7 +7,7 @@ import com.mimacom.ddd.pub.pub.TitledBlock
 class PubElementNames {
 	
 	def dispatch String displayName(TitledBlock b) {
-		b.class.simpleName.replace("Impl", "")
+		b.class.simpleName.replace("Titled", "").replace("Impl", "")
 	}
 	
 	def dispatch String displayName(Division div) {

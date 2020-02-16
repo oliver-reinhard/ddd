@@ -38,6 +38,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> implements Cloneable {
 	}
 
 	override equals(Object other) {
+		if (other === this) return true
 		if (other === null || other.class !== this.class) return false
 		val obj = other as AbstractDmxTypeDescriptor<?>
 		return baseType === obj.baseType && (type === null && obj.type === null || type.equals(obj.type)) && collection == obj.collection

@@ -6,6 +6,7 @@ package com.mimacom.ddd.dm.dmx.tests;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DModel;
@@ -13,6 +14,7 @@ import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
@@ -39,17 +41,19 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @InjectWith(DmxInjectorProvider.class)
 @SuppressWarnings("all")
 public class DmxTypeCheckingTest {
-  @Inject
-  private ParseHelper<DNamespace> dmxParseHelper;
-  
-  @Inject
-  private Provider<ResourceSet> resourceSetProvider;
+  protected static final BasePackage BASE = BasePackage.eINSTANCE;
   
   @Inject
   @Extension
   private DmxTypeComputer _dmxTypeComputer;
   
-  private final ParseHelper<DInformationModel> dimParseHelper;
+  @Inject
+  private Provider<ResourceSet> resourceSetProvider;
+  
+  @Inject
+  private ParseHelper<DNamespace> dmxParseHelper;
+  
+  private final ParseHelper<DNamespace> dimParseHelper;
   
   public DmxTypeCheckingTest() {
     final Injector dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration();
@@ -79,78 +83,98 @@ public class DmxTypeCheckingTest {
       String _join = IterableExtensions.join(stErrors, ", ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
+      DModel _model = systemTypes.getModel();
+      final DmxModel systemTypesModel = ((DmxModel) _model);
+      Assertions.assertNotNull(systemTypesModel);
+      Assertions.assertEquals(DmxArchetypeImpl.class, systemTypesModel.getTypes().get(0).getClass());
       StringConcatenation _builder_2 = new StringConcatenation();
       _builder_2.append("domain D");
       _builder_2.newLine();
+      _builder_2.append("information model CustomTypes {");
+      _builder_2.newLine();
+      _builder_2.append("\t");
       _builder_2.append("primitive P1 redefines Natural");
       _builder_2.newLine();
+      _builder_2.append("\t");
       _builder_2.append("enumeration E1 { L1, L2 }");
       _builder_2.newLine();
+      _builder_2.append("\t");
       _builder_2.append("detail A {");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a0 : Text");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a1 : Natural?");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a2 : Natural");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a3 : E1");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a4 : Natural*");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a5 : Timepoint");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a6 : Boolean");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("a7 : A");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("detail b1 : B");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("detail b2 : B+");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("q0(): Natural");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("q1(p:P1) : Natural");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("q2(left:P1, right:P1) : Natural");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("q3() : B");
       _builder_2.newLine();
+      _builder_2.append("\t");
       _builder_2.append("}");
       _builder_2.newLine();
+      _builder_2.append("\t");
       _builder_2.append("detail B {");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("b1 : Natural");
       _builder_2.newLine();
-      _builder_2.append("\t");
+      _builder_2.append("\t\t");
       _builder_2.append("q5(p:P1) : Natural");
+      _builder_2.newLine();
+      _builder_2.append("\t");
+      _builder_2.append("}");
       _builder_2.newLine();
       _builder_2.append("}");
       _builder_2.newLine();
-      final DInformationModel customTypes = this.dimParseHelper.parse(_builder_2, resourceSet);
+      final DNamespace customTypes = this.dimParseHelper.parse(_builder_2, resourceSet);
       Assertions.assertNotNull(customTypes);
-      final EList<Resource.Diagnostic> ctErrors = systemTypes.eResource().getErrors();
+      final EList<Resource.Diagnostic> ctErrors = customTypes.eResource().getErrors();
       boolean _isEmpty_1 = ctErrors.isEmpty();
       StringConcatenation _builder_3 = new StringConcatenation();
       _builder_3.append("Parse errors in custom types: ");
       String _join_1 = IterableExtensions.join(ctErrors, ", ");
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
+      DModel _model_1 = customTypes.getModel();
+      final DInformationModel dimModel = ((DInformationModel) _model_1);
+      Assertions.assertNotNull(dimModel);
+      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDPrimitive(), dimModel.getTypes().get(0).eClass());
+      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDEnumeration(), dimModel.getTypes().get(1).eClass());
+      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDDetailType(), dimModel.getTypes().get(2).eClass());
       final DNamespace result = this.dmxParseHelper.parse(input, resourceSet);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
@@ -160,8 +184,8 @@ public class DmxTypeCheckingTest {
       String _join_2 = IterableExtensions.join(errors, "; ");
       _builder_4.append(_join_2);
       Assertions.assertTrue(_isEmpty_2, _builder_4.toString());
-      DModel _model = result.getModel();
-      return ((DmxModel) _model).getTests();
+      DModel _model_2 = result.getModel();
+      return ((DmxModel) _model_2).getTests();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -273,15 +297,15 @@ public class DmxTypeCheckingTest {
   @Test
   public void testTestContextValueType() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 context a : Natural := 1 { a }");
     _builder.newLine();
     _builder.append("test T01 context a : Natural := \"a\"  { a } \t\t\t\t\t\t// ERROR");
     _builder.newLine();
-    _builder.append("test T02 context a : A := detail A { a2 = 1 }  { a.a2 = 1 }");
+    _builder.append("test T02 context a : A := detail A { a2 = 1 }  { 1 = a.a2 }");
     _builder.newLine();
     _builder.append("test T03 context a : A := detail A { a2 = \"a\" }  { a.a2 = 1 } // ERROR");
     _builder.newLine();
@@ -308,9 +332,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testTimepoints() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 context a : Timepoint, b : Timepoint { a = b }");
     _builder.newLine();
@@ -353,9 +377,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testLists() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 {  {}  }  // empty collection");
     _builder.newLine();
@@ -398,9 +422,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testIn() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 context a : A { a.a2 in {3,4} }");
     _builder.newLine();
@@ -429,9 +453,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testEquality() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 context a : Natural, b : Natural { a = b }");
     _builder.newLine();
@@ -479,9 +503,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testRelationalOperators() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("// \"comparable\" types:");
     _builder.newLine();
@@ -571,9 +595,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testAssignments() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 context a : Natural { a := 1 }\t\t// ERROR: can only assign to attributes");
     _builder.newLine();
@@ -636,9 +660,9 @@ public class DmxTypeCheckingTest {
   @Test
   public void testFunctionCalls() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import D.*");
-    _builder.newLine();
     _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("import D.*");
     _builder.newLine();
     _builder.append("test T00 context a : A { a.q0 } ");
     _builder.newLine();
