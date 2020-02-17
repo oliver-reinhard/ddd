@@ -46,7 +46,7 @@ class PubValidator extends AbstractPubValidator {
 
 	static val BASE = BasePackage.eINSTANCE
 	static val PUB = PubPackage.eINSTANCE
-	
+
 	@Inject extension PubUtil
 	@Inject extension PubElementNames
 	@Inject extension PubNumberingUtil
@@ -60,6 +60,27 @@ class PubValidator extends AbstractPubValidator {
 	def publicationClass(Document doc) {
 		if (doc.publicationClass === null) {
 			error("Document has no publication class.", PUB.document_PublicationClass)
+		}
+	}
+
+	@Check
+	def symbols(Document doc) {
+		if (doc.publicationClass !== null) {
+			for (protoSymbol : doc.publicationClass.symbols) {
+				if (doc.symbols.filter[it.name == protoSymbol].empty) {
+					val msg = "Document must define prototype symbol '" + protoSymbol + "'"
+					if (! doc.symbols.empty) {
+						error(msg, doc.symbols.last, PUB.symbol_Name)
+					} else {
+						error(msg, PUB.referenceTarget_Name)
+					}
+				}
+			}
+		}
+		for (symbol : doc.symbols) {
+			if (! symbol.name.equals(symbol.name.toUpperCase)) {
+				warning("Symbol name should be ALL UPPPERCASE", symbol, PUB.symbol_Name)
+			}
 		}
 	}
 
@@ -212,7 +233,7 @@ class PubValidator extends AbstractPubValidator {
 	def table(Table t) {
 		tableValidator.validate(t)
 	}
-	
+
 	//
 	// Figure / Diagram Renderers
 	//
@@ -221,11 +242,12 @@ class PubValidator extends AbstractPubValidator {
 		if (f.diagramRoot !== null && f.renderer !== null && f.renderer.name !== null) {
 			val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
 			if (! provider.canRender(f.diagramRoot)) {
-				error("The referenced model does not provide content, the generated diagram will be empty", PUB.providedFigure_DiagramRoot)
+				error("The referenced model does not provide content, the generated diagram will be empty",
+					PUB.providedFigure_DiagramRoot)
 			}
 		}
 	}
-	
+
 	//
 	// Table Renderers
 	//
@@ -234,9 +256,10 @@ class PubValidator extends AbstractPubValidator {
 		if (t.diagramRoot !== null && t.renderer !== null && t.renderer.name !== null) {
 			val provider = tableProviderRegistry.getTableRenderer(t.renderer.name)
 			if (! provider.canRender(t.diagramRoot)) {
-				error("The referenced model does not provide content, the generated table will be empty", PUB.providedTable_DiagramRoot)
+				error("The referenced model does not provide content, the generated table will be empty",
+					PUB.providedTable_DiagramRoot)
 			}
 		}
 	}
-	
+
 }

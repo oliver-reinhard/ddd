@@ -100,6 +100,7 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubModelAccess().getGroup(), "rule__PubModel__Group__0");
 			builder.put(grammarAccess.getPubPublicationAccess().getGroup(), "rule__PubPublication__Group__0");
 			builder.put(grammarAccess.getPubComponentAccess().getGroup(), "rule__PubComponent__Group__0");
+			builder.put(grammarAccess.getPubSymbolAccess().getGroup(), "rule__PubSymbol__Group__0");
 			builder.put(grammarAccess.getPubReferenceTargetNameAccess().getGroup(), "rule__PubReferenceTargetName__Group__0");
 			builder.put(grammarAccess.getPubAbstractAccess().getGroup(), "rule__PubAbstract__Group__0");
 			builder.put(grammarAccess.getPubPrefaceAccess().getGroup(), "rule__PubPreface__Group__0");
@@ -296,10 +297,14 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubModelAccess().getDocumentAssignment_2(), "rule__PubModel__DocumentAssignment_2");
 			builder.put(grammarAccess.getPubPublicationAccess().getTitleAssignment_3(), "rule__PubPublication__TitleAssignment_3");
 			builder.put(grammarAccess.getPubPublicationAccess().getPublicationClassAssignment_5(), "rule__PubPublication__PublicationClassAssignment_5");
-			builder.put(grammarAccess.getPubPublicationAccess().getIncludesAssignment_7(), "rule__PubPublication__IncludesAssignment_7");
+			builder.put(grammarAccess.getPubPublicationAccess().getSymbolsAssignment_6(), "rule__PubPublication__SymbolsAssignment_6");
+			builder.put(grammarAccess.getPubPublicationAccess().getIncludesAssignment_8(), "rule__PubPublication__IncludesAssignment_8");
 			builder.put(grammarAccess.getPubComponentAccess().getTitleAssignment_3(), "rule__PubComponent__TitleAssignment_3");
 			builder.put(grammarAccess.getPubComponentAccess().getPublicationClassAssignment_5(), "rule__PubComponent__PublicationClassAssignment_5");
-			builder.put(grammarAccess.getPubComponentAccess().getSegmentsAssignment_6(), "rule__PubComponent__SegmentsAssignment_6");
+			builder.put(grammarAccess.getPubComponentAccess().getSymbolsAssignment_6(), "rule__PubComponent__SymbolsAssignment_6");
+			builder.put(grammarAccess.getPubComponentAccess().getSegmentsAssignment_7(), "rule__PubComponent__SegmentsAssignment_7");
+			builder.put(grammarAccess.getPubSymbolAccess().getNameAssignment_1(), "rule__PubSymbol__NameAssignment_1");
+			builder.put(grammarAccess.getPubSymbolAccess().getValueAssignment_3(), "rule__PubSymbol__ValueAssignment_3");
 			builder.put(grammarAccess.getPubReferenceTargetNameAccess().getNameAssignment_2(), "rule__PubReferenceTargetName__NameAssignment_2");
 			builder.put(grammarAccess.getPubAbstractAccess().getContentsAssignment_3(), "rule__PubAbstract__ContentsAssignment_3");
 			builder.put(grammarAccess.getPubPrefaceAccess().getContentsAssignment_3(), "rule__PubPreface__ContentsAssignment_3");

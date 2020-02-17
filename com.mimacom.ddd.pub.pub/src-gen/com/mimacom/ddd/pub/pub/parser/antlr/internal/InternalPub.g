@@ -234,9 +234,28 @@ rulePubPublication returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_6='includes:'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPubPublicationAccess().getSymbolsPubSymbolParserRuleCall_6_0());
+				}
+				lv_symbols_6_0=rulePubSymbol
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPubPublicationRule());
+					}
+					add(
+						$current,
+						"symbols",
+						lv_symbols_6_0,
+						"com.mimacom.ddd.pub.pub.Pub.PubSymbol");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_7='includes:'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getPubPublicationAccess().getIncludesKeyword_6());
+			newLeafNode(otherlv_7, grammarAccess.getPubPublicationAccess().getIncludesKeyword_7());
 		}
 		(
 			(
@@ -245,9 +264,9 @@ rulePubPublication returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getPubPublicationRule());
 					}
 				}
-				otherlv_7=RULE_ID
+				otherlv_8=RULE_ID
 				{
-					newLeafNode(otherlv_7, grammarAccess.getPubPublicationAccess().getIncludesComponentCrossReference_7_0());
+					newLeafNode(otherlv_8, grammarAccess.getPubPublicationAccess().getIncludesComponentCrossReference_8_0());
 				}
 			)
 		)*
@@ -330,9 +349,28 @@ rulePubComponent returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPubComponentAccess().getSegmentsPubDocumentSegmentParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getPubComponentAccess().getSymbolsPubSymbolParserRuleCall_6_0());
 				}
-				lv_segments_6_0=rulePubDocumentSegment
+				lv_symbols_6_0=rulePubSymbol
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPubComponentRule());
+					}
+					add(
+						$current,
+						"symbols",
+						lv_symbols_6_0,
+						"com.mimacom.ddd.pub.pub.Pub.PubSymbol");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPubComponentAccess().getSegmentsPubDocumentSegmentParserRuleCall_7_0());
+				}
+				lv_segments_7_0=rulePubDocumentSegment
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPubComponentRule());
@@ -340,12 +378,76 @@ rulePubComponent returns [EObject current=null]
 					add(
 						$current,
 						"segments",
-						lv_segments_6_0,
+						lv_segments_7_0,
 						"com.mimacom.ddd.pub.pub.Pub.PubDocumentSegment");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRulePubSymbol
+entryRulePubSymbol returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPubSymbolRule()); }
+	iv_rulePubSymbol=rulePubSymbol
+	{ $current=$iv_rulePubSymbol.current; }
+	EOF;
+
+// Rule PubSymbol
+rulePubSymbol returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='symbol:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPubSymbolAccess().getSymbolKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getPubSymbolAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPubSymbolRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		otherlv_2='='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getPubSymbolAccess().getEqualsSignKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPubSymbolAccess().getValueDRichTextParserRuleCall_3_0());
+				}
+				lv_value_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPubSymbolRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

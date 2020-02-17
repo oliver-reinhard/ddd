@@ -132,7 +132,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getReferenceTarget()
 	 * @generated
 	 */
-	int REFERENCE_TARGET = 4;
+	int REFERENCE_TARGET = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -208,13 +208,22 @@ public interface PubPackage extends EPackage {
 	int DOCUMENT__TITLE = REFERENCE_TARGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__SYMBOLS = REFERENCE_TARGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Publication Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PUBLICATION_CLASS = REFERENCE_TARGET_FEATURE_COUNT + 1;
+	int DOCUMENT__PUBLICATION_CLASS = REFERENCE_TARGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -223,7 +232,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 2;
+	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -235,6 +244,52 @@ public interface PubPackage extends EPackage {
 	int DOCUMENT_OPERATION_COUNT = REFERENCE_TARGET_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.SymbolImpl <em>Symbol</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.SymbolImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSymbol()
+	 * @generated
+	 */
+	int SYMBOL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Symbol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Symbol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.PublicationImpl <em>Publication</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,7 +297,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPublication()
 	 * @generated
 	 */
-	int PUBLICATION = 2;
+	int PUBLICATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -270,6 +325,15 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int PUBLICATION__TITLE = DOCUMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION__SYMBOLS = DOCUMENT__SYMBOLS;
 
 	/**
 	 * The feature id for the '<em><b>Publication Class</b></em>' reference.
@@ -315,7 +379,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getComponent()
 	 * @generated
 	 */
-	int COMPONENT = 3;
+	int COMPONENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -343,6 +407,15 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPONENT__TITLE = DOCUMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__SYMBOLS = DOCUMENT__SYMBOLS;
 
 	/**
 	 * The feature id for the '<em><b>Publication Class</b></em>' reference.
@@ -388,7 +461,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getReference()
 	 * @generated
 	 */
-	int REFERENCE = 5;
+	int REFERENCE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Scope</b></em>' attribute.
@@ -434,7 +507,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getDocumentSegment()
 	 * @generated
 	 */
-	int DOCUMENT_SEGMENT = 6;
+	int DOCUMENT_SEGMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -507,7 +580,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getBlockContainer()
 	 * @generated
 	 */
-	int BLOCK_CONTAINER = 7;
+	int BLOCK_CONTAINER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -544,7 +617,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSegmentWithText()
 	 * @generated
 	 */
-	int SEGMENT_WITH_TEXT = 8;
+	int SEGMENT_WITH_TEXT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -626,7 +699,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstract()
 	 * @generated
 	 */
-	int ABSTRACT = 9;
+	int ABSTRACT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -708,7 +781,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPreface()
 	 * @generated
 	 */
-	int PREFACE = 10;
+	int PREFACE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -790,7 +863,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getEpilogue()
 	 * @generated
 	 */
-	int EPILOGUE = 11;
+	int EPILOGUE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -872,7 +945,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSegmentWithTable()
 	 * @generated
 	 */
-	int SEGMENT_WITH_TABLE = 12;
+	int SEGMENT_WITH_TABLE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -954,7 +1027,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getChangeHistory()
 	 * @generated
 	 */
-	int CHANGE_HISTORY = 13;
+	int CHANGE_HISTORY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1045,7 +1118,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getChangeDescription()
 	 * @generated
 	 */
-	int CHANGE_DESCRIPTION = 14;
+	int CHANGE_DESCRIPTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1109,7 +1182,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTOC()
 	 * @generated
 	 */
-	int TOC = 15;
+	int TOC = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1191,7 +1264,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbbreviations()
 	 * @generated
 	 */
-	int ABBREVIATIONS = 16;
+	int ABBREVIATIONS = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1282,7 +1355,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbbreviation()
 	 * @generated
 	 */
-	int ABBREVIATION = 17;
+	int ABBREVIATION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1328,7 +1401,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListOfTables()
 	 * @generated
 	 */
-	int LIST_OF_TABLES = 18;
+	int LIST_OF_TABLES = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1410,7 +1483,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListOfFigures()
 	 * @generated
 	 */
-	int LIST_OF_FIGURES = 19;
+	int LIST_OF_FIGURES = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1492,7 +1565,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getBibliography()
 	 * @generated
 	 */
-	int BIBLIOGRAPHY = 20;
+	int BIBLIOGRAPHY = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1583,7 +1656,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getBibliographyEntry()
 	 * @generated
 	 */
-	int BIBLIOGRAPHY_ENTRY = 21;
+	int BIBLIOGRAPHY_ENTRY = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1665,7 +1738,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getGlossary()
 	 * @generated
 	 */
-	int GLOSSARY = 22;
+	int GLOSSARY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1756,7 +1829,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getGlossaryEntry()
 	 * @generated
 	 */
-	int GLOSSARY_ENTRY = 23;
+	int GLOSSARY_ENTRY = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1811,7 +1884,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getIndex()
 	 * @generated
 	 */
-	int INDEX = 24;
+	int INDEX = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1893,7 +1966,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getIndexEntry()
 	 * @generated
 	 */
-	int INDEX_ENTRY = 25;
+	int INDEX_ENTRY = 26;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -1939,7 +2012,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSegmentInclude()
 	 * @generated
 	 */
-	int SEGMENT_INCLUDE = 26;
+	int SEGMENT_INCLUDE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2021,7 +2094,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPublicationBody()
 	 * @generated
 	 */
-	int PUBLICATION_BODY = 27;
+	int PUBLICATION_BODY = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2103,7 +2176,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumberedElement()
 	 * @generated
 	 */
-	int NUMBERED_ELEMENT = 28;
+	int NUMBERED_ELEMENT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -2149,7 +2222,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getDivisionContainer()
 	 * @generated
 	 */
-	int DIVISION_CONTAINER = 29;
+	int DIVISION_CONTAINER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2186,7 +2259,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getDivision()
 	 * @generated
 	 */
-	int DIVISION = 30;
+	int DIVISION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2331,7 +2404,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPart()
 	 * @generated
 	 */
-	int PART = 31;
+	int PART = 32;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2476,7 +2549,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAppendix()
 	 * @generated
 	 */
-	int APPENDIX = 32;
+	int APPENDIX = 33;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2621,7 +2694,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getChapter()
 	 * @generated
 	 */
-	int CHAPTER = 33;
+	int CHAPTER = 34;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2766,7 +2839,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSection()
 	 * @generated
 	 */
-	int SECTION = 34;
+	int SECTION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2911,7 +2984,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSubsection()
 	 * @generated
 	 */
-	int SUBSECTION = 35;
+	int SUBSECTION = 36;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -3056,7 +3129,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSubsubsection()
 	 * @generated
 	 */
-	int SUBSUBSECTION = 36;
+	int SUBSUBSECTION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -3201,7 +3274,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getContentBlock()
 	 * @generated
 	 */
-	int CONTENT_BLOCK = 37;
+	int CONTENT_BLOCK = 38;
 
 	/**
 	 * The number of structural features of the '<em>Content Block</em>' class.
@@ -3229,7 +3302,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAdmonition()
 	 * @generated
 	 */
-	int ADMONITION = 38;
+	int ADMONITION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -3302,7 +3375,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 39;
+	int LIST = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3384,7 +3457,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 40;
+	int LIST_ITEM = 41;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -3493,7 +3566,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledBlock()
 	 * @generated
 	 */
-	int TITLED_BLOCK = 41;
+	int TITLED_BLOCK = 42;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -3602,7 +3675,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledTable()
 	 * @generated
 	 */
-	int TITLED_TABLE = 42;
+	int TITLED_TABLE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -3720,7 +3793,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractTable()
 	 * @generated
 	 */
-	int ABSTRACT_TABLE = 43;
+	int ABSTRACT_TABLE = 44;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -3757,7 +3830,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 44;
+	int TABLE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -3821,7 +3894,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 45;
+	int TABLE_ROW = 46;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -3885,7 +3958,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableCell()
 	 * @generated
 	 */
-	int TABLE_CELL = 46;
+	int TABLE_CELL = 47;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -3949,7 +4022,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedTable()
 	 * @generated
 	 */
-	int PROVIDED_TABLE = 47;
+	int PROVIDED_TABLE = 48;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -4004,7 +4077,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRenderer()
 	 * @generated
 	 */
-	int TABLE_RENDERER = 48;
+	int TABLE_RENDERER = 49;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4050,7 +4123,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledFigure()
 	 * @generated
 	 */
-	int TITLED_FIGURE = 49;
+	int TITLED_FIGURE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4168,7 +4241,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractFigure()
 	 * @generated
 	 */
-	int ABSTRACT_FIGURE = 50;
+	int ABSTRACT_FIGURE = 51;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Figure</em>' class.
@@ -4196,7 +4269,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getIncludedFigure()
 	 * @generated
 	 */
-	int INCLUDED_FIGURE = 51;
+	int INCLUDED_FIGURE = 52;
 
 	/**
 	 * The feature id for the '<em><b>File Uri</b></em>' attribute.
@@ -4233,7 +4306,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedFigure()
 	 * @generated
 	 */
-	int PROVIDED_FIGURE = 52;
+	int PROVIDED_FIGURE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Root</b></em>' reference.
@@ -4279,7 +4352,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
 	 * @generated
 	 */
-	int FIGURE_RENDERER = 53;
+	int FIGURE_RENDERER = 54;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4325,7 +4398,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getEquation()
 	 * @generated
 	 */
-	int EQUATION = 54;
+	int EQUATION = 55;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4443,7 +4516,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledCodeListing()
 	 * @generated
 	 */
-	int TITLED_CODE_LISTING = 55;
+	int TITLED_CODE_LISTING = 56;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4579,7 +4652,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 56;
+	int PARAGRAPH = 57;
 
 	/**
 	 * The number of structural features of the '<em>Paragraph</em>' class.
@@ -4607,7 +4680,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextParagraph()
 	 * @generated
 	 */
-	int RICH_TEXT_PARAGRAPH = 57;
+	int RICH_TEXT_PARAGRAPH = 58;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
@@ -4653,7 +4726,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextReferencingParagraph()
 	 * @generated
 	 */
-	int RICH_TEXT_REFERENCING_PARAGRAPH = 58;
+	int RICH_TEXT_REFERENCING_PARAGRAPH = 59;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' reference.
@@ -4690,7 +4763,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getUnformattedParagraph()
 	 * @generated
 	 */
-	int UNFORMATTED_PARAGRAPH = 59;
+	int UNFORMATTED_PARAGRAPH = 60;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -4727,7 +4800,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPublicationNature()
 	 * @generated
 	 */
-	int PUBLICATION_NATURE = 60;
+	int PUBLICATION_NATURE = 61;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ReferenceScope <em>Reference Scope</em>}' enum.
@@ -4737,7 +4810,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getReferenceScope()
 	 * @generated
 	 */
-	int REFERENCE_SCOPE = 61;
+	int REFERENCE_SCOPE = 62;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.AdmonitionKind <em>Admonition Kind</em>}' enum.
@@ -4747,7 +4820,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAdmonitionKind()
 	 * @generated
 	 */
-	int ADMONITION_KIND = 62;
+	int ADMONITION_KIND = 63;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ListStyle <em>List Style</em>}' enum.
@@ -4757,7 +4830,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListStyle()
 	 * @generated
 	 */
-	int LIST_STYLE = 63;
+	int LIST_STYLE = 64;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
@@ -4767,7 +4840,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
 	 * @generated
 	 */
-	int CODE_LANGUAGE = 64;
+	int CODE_LANGUAGE = 65;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.
@@ -4777,7 +4850,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraphStyle()
 	 * @generated
 	 */
-	int PARAGRAPH_STYLE = 65;
+	int PARAGRAPH_STYLE = 66;
 
 
 	/**
@@ -4856,6 +4929,17 @@ public interface PubPackage extends EPackage {
 	EAttribute getDocument_Title();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.Document#getSymbols <em>Symbols</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Symbols</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Document#getSymbols()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_Symbols();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.Document#getPublicationClass <em>Publication Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4865,6 +4949,38 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_PublicationClass();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Symbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Symbol</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Symbol
+	 * @generated
+	 */
+	EClass getSymbol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Symbol#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Symbol#getName()
+	 * @see #getSymbol()
+	 * @generated
+	 */
+	EAttribute getSymbol_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.Symbol#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Symbol#getValue()
+	 * @see #getSymbol()
+	 * @generated
+	 */
+	EReference getSymbol_Value();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Publication <em>Publication</em>}'.
@@ -6549,12 +6665,46 @@ public interface PubPackage extends EPackage {
 		EAttribute DOCUMENT__TITLE = eINSTANCE.getDocument_Title();
 
 		/**
+		 * The meta object literal for the '<em><b>Symbols</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__SYMBOLS = eINSTANCE.getDocument_Symbols();
+
+		/**
 		 * The meta object literal for the '<em><b>Publication Class</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DOCUMENT__PUBLICATION_CLASS = eINSTANCE.getDocument_PublicationClass();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.SymbolImpl <em>Symbol</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.SymbolImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSymbol()
+		 * @generated
+		 */
+		EClass SYMBOL = eINSTANCE.getSymbol();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYMBOL__VALUE = eINSTANCE.getSymbol_Value();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.PublicationImpl <em>Publication</em>}' class.

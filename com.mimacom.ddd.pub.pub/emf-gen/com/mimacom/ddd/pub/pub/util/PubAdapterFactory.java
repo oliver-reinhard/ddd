@@ -79,6 +79,10 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentAdapter();
 			}
 			@Override
+			public Adapter caseSymbol(Symbol object) {
+				return createSymbolAdapter();
+			}
+			@Override
 			public Adapter casePublication(Publication object) {
 				return createPublicationAdapter();
 			}
@@ -363,6 +367,20 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocumentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.Symbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.Symbol
+	 * @generated
+	 */
+	public Adapter createSymbolAdapter() {
 		return null;
 	}
 

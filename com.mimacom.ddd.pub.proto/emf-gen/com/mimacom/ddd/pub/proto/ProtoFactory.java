@@ -31,6 +31,15 @@ public interface ProtoFactory extends EFactory {
 	PublicationClass createPublicationClass();
 
 	/**
+	 * Returns a new object of class '<em>Symbol</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Symbol</em>'.
+	 * @generated
+	 */
+	ProtoSymbol createProtoSymbol();
+
+	/**
 	 * Returns a new object of class '<em>Abstract</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

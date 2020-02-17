@@ -28,7 +28,13 @@ enum PublicationNature {
 
 abstract class Document extends ReferenceTarget {
 	String title
+	contains Symbol[] symbols
 	refers PublicationClass publicationClass
+}
+
+class Symbol {
+	String name
+	contains DRichText value
 }
 
 class Publication extends Document {

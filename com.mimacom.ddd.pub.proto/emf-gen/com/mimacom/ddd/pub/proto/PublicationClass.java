@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getNature <em>Nature</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getSegments <em>Segments</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getDivisions <em>Divisions</em>}</li>
  * </ul>
@@ -95,6 +96,18 @@ public interface PublicationClass extends EObject {
 	 * @generated
 	 */
 	void setNature(PublicationNature value);
+
+	/**
+	 * Returns the value of the '<em><b>Symbols</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Symbols</em>' attribute list.
+	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_Symbols()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<String> getSymbols();
 
 	/**
 	 * Returns the value of the '<em><b>Segments</b></em>' containment reference list.

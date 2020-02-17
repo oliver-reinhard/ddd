@@ -7,6 +7,7 @@ import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.proto.ProtoPackage;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.proto.validation.AbstractPubProtoValidator;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 
 /**
@@ -22,6 +23,22 @@ public class PubProtoValidator extends AbstractPubProtoValidator {
   public void titleNotEmpty(final PublicationClass pub) {
     if (((pub.getTitle() != null) && (pub.getTitle().length() == 0))) {
       this.error("Segment title cannot be empty when defined", PubProtoValidator.PROTO.getProtoDocumentSegment_Title());
+    }
+  }
+  
+  @Check
+  public void symbolNameIsUppercase(final PublicationClass pub) {
+    int i = 0;
+    EList<String> _symbols = pub.getSymbols();
+    for (final String symbol : _symbols) {
+      {
+        boolean _equals = symbol.equals(symbol.toUpperCase());
+        boolean _not = (!_equals);
+        if (_not) {
+          this.warning("Symbol name should be ALL UPPPERCASE", PubProtoValidator.PROTO.getPublicationClass_Symbols(), i);
+        }
+        i++;
+      }
     }
   }
   

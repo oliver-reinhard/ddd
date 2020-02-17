@@ -95,13 +95,22 @@ public interface ProtoPackage extends EPackage {
 	int PUBLICATION_CLASS__NATURE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Symbols</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION_CLASS__SYMBOLS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS__SEGMENTS = 3;
+	int PUBLICATION_CLASS__SEGMENTS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -110,7 +119,7 @@ public interface ProtoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS__DIVISIONS = 4;
+	int PUBLICATION_CLASS__DIVISIONS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Publication Class</em>' class.
@@ -119,7 +128,7 @@ public interface ProtoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS_FEATURE_COUNT = 5;
+	int PUBLICATION_CLASS_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Publication Class</em>' class.
@@ -131,6 +140,43 @@ public interface ProtoPackage extends EPackage {
 	int PUBLICATION_CLASS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.proto.impl.ProtoSymbolImpl <em>Symbol</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.proto.impl.ProtoSymbolImpl
+	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoSymbol()
+	 * @generated
+	 */
+	int PROTO_SYMBOL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTO_SYMBOL__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Symbol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTO_SYMBOL_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Symbol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTO_SYMBOL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.proto.impl.ProtoDocumentSegmentImpl <em>Document Segment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +184,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoDocumentSegment()
 	 * @generated
 	 */
-	int PROTO_DOCUMENT_SEGMENT = 1;
+	int PROTO_DOCUMENT_SEGMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -202,7 +248,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoAbstract()
 	 * @generated
 	 */
-	int PROTO_ABSTRACT = 2;
+	int PROTO_ABSTRACT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -266,7 +312,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoPreface()
 	 * @generated
 	 */
-	int PROTO_PREFACE = 3;
+	int PROTO_PREFACE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -330,7 +376,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoEpilogue()
 	 * @generated
 	 */
-	int PROTO_EPILOGUE = 4;
+	int PROTO_EPILOGUE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -394,7 +440,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoPublicationBody()
 	 * @generated
 	 */
-	int PROTO_PUBLICATION_BODY = 5;
+	int PROTO_PUBLICATION_BODY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -476,7 +522,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoChangeHistory()
 	 * @generated
 	 */
-	int PROTO_CHANGE_HISTORY = 6;
+	int PROTO_CHANGE_HISTORY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -540,7 +586,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoTOC()
 	 * @generated
 	 */
-	int PROTO_TOC = 7;
+	int PROTO_TOC = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -613,7 +659,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoAbbreviations()
 	 * @generated
 	 */
-	int PROTO_ABBREVIATIONS = 8;
+	int PROTO_ABBREVIATIONS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -677,7 +723,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoListOfTables()
 	 * @generated
 	 */
-	int PROTO_LIST_OF_TABLES = 9;
+	int PROTO_LIST_OF_TABLES = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -741,7 +787,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoListOfFigures()
 	 * @generated
 	 */
-	int PROTO_LIST_OF_FIGURES = 10;
+	int PROTO_LIST_OF_FIGURES = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -805,7 +851,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoBibliography()
 	 * @generated
 	 */
-	int PROTO_BIBLIOGRAPHY = 11;
+	int PROTO_BIBLIOGRAPHY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -869,7 +915,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoGlossary()
 	 * @generated
 	 */
-	int PROTO_GLOSSARY = 12;
+	int PROTO_GLOSSARY = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -933,7 +979,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoIndex()
 	 * @generated
 	 */
-	int PROTO_INDEX = 13;
+	int PROTO_INDEX = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -997,7 +1043,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoDivision()
 	 * @generated
 	 */
-	int PROTO_DIVISION = 14;
+	int PROTO_DIVISION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1043,7 +1089,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoPart()
 	 * @generated
 	 */
-	int PROTO_PART = 15;
+	int PROTO_PART = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1089,7 +1135,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoAppendix()
 	 * @generated
 	 */
-	int PROTO_APPENDIX = 16;
+	int PROTO_APPENDIX = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1135,7 +1181,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoChapter()
 	 * @generated
 	 */
-	int PROTO_CHAPTER = 17;
+	int PROTO_CHAPTER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1181,7 +1227,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoSection()
 	 * @generated
 	 */
-	int PROTO_SECTION = 18;
+	int PROTO_SECTION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1227,7 +1273,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoSubsection()
 	 * @generated
 	 */
-	int PROTO_SUBSECTION = 19;
+	int PROTO_SUBSECTION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1273,7 +1319,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoSubsubsection()
 	 * @generated
 	 */
-	int PROTO_SUBSUBSECTION = 20;
+	int PROTO_SUBSUBSECTION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1319,7 +1365,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getPublicationNature()
 	 * @generated
 	 */
-	int PUBLICATION_NATURE = 21;
+	int PUBLICATION_NATURE = 22;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle <em>Sequence Number Style</em>}' enum.
@@ -1329,7 +1375,7 @@ public interface ProtoPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoSequenceNumberStyle()
 	 * @generated
 	 */
-	int PROTO_SEQUENCE_NUMBER_STYLE = 22;
+	int PROTO_SEQUENCE_NUMBER_STYLE = 23;
 
 
 	/**
@@ -1376,6 +1422,17 @@ public interface ProtoPackage extends EPackage {
 	EAttribute getPublicationClass_Nature();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.pub.proto.PublicationClass#getSymbols <em>Symbols</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Symbols</em>'.
+	 * @see com.mimacom.ddd.pub.proto.PublicationClass#getSymbols()
+	 * @see #getPublicationClass()
+	 * @generated
+	 */
+	EAttribute getPublicationClass_Symbols();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.proto.PublicationClass#getSegments <em>Segments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1396,6 +1453,27 @@ public interface ProtoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPublicationClass_Divisions();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.proto.ProtoSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Symbol</em>'.
+	 * @see com.mimacom.ddd.pub.proto.ProtoSymbol
+	 * @generated
+	 */
+	EClass getProtoSymbol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.proto.ProtoSymbol#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.pub.proto.ProtoSymbol#getName()
+	 * @see #getProtoSymbol()
+	 * @generated
+	 */
+	EAttribute getProtoSymbol_Name();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.proto.ProtoDocumentSegment <em>Document Segment</em>}'.
@@ -1774,6 +1852,14 @@ public interface ProtoPackage extends EPackage {
 		EAttribute PUBLICATION_CLASS__NATURE = eINSTANCE.getPublicationClass_Nature();
 
 		/**
+		 * The meta object literal for the '<em><b>Symbols</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PUBLICATION_CLASS__SYMBOLS = eINSTANCE.getPublicationClass_Symbols();
+
+		/**
 		 * The meta object literal for the '<em><b>Segments</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1788,6 +1874,24 @@ public interface ProtoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PUBLICATION_CLASS__DIVISIONS = eINSTANCE.getPublicationClass_Divisions();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.proto.impl.ProtoSymbolImpl <em>Symbol</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.proto.impl.ProtoSymbolImpl
+		 * @see com.mimacom.ddd.pub.proto.impl.ProtoPackageImpl#getProtoSymbol()
+		 * @generated
+		 */
+		EClass PROTO_SYMBOL = eINSTANCE.getProtoSymbol();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTO_SYMBOL__NAME = eINSTANCE.getProtoSymbol_Name();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.proto.impl.ProtoDocumentSegmentImpl <em>Document Segment</em>}' class.

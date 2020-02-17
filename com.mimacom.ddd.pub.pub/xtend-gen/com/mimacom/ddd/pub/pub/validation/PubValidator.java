@@ -30,6 +30,7 @@ import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.Subsection;
 import com.mimacom.ddd.pub.pub.Subsubsection;
+import com.mimacom.ddd.pub.pub.Symbol;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledCodeListing;
@@ -53,6 +54,7 @@ import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
@@ -95,6 +97,40 @@ public class PubValidator extends AbstractPubValidator {
     boolean _tripleEquals = (_publicationClass == null);
     if (_tripleEquals) {
       this.error("Document has no publication class.", PubValidator.PUB.getDocument_PublicationClass());
+    }
+  }
+  
+  @Check
+  public void symbols(final Document doc) {
+    PublicationClass _publicationClass = doc.getPublicationClass();
+    boolean _tripleNotEquals = (_publicationClass != null);
+    if (_tripleNotEquals) {
+      EList<String> _symbols = doc.getPublicationClass().getSymbols();
+      for (final String protoSymbol : _symbols) {
+        final Function1<Symbol, Boolean> _function = (Symbol it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equal(_name, protoSymbol));
+        };
+        boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
+        if (_isEmpty) {
+          final String msg = (("Document must define prototype symbol \'" + protoSymbol) + "\'");
+          boolean _isEmpty_1 = doc.getSymbols().isEmpty();
+          boolean _not = (!_isEmpty_1);
+          if (_not) {
+            this.error(msg, IterableExtensions.<Symbol>last(doc.getSymbols()), PubValidator.PUB.getSymbol_Name());
+          } else {
+            this.error(msg, PubValidator.PUB.getReferenceTarget_Name());
+          }
+        }
+      }
+    }
+    EList<Symbol> _symbols_1 = doc.getSymbols();
+    for (final Symbol symbol : _symbols_1) {
+      boolean _equals = symbol.getName().equals(symbol.getName().toUpperCase());
+      boolean _not_1 = (!_equals);
+      if (_not_1) {
+        this.warning("Symbol name should be ALL UPPPERCASE", symbol, PubValidator.PUB.getSymbol_Name());
+      }
     }
   }
   
@@ -313,7 +349,8 @@ public class PubValidator extends AbstractPubValidator {
       boolean _canRender = provider.canRender(f.getDiagramRoot());
       boolean _not = (!_canRender);
       if (_not) {
-        this.error("The referenced model does not provide content, the generated diagram will be empty", PubValidator.PUB.getProvidedFigure_DiagramRoot());
+        this.error("The referenced model does not provide content, the generated diagram will be empty", 
+          PubValidator.PUB.getProvidedFigure_DiagramRoot());
       }
     }
   }
@@ -325,7 +362,8 @@ public class PubValidator extends AbstractPubValidator {
       boolean _canRender = provider.canRender(t.getDiagramRoot());
       boolean _not = (!_canRender);
       if (_not) {
-        this.error("The referenced model does not provide content, the generated table will be empty", PubValidator.PUB.getProvidedTable_DiagramRoot());
+        this.error("The referenced model does not provide content, the generated table will be empty", 
+          PubValidator.PUB.getProvidedTable_DiagramRoot());
       }
     }
   }

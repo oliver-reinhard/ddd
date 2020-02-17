@@ -21,6 +21,7 @@ PubPublication returns Publication:
 	PubReferenceTargetName
 	title=STRING
 	'class:' publicationClass=[proto::PublicationClass|ID]
+	symbols+=PubSymbol*
 	'includes:' 
 	includes+=[Component|ID]*;
 
@@ -30,11 +31,17 @@ PubComponent returns Component:
 	PubReferenceTargetName
 	title=STRING
 	'class:' publicationClass=[proto::PublicationClass|ID]
+	symbols+=PubSymbol*
 	segments+=PubDocumentSegment*;
 
+PubSymbol returns Symbol:
+	'symbol:'
+	name=ID '=' value=DRichText
+;
 
 fragment PubReferenceTargetName returns ReferenceTarget: 
 	'(' ('#')? name=ID ')';
+
 //
 // SEGMENTS
 //

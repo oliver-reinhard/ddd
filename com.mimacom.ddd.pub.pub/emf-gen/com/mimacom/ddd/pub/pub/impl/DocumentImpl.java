@@ -6,14 +6,23 @@ import com.mimacom.ddd.pub.proto.PublicationClass;
 
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.PubPackage;
+import com.mimacom.ddd.pub.pub.Symbol;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getPublicationClass <em>Publication Class</em>}</li>
  * </ul>
  *
@@ -81,6 +91,16 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSymbols()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Symbol> symbols;
 
 	/**
 	 * The cached value of the '{@link #getPublicationClass() <em>Publication Class</em>}' reference.
@@ -173,6 +193,19 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public EList<Symbol> getSymbols() {
+		if (symbols == null) {
+			symbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, PubPackage.DOCUMENT__SYMBOLS);
+		}
+		return symbols;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public PublicationClass getPublicationClass() {
 		if (publicationClass != null && publicationClass.eIsProxy()) {
 			InternalEObject oldPublicationClass = (InternalEObject)publicationClass;
@@ -213,6 +246,20 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PubPackage.DOCUMENT__SYMBOLS:
+				return ((InternalEList<?>)getSymbols()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PubPackage.DOCUMENT__NAME:
@@ -221,6 +268,8 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return getId();
 			case PubPackage.DOCUMENT__TITLE:
 				return getTitle();
+			case PubPackage.DOCUMENT__SYMBOLS:
+				return getSymbols();
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
 				if (resolve) return getPublicationClass();
 				return basicGetPublicationClass();
@@ -233,6 +282,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -241,6 +291,10 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case PubPackage.DOCUMENT__TITLE:
 				setTitle((String)newValue);
+				return;
+			case PubPackage.DOCUMENT__SYMBOLS:
+				getSymbols().clear();
+				getSymbols().addAll((Collection<? extends Symbol>)newValue);
 				return;
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
 				setPublicationClass((PublicationClass)newValue);
@@ -263,6 +317,9 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 			case PubPackage.DOCUMENT__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
+			case PubPackage.DOCUMENT__SYMBOLS:
+				getSymbols().clear();
+				return;
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
 				setPublicationClass((PublicationClass)null);
 				return;
@@ -284,6 +341,8 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case PubPackage.DOCUMENT__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case PubPackage.DOCUMENT__SYMBOLS:
+				return symbols != null && !symbols.isEmpty();
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
 				return publicationClass != null;
 		}

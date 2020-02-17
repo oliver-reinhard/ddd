@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getNature <em>Nature</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getSegments <em>Segments</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getDivisions <em>Divisions</em>}</li>
  * </ul>
@@ -102,6 +104,16 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected PublicationNature nature = NATURE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSymbols()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> symbols;
 
 	/**
 	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' containment reference list.
@@ -217,6 +229,19 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	public EList<String> getSymbols() {
+		if (symbols == null) {
+			symbols = new EDataTypeEList<String>(String.class, this, ProtoPackage.PUBLICATION_CLASS__SYMBOLS);
+		}
+		return symbols;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<ProtoDocumentSegment> getSegments() {
 		if (segments == null) {
 			segments = new EObjectContainmentWithInverseEList<ProtoDocumentSegment>(ProtoDocumentSegment.class, this, ProtoPackage.PUBLICATION_CLASS__SEGMENTS, ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT);
@@ -282,6 +307,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				return getTitle();
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				return getNature();
+			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
+				return getSymbols();
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return getSegments();
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -307,6 +334,10 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				setNature((PublicationNature)newValue);
+				return;
+			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
+				getSymbols().clear();
+				getSymbols().addAll((Collection<? extends String>)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
@@ -337,6 +368,9 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				setNature(NATURE_EDEFAULT);
 				return;
+			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
+				getSymbols().clear();
+				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
 				return;
@@ -361,6 +395,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				return nature != NATURE_EDEFAULT;
+			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
+				return symbols != null && !symbols.isEmpty();
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return segments != null && !segments.isEmpty();
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -385,6 +421,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 		result.append(title);
 		result.append(", nature: ");
 		result.append(nature);
+		result.append(", symbols: ");
+		result.append(symbols);
 		result.append(')');
 		return result.toString();
 	}

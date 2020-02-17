@@ -9,12 +9,14 @@ PublicationClass:
 	name=ID
 	('title:' title=STRING)?
 	'nature:' nature=PublicationNature
+	('symbols:' symbols+=ID+)?
 	'segments:' segments+=ProtoDocumentSegment*
 	'divisions:'divisions+=ProtoDivision*;
 
+
 enum PublicationNature:
 	Print='Print' | Web='Web';
-
+	
 ProtoDocumentSegment:
 	ProtoAbstract | ProtoPreface | ProtoPublicationBody | ProtoEpilogue | ProtoChangeHistory | ProtoTOC |
 	ProtoAbbreviations | ProtoListOfTables | ProtoListOfFigures | ProtoBibliography | ProtoGlossary | ProtoIndex;

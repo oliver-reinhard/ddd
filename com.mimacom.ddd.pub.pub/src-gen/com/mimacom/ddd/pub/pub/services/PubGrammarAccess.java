@@ -90,23 +90,25 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPublicationClassAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final CrossReference cPublicationClassPublicationClassCrossReference_5_0 = (CrossReference)cPublicationClassAssignment_5.eContents().get(0);
 		private final RuleCall cPublicationClassPublicationClassIDTerminalRuleCall_5_0_1 = (RuleCall)cPublicationClassPublicationClassCrossReference_5_0.eContents().get(1);
-		private final Keyword cIncludesKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cIncludesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cIncludesComponentCrossReference_7_0 = (CrossReference)cIncludesAssignment_7.eContents().get(0);
-		private final RuleCall cIncludesComponentIDTerminalRuleCall_7_0_1 = (RuleCall)cIncludesComponentCrossReference_7_0.eContents().get(1);
+		private final Assignment cSymbolsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSymbolsPubSymbolParserRuleCall_6_0 = (RuleCall)cSymbolsAssignment_6.eContents().get(0);
+		private final Keyword cIncludesKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cIncludesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cIncludesComponentCrossReference_8_0 = (CrossReference)cIncludesAssignment_8.eContents().get(0);
+		private final RuleCall cIncludesComponentIDTerminalRuleCall_8_0_1 = (RuleCall)cIncludesComponentCrossReference_8_0.eContents().get(1);
 		
 		//PubPublication Publication:
 		//	{Publication}
 		//	'Publication'
 		//	PubReferenceTargetName
 		//	title=STRING
-		//	'class:' publicationClass=[proto::PublicationClass]
+		//	'class:' publicationClass=[proto::PublicationClass] symbols+=PubSymbol*
 		//	'includes:'
 		//	includes+=[Component]*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Publication} 'Publication' PubReferenceTargetName title=STRING 'class:' publicationClass=[proto::PublicationClass]
-		//'includes:' includes+=[Component]*
+		//symbols+=PubSymbol* 'includes:' includes+=[Component]*
 		public Group getGroup() { return cGroup; }
 		
 		//{Publication}
@@ -136,17 +138,23 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getPublicationClassPublicationClassIDTerminalRuleCall_5_0_1() { return cPublicationClassPublicationClassIDTerminalRuleCall_5_0_1; }
 		
+		//symbols+=PubSymbol*
+		public Assignment getSymbolsAssignment_6() { return cSymbolsAssignment_6; }
+		
+		//PubSymbol
+		public RuleCall getSymbolsPubSymbolParserRuleCall_6_0() { return cSymbolsPubSymbolParserRuleCall_6_0; }
+		
 		//'includes:'
-		public Keyword getIncludesKeyword_6() { return cIncludesKeyword_6; }
+		public Keyword getIncludesKeyword_7() { return cIncludesKeyword_7; }
 		
 		//includes+=[Component]*
-		public Assignment getIncludesAssignment_7() { return cIncludesAssignment_7; }
+		public Assignment getIncludesAssignment_8() { return cIncludesAssignment_8; }
 		
 		//[Component]
-		public CrossReference getIncludesComponentCrossReference_7_0() { return cIncludesComponentCrossReference_7_0; }
+		public CrossReference getIncludesComponentCrossReference_8_0() { return cIncludesComponentCrossReference_8_0; }
 		
 		//ID
-		public RuleCall getIncludesComponentIDTerminalRuleCall_7_0_1() { return cIncludesComponentIDTerminalRuleCall_7_0_1; }
+		public RuleCall getIncludesComponentIDTerminalRuleCall_8_0_1() { return cIncludesComponentIDTerminalRuleCall_8_0_1; }
 	}
 	public class PubComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubComponent");
@@ -160,19 +168,22 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPublicationClassAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final CrossReference cPublicationClassPublicationClassCrossReference_5_0 = (CrossReference)cPublicationClassAssignment_5.eContents().get(0);
 		private final RuleCall cPublicationClassPublicationClassIDTerminalRuleCall_5_0_1 = (RuleCall)cPublicationClassPublicationClassCrossReference_5_0.eContents().get(1);
-		private final Assignment cSegmentsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cSegmentsPubDocumentSegmentParserRuleCall_6_0 = (RuleCall)cSegmentsAssignment_6.eContents().get(0);
+		private final Assignment cSymbolsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSymbolsPubSymbolParserRuleCall_6_0 = (RuleCall)cSymbolsAssignment_6.eContents().get(0);
+		private final Assignment cSegmentsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cSegmentsPubDocumentSegmentParserRuleCall_7_0 = (RuleCall)cSegmentsAssignment_7.eContents().get(0);
 		
 		//PubComponent Component:
 		//	{Component}
 		//	'Component'
 		//	PubReferenceTargetName
 		//	title=STRING
-		//	'class:' publicationClass=[proto::PublicationClass] segments+=PubDocumentSegment*;
+		//	'class:' publicationClass=[proto::PublicationClass] symbols+=PubSymbol*
+		//	segments+=PubDocumentSegment*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Component} 'Component' PubReferenceTargetName title=STRING 'class:' publicationClass=[proto::PublicationClass]
-		//segments+=PubDocumentSegment*
+		//symbols+=PubSymbol* segments+=PubDocumentSegment*
 		public Group getGroup() { return cGroup; }
 		
 		//{Component}
@@ -202,11 +213,53 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getPublicationClassPublicationClassIDTerminalRuleCall_5_0_1() { return cPublicationClassPublicationClassIDTerminalRuleCall_5_0_1; }
 		
+		//symbols+=PubSymbol*
+		public Assignment getSymbolsAssignment_6() { return cSymbolsAssignment_6; }
+		
+		//PubSymbol
+		public RuleCall getSymbolsPubSymbolParserRuleCall_6_0() { return cSymbolsPubSymbolParserRuleCall_6_0; }
+		
 		//segments+=PubDocumentSegment*
-		public Assignment getSegmentsAssignment_6() { return cSegmentsAssignment_6; }
+		public Assignment getSegmentsAssignment_7() { return cSegmentsAssignment_7; }
 		
 		//PubDocumentSegment
-		public RuleCall getSegmentsPubDocumentSegmentParserRuleCall_6_0() { return cSegmentsPubDocumentSegmentParserRuleCall_6_0; }
+		public RuleCall getSegmentsPubDocumentSegmentParserRuleCall_7_0() { return cSegmentsPubDocumentSegmentParserRuleCall_7_0; }
+	}
+	public class PubSymbolElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubSymbol");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSymbolKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueDRichTextParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		
+		//PubSymbol Symbol:
+		//	'symbol:'
+		//	name=ID '=' value=DRichText;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'symbol:' name=ID '=' value=DRichText
+		public Group getGroup() { return cGroup; }
+		
+		//'symbol:'
+		public Keyword getSymbolKeyword_0() { return cSymbolKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		
+		//value=DRichText
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
+		//DRichText
+		public RuleCall getValueDRichTextParserRuleCall_3_0() { return cValueDRichTextParserRuleCall_3_0; }
 	}
 	public class PubReferenceTargetNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubReferenceTargetName");
@@ -3487,6 +3540,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	private final PubDocumentElements pPubDocument;
 	private final PubPublicationElements pPubPublication;
 	private final PubComponentElements pPubComponent;
+	private final PubSymbolElements pPubSymbol;
 	private final PubReferenceTargetNameElements pPubReferenceTargetName;
 	private final PubDocumentSegmentElements pPubDocumentSegment;
 	private final PubAbstractElements pPubAbstract;
@@ -3557,6 +3611,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPubDocument = new PubDocumentElements();
 		this.pPubPublication = new PubPublicationElements();
 		this.pPubComponent = new PubComponentElements();
+		this.pPubSymbol = new PubSymbolElements();
 		this.pPubReferenceTargetName = new PubReferenceTargetNameElements();
 		this.pPubDocumentSegment = new PubDocumentSegmentElements();
 		this.pPubAbstract = new PubAbstractElements();
@@ -3668,7 +3723,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Publication'
 	//	PubReferenceTargetName
 	//	title=STRING
-	//	'class:' publicationClass=[proto::PublicationClass]
+	//	'class:' publicationClass=[proto::PublicationClass] symbols+=PubSymbol*
 	//	'includes:'
 	//	includes+=[Component]*;
 	public PubPublicationElements getPubPublicationAccess() {
@@ -3684,13 +3739,25 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Component'
 	//	PubReferenceTargetName
 	//	title=STRING
-	//	'class:' publicationClass=[proto::PublicationClass] segments+=PubDocumentSegment*;
+	//	'class:' publicationClass=[proto::PublicationClass] symbols+=PubSymbol*
+	//	segments+=PubDocumentSegment*;
 	public PubComponentElements getPubComponentAccess() {
 		return pPubComponent;
 	}
 	
 	public ParserRule getPubComponentRule() {
 		return getPubComponentAccess().getRule();
+	}
+	
+	//PubSymbol Symbol:
+	//	'symbol:'
+	//	name=ID '=' value=DRichText;
+	public PubSymbolElements getPubSymbolAccess() {
+		return pPubSymbol;
+	}
+	
+	public ParserRule getPubSymbolRule() {
+		return getPubSymbolAccess().getRule();
 	}
 	
 	//fragment PubReferenceTargetName returns ReferenceTarget:

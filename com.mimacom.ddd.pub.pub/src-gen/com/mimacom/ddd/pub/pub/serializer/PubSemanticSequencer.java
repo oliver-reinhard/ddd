@@ -78,6 +78,7 @@ import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.SegmentInclude;
 import com.mimacom.ddd.pub.pub.Subsection;
 import com.mimacom.ddd.pub.pub.Subsubsection;
+import com.mimacom.ddd.pub.pub.Symbol;
 import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
@@ -419,6 +420,9 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 			case PubPackage.SUBSUBSECTION:
 				sequence_PubDivisionHeader_PubReferenceTargetName_PubSubsubsection(context, (Subsubsection) semanticObject); 
 				return; 
+			case PubPackage.SYMBOL:
+				sequence_PubSymbol(context, (Symbol) semanticObject); 
+				return; 
 			case PubPackage.TOC:
 				sequence_PubTOC(context, (TOC) semanticObject); 
 				return; 
@@ -676,7 +680,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubComponent returns Component
 	 *
 	 * Constraint:
-	 *     (name=ID title=STRING publicationClass=[PublicationClass|ID] segments+=PubDocumentSegment*)
+	 *     (name=ID title=STRING publicationClass=[PublicationClass|ID] symbols+=PubSymbol* segments+=PubDocumentSegment*)
 	 */
 	protected void sequence_PubComponent_PubReferenceTargetName(ISerializationContext context, Component semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -933,7 +937,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubPublication returns Publication
 	 *
 	 * Constraint:
-	 *     (name=ID title=STRING publicationClass=[PublicationClass|ID] includes+=[Component|ID]*)
+	 *     (name=ID title=STRING publicationClass=[PublicationClass|ID] symbols+=PubSymbol* includes+=[Component|ID]*)
 	 */
 	protected void sequence_PubPublication_PubReferenceTargetName(ISerializationContext context, Publication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1018,6 +1022,27 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPubSegmentIncludeAccess().getIncludeDocumentSegmentIDTerminalRuleCall_3_0_1(), semanticObject.eGet(PubPackage.Literals.SEGMENT_INCLUDE__INCLUDE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PubSymbol returns Symbol
+	 *
+	 * Constraint:
+	 *     (name=ID value=DRichText)
+	 */
+	protected void sequence_PubSymbol(ISerializationContext context, Symbol semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.SYMBOL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.SYMBOL__NAME));
+			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.SYMBOL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.SYMBOL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPubSymbolAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPubSymbolAccess().getValueDRichTextParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

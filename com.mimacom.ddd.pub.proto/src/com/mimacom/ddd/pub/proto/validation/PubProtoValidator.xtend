@@ -24,6 +24,16 @@ class PubProtoValidator extends AbstractPubProtoValidator {
 		}
 	}
 
+	@Check def void symbolNameIsUppercase(PublicationClass pub) {
+		var int i = 0
+		for (symbol : pub.symbols) {
+			if (! symbol.equals(symbol.toUpperCase)) {
+				warning("Symbol name should be ALL UPPPERCASE", PROTO.publicationClass_Symbols, i)
+			}
+			i++
+		}
+	}
+
 	@Check
 	def titleNotEmpty(ProtoDocumentSegment seg) {
 		if (seg.title !== null && seg.title.length == 0) {

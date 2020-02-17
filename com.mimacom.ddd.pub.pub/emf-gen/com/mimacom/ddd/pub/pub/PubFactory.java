@@ -31,6 +31,15 @@ public interface PubFactory extends EFactory {
 	PubModel createPubModel();
 
 	/**
+	 * Returns a new object of class '<em>Symbol</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Symbol</em>'.
+	 * @generated
+	 */
+	Symbol createSymbol();
+
+	/**
 	 * Returns a new object of class '<em>Publication</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

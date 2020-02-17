@@ -7,11 +7,16 @@ class PublicationClass {
 	String name  // id
 	String title
 	PublicationNature nature
+	String[] symbols
 	contains ProtoDocumentSegment[] segments opposite parent
 	contains ProtoDivision[] divisions
 }
 
 enum PublicationNature { Print, Web }
+
+class ProtoSymbol {
+	String name
+}
 
 abstract class ProtoDocumentSegment {
 	derived String name get {

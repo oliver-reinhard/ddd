@@ -4,6 +4,8 @@ package com.mimacom.ddd.pub.pub;
 
 import com.mimacom.ddd.pub.proto.PublicationClass;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Document</b></em>'.
@@ -14,6 +16,7 @@ import com.mimacom.ddd.pub.proto.PublicationClass;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#getTitle <em>Title</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.Document#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#getPublicationClass <em>Publication Class</em>}</li>
  * </ul>
  *
@@ -43,6 +46,18 @@ public interface Document extends ReferenceTarget {
 	 * @generated
 	 */
 	void setTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Symbols</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.pub.pub.Symbol}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Symbols</em>' containment reference list.
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getDocument_Symbols()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Symbol> getSymbols();
 
 	/**
 	 * Returns the value of the '<em><b>Publication Class</b></em>' reference.

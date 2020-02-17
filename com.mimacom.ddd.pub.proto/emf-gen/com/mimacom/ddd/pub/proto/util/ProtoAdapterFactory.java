@@ -72,6 +72,10 @@ public class ProtoAdapterFactory extends AdapterFactoryImpl {
 				return createPublicationClassAdapter();
 			}
 			@Override
+			public Adapter caseProtoSymbol(ProtoSymbol object) {
+				return createProtoSymbolAdapter();
+			}
+			@Override
 			public Adapter caseProtoDocumentSegment(ProtoDocumentSegment object) {
 				return createProtoDocumentSegmentAdapter();
 			}
@@ -182,6 +186,20 @@ public class ProtoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPublicationClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.proto.ProtoSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.proto.ProtoSymbol
+	 * @generated
+	 */
+	public Adapter createProtoSymbolAdapter() {
 		return null;
 	}
 

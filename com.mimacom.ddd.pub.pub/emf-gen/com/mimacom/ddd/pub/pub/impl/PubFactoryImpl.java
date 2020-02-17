@@ -58,6 +58,7 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case PubPackage.PUB_MODEL: return createPubModel();
+			case PubPackage.SYMBOL: return createSymbol();
 			case PubPackage.PUBLICATION: return createPublication();
 			case PubPackage.COMPONENT: return createComponent();
 			case PubPackage.REFERENCE: return createReference();
@@ -169,6 +170,17 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	public PubModel createPubModel() {
 		PubModelImpl pubModel = new PubModelImpl();
 		return pubModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Symbol createSymbol() {
+		SymbolImpl symbol = new SymbolImpl();
+		return symbol;
 	}
 
 	/**

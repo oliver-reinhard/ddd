@@ -64,6 +64,7 @@ import com.mimacom.ddd.pub.pub.SegmentWithTable;
 import com.mimacom.ddd.pub.pub.SegmentWithText;
 import com.mimacom.ddd.pub.pub.Subsection;
 import com.mimacom.ddd.pub.pub.Subsubsection;
+import com.mimacom.ddd.pub.pub.Symbol;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRenderer;
@@ -104,6 +105,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	private EClass documentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass symbolEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -695,8 +703,48 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDocument_PublicationClass() {
+	public EReference getDocument_Symbols() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDocument_PublicationClass() {
+		return (EReference)documentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSymbol() {
+		return symbolEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSymbol_Name() {
+		return (EAttribute)symbolEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSymbol_Value() {
+		return (EReference)symbolEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2256,7 +2304,12 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__TITLE);
+		createEReference(documentEClass, DOCUMENT__SYMBOLS);
 		createEReference(documentEClass, DOCUMENT__PUBLICATION_CLASS);
+
+		symbolEClass = createEClass(SYMBOL);
+		createEAttribute(symbolEClass, SYMBOL__NAME);
+		createEReference(symbolEClass, SYMBOL__VALUE);
 
 		publicationEClass = createEClass(PUBLICATION);
 		createEReference(publicationEClass, PUBLICATION__INCLUDES);
@@ -2571,7 +2624,12 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(documentEClass, Document.class, "Document", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_Title(), theEcorePackage.getEString(), "title", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_Symbols(), this.getSymbol(), null, "symbols", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_PublicationClass(), theProtoPackage.getPublicationClass(), null, "publicationClass", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSymbol_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Value(), theBasePackage.getDRichText(), null, "value", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(publicationEClass, Publication.class, "Publication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPublication_Includes(), this.getComponent(), null, "includes", null, 0, -1, Publication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
