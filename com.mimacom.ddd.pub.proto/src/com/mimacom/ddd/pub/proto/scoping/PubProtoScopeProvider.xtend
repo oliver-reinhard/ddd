@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.pub.proto.scoping
 
-
 /**
  * This class contains custom scoping description.
  * 
@@ -12,4 +11,13 @@ package com.mimacom.ddd.pub.proto.scoping
  */
 class PubProtoScopeProvider extends AbstractPubProtoScopeProvider {
 
+//	static val PROTO = ProtoPackage.eINSTANCE
+//
+//	override IScope getScope(EObject context, EReference reference) {
+//
+//		if (reference == PROTO.protoSymbolReference_Target && context instanceof ProtoSymbolReference) {
+//			
+//		}
+//
+//	}
 }

@@ -69,8 +69,8 @@ class PubValidator extends AbstractPubValidator {
 	def protoSymbols(Document doc) {
 		if (doc.publicationClass !== null) {
 			for (protoSymbol : doc.publicationClass.symbols) {
-				if (doc.symbols.filter[it.name == protoSymbol].empty) {
-					val msg = "Document must define prototype symbol '" + protoSymbol + "'"
+				if (doc.symbols.filter[it.name == protoSymbol.name].empty) {
+					val msg = "Document must define prototype symbol '" + protoSymbol.name + "'"
 					if (! doc.symbols.empty) {
 						error(msg, doc.symbols.last, BASE.DNamedElement_Name)
 					} else {

@@ -4,8 +4,8 @@
 package com.mimacom.ddd.pub.pub
 
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
+import com.mimacom.ddd.pub.pub.derivedState.PubDerivedStateComputer
 import com.mimacom.ddd.pub.pub.indexing.PubQualifiedNameProvider
-import com.mimacom.ddd.pub.pub.scoping.ExtensionPointsScopeElementsDerivedStateComputer
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.DerivedStateAwareResource
@@ -31,6 +31,6 @@ class PubRuntimeModule extends AbstractPubRuntimeModule {
 	}
 
 	def Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
-		ExtensionPointsScopeElementsDerivedStateComputer
+		PubDerivedStateComputer
 	}
 }

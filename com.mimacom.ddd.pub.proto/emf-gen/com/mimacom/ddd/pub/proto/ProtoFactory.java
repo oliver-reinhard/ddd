@@ -40,6 +40,15 @@ public interface ProtoFactory extends EFactory {
 	ProtoSymbol createProtoSymbol();
 
 	/**
+	 * Returns a new object of class '<em>Symbol Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Symbol Reference</em>'.
+	 * @generated
+	 */
+	ProtoSymbolReference createProtoSymbolReference();
+
+	/**
 	 * Returns a new object of class '<em>Abstract</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

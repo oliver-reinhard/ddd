@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.pub.proto.impl;
 
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations;
 import com.mimacom.ddd.pub.proto.ProtoAbstract;
 import com.mimacom.ddd.pub.proto.ProtoAppendix;
@@ -25,6 +26,7 @@ import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
 import com.mimacom.ddd.pub.proto.ProtoSubsection;
 import com.mimacom.ddd.pub.proto.ProtoSubsubsection;
 import com.mimacom.ddd.pub.proto.ProtoSymbol;
+import com.mimacom.ddd.pub.proto.ProtoSymbolReference;
 import com.mimacom.ddd.pub.proto.ProtoTOC;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.proto.PublicationNature;
@@ -58,6 +60,13 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	private EClass protoSymbolEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass protoSymbolReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,6 +271,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 
 		// Initialize simple dependencies
 		EcorePackage.eINSTANCE.eClass();
+		BasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theProtoPackage.createPackageContents();
@@ -303,7 +313,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPublicationClass_Title() {
+	public EAttribute getPublicationClass_Nature() {
 		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -313,8 +323,8 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPublicationClass_Nature() {
-		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(2);
+	public EReference getPublicationClass_Symbols() {
+		return (EReference)publicationClassEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -323,8 +333,8 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPublicationClass_Symbols() {
-		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(3);
+	public EReference getPublicationClass_Preamble() {
+		return (EReference)publicationClassEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -365,6 +375,26 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	@Override
 	public EAttribute getProtoSymbol_Name() {
 		return (EAttribute)protoSymbolEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getProtoSymbolReference() {
+		return protoSymbolReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProtoSymbolReference_Target() {
+		return (EReference)protoSymbolReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -708,14 +738,17 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 		// Create classes and their features
 		publicationClassEClass = createEClass(PUBLICATION_CLASS);
 		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__NAME);
-		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__TITLE);
 		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__NATURE);
-		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__SYMBOLS);
+		createEReference(publicationClassEClass, PUBLICATION_CLASS__SYMBOLS);
+		createEReference(publicationClassEClass, PUBLICATION_CLASS__PREAMBLE);
 		createEReference(publicationClassEClass, PUBLICATION_CLASS__SEGMENTS);
 		createEReference(publicationClassEClass, PUBLICATION_CLASS__DIVISIONS);
 
 		protoSymbolEClass = createEClass(PROTO_SYMBOL);
 		createEAttribute(protoSymbolEClass, PROTO_SYMBOL__NAME);
+
+		protoSymbolReferenceEClass = createEClass(PROTO_SYMBOL_REFERENCE);
+		createEReference(protoSymbolReferenceEClass, PROTO_SYMBOL_REFERENCE__TARGET);
 
 		protoDocumentSegmentEClass = createEClass(PROTO_DOCUMENT_SEGMENT);
 		createEAttribute(protoDocumentSegmentEClass, PROTO_DOCUMENT_SEGMENT__NAME);
@@ -796,12 +829,14 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		protoSymbolReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		protoAbstractEClass.getESuperTypes().add(this.getProtoDocumentSegment());
 		protoPrefaceEClass.getESuperTypes().add(this.getProtoDocumentSegment());
 		protoEpilogueEClass.getESuperTypes().add(this.getProtoDocumentSegment());
@@ -824,14 +859,17 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(publicationClassEClass, PublicationClass.class, "PublicationClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPublicationClass_Name(), theEcorePackage.getEString(), "name", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublicationClass_Title(), theEcorePackage.getEString(), "title", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPublicationClass_Nature(), this.getPublicationNature(), "nature", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublicationClass_Symbols(), theEcorePackage.getEString(), "symbols", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPublicationClass_Symbols(), this.getProtoSymbol(), null, "symbols", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPublicationClass_Preamble(), theBasePackage.getDRichText(), null, "preamble", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPublicationClass_Segments(), this.getProtoDocumentSegment(), this.getProtoDocumentSegment_Parent(), "segments", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPublicationClass_Divisions(), this.getProtoDivision(), null, "divisions", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(protoSymbolEClass, ProtoSymbol.class, "ProtoSymbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProtoSymbol_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ProtoSymbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(protoSymbolReferenceEClass, ProtoSymbolReference.class, "ProtoSymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProtoSymbolReference_Target(), this.getProtoSymbol(), null, "target", null, 0, 1, ProtoSymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(protoDocumentSegmentEClass, ProtoDocumentSegment.class, "ProtoDocumentSegment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProtoDocumentSegment_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ProtoDocumentSegment.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);

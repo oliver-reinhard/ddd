@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.pub.proto.util;
 
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.pub.proto.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -75,6 +77,14 @@ public class ProtoSwitch<T> extends Switch<T> {
 			case ProtoPackage.PROTO_SYMBOL: {
 				ProtoSymbol protoSymbol = (ProtoSymbol)theEObject;
 				T result = caseProtoSymbol(protoSymbol);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProtoPackage.PROTO_SYMBOL_REFERENCE: {
+				ProtoSymbolReference protoSymbolReference = (ProtoSymbolReference)theEObject;
+				T result = caseProtoSymbolReference(protoSymbolReference);
+				if (result == null) result = caseDExpression(protoSymbolReference);
+				if (result == null) result = caseIRichTextSegment(protoSymbolReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,6 +258,21 @@ public class ProtoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProtoSymbol(ProtoSymbol object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Symbol Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Symbol Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProtoSymbolReference(ProtoSymbolReference object) {
 		return null;
 	}
 
@@ -548,6 +573,36 @@ public class ProtoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProtoSubsubsection(ProtoSubsubsection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIRichTextSegment(IRichTextSegment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DExpression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DExpression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDExpression(DExpression object) {
 		return null;
 	}
 

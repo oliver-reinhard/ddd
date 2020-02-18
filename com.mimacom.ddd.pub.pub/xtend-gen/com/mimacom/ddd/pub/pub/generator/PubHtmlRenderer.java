@@ -157,12 +157,9 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.newLine();
     _builder.append("<!-- Document class: ");
-    String _guard = this._pubUtil.guard(doc.getPublicationClass().getTitle(), "");
-    _builder.append(_guard);
-    _builder.append(" (");
     String _name = doc.getPublicationClass().getName();
     _builder.append(_name);
-    _builder.append(") -->");
+    _builder.append(" -->");
     _builder.newLineIfNotEmpty();
     _builder.append("<body>");
     _builder.newLine();

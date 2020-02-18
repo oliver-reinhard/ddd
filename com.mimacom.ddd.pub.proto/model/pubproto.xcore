@@ -3,11 +3,14 @@
 
 package com.mimacom.ddd.pub.proto
 
+import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DRichText
+
 class PublicationClass {
 	String name  // id
-	String title
 	PublicationNature nature
-	String[] symbols
+	contains ProtoSymbol[] symbols
+	contains DRichText preamble
 	contains ProtoDocumentSegment[] segments opposite parent
 	contains ProtoDivision[] divisions
 }
@@ -16,6 +19,10 @@ enum PublicationNature { Print, Web }
 
 class ProtoSymbol {
 	String name
+}
+
+class ProtoSymbolReference extends DExpression {
+	refers ProtoSymbol target
 }
 
 abstract class ProtoDocumentSegment {

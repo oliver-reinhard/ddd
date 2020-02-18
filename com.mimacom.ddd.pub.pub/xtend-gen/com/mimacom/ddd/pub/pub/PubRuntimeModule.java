@@ -5,8 +5,8 @@ package com.mimacom.ddd.pub.pub;
 
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.pub.pub.AbstractPubRuntimeModule;
+import com.mimacom.ddd.pub.pub.derivedState.PubDerivedStateComputer;
 import com.mimacom.ddd.pub.pub.indexing.PubQualifiedNameProvider;
-import com.mimacom.ddd.pub.pub.scoping.ExtensionPointsScopeElementsDerivedStateComputer;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
@@ -34,6 +34,6 @@ public class PubRuntimeModule extends AbstractPubRuntimeModule {
   }
   
   public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
-    return ExtensionPointsScopeElementsDerivedStateComputer.class;
+    return PubDerivedStateComputer.class;
   }
 }

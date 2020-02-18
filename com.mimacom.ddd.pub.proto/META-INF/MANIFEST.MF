@@ -8,26 +8,29 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.pub.proto;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
+Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
+ org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
  org.eclipse.emf.ecore.xcore.lib,
+ com.mimacom.ddd.dm.base;visibility:=reexport,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.pub.proto.parser.antlr.internal,
+Export-Package: com.mimacom.ddd.pub.proto,
+ com.mimacom.ddd.pub.proto.derivedState,
  com.mimacom.ddd.pub.proto.formatting2,
- com.mimacom.ddd.pub.proto,
- com.mimacom.ddd.pub.proto.impl,
- com.mimacom.ddd.pub.proto.util,
- com.mimacom.ddd.pub.proto.validation,
- com.mimacom.ddd.pub.proto.services,
  com.mimacom.ddd.pub.proto.generator,
- com.mimacom.ddd.pub.proto.serializer,
+ com.mimacom.ddd.pub.proto.impl,
+ com.mimacom.ddd.pub.proto.parser.antlr,
+ com.mimacom.ddd.pub.proto.parser.antlr.internal,
  com.mimacom.ddd.pub.proto.scoping,
- com.mimacom.ddd.pub.proto.parser.antlr
+ com.mimacom.ddd.pub.proto.serializer,
+ com.mimacom.ddd.pub.proto.services,
+ com.mimacom.ddd.pub.proto.util,
+ com.mimacom.ddd.pub.proto.validation
 Import-Package: org.apache.log4j

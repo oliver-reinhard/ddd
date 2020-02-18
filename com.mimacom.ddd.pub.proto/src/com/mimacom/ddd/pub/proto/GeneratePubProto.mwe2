@@ -34,6 +34,8 @@ Workflow {
 			name = "${project}.PubProto"
 			fileExtensions = "pubproto"
 			referencedResource = "platform:/resource/com.mimacom.ddd.pub.proto/model/pubproto.xcore"
+			referencedResource = "platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
+			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

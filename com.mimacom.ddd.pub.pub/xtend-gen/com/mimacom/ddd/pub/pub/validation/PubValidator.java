@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.RichTextUtil;
+import com.mimacom.ddd.pub.proto.ProtoSymbol;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
@@ -106,15 +107,18 @@ public class PubValidator extends AbstractPubValidator {
     PublicationClass _publicationClass = doc.getPublicationClass();
     boolean _tripleNotEquals = (_publicationClass != null);
     if (_tripleNotEquals) {
-      EList<String> _symbols = doc.getPublicationClass().getSymbols();
-      for (final String protoSymbol : _symbols) {
+      EList<ProtoSymbol> _symbols = doc.getPublicationClass().getSymbols();
+      for (final ProtoSymbol protoSymbol : _symbols) {
         final Function1<Symbol, Boolean> _function = (Symbol it) -> {
           String _name = it.getName();
-          return Boolean.valueOf(Objects.equal(_name, protoSymbol));
+          String _name_1 = protoSymbol.getName();
+          return Boolean.valueOf(Objects.equal(_name, _name_1));
         };
         boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
         if (_isEmpty) {
-          final String msg = (("Document must define prototype symbol \'" + protoSymbol) + "\'");
+          String _name = protoSymbol.getName();
+          String _plus = ("Document must define prototype symbol \'" + _name);
+          final String msg = (_plus + "\'");
           boolean _isEmpty_1 = doc.getSymbols().isEmpty();
           boolean _not = (!_isEmpty_1);
           if (_not) {

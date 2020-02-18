@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.pub.proto.util;
 
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.pub.proto.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -74,6 +76,10 @@ public class ProtoAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProtoSymbol(ProtoSymbol object) {
 				return createProtoSymbolAdapter();
+			}
+			@Override
+			public Adapter caseProtoSymbolReference(ProtoSymbolReference object) {
+				return createProtoSymbolReferenceAdapter();
 			}
 			@Override
 			public Adapter caseProtoDocumentSegment(ProtoDocumentSegment object) {
@@ -156,6 +162,14 @@ public class ProtoAdapterFactory extends AdapterFactoryImpl {
 				return createProtoSubsubsectionAdapter();
 			}
 			@Override
+			public Adapter caseIRichTextSegment(IRichTextSegment object) {
+				return createIRichTextSegmentAdapter();
+			}
+			@Override
+			public Adapter caseDExpression(DExpression object) {
+				return createDExpressionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -200,6 +214,20 @@ public class ProtoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProtoSymbolAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.proto.ProtoSymbolReference <em>Symbol Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.proto.ProtoSymbolReference
+	 * @generated
+	 */
+	public Adapter createProtoSymbolReferenceAdapter() {
 		return null;
 	}
 
@@ -480,6 +508,34 @@ public class ProtoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProtoSubsubsectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IRichTextSegment
+	 * @generated
+	 */
+	public Adapter createIRichTextSegmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DExpression <em>DExpression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DExpression
+	 * @generated
+	 */
+	public Adapter createDExpressionAdapter() {
 		return null;
 	}
 

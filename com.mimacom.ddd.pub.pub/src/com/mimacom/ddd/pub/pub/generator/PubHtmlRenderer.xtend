@@ -90,7 +90,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		  <link rel="stylesheet" href="«CSS_FILENAME»">
 		</head>
 		
-		<!-- Document class: «guard(doc.publicationClass.title, "")» («doc.publicationClass.name») -->
+		<!-- Document class: «doc.publicationClass.name» -->
 		<body>
 		<h1>«doc.title»</h1>
 		«p.render»

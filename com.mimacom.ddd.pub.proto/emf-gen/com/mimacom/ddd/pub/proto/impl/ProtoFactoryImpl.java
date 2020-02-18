@@ -59,6 +59,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 		switch (eClass.getClassifierID()) {
 			case ProtoPackage.PUBLICATION_CLASS: return createPublicationClass();
 			case ProtoPackage.PROTO_SYMBOL: return createProtoSymbol();
+			case ProtoPackage.PROTO_SYMBOL_REFERENCE: return createProtoSymbolReference();
 			case ProtoPackage.PROTO_ABSTRACT: return createProtoAbstract();
 			case ProtoPackage.PROTO_PREFACE: return createProtoPreface();
 			case ProtoPackage.PROTO_EPILOGUE: return createProtoEpilogue();
@@ -136,6 +137,17 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	public ProtoSymbol createProtoSymbol() {
 		ProtoSymbolImpl protoSymbol = new ProtoSymbolImpl();
 		return protoSymbol;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProtoSymbolReference createProtoSymbolReference() {
+		ProtoSymbolReferenceImpl protoSymbolReference = new ProtoSymbolReferenceImpl();
+		return protoSymbolReference;
 	}
 
 	/**

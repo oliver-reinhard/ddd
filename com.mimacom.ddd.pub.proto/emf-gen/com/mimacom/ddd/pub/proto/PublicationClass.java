@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.pub.proto;
 
+import com.mimacom.ddd.dm.base.DRichText;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -16,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getNature <em>Nature</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getSymbols <em>Symbols</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getPreamble <em>Preamble</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getSegments <em>Segments</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getDivisions <em>Divisions</em>}</li>
  * </ul>
@@ -51,28 +52,6 @@ public interface PublicationClass extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Title</em>' attribute.
-	 * @see #setTitle(String)
-	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_Title()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getTitle();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.proto.PublicationClass#getTitle <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' attribute.
-	 * @see #getTitle()
-	 * @generated
-	 */
-	void setTitle(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Nature</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.pub.proto.PublicationNature}.
 	 * <!-- begin-user-doc -->
@@ -98,16 +77,38 @@ public interface PublicationClass extends EObject {
 	void setNature(PublicationNature value);
 
 	/**
-	 * Returns the value of the '<em><b>Symbols</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Symbols</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.pub.proto.ProtoSymbol}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Symbols</em>' attribute list.
+	 * @return the value of the '<em>Symbols</em>' containment reference list.
 	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_Symbols()
-	 * @model unique="false"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<String> getSymbols();
+	EList<ProtoSymbol> getSymbols();
+
+	/**
+	 * Returns the value of the '<em><b>Preamble</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Preamble</em>' containment reference.
+	 * @see #setPreamble(DRichText)
+	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_Preamble()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DRichText getPreamble();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.proto.PublicationClass#getPreamble <em>Preamble</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Preamble</em>' containment reference.
+	 * @see #getPreamble()
+	 * @generated
+	 */
+	void setPreamble(DRichText value);
 
 	/**
 	 * Returns the value of the '<em><b>Segments</b></em>' containment reference list.

@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.pub.proto.scoping;
 
-import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxScopeProvider;
 
-public abstract class AbstractPubProtoScopeProvider extends DelegatingScopeProvider {
+public abstract class AbstractPubProtoScopeProvider extends DmxScopeProvider {
 }

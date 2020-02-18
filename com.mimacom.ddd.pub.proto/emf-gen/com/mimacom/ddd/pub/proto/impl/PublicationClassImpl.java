@@ -2,9 +2,11 @@
  */
 package com.mimacom.ddd.pub.proto.impl;
 
+import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.pub.proto.ProtoDivision;
 import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.proto.ProtoPackage;
+import com.mimacom.ddd.pub.proto.ProtoSymbol;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.proto.PublicationNature;
 
@@ -20,8 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -35,9 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getNature <em>Nature</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getSymbols <em>Symbols</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getPreamble <em>Preamble</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getSegments <em>Segments</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getDivisions <em>Divisions</em>}</li>
  * </ul>
@@ -66,26 +66,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTitle()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TITLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTitle()
-	 * @generated
-	 * @ordered
-	 */
-	protected String title = TITLE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getNature() <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,14 +86,24 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	protected PublicationNature nature = NATURE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' attribute list.
+	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSymbols()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> symbols;
+	protected EList<ProtoSymbol> symbols;
+
+	/**
+	 * The cached value of the '{@link #getPreamble() <em>Preamble</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreamble()
+	 * @generated
+	 * @ordered
+	 */
+	protected DRichText preamble;
 
 	/**
 	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' containment reference list.
@@ -183,29 +173,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public String getTitle() {
-		return title;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTitle(String newTitle) {
-		String oldTitle = title;
-		title = newTitle;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__TITLE, oldTitle, title));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public PublicationNature getNature() {
 		return nature;
 	}
@@ -229,11 +196,56 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public EList<String> getSymbols() {
+	public EList<ProtoSymbol> getSymbols() {
 		if (symbols == null) {
-			symbols = new EDataTypeEList<String>(String.class, this, ProtoPackage.PUBLICATION_CLASS__SYMBOLS);
+			symbols = new EObjectContainmentEList<ProtoSymbol>(ProtoSymbol.class, this, ProtoPackage.PUBLICATION_CLASS__SYMBOLS);
 		}
 		return symbols;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DRichText getPreamble() {
+		return preamble;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPreamble(DRichText newPreamble, NotificationChain msgs) {
+		DRichText oldPreamble = preamble;
+		preamble = newPreamble;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__PREAMBLE, oldPreamble, newPreamble);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPreamble(DRichText newPreamble) {
+		if (newPreamble != preamble) {
+			NotificationChain msgs = null;
+			if (preamble != null)
+				msgs = ((InternalEObject)preamble).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__PREAMBLE, null, msgs);
+			if (newPreamble != null)
+				msgs = ((InternalEObject)newPreamble).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__PREAMBLE, null, msgs);
+			msgs = basicSetPreamble(newPreamble, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__PREAMBLE, newPreamble, newPreamble));
 	}
 
 	/**
@@ -285,6 +297,10 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
+				return ((InternalEList<?>)getSymbols()).basicRemove(otherEnd, msgs);
+			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
+				return basicSetPreamble(null, msgs);
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return ((InternalEList<?>)getSegments()).basicRemove(otherEnd, msgs);
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -303,12 +319,12 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case ProtoPackage.PUBLICATION_CLASS__NAME:
 				return getName();
-			case ProtoPackage.PUBLICATION_CLASS__TITLE:
-				return getTitle();
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				return getNature();
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				return getSymbols();
+			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
+				return getPreamble();
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return getSegments();
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -329,15 +345,15 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 			case ProtoPackage.PUBLICATION_CLASS__NAME:
 				setName((String)newValue);
 				return;
-			case ProtoPackage.PUBLICATION_CLASS__TITLE:
-				setTitle((String)newValue);
-				return;
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				setNature((PublicationNature)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				getSymbols().clear();
-				getSymbols().addAll((Collection<? extends String>)newValue);
+				getSymbols().addAll((Collection<? extends ProtoSymbol>)newValue);
+				return;
+			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
+				setPreamble((DRichText)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
@@ -362,14 +378,14 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 			case ProtoPackage.PUBLICATION_CLASS__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ProtoPackage.PUBLICATION_CLASS__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				setNature(NATURE_EDEFAULT);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				getSymbols().clear();
+				return;
+			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
+				setPreamble((DRichText)null);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
@@ -391,12 +407,12 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case ProtoPackage.PUBLICATION_CLASS__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ProtoPackage.PUBLICATION_CLASS__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				return nature != NATURE_EDEFAULT;
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				return symbols != null && !symbols.isEmpty();
+			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
+				return preamble != null;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return segments != null && !segments.isEmpty();
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -417,12 +433,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", title: ");
-		result.append(title);
 		result.append(", nature: ");
 		result.append(nature);
-		result.append(", symbols: ");
-		result.append(symbols);
 		result.append(')');
 		return result.toString();
 	}

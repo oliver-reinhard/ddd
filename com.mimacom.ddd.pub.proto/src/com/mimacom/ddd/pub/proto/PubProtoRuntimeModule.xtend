@@ -3,9 +3,28 @@
  */
 package com.mimacom.ddd.pub.proto
 
+import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
+import com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer
+import org.eclipse.xtext.conversion.IValueConverterService
+import org.eclipse.xtext.resource.DerivedStateAwareResource
+import org.eclipse.xtext.resource.IDerivedStateComputer
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class PubProtoRuntimeModule extends AbstractPubProtoRuntimeModule {
+	
+	override Class<? extends IValueConverterService> bindIValueConverterService() {
+		return DmxValueConverters
+	}
+	
+	// derived state:
+
+	override bindXtextResource() {
+		DerivedStateAwareResource
+	}
+
+	def Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
+		PubProtoDerivedStateComputer
+	}
 }

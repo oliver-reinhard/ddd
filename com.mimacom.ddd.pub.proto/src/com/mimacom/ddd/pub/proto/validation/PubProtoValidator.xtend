@@ -5,7 +5,7 @@ package com.mimacom.ddd.pub.proto.validation
 
 import com.mimacom.ddd.pub.proto.ProtoDocumentSegment
 import com.mimacom.ddd.pub.proto.ProtoPackage
-import com.mimacom.ddd.pub.proto.PublicationClass
+import com.mimacom.ddd.pub.proto.ProtoSymbol
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -17,20 +17,9 @@ class PubProtoValidator extends AbstractPubProtoValidator {
 
 	static val PROTO = ProtoPackage.eINSTANCE
 
-	@Check
-	def titleNotEmpty(PublicationClass pub) {
-		if (pub.title !== null && pub.title.length == 0) {
-			error("Segment title cannot be empty when defined", PROTO.protoDocumentSegment_Title)
-		}
-	}
-
-	@Check def void symbolNameIsUppercase(PublicationClass pub) {
-		var int i = 0
-		for (symbol : pub.symbols) {
-			if (! symbol.equals(symbol.toUpperCase)) {
-				warning("Symbol name should be ALL UPPPERCASE", PROTO.publicationClass_Symbols, i)
-			}
-			i++
+	@Check def void symbolNameIsUppercase(ProtoSymbol symbol) {
+		if (! symbol.name.equals(symbol.name.toUpperCase)) {
+			warning("Symbol name should be ALL UPPPERCASE", PROTO.publicationClass_Symbols)
 		}
 	}
 
