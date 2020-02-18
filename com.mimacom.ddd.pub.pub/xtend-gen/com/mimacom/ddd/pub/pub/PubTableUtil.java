@@ -3,8 +3,8 @@ package com.mimacom.ddd.pub.pub;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.pub.pub.PubFactory;
-import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.RichTextParagraph;
 import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph;
@@ -19,7 +19,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class PubTableUtil {
   @Inject
   @Extension
-  private PubUtil _pubUtil;
+  private RichTextUtil _richTextUtil;
   
   private static final BaseFactory BASE = BaseFactory.eINSTANCE;
   
@@ -142,7 +142,7 @@ public class PubTableUtil {
    * the element from its old {@code eContainer}.
    */
   public TableCell addRichTextCell(final TableRow row, final DRichText text) {
-    boolean _empty = this._pubUtil.empty(text);
+    boolean _empty = this._richTextUtil.empty(text);
     if (_empty) {
       return this.addSimpleCell(row, "");
     }

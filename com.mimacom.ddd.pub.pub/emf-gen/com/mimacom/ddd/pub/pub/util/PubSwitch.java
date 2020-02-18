@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.pub.util;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 
 import com.mimacom.ddd.pub.pub.*;
@@ -85,6 +86,7 @@ public class PubSwitch<T> extends Switch<T> {
 			case PubPackage.SYMBOL: {
 				Symbol symbol = (Symbol)theEObject;
 				T result = caseSymbol(symbol);
+				if (result == null) result = caseDNamedElement(symbol);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1485,6 +1487,21 @@ public class PubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnformattedParagraph(UnformattedParagraph object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNamedElement(DNamedElement object) {
 		return null;
 	}
 

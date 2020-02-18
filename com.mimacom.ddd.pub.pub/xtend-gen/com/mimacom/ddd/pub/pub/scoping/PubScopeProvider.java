@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.FigureRenderer;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
@@ -30,6 +31,7 @@ import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -167,6 +169,19 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
       }
     }
     return super.getScope(context, reference);
+  }
+  
+  /**
+   * Add symbols to context-reference scope.
+   */
+  @Override
+  public IScope getContextReferenceScope(final EObject context, final IScope outerScope) {
+    final IScope scope = super.getContextReferenceScope(context, outerScope);
+    final Document doc = EcoreUtil2.<Document>getContainerOfType(context, Document.class);
+    if (((doc != null) && (!doc.getSymbols().isEmpty()))) {
+      return Scopes.scopeFor(doc.getSymbols(), scope);
+    }
+    return scope;
   }
   
   protected SimpleScope createScopeWithQualifiedNames(final Iterable<? extends EObject> objects) {

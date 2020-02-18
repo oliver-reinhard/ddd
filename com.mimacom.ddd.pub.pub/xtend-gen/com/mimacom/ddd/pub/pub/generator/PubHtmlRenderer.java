@@ -5,6 +5,7 @@ package com.mimacom.ddd.pub.pub.generator;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
@@ -30,6 +31,7 @@ import com.mimacom.ddd.pub.pub.RichTextParagraph;
 import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph;
 import com.mimacom.ddd.pub.pub.SegmentWithTable;
 import com.mimacom.ddd.pub.pub.SegmentWithText;
+import com.mimacom.ddd.pub.pub.Symbol;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
@@ -629,7 +631,15 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
         boolean _matched = false;
         if (expr instanceof DmxContextReference) {
           _matched=true;
-          _switchResult = super.renderStyleExpression(expr, ((DmxContextReference)expr).getTarget().getName());
+          CharSequence _xifexpression = null;
+          DNamedElement _target = ((DmxContextReference)expr).getTarget();
+          if ((_target instanceof Symbol)) {
+            DNamedElement _target_1 = ((DmxContextReference)expr).getTarget();
+            _xifexpression = PubHtmlRenderer.this.renderRichText(((Symbol) _target_1).getValue());
+          } else {
+            _xifexpression = super.renderStyleExpression(expr, ((DmxContextReference)expr).getTarget().getName());
+          }
+          _switchResult = _xifexpression;
         }
         if (!_matched) {
           if (expr instanceof DmxStaticReference) {
@@ -645,7 +655,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
             String _plus_1 = (_plus + "\">");
             String _referenceDisplayText = PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayText(((Reference)expr).getTarget());
             String _plus_2 = (_plus_1 + _referenceDisplayText);
-            _switchResult = (_plus_2 + "</a>");
+            _switchResult = (_plus_2 + 
+              "</a>");
           }
         }
         if (!_matched) {

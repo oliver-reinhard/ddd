@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPubProtoParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'Print'", "'Web'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'", "'publication'", "'class'", "'nature:'", "'segments:'", "'divisions:'", "'title:'", "'symbols:'", "'optional:'", "'Abstract'", "'{'", "'}'", "'Preface'", "'Epilogue'", "'Body'", "'parts:'", "'appendix:'", "'ChangeHistory'", "'TableOfContents'", "'maxLevel:'", "'Abbreviations'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'Glossary'", "'Index'", "'numbering:'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Sub'", "'Subsub'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'Print'", "'Web'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'", "'publication'", "'class'", "'nature:'", "'segments:'", "'divisions:'", "'title:'", "'symbol:'", "'optional:'", "'Abstract'", "'{'", "'}'", "'Preface'", "'Epilogue'", "'Body'", "'parts:'", "'appendix:'", "'ChangeHistory'", "'TableOfContents'", "'maxLevel:'", "'Abbreviations'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'Glossary'", "'Index'", "'numbering:'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Sub'", "'Subsub'", "'true'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -3550,40 +3550,47 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__Group__7__Impl"
-    // InternalPubProto.g:1099:1: rule__PublicationClass__Group__7__Impl : ( ( rule__PublicationClass__Group_7__0 )? ) ;
+    // InternalPubProto.g:1099:1: rule__PublicationClass__Group__7__Impl : ( ( rule__PublicationClass__Group_7__0 )* ) ;
     public final void rule__PublicationClass__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1103:1: ( ( ( rule__PublicationClass__Group_7__0 )? ) )
-            // InternalPubProto.g:1104:1: ( ( rule__PublicationClass__Group_7__0 )? )
+            // InternalPubProto.g:1103:1: ( ( ( rule__PublicationClass__Group_7__0 )* ) )
+            // InternalPubProto.g:1104:1: ( ( rule__PublicationClass__Group_7__0 )* )
             {
-            // InternalPubProto.g:1104:1: ( ( rule__PublicationClass__Group_7__0 )? )
-            // InternalPubProto.g:1105:2: ( rule__PublicationClass__Group_7__0 )?
+            // InternalPubProto.g:1104:1: ( ( rule__PublicationClass__Group_7__0 )* )
+            // InternalPubProto.g:1105:2: ( rule__PublicationClass__Group_7__0 )*
             {
              before(grammarAccess.getPublicationClassAccess().getGroup_7()); 
-            // InternalPubProto.g:1106:2: ( rule__PublicationClass__Group_7__0 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalPubProto.g:1106:2: ( rule__PublicationClass__Group_7__0 )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==26) ) {
-                alt10=1;
-            }
-            switch (alt10) {
-                case 1 :
-                    // InternalPubProto.g:1106:3: rule__PublicationClass__Group_7__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__PublicationClass__Group_7__0();
-
-                    state._fsp--;
+                if ( (LA10_0==26) ) {
+                    alt10=1;
+                }
 
 
-                    }
-                    break;
+                switch (alt10) {
+            	case 1 :
+            	    // InternalPubProto.g:1106:3: rule__PublicationClass__Group_7__0
+            	    {
+            	    pushFollow(FOLLOW_9);
+            	    rule__PublicationClass__Group_7__0();
 
-            }
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
 
              after(grammarAccess.getPublicationClassAccess().getGroup_7()); 
 
@@ -3617,7 +3624,7 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             // InternalPubProto.g:1118:1: ( rule__PublicationClass__Group__8__Impl rule__PublicationClass__Group__9 )
             // InternalPubProto.g:1119:2: rule__PublicationClass__Group__8__Impl rule__PublicationClass__Group__9
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__PublicationClass__Group__8__Impl();
 
             state._fsp--;
@@ -3692,7 +3699,7 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             // InternalPubProto.g:1145:1: ( rule__PublicationClass__Group__9__Impl rule__PublicationClass__Group__10 )
             // InternalPubProto.g:1146:2: rule__PublicationClass__Group__9__Impl rule__PublicationClass__Group__10
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__PublicationClass__Group__9__Impl();
 
             state._fsp--;
@@ -3749,7 +3756,7 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             	case 1 :
             	    // InternalPubProto.g:1160:3: rule__PublicationClass__SegmentsAssignment_9
             	    {
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_11);
             	    rule__PublicationClass__SegmentsAssignment_9();
 
             	    state._fsp--;
@@ -3795,7 +3802,7 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             // InternalPubProto.g:1172:1: ( rule__PublicationClass__Group__10__Impl rule__PublicationClass__Group__11 )
             // InternalPubProto.g:1173:2: rule__PublicationClass__Group__10__Impl rule__PublicationClass__Group__11
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__PublicationClass__Group__10__Impl();
 
             state._fsp--;
@@ -3922,7 +3929,7 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             	case 1 :
             	    // InternalPubProto.g:1213:3: rule__PublicationClass__DivisionsAssignment_11
             	    {
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_13);
             	    rule__PublicationClass__DivisionsAssignment_11();
 
             	    state._fsp--;
@@ -3968,7 +3975,7 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             // InternalPubProto.g:1226:1: ( rule__PublicationClass__Group_4__0__Impl rule__PublicationClass__Group_4__1 )
             // InternalPubProto.g:1227:2: rule__PublicationClass__Group_4__0__Impl rule__PublicationClass__Group_4__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__PublicationClass__Group_4__0__Impl();
 
             state._fsp--;
@@ -4152,21 +4159,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__Group_7__0__Impl"
-    // InternalPubProto.g:1288:1: rule__PublicationClass__Group_7__0__Impl : ( 'symbols:' ) ;
+    // InternalPubProto.g:1288:1: rule__PublicationClass__Group_7__0__Impl : ( 'symbol:' ) ;
     public final void rule__PublicationClass__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1292:1: ( ( 'symbols:' ) )
-            // InternalPubProto.g:1293:1: ( 'symbols:' )
+            // InternalPubProto.g:1292:1: ( ( 'symbol:' ) )
+            // InternalPubProto.g:1293:1: ( 'symbol:' )
             {
-            // InternalPubProto.g:1293:1: ( 'symbols:' )
-            // InternalPubProto.g:1294:2: 'symbols:'
+            // InternalPubProto.g:1293:1: ( 'symbol:' )
+            // InternalPubProto.g:1294:2: 'symbol:'
             {
-             before(grammarAccess.getPublicationClassAccess().getSymbolsKeyword_7_0()); 
+             before(grammarAccess.getPublicationClassAccess().getSymbolKeyword_7_0()); 
             match(input,26,FOLLOW_2); 
-             after(grammarAccess.getPublicationClassAccess().getSymbolsKeyword_7_0()); 
+             after(grammarAccess.getPublicationClassAccess().getSymbolKeyword_7_0()); 
 
             }
 
@@ -4222,26 +4229,23 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__Group_7__1__Impl"
-    // InternalPubProto.g:1314:1: rule__PublicationClass__Group_7__1__Impl : ( ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) ( ( rule__PublicationClass__SymbolsAssignment_7_1 )* ) ) ;
+    // InternalPubProto.g:1314:1: rule__PublicationClass__Group_7__1__Impl : ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) ;
     public final void rule__PublicationClass__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1318:1: ( ( ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) ( ( rule__PublicationClass__SymbolsAssignment_7_1 )* ) ) )
-            // InternalPubProto.g:1319:1: ( ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) ( ( rule__PublicationClass__SymbolsAssignment_7_1 )* ) )
+            // InternalPubProto.g:1318:1: ( ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) )
+            // InternalPubProto.g:1319:1: ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) )
             {
-            // InternalPubProto.g:1319:1: ( ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) ( ( rule__PublicationClass__SymbolsAssignment_7_1 )* ) )
-            // InternalPubProto.g:1320:2: ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) ) ( ( rule__PublicationClass__SymbolsAssignment_7_1 )* )
-            {
-            // InternalPubProto.g:1320:2: ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) )
-            // InternalPubProto.g:1321:3: ( rule__PublicationClass__SymbolsAssignment_7_1 )
+            // InternalPubProto.g:1319:1: ( ( rule__PublicationClass__SymbolsAssignment_7_1 ) )
+            // InternalPubProto.g:1320:2: ( rule__PublicationClass__SymbolsAssignment_7_1 )
             {
              before(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); 
-            // InternalPubProto.g:1322:3: ( rule__PublicationClass__SymbolsAssignment_7_1 )
-            // InternalPubProto.g:1322:4: rule__PublicationClass__SymbolsAssignment_7_1
+            // InternalPubProto.g:1321:2: ( rule__PublicationClass__SymbolsAssignment_7_1 )
+            // InternalPubProto.g:1321:3: rule__PublicationClass__SymbolsAssignment_7_1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_2);
             rule__PublicationClass__SymbolsAssignment_7_1();
 
             state._fsp--;
@@ -4250,46 +4254,6 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
             }
 
              after(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); 
-
-            }
-
-            // InternalPubProto.g:1325:2: ( ( rule__PublicationClass__SymbolsAssignment_7_1 )* )
-            // InternalPubProto.g:1326:3: ( rule__PublicationClass__SymbolsAssignment_7_1 )*
-            {
-             before(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); 
-            // InternalPubProto.g:1327:3: ( rule__PublicationClass__SymbolsAssignment_7_1 )*
-            loop13:
-            do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
-
-                if ( (LA13_0==RULE_ID) ) {
-                    alt13=1;
-                }
-
-
-                switch (alt13) {
-            	case 1 :
-            	    // InternalPubProto.g:1327:4: rule__PublicationClass__SymbolsAssignment_7_1
-            	    {
-            	    pushFollow(FOLLOW_14);
-            	    rule__PublicationClass__SymbolsAssignment_7_1();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop13;
-                }
-            } while (true);
-
-             after(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); 
-
-            }
-
 
             }
 
@@ -4312,14 +4276,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group__0"
-    // InternalPubProto.g:1337:1: rule__SegmentBody__Group__0 : rule__SegmentBody__Group__0__Impl rule__SegmentBody__Group__1 ;
+    // InternalPubProto.g:1330:1: rule__SegmentBody__Group__0 : rule__SegmentBody__Group__0__Impl rule__SegmentBody__Group__1 ;
     public final void rule__SegmentBody__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1341:1: ( rule__SegmentBody__Group__0__Impl rule__SegmentBody__Group__1 )
-            // InternalPubProto.g:1342:2: rule__SegmentBody__Group__0__Impl rule__SegmentBody__Group__1
+            // InternalPubProto.g:1334:1: ( rule__SegmentBody__Group__0__Impl rule__SegmentBody__Group__1 )
+            // InternalPubProto.g:1335:2: rule__SegmentBody__Group__0__Impl rule__SegmentBody__Group__1
             {
             pushFollow(FOLLOW_15);
             rule__SegmentBody__Group__0__Impl();
@@ -4350,29 +4314,29 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group__0__Impl"
-    // InternalPubProto.g:1349:1: rule__SegmentBody__Group__0__Impl : ( ( rule__SegmentBody__Group_0__0 )? ) ;
+    // InternalPubProto.g:1342:1: rule__SegmentBody__Group__0__Impl : ( ( rule__SegmentBody__Group_0__0 )? ) ;
     public final void rule__SegmentBody__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1353:1: ( ( ( rule__SegmentBody__Group_0__0 )? ) )
-            // InternalPubProto.g:1354:1: ( ( rule__SegmentBody__Group_0__0 )? )
+            // InternalPubProto.g:1346:1: ( ( ( rule__SegmentBody__Group_0__0 )? ) )
+            // InternalPubProto.g:1347:1: ( ( rule__SegmentBody__Group_0__0 )? )
             {
-            // InternalPubProto.g:1354:1: ( ( rule__SegmentBody__Group_0__0 )? )
-            // InternalPubProto.g:1355:2: ( rule__SegmentBody__Group_0__0 )?
+            // InternalPubProto.g:1347:1: ( ( rule__SegmentBody__Group_0__0 )? )
+            // InternalPubProto.g:1348:2: ( rule__SegmentBody__Group_0__0 )?
             {
              before(grammarAccess.getSegmentBodyAccess().getGroup_0()); 
-            // InternalPubProto.g:1356:2: ( rule__SegmentBody__Group_0__0 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalPubProto.g:1349:2: ( rule__SegmentBody__Group_0__0 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA14_0==25) ) {
-                alt14=1;
+            if ( (LA13_0==25) ) {
+                alt13=1;
             }
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
-                    // InternalPubProto.g:1356:3: rule__SegmentBody__Group_0__0
+                    // InternalPubProto.g:1349:3: rule__SegmentBody__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SegmentBody__Group_0__0();
@@ -4408,14 +4372,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group__1"
-    // InternalPubProto.g:1364:1: rule__SegmentBody__Group__1 : rule__SegmentBody__Group__1__Impl ;
+    // InternalPubProto.g:1357:1: rule__SegmentBody__Group__1 : rule__SegmentBody__Group__1__Impl ;
     public final void rule__SegmentBody__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1368:1: ( rule__SegmentBody__Group__1__Impl )
-            // InternalPubProto.g:1369:2: rule__SegmentBody__Group__1__Impl
+            // InternalPubProto.g:1361:1: ( rule__SegmentBody__Group__1__Impl )
+            // InternalPubProto.g:1362:2: rule__SegmentBody__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SegmentBody__Group__1__Impl();
@@ -4441,29 +4405,29 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group__1__Impl"
-    // InternalPubProto.g:1375:1: rule__SegmentBody__Group__1__Impl : ( ( rule__SegmentBody__Group_1__0 )? ) ;
+    // InternalPubProto.g:1368:1: rule__SegmentBody__Group__1__Impl : ( ( rule__SegmentBody__Group_1__0 )? ) ;
     public final void rule__SegmentBody__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1379:1: ( ( ( rule__SegmentBody__Group_1__0 )? ) )
-            // InternalPubProto.g:1380:1: ( ( rule__SegmentBody__Group_1__0 )? )
+            // InternalPubProto.g:1372:1: ( ( ( rule__SegmentBody__Group_1__0 )? ) )
+            // InternalPubProto.g:1373:1: ( ( rule__SegmentBody__Group_1__0 )? )
             {
-            // InternalPubProto.g:1380:1: ( ( rule__SegmentBody__Group_1__0 )? )
-            // InternalPubProto.g:1381:2: ( rule__SegmentBody__Group_1__0 )?
+            // InternalPubProto.g:1373:1: ( ( rule__SegmentBody__Group_1__0 )? )
+            // InternalPubProto.g:1374:2: ( rule__SegmentBody__Group_1__0 )?
             {
              before(grammarAccess.getSegmentBodyAccess().getGroup_1()); 
-            // InternalPubProto.g:1382:2: ( rule__SegmentBody__Group_1__0 )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalPubProto.g:1375:2: ( rule__SegmentBody__Group_1__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA15_0==27) ) {
-                alt15=1;
+            if ( (LA14_0==27) ) {
+                alt14=1;
             }
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
-                    // InternalPubProto.g:1382:3: rule__SegmentBody__Group_1__0
+                    // InternalPubProto.g:1375:3: rule__SegmentBody__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SegmentBody__Group_1__0();
@@ -4499,16 +4463,16 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_0__0"
-    // InternalPubProto.g:1391:1: rule__SegmentBody__Group_0__0 : rule__SegmentBody__Group_0__0__Impl rule__SegmentBody__Group_0__1 ;
+    // InternalPubProto.g:1384:1: rule__SegmentBody__Group_0__0 : rule__SegmentBody__Group_0__0__Impl rule__SegmentBody__Group_0__1 ;
     public final void rule__SegmentBody__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1395:1: ( rule__SegmentBody__Group_0__0__Impl rule__SegmentBody__Group_0__1 )
-            // InternalPubProto.g:1396:2: rule__SegmentBody__Group_0__0__Impl rule__SegmentBody__Group_0__1
+            // InternalPubProto.g:1388:1: ( rule__SegmentBody__Group_0__0__Impl rule__SegmentBody__Group_0__1 )
+            // InternalPubProto.g:1389:2: rule__SegmentBody__Group_0__0__Impl rule__SegmentBody__Group_0__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__SegmentBody__Group_0__0__Impl();
 
             state._fsp--;
@@ -4537,17 +4501,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_0__0__Impl"
-    // InternalPubProto.g:1403:1: rule__SegmentBody__Group_0__0__Impl : ( 'title:' ) ;
+    // InternalPubProto.g:1396:1: rule__SegmentBody__Group_0__0__Impl : ( 'title:' ) ;
     public final void rule__SegmentBody__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1407:1: ( ( 'title:' ) )
-            // InternalPubProto.g:1408:1: ( 'title:' )
+            // InternalPubProto.g:1400:1: ( ( 'title:' ) )
+            // InternalPubProto.g:1401:1: ( 'title:' )
             {
-            // InternalPubProto.g:1408:1: ( 'title:' )
-            // InternalPubProto.g:1409:2: 'title:'
+            // InternalPubProto.g:1401:1: ( 'title:' )
+            // InternalPubProto.g:1402:2: 'title:'
             {
              before(grammarAccess.getSegmentBodyAccess().getTitleKeyword_0_0()); 
             match(input,25,FOLLOW_2); 
@@ -4574,14 +4538,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_0__1"
-    // InternalPubProto.g:1418:1: rule__SegmentBody__Group_0__1 : rule__SegmentBody__Group_0__1__Impl ;
+    // InternalPubProto.g:1411:1: rule__SegmentBody__Group_0__1 : rule__SegmentBody__Group_0__1__Impl ;
     public final void rule__SegmentBody__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1422:1: ( rule__SegmentBody__Group_0__1__Impl )
-            // InternalPubProto.g:1423:2: rule__SegmentBody__Group_0__1__Impl
+            // InternalPubProto.g:1415:1: ( rule__SegmentBody__Group_0__1__Impl )
+            // InternalPubProto.g:1416:2: rule__SegmentBody__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SegmentBody__Group_0__1__Impl();
@@ -4607,21 +4571,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_0__1__Impl"
-    // InternalPubProto.g:1429:1: rule__SegmentBody__Group_0__1__Impl : ( ( rule__SegmentBody__TitleAssignment_0_1 ) ) ;
+    // InternalPubProto.g:1422:1: rule__SegmentBody__Group_0__1__Impl : ( ( rule__SegmentBody__TitleAssignment_0_1 ) ) ;
     public final void rule__SegmentBody__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1433:1: ( ( ( rule__SegmentBody__TitleAssignment_0_1 ) ) )
-            // InternalPubProto.g:1434:1: ( ( rule__SegmentBody__TitleAssignment_0_1 ) )
+            // InternalPubProto.g:1426:1: ( ( ( rule__SegmentBody__TitleAssignment_0_1 ) ) )
+            // InternalPubProto.g:1427:1: ( ( rule__SegmentBody__TitleAssignment_0_1 ) )
             {
-            // InternalPubProto.g:1434:1: ( ( rule__SegmentBody__TitleAssignment_0_1 ) )
-            // InternalPubProto.g:1435:2: ( rule__SegmentBody__TitleAssignment_0_1 )
+            // InternalPubProto.g:1427:1: ( ( rule__SegmentBody__TitleAssignment_0_1 ) )
+            // InternalPubProto.g:1428:2: ( rule__SegmentBody__TitleAssignment_0_1 )
             {
              before(grammarAccess.getSegmentBodyAccess().getTitleAssignment_0_1()); 
-            // InternalPubProto.g:1436:2: ( rule__SegmentBody__TitleAssignment_0_1 )
-            // InternalPubProto.g:1436:3: rule__SegmentBody__TitleAssignment_0_1
+            // InternalPubProto.g:1429:2: ( rule__SegmentBody__TitleAssignment_0_1 )
+            // InternalPubProto.g:1429:3: rule__SegmentBody__TitleAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__SegmentBody__TitleAssignment_0_1();
@@ -4654,14 +4618,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_1__0"
-    // InternalPubProto.g:1445:1: rule__SegmentBody__Group_1__0 : rule__SegmentBody__Group_1__0__Impl rule__SegmentBody__Group_1__1 ;
+    // InternalPubProto.g:1438:1: rule__SegmentBody__Group_1__0 : rule__SegmentBody__Group_1__0__Impl rule__SegmentBody__Group_1__1 ;
     public final void rule__SegmentBody__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1449:1: ( rule__SegmentBody__Group_1__0__Impl rule__SegmentBody__Group_1__1 )
-            // InternalPubProto.g:1450:2: rule__SegmentBody__Group_1__0__Impl rule__SegmentBody__Group_1__1
+            // InternalPubProto.g:1442:1: ( rule__SegmentBody__Group_1__0__Impl rule__SegmentBody__Group_1__1 )
+            // InternalPubProto.g:1443:2: rule__SegmentBody__Group_1__0__Impl rule__SegmentBody__Group_1__1
             {
             pushFollow(FOLLOW_16);
             rule__SegmentBody__Group_1__0__Impl();
@@ -4692,17 +4656,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_1__0__Impl"
-    // InternalPubProto.g:1457:1: rule__SegmentBody__Group_1__0__Impl : ( 'optional:' ) ;
+    // InternalPubProto.g:1450:1: rule__SegmentBody__Group_1__0__Impl : ( 'optional:' ) ;
     public final void rule__SegmentBody__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1461:1: ( ( 'optional:' ) )
-            // InternalPubProto.g:1462:1: ( 'optional:' )
+            // InternalPubProto.g:1454:1: ( ( 'optional:' ) )
+            // InternalPubProto.g:1455:1: ( 'optional:' )
             {
-            // InternalPubProto.g:1462:1: ( 'optional:' )
-            // InternalPubProto.g:1463:2: 'optional:'
+            // InternalPubProto.g:1455:1: ( 'optional:' )
+            // InternalPubProto.g:1456:2: 'optional:'
             {
              before(grammarAccess.getSegmentBodyAccess().getOptionalKeyword_1_0()); 
             match(input,27,FOLLOW_2); 
@@ -4729,14 +4693,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_1__1"
-    // InternalPubProto.g:1472:1: rule__SegmentBody__Group_1__1 : rule__SegmentBody__Group_1__1__Impl ;
+    // InternalPubProto.g:1465:1: rule__SegmentBody__Group_1__1 : rule__SegmentBody__Group_1__1__Impl ;
     public final void rule__SegmentBody__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1476:1: ( rule__SegmentBody__Group_1__1__Impl )
-            // InternalPubProto.g:1477:2: rule__SegmentBody__Group_1__1__Impl
+            // InternalPubProto.g:1469:1: ( rule__SegmentBody__Group_1__1__Impl )
+            // InternalPubProto.g:1470:2: rule__SegmentBody__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SegmentBody__Group_1__1__Impl();
@@ -4762,21 +4726,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__Group_1__1__Impl"
-    // InternalPubProto.g:1483:1: rule__SegmentBody__Group_1__1__Impl : ( ( rule__SegmentBody__Alternatives_1_1 ) ) ;
+    // InternalPubProto.g:1476:1: rule__SegmentBody__Group_1__1__Impl : ( ( rule__SegmentBody__Alternatives_1_1 ) ) ;
     public final void rule__SegmentBody__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1487:1: ( ( ( rule__SegmentBody__Alternatives_1_1 ) ) )
-            // InternalPubProto.g:1488:1: ( ( rule__SegmentBody__Alternatives_1_1 ) )
+            // InternalPubProto.g:1480:1: ( ( ( rule__SegmentBody__Alternatives_1_1 ) ) )
+            // InternalPubProto.g:1481:1: ( ( rule__SegmentBody__Alternatives_1_1 ) )
             {
-            // InternalPubProto.g:1488:1: ( ( rule__SegmentBody__Alternatives_1_1 ) )
-            // InternalPubProto.g:1489:2: ( rule__SegmentBody__Alternatives_1_1 )
+            // InternalPubProto.g:1481:1: ( ( rule__SegmentBody__Alternatives_1_1 ) )
+            // InternalPubProto.g:1482:2: ( rule__SegmentBody__Alternatives_1_1 )
             {
              before(grammarAccess.getSegmentBodyAccess().getAlternatives_1_1()); 
-            // InternalPubProto.g:1490:2: ( rule__SegmentBody__Alternatives_1_1 )
-            // InternalPubProto.g:1490:3: rule__SegmentBody__Alternatives_1_1
+            // InternalPubProto.g:1483:2: ( rule__SegmentBody__Alternatives_1_1 )
+            // InternalPubProto.g:1483:3: rule__SegmentBody__Alternatives_1_1
             {
             pushFollow(FOLLOW_2);
             rule__SegmentBody__Alternatives_1_1();
@@ -4809,14 +4773,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__0"
-    // InternalPubProto.g:1499:1: rule__ProtoAbstract__Group__0 : rule__ProtoAbstract__Group__0__Impl rule__ProtoAbstract__Group__1 ;
+    // InternalPubProto.g:1492:1: rule__ProtoAbstract__Group__0 : rule__ProtoAbstract__Group__0__Impl rule__ProtoAbstract__Group__1 ;
     public final void rule__ProtoAbstract__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1503:1: ( rule__ProtoAbstract__Group__0__Impl rule__ProtoAbstract__Group__1 )
-            // InternalPubProto.g:1504:2: rule__ProtoAbstract__Group__0__Impl rule__ProtoAbstract__Group__1
+            // InternalPubProto.g:1496:1: ( rule__ProtoAbstract__Group__0__Impl rule__ProtoAbstract__Group__1 )
+            // InternalPubProto.g:1497:2: rule__ProtoAbstract__Group__0__Impl rule__ProtoAbstract__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__ProtoAbstract__Group__0__Impl();
@@ -4847,21 +4811,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__0__Impl"
-    // InternalPubProto.g:1511:1: rule__ProtoAbstract__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:1504:1: rule__ProtoAbstract__Group__0__Impl : ( () ) ;
     public final void rule__ProtoAbstract__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1515:1: ( ( () ) )
-            // InternalPubProto.g:1516:1: ( () )
+            // InternalPubProto.g:1508:1: ( ( () ) )
+            // InternalPubProto.g:1509:1: ( () )
             {
-            // InternalPubProto.g:1516:1: ( () )
-            // InternalPubProto.g:1517:2: ()
+            // InternalPubProto.g:1509:1: ( () )
+            // InternalPubProto.g:1510:2: ()
             {
              before(grammarAccess.getProtoAbstractAccess().getProtoAbstractAction_0()); 
-            // InternalPubProto.g:1518:2: ()
-            // InternalPubProto.g:1518:3: 
+            // InternalPubProto.g:1511:2: ()
+            // InternalPubProto.g:1511:3: 
             {
             }
 
@@ -4884,14 +4848,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__1"
-    // InternalPubProto.g:1526:1: rule__ProtoAbstract__Group__1 : rule__ProtoAbstract__Group__1__Impl rule__ProtoAbstract__Group__2 ;
+    // InternalPubProto.g:1519:1: rule__ProtoAbstract__Group__1 : rule__ProtoAbstract__Group__1__Impl rule__ProtoAbstract__Group__2 ;
     public final void rule__ProtoAbstract__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1530:1: ( rule__ProtoAbstract__Group__1__Impl rule__ProtoAbstract__Group__2 )
-            // InternalPubProto.g:1531:2: rule__ProtoAbstract__Group__1__Impl rule__ProtoAbstract__Group__2
+            // InternalPubProto.g:1523:1: ( rule__ProtoAbstract__Group__1__Impl rule__ProtoAbstract__Group__2 )
+            // InternalPubProto.g:1524:2: rule__ProtoAbstract__Group__1__Impl rule__ProtoAbstract__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoAbstract__Group__1__Impl();
@@ -4922,17 +4886,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__1__Impl"
-    // InternalPubProto.g:1538:1: rule__ProtoAbstract__Group__1__Impl : ( 'Abstract' ) ;
+    // InternalPubProto.g:1531:1: rule__ProtoAbstract__Group__1__Impl : ( 'Abstract' ) ;
     public final void rule__ProtoAbstract__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1542:1: ( ( 'Abstract' ) )
-            // InternalPubProto.g:1543:1: ( 'Abstract' )
+            // InternalPubProto.g:1535:1: ( ( 'Abstract' ) )
+            // InternalPubProto.g:1536:1: ( 'Abstract' )
             {
-            // InternalPubProto.g:1543:1: ( 'Abstract' )
-            // InternalPubProto.g:1544:2: 'Abstract'
+            // InternalPubProto.g:1536:1: ( 'Abstract' )
+            // InternalPubProto.g:1537:2: 'Abstract'
             {
              before(grammarAccess.getProtoAbstractAccess().getAbstractKeyword_1()); 
             match(input,28,FOLLOW_2); 
@@ -4959,14 +4923,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__2"
-    // InternalPubProto.g:1553:1: rule__ProtoAbstract__Group__2 : rule__ProtoAbstract__Group__2__Impl rule__ProtoAbstract__Group__3 ;
+    // InternalPubProto.g:1546:1: rule__ProtoAbstract__Group__2 : rule__ProtoAbstract__Group__2__Impl rule__ProtoAbstract__Group__3 ;
     public final void rule__ProtoAbstract__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1557:1: ( rule__ProtoAbstract__Group__2__Impl rule__ProtoAbstract__Group__3 )
-            // InternalPubProto.g:1558:2: rule__ProtoAbstract__Group__2__Impl rule__ProtoAbstract__Group__3
+            // InternalPubProto.g:1550:1: ( rule__ProtoAbstract__Group__2__Impl rule__ProtoAbstract__Group__3 )
+            // InternalPubProto.g:1551:2: rule__ProtoAbstract__Group__2__Impl rule__ProtoAbstract__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoAbstract__Group__2__Impl();
@@ -4997,17 +4961,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__2__Impl"
-    // InternalPubProto.g:1565:1: rule__ProtoAbstract__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:1558:1: rule__ProtoAbstract__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoAbstract__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1569:1: ( ( '{' ) )
-            // InternalPubProto.g:1570:1: ( '{' )
+            // InternalPubProto.g:1562:1: ( ( '{' ) )
+            // InternalPubProto.g:1563:1: ( '{' )
             {
-            // InternalPubProto.g:1570:1: ( '{' )
-            // InternalPubProto.g:1571:2: '{'
+            // InternalPubProto.g:1563:1: ( '{' )
+            // InternalPubProto.g:1564:2: '{'
             {
              before(grammarAccess.getProtoAbstractAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -5034,14 +4998,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__3"
-    // InternalPubProto.g:1580:1: rule__ProtoAbstract__Group__3 : rule__ProtoAbstract__Group__3__Impl rule__ProtoAbstract__Group__4 ;
+    // InternalPubProto.g:1573:1: rule__ProtoAbstract__Group__3 : rule__ProtoAbstract__Group__3__Impl rule__ProtoAbstract__Group__4 ;
     public final void rule__ProtoAbstract__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1584:1: ( rule__ProtoAbstract__Group__3__Impl rule__ProtoAbstract__Group__4 )
-            // InternalPubProto.g:1585:2: rule__ProtoAbstract__Group__3__Impl rule__ProtoAbstract__Group__4
+            // InternalPubProto.g:1577:1: ( rule__ProtoAbstract__Group__3__Impl rule__ProtoAbstract__Group__4 )
+            // InternalPubProto.g:1578:2: rule__ProtoAbstract__Group__3__Impl rule__ProtoAbstract__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoAbstract__Group__3__Impl();
@@ -5072,17 +5036,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__3__Impl"
-    // InternalPubProto.g:1592:1: rule__ProtoAbstract__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:1585:1: rule__ProtoAbstract__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoAbstract__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1596:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:1597:1: ( ruleSegmentBody )
+            // InternalPubProto.g:1589:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:1590:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:1597:1: ( ruleSegmentBody )
-            // InternalPubProto.g:1598:2: ruleSegmentBody
+            // InternalPubProto.g:1590:1: ( ruleSegmentBody )
+            // InternalPubProto.g:1591:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoAbstractAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -5113,14 +5077,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__4"
-    // InternalPubProto.g:1607:1: rule__ProtoAbstract__Group__4 : rule__ProtoAbstract__Group__4__Impl ;
+    // InternalPubProto.g:1600:1: rule__ProtoAbstract__Group__4 : rule__ProtoAbstract__Group__4__Impl ;
     public final void rule__ProtoAbstract__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1611:1: ( rule__ProtoAbstract__Group__4__Impl )
-            // InternalPubProto.g:1612:2: rule__ProtoAbstract__Group__4__Impl
+            // InternalPubProto.g:1604:1: ( rule__ProtoAbstract__Group__4__Impl )
+            // InternalPubProto.g:1605:2: rule__ProtoAbstract__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoAbstract__Group__4__Impl();
@@ -5146,17 +5110,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbstract__Group__4__Impl"
-    // InternalPubProto.g:1618:1: rule__ProtoAbstract__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:1611:1: rule__ProtoAbstract__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoAbstract__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1622:1: ( ( '}' ) )
-            // InternalPubProto.g:1623:1: ( '}' )
+            // InternalPubProto.g:1615:1: ( ( '}' ) )
+            // InternalPubProto.g:1616:1: ( '}' )
             {
-            // InternalPubProto.g:1623:1: ( '}' )
-            // InternalPubProto.g:1624:2: '}'
+            // InternalPubProto.g:1616:1: ( '}' )
+            // InternalPubProto.g:1617:2: '}'
             {
              before(grammarAccess.getProtoAbstractAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -5183,14 +5147,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__0"
-    // InternalPubProto.g:1634:1: rule__ProtoPreface__Group__0 : rule__ProtoPreface__Group__0__Impl rule__ProtoPreface__Group__1 ;
+    // InternalPubProto.g:1627:1: rule__ProtoPreface__Group__0 : rule__ProtoPreface__Group__0__Impl rule__ProtoPreface__Group__1 ;
     public final void rule__ProtoPreface__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1638:1: ( rule__ProtoPreface__Group__0__Impl rule__ProtoPreface__Group__1 )
-            // InternalPubProto.g:1639:2: rule__ProtoPreface__Group__0__Impl rule__ProtoPreface__Group__1
+            // InternalPubProto.g:1631:1: ( rule__ProtoPreface__Group__0__Impl rule__ProtoPreface__Group__1 )
+            // InternalPubProto.g:1632:2: rule__ProtoPreface__Group__0__Impl rule__ProtoPreface__Group__1
             {
             pushFollow(FOLLOW_21);
             rule__ProtoPreface__Group__0__Impl();
@@ -5221,21 +5185,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__0__Impl"
-    // InternalPubProto.g:1646:1: rule__ProtoPreface__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:1639:1: rule__ProtoPreface__Group__0__Impl : ( () ) ;
     public final void rule__ProtoPreface__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1650:1: ( ( () ) )
-            // InternalPubProto.g:1651:1: ( () )
+            // InternalPubProto.g:1643:1: ( ( () ) )
+            // InternalPubProto.g:1644:1: ( () )
             {
-            // InternalPubProto.g:1651:1: ( () )
-            // InternalPubProto.g:1652:2: ()
+            // InternalPubProto.g:1644:1: ( () )
+            // InternalPubProto.g:1645:2: ()
             {
              before(grammarAccess.getProtoPrefaceAccess().getProtoPrefaceAction_0()); 
-            // InternalPubProto.g:1653:2: ()
-            // InternalPubProto.g:1653:3: 
+            // InternalPubProto.g:1646:2: ()
+            // InternalPubProto.g:1646:3: 
             {
             }
 
@@ -5258,14 +5222,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__1"
-    // InternalPubProto.g:1661:1: rule__ProtoPreface__Group__1 : rule__ProtoPreface__Group__1__Impl rule__ProtoPreface__Group__2 ;
+    // InternalPubProto.g:1654:1: rule__ProtoPreface__Group__1 : rule__ProtoPreface__Group__1__Impl rule__ProtoPreface__Group__2 ;
     public final void rule__ProtoPreface__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1665:1: ( rule__ProtoPreface__Group__1__Impl rule__ProtoPreface__Group__2 )
-            // InternalPubProto.g:1666:2: rule__ProtoPreface__Group__1__Impl rule__ProtoPreface__Group__2
+            // InternalPubProto.g:1658:1: ( rule__ProtoPreface__Group__1__Impl rule__ProtoPreface__Group__2 )
+            // InternalPubProto.g:1659:2: rule__ProtoPreface__Group__1__Impl rule__ProtoPreface__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoPreface__Group__1__Impl();
@@ -5296,17 +5260,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__1__Impl"
-    // InternalPubProto.g:1673:1: rule__ProtoPreface__Group__1__Impl : ( 'Preface' ) ;
+    // InternalPubProto.g:1666:1: rule__ProtoPreface__Group__1__Impl : ( 'Preface' ) ;
     public final void rule__ProtoPreface__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1677:1: ( ( 'Preface' ) )
-            // InternalPubProto.g:1678:1: ( 'Preface' )
+            // InternalPubProto.g:1670:1: ( ( 'Preface' ) )
+            // InternalPubProto.g:1671:1: ( 'Preface' )
             {
-            // InternalPubProto.g:1678:1: ( 'Preface' )
-            // InternalPubProto.g:1679:2: 'Preface'
+            // InternalPubProto.g:1671:1: ( 'Preface' )
+            // InternalPubProto.g:1672:2: 'Preface'
             {
              before(grammarAccess.getProtoPrefaceAccess().getPrefaceKeyword_1()); 
             match(input,31,FOLLOW_2); 
@@ -5333,14 +5297,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__2"
-    // InternalPubProto.g:1688:1: rule__ProtoPreface__Group__2 : rule__ProtoPreface__Group__2__Impl rule__ProtoPreface__Group__3 ;
+    // InternalPubProto.g:1681:1: rule__ProtoPreface__Group__2 : rule__ProtoPreface__Group__2__Impl rule__ProtoPreface__Group__3 ;
     public final void rule__ProtoPreface__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1692:1: ( rule__ProtoPreface__Group__2__Impl rule__ProtoPreface__Group__3 )
-            // InternalPubProto.g:1693:2: rule__ProtoPreface__Group__2__Impl rule__ProtoPreface__Group__3
+            // InternalPubProto.g:1685:1: ( rule__ProtoPreface__Group__2__Impl rule__ProtoPreface__Group__3 )
+            // InternalPubProto.g:1686:2: rule__ProtoPreface__Group__2__Impl rule__ProtoPreface__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoPreface__Group__2__Impl();
@@ -5371,17 +5335,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__2__Impl"
-    // InternalPubProto.g:1700:1: rule__ProtoPreface__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:1693:1: rule__ProtoPreface__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoPreface__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1704:1: ( ( '{' ) )
-            // InternalPubProto.g:1705:1: ( '{' )
+            // InternalPubProto.g:1697:1: ( ( '{' ) )
+            // InternalPubProto.g:1698:1: ( '{' )
             {
-            // InternalPubProto.g:1705:1: ( '{' )
-            // InternalPubProto.g:1706:2: '{'
+            // InternalPubProto.g:1698:1: ( '{' )
+            // InternalPubProto.g:1699:2: '{'
             {
              before(grammarAccess.getProtoPrefaceAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -5408,14 +5372,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__3"
-    // InternalPubProto.g:1715:1: rule__ProtoPreface__Group__3 : rule__ProtoPreface__Group__3__Impl rule__ProtoPreface__Group__4 ;
+    // InternalPubProto.g:1708:1: rule__ProtoPreface__Group__3 : rule__ProtoPreface__Group__3__Impl rule__ProtoPreface__Group__4 ;
     public final void rule__ProtoPreface__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1719:1: ( rule__ProtoPreface__Group__3__Impl rule__ProtoPreface__Group__4 )
-            // InternalPubProto.g:1720:2: rule__ProtoPreface__Group__3__Impl rule__ProtoPreface__Group__4
+            // InternalPubProto.g:1712:1: ( rule__ProtoPreface__Group__3__Impl rule__ProtoPreface__Group__4 )
+            // InternalPubProto.g:1713:2: rule__ProtoPreface__Group__3__Impl rule__ProtoPreface__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoPreface__Group__3__Impl();
@@ -5446,17 +5410,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__3__Impl"
-    // InternalPubProto.g:1727:1: rule__ProtoPreface__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:1720:1: rule__ProtoPreface__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoPreface__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1731:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:1732:1: ( ruleSegmentBody )
+            // InternalPubProto.g:1724:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:1725:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:1732:1: ( ruleSegmentBody )
-            // InternalPubProto.g:1733:2: ruleSegmentBody
+            // InternalPubProto.g:1725:1: ( ruleSegmentBody )
+            // InternalPubProto.g:1726:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoPrefaceAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -5487,14 +5451,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__4"
-    // InternalPubProto.g:1742:1: rule__ProtoPreface__Group__4 : rule__ProtoPreface__Group__4__Impl ;
+    // InternalPubProto.g:1735:1: rule__ProtoPreface__Group__4 : rule__ProtoPreface__Group__4__Impl ;
     public final void rule__ProtoPreface__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1746:1: ( rule__ProtoPreface__Group__4__Impl )
-            // InternalPubProto.g:1747:2: rule__ProtoPreface__Group__4__Impl
+            // InternalPubProto.g:1739:1: ( rule__ProtoPreface__Group__4__Impl )
+            // InternalPubProto.g:1740:2: rule__ProtoPreface__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPreface__Group__4__Impl();
@@ -5520,17 +5484,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPreface__Group__4__Impl"
-    // InternalPubProto.g:1753:1: rule__ProtoPreface__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:1746:1: rule__ProtoPreface__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoPreface__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1757:1: ( ( '}' ) )
-            // InternalPubProto.g:1758:1: ( '}' )
+            // InternalPubProto.g:1750:1: ( ( '}' ) )
+            // InternalPubProto.g:1751:1: ( '}' )
             {
-            // InternalPubProto.g:1758:1: ( '}' )
-            // InternalPubProto.g:1759:2: '}'
+            // InternalPubProto.g:1751:1: ( '}' )
+            // InternalPubProto.g:1752:2: '}'
             {
              before(grammarAccess.getProtoPrefaceAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -5557,14 +5521,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__0"
-    // InternalPubProto.g:1769:1: rule__ProtoEpilogue__Group__0 : rule__ProtoEpilogue__Group__0__Impl rule__ProtoEpilogue__Group__1 ;
+    // InternalPubProto.g:1762:1: rule__ProtoEpilogue__Group__0 : rule__ProtoEpilogue__Group__0__Impl rule__ProtoEpilogue__Group__1 ;
     public final void rule__ProtoEpilogue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1773:1: ( rule__ProtoEpilogue__Group__0__Impl rule__ProtoEpilogue__Group__1 )
-            // InternalPubProto.g:1774:2: rule__ProtoEpilogue__Group__0__Impl rule__ProtoEpilogue__Group__1
+            // InternalPubProto.g:1766:1: ( rule__ProtoEpilogue__Group__0__Impl rule__ProtoEpilogue__Group__1 )
+            // InternalPubProto.g:1767:2: rule__ProtoEpilogue__Group__0__Impl rule__ProtoEpilogue__Group__1
             {
             pushFollow(FOLLOW_22);
             rule__ProtoEpilogue__Group__0__Impl();
@@ -5595,21 +5559,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__0__Impl"
-    // InternalPubProto.g:1781:1: rule__ProtoEpilogue__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:1774:1: rule__ProtoEpilogue__Group__0__Impl : ( () ) ;
     public final void rule__ProtoEpilogue__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1785:1: ( ( () ) )
-            // InternalPubProto.g:1786:1: ( () )
+            // InternalPubProto.g:1778:1: ( ( () ) )
+            // InternalPubProto.g:1779:1: ( () )
             {
-            // InternalPubProto.g:1786:1: ( () )
-            // InternalPubProto.g:1787:2: ()
+            // InternalPubProto.g:1779:1: ( () )
+            // InternalPubProto.g:1780:2: ()
             {
              before(grammarAccess.getProtoEpilogueAccess().getProtoEpilogueAction_0()); 
-            // InternalPubProto.g:1788:2: ()
-            // InternalPubProto.g:1788:3: 
+            // InternalPubProto.g:1781:2: ()
+            // InternalPubProto.g:1781:3: 
             {
             }
 
@@ -5632,14 +5596,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__1"
-    // InternalPubProto.g:1796:1: rule__ProtoEpilogue__Group__1 : rule__ProtoEpilogue__Group__1__Impl rule__ProtoEpilogue__Group__2 ;
+    // InternalPubProto.g:1789:1: rule__ProtoEpilogue__Group__1 : rule__ProtoEpilogue__Group__1__Impl rule__ProtoEpilogue__Group__2 ;
     public final void rule__ProtoEpilogue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1800:1: ( rule__ProtoEpilogue__Group__1__Impl rule__ProtoEpilogue__Group__2 )
-            // InternalPubProto.g:1801:2: rule__ProtoEpilogue__Group__1__Impl rule__ProtoEpilogue__Group__2
+            // InternalPubProto.g:1793:1: ( rule__ProtoEpilogue__Group__1__Impl rule__ProtoEpilogue__Group__2 )
+            // InternalPubProto.g:1794:2: rule__ProtoEpilogue__Group__1__Impl rule__ProtoEpilogue__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoEpilogue__Group__1__Impl();
@@ -5670,17 +5634,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__1__Impl"
-    // InternalPubProto.g:1808:1: rule__ProtoEpilogue__Group__1__Impl : ( 'Epilogue' ) ;
+    // InternalPubProto.g:1801:1: rule__ProtoEpilogue__Group__1__Impl : ( 'Epilogue' ) ;
     public final void rule__ProtoEpilogue__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1812:1: ( ( 'Epilogue' ) )
-            // InternalPubProto.g:1813:1: ( 'Epilogue' )
+            // InternalPubProto.g:1805:1: ( ( 'Epilogue' ) )
+            // InternalPubProto.g:1806:1: ( 'Epilogue' )
             {
-            // InternalPubProto.g:1813:1: ( 'Epilogue' )
-            // InternalPubProto.g:1814:2: 'Epilogue'
+            // InternalPubProto.g:1806:1: ( 'Epilogue' )
+            // InternalPubProto.g:1807:2: 'Epilogue'
             {
              before(grammarAccess.getProtoEpilogueAccess().getEpilogueKeyword_1()); 
             match(input,32,FOLLOW_2); 
@@ -5707,14 +5671,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__2"
-    // InternalPubProto.g:1823:1: rule__ProtoEpilogue__Group__2 : rule__ProtoEpilogue__Group__2__Impl rule__ProtoEpilogue__Group__3 ;
+    // InternalPubProto.g:1816:1: rule__ProtoEpilogue__Group__2 : rule__ProtoEpilogue__Group__2__Impl rule__ProtoEpilogue__Group__3 ;
     public final void rule__ProtoEpilogue__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1827:1: ( rule__ProtoEpilogue__Group__2__Impl rule__ProtoEpilogue__Group__3 )
-            // InternalPubProto.g:1828:2: rule__ProtoEpilogue__Group__2__Impl rule__ProtoEpilogue__Group__3
+            // InternalPubProto.g:1820:1: ( rule__ProtoEpilogue__Group__2__Impl rule__ProtoEpilogue__Group__3 )
+            // InternalPubProto.g:1821:2: rule__ProtoEpilogue__Group__2__Impl rule__ProtoEpilogue__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoEpilogue__Group__2__Impl();
@@ -5745,17 +5709,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__2__Impl"
-    // InternalPubProto.g:1835:1: rule__ProtoEpilogue__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:1828:1: rule__ProtoEpilogue__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoEpilogue__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1839:1: ( ( '{' ) )
-            // InternalPubProto.g:1840:1: ( '{' )
+            // InternalPubProto.g:1832:1: ( ( '{' ) )
+            // InternalPubProto.g:1833:1: ( '{' )
             {
-            // InternalPubProto.g:1840:1: ( '{' )
-            // InternalPubProto.g:1841:2: '{'
+            // InternalPubProto.g:1833:1: ( '{' )
+            // InternalPubProto.g:1834:2: '{'
             {
              before(grammarAccess.getProtoEpilogueAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -5782,14 +5746,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__3"
-    // InternalPubProto.g:1850:1: rule__ProtoEpilogue__Group__3 : rule__ProtoEpilogue__Group__3__Impl rule__ProtoEpilogue__Group__4 ;
+    // InternalPubProto.g:1843:1: rule__ProtoEpilogue__Group__3 : rule__ProtoEpilogue__Group__3__Impl rule__ProtoEpilogue__Group__4 ;
     public final void rule__ProtoEpilogue__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1854:1: ( rule__ProtoEpilogue__Group__3__Impl rule__ProtoEpilogue__Group__4 )
-            // InternalPubProto.g:1855:2: rule__ProtoEpilogue__Group__3__Impl rule__ProtoEpilogue__Group__4
+            // InternalPubProto.g:1847:1: ( rule__ProtoEpilogue__Group__3__Impl rule__ProtoEpilogue__Group__4 )
+            // InternalPubProto.g:1848:2: rule__ProtoEpilogue__Group__3__Impl rule__ProtoEpilogue__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoEpilogue__Group__3__Impl();
@@ -5820,17 +5784,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__3__Impl"
-    // InternalPubProto.g:1862:1: rule__ProtoEpilogue__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:1855:1: rule__ProtoEpilogue__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoEpilogue__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1866:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:1867:1: ( ruleSegmentBody )
+            // InternalPubProto.g:1859:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:1860:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:1867:1: ( ruleSegmentBody )
-            // InternalPubProto.g:1868:2: ruleSegmentBody
+            // InternalPubProto.g:1860:1: ( ruleSegmentBody )
+            // InternalPubProto.g:1861:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoEpilogueAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -5861,14 +5825,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__4"
-    // InternalPubProto.g:1877:1: rule__ProtoEpilogue__Group__4 : rule__ProtoEpilogue__Group__4__Impl ;
+    // InternalPubProto.g:1870:1: rule__ProtoEpilogue__Group__4 : rule__ProtoEpilogue__Group__4__Impl ;
     public final void rule__ProtoEpilogue__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1881:1: ( rule__ProtoEpilogue__Group__4__Impl )
-            // InternalPubProto.g:1882:2: rule__ProtoEpilogue__Group__4__Impl
+            // InternalPubProto.g:1874:1: ( rule__ProtoEpilogue__Group__4__Impl )
+            // InternalPubProto.g:1875:2: rule__ProtoEpilogue__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoEpilogue__Group__4__Impl();
@@ -5894,17 +5858,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoEpilogue__Group__4__Impl"
-    // InternalPubProto.g:1888:1: rule__ProtoEpilogue__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:1881:1: rule__ProtoEpilogue__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoEpilogue__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1892:1: ( ( '}' ) )
-            // InternalPubProto.g:1893:1: ( '}' )
+            // InternalPubProto.g:1885:1: ( ( '}' ) )
+            // InternalPubProto.g:1886:1: ( '}' )
             {
-            // InternalPubProto.g:1893:1: ( '}' )
-            // InternalPubProto.g:1894:2: '}'
+            // InternalPubProto.g:1886:1: ( '}' )
+            // InternalPubProto.g:1887:2: '}'
             {
              before(grammarAccess.getProtoEpilogueAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -5931,14 +5895,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__0"
-    // InternalPubProto.g:1904:1: rule__ProtoPublicationBody__Group__0 : rule__ProtoPublicationBody__Group__0__Impl rule__ProtoPublicationBody__Group__1 ;
+    // InternalPubProto.g:1897:1: rule__ProtoPublicationBody__Group__0 : rule__ProtoPublicationBody__Group__0__Impl rule__ProtoPublicationBody__Group__1 ;
     public final void rule__ProtoPublicationBody__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1908:1: ( rule__ProtoPublicationBody__Group__0__Impl rule__ProtoPublicationBody__Group__1 )
-            // InternalPubProto.g:1909:2: rule__ProtoPublicationBody__Group__0__Impl rule__ProtoPublicationBody__Group__1
+            // InternalPubProto.g:1901:1: ( rule__ProtoPublicationBody__Group__0__Impl rule__ProtoPublicationBody__Group__1 )
+            // InternalPubProto.g:1902:2: rule__ProtoPublicationBody__Group__0__Impl rule__ProtoPublicationBody__Group__1
             {
             pushFollow(FOLLOW_23);
             rule__ProtoPublicationBody__Group__0__Impl();
@@ -5969,21 +5933,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__0__Impl"
-    // InternalPubProto.g:1916:1: rule__ProtoPublicationBody__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:1909:1: rule__ProtoPublicationBody__Group__0__Impl : ( () ) ;
     public final void rule__ProtoPublicationBody__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1920:1: ( ( () ) )
-            // InternalPubProto.g:1921:1: ( () )
+            // InternalPubProto.g:1913:1: ( ( () ) )
+            // InternalPubProto.g:1914:1: ( () )
             {
-            // InternalPubProto.g:1921:1: ( () )
-            // InternalPubProto.g:1922:2: ()
+            // InternalPubProto.g:1914:1: ( () )
+            // InternalPubProto.g:1915:2: ()
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getProtoPublicationBodyAction_0()); 
-            // InternalPubProto.g:1923:2: ()
-            // InternalPubProto.g:1923:3: 
+            // InternalPubProto.g:1916:2: ()
+            // InternalPubProto.g:1916:3: 
             {
             }
 
@@ -6006,14 +5970,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__1"
-    // InternalPubProto.g:1931:1: rule__ProtoPublicationBody__Group__1 : rule__ProtoPublicationBody__Group__1__Impl rule__ProtoPublicationBody__Group__2 ;
+    // InternalPubProto.g:1924:1: rule__ProtoPublicationBody__Group__1 : rule__ProtoPublicationBody__Group__1__Impl rule__ProtoPublicationBody__Group__2 ;
     public final void rule__ProtoPublicationBody__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1935:1: ( rule__ProtoPublicationBody__Group__1__Impl rule__ProtoPublicationBody__Group__2 )
-            // InternalPubProto.g:1936:2: rule__ProtoPublicationBody__Group__1__Impl rule__ProtoPublicationBody__Group__2
+            // InternalPubProto.g:1928:1: ( rule__ProtoPublicationBody__Group__1__Impl rule__ProtoPublicationBody__Group__2 )
+            // InternalPubProto.g:1929:2: rule__ProtoPublicationBody__Group__1__Impl rule__ProtoPublicationBody__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoPublicationBody__Group__1__Impl();
@@ -6044,17 +6008,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__1__Impl"
-    // InternalPubProto.g:1943:1: rule__ProtoPublicationBody__Group__1__Impl : ( 'Body' ) ;
+    // InternalPubProto.g:1936:1: rule__ProtoPublicationBody__Group__1__Impl : ( 'Body' ) ;
     public final void rule__ProtoPublicationBody__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1947:1: ( ( 'Body' ) )
-            // InternalPubProto.g:1948:1: ( 'Body' )
+            // InternalPubProto.g:1940:1: ( ( 'Body' ) )
+            // InternalPubProto.g:1941:1: ( 'Body' )
             {
-            // InternalPubProto.g:1948:1: ( 'Body' )
-            // InternalPubProto.g:1949:2: 'Body'
+            // InternalPubProto.g:1941:1: ( 'Body' )
+            // InternalPubProto.g:1942:2: 'Body'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getBodyKeyword_1()); 
             match(input,33,FOLLOW_2); 
@@ -6081,14 +6045,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__2"
-    // InternalPubProto.g:1958:1: rule__ProtoPublicationBody__Group__2 : rule__ProtoPublicationBody__Group__2__Impl rule__ProtoPublicationBody__Group__3 ;
+    // InternalPubProto.g:1951:1: rule__ProtoPublicationBody__Group__2 : rule__ProtoPublicationBody__Group__2__Impl rule__ProtoPublicationBody__Group__3 ;
     public final void rule__ProtoPublicationBody__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1962:1: ( rule__ProtoPublicationBody__Group__2__Impl rule__ProtoPublicationBody__Group__3 )
-            // InternalPubProto.g:1963:2: rule__ProtoPublicationBody__Group__2__Impl rule__ProtoPublicationBody__Group__3
+            // InternalPubProto.g:1955:1: ( rule__ProtoPublicationBody__Group__2__Impl rule__ProtoPublicationBody__Group__3 )
+            // InternalPubProto.g:1956:2: rule__ProtoPublicationBody__Group__2__Impl rule__ProtoPublicationBody__Group__3
             {
             pushFollow(FOLLOW_24);
             rule__ProtoPublicationBody__Group__2__Impl();
@@ -6119,17 +6083,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__2__Impl"
-    // InternalPubProto.g:1970:1: rule__ProtoPublicationBody__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:1963:1: rule__ProtoPublicationBody__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoPublicationBody__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1974:1: ( ( '{' ) )
-            // InternalPubProto.g:1975:1: ( '{' )
+            // InternalPubProto.g:1967:1: ( ( '{' ) )
+            // InternalPubProto.g:1968:1: ( '{' )
             {
-            // InternalPubProto.g:1975:1: ( '{' )
-            // InternalPubProto.g:1976:2: '{'
+            // InternalPubProto.g:1968:1: ( '{' )
+            // InternalPubProto.g:1969:2: '{'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -6156,14 +6120,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__3"
-    // InternalPubProto.g:1985:1: rule__ProtoPublicationBody__Group__3 : rule__ProtoPublicationBody__Group__3__Impl rule__ProtoPublicationBody__Group__4 ;
+    // InternalPubProto.g:1978:1: rule__ProtoPublicationBody__Group__3 : rule__ProtoPublicationBody__Group__3__Impl rule__ProtoPublicationBody__Group__4 ;
     public final void rule__ProtoPublicationBody__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:1989:1: ( rule__ProtoPublicationBody__Group__3__Impl rule__ProtoPublicationBody__Group__4 )
-            // InternalPubProto.g:1990:2: rule__ProtoPublicationBody__Group__3__Impl rule__ProtoPublicationBody__Group__4
+            // InternalPubProto.g:1982:1: ( rule__ProtoPublicationBody__Group__3__Impl rule__ProtoPublicationBody__Group__4 )
+            // InternalPubProto.g:1983:2: rule__ProtoPublicationBody__Group__3__Impl rule__ProtoPublicationBody__Group__4
             {
             pushFollow(FOLLOW_24);
             rule__ProtoPublicationBody__Group__3__Impl();
@@ -6194,29 +6158,29 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__3__Impl"
-    // InternalPubProto.g:1997:1: rule__ProtoPublicationBody__Group__3__Impl : ( ( rule__ProtoPublicationBody__Group_3__0 )? ) ;
+    // InternalPubProto.g:1990:1: rule__ProtoPublicationBody__Group__3__Impl : ( ( rule__ProtoPublicationBody__Group_3__0 )? ) ;
     public final void rule__ProtoPublicationBody__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2001:1: ( ( ( rule__ProtoPublicationBody__Group_3__0 )? ) )
-            // InternalPubProto.g:2002:1: ( ( rule__ProtoPublicationBody__Group_3__0 )? )
+            // InternalPubProto.g:1994:1: ( ( ( rule__ProtoPublicationBody__Group_3__0 )? ) )
+            // InternalPubProto.g:1995:1: ( ( rule__ProtoPublicationBody__Group_3__0 )? )
             {
-            // InternalPubProto.g:2002:1: ( ( rule__ProtoPublicationBody__Group_3__0 )? )
-            // InternalPubProto.g:2003:2: ( rule__ProtoPublicationBody__Group_3__0 )?
+            // InternalPubProto.g:1995:1: ( ( rule__ProtoPublicationBody__Group_3__0 )? )
+            // InternalPubProto.g:1996:2: ( rule__ProtoPublicationBody__Group_3__0 )?
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getGroup_3()); 
-            // InternalPubProto.g:2004:2: ( rule__ProtoPublicationBody__Group_3__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalPubProto.g:1997:2: ( rule__ProtoPublicationBody__Group_3__0 )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==34) ) {
-                alt16=1;
+            if ( (LA15_0==34) ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // InternalPubProto.g:2004:3: rule__ProtoPublicationBody__Group_3__0
+                    // InternalPubProto.g:1997:3: rule__ProtoPublicationBody__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ProtoPublicationBody__Group_3__0();
@@ -6252,14 +6216,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__4"
-    // InternalPubProto.g:2012:1: rule__ProtoPublicationBody__Group__4 : rule__ProtoPublicationBody__Group__4__Impl rule__ProtoPublicationBody__Group__5 ;
+    // InternalPubProto.g:2005:1: rule__ProtoPublicationBody__Group__4 : rule__ProtoPublicationBody__Group__4__Impl rule__ProtoPublicationBody__Group__5 ;
     public final void rule__ProtoPublicationBody__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2016:1: ( rule__ProtoPublicationBody__Group__4__Impl rule__ProtoPublicationBody__Group__5 )
-            // InternalPubProto.g:2017:2: rule__ProtoPublicationBody__Group__4__Impl rule__ProtoPublicationBody__Group__5
+            // InternalPubProto.g:2009:1: ( rule__ProtoPublicationBody__Group__4__Impl rule__ProtoPublicationBody__Group__5 )
+            // InternalPubProto.g:2010:2: rule__ProtoPublicationBody__Group__4__Impl rule__ProtoPublicationBody__Group__5
             {
             pushFollow(FOLLOW_24);
             rule__ProtoPublicationBody__Group__4__Impl();
@@ -6290,29 +6254,29 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__4__Impl"
-    // InternalPubProto.g:2024:1: rule__ProtoPublicationBody__Group__4__Impl : ( ( rule__ProtoPublicationBody__Group_4__0 )? ) ;
+    // InternalPubProto.g:2017:1: rule__ProtoPublicationBody__Group__4__Impl : ( ( rule__ProtoPublicationBody__Group_4__0 )? ) ;
     public final void rule__ProtoPublicationBody__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2028:1: ( ( ( rule__ProtoPublicationBody__Group_4__0 )? ) )
-            // InternalPubProto.g:2029:1: ( ( rule__ProtoPublicationBody__Group_4__0 )? )
+            // InternalPubProto.g:2021:1: ( ( ( rule__ProtoPublicationBody__Group_4__0 )? ) )
+            // InternalPubProto.g:2022:1: ( ( rule__ProtoPublicationBody__Group_4__0 )? )
             {
-            // InternalPubProto.g:2029:1: ( ( rule__ProtoPublicationBody__Group_4__0 )? )
-            // InternalPubProto.g:2030:2: ( rule__ProtoPublicationBody__Group_4__0 )?
+            // InternalPubProto.g:2022:1: ( ( rule__ProtoPublicationBody__Group_4__0 )? )
+            // InternalPubProto.g:2023:2: ( rule__ProtoPublicationBody__Group_4__0 )?
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getGroup_4()); 
-            // InternalPubProto.g:2031:2: ( rule__ProtoPublicationBody__Group_4__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalPubProto.g:2024:2: ( rule__ProtoPublicationBody__Group_4__0 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA17_0==35) ) {
-                alt17=1;
+            if ( (LA16_0==35) ) {
+                alt16=1;
             }
-            switch (alt17) {
+            switch (alt16) {
                 case 1 :
-                    // InternalPubProto.g:2031:3: rule__ProtoPublicationBody__Group_4__0
+                    // InternalPubProto.g:2024:3: rule__ProtoPublicationBody__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ProtoPublicationBody__Group_4__0();
@@ -6348,14 +6312,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__5"
-    // InternalPubProto.g:2039:1: rule__ProtoPublicationBody__Group__5 : rule__ProtoPublicationBody__Group__5__Impl ;
+    // InternalPubProto.g:2032:1: rule__ProtoPublicationBody__Group__5 : rule__ProtoPublicationBody__Group__5__Impl ;
     public final void rule__ProtoPublicationBody__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2043:1: ( rule__ProtoPublicationBody__Group__5__Impl )
-            // InternalPubProto.g:2044:2: rule__ProtoPublicationBody__Group__5__Impl
+            // InternalPubProto.g:2036:1: ( rule__ProtoPublicationBody__Group__5__Impl )
+            // InternalPubProto.g:2037:2: rule__ProtoPublicationBody__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPublicationBody__Group__5__Impl();
@@ -6381,17 +6345,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group__5__Impl"
-    // InternalPubProto.g:2050:1: rule__ProtoPublicationBody__Group__5__Impl : ( '}' ) ;
+    // InternalPubProto.g:2043:1: rule__ProtoPublicationBody__Group__5__Impl : ( '}' ) ;
     public final void rule__ProtoPublicationBody__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2054:1: ( ( '}' ) )
-            // InternalPubProto.g:2055:1: ( '}' )
+            // InternalPubProto.g:2047:1: ( ( '}' ) )
+            // InternalPubProto.g:2048:1: ( '}' )
             {
-            // InternalPubProto.g:2055:1: ( '}' )
-            // InternalPubProto.g:2056:2: '}'
+            // InternalPubProto.g:2048:1: ( '}' )
+            // InternalPubProto.g:2049:2: '}'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getRightCurlyBracketKeyword_5()); 
             match(input,30,FOLLOW_2); 
@@ -6418,14 +6382,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_3__0"
-    // InternalPubProto.g:2066:1: rule__ProtoPublicationBody__Group_3__0 : rule__ProtoPublicationBody__Group_3__0__Impl rule__ProtoPublicationBody__Group_3__1 ;
+    // InternalPubProto.g:2059:1: rule__ProtoPublicationBody__Group_3__0 : rule__ProtoPublicationBody__Group_3__0__Impl rule__ProtoPublicationBody__Group_3__1 ;
     public final void rule__ProtoPublicationBody__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2070:1: ( rule__ProtoPublicationBody__Group_3__0__Impl rule__ProtoPublicationBody__Group_3__1 )
-            // InternalPubProto.g:2071:2: rule__ProtoPublicationBody__Group_3__0__Impl rule__ProtoPublicationBody__Group_3__1
+            // InternalPubProto.g:2063:1: ( rule__ProtoPublicationBody__Group_3__0__Impl rule__ProtoPublicationBody__Group_3__1 )
+            // InternalPubProto.g:2064:2: rule__ProtoPublicationBody__Group_3__0__Impl rule__ProtoPublicationBody__Group_3__1
             {
             pushFollow(FOLLOW_16);
             rule__ProtoPublicationBody__Group_3__0__Impl();
@@ -6456,17 +6420,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_3__0__Impl"
-    // InternalPubProto.g:2078:1: rule__ProtoPublicationBody__Group_3__0__Impl : ( 'parts:' ) ;
+    // InternalPubProto.g:2071:1: rule__ProtoPublicationBody__Group_3__0__Impl : ( 'parts:' ) ;
     public final void rule__ProtoPublicationBody__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2082:1: ( ( 'parts:' ) )
-            // InternalPubProto.g:2083:1: ( 'parts:' )
+            // InternalPubProto.g:2075:1: ( ( 'parts:' ) )
+            // InternalPubProto.g:2076:1: ( 'parts:' )
             {
-            // InternalPubProto.g:2083:1: ( 'parts:' )
-            // InternalPubProto.g:2084:2: 'parts:'
+            // InternalPubProto.g:2076:1: ( 'parts:' )
+            // InternalPubProto.g:2077:2: 'parts:'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getPartsKeyword_3_0()); 
             match(input,34,FOLLOW_2); 
@@ -6493,14 +6457,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_3__1"
-    // InternalPubProto.g:2093:1: rule__ProtoPublicationBody__Group_3__1 : rule__ProtoPublicationBody__Group_3__1__Impl ;
+    // InternalPubProto.g:2086:1: rule__ProtoPublicationBody__Group_3__1 : rule__ProtoPublicationBody__Group_3__1__Impl ;
     public final void rule__ProtoPublicationBody__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2097:1: ( rule__ProtoPublicationBody__Group_3__1__Impl )
-            // InternalPubProto.g:2098:2: rule__ProtoPublicationBody__Group_3__1__Impl
+            // InternalPubProto.g:2090:1: ( rule__ProtoPublicationBody__Group_3__1__Impl )
+            // InternalPubProto.g:2091:2: rule__ProtoPublicationBody__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPublicationBody__Group_3__1__Impl();
@@ -6526,21 +6490,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_3__1__Impl"
-    // InternalPubProto.g:2104:1: rule__ProtoPublicationBody__Group_3__1__Impl : ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) ) ;
+    // InternalPubProto.g:2097:1: rule__ProtoPublicationBody__Group_3__1__Impl : ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) ) ;
     public final void rule__ProtoPublicationBody__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2108:1: ( ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) ) )
-            // InternalPubProto.g:2109:1: ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) )
+            // InternalPubProto.g:2101:1: ( ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) ) )
+            // InternalPubProto.g:2102:1: ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) )
             {
-            // InternalPubProto.g:2109:1: ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) )
-            // InternalPubProto.g:2110:2: ( rule__ProtoPublicationBody__Alternatives_3_1 )
+            // InternalPubProto.g:2102:1: ( ( rule__ProtoPublicationBody__Alternatives_3_1 ) )
+            // InternalPubProto.g:2103:2: ( rule__ProtoPublicationBody__Alternatives_3_1 )
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAlternatives_3_1()); 
-            // InternalPubProto.g:2111:2: ( rule__ProtoPublicationBody__Alternatives_3_1 )
-            // InternalPubProto.g:2111:3: rule__ProtoPublicationBody__Alternatives_3_1
+            // InternalPubProto.g:2104:2: ( rule__ProtoPublicationBody__Alternatives_3_1 )
+            // InternalPubProto.g:2104:3: rule__ProtoPublicationBody__Alternatives_3_1
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPublicationBody__Alternatives_3_1();
@@ -6573,14 +6537,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_4__0"
-    // InternalPubProto.g:2120:1: rule__ProtoPublicationBody__Group_4__0 : rule__ProtoPublicationBody__Group_4__0__Impl rule__ProtoPublicationBody__Group_4__1 ;
+    // InternalPubProto.g:2113:1: rule__ProtoPublicationBody__Group_4__0 : rule__ProtoPublicationBody__Group_4__0__Impl rule__ProtoPublicationBody__Group_4__1 ;
     public final void rule__ProtoPublicationBody__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2124:1: ( rule__ProtoPublicationBody__Group_4__0__Impl rule__ProtoPublicationBody__Group_4__1 )
-            // InternalPubProto.g:2125:2: rule__ProtoPublicationBody__Group_4__0__Impl rule__ProtoPublicationBody__Group_4__1
+            // InternalPubProto.g:2117:1: ( rule__ProtoPublicationBody__Group_4__0__Impl rule__ProtoPublicationBody__Group_4__1 )
+            // InternalPubProto.g:2118:2: rule__ProtoPublicationBody__Group_4__0__Impl rule__ProtoPublicationBody__Group_4__1
             {
             pushFollow(FOLLOW_16);
             rule__ProtoPublicationBody__Group_4__0__Impl();
@@ -6611,17 +6575,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_4__0__Impl"
-    // InternalPubProto.g:2132:1: rule__ProtoPublicationBody__Group_4__0__Impl : ( 'appendix:' ) ;
+    // InternalPubProto.g:2125:1: rule__ProtoPublicationBody__Group_4__0__Impl : ( 'appendix:' ) ;
     public final void rule__ProtoPublicationBody__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2136:1: ( ( 'appendix:' ) )
-            // InternalPubProto.g:2137:1: ( 'appendix:' )
+            // InternalPubProto.g:2129:1: ( ( 'appendix:' ) )
+            // InternalPubProto.g:2130:1: ( 'appendix:' )
             {
-            // InternalPubProto.g:2137:1: ( 'appendix:' )
-            // InternalPubProto.g:2138:2: 'appendix:'
+            // InternalPubProto.g:2130:1: ( 'appendix:' )
+            // InternalPubProto.g:2131:2: 'appendix:'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAppendixKeyword_4_0()); 
             match(input,35,FOLLOW_2); 
@@ -6648,14 +6612,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_4__1"
-    // InternalPubProto.g:2147:1: rule__ProtoPublicationBody__Group_4__1 : rule__ProtoPublicationBody__Group_4__1__Impl ;
+    // InternalPubProto.g:2140:1: rule__ProtoPublicationBody__Group_4__1 : rule__ProtoPublicationBody__Group_4__1__Impl ;
     public final void rule__ProtoPublicationBody__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2151:1: ( rule__ProtoPublicationBody__Group_4__1__Impl )
-            // InternalPubProto.g:2152:2: rule__ProtoPublicationBody__Group_4__1__Impl
+            // InternalPubProto.g:2144:1: ( rule__ProtoPublicationBody__Group_4__1__Impl )
+            // InternalPubProto.g:2145:2: rule__ProtoPublicationBody__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPublicationBody__Group_4__1__Impl();
@@ -6681,21 +6645,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__Group_4__1__Impl"
-    // InternalPubProto.g:2158:1: rule__ProtoPublicationBody__Group_4__1__Impl : ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) ) ;
+    // InternalPubProto.g:2151:1: rule__ProtoPublicationBody__Group_4__1__Impl : ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) ) ;
     public final void rule__ProtoPublicationBody__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2162:1: ( ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) ) )
-            // InternalPubProto.g:2163:1: ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) )
+            // InternalPubProto.g:2155:1: ( ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) ) )
+            // InternalPubProto.g:2156:1: ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) )
             {
-            // InternalPubProto.g:2163:1: ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) )
-            // InternalPubProto.g:2164:2: ( rule__ProtoPublicationBody__Alternatives_4_1 )
+            // InternalPubProto.g:2156:1: ( ( rule__ProtoPublicationBody__Alternatives_4_1 ) )
+            // InternalPubProto.g:2157:2: ( rule__ProtoPublicationBody__Alternatives_4_1 )
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAlternatives_4_1()); 
-            // InternalPubProto.g:2165:2: ( rule__ProtoPublicationBody__Alternatives_4_1 )
-            // InternalPubProto.g:2165:3: rule__ProtoPublicationBody__Alternatives_4_1
+            // InternalPubProto.g:2158:2: ( rule__ProtoPublicationBody__Alternatives_4_1 )
+            // InternalPubProto.g:2158:3: rule__ProtoPublicationBody__Alternatives_4_1
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPublicationBody__Alternatives_4_1();
@@ -6728,14 +6692,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__0"
-    // InternalPubProto.g:2174:1: rule__ProtoChangeHistory__Group__0 : rule__ProtoChangeHistory__Group__0__Impl rule__ProtoChangeHistory__Group__1 ;
+    // InternalPubProto.g:2167:1: rule__ProtoChangeHistory__Group__0 : rule__ProtoChangeHistory__Group__0__Impl rule__ProtoChangeHistory__Group__1 ;
     public final void rule__ProtoChangeHistory__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2178:1: ( rule__ProtoChangeHistory__Group__0__Impl rule__ProtoChangeHistory__Group__1 )
-            // InternalPubProto.g:2179:2: rule__ProtoChangeHistory__Group__0__Impl rule__ProtoChangeHistory__Group__1
+            // InternalPubProto.g:2171:1: ( rule__ProtoChangeHistory__Group__0__Impl rule__ProtoChangeHistory__Group__1 )
+            // InternalPubProto.g:2172:2: rule__ProtoChangeHistory__Group__0__Impl rule__ProtoChangeHistory__Group__1
             {
             pushFollow(FOLLOW_25);
             rule__ProtoChangeHistory__Group__0__Impl();
@@ -6766,21 +6730,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__0__Impl"
-    // InternalPubProto.g:2186:1: rule__ProtoChangeHistory__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:2179:1: rule__ProtoChangeHistory__Group__0__Impl : ( () ) ;
     public final void rule__ProtoChangeHistory__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2190:1: ( ( () ) )
-            // InternalPubProto.g:2191:1: ( () )
+            // InternalPubProto.g:2183:1: ( ( () ) )
+            // InternalPubProto.g:2184:1: ( () )
             {
-            // InternalPubProto.g:2191:1: ( () )
-            // InternalPubProto.g:2192:2: ()
+            // InternalPubProto.g:2184:1: ( () )
+            // InternalPubProto.g:2185:2: ()
             {
              before(grammarAccess.getProtoChangeHistoryAccess().getProtoChangeHistoryAction_0()); 
-            // InternalPubProto.g:2193:2: ()
-            // InternalPubProto.g:2193:3: 
+            // InternalPubProto.g:2186:2: ()
+            // InternalPubProto.g:2186:3: 
             {
             }
 
@@ -6803,14 +6767,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__1"
-    // InternalPubProto.g:2201:1: rule__ProtoChangeHistory__Group__1 : rule__ProtoChangeHistory__Group__1__Impl rule__ProtoChangeHistory__Group__2 ;
+    // InternalPubProto.g:2194:1: rule__ProtoChangeHistory__Group__1 : rule__ProtoChangeHistory__Group__1__Impl rule__ProtoChangeHistory__Group__2 ;
     public final void rule__ProtoChangeHistory__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2205:1: ( rule__ProtoChangeHistory__Group__1__Impl rule__ProtoChangeHistory__Group__2 )
-            // InternalPubProto.g:2206:2: rule__ProtoChangeHistory__Group__1__Impl rule__ProtoChangeHistory__Group__2
+            // InternalPubProto.g:2198:1: ( rule__ProtoChangeHistory__Group__1__Impl rule__ProtoChangeHistory__Group__2 )
+            // InternalPubProto.g:2199:2: rule__ProtoChangeHistory__Group__1__Impl rule__ProtoChangeHistory__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoChangeHistory__Group__1__Impl();
@@ -6841,17 +6805,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__1__Impl"
-    // InternalPubProto.g:2213:1: rule__ProtoChangeHistory__Group__1__Impl : ( 'ChangeHistory' ) ;
+    // InternalPubProto.g:2206:1: rule__ProtoChangeHistory__Group__1__Impl : ( 'ChangeHistory' ) ;
     public final void rule__ProtoChangeHistory__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2217:1: ( ( 'ChangeHistory' ) )
-            // InternalPubProto.g:2218:1: ( 'ChangeHistory' )
+            // InternalPubProto.g:2210:1: ( ( 'ChangeHistory' ) )
+            // InternalPubProto.g:2211:1: ( 'ChangeHistory' )
             {
-            // InternalPubProto.g:2218:1: ( 'ChangeHistory' )
-            // InternalPubProto.g:2219:2: 'ChangeHistory'
+            // InternalPubProto.g:2211:1: ( 'ChangeHistory' )
+            // InternalPubProto.g:2212:2: 'ChangeHistory'
             {
              before(grammarAccess.getProtoChangeHistoryAccess().getChangeHistoryKeyword_1()); 
             match(input,36,FOLLOW_2); 
@@ -6878,14 +6842,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__2"
-    // InternalPubProto.g:2228:1: rule__ProtoChangeHistory__Group__2 : rule__ProtoChangeHistory__Group__2__Impl rule__ProtoChangeHistory__Group__3 ;
+    // InternalPubProto.g:2221:1: rule__ProtoChangeHistory__Group__2 : rule__ProtoChangeHistory__Group__2__Impl rule__ProtoChangeHistory__Group__3 ;
     public final void rule__ProtoChangeHistory__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2232:1: ( rule__ProtoChangeHistory__Group__2__Impl rule__ProtoChangeHistory__Group__3 )
-            // InternalPubProto.g:2233:2: rule__ProtoChangeHistory__Group__2__Impl rule__ProtoChangeHistory__Group__3
+            // InternalPubProto.g:2225:1: ( rule__ProtoChangeHistory__Group__2__Impl rule__ProtoChangeHistory__Group__3 )
+            // InternalPubProto.g:2226:2: rule__ProtoChangeHistory__Group__2__Impl rule__ProtoChangeHistory__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoChangeHistory__Group__2__Impl();
@@ -6916,17 +6880,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__2__Impl"
-    // InternalPubProto.g:2240:1: rule__ProtoChangeHistory__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:2233:1: rule__ProtoChangeHistory__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoChangeHistory__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2244:1: ( ( '{' ) )
-            // InternalPubProto.g:2245:1: ( '{' )
+            // InternalPubProto.g:2237:1: ( ( '{' ) )
+            // InternalPubProto.g:2238:1: ( '{' )
             {
-            // InternalPubProto.g:2245:1: ( '{' )
-            // InternalPubProto.g:2246:2: '{'
+            // InternalPubProto.g:2238:1: ( '{' )
+            // InternalPubProto.g:2239:2: '{'
             {
              before(grammarAccess.getProtoChangeHistoryAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -6953,14 +6917,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__3"
-    // InternalPubProto.g:2255:1: rule__ProtoChangeHistory__Group__3 : rule__ProtoChangeHistory__Group__3__Impl rule__ProtoChangeHistory__Group__4 ;
+    // InternalPubProto.g:2248:1: rule__ProtoChangeHistory__Group__3 : rule__ProtoChangeHistory__Group__3__Impl rule__ProtoChangeHistory__Group__4 ;
     public final void rule__ProtoChangeHistory__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2259:1: ( rule__ProtoChangeHistory__Group__3__Impl rule__ProtoChangeHistory__Group__4 )
-            // InternalPubProto.g:2260:2: rule__ProtoChangeHistory__Group__3__Impl rule__ProtoChangeHistory__Group__4
+            // InternalPubProto.g:2252:1: ( rule__ProtoChangeHistory__Group__3__Impl rule__ProtoChangeHistory__Group__4 )
+            // InternalPubProto.g:2253:2: rule__ProtoChangeHistory__Group__3__Impl rule__ProtoChangeHistory__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoChangeHistory__Group__3__Impl();
@@ -6991,17 +6955,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__3__Impl"
-    // InternalPubProto.g:2267:1: rule__ProtoChangeHistory__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:2260:1: rule__ProtoChangeHistory__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoChangeHistory__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2271:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:2272:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2264:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:2265:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:2272:1: ( ruleSegmentBody )
-            // InternalPubProto.g:2273:2: ruleSegmentBody
+            // InternalPubProto.g:2265:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2266:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoChangeHistoryAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -7032,14 +6996,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__4"
-    // InternalPubProto.g:2282:1: rule__ProtoChangeHistory__Group__4 : rule__ProtoChangeHistory__Group__4__Impl ;
+    // InternalPubProto.g:2275:1: rule__ProtoChangeHistory__Group__4 : rule__ProtoChangeHistory__Group__4__Impl ;
     public final void rule__ProtoChangeHistory__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2286:1: ( rule__ProtoChangeHistory__Group__4__Impl )
-            // InternalPubProto.g:2287:2: rule__ProtoChangeHistory__Group__4__Impl
+            // InternalPubProto.g:2279:1: ( rule__ProtoChangeHistory__Group__4__Impl )
+            // InternalPubProto.g:2280:2: rule__ProtoChangeHistory__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoChangeHistory__Group__4__Impl();
@@ -7065,17 +7029,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChangeHistory__Group__4__Impl"
-    // InternalPubProto.g:2293:1: rule__ProtoChangeHistory__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:2286:1: rule__ProtoChangeHistory__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoChangeHistory__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2297:1: ( ( '}' ) )
-            // InternalPubProto.g:2298:1: ( '}' )
+            // InternalPubProto.g:2290:1: ( ( '}' ) )
+            // InternalPubProto.g:2291:1: ( '}' )
             {
-            // InternalPubProto.g:2298:1: ( '}' )
-            // InternalPubProto.g:2299:2: '}'
+            // InternalPubProto.g:2291:1: ( '}' )
+            // InternalPubProto.g:2292:2: '}'
             {
              before(grammarAccess.getProtoChangeHistoryAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -7102,14 +7066,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__0"
-    // InternalPubProto.g:2309:1: rule__ProtoTOC__Group__0 : rule__ProtoTOC__Group__0__Impl rule__ProtoTOC__Group__1 ;
+    // InternalPubProto.g:2302:1: rule__ProtoTOC__Group__0 : rule__ProtoTOC__Group__0__Impl rule__ProtoTOC__Group__1 ;
     public final void rule__ProtoTOC__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2313:1: ( rule__ProtoTOC__Group__0__Impl rule__ProtoTOC__Group__1 )
-            // InternalPubProto.g:2314:2: rule__ProtoTOC__Group__0__Impl rule__ProtoTOC__Group__1
+            // InternalPubProto.g:2306:1: ( rule__ProtoTOC__Group__0__Impl rule__ProtoTOC__Group__1 )
+            // InternalPubProto.g:2307:2: rule__ProtoTOC__Group__0__Impl rule__ProtoTOC__Group__1
             {
             pushFollow(FOLLOW_26);
             rule__ProtoTOC__Group__0__Impl();
@@ -7140,21 +7104,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__0__Impl"
-    // InternalPubProto.g:2321:1: rule__ProtoTOC__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:2314:1: rule__ProtoTOC__Group__0__Impl : ( () ) ;
     public final void rule__ProtoTOC__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2325:1: ( ( () ) )
-            // InternalPubProto.g:2326:1: ( () )
+            // InternalPubProto.g:2318:1: ( ( () ) )
+            // InternalPubProto.g:2319:1: ( () )
             {
-            // InternalPubProto.g:2326:1: ( () )
-            // InternalPubProto.g:2327:2: ()
+            // InternalPubProto.g:2319:1: ( () )
+            // InternalPubProto.g:2320:2: ()
             {
              before(grammarAccess.getProtoTOCAccess().getProtoTOCAction_0()); 
-            // InternalPubProto.g:2328:2: ()
-            // InternalPubProto.g:2328:3: 
+            // InternalPubProto.g:2321:2: ()
+            // InternalPubProto.g:2321:3: 
             {
             }
 
@@ -7177,14 +7141,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__1"
-    // InternalPubProto.g:2336:1: rule__ProtoTOC__Group__1 : rule__ProtoTOC__Group__1__Impl rule__ProtoTOC__Group__2 ;
+    // InternalPubProto.g:2329:1: rule__ProtoTOC__Group__1 : rule__ProtoTOC__Group__1__Impl rule__ProtoTOC__Group__2 ;
     public final void rule__ProtoTOC__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2340:1: ( rule__ProtoTOC__Group__1__Impl rule__ProtoTOC__Group__2 )
-            // InternalPubProto.g:2341:2: rule__ProtoTOC__Group__1__Impl rule__ProtoTOC__Group__2
+            // InternalPubProto.g:2333:1: ( rule__ProtoTOC__Group__1__Impl rule__ProtoTOC__Group__2 )
+            // InternalPubProto.g:2334:2: rule__ProtoTOC__Group__1__Impl rule__ProtoTOC__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoTOC__Group__1__Impl();
@@ -7215,17 +7179,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__1__Impl"
-    // InternalPubProto.g:2348:1: rule__ProtoTOC__Group__1__Impl : ( 'TableOfContents' ) ;
+    // InternalPubProto.g:2341:1: rule__ProtoTOC__Group__1__Impl : ( 'TableOfContents' ) ;
     public final void rule__ProtoTOC__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2352:1: ( ( 'TableOfContents' ) )
-            // InternalPubProto.g:2353:1: ( 'TableOfContents' )
+            // InternalPubProto.g:2345:1: ( ( 'TableOfContents' ) )
+            // InternalPubProto.g:2346:1: ( 'TableOfContents' )
             {
-            // InternalPubProto.g:2353:1: ( 'TableOfContents' )
-            // InternalPubProto.g:2354:2: 'TableOfContents'
+            // InternalPubProto.g:2346:1: ( 'TableOfContents' )
+            // InternalPubProto.g:2347:2: 'TableOfContents'
             {
              before(grammarAccess.getProtoTOCAccess().getTableOfContentsKeyword_1()); 
             match(input,37,FOLLOW_2); 
@@ -7252,14 +7216,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__2"
-    // InternalPubProto.g:2363:1: rule__ProtoTOC__Group__2 : rule__ProtoTOC__Group__2__Impl rule__ProtoTOC__Group__3 ;
+    // InternalPubProto.g:2356:1: rule__ProtoTOC__Group__2 : rule__ProtoTOC__Group__2__Impl rule__ProtoTOC__Group__3 ;
     public final void rule__ProtoTOC__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2367:1: ( rule__ProtoTOC__Group__2__Impl rule__ProtoTOC__Group__3 )
-            // InternalPubProto.g:2368:2: rule__ProtoTOC__Group__2__Impl rule__ProtoTOC__Group__3
+            // InternalPubProto.g:2360:1: ( rule__ProtoTOC__Group__2__Impl rule__ProtoTOC__Group__3 )
+            // InternalPubProto.g:2361:2: rule__ProtoTOC__Group__2__Impl rule__ProtoTOC__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoTOC__Group__2__Impl();
@@ -7290,17 +7254,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__2__Impl"
-    // InternalPubProto.g:2375:1: rule__ProtoTOC__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:2368:1: rule__ProtoTOC__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoTOC__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2379:1: ( ( '{' ) )
-            // InternalPubProto.g:2380:1: ( '{' )
+            // InternalPubProto.g:2372:1: ( ( '{' ) )
+            // InternalPubProto.g:2373:1: ( '{' )
             {
-            // InternalPubProto.g:2380:1: ( '{' )
-            // InternalPubProto.g:2381:2: '{'
+            // InternalPubProto.g:2373:1: ( '{' )
+            // InternalPubProto.g:2374:2: '{'
             {
              before(grammarAccess.getProtoTOCAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -7327,14 +7291,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__3"
-    // InternalPubProto.g:2390:1: rule__ProtoTOC__Group__3 : rule__ProtoTOC__Group__3__Impl rule__ProtoTOC__Group__4 ;
+    // InternalPubProto.g:2383:1: rule__ProtoTOC__Group__3 : rule__ProtoTOC__Group__3__Impl rule__ProtoTOC__Group__4 ;
     public final void rule__ProtoTOC__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2394:1: ( rule__ProtoTOC__Group__3__Impl rule__ProtoTOC__Group__4 )
-            // InternalPubProto.g:2395:2: rule__ProtoTOC__Group__3__Impl rule__ProtoTOC__Group__4
+            // InternalPubProto.g:2387:1: ( rule__ProtoTOC__Group__3__Impl rule__ProtoTOC__Group__4 )
+            // InternalPubProto.g:2388:2: rule__ProtoTOC__Group__3__Impl rule__ProtoTOC__Group__4
             {
             pushFollow(FOLLOW_27);
             rule__ProtoTOC__Group__3__Impl();
@@ -7365,17 +7329,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__3__Impl"
-    // InternalPubProto.g:2402:1: rule__ProtoTOC__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:2395:1: rule__ProtoTOC__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoTOC__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2406:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:2407:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2399:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:2400:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:2407:1: ( ruleSegmentBody )
-            // InternalPubProto.g:2408:2: ruleSegmentBody
+            // InternalPubProto.g:2400:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2401:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoTOCAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -7406,14 +7370,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__4"
-    // InternalPubProto.g:2417:1: rule__ProtoTOC__Group__4 : rule__ProtoTOC__Group__4__Impl rule__ProtoTOC__Group__5 ;
+    // InternalPubProto.g:2410:1: rule__ProtoTOC__Group__4 : rule__ProtoTOC__Group__4__Impl rule__ProtoTOC__Group__5 ;
     public final void rule__ProtoTOC__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2421:1: ( rule__ProtoTOC__Group__4__Impl rule__ProtoTOC__Group__5 )
-            // InternalPubProto.g:2422:2: rule__ProtoTOC__Group__4__Impl rule__ProtoTOC__Group__5
+            // InternalPubProto.g:2414:1: ( rule__ProtoTOC__Group__4__Impl rule__ProtoTOC__Group__5 )
+            // InternalPubProto.g:2415:2: rule__ProtoTOC__Group__4__Impl rule__ProtoTOC__Group__5
             {
             pushFollow(FOLLOW_27);
             rule__ProtoTOC__Group__4__Impl();
@@ -7444,29 +7408,29 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__4__Impl"
-    // InternalPubProto.g:2429:1: rule__ProtoTOC__Group__4__Impl : ( ( rule__ProtoTOC__Group_4__0 )? ) ;
+    // InternalPubProto.g:2422:1: rule__ProtoTOC__Group__4__Impl : ( ( rule__ProtoTOC__Group_4__0 )? ) ;
     public final void rule__ProtoTOC__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2433:1: ( ( ( rule__ProtoTOC__Group_4__0 )? ) )
-            // InternalPubProto.g:2434:1: ( ( rule__ProtoTOC__Group_4__0 )? )
+            // InternalPubProto.g:2426:1: ( ( ( rule__ProtoTOC__Group_4__0 )? ) )
+            // InternalPubProto.g:2427:1: ( ( rule__ProtoTOC__Group_4__0 )? )
             {
-            // InternalPubProto.g:2434:1: ( ( rule__ProtoTOC__Group_4__0 )? )
-            // InternalPubProto.g:2435:2: ( rule__ProtoTOC__Group_4__0 )?
+            // InternalPubProto.g:2427:1: ( ( rule__ProtoTOC__Group_4__0 )? )
+            // InternalPubProto.g:2428:2: ( rule__ProtoTOC__Group_4__0 )?
             {
              before(grammarAccess.getProtoTOCAccess().getGroup_4()); 
-            // InternalPubProto.g:2436:2: ( rule__ProtoTOC__Group_4__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalPubProto.g:2429:2: ( rule__ProtoTOC__Group_4__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA18_0==38) ) {
-                alt18=1;
+            if ( (LA17_0==38) ) {
+                alt17=1;
             }
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
-                    // InternalPubProto.g:2436:3: rule__ProtoTOC__Group_4__0
+                    // InternalPubProto.g:2429:3: rule__ProtoTOC__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ProtoTOC__Group_4__0();
@@ -7502,14 +7466,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__5"
-    // InternalPubProto.g:2444:1: rule__ProtoTOC__Group__5 : rule__ProtoTOC__Group__5__Impl ;
+    // InternalPubProto.g:2437:1: rule__ProtoTOC__Group__5 : rule__ProtoTOC__Group__5__Impl ;
     public final void rule__ProtoTOC__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2448:1: ( rule__ProtoTOC__Group__5__Impl )
-            // InternalPubProto.g:2449:2: rule__ProtoTOC__Group__5__Impl
+            // InternalPubProto.g:2441:1: ( rule__ProtoTOC__Group__5__Impl )
+            // InternalPubProto.g:2442:2: rule__ProtoTOC__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoTOC__Group__5__Impl();
@@ -7535,17 +7499,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group__5__Impl"
-    // InternalPubProto.g:2455:1: rule__ProtoTOC__Group__5__Impl : ( '}' ) ;
+    // InternalPubProto.g:2448:1: rule__ProtoTOC__Group__5__Impl : ( '}' ) ;
     public final void rule__ProtoTOC__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2459:1: ( ( '}' ) )
-            // InternalPubProto.g:2460:1: ( '}' )
+            // InternalPubProto.g:2452:1: ( ( '}' ) )
+            // InternalPubProto.g:2453:1: ( '}' )
             {
-            // InternalPubProto.g:2460:1: ( '}' )
-            // InternalPubProto.g:2461:2: '}'
+            // InternalPubProto.g:2453:1: ( '}' )
+            // InternalPubProto.g:2454:2: '}'
             {
              before(grammarAccess.getProtoTOCAccess().getRightCurlyBracketKeyword_5()); 
             match(input,30,FOLLOW_2); 
@@ -7572,14 +7536,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group_4__0"
-    // InternalPubProto.g:2471:1: rule__ProtoTOC__Group_4__0 : rule__ProtoTOC__Group_4__0__Impl rule__ProtoTOC__Group_4__1 ;
+    // InternalPubProto.g:2464:1: rule__ProtoTOC__Group_4__0 : rule__ProtoTOC__Group_4__0__Impl rule__ProtoTOC__Group_4__1 ;
     public final void rule__ProtoTOC__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2475:1: ( rule__ProtoTOC__Group_4__0__Impl rule__ProtoTOC__Group_4__1 )
-            // InternalPubProto.g:2476:2: rule__ProtoTOC__Group_4__0__Impl rule__ProtoTOC__Group_4__1
+            // InternalPubProto.g:2468:1: ( rule__ProtoTOC__Group_4__0__Impl rule__ProtoTOC__Group_4__1 )
+            // InternalPubProto.g:2469:2: rule__ProtoTOC__Group_4__0__Impl rule__ProtoTOC__Group_4__1
             {
             pushFollow(FOLLOW_28);
             rule__ProtoTOC__Group_4__0__Impl();
@@ -7610,17 +7574,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group_4__0__Impl"
-    // InternalPubProto.g:2483:1: rule__ProtoTOC__Group_4__0__Impl : ( 'maxLevel:' ) ;
+    // InternalPubProto.g:2476:1: rule__ProtoTOC__Group_4__0__Impl : ( 'maxLevel:' ) ;
     public final void rule__ProtoTOC__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2487:1: ( ( 'maxLevel:' ) )
-            // InternalPubProto.g:2488:1: ( 'maxLevel:' )
+            // InternalPubProto.g:2480:1: ( ( 'maxLevel:' ) )
+            // InternalPubProto.g:2481:1: ( 'maxLevel:' )
             {
-            // InternalPubProto.g:2488:1: ( 'maxLevel:' )
-            // InternalPubProto.g:2489:2: 'maxLevel:'
+            // InternalPubProto.g:2481:1: ( 'maxLevel:' )
+            // InternalPubProto.g:2482:2: 'maxLevel:'
             {
              before(grammarAccess.getProtoTOCAccess().getMaxLevelKeyword_4_0()); 
             match(input,38,FOLLOW_2); 
@@ -7647,14 +7611,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group_4__1"
-    // InternalPubProto.g:2498:1: rule__ProtoTOC__Group_4__1 : rule__ProtoTOC__Group_4__1__Impl ;
+    // InternalPubProto.g:2491:1: rule__ProtoTOC__Group_4__1 : rule__ProtoTOC__Group_4__1__Impl ;
     public final void rule__ProtoTOC__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2502:1: ( rule__ProtoTOC__Group_4__1__Impl )
-            // InternalPubProto.g:2503:2: rule__ProtoTOC__Group_4__1__Impl
+            // InternalPubProto.g:2495:1: ( rule__ProtoTOC__Group_4__1__Impl )
+            // InternalPubProto.g:2496:2: rule__ProtoTOC__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoTOC__Group_4__1__Impl();
@@ -7680,21 +7644,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__Group_4__1__Impl"
-    // InternalPubProto.g:2509:1: rule__ProtoTOC__Group_4__1__Impl : ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) ) ;
+    // InternalPubProto.g:2502:1: rule__ProtoTOC__Group_4__1__Impl : ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) ) ;
     public final void rule__ProtoTOC__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2513:1: ( ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) ) )
-            // InternalPubProto.g:2514:1: ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) )
+            // InternalPubProto.g:2506:1: ( ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) ) )
+            // InternalPubProto.g:2507:1: ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) )
             {
-            // InternalPubProto.g:2514:1: ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) )
-            // InternalPubProto.g:2515:2: ( rule__ProtoTOC__MaxLevelAssignment_4_1 )
+            // InternalPubProto.g:2507:1: ( ( rule__ProtoTOC__MaxLevelAssignment_4_1 ) )
+            // InternalPubProto.g:2508:2: ( rule__ProtoTOC__MaxLevelAssignment_4_1 )
             {
              before(grammarAccess.getProtoTOCAccess().getMaxLevelAssignment_4_1()); 
-            // InternalPubProto.g:2516:2: ( rule__ProtoTOC__MaxLevelAssignment_4_1 )
-            // InternalPubProto.g:2516:3: rule__ProtoTOC__MaxLevelAssignment_4_1
+            // InternalPubProto.g:2509:2: ( rule__ProtoTOC__MaxLevelAssignment_4_1 )
+            // InternalPubProto.g:2509:3: rule__ProtoTOC__MaxLevelAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__ProtoTOC__MaxLevelAssignment_4_1();
@@ -7727,14 +7691,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__0"
-    // InternalPubProto.g:2525:1: rule__ProtoAbbreviations__Group__0 : rule__ProtoAbbreviations__Group__0__Impl rule__ProtoAbbreviations__Group__1 ;
+    // InternalPubProto.g:2518:1: rule__ProtoAbbreviations__Group__0 : rule__ProtoAbbreviations__Group__0__Impl rule__ProtoAbbreviations__Group__1 ;
     public final void rule__ProtoAbbreviations__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2529:1: ( rule__ProtoAbbreviations__Group__0__Impl rule__ProtoAbbreviations__Group__1 )
-            // InternalPubProto.g:2530:2: rule__ProtoAbbreviations__Group__0__Impl rule__ProtoAbbreviations__Group__1
+            // InternalPubProto.g:2522:1: ( rule__ProtoAbbreviations__Group__0__Impl rule__ProtoAbbreviations__Group__1 )
+            // InternalPubProto.g:2523:2: rule__ProtoAbbreviations__Group__0__Impl rule__ProtoAbbreviations__Group__1
             {
             pushFollow(FOLLOW_29);
             rule__ProtoAbbreviations__Group__0__Impl();
@@ -7765,21 +7729,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__0__Impl"
-    // InternalPubProto.g:2537:1: rule__ProtoAbbreviations__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:2530:1: rule__ProtoAbbreviations__Group__0__Impl : ( () ) ;
     public final void rule__ProtoAbbreviations__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2541:1: ( ( () ) )
-            // InternalPubProto.g:2542:1: ( () )
+            // InternalPubProto.g:2534:1: ( ( () ) )
+            // InternalPubProto.g:2535:1: ( () )
             {
-            // InternalPubProto.g:2542:1: ( () )
-            // InternalPubProto.g:2543:2: ()
+            // InternalPubProto.g:2535:1: ( () )
+            // InternalPubProto.g:2536:2: ()
             {
              before(grammarAccess.getProtoAbbreviationsAccess().getProtoAbbreviationsAction_0()); 
-            // InternalPubProto.g:2544:2: ()
-            // InternalPubProto.g:2544:3: 
+            // InternalPubProto.g:2537:2: ()
+            // InternalPubProto.g:2537:3: 
             {
             }
 
@@ -7802,14 +7766,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__1"
-    // InternalPubProto.g:2552:1: rule__ProtoAbbreviations__Group__1 : rule__ProtoAbbreviations__Group__1__Impl rule__ProtoAbbreviations__Group__2 ;
+    // InternalPubProto.g:2545:1: rule__ProtoAbbreviations__Group__1 : rule__ProtoAbbreviations__Group__1__Impl rule__ProtoAbbreviations__Group__2 ;
     public final void rule__ProtoAbbreviations__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2556:1: ( rule__ProtoAbbreviations__Group__1__Impl rule__ProtoAbbreviations__Group__2 )
-            // InternalPubProto.g:2557:2: rule__ProtoAbbreviations__Group__1__Impl rule__ProtoAbbreviations__Group__2
+            // InternalPubProto.g:2549:1: ( rule__ProtoAbbreviations__Group__1__Impl rule__ProtoAbbreviations__Group__2 )
+            // InternalPubProto.g:2550:2: rule__ProtoAbbreviations__Group__1__Impl rule__ProtoAbbreviations__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoAbbreviations__Group__1__Impl();
@@ -7840,17 +7804,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__1__Impl"
-    // InternalPubProto.g:2564:1: rule__ProtoAbbreviations__Group__1__Impl : ( 'Abbreviations' ) ;
+    // InternalPubProto.g:2557:1: rule__ProtoAbbreviations__Group__1__Impl : ( 'Abbreviations' ) ;
     public final void rule__ProtoAbbreviations__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2568:1: ( ( 'Abbreviations' ) )
-            // InternalPubProto.g:2569:1: ( 'Abbreviations' )
+            // InternalPubProto.g:2561:1: ( ( 'Abbreviations' ) )
+            // InternalPubProto.g:2562:1: ( 'Abbreviations' )
             {
-            // InternalPubProto.g:2569:1: ( 'Abbreviations' )
-            // InternalPubProto.g:2570:2: 'Abbreviations'
+            // InternalPubProto.g:2562:1: ( 'Abbreviations' )
+            // InternalPubProto.g:2563:2: 'Abbreviations'
             {
              before(grammarAccess.getProtoAbbreviationsAccess().getAbbreviationsKeyword_1()); 
             match(input,39,FOLLOW_2); 
@@ -7877,14 +7841,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__2"
-    // InternalPubProto.g:2579:1: rule__ProtoAbbreviations__Group__2 : rule__ProtoAbbreviations__Group__2__Impl rule__ProtoAbbreviations__Group__3 ;
+    // InternalPubProto.g:2572:1: rule__ProtoAbbreviations__Group__2 : rule__ProtoAbbreviations__Group__2__Impl rule__ProtoAbbreviations__Group__3 ;
     public final void rule__ProtoAbbreviations__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2583:1: ( rule__ProtoAbbreviations__Group__2__Impl rule__ProtoAbbreviations__Group__3 )
-            // InternalPubProto.g:2584:2: rule__ProtoAbbreviations__Group__2__Impl rule__ProtoAbbreviations__Group__3
+            // InternalPubProto.g:2576:1: ( rule__ProtoAbbreviations__Group__2__Impl rule__ProtoAbbreviations__Group__3 )
+            // InternalPubProto.g:2577:2: rule__ProtoAbbreviations__Group__2__Impl rule__ProtoAbbreviations__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoAbbreviations__Group__2__Impl();
@@ -7915,17 +7879,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__2__Impl"
-    // InternalPubProto.g:2591:1: rule__ProtoAbbreviations__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:2584:1: rule__ProtoAbbreviations__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoAbbreviations__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2595:1: ( ( '{' ) )
-            // InternalPubProto.g:2596:1: ( '{' )
+            // InternalPubProto.g:2588:1: ( ( '{' ) )
+            // InternalPubProto.g:2589:1: ( '{' )
             {
-            // InternalPubProto.g:2596:1: ( '{' )
-            // InternalPubProto.g:2597:2: '{'
+            // InternalPubProto.g:2589:1: ( '{' )
+            // InternalPubProto.g:2590:2: '{'
             {
              before(grammarAccess.getProtoAbbreviationsAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -7952,14 +7916,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__3"
-    // InternalPubProto.g:2606:1: rule__ProtoAbbreviations__Group__3 : rule__ProtoAbbreviations__Group__3__Impl rule__ProtoAbbreviations__Group__4 ;
+    // InternalPubProto.g:2599:1: rule__ProtoAbbreviations__Group__3 : rule__ProtoAbbreviations__Group__3__Impl rule__ProtoAbbreviations__Group__4 ;
     public final void rule__ProtoAbbreviations__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2610:1: ( rule__ProtoAbbreviations__Group__3__Impl rule__ProtoAbbreviations__Group__4 )
-            // InternalPubProto.g:2611:2: rule__ProtoAbbreviations__Group__3__Impl rule__ProtoAbbreviations__Group__4
+            // InternalPubProto.g:2603:1: ( rule__ProtoAbbreviations__Group__3__Impl rule__ProtoAbbreviations__Group__4 )
+            // InternalPubProto.g:2604:2: rule__ProtoAbbreviations__Group__3__Impl rule__ProtoAbbreviations__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoAbbreviations__Group__3__Impl();
@@ -7990,17 +7954,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__3__Impl"
-    // InternalPubProto.g:2618:1: rule__ProtoAbbreviations__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:2611:1: rule__ProtoAbbreviations__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoAbbreviations__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2622:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:2623:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2615:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:2616:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:2623:1: ( ruleSegmentBody )
-            // InternalPubProto.g:2624:2: ruleSegmentBody
+            // InternalPubProto.g:2616:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2617:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoAbbreviationsAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -8031,14 +7995,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__4"
-    // InternalPubProto.g:2633:1: rule__ProtoAbbreviations__Group__4 : rule__ProtoAbbreviations__Group__4__Impl ;
+    // InternalPubProto.g:2626:1: rule__ProtoAbbreviations__Group__4 : rule__ProtoAbbreviations__Group__4__Impl ;
     public final void rule__ProtoAbbreviations__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2637:1: ( rule__ProtoAbbreviations__Group__4__Impl )
-            // InternalPubProto.g:2638:2: rule__ProtoAbbreviations__Group__4__Impl
+            // InternalPubProto.g:2630:1: ( rule__ProtoAbbreviations__Group__4__Impl )
+            // InternalPubProto.g:2631:2: rule__ProtoAbbreviations__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoAbbreviations__Group__4__Impl();
@@ -8064,17 +8028,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAbbreviations__Group__4__Impl"
-    // InternalPubProto.g:2644:1: rule__ProtoAbbreviations__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:2637:1: rule__ProtoAbbreviations__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoAbbreviations__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2648:1: ( ( '}' ) )
-            // InternalPubProto.g:2649:1: ( '}' )
+            // InternalPubProto.g:2641:1: ( ( '}' ) )
+            // InternalPubProto.g:2642:1: ( '}' )
             {
-            // InternalPubProto.g:2649:1: ( '}' )
-            // InternalPubProto.g:2650:2: '}'
+            // InternalPubProto.g:2642:1: ( '}' )
+            // InternalPubProto.g:2643:2: '}'
             {
              before(grammarAccess.getProtoAbbreviationsAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -8101,14 +8065,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__0"
-    // InternalPubProto.g:2660:1: rule__ProtoListOfTables__Group__0 : rule__ProtoListOfTables__Group__0__Impl rule__ProtoListOfTables__Group__1 ;
+    // InternalPubProto.g:2653:1: rule__ProtoListOfTables__Group__0 : rule__ProtoListOfTables__Group__0__Impl rule__ProtoListOfTables__Group__1 ;
     public final void rule__ProtoListOfTables__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2664:1: ( rule__ProtoListOfTables__Group__0__Impl rule__ProtoListOfTables__Group__1 )
-            // InternalPubProto.g:2665:2: rule__ProtoListOfTables__Group__0__Impl rule__ProtoListOfTables__Group__1
+            // InternalPubProto.g:2657:1: ( rule__ProtoListOfTables__Group__0__Impl rule__ProtoListOfTables__Group__1 )
+            // InternalPubProto.g:2658:2: rule__ProtoListOfTables__Group__0__Impl rule__ProtoListOfTables__Group__1
             {
             pushFollow(FOLLOW_30);
             rule__ProtoListOfTables__Group__0__Impl();
@@ -8139,21 +8103,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__0__Impl"
-    // InternalPubProto.g:2672:1: rule__ProtoListOfTables__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:2665:1: rule__ProtoListOfTables__Group__0__Impl : ( () ) ;
     public final void rule__ProtoListOfTables__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2676:1: ( ( () ) )
-            // InternalPubProto.g:2677:1: ( () )
+            // InternalPubProto.g:2669:1: ( ( () ) )
+            // InternalPubProto.g:2670:1: ( () )
             {
-            // InternalPubProto.g:2677:1: ( () )
-            // InternalPubProto.g:2678:2: ()
+            // InternalPubProto.g:2670:1: ( () )
+            // InternalPubProto.g:2671:2: ()
             {
              before(grammarAccess.getProtoListOfTablesAccess().getProtoListOfTablesAction_0()); 
-            // InternalPubProto.g:2679:2: ()
-            // InternalPubProto.g:2679:3: 
+            // InternalPubProto.g:2672:2: ()
+            // InternalPubProto.g:2672:3: 
             {
             }
 
@@ -8176,14 +8140,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__1"
-    // InternalPubProto.g:2687:1: rule__ProtoListOfTables__Group__1 : rule__ProtoListOfTables__Group__1__Impl rule__ProtoListOfTables__Group__2 ;
+    // InternalPubProto.g:2680:1: rule__ProtoListOfTables__Group__1 : rule__ProtoListOfTables__Group__1__Impl rule__ProtoListOfTables__Group__2 ;
     public final void rule__ProtoListOfTables__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2691:1: ( rule__ProtoListOfTables__Group__1__Impl rule__ProtoListOfTables__Group__2 )
-            // InternalPubProto.g:2692:2: rule__ProtoListOfTables__Group__1__Impl rule__ProtoListOfTables__Group__2
+            // InternalPubProto.g:2684:1: ( rule__ProtoListOfTables__Group__1__Impl rule__ProtoListOfTables__Group__2 )
+            // InternalPubProto.g:2685:2: rule__ProtoListOfTables__Group__1__Impl rule__ProtoListOfTables__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoListOfTables__Group__1__Impl();
@@ -8214,17 +8178,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__1__Impl"
-    // InternalPubProto.g:2699:1: rule__ProtoListOfTables__Group__1__Impl : ( 'ListOfTables' ) ;
+    // InternalPubProto.g:2692:1: rule__ProtoListOfTables__Group__1__Impl : ( 'ListOfTables' ) ;
     public final void rule__ProtoListOfTables__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2703:1: ( ( 'ListOfTables' ) )
-            // InternalPubProto.g:2704:1: ( 'ListOfTables' )
+            // InternalPubProto.g:2696:1: ( ( 'ListOfTables' ) )
+            // InternalPubProto.g:2697:1: ( 'ListOfTables' )
             {
-            // InternalPubProto.g:2704:1: ( 'ListOfTables' )
-            // InternalPubProto.g:2705:2: 'ListOfTables'
+            // InternalPubProto.g:2697:1: ( 'ListOfTables' )
+            // InternalPubProto.g:2698:2: 'ListOfTables'
             {
              before(grammarAccess.getProtoListOfTablesAccess().getListOfTablesKeyword_1()); 
             match(input,40,FOLLOW_2); 
@@ -8251,14 +8215,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__2"
-    // InternalPubProto.g:2714:1: rule__ProtoListOfTables__Group__2 : rule__ProtoListOfTables__Group__2__Impl rule__ProtoListOfTables__Group__3 ;
+    // InternalPubProto.g:2707:1: rule__ProtoListOfTables__Group__2 : rule__ProtoListOfTables__Group__2__Impl rule__ProtoListOfTables__Group__3 ;
     public final void rule__ProtoListOfTables__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2718:1: ( rule__ProtoListOfTables__Group__2__Impl rule__ProtoListOfTables__Group__3 )
-            // InternalPubProto.g:2719:2: rule__ProtoListOfTables__Group__2__Impl rule__ProtoListOfTables__Group__3
+            // InternalPubProto.g:2711:1: ( rule__ProtoListOfTables__Group__2__Impl rule__ProtoListOfTables__Group__3 )
+            // InternalPubProto.g:2712:2: rule__ProtoListOfTables__Group__2__Impl rule__ProtoListOfTables__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoListOfTables__Group__2__Impl();
@@ -8289,17 +8253,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__2__Impl"
-    // InternalPubProto.g:2726:1: rule__ProtoListOfTables__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:2719:1: rule__ProtoListOfTables__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoListOfTables__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2730:1: ( ( '{' ) )
-            // InternalPubProto.g:2731:1: ( '{' )
+            // InternalPubProto.g:2723:1: ( ( '{' ) )
+            // InternalPubProto.g:2724:1: ( '{' )
             {
-            // InternalPubProto.g:2731:1: ( '{' )
-            // InternalPubProto.g:2732:2: '{'
+            // InternalPubProto.g:2724:1: ( '{' )
+            // InternalPubProto.g:2725:2: '{'
             {
              before(grammarAccess.getProtoListOfTablesAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -8326,14 +8290,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__3"
-    // InternalPubProto.g:2741:1: rule__ProtoListOfTables__Group__3 : rule__ProtoListOfTables__Group__3__Impl rule__ProtoListOfTables__Group__4 ;
+    // InternalPubProto.g:2734:1: rule__ProtoListOfTables__Group__3 : rule__ProtoListOfTables__Group__3__Impl rule__ProtoListOfTables__Group__4 ;
     public final void rule__ProtoListOfTables__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2745:1: ( rule__ProtoListOfTables__Group__3__Impl rule__ProtoListOfTables__Group__4 )
-            // InternalPubProto.g:2746:2: rule__ProtoListOfTables__Group__3__Impl rule__ProtoListOfTables__Group__4
+            // InternalPubProto.g:2738:1: ( rule__ProtoListOfTables__Group__3__Impl rule__ProtoListOfTables__Group__4 )
+            // InternalPubProto.g:2739:2: rule__ProtoListOfTables__Group__3__Impl rule__ProtoListOfTables__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoListOfTables__Group__3__Impl();
@@ -8364,17 +8328,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__3__Impl"
-    // InternalPubProto.g:2753:1: rule__ProtoListOfTables__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:2746:1: rule__ProtoListOfTables__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoListOfTables__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2757:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:2758:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2750:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:2751:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:2758:1: ( ruleSegmentBody )
-            // InternalPubProto.g:2759:2: ruleSegmentBody
+            // InternalPubProto.g:2751:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2752:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoListOfTablesAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -8405,14 +8369,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__4"
-    // InternalPubProto.g:2768:1: rule__ProtoListOfTables__Group__4 : rule__ProtoListOfTables__Group__4__Impl ;
+    // InternalPubProto.g:2761:1: rule__ProtoListOfTables__Group__4 : rule__ProtoListOfTables__Group__4__Impl ;
     public final void rule__ProtoListOfTables__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2772:1: ( rule__ProtoListOfTables__Group__4__Impl )
-            // InternalPubProto.g:2773:2: rule__ProtoListOfTables__Group__4__Impl
+            // InternalPubProto.g:2765:1: ( rule__ProtoListOfTables__Group__4__Impl )
+            // InternalPubProto.g:2766:2: rule__ProtoListOfTables__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoListOfTables__Group__4__Impl();
@@ -8438,17 +8402,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfTables__Group__4__Impl"
-    // InternalPubProto.g:2779:1: rule__ProtoListOfTables__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:2772:1: rule__ProtoListOfTables__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoListOfTables__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2783:1: ( ( '}' ) )
-            // InternalPubProto.g:2784:1: ( '}' )
+            // InternalPubProto.g:2776:1: ( ( '}' ) )
+            // InternalPubProto.g:2777:1: ( '}' )
             {
-            // InternalPubProto.g:2784:1: ( '}' )
-            // InternalPubProto.g:2785:2: '}'
+            // InternalPubProto.g:2777:1: ( '}' )
+            // InternalPubProto.g:2778:2: '}'
             {
              before(grammarAccess.getProtoListOfTablesAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -8475,14 +8439,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__0"
-    // InternalPubProto.g:2795:1: rule__ProtoListOfFigures__Group__0 : rule__ProtoListOfFigures__Group__0__Impl rule__ProtoListOfFigures__Group__1 ;
+    // InternalPubProto.g:2788:1: rule__ProtoListOfFigures__Group__0 : rule__ProtoListOfFigures__Group__0__Impl rule__ProtoListOfFigures__Group__1 ;
     public final void rule__ProtoListOfFigures__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2799:1: ( rule__ProtoListOfFigures__Group__0__Impl rule__ProtoListOfFigures__Group__1 )
-            // InternalPubProto.g:2800:2: rule__ProtoListOfFigures__Group__0__Impl rule__ProtoListOfFigures__Group__1
+            // InternalPubProto.g:2792:1: ( rule__ProtoListOfFigures__Group__0__Impl rule__ProtoListOfFigures__Group__1 )
+            // InternalPubProto.g:2793:2: rule__ProtoListOfFigures__Group__0__Impl rule__ProtoListOfFigures__Group__1
             {
             pushFollow(FOLLOW_31);
             rule__ProtoListOfFigures__Group__0__Impl();
@@ -8513,21 +8477,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__0__Impl"
-    // InternalPubProto.g:2807:1: rule__ProtoListOfFigures__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:2800:1: rule__ProtoListOfFigures__Group__0__Impl : ( () ) ;
     public final void rule__ProtoListOfFigures__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2811:1: ( ( () ) )
-            // InternalPubProto.g:2812:1: ( () )
+            // InternalPubProto.g:2804:1: ( ( () ) )
+            // InternalPubProto.g:2805:1: ( () )
             {
-            // InternalPubProto.g:2812:1: ( () )
-            // InternalPubProto.g:2813:2: ()
+            // InternalPubProto.g:2805:1: ( () )
+            // InternalPubProto.g:2806:2: ()
             {
              before(grammarAccess.getProtoListOfFiguresAccess().getProtoListOfFiguresAction_0()); 
-            // InternalPubProto.g:2814:2: ()
-            // InternalPubProto.g:2814:3: 
+            // InternalPubProto.g:2807:2: ()
+            // InternalPubProto.g:2807:3: 
             {
             }
 
@@ -8550,14 +8514,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__1"
-    // InternalPubProto.g:2822:1: rule__ProtoListOfFigures__Group__1 : rule__ProtoListOfFigures__Group__1__Impl rule__ProtoListOfFigures__Group__2 ;
+    // InternalPubProto.g:2815:1: rule__ProtoListOfFigures__Group__1 : rule__ProtoListOfFigures__Group__1__Impl rule__ProtoListOfFigures__Group__2 ;
     public final void rule__ProtoListOfFigures__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2826:1: ( rule__ProtoListOfFigures__Group__1__Impl rule__ProtoListOfFigures__Group__2 )
-            // InternalPubProto.g:2827:2: rule__ProtoListOfFigures__Group__1__Impl rule__ProtoListOfFigures__Group__2
+            // InternalPubProto.g:2819:1: ( rule__ProtoListOfFigures__Group__1__Impl rule__ProtoListOfFigures__Group__2 )
+            // InternalPubProto.g:2820:2: rule__ProtoListOfFigures__Group__1__Impl rule__ProtoListOfFigures__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoListOfFigures__Group__1__Impl();
@@ -8588,17 +8552,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__1__Impl"
-    // InternalPubProto.g:2834:1: rule__ProtoListOfFigures__Group__1__Impl : ( 'ListOfFigures' ) ;
+    // InternalPubProto.g:2827:1: rule__ProtoListOfFigures__Group__1__Impl : ( 'ListOfFigures' ) ;
     public final void rule__ProtoListOfFigures__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2838:1: ( ( 'ListOfFigures' ) )
-            // InternalPubProto.g:2839:1: ( 'ListOfFigures' )
+            // InternalPubProto.g:2831:1: ( ( 'ListOfFigures' ) )
+            // InternalPubProto.g:2832:1: ( 'ListOfFigures' )
             {
-            // InternalPubProto.g:2839:1: ( 'ListOfFigures' )
-            // InternalPubProto.g:2840:2: 'ListOfFigures'
+            // InternalPubProto.g:2832:1: ( 'ListOfFigures' )
+            // InternalPubProto.g:2833:2: 'ListOfFigures'
             {
              before(grammarAccess.getProtoListOfFiguresAccess().getListOfFiguresKeyword_1()); 
             match(input,41,FOLLOW_2); 
@@ -8625,14 +8589,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__2"
-    // InternalPubProto.g:2849:1: rule__ProtoListOfFigures__Group__2 : rule__ProtoListOfFigures__Group__2__Impl rule__ProtoListOfFigures__Group__3 ;
+    // InternalPubProto.g:2842:1: rule__ProtoListOfFigures__Group__2 : rule__ProtoListOfFigures__Group__2__Impl rule__ProtoListOfFigures__Group__3 ;
     public final void rule__ProtoListOfFigures__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2853:1: ( rule__ProtoListOfFigures__Group__2__Impl rule__ProtoListOfFigures__Group__3 )
-            // InternalPubProto.g:2854:2: rule__ProtoListOfFigures__Group__2__Impl rule__ProtoListOfFigures__Group__3
+            // InternalPubProto.g:2846:1: ( rule__ProtoListOfFigures__Group__2__Impl rule__ProtoListOfFigures__Group__3 )
+            // InternalPubProto.g:2847:2: rule__ProtoListOfFigures__Group__2__Impl rule__ProtoListOfFigures__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoListOfFigures__Group__2__Impl();
@@ -8663,17 +8627,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__2__Impl"
-    // InternalPubProto.g:2861:1: rule__ProtoListOfFigures__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:2854:1: rule__ProtoListOfFigures__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoListOfFigures__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2865:1: ( ( '{' ) )
-            // InternalPubProto.g:2866:1: ( '{' )
+            // InternalPubProto.g:2858:1: ( ( '{' ) )
+            // InternalPubProto.g:2859:1: ( '{' )
             {
-            // InternalPubProto.g:2866:1: ( '{' )
-            // InternalPubProto.g:2867:2: '{'
+            // InternalPubProto.g:2859:1: ( '{' )
+            // InternalPubProto.g:2860:2: '{'
             {
              before(grammarAccess.getProtoListOfFiguresAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -8700,14 +8664,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__3"
-    // InternalPubProto.g:2876:1: rule__ProtoListOfFigures__Group__3 : rule__ProtoListOfFigures__Group__3__Impl rule__ProtoListOfFigures__Group__4 ;
+    // InternalPubProto.g:2869:1: rule__ProtoListOfFigures__Group__3 : rule__ProtoListOfFigures__Group__3__Impl rule__ProtoListOfFigures__Group__4 ;
     public final void rule__ProtoListOfFigures__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2880:1: ( rule__ProtoListOfFigures__Group__3__Impl rule__ProtoListOfFigures__Group__4 )
-            // InternalPubProto.g:2881:2: rule__ProtoListOfFigures__Group__3__Impl rule__ProtoListOfFigures__Group__4
+            // InternalPubProto.g:2873:1: ( rule__ProtoListOfFigures__Group__3__Impl rule__ProtoListOfFigures__Group__4 )
+            // InternalPubProto.g:2874:2: rule__ProtoListOfFigures__Group__3__Impl rule__ProtoListOfFigures__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoListOfFigures__Group__3__Impl();
@@ -8738,17 +8702,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__3__Impl"
-    // InternalPubProto.g:2888:1: rule__ProtoListOfFigures__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:2881:1: rule__ProtoListOfFigures__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoListOfFigures__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2892:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:2893:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2885:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:2886:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:2893:1: ( ruleSegmentBody )
-            // InternalPubProto.g:2894:2: ruleSegmentBody
+            // InternalPubProto.g:2886:1: ( ruleSegmentBody )
+            // InternalPubProto.g:2887:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoListOfFiguresAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -8779,14 +8743,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__4"
-    // InternalPubProto.g:2903:1: rule__ProtoListOfFigures__Group__4 : rule__ProtoListOfFigures__Group__4__Impl ;
+    // InternalPubProto.g:2896:1: rule__ProtoListOfFigures__Group__4 : rule__ProtoListOfFigures__Group__4__Impl ;
     public final void rule__ProtoListOfFigures__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2907:1: ( rule__ProtoListOfFigures__Group__4__Impl )
-            // InternalPubProto.g:2908:2: rule__ProtoListOfFigures__Group__4__Impl
+            // InternalPubProto.g:2900:1: ( rule__ProtoListOfFigures__Group__4__Impl )
+            // InternalPubProto.g:2901:2: rule__ProtoListOfFigures__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoListOfFigures__Group__4__Impl();
@@ -8812,17 +8776,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoListOfFigures__Group__4__Impl"
-    // InternalPubProto.g:2914:1: rule__ProtoListOfFigures__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:2907:1: rule__ProtoListOfFigures__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoListOfFigures__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2918:1: ( ( '}' ) )
-            // InternalPubProto.g:2919:1: ( '}' )
+            // InternalPubProto.g:2911:1: ( ( '}' ) )
+            // InternalPubProto.g:2912:1: ( '}' )
             {
-            // InternalPubProto.g:2919:1: ( '}' )
-            // InternalPubProto.g:2920:2: '}'
+            // InternalPubProto.g:2912:1: ( '}' )
+            // InternalPubProto.g:2913:2: '}'
             {
              before(grammarAccess.getProtoListOfFiguresAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -8849,14 +8813,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__0"
-    // InternalPubProto.g:2930:1: rule__ProtoBibliography__Group__0 : rule__ProtoBibliography__Group__0__Impl rule__ProtoBibliography__Group__1 ;
+    // InternalPubProto.g:2923:1: rule__ProtoBibliography__Group__0 : rule__ProtoBibliography__Group__0__Impl rule__ProtoBibliography__Group__1 ;
     public final void rule__ProtoBibliography__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2934:1: ( rule__ProtoBibliography__Group__0__Impl rule__ProtoBibliography__Group__1 )
-            // InternalPubProto.g:2935:2: rule__ProtoBibliography__Group__0__Impl rule__ProtoBibliography__Group__1
+            // InternalPubProto.g:2927:1: ( rule__ProtoBibliography__Group__0__Impl rule__ProtoBibliography__Group__1 )
+            // InternalPubProto.g:2928:2: rule__ProtoBibliography__Group__0__Impl rule__ProtoBibliography__Group__1
             {
             pushFollow(FOLLOW_32);
             rule__ProtoBibliography__Group__0__Impl();
@@ -8887,21 +8851,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__0__Impl"
-    // InternalPubProto.g:2942:1: rule__ProtoBibliography__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:2935:1: rule__ProtoBibliography__Group__0__Impl : ( () ) ;
     public final void rule__ProtoBibliography__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2946:1: ( ( () ) )
-            // InternalPubProto.g:2947:1: ( () )
+            // InternalPubProto.g:2939:1: ( ( () ) )
+            // InternalPubProto.g:2940:1: ( () )
             {
-            // InternalPubProto.g:2947:1: ( () )
-            // InternalPubProto.g:2948:2: ()
+            // InternalPubProto.g:2940:1: ( () )
+            // InternalPubProto.g:2941:2: ()
             {
              before(grammarAccess.getProtoBibliographyAccess().getProtoBibliographyAction_0()); 
-            // InternalPubProto.g:2949:2: ()
-            // InternalPubProto.g:2949:3: 
+            // InternalPubProto.g:2942:2: ()
+            // InternalPubProto.g:2942:3: 
             {
             }
 
@@ -8924,14 +8888,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__1"
-    // InternalPubProto.g:2957:1: rule__ProtoBibliography__Group__1 : rule__ProtoBibliography__Group__1__Impl rule__ProtoBibliography__Group__2 ;
+    // InternalPubProto.g:2950:1: rule__ProtoBibliography__Group__1 : rule__ProtoBibliography__Group__1__Impl rule__ProtoBibliography__Group__2 ;
     public final void rule__ProtoBibliography__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2961:1: ( rule__ProtoBibliography__Group__1__Impl rule__ProtoBibliography__Group__2 )
-            // InternalPubProto.g:2962:2: rule__ProtoBibliography__Group__1__Impl rule__ProtoBibliography__Group__2
+            // InternalPubProto.g:2954:1: ( rule__ProtoBibliography__Group__1__Impl rule__ProtoBibliography__Group__2 )
+            // InternalPubProto.g:2955:2: rule__ProtoBibliography__Group__1__Impl rule__ProtoBibliography__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoBibliography__Group__1__Impl();
@@ -8962,17 +8926,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__1__Impl"
-    // InternalPubProto.g:2969:1: rule__ProtoBibliography__Group__1__Impl : ( 'Bibliography' ) ;
+    // InternalPubProto.g:2962:1: rule__ProtoBibliography__Group__1__Impl : ( 'Bibliography' ) ;
     public final void rule__ProtoBibliography__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2973:1: ( ( 'Bibliography' ) )
-            // InternalPubProto.g:2974:1: ( 'Bibliography' )
+            // InternalPubProto.g:2966:1: ( ( 'Bibliography' ) )
+            // InternalPubProto.g:2967:1: ( 'Bibliography' )
             {
-            // InternalPubProto.g:2974:1: ( 'Bibliography' )
-            // InternalPubProto.g:2975:2: 'Bibliography'
+            // InternalPubProto.g:2967:1: ( 'Bibliography' )
+            // InternalPubProto.g:2968:2: 'Bibliography'
             {
              before(grammarAccess.getProtoBibliographyAccess().getBibliographyKeyword_1()); 
             match(input,42,FOLLOW_2); 
@@ -8999,14 +8963,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__2"
-    // InternalPubProto.g:2984:1: rule__ProtoBibliography__Group__2 : rule__ProtoBibliography__Group__2__Impl rule__ProtoBibliography__Group__3 ;
+    // InternalPubProto.g:2977:1: rule__ProtoBibliography__Group__2 : rule__ProtoBibliography__Group__2__Impl rule__ProtoBibliography__Group__3 ;
     public final void rule__ProtoBibliography__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:2988:1: ( rule__ProtoBibliography__Group__2__Impl rule__ProtoBibliography__Group__3 )
-            // InternalPubProto.g:2989:2: rule__ProtoBibliography__Group__2__Impl rule__ProtoBibliography__Group__3
+            // InternalPubProto.g:2981:1: ( rule__ProtoBibliography__Group__2__Impl rule__ProtoBibliography__Group__3 )
+            // InternalPubProto.g:2982:2: rule__ProtoBibliography__Group__2__Impl rule__ProtoBibliography__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoBibliography__Group__2__Impl();
@@ -9037,17 +9001,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__2__Impl"
-    // InternalPubProto.g:2996:1: rule__ProtoBibliography__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:2989:1: rule__ProtoBibliography__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoBibliography__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3000:1: ( ( '{' ) )
-            // InternalPubProto.g:3001:1: ( '{' )
+            // InternalPubProto.g:2993:1: ( ( '{' ) )
+            // InternalPubProto.g:2994:1: ( '{' )
             {
-            // InternalPubProto.g:3001:1: ( '{' )
-            // InternalPubProto.g:3002:2: '{'
+            // InternalPubProto.g:2994:1: ( '{' )
+            // InternalPubProto.g:2995:2: '{'
             {
              before(grammarAccess.getProtoBibliographyAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -9074,14 +9038,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__3"
-    // InternalPubProto.g:3011:1: rule__ProtoBibliography__Group__3 : rule__ProtoBibliography__Group__3__Impl rule__ProtoBibliography__Group__4 ;
+    // InternalPubProto.g:3004:1: rule__ProtoBibliography__Group__3 : rule__ProtoBibliography__Group__3__Impl rule__ProtoBibliography__Group__4 ;
     public final void rule__ProtoBibliography__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3015:1: ( rule__ProtoBibliography__Group__3__Impl rule__ProtoBibliography__Group__4 )
-            // InternalPubProto.g:3016:2: rule__ProtoBibliography__Group__3__Impl rule__ProtoBibliography__Group__4
+            // InternalPubProto.g:3008:1: ( rule__ProtoBibliography__Group__3__Impl rule__ProtoBibliography__Group__4 )
+            // InternalPubProto.g:3009:2: rule__ProtoBibliography__Group__3__Impl rule__ProtoBibliography__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoBibliography__Group__3__Impl();
@@ -9112,17 +9076,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__3__Impl"
-    // InternalPubProto.g:3023:1: rule__ProtoBibliography__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:3016:1: rule__ProtoBibliography__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoBibliography__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3027:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:3028:1: ( ruleSegmentBody )
+            // InternalPubProto.g:3020:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:3021:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:3028:1: ( ruleSegmentBody )
-            // InternalPubProto.g:3029:2: ruleSegmentBody
+            // InternalPubProto.g:3021:1: ( ruleSegmentBody )
+            // InternalPubProto.g:3022:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoBibliographyAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -9153,14 +9117,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__4"
-    // InternalPubProto.g:3038:1: rule__ProtoBibliography__Group__4 : rule__ProtoBibliography__Group__4__Impl ;
+    // InternalPubProto.g:3031:1: rule__ProtoBibliography__Group__4 : rule__ProtoBibliography__Group__4__Impl ;
     public final void rule__ProtoBibliography__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3042:1: ( rule__ProtoBibliography__Group__4__Impl )
-            // InternalPubProto.g:3043:2: rule__ProtoBibliography__Group__4__Impl
+            // InternalPubProto.g:3035:1: ( rule__ProtoBibliography__Group__4__Impl )
+            // InternalPubProto.g:3036:2: rule__ProtoBibliography__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoBibliography__Group__4__Impl();
@@ -9186,17 +9150,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoBibliography__Group__4__Impl"
-    // InternalPubProto.g:3049:1: rule__ProtoBibliography__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3042:1: rule__ProtoBibliography__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoBibliography__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3053:1: ( ( '}' ) )
-            // InternalPubProto.g:3054:1: ( '}' )
+            // InternalPubProto.g:3046:1: ( ( '}' ) )
+            // InternalPubProto.g:3047:1: ( '}' )
             {
-            // InternalPubProto.g:3054:1: ( '}' )
-            // InternalPubProto.g:3055:2: '}'
+            // InternalPubProto.g:3047:1: ( '}' )
+            // InternalPubProto.g:3048:2: '}'
             {
              before(grammarAccess.getProtoBibliographyAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -9223,14 +9187,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__0"
-    // InternalPubProto.g:3065:1: rule__ProtoGlossary__Group__0 : rule__ProtoGlossary__Group__0__Impl rule__ProtoGlossary__Group__1 ;
+    // InternalPubProto.g:3058:1: rule__ProtoGlossary__Group__0 : rule__ProtoGlossary__Group__0__Impl rule__ProtoGlossary__Group__1 ;
     public final void rule__ProtoGlossary__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3069:1: ( rule__ProtoGlossary__Group__0__Impl rule__ProtoGlossary__Group__1 )
-            // InternalPubProto.g:3070:2: rule__ProtoGlossary__Group__0__Impl rule__ProtoGlossary__Group__1
+            // InternalPubProto.g:3062:1: ( rule__ProtoGlossary__Group__0__Impl rule__ProtoGlossary__Group__1 )
+            // InternalPubProto.g:3063:2: rule__ProtoGlossary__Group__0__Impl rule__ProtoGlossary__Group__1
             {
             pushFollow(FOLLOW_33);
             rule__ProtoGlossary__Group__0__Impl();
@@ -9261,21 +9225,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__0__Impl"
-    // InternalPubProto.g:3077:1: rule__ProtoGlossary__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3070:1: rule__ProtoGlossary__Group__0__Impl : ( () ) ;
     public final void rule__ProtoGlossary__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3081:1: ( ( () ) )
-            // InternalPubProto.g:3082:1: ( () )
+            // InternalPubProto.g:3074:1: ( ( () ) )
+            // InternalPubProto.g:3075:1: ( () )
             {
-            // InternalPubProto.g:3082:1: ( () )
-            // InternalPubProto.g:3083:2: ()
+            // InternalPubProto.g:3075:1: ( () )
+            // InternalPubProto.g:3076:2: ()
             {
              before(grammarAccess.getProtoGlossaryAccess().getProtoGlossaryAction_0()); 
-            // InternalPubProto.g:3084:2: ()
-            // InternalPubProto.g:3084:3: 
+            // InternalPubProto.g:3077:2: ()
+            // InternalPubProto.g:3077:3: 
             {
             }
 
@@ -9298,14 +9262,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__1"
-    // InternalPubProto.g:3092:1: rule__ProtoGlossary__Group__1 : rule__ProtoGlossary__Group__1__Impl rule__ProtoGlossary__Group__2 ;
+    // InternalPubProto.g:3085:1: rule__ProtoGlossary__Group__1 : rule__ProtoGlossary__Group__1__Impl rule__ProtoGlossary__Group__2 ;
     public final void rule__ProtoGlossary__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3096:1: ( rule__ProtoGlossary__Group__1__Impl rule__ProtoGlossary__Group__2 )
-            // InternalPubProto.g:3097:2: rule__ProtoGlossary__Group__1__Impl rule__ProtoGlossary__Group__2
+            // InternalPubProto.g:3089:1: ( rule__ProtoGlossary__Group__1__Impl rule__ProtoGlossary__Group__2 )
+            // InternalPubProto.g:3090:2: rule__ProtoGlossary__Group__1__Impl rule__ProtoGlossary__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoGlossary__Group__1__Impl();
@@ -9336,17 +9300,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__1__Impl"
-    // InternalPubProto.g:3104:1: rule__ProtoGlossary__Group__1__Impl : ( 'Glossary' ) ;
+    // InternalPubProto.g:3097:1: rule__ProtoGlossary__Group__1__Impl : ( 'Glossary' ) ;
     public final void rule__ProtoGlossary__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3108:1: ( ( 'Glossary' ) )
-            // InternalPubProto.g:3109:1: ( 'Glossary' )
+            // InternalPubProto.g:3101:1: ( ( 'Glossary' ) )
+            // InternalPubProto.g:3102:1: ( 'Glossary' )
             {
-            // InternalPubProto.g:3109:1: ( 'Glossary' )
-            // InternalPubProto.g:3110:2: 'Glossary'
+            // InternalPubProto.g:3102:1: ( 'Glossary' )
+            // InternalPubProto.g:3103:2: 'Glossary'
             {
              before(grammarAccess.getProtoGlossaryAccess().getGlossaryKeyword_1()); 
             match(input,43,FOLLOW_2); 
@@ -9373,14 +9337,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__2"
-    // InternalPubProto.g:3119:1: rule__ProtoGlossary__Group__2 : rule__ProtoGlossary__Group__2__Impl rule__ProtoGlossary__Group__3 ;
+    // InternalPubProto.g:3112:1: rule__ProtoGlossary__Group__2 : rule__ProtoGlossary__Group__2__Impl rule__ProtoGlossary__Group__3 ;
     public final void rule__ProtoGlossary__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3123:1: ( rule__ProtoGlossary__Group__2__Impl rule__ProtoGlossary__Group__3 )
-            // InternalPubProto.g:3124:2: rule__ProtoGlossary__Group__2__Impl rule__ProtoGlossary__Group__3
+            // InternalPubProto.g:3116:1: ( rule__ProtoGlossary__Group__2__Impl rule__ProtoGlossary__Group__3 )
+            // InternalPubProto.g:3117:2: rule__ProtoGlossary__Group__2__Impl rule__ProtoGlossary__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoGlossary__Group__2__Impl();
@@ -9411,17 +9375,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__2__Impl"
-    // InternalPubProto.g:3131:1: rule__ProtoGlossary__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3124:1: rule__ProtoGlossary__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoGlossary__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3135:1: ( ( '{' ) )
-            // InternalPubProto.g:3136:1: ( '{' )
+            // InternalPubProto.g:3128:1: ( ( '{' ) )
+            // InternalPubProto.g:3129:1: ( '{' )
             {
-            // InternalPubProto.g:3136:1: ( '{' )
-            // InternalPubProto.g:3137:2: '{'
+            // InternalPubProto.g:3129:1: ( '{' )
+            // InternalPubProto.g:3130:2: '{'
             {
              before(grammarAccess.getProtoGlossaryAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -9448,14 +9412,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__3"
-    // InternalPubProto.g:3146:1: rule__ProtoGlossary__Group__3 : rule__ProtoGlossary__Group__3__Impl rule__ProtoGlossary__Group__4 ;
+    // InternalPubProto.g:3139:1: rule__ProtoGlossary__Group__3 : rule__ProtoGlossary__Group__3__Impl rule__ProtoGlossary__Group__4 ;
     public final void rule__ProtoGlossary__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3150:1: ( rule__ProtoGlossary__Group__3__Impl rule__ProtoGlossary__Group__4 )
-            // InternalPubProto.g:3151:2: rule__ProtoGlossary__Group__3__Impl rule__ProtoGlossary__Group__4
+            // InternalPubProto.g:3143:1: ( rule__ProtoGlossary__Group__3__Impl rule__ProtoGlossary__Group__4 )
+            // InternalPubProto.g:3144:2: rule__ProtoGlossary__Group__3__Impl rule__ProtoGlossary__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoGlossary__Group__3__Impl();
@@ -9486,17 +9450,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__3__Impl"
-    // InternalPubProto.g:3158:1: rule__ProtoGlossary__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:3151:1: rule__ProtoGlossary__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoGlossary__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3162:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:3163:1: ( ruleSegmentBody )
+            // InternalPubProto.g:3155:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:3156:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:3163:1: ( ruleSegmentBody )
-            // InternalPubProto.g:3164:2: ruleSegmentBody
+            // InternalPubProto.g:3156:1: ( ruleSegmentBody )
+            // InternalPubProto.g:3157:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoGlossaryAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -9527,14 +9491,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__4"
-    // InternalPubProto.g:3173:1: rule__ProtoGlossary__Group__4 : rule__ProtoGlossary__Group__4__Impl ;
+    // InternalPubProto.g:3166:1: rule__ProtoGlossary__Group__4 : rule__ProtoGlossary__Group__4__Impl ;
     public final void rule__ProtoGlossary__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3177:1: ( rule__ProtoGlossary__Group__4__Impl )
-            // InternalPubProto.g:3178:2: rule__ProtoGlossary__Group__4__Impl
+            // InternalPubProto.g:3170:1: ( rule__ProtoGlossary__Group__4__Impl )
+            // InternalPubProto.g:3171:2: rule__ProtoGlossary__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoGlossary__Group__4__Impl();
@@ -9560,17 +9524,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoGlossary__Group__4__Impl"
-    // InternalPubProto.g:3184:1: rule__ProtoGlossary__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3177:1: rule__ProtoGlossary__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoGlossary__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3188:1: ( ( '}' ) )
-            // InternalPubProto.g:3189:1: ( '}' )
+            // InternalPubProto.g:3181:1: ( ( '}' ) )
+            // InternalPubProto.g:3182:1: ( '}' )
             {
-            // InternalPubProto.g:3189:1: ( '}' )
-            // InternalPubProto.g:3190:2: '}'
+            // InternalPubProto.g:3182:1: ( '}' )
+            // InternalPubProto.g:3183:2: '}'
             {
              before(grammarAccess.getProtoGlossaryAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -9597,14 +9561,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__0"
-    // InternalPubProto.g:3200:1: rule__ProtoIndex__Group__0 : rule__ProtoIndex__Group__0__Impl rule__ProtoIndex__Group__1 ;
+    // InternalPubProto.g:3193:1: rule__ProtoIndex__Group__0 : rule__ProtoIndex__Group__0__Impl rule__ProtoIndex__Group__1 ;
     public final void rule__ProtoIndex__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3204:1: ( rule__ProtoIndex__Group__0__Impl rule__ProtoIndex__Group__1 )
-            // InternalPubProto.g:3205:2: rule__ProtoIndex__Group__0__Impl rule__ProtoIndex__Group__1
+            // InternalPubProto.g:3197:1: ( rule__ProtoIndex__Group__0__Impl rule__ProtoIndex__Group__1 )
+            // InternalPubProto.g:3198:2: rule__ProtoIndex__Group__0__Impl rule__ProtoIndex__Group__1
             {
             pushFollow(FOLLOW_34);
             rule__ProtoIndex__Group__0__Impl();
@@ -9635,21 +9599,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__0__Impl"
-    // InternalPubProto.g:3212:1: rule__ProtoIndex__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3205:1: rule__ProtoIndex__Group__0__Impl : ( () ) ;
     public final void rule__ProtoIndex__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3216:1: ( ( () ) )
-            // InternalPubProto.g:3217:1: ( () )
+            // InternalPubProto.g:3209:1: ( ( () ) )
+            // InternalPubProto.g:3210:1: ( () )
             {
-            // InternalPubProto.g:3217:1: ( () )
-            // InternalPubProto.g:3218:2: ()
+            // InternalPubProto.g:3210:1: ( () )
+            // InternalPubProto.g:3211:2: ()
             {
              before(grammarAccess.getProtoIndexAccess().getProtoIndexAction_0()); 
-            // InternalPubProto.g:3219:2: ()
-            // InternalPubProto.g:3219:3: 
+            // InternalPubProto.g:3212:2: ()
+            // InternalPubProto.g:3212:3: 
             {
             }
 
@@ -9672,14 +9636,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__1"
-    // InternalPubProto.g:3227:1: rule__ProtoIndex__Group__1 : rule__ProtoIndex__Group__1__Impl rule__ProtoIndex__Group__2 ;
+    // InternalPubProto.g:3220:1: rule__ProtoIndex__Group__1 : rule__ProtoIndex__Group__1__Impl rule__ProtoIndex__Group__2 ;
     public final void rule__ProtoIndex__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3231:1: ( rule__ProtoIndex__Group__1__Impl rule__ProtoIndex__Group__2 )
-            // InternalPubProto.g:3232:2: rule__ProtoIndex__Group__1__Impl rule__ProtoIndex__Group__2
+            // InternalPubProto.g:3224:1: ( rule__ProtoIndex__Group__1__Impl rule__ProtoIndex__Group__2 )
+            // InternalPubProto.g:3225:2: rule__ProtoIndex__Group__1__Impl rule__ProtoIndex__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoIndex__Group__1__Impl();
@@ -9710,17 +9674,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__1__Impl"
-    // InternalPubProto.g:3239:1: rule__ProtoIndex__Group__1__Impl : ( 'Index' ) ;
+    // InternalPubProto.g:3232:1: rule__ProtoIndex__Group__1__Impl : ( 'Index' ) ;
     public final void rule__ProtoIndex__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3243:1: ( ( 'Index' ) )
-            // InternalPubProto.g:3244:1: ( 'Index' )
+            // InternalPubProto.g:3236:1: ( ( 'Index' ) )
+            // InternalPubProto.g:3237:1: ( 'Index' )
             {
-            // InternalPubProto.g:3244:1: ( 'Index' )
-            // InternalPubProto.g:3245:2: 'Index'
+            // InternalPubProto.g:3237:1: ( 'Index' )
+            // InternalPubProto.g:3238:2: 'Index'
             {
              before(grammarAccess.getProtoIndexAccess().getIndexKeyword_1()); 
             match(input,44,FOLLOW_2); 
@@ -9747,14 +9711,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__2"
-    // InternalPubProto.g:3254:1: rule__ProtoIndex__Group__2 : rule__ProtoIndex__Group__2__Impl rule__ProtoIndex__Group__3 ;
+    // InternalPubProto.g:3247:1: rule__ProtoIndex__Group__2 : rule__ProtoIndex__Group__2__Impl rule__ProtoIndex__Group__3 ;
     public final void rule__ProtoIndex__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3258:1: ( rule__ProtoIndex__Group__2__Impl rule__ProtoIndex__Group__3 )
-            // InternalPubProto.g:3259:2: rule__ProtoIndex__Group__2__Impl rule__ProtoIndex__Group__3
+            // InternalPubProto.g:3251:1: ( rule__ProtoIndex__Group__2__Impl rule__ProtoIndex__Group__3 )
+            // InternalPubProto.g:3252:2: rule__ProtoIndex__Group__2__Impl rule__ProtoIndex__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__ProtoIndex__Group__2__Impl();
@@ -9785,17 +9749,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__2__Impl"
-    // InternalPubProto.g:3266:1: rule__ProtoIndex__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3259:1: rule__ProtoIndex__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoIndex__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3270:1: ( ( '{' ) )
-            // InternalPubProto.g:3271:1: ( '{' )
+            // InternalPubProto.g:3263:1: ( ( '{' ) )
+            // InternalPubProto.g:3264:1: ( '{' )
             {
-            // InternalPubProto.g:3271:1: ( '{' )
-            // InternalPubProto.g:3272:2: '{'
+            // InternalPubProto.g:3264:1: ( '{' )
+            // InternalPubProto.g:3265:2: '{'
             {
              before(grammarAccess.getProtoIndexAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -9822,14 +9786,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__3"
-    // InternalPubProto.g:3281:1: rule__ProtoIndex__Group__3 : rule__ProtoIndex__Group__3__Impl rule__ProtoIndex__Group__4 ;
+    // InternalPubProto.g:3274:1: rule__ProtoIndex__Group__3 : rule__ProtoIndex__Group__3__Impl rule__ProtoIndex__Group__4 ;
     public final void rule__ProtoIndex__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3285:1: ( rule__ProtoIndex__Group__3__Impl rule__ProtoIndex__Group__4 )
-            // InternalPubProto.g:3286:2: rule__ProtoIndex__Group__3__Impl rule__ProtoIndex__Group__4
+            // InternalPubProto.g:3278:1: ( rule__ProtoIndex__Group__3__Impl rule__ProtoIndex__Group__4 )
+            // InternalPubProto.g:3279:2: rule__ProtoIndex__Group__3__Impl rule__ProtoIndex__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoIndex__Group__3__Impl();
@@ -9860,17 +9824,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__3__Impl"
-    // InternalPubProto.g:3293:1: rule__ProtoIndex__Group__3__Impl : ( ruleSegmentBody ) ;
+    // InternalPubProto.g:3286:1: rule__ProtoIndex__Group__3__Impl : ( ruleSegmentBody ) ;
     public final void rule__ProtoIndex__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3297:1: ( ( ruleSegmentBody ) )
-            // InternalPubProto.g:3298:1: ( ruleSegmentBody )
+            // InternalPubProto.g:3290:1: ( ( ruleSegmentBody ) )
+            // InternalPubProto.g:3291:1: ( ruleSegmentBody )
             {
-            // InternalPubProto.g:3298:1: ( ruleSegmentBody )
-            // InternalPubProto.g:3299:2: ruleSegmentBody
+            // InternalPubProto.g:3291:1: ( ruleSegmentBody )
+            // InternalPubProto.g:3292:2: ruleSegmentBody
             {
              before(grammarAccess.getProtoIndexAccess().getSegmentBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -9901,14 +9865,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__4"
-    // InternalPubProto.g:3308:1: rule__ProtoIndex__Group__4 : rule__ProtoIndex__Group__4__Impl ;
+    // InternalPubProto.g:3301:1: rule__ProtoIndex__Group__4 : rule__ProtoIndex__Group__4__Impl ;
     public final void rule__ProtoIndex__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3312:1: ( rule__ProtoIndex__Group__4__Impl )
-            // InternalPubProto.g:3313:2: rule__ProtoIndex__Group__4__Impl
+            // InternalPubProto.g:3305:1: ( rule__ProtoIndex__Group__4__Impl )
+            // InternalPubProto.g:3306:2: rule__ProtoIndex__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoIndex__Group__4__Impl();
@@ -9934,17 +9898,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoIndex__Group__4__Impl"
-    // InternalPubProto.g:3319:1: rule__ProtoIndex__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3312:1: rule__ProtoIndex__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoIndex__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3323:1: ( ( '}' ) )
-            // InternalPubProto.g:3324:1: ( '}' )
+            // InternalPubProto.g:3316:1: ( ( '}' ) )
+            // InternalPubProto.g:3317:1: ( '}' )
             {
-            // InternalPubProto.g:3324:1: ( '}' )
-            // InternalPubProto.g:3325:2: '}'
+            // InternalPubProto.g:3317:1: ( '}' )
+            // InternalPubProto.g:3318:2: '}'
             {
              before(grammarAccess.getProtoIndexAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -9971,14 +9935,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoDivisionBody__Group__0"
-    // InternalPubProto.g:3335:1: rule__ProtoDivisionBody__Group__0 : rule__ProtoDivisionBody__Group__0__Impl rule__ProtoDivisionBody__Group__1 ;
+    // InternalPubProto.g:3328:1: rule__ProtoDivisionBody__Group__0 : rule__ProtoDivisionBody__Group__0__Impl rule__ProtoDivisionBody__Group__1 ;
     public final void rule__ProtoDivisionBody__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3339:1: ( rule__ProtoDivisionBody__Group__0__Impl rule__ProtoDivisionBody__Group__1 )
-            // InternalPubProto.g:3340:2: rule__ProtoDivisionBody__Group__0__Impl rule__ProtoDivisionBody__Group__1
+            // InternalPubProto.g:3332:1: ( rule__ProtoDivisionBody__Group__0__Impl rule__ProtoDivisionBody__Group__1 )
+            // InternalPubProto.g:3333:2: rule__ProtoDivisionBody__Group__0__Impl rule__ProtoDivisionBody__Group__1
             {
             pushFollow(FOLLOW_35);
             rule__ProtoDivisionBody__Group__0__Impl();
@@ -10009,17 +9973,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoDivisionBody__Group__0__Impl"
-    // InternalPubProto.g:3347:1: rule__ProtoDivisionBody__Group__0__Impl : ( 'numbering:' ) ;
+    // InternalPubProto.g:3340:1: rule__ProtoDivisionBody__Group__0__Impl : ( 'numbering:' ) ;
     public final void rule__ProtoDivisionBody__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3351:1: ( ( 'numbering:' ) )
-            // InternalPubProto.g:3352:1: ( 'numbering:' )
+            // InternalPubProto.g:3344:1: ( ( 'numbering:' ) )
+            // InternalPubProto.g:3345:1: ( 'numbering:' )
             {
-            // InternalPubProto.g:3352:1: ( 'numbering:' )
-            // InternalPubProto.g:3353:2: 'numbering:'
+            // InternalPubProto.g:3345:1: ( 'numbering:' )
+            // InternalPubProto.g:3346:2: 'numbering:'
             {
              before(grammarAccess.getProtoDivisionBodyAccess().getNumberingKeyword_0()); 
             match(input,45,FOLLOW_2); 
@@ -10046,14 +10010,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoDivisionBody__Group__1"
-    // InternalPubProto.g:3362:1: rule__ProtoDivisionBody__Group__1 : rule__ProtoDivisionBody__Group__1__Impl ;
+    // InternalPubProto.g:3355:1: rule__ProtoDivisionBody__Group__1 : rule__ProtoDivisionBody__Group__1__Impl ;
     public final void rule__ProtoDivisionBody__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3366:1: ( rule__ProtoDivisionBody__Group__1__Impl )
-            // InternalPubProto.g:3367:2: rule__ProtoDivisionBody__Group__1__Impl
+            // InternalPubProto.g:3359:1: ( rule__ProtoDivisionBody__Group__1__Impl )
+            // InternalPubProto.g:3360:2: rule__ProtoDivisionBody__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoDivisionBody__Group__1__Impl();
@@ -10079,21 +10043,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoDivisionBody__Group__1__Impl"
-    // InternalPubProto.g:3373:1: rule__ProtoDivisionBody__Group__1__Impl : ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) ) ;
+    // InternalPubProto.g:3366:1: rule__ProtoDivisionBody__Group__1__Impl : ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) ) ;
     public final void rule__ProtoDivisionBody__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3377:1: ( ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) ) )
-            // InternalPubProto.g:3378:1: ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) )
+            // InternalPubProto.g:3370:1: ( ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) ) )
+            // InternalPubProto.g:3371:1: ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) )
             {
-            // InternalPubProto.g:3378:1: ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) )
-            // InternalPubProto.g:3379:2: ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 )
+            // InternalPubProto.g:3371:1: ( ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 ) )
+            // InternalPubProto.g:3372:2: ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 )
             {
              before(grammarAccess.getProtoDivisionBodyAccess().getNumberingStyleAssignment_1()); 
-            // InternalPubProto.g:3380:2: ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 )
-            // InternalPubProto.g:3380:3: rule__ProtoDivisionBody__NumberingStyleAssignment_1
+            // InternalPubProto.g:3373:2: ( rule__ProtoDivisionBody__NumberingStyleAssignment_1 )
+            // InternalPubProto.g:3373:3: rule__ProtoDivisionBody__NumberingStyleAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ProtoDivisionBody__NumberingStyleAssignment_1();
@@ -10126,14 +10090,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__0"
-    // InternalPubProto.g:3389:1: rule__ProtoPart__Group__0 : rule__ProtoPart__Group__0__Impl rule__ProtoPart__Group__1 ;
+    // InternalPubProto.g:3382:1: rule__ProtoPart__Group__0 : rule__ProtoPart__Group__0__Impl rule__ProtoPart__Group__1 ;
     public final void rule__ProtoPart__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3393:1: ( rule__ProtoPart__Group__0__Impl rule__ProtoPart__Group__1 )
-            // InternalPubProto.g:3394:2: rule__ProtoPart__Group__0__Impl rule__ProtoPart__Group__1
+            // InternalPubProto.g:3386:1: ( rule__ProtoPart__Group__0__Impl rule__ProtoPart__Group__1 )
+            // InternalPubProto.g:3387:2: rule__ProtoPart__Group__0__Impl rule__ProtoPart__Group__1
             {
             pushFollow(FOLLOW_36);
             rule__ProtoPart__Group__0__Impl();
@@ -10164,21 +10128,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__0__Impl"
-    // InternalPubProto.g:3401:1: rule__ProtoPart__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3394:1: rule__ProtoPart__Group__0__Impl : ( () ) ;
     public final void rule__ProtoPart__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3405:1: ( ( () ) )
-            // InternalPubProto.g:3406:1: ( () )
+            // InternalPubProto.g:3398:1: ( ( () ) )
+            // InternalPubProto.g:3399:1: ( () )
             {
-            // InternalPubProto.g:3406:1: ( () )
-            // InternalPubProto.g:3407:2: ()
+            // InternalPubProto.g:3399:1: ( () )
+            // InternalPubProto.g:3400:2: ()
             {
              before(grammarAccess.getProtoPartAccess().getProtoPartAction_0()); 
-            // InternalPubProto.g:3408:2: ()
-            // InternalPubProto.g:3408:3: 
+            // InternalPubProto.g:3401:2: ()
+            // InternalPubProto.g:3401:3: 
             {
             }
 
@@ -10201,14 +10165,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__1"
-    // InternalPubProto.g:3416:1: rule__ProtoPart__Group__1 : rule__ProtoPart__Group__1__Impl rule__ProtoPart__Group__2 ;
+    // InternalPubProto.g:3409:1: rule__ProtoPart__Group__1 : rule__ProtoPart__Group__1__Impl rule__ProtoPart__Group__2 ;
     public final void rule__ProtoPart__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3420:1: ( rule__ProtoPart__Group__1__Impl rule__ProtoPart__Group__2 )
-            // InternalPubProto.g:3421:2: rule__ProtoPart__Group__1__Impl rule__ProtoPart__Group__2
+            // InternalPubProto.g:3413:1: ( rule__ProtoPart__Group__1__Impl rule__ProtoPart__Group__2 )
+            // InternalPubProto.g:3414:2: rule__ProtoPart__Group__1__Impl rule__ProtoPart__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoPart__Group__1__Impl();
@@ -10239,17 +10203,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__1__Impl"
-    // InternalPubProto.g:3428:1: rule__ProtoPart__Group__1__Impl : ( 'Part' ) ;
+    // InternalPubProto.g:3421:1: rule__ProtoPart__Group__1__Impl : ( 'Part' ) ;
     public final void rule__ProtoPart__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3432:1: ( ( 'Part' ) )
-            // InternalPubProto.g:3433:1: ( 'Part' )
+            // InternalPubProto.g:3425:1: ( ( 'Part' ) )
+            // InternalPubProto.g:3426:1: ( 'Part' )
             {
-            // InternalPubProto.g:3433:1: ( 'Part' )
-            // InternalPubProto.g:3434:2: 'Part'
+            // InternalPubProto.g:3426:1: ( 'Part' )
+            // InternalPubProto.g:3427:2: 'Part'
             {
              before(grammarAccess.getProtoPartAccess().getPartKeyword_1()); 
             match(input,46,FOLLOW_2); 
@@ -10276,14 +10240,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__2"
-    // InternalPubProto.g:3443:1: rule__ProtoPart__Group__2 : rule__ProtoPart__Group__2__Impl rule__ProtoPart__Group__3 ;
+    // InternalPubProto.g:3436:1: rule__ProtoPart__Group__2 : rule__ProtoPart__Group__2__Impl rule__ProtoPart__Group__3 ;
     public final void rule__ProtoPart__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3447:1: ( rule__ProtoPart__Group__2__Impl rule__ProtoPart__Group__3 )
-            // InternalPubProto.g:3448:2: rule__ProtoPart__Group__2__Impl rule__ProtoPart__Group__3
+            // InternalPubProto.g:3440:1: ( rule__ProtoPart__Group__2__Impl rule__ProtoPart__Group__3 )
+            // InternalPubProto.g:3441:2: rule__ProtoPart__Group__2__Impl rule__ProtoPart__Group__3
             {
             pushFollow(FOLLOW_37);
             rule__ProtoPart__Group__2__Impl();
@@ -10314,17 +10278,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__2__Impl"
-    // InternalPubProto.g:3455:1: rule__ProtoPart__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3448:1: rule__ProtoPart__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoPart__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3459:1: ( ( '{' ) )
-            // InternalPubProto.g:3460:1: ( '{' )
+            // InternalPubProto.g:3452:1: ( ( '{' ) )
+            // InternalPubProto.g:3453:1: ( '{' )
             {
-            // InternalPubProto.g:3460:1: ( '{' )
-            // InternalPubProto.g:3461:2: '{'
+            // InternalPubProto.g:3453:1: ( '{' )
+            // InternalPubProto.g:3454:2: '{'
             {
              before(grammarAccess.getProtoPartAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -10351,14 +10315,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__3"
-    // InternalPubProto.g:3470:1: rule__ProtoPart__Group__3 : rule__ProtoPart__Group__3__Impl rule__ProtoPart__Group__4 ;
+    // InternalPubProto.g:3463:1: rule__ProtoPart__Group__3 : rule__ProtoPart__Group__3__Impl rule__ProtoPart__Group__4 ;
     public final void rule__ProtoPart__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3474:1: ( rule__ProtoPart__Group__3__Impl rule__ProtoPart__Group__4 )
-            // InternalPubProto.g:3475:2: rule__ProtoPart__Group__3__Impl rule__ProtoPart__Group__4
+            // InternalPubProto.g:3467:1: ( rule__ProtoPart__Group__3__Impl rule__ProtoPart__Group__4 )
+            // InternalPubProto.g:3468:2: rule__ProtoPart__Group__3__Impl rule__ProtoPart__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoPart__Group__3__Impl();
@@ -10389,17 +10353,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__3__Impl"
-    // InternalPubProto.g:3482:1: rule__ProtoPart__Group__3__Impl : ( ruleProtoDivisionBody ) ;
+    // InternalPubProto.g:3475:1: rule__ProtoPart__Group__3__Impl : ( ruleProtoDivisionBody ) ;
     public final void rule__ProtoPart__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3486:1: ( ( ruleProtoDivisionBody ) )
-            // InternalPubProto.g:3487:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3479:1: ( ( ruleProtoDivisionBody ) )
+            // InternalPubProto.g:3480:1: ( ruleProtoDivisionBody )
             {
-            // InternalPubProto.g:3487:1: ( ruleProtoDivisionBody )
-            // InternalPubProto.g:3488:2: ruleProtoDivisionBody
+            // InternalPubProto.g:3480:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3481:2: ruleProtoDivisionBody
             {
              before(grammarAccess.getProtoPartAccess().getProtoDivisionBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -10430,14 +10394,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__4"
-    // InternalPubProto.g:3497:1: rule__ProtoPart__Group__4 : rule__ProtoPart__Group__4__Impl ;
+    // InternalPubProto.g:3490:1: rule__ProtoPart__Group__4 : rule__ProtoPart__Group__4__Impl ;
     public final void rule__ProtoPart__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3501:1: ( rule__ProtoPart__Group__4__Impl )
-            // InternalPubProto.g:3502:2: rule__ProtoPart__Group__4__Impl
+            // InternalPubProto.g:3494:1: ( rule__ProtoPart__Group__4__Impl )
+            // InternalPubProto.g:3495:2: rule__ProtoPart__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoPart__Group__4__Impl();
@@ -10463,17 +10427,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPart__Group__4__Impl"
-    // InternalPubProto.g:3508:1: rule__ProtoPart__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3501:1: rule__ProtoPart__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoPart__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3512:1: ( ( '}' ) )
-            // InternalPubProto.g:3513:1: ( '}' )
+            // InternalPubProto.g:3505:1: ( ( '}' ) )
+            // InternalPubProto.g:3506:1: ( '}' )
             {
-            // InternalPubProto.g:3513:1: ( '}' )
-            // InternalPubProto.g:3514:2: '}'
+            // InternalPubProto.g:3506:1: ( '}' )
+            // InternalPubProto.g:3507:2: '}'
             {
              before(grammarAccess.getProtoPartAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -10500,14 +10464,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__0"
-    // InternalPubProto.g:3524:1: rule__ProtoAppendix__Group__0 : rule__ProtoAppendix__Group__0__Impl rule__ProtoAppendix__Group__1 ;
+    // InternalPubProto.g:3517:1: rule__ProtoAppendix__Group__0 : rule__ProtoAppendix__Group__0__Impl rule__ProtoAppendix__Group__1 ;
     public final void rule__ProtoAppendix__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3528:1: ( rule__ProtoAppendix__Group__0__Impl rule__ProtoAppendix__Group__1 )
-            // InternalPubProto.g:3529:2: rule__ProtoAppendix__Group__0__Impl rule__ProtoAppendix__Group__1
+            // InternalPubProto.g:3521:1: ( rule__ProtoAppendix__Group__0__Impl rule__ProtoAppendix__Group__1 )
+            // InternalPubProto.g:3522:2: rule__ProtoAppendix__Group__0__Impl rule__ProtoAppendix__Group__1
             {
             pushFollow(FOLLOW_38);
             rule__ProtoAppendix__Group__0__Impl();
@@ -10538,21 +10502,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__0__Impl"
-    // InternalPubProto.g:3536:1: rule__ProtoAppendix__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3529:1: rule__ProtoAppendix__Group__0__Impl : ( () ) ;
     public final void rule__ProtoAppendix__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3540:1: ( ( () ) )
-            // InternalPubProto.g:3541:1: ( () )
+            // InternalPubProto.g:3533:1: ( ( () ) )
+            // InternalPubProto.g:3534:1: ( () )
             {
-            // InternalPubProto.g:3541:1: ( () )
-            // InternalPubProto.g:3542:2: ()
+            // InternalPubProto.g:3534:1: ( () )
+            // InternalPubProto.g:3535:2: ()
             {
              before(grammarAccess.getProtoAppendixAccess().getProtoAppendixAction_0()); 
-            // InternalPubProto.g:3543:2: ()
-            // InternalPubProto.g:3543:3: 
+            // InternalPubProto.g:3536:2: ()
+            // InternalPubProto.g:3536:3: 
             {
             }
 
@@ -10575,14 +10539,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__1"
-    // InternalPubProto.g:3551:1: rule__ProtoAppendix__Group__1 : rule__ProtoAppendix__Group__1__Impl rule__ProtoAppendix__Group__2 ;
+    // InternalPubProto.g:3544:1: rule__ProtoAppendix__Group__1 : rule__ProtoAppendix__Group__1__Impl rule__ProtoAppendix__Group__2 ;
     public final void rule__ProtoAppendix__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3555:1: ( rule__ProtoAppendix__Group__1__Impl rule__ProtoAppendix__Group__2 )
-            // InternalPubProto.g:3556:2: rule__ProtoAppendix__Group__1__Impl rule__ProtoAppendix__Group__2
+            // InternalPubProto.g:3548:1: ( rule__ProtoAppendix__Group__1__Impl rule__ProtoAppendix__Group__2 )
+            // InternalPubProto.g:3549:2: rule__ProtoAppendix__Group__1__Impl rule__ProtoAppendix__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoAppendix__Group__1__Impl();
@@ -10613,17 +10577,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__1__Impl"
-    // InternalPubProto.g:3563:1: rule__ProtoAppendix__Group__1__Impl : ( 'Appendix' ) ;
+    // InternalPubProto.g:3556:1: rule__ProtoAppendix__Group__1__Impl : ( 'Appendix' ) ;
     public final void rule__ProtoAppendix__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3567:1: ( ( 'Appendix' ) )
-            // InternalPubProto.g:3568:1: ( 'Appendix' )
+            // InternalPubProto.g:3560:1: ( ( 'Appendix' ) )
+            // InternalPubProto.g:3561:1: ( 'Appendix' )
             {
-            // InternalPubProto.g:3568:1: ( 'Appendix' )
-            // InternalPubProto.g:3569:2: 'Appendix'
+            // InternalPubProto.g:3561:1: ( 'Appendix' )
+            // InternalPubProto.g:3562:2: 'Appendix'
             {
              before(grammarAccess.getProtoAppendixAccess().getAppendixKeyword_1()); 
             match(input,47,FOLLOW_2); 
@@ -10650,14 +10614,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__2"
-    // InternalPubProto.g:3578:1: rule__ProtoAppendix__Group__2 : rule__ProtoAppendix__Group__2__Impl rule__ProtoAppendix__Group__3 ;
+    // InternalPubProto.g:3571:1: rule__ProtoAppendix__Group__2 : rule__ProtoAppendix__Group__2__Impl rule__ProtoAppendix__Group__3 ;
     public final void rule__ProtoAppendix__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3582:1: ( rule__ProtoAppendix__Group__2__Impl rule__ProtoAppendix__Group__3 )
-            // InternalPubProto.g:3583:2: rule__ProtoAppendix__Group__2__Impl rule__ProtoAppendix__Group__3
+            // InternalPubProto.g:3575:1: ( rule__ProtoAppendix__Group__2__Impl rule__ProtoAppendix__Group__3 )
+            // InternalPubProto.g:3576:2: rule__ProtoAppendix__Group__2__Impl rule__ProtoAppendix__Group__3
             {
             pushFollow(FOLLOW_37);
             rule__ProtoAppendix__Group__2__Impl();
@@ -10688,17 +10652,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__2__Impl"
-    // InternalPubProto.g:3590:1: rule__ProtoAppendix__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3583:1: rule__ProtoAppendix__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoAppendix__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3594:1: ( ( '{' ) )
-            // InternalPubProto.g:3595:1: ( '{' )
+            // InternalPubProto.g:3587:1: ( ( '{' ) )
+            // InternalPubProto.g:3588:1: ( '{' )
             {
-            // InternalPubProto.g:3595:1: ( '{' )
-            // InternalPubProto.g:3596:2: '{'
+            // InternalPubProto.g:3588:1: ( '{' )
+            // InternalPubProto.g:3589:2: '{'
             {
              before(grammarAccess.getProtoAppendixAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -10725,14 +10689,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__3"
-    // InternalPubProto.g:3605:1: rule__ProtoAppendix__Group__3 : rule__ProtoAppendix__Group__3__Impl rule__ProtoAppendix__Group__4 ;
+    // InternalPubProto.g:3598:1: rule__ProtoAppendix__Group__3 : rule__ProtoAppendix__Group__3__Impl rule__ProtoAppendix__Group__4 ;
     public final void rule__ProtoAppendix__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3609:1: ( rule__ProtoAppendix__Group__3__Impl rule__ProtoAppendix__Group__4 )
-            // InternalPubProto.g:3610:2: rule__ProtoAppendix__Group__3__Impl rule__ProtoAppendix__Group__4
+            // InternalPubProto.g:3602:1: ( rule__ProtoAppendix__Group__3__Impl rule__ProtoAppendix__Group__4 )
+            // InternalPubProto.g:3603:2: rule__ProtoAppendix__Group__3__Impl rule__ProtoAppendix__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoAppendix__Group__3__Impl();
@@ -10763,17 +10727,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__3__Impl"
-    // InternalPubProto.g:3617:1: rule__ProtoAppendix__Group__3__Impl : ( ruleProtoDivisionBody ) ;
+    // InternalPubProto.g:3610:1: rule__ProtoAppendix__Group__3__Impl : ( ruleProtoDivisionBody ) ;
     public final void rule__ProtoAppendix__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3621:1: ( ( ruleProtoDivisionBody ) )
-            // InternalPubProto.g:3622:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3614:1: ( ( ruleProtoDivisionBody ) )
+            // InternalPubProto.g:3615:1: ( ruleProtoDivisionBody )
             {
-            // InternalPubProto.g:3622:1: ( ruleProtoDivisionBody )
-            // InternalPubProto.g:3623:2: ruleProtoDivisionBody
+            // InternalPubProto.g:3615:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3616:2: ruleProtoDivisionBody
             {
              before(grammarAccess.getProtoAppendixAccess().getProtoDivisionBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -10804,14 +10768,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__4"
-    // InternalPubProto.g:3632:1: rule__ProtoAppendix__Group__4 : rule__ProtoAppendix__Group__4__Impl ;
+    // InternalPubProto.g:3625:1: rule__ProtoAppendix__Group__4 : rule__ProtoAppendix__Group__4__Impl ;
     public final void rule__ProtoAppendix__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3636:1: ( rule__ProtoAppendix__Group__4__Impl )
-            // InternalPubProto.g:3637:2: rule__ProtoAppendix__Group__4__Impl
+            // InternalPubProto.g:3629:1: ( rule__ProtoAppendix__Group__4__Impl )
+            // InternalPubProto.g:3630:2: rule__ProtoAppendix__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoAppendix__Group__4__Impl();
@@ -10837,17 +10801,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoAppendix__Group__4__Impl"
-    // InternalPubProto.g:3643:1: rule__ProtoAppendix__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3636:1: rule__ProtoAppendix__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoAppendix__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3647:1: ( ( '}' ) )
-            // InternalPubProto.g:3648:1: ( '}' )
+            // InternalPubProto.g:3640:1: ( ( '}' ) )
+            // InternalPubProto.g:3641:1: ( '}' )
             {
-            // InternalPubProto.g:3648:1: ( '}' )
-            // InternalPubProto.g:3649:2: '}'
+            // InternalPubProto.g:3641:1: ( '}' )
+            // InternalPubProto.g:3642:2: '}'
             {
              before(grammarAccess.getProtoAppendixAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -10874,14 +10838,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__0"
-    // InternalPubProto.g:3659:1: rule__ProtoChapter__Group__0 : rule__ProtoChapter__Group__0__Impl rule__ProtoChapter__Group__1 ;
+    // InternalPubProto.g:3652:1: rule__ProtoChapter__Group__0 : rule__ProtoChapter__Group__0__Impl rule__ProtoChapter__Group__1 ;
     public final void rule__ProtoChapter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3663:1: ( rule__ProtoChapter__Group__0__Impl rule__ProtoChapter__Group__1 )
-            // InternalPubProto.g:3664:2: rule__ProtoChapter__Group__0__Impl rule__ProtoChapter__Group__1
+            // InternalPubProto.g:3656:1: ( rule__ProtoChapter__Group__0__Impl rule__ProtoChapter__Group__1 )
+            // InternalPubProto.g:3657:2: rule__ProtoChapter__Group__0__Impl rule__ProtoChapter__Group__1
             {
             pushFollow(FOLLOW_39);
             rule__ProtoChapter__Group__0__Impl();
@@ -10912,21 +10876,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__0__Impl"
-    // InternalPubProto.g:3671:1: rule__ProtoChapter__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3664:1: rule__ProtoChapter__Group__0__Impl : ( () ) ;
     public final void rule__ProtoChapter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3675:1: ( ( () ) )
-            // InternalPubProto.g:3676:1: ( () )
+            // InternalPubProto.g:3668:1: ( ( () ) )
+            // InternalPubProto.g:3669:1: ( () )
             {
-            // InternalPubProto.g:3676:1: ( () )
-            // InternalPubProto.g:3677:2: ()
+            // InternalPubProto.g:3669:1: ( () )
+            // InternalPubProto.g:3670:2: ()
             {
              before(grammarAccess.getProtoChapterAccess().getProtoChapterAction_0()); 
-            // InternalPubProto.g:3678:2: ()
-            // InternalPubProto.g:3678:3: 
+            // InternalPubProto.g:3671:2: ()
+            // InternalPubProto.g:3671:3: 
             {
             }
 
@@ -10949,14 +10913,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__1"
-    // InternalPubProto.g:3686:1: rule__ProtoChapter__Group__1 : rule__ProtoChapter__Group__1__Impl rule__ProtoChapter__Group__2 ;
+    // InternalPubProto.g:3679:1: rule__ProtoChapter__Group__1 : rule__ProtoChapter__Group__1__Impl rule__ProtoChapter__Group__2 ;
     public final void rule__ProtoChapter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3690:1: ( rule__ProtoChapter__Group__1__Impl rule__ProtoChapter__Group__2 )
-            // InternalPubProto.g:3691:2: rule__ProtoChapter__Group__1__Impl rule__ProtoChapter__Group__2
+            // InternalPubProto.g:3683:1: ( rule__ProtoChapter__Group__1__Impl rule__ProtoChapter__Group__2 )
+            // InternalPubProto.g:3684:2: rule__ProtoChapter__Group__1__Impl rule__ProtoChapter__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoChapter__Group__1__Impl();
@@ -10987,17 +10951,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__1__Impl"
-    // InternalPubProto.g:3698:1: rule__ProtoChapter__Group__1__Impl : ( 'Chapter' ) ;
+    // InternalPubProto.g:3691:1: rule__ProtoChapter__Group__1__Impl : ( 'Chapter' ) ;
     public final void rule__ProtoChapter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3702:1: ( ( 'Chapter' ) )
-            // InternalPubProto.g:3703:1: ( 'Chapter' )
+            // InternalPubProto.g:3695:1: ( ( 'Chapter' ) )
+            // InternalPubProto.g:3696:1: ( 'Chapter' )
             {
-            // InternalPubProto.g:3703:1: ( 'Chapter' )
-            // InternalPubProto.g:3704:2: 'Chapter'
+            // InternalPubProto.g:3696:1: ( 'Chapter' )
+            // InternalPubProto.g:3697:2: 'Chapter'
             {
              before(grammarAccess.getProtoChapterAccess().getChapterKeyword_1()); 
             match(input,48,FOLLOW_2); 
@@ -11024,14 +10988,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__2"
-    // InternalPubProto.g:3713:1: rule__ProtoChapter__Group__2 : rule__ProtoChapter__Group__2__Impl rule__ProtoChapter__Group__3 ;
+    // InternalPubProto.g:3706:1: rule__ProtoChapter__Group__2 : rule__ProtoChapter__Group__2__Impl rule__ProtoChapter__Group__3 ;
     public final void rule__ProtoChapter__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3717:1: ( rule__ProtoChapter__Group__2__Impl rule__ProtoChapter__Group__3 )
-            // InternalPubProto.g:3718:2: rule__ProtoChapter__Group__2__Impl rule__ProtoChapter__Group__3
+            // InternalPubProto.g:3710:1: ( rule__ProtoChapter__Group__2__Impl rule__ProtoChapter__Group__3 )
+            // InternalPubProto.g:3711:2: rule__ProtoChapter__Group__2__Impl rule__ProtoChapter__Group__3
             {
             pushFollow(FOLLOW_37);
             rule__ProtoChapter__Group__2__Impl();
@@ -11062,17 +11026,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__2__Impl"
-    // InternalPubProto.g:3725:1: rule__ProtoChapter__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3718:1: rule__ProtoChapter__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoChapter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3729:1: ( ( '{' ) )
-            // InternalPubProto.g:3730:1: ( '{' )
+            // InternalPubProto.g:3722:1: ( ( '{' ) )
+            // InternalPubProto.g:3723:1: ( '{' )
             {
-            // InternalPubProto.g:3730:1: ( '{' )
-            // InternalPubProto.g:3731:2: '{'
+            // InternalPubProto.g:3723:1: ( '{' )
+            // InternalPubProto.g:3724:2: '{'
             {
              before(grammarAccess.getProtoChapterAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -11099,14 +11063,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__3"
-    // InternalPubProto.g:3740:1: rule__ProtoChapter__Group__3 : rule__ProtoChapter__Group__3__Impl rule__ProtoChapter__Group__4 ;
+    // InternalPubProto.g:3733:1: rule__ProtoChapter__Group__3 : rule__ProtoChapter__Group__3__Impl rule__ProtoChapter__Group__4 ;
     public final void rule__ProtoChapter__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3744:1: ( rule__ProtoChapter__Group__3__Impl rule__ProtoChapter__Group__4 )
-            // InternalPubProto.g:3745:2: rule__ProtoChapter__Group__3__Impl rule__ProtoChapter__Group__4
+            // InternalPubProto.g:3737:1: ( rule__ProtoChapter__Group__3__Impl rule__ProtoChapter__Group__4 )
+            // InternalPubProto.g:3738:2: rule__ProtoChapter__Group__3__Impl rule__ProtoChapter__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoChapter__Group__3__Impl();
@@ -11137,17 +11101,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__3__Impl"
-    // InternalPubProto.g:3752:1: rule__ProtoChapter__Group__3__Impl : ( ruleProtoDivisionBody ) ;
+    // InternalPubProto.g:3745:1: rule__ProtoChapter__Group__3__Impl : ( ruleProtoDivisionBody ) ;
     public final void rule__ProtoChapter__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3756:1: ( ( ruleProtoDivisionBody ) )
-            // InternalPubProto.g:3757:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3749:1: ( ( ruleProtoDivisionBody ) )
+            // InternalPubProto.g:3750:1: ( ruleProtoDivisionBody )
             {
-            // InternalPubProto.g:3757:1: ( ruleProtoDivisionBody )
-            // InternalPubProto.g:3758:2: ruleProtoDivisionBody
+            // InternalPubProto.g:3750:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3751:2: ruleProtoDivisionBody
             {
              before(grammarAccess.getProtoChapterAccess().getProtoDivisionBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -11178,14 +11142,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__4"
-    // InternalPubProto.g:3767:1: rule__ProtoChapter__Group__4 : rule__ProtoChapter__Group__4__Impl ;
+    // InternalPubProto.g:3760:1: rule__ProtoChapter__Group__4 : rule__ProtoChapter__Group__4__Impl ;
     public final void rule__ProtoChapter__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3771:1: ( rule__ProtoChapter__Group__4__Impl )
-            // InternalPubProto.g:3772:2: rule__ProtoChapter__Group__4__Impl
+            // InternalPubProto.g:3764:1: ( rule__ProtoChapter__Group__4__Impl )
+            // InternalPubProto.g:3765:2: rule__ProtoChapter__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoChapter__Group__4__Impl();
@@ -11211,17 +11175,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoChapter__Group__4__Impl"
-    // InternalPubProto.g:3778:1: rule__ProtoChapter__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3771:1: rule__ProtoChapter__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoChapter__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3782:1: ( ( '}' ) )
-            // InternalPubProto.g:3783:1: ( '}' )
+            // InternalPubProto.g:3775:1: ( ( '}' ) )
+            // InternalPubProto.g:3776:1: ( '}' )
             {
-            // InternalPubProto.g:3783:1: ( '}' )
-            // InternalPubProto.g:3784:2: '}'
+            // InternalPubProto.g:3776:1: ( '}' )
+            // InternalPubProto.g:3777:2: '}'
             {
              before(grammarAccess.getProtoChapterAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -11248,14 +11212,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__0"
-    // InternalPubProto.g:3794:1: rule__ProtoSection__Group__0 : rule__ProtoSection__Group__0__Impl rule__ProtoSection__Group__1 ;
+    // InternalPubProto.g:3787:1: rule__ProtoSection__Group__0 : rule__ProtoSection__Group__0__Impl rule__ProtoSection__Group__1 ;
     public final void rule__ProtoSection__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3798:1: ( rule__ProtoSection__Group__0__Impl rule__ProtoSection__Group__1 )
-            // InternalPubProto.g:3799:2: rule__ProtoSection__Group__0__Impl rule__ProtoSection__Group__1
+            // InternalPubProto.g:3791:1: ( rule__ProtoSection__Group__0__Impl rule__ProtoSection__Group__1 )
+            // InternalPubProto.g:3792:2: rule__ProtoSection__Group__0__Impl rule__ProtoSection__Group__1
             {
             pushFollow(FOLLOW_40);
             rule__ProtoSection__Group__0__Impl();
@@ -11286,21 +11250,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__0__Impl"
-    // InternalPubProto.g:3806:1: rule__ProtoSection__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3799:1: rule__ProtoSection__Group__0__Impl : ( () ) ;
     public final void rule__ProtoSection__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3810:1: ( ( () ) )
-            // InternalPubProto.g:3811:1: ( () )
+            // InternalPubProto.g:3803:1: ( ( () ) )
+            // InternalPubProto.g:3804:1: ( () )
             {
-            // InternalPubProto.g:3811:1: ( () )
-            // InternalPubProto.g:3812:2: ()
+            // InternalPubProto.g:3804:1: ( () )
+            // InternalPubProto.g:3805:2: ()
             {
              before(grammarAccess.getProtoSectionAccess().getProtoSectionAction_0()); 
-            // InternalPubProto.g:3813:2: ()
-            // InternalPubProto.g:3813:3: 
+            // InternalPubProto.g:3806:2: ()
+            // InternalPubProto.g:3806:3: 
             {
             }
 
@@ -11323,14 +11287,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__1"
-    // InternalPubProto.g:3821:1: rule__ProtoSection__Group__1 : rule__ProtoSection__Group__1__Impl rule__ProtoSection__Group__2 ;
+    // InternalPubProto.g:3814:1: rule__ProtoSection__Group__1 : rule__ProtoSection__Group__1__Impl rule__ProtoSection__Group__2 ;
     public final void rule__ProtoSection__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3825:1: ( rule__ProtoSection__Group__1__Impl rule__ProtoSection__Group__2 )
-            // InternalPubProto.g:3826:2: rule__ProtoSection__Group__1__Impl rule__ProtoSection__Group__2
+            // InternalPubProto.g:3818:1: ( rule__ProtoSection__Group__1__Impl rule__ProtoSection__Group__2 )
+            // InternalPubProto.g:3819:2: rule__ProtoSection__Group__1__Impl rule__ProtoSection__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoSection__Group__1__Impl();
@@ -11361,17 +11325,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__1__Impl"
-    // InternalPubProto.g:3833:1: rule__ProtoSection__Group__1__Impl : ( 'Section' ) ;
+    // InternalPubProto.g:3826:1: rule__ProtoSection__Group__1__Impl : ( 'Section' ) ;
     public final void rule__ProtoSection__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3837:1: ( ( 'Section' ) )
-            // InternalPubProto.g:3838:1: ( 'Section' )
+            // InternalPubProto.g:3830:1: ( ( 'Section' ) )
+            // InternalPubProto.g:3831:1: ( 'Section' )
             {
-            // InternalPubProto.g:3838:1: ( 'Section' )
-            // InternalPubProto.g:3839:2: 'Section'
+            // InternalPubProto.g:3831:1: ( 'Section' )
+            // InternalPubProto.g:3832:2: 'Section'
             {
              before(grammarAccess.getProtoSectionAccess().getSectionKeyword_1()); 
             match(input,49,FOLLOW_2); 
@@ -11398,14 +11362,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__2"
-    // InternalPubProto.g:3848:1: rule__ProtoSection__Group__2 : rule__ProtoSection__Group__2__Impl rule__ProtoSection__Group__3 ;
+    // InternalPubProto.g:3841:1: rule__ProtoSection__Group__2 : rule__ProtoSection__Group__2__Impl rule__ProtoSection__Group__3 ;
     public final void rule__ProtoSection__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3852:1: ( rule__ProtoSection__Group__2__Impl rule__ProtoSection__Group__3 )
-            // InternalPubProto.g:3853:2: rule__ProtoSection__Group__2__Impl rule__ProtoSection__Group__3
+            // InternalPubProto.g:3845:1: ( rule__ProtoSection__Group__2__Impl rule__ProtoSection__Group__3 )
+            // InternalPubProto.g:3846:2: rule__ProtoSection__Group__2__Impl rule__ProtoSection__Group__3
             {
             pushFollow(FOLLOW_37);
             rule__ProtoSection__Group__2__Impl();
@@ -11436,17 +11400,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__2__Impl"
-    // InternalPubProto.g:3860:1: rule__ProtoSection__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3853:1: rule__ProtoSection__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoSection__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3864:1: ( ( '{' ) )
-            // InternalPubProto.g:3865:1: ( '{' )
+            // InternalPubProto.g:3857:1: ( ( '{' ) )
+            // InternalPubProto.g:3858:1: ( '{' )
             {
-            // InternalPubProto.g:3865:1: ( '{' )
-            // InternalPubProto.g:3866:2: '{'
+            // InternalPubProto.g:3858:1: ( '{' )
+            // InternalPubProto.g:3859:2: '{'
             {
              before(grammarAccess.getProtoSectionAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -11473,14 +11437,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__3"
-    // InternalPubProto.g:3875:1: rule__ProtoSection__Group__3 : rule__ProtoSection__Group__3__Impl rule__ProtoSection__Group__4 ;
+    // InternalPubProto.g:3868:1: rule__ProtoSection__Group__3 : rule__ProtoSection__Group__3__Impl rule__ProtoSection__Group__4 ;
     public final void rule__ProtoSection__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3879:1: ( rule__ProtoSection__Group__3__Impl rule__ProtoSection__Group__4 )
-            // InternalPubProto.g:3880:2: rule__ProtoSection__Group__3__Impl rule__ProtoSection__Group__4
+            // InternalPubProto.g:3872:1: ( rule__ProtoSection__Group__3__Impl rule__ProtoSection__Group__4 )
+            // InternalPubProto.g:3873:2: rule__ProtoSection__Group__3__Impl rule__ProtoSection__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoSection__Group__3__Impl();
@@ -11511,17 +11475,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__3__Impl"
-    // InternalPubProto.g:3887:1: rule__ProtoSection__Group__3__Impl : ( ruleProtoDivisionBody ) ;
+    // InternalPubProto.g:3880:1: rule__ProtoSection__Group__3__Impl : ( ruleProtoDivisionBody ) ;
     public final void rule__ProtoSection__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3891:1: ( ( ruleProtoDivisionBody ) )
-            // InternalPubProto.g:3892:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3884:1: ( ( ruleProtoDivisionBody ) )
+            // InternalPubProto.g:3885:1: ( ruleProtoDivisionBody )
             {
-            // InternalPubProto.g:3892:1: ( ruleProtoDivisionBody )
-            // InternalPubProto.g:3893:2: ruleProtoDivisionBody
+            // InternalPubProto.g:3885:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:3886:2: ruleProtoDivisionBody
             {
              before(grammarAccess.getProtoSectionAccess().getProtoDivisionBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -11552,14 +11516,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__4"
-    // InternalPubProto.g:3902:1: rule__ProtoSection__Group__4 : rule__ProtoSection__Group__4__Impl ;
+    // InternalPubProto.g:3895:1: rule__ProtoSection__Group__4 : rule__ProtoSection__Group__4__Impl ;
     public final void rule__ProtoSection__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3906:1: ( rule__ProtoSection__Group__4__Impl )
-            // InternalPubProto.g:3907:2: rule__ProtoSection__Group__4__Impl
+            // InternalPubProto.g:3899:1: ( rule__ProtoSection__Group__4__Impl )
+            // InternalPubProto.g:3900:2: rule__ProtoSection__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoSection__Group__4__Impl();
@@ -11585,17 +11549,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSection__Group__4__Impl"
-    // InternalPubProto.g:3913:1: rule__ProtoSection__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:3906:1: rule__ProtoSection__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoSection__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3917:1: ( ( '}' ) )
-            // InternalPubProto.g:3918:1: ( '}' )
+            // InternalPubProto.g:3910:1: ( ( '}' ) )
+            // InternalPubProto.g:3911:1: ( '}' )
             {
-            // InternalPubProto.g:3918:1: ( '}' )
-            // InternalPubProto.g:3919:2: '}'
+            // InternalPubProto.g:3911:1: ( '}' )
+            // InternalPubProto.g:3912:2: '}'
             {
              before(grammarAccess.getProtoSectionAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -11622,14 +11586,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__0"
-    // InternalPubProto.g:3929:1: rule__ProtoSubsection__Group__0 : rule__ProtoSubsection__Group__0__Impl rule__ProtoSubsection__Group__1 ;
+    // InternalPubProto.g:3922:1: rule__ProtoSubsection__Group__0 : rule__ProtoSubsection__Group__0__Impl rule__ProtoSubsection__Group__1 ;
     public final void rule__ProtoSubsection__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3933:1: ( rule__ProtoSubsection__Group__0__Impl rule__ProtoSubsection__Group__1 )
-            // InternalPubProto.g:3934:2: rule__ProtoSubsection__Group__0__Impl rule__ProtoSubsection__Group__1
+            // InternalPubProto.g:3926:1: ( rule__ProtoSubsection__Group__0__Impl rule__ProtoSubsection__Group__1 )
+            // InternalPubProto.g:3927:2: rule__ProtoSubsection__Group__0__Impl rule__ProtoSubsection__Group__1
             {
             pushFollow(FOLLOW_41);
             rule__ProtoSubsection__Group__0__Impl();
@@ -11660,21 +11624,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__0__Impl"
-    // InternalPubProto.g:3941:1: rule__ProtoSubsection__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:3934:1: rule__ProtoSubsection__Group__0__Impl : ( () ) ;
     public final void rule__ProtoSubsection__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3945:1: ( ( () ) )
-            // InternalPubProto.g:3946:1: ( () )
+            // InternalPubProto.g:3938:1: ( ( () ) )
+            // InternalPubProto.g:3939:1: ( () )
             {
-            // InternalPubProto.g:3946:1: ( () )
-            // InternalPubProto.g:3947:2: ()
+            // InternalPubProto.g:3939:1: ( () )
+            // InternalPubProto.g:3940:2: ()
             {
              before(grammarAccess.getProtoSubsectionAccess().getProtoSubsectionAction_0()); 
-            // InternalPubProto.g:3948:2: ()
-            // InternalPubProto.g:3948:3: 
+            // InternalPubProto.g:3941:2: ()
+            // InternalPubProto.g:3941:3: 
             {
             }
 
@@ -11697,14 +11661,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__1"
-    // InternalPubProto.g:3956:1: rule__ProtoSubsection__Group__1 : rule__ProtoSubsection__Group__1__Impl rule__ProtoSubsection__Group__2 ;
+    // InternalPubProto.g:3949:1: rule__ProtoSubsection__Group__1 : rule__ProtoSubsection__Group__1__Impl rule__ProtoSubsection__Group__2 ;
     public final void rule__ProtoSubsection__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3960:1: ( rule__ProtoSubsection__Group__1__Impl rule__ProtoSubsection__Group__2 )
-            // InternalPubProto.g:3961:2: rule__ProtoSubsection__Group__1__Impl rule__ProtoSubsection__Group__2
+            // InternalPubProto.g:3953:1: ( rule__ProtoSubsection__Group__1__Impl rule__ProtoSubsection__Group__2 )
+            // InternalPubProto.g:3954:2: rule__ProtoSubsection__Group__1__Impl rule__ProtoSubsection__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoSubsection__Group__1__Impl();
@@ -11735,17 +11699,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__1__Impl"
-    // InternalPubProto.g:3968:1: rule__ProtoSubsection__Group__1__Impl : ( 'Sub' ) ;
+    // InternalPubProto.g:3961:1: rule__ProtoSubsection__Group__1__Impl : ( 'Sub' ) ;
     public final void rule__ProtoSubsection__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3972:1: ( ( 'Sub' ) )
-            // InternalPubProto.g:3973:1: ( 'Sub' )
+            // InternalPubProto.g:3965:1: ( ( 'Sub' ) )
+            // InternalPubProto.g:3966:1: ( 'Sub' )
             {
-            // InternalPubProto.g:3973:1: ( 'Sub' )
-            // InternalPubProto.g:3974:2: 'Sub'
+            // InternalPubProto.g:3966:1: ( 'Sub' )
+            // InternalPubProto.g:3967:2: 'Sub'
             {
              before(grammarAccess.getProtoSubsectionAccess().getSubKeyword_1()); 
             match(input,50,FOLLOW_2); 
@@ -11772,14 +11736,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__2"
-    // InternalPubProto.g:3983:1: rule__ProtoSubsection__Group__2 : rule__ProtoSubsection__Group__2__Impl rule__ProtoSubsection__Group__3 ;
+    // InternalPubProto.g:3976:1: rule__ProtoSubsection__Group__2 : rule__ProtoSubsection__Group__2__Impl rule__ProtoSubsection__Group__3 ;
     public final void rule__ProtoSubsection__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3987:1: ( rule__ProtoSubsection__Group__2__Impl rule__ProtoSubsection__Group__3 )
-            // InternalPubProto.g:3988:2: rule__ProtoSubsection__Group__2__Impl rule__ProtoSubsection__Group__3
+            // InternalPubProto.g:3980:1: ( rule__ProtoSubsection__Group__2__Impl rule__ProtoSubsection__Group__3 )
+            // InternalPubProto.g:3981:2: rule__ProtoSubsection__Group__2__Impl rule__ProtoSubsection__Group__3
             {
             pushFollow(FOLLOW_37);
             rule__ProtoSubsection__Group__2__Impl();
@@ -11810,17 +11774,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__2__Impl"
-    // InternalPubProto.g:3995:1: rule__ProtoSubsection__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:3988:1: rule__ProtoSubsection__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoSubsection__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:3999:1: ( ( '{' ) )
-            // InternalPubProto.g:4000:1: ( '{' )
+            // InternalPubProto.g:3992:1: ( ( '{' ) )
+            // InternalPubProto.g:3993:1: ( '{' )
             {
-            // InternalPubProto.g:4000:1: ( '{' )
-            // InternalPubProto.g:4001:2: '{'
+            // InternalPubProto.g:3993:1: ( '{' )
+            // InternalPubProto.g:3994:2: '{'
             {
              before(grammarAccess.getProtoSubsectionAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -11847,14 +11811,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__3"
-    // InternalPubProto.g:4010:1: rule__ProtoSubsection__Group__3 : rule__ProtoSubsection__Group__3__Impl rule__ProtoSubsection__Group__4 ;
+    // InternalPubProto.g:4003:1: rule__ProtoSubsection__Group__3 : rule__ProtoSubsection__Group__3__Impl rule__ProtoSubsection__Group__4 ;
     public final void rule__ProtoSubsection__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4014:1: ( rule__ProtoSubsection__Group__3__Impl rule__ProtoSubsection__Group__4 )
-            // InternalPubProto.g:4015:2: rule__ProtoSubsection__Group__3__Impl rule__ProtoSubsection__Group__4
+            // InternalPubProto.g:4007:1: ( rule__ProtoSubsection__Group__3__Impl rule__ProtoSubsection__Group__4 )
+            // InternalPubProto.g:4008:2: rule__ProtoSubsection__Group__3__Impl rule__ProtoSubsection__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoSubsection__Group__3__Impl();
@@ -11885,17 +11849,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__3__Impl"
-    // InternalPubProto.g:4022:1: rule__ProtoSubsection__Group__3__Impl : ( ruleProtoDivisionBody ) ;
+    // InternalPubProto.g:4015:1: rule__ProtoSubsection__Group__3__Impl : ( ruleProtoDivisionBody ) ;
     public final void rule__ProtoSubsection__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4026:1: ( ( ruleProtoDivisionBody ) )
-            // InternalPubProto.g:4027:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:4019:1: ( ( ruleProtoDivisionBody ) )
+            // InternalPubProto.g:4020:1: ( ruleProtoDivisionBody )
             {
-            // InternalPubProto.g:4027:1: ( ruleProtoDivisionBody )
-            // InternalPubProto.g:4028:2: ruleProtoDivisionBody
+            // InternalPubProto.g:4020:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:4021:2: ruleProtoDivisionBody
             {
              before(grammarAccess.getProtoSubsectionAccess().getProtoDivisionBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -11926,14 +11890,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__4"
-    // InternalPubProto.g:4037:1: rule__ProtoSubsection__Group__4 : rule__ProtoSubsection__Group__4__Impl ;
+    // InternalPubProto.g:4030:1: rule__ProtoSubsection__Group__4 : rule__ProtoSubsection__Group__4__Impl ;
     public final void rule__ProtoSubsection__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4041:1: ( rule__ProtoSubsection__Group__4__Impl )
-            // InternalPubProto.g:4042:2: rule__ProtoSubsection__Group__4__Impl
+            // InternalPubProto.g:4034:1: ( rule__ProtoSubsection__Group__4__Impl )
+            // InternalPubProto.g:4035:2: rule__ProtoSubsection__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoSubsection__Group__4__Impl();
@@ -11959,17 +11923,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsection__Group__4__Impl"
-    // InternalPubProto.g:4048:1: rule__ProtoSubsection__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:4041:1: rule__ProtoSubsection__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoSubsection__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4052:1: ( ( '}' ) )
-            // InternalPubProto.g:4053:1: ( '}' )
+            // InternalPubProto.g:4045:1: ( ( '}' ) )
+            // InternalPubProto.g:4046:1: ( '}' )
             {
-            // InternalPubProto.g:4053:1: ( '}' )
-            // InternalPubProto.g:4054:2: '}'
+            // InternalPubProto.g:4046:1: ( '}' )
+            // InternalPubProto.g:4047:2: '}'
             {
              before(grammarAccess.getProtoSubsectionAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -11996,16 +11960,16 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__0"
-    // InternalPubProto.g:4064:1: rule__ProtoSubsubsection__Group__0 : rule__ProtoSubsubsection__Group__0__Impl rule__ProtoSubsubsection__Group__1 ;
+    // InternalPubProto.g:4057:1: rule__ProtoSubsubsection__Group__0 : rule__ProtoSubsubsection__Group__0__Impl rule__ProtoSubsubsection__Group__1 ;
     public final void rule__ProtoSubsubsection__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4068:1: ( rule__ProtoSubsubsection__Group__0__Impl rule__ProtoSubsubsection__Group__1 )
-            // InternalPubProto.g:4069:2: rule__ProtoSubsubsection__Group__0__Impl rule__ProtoSubsubsection__Group__1
+            // InternalPubProto.g:4061:1: ( rule__ProtoSubsubsection__Group__0__Impl rule__ProtoSubsubsection__Group__1 )
+            // InternalPubProto.g:4062:2: rule__ProtoSubsubsection__Group__0__Impl rule__ProtoSubsubsection__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__ProtoSubsubsection__Group__0__Impl();
 
             state._fsp--;
@@ -12034,21 +11998,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__0__Impl"
-    // InternalPubProto.g:4076:1: rule__ProtoSubsubsection__Group__0__Impl : ( () ) ;
+    // InternalPubProto.g:4069:1: rule__ProtoSubsubsection__Group__0__Impl : ( () ) ;
     public final void rule__ProtoSubsubsection__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4080:1: ( ( () ) )
-            // InternalPubProto.g:4081:1: ( () )
+            // InternalPubProto.g:4073:1: ( ( () ) )
+            // InternalPubProto.g:4074:1: ( () )
             {
-            // InternalPubProto.g:4081:1: ( () )
-            // InternalPubProto.g:4082:2: ()
+            // InternalPubProto.g:4074:1: ( () )
+            // InternalPubProto.g:4075:2: ()
             {
              before(grammarAccess.getProtoSubsubsectionAccess().getProtoSubsubsectionAction_0()); 
-            // InternalPubProto.g:4083:2: ()
-            // InternalPubProto.g:4083:3: 
+            // InternalPubProto.g:4076:2: ()
+            // InternalPubProto.g:4076:3: 
             {
             }
 
@@ -12071,14 +12035,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__1"
-    // InternalPubProto.g:4091:1: rule__ProtoSubsubsection__Group__1 : rule__ProtoSubsubsection__Group__1__Impl rule__ProtoSubsubsection__Group__2 ;
+    // InternalPubProto.g:4084:1: rule__ProtoSubsubsection__Group__1 : rule__ProtoSubsubsection__Group__1__Impl rule__ProtoSubsubsection__Group__2 ;
     public final void rule__ProtoSubsubsection__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4095:1: ( rule__ProtoSubsubsection__Group__1__Impl rule__ProtoSubsubsection__Group__2 )
-            // InternalPubProto.g:4096:2: rule__ProtoSubsubsection__Group__1__Impl rule__ProtoSubsubsection__Group__2
+            // InternalPubProto.g:4088:1: ( rule__ProtoSubsubsection__Group__1__Impl rule__ProtoSubsubsection__Group__2 )
+            // InternalPubProto.g:4089:2: rule__ProtoSubsubsection__Group__1__Impl rule__ProtoSubsubsection__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ProtoSubsubsection__Group__1__Impl();
@@ -12109,17 +12073,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__1__Impl"
-    // InternalPubProto.g:4103:1: rule__ProtoSubsubsection__Group__1__Impl : ( 'Subsub' ) ;
+    // InternalPubProto.g:4096:1: rule__ProtoSubsubsection__Group__1__Impl : ( 'Subsub' ) ;
     public final void rule__ProtoSubsubsection__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4107:1: ( ( 'Subsub' ) )
-            // InternalPubProto.g:4108:1: ( 'Subsub' )
+            // InternalPubProto.g:4100:1: ( ( 'Subsub' ) )
+            // InternalPubProto.g:4101:1: ( 'Subsub' )
             {
-            // InternalPubProto.g:4108:1: ( 'Subsub' )
-            // InternalPubProto.g:4109:2: 'Subsub'
+            // InternalPubProto.g:4101:1: ( 'Subsub' )
+            // InternalPubProto.g:4102:2: 'Subsub'
             {
              before(grammarAccess.getProtoSubsubsectionAccess().getSubsubKeyword_1()); 
             match(input,51,FOLLOW_2); 
@@ -12146,14 +12110,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__2"
-    // InternalPubProto.g:4118:1: rule__ProtoSubsubsection__Group__2 : rule__ProtoSubsubsection__Group__2__Impl rule__ProtoSubsubsection__Group__3 ;
+    // InternalPubProto.g:4111:1: rule__ProtoSubsubsection__Group__2 : rule__ProtoSubsubsection__Group__2__Impl rule__ProtoSubsubsection__Group__3 ;
     public final void rule__ProtoSubsubsection__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4122:1: ( rule__ProtoSubsubsection__Group__2__Impl rule__ProtoSubsubsection__Group__3 )
-            // InternalPubProto.g:4123:2: rule__ProtoSubsubsection__Group__2__Impl rule__ProtoSubsubsection__Group__3
+            // InternalPubProto.g:4115:1: ( rule__ProtoSubsubsection__Group__2__Impl rule__ProtoSubsubsection__Group__3 )
+            // InternalPubProto.g:4116:2: rule__ProtoSubsubsection__Group__2__Impl rule__ProtoSubsubsection__Group__3
             {
             pushFollow(FOLLOW_37);
             rule__ProtoSubsubsection__Group__2__Impl();
@@ -12184,17 +12148,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__2__Impl"
-    // InternalPubProto.g:4130:1: rule__ProtoSubsubsection__Group__2__Impl : ( '{' ) ;
+    // InternalPubProto.g:4123:1: rule__ProtoSubsubsection__Group__2__Impl : ( '{' ) ;
     public final void rule__ProtoSubsubsection__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4134:1: ( ( '{' ) )
-            // InternalPubProto.g:4135:1: ( '{' )
+            // InternalPubProto.g:4127:1: ( ( '{' ) )
+            // InternalPubProto.g:4128:1: ( '{' )
             {
-            // InternalPubProto.g:4135:1: ( '{' )
-            // InternalPubProto.g:4136:2: '{'
+            // InternalPubProto.g:4128:1: ( '{' )
+            // InternalPubProto.g:4129:2: '{'
             {
              before(grammarAccess.getProtoSubsubsectionAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,29,FOLLOW_2); 
@@ -12221,14 +12185,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__3"
-    // InternalPubProto.g:4145:1: rule__ProtoSubsubsection__Group__3 : rule__ProtoSubsubsection__Group__3__Impl rule__ProtoSubsubsection__Group__4 ;
+    // InternalPubProto.g:4138:1: rule__ProtoSubsubsection__Group__3 : rule__ProtoSubsubsection__Group__3__Impl rule__ProtoSubsubsection__Group__4 ;
     public final void rule__ProtoSubsubsection__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4149:1: ( rule__ProtoSubsubsection__Group__3__Impl rule__ProtoSubsubsection__Group__4 )
-            // InternalPubProto.g:4150:2: rule__ProtoSubsubsection__Group__3__Impl rule__ProtoSubsubsection__Group__4
+            // InternalPubProto.g:4142:1: ( rule__ProtoSubsubsection__Group__3__Impl rule__ProtoSubsubsection__Group__4 )
+            // InternalPubProto.g:4143:2: rule__ProtoSubsubsection__Group__3__Impl rule__ProtoSubsubsection__Group__4
             {
             pushFollow(FOLLOW_20);
             rule__ProtoSubsubsection__Group__3__Impl();
@@ -12259,17 +12223,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__3__Impl"
-    // InternalPubProto.g:4157:1: rule__ProtoSubsubsection__Group__3__Impl : ( ruleProtoDivisionBody ) ;
+    // InternalPubProto.g:4150:1: rule__ProtoSubsubsection__Group__3__Impl : ( ruleProtoDivisionBody ) ;
     public final void rule__ProtoSubsubsection__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4161:1: ( ( ruleProtoDivisionBody ) )
-            // InternalPubProto.g:4162:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:4154:1: ( ( ruleProtoDivisionBody ) )
+            // InternalPubProto.g:4155:1: ( ruleProtoDivisionBody )
             {
-            // InternalPubProto.g:4162:1: ( ruleProtoDivisionBody )
-            // InternalPubProto.g:4163:2: ruleProtoDivisionBody
+            // InternalPubProto.g:4155:1: ( ruleProtoDivisionBody )
+            // InternalPubProto.g:4156:2: ruleProtoDivisionBody
             {
              before(grammarAccess.getProtoSubsubsectionAccess().getProtoDivisionBodyParserRuleCall_3()); 
             pushFollow(FOLLOW_2);
@@ -12300,14 +12264,14 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__4"
-    // InternalPubProto.g:4172:1: rule__ProtoSubsubsection__Group__4 : rule__ProtoSubsubsection__Group__4__Impl ;
+    // InternalPubProto.g:4165:1: rule__ProtoSubsubsection__Group__4 : rule__ProtoSubsubsection__Group__4__Impl ;
     public final void rule__ProtoSubsubsection__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4176:1: ( rule__ProtoSubsubsection__Group__4__Impl )
-            // InternalPubProto.g:4177:2: rule__ProtoSubsubsection__Group__4__Impl
+            // InternalPubProto.g:4169:1: ( rule__ProtoSubsubsection__Group__4__Impl )
+            // InternalPubProto.g:4170:2: rule__ProtoSubsubsection__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProtoSubsubsection__Group__4__Impl();
@@ -12333,17 +12297,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoSubsubsection__Group__4__Impl"
-    // InternalPubProto.g:4183:1: rule__ProtoSubsubsection__Group__4__Impl : ( '}' ) ;
+    // InternalPubProto.g:4176:1: rule__ProtoSubsubsection__Group__4__Impl : ( '}' ) ;
     public final void rule__ProtoSubsubsection__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4187:1: ( ( '}' ) )
-            // InternalPubProto.g:4188:1: ( '}' )
+            // InternalPubProto.g:4180:1: ( ( '}' ) )
+            // InternalPubProto.g:4181:1: ( '}' )
             {
-            // InternalPubProto.g:4188:1: ( '}' )
-            // InternalPubProto.g:4189:2: '}'
+            // InternalPubProto.g:4181:1: ( '}' )
+            // InternalPubProto.g:4182:2: '}'
             {
              before(grammarAccess.getProtoSubsubsectionAccess().getRightCurlyBracketKeyword_4()); 
             match(input,30,FOLLOW_2); 
@@ -12370,17 +12334,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__NameAssignment_3"
-    // InternalPubProto.g:4199:1: rule__PublicationClass__NameAssignment_3 : ( RULE_ID ) ;
+    // InternalPubProto.g:4192:1: rule__PublicationClass__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__PublicationClass__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4203:1: ( ( RULE_ID ) )
-            // InternalPubProto.g:4204:2: ( RULE_ID )
+            // InternalPubProto.g:4196:1: ( ( RULE_ID ) )
+            // InternalPubProto.g:4197:2: ( RULE_ID )
             {
-            // InternalPubProto.g:4204:2: ( RULE_ID )
-            // InternalPubProto.g:4205:3: RULE_ID
+            // InternalPubProto.g:4197:2: ( RULE_ID )
+            // InternalPubProto.g:4198:3: RULE_ID
             {
              before(grammarAccess.getPublicationClassAccess().getNameIDTerminalRuleCall_3_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12407,17 +12371,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__TitleAssignment_4_1"
-    // InternalPubProto.g:4214:1: rule__PublicationClass__TitleAssignment_4_1 : ( RULE_STRING ) ;
+    // InternalPubProto.g:4207:1: rule__PublicationClass__TitleAssignment_4_1 : ( RULE_STRING ) ;
     public final void rule__PublicationClass__TitleAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4218:1: ( ( RULE_STRING ) )
-            // InternalPubProto.g:4219:2: ( RULE_STRING )
+            // InternalPubProto.g:4211:1: ( ( RULE_STRING ) )
+            // InternalPubProto.g:4212:2: ( RULE_STRING )
             {
-            // InternalPubProto.g:4219:2: ( RULE_STRING )
-            // InternalPubProto.g:4220:3: RULE_STRING
+            // InternalPubProto.g:4212:2: ( RULE_STRING )
+            // InternalPubProto.g:4213:3: RULE_STRING
             {
              before(grammarAccess.getPublicationClassAccess().getTitleSTRINGTerminalRuleCall_4_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12444,17 +12408,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__NatureAssignment_6"
-    // InternalPubProto.g:4229:1: rule__PublicationClass__NatureAssignment_6 : ( rulePublicationNature ) ;
+    // InternalPubProto.g:4222:1: rule__PublicationClass__NatureAssignment_6 : ( rulePublicationNature ) ;
     public final void rule__PublicationClass__NatureAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4233:1: ( ( rulePublicationNature ) )
-            // InternalPubProto.g:4234:2: ( rulePublicationNature )
+            // InternalPubProto.g:4226:1: ( ( rulePublicationNature ) )
+            // InternalPubProto.g:4227:2: ( rulePublicationNature )
             {
-            // InternalPubProto.g:4234:2: ( rulePublicationNature )
-            // InternalPubProto.g:4235:3: rulePublicationNature
+            // InternalPubProto.g:4227:2: ( rulePublicationNature )
+            // InternalPubProto.g:4228:3: rulePublicationNature
             {
              before(grammarAccess.getPublicationClassAccess().getNaturePublicationNatureEnumRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -12485,17 +12449,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__SymbolsAssignment_7_1"
-    // InternalPubProto.g:4244:1: rule__PublicationClass__SymbolsAssignment_7_1 : ( RULE_ID ) ;
+    // InternalPubProto.g:4237:1: rule__PublicationClass__SymbolsAssignment_7_1 : ( RULE_ID ) ;
     public final void rule__PublicationClass__SymbolsAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4248:1: ( ( RULE_ID ) )
-            // InternalPubProto.g:4249:2: ( RULE_ID )
+            // InternalPubProto.g:4241:1: ( ( RULE_ID ) )
+            // InternalPubProto.g:4242:2: ( RULE_ID )
             {
-            // InternalPubProto.g:4249:2: ( RULE_ID )
-            // InternalPubProto.g:4250:3: RULE_ID
+            // InternalPubProto.g:4242:2: ( RULE_ID )
+            // InternalPubProto.g:4243:3: RULE_ID
             {
              before(grammarAccess.getPublicationClassAccess().getSymbolsIDTerminalRuleCall_7_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12522,17 +12486,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__SegmentsAssignment_9"
-    // InternalPubProto.g:4259:1: rule__PublicationClass__SegmentsAssignment_9 : ( ruleProtoDocumentSegment ) ;
+    // InternalPubProto.g:4252:1: rule__PublicationClass__SegmentsAssignment_9 : ( ruleProtoDocumentSegment ) ;
     public final void rule__PublicationClass__SegmentsAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4263:1: ( ( ruleProtoDocumentSegment ) )
-            // InternalPubProto.g:4264:2: ( ruleProtoDocumentSegment )
+            // InternalPubProto.g:4256:1: ( ( ruleProtoDocumentSegment ) )
+            // InternalPubProto.g:4257:2: ( ruleProtoDocumentSegment )
             {
-            // InternalPubProto.g:4264:2: ( ruleProtoDocumentSegment )
-            // InternalPubProto.g:4265:3: ruleProtoDocumentSegment
+            // InternalPubProto.g:4257:2: ( ruleProtoDocumentSegment )
+            // InternalPubProto.g:4258:3: ruleProtoDocumentSegment
             {
              before(grammarAccess.getPublicationClassAccess().getSegmentsProtoDocumentSegmentParserRuleCall_9_0()); 
             pushFollow(FOLLOW_2);
@@ -12563,17 +12527,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PublicationClass__DivisionsAssignment_11"
-    // InternalPubProto.g:4274:1: rule__PublicationClass__DivisionsAssignment_11 : ( ruleProtoDivision ) ;
+    // InternalPubProto.g:4267:1: rule__PublicationClass__DivisionsAssignment_11 : ( ruleProtoDivision ) ;
     public final void rule__PublicationClass__DivisionsAssignment_11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4278:1: ( ( ruleProtoDivision ) )
-            // InternalPubProto.g:4279:2: ( ruleProtoDivision )
+            // InternalPubProto.g:4271:1: ( ( ruleProtoDivision ) )
+            // InternalPubProto.g:4272:2: ( ruleProtoDivision )
             {
-            // InternalPubProto.g:4279:2: ( ruleProtoDivision )
-            // InternalPubProto.g:4280:3: ruleProtoDivision
+            // InternalPubProto.g:4272:2: ( ruleProtoDivision )
+            // InternalPubProto.g:4273:3: ruleProtoDivision
             {
              before(grammarAccess.getPublicationClassAccess().getDivisionsProtoDivisionParserRuleCall_11_0()); 
             pushFollow(FOLLOW_2);
@@ -12604,17 +12568,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__TitleAssignment_0_1"
-    // InternalPubProto.g:4289:1: rule__SegmentBody__TitleAssignment_0_1 : ( RULE_STRING ) ;
+    // InternalPubProto.g:4282:1: rule__SegmentBody__TitleAssignment_0_1 : ( RULE_STRING ) ;
     public final void rule__SegmentBody__TitleAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4293:1: ( ( RULE_STRING ) )
-            // InternalPubProto.g:4294:2: ( RULE_STRING )
+            // InternalPubProto.g:4286:1: ( ( RULE_STRING ) )
+            // InternalPubProto.g:4287:2: ( RULE_STRING )
             {
-            // InternalPubProto.g:4294:2: ( RULE_STRING )
-            // InternalPubProto.g:4295:3: RULE_STRING
+            // InternalPubProto.g:4287:2: ( RULE_STRING )
+            // InternalPubProto.g:4288:3: RULE_STRING
             {
              before(grammarAccess.getSegmentBodyAccess().getTitleSTRINGTerminalRuleCall_0_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12641,21 +12605,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SegmentBody__OptionalAssignment_1_1_0"
-    // InternalPubProto.g:4304:1: rule__SegmentBody__OptionalAssignment_1_1_0 : ( ( 'true' ) ) ;
+    // InternalPubProto.g:4297:1: rule__SegmentBody__OptionalAssignment_1_1_0 : ( ( 'true' ) ) ;
     public final void rule__SegmentBody__OptionalAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4308:1: ( ( ( 'true' ) ) )
-            // InternalPubProto.g:4309:2: ( ( 'true' ) )
+            // InternalPubProto.g:4301:1: ( ( ( 'true' ) ) )
+            // InternalPubProto.g:4302:2: ( ( 'true' ) )
             {
-            // InternalPubProto.g:4309:2: ( ( 'true' ) )
-            // InternalPubProto.g:4310:3: ( 'true' )
+            // InternalPubProto.g:4302:2: ( ( 'true' ) )
+            // InternalPubProto.g:4303:3: ( 'true' )
             {
              before(grammarAccess.getSegmentBodyAccess().getOptionalTrueKeyword_1_1_0_0()); 
-            // InternalPubProto.g:4311:3: ( 'true' )
-            // InternalPubProto.g:4312:4: 'true'
+            // InternalPubProto.g:4304:3: ( 'true' )
+            // InternalPubProto.g:4305:4: 'true'
             {
              before(grammarAccess.getSegmentBodyAccess().getOptionalTrueKeyword_1_1_0_0()); 
             match(input,52,FOLLOW_2); 
@@ -12686,21 +12650,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__AllowPartsAssignment_3_1_0"
-    // InternalPubProto.g:4323:1: rule__ProtoPublicationBody__AllowPartsAssignment_3_1_0 : ( ( 'true' ) ) ;
+    // InternalPubProto.g:4316:1: rule__ProtoPublicationBody__AllowPartsAssignment_3_1_0 : ( ( 'true' ) ) ;
     public final void rule__ProtoPublicationBody__AllowPartsAssignment_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4327:1: ( ( ( 'true' ) ) )
-            // InternalPubProto.g:4328:2: ( ( 'true' ) )
+            // InternalPubProto.g:4320:1: ( ( ( 'true' ) ) )
+            // InternalPubProto.g:4321:2: ( ( 'true' ) )
             {
-            // InternalPubProto.g:4328:2: ( ( 'true' ) )
-            // InternalPubProto.g:4329:3: ( 'true' )
+            // InternalPubProto.g:4321:2: ( ( 'true' ) )
+            // InternalPubProto.g:4322:3: ( 'true' )
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAllowPartsTrueKeyword_3_1_0_0()); 
-            // InternalPubProto.g:4330:3: ( 'true' )
-            // InternalPubProto.g:4331:4: 'true'
+            // InternalPubProto.g:4323:3: ( 'true' )
+            // InternalPubProto.g:4324:4: 'true'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAllowPartsTrueKeyword_3_1_0_0()); 
             match(input,52,FOLLOW_2); 
@@ -12731,21 +12695,21 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoPublicationBody__AllowAppendixAssignment_4_1_0"
-    // InternalPubProto.g:4342:1: rule__ProtoPublicationBody__AllowAppendixAssignment_4_1_0 : ( ( 'true' ) ) ;
+    // InternalPubProto.g:4335:1: rule__ProtoPublicationBody__AllowAppendixAssignment_4_1_0 : ( ( 'true' ) ) ;
     public final void rule__ProtoPublicationBody__AllowAppendixAssignment_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4346:1: ( ( ( 'true' ) ) )
-            // InternalPubProto.g:4347:2: ( ( 'true' ) )
+            // InternalPubProto.g:4339:1: ( ( ( 'true' ) ) )
+            // InternalPubProto.g:4340:2: ( ( 'true' ) )
             {
-            // InternalPubProto.g:4347:2: ( ( 'true' ) )
-            // InternalPubProto.g:4348:3: ( 'true' )
+            // InternalPubProto.g:4340:2: ( ( 'true' ) )
+            // InternalPubProto.g:4341:3: ( 'true' )
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAllowAppendixTrueKeyword_4_1_0_0()); 
-            // InternalPubProto.g:4349:3: ( 'true' )
-            // InternalPubProto.g:4350:4: 'true'
+            // InternalPubProto.g:4342:3: ( 'true' )
+            // InternalPubProto.g:4343:4: 'true'
             {
              before(grammarAccess.getProtoPublicationBodyAccess().getAllowAppendixTrueKeyword_4_1_0_0()); 
             match(input,52,FOLLOW_2); 
@@ -12776,17 +12740,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoTOC__MaxLevelAssignment_4_1"
-    // InternalPubProto.g:4361:1: rule__ProtoTOC__MaxLevelAssignment_4_1 : ( RULE_INT ) ;
+    // InternalPubProto.g:4354:1: rule__ProtoTOC__MaxLevelAssignment_4_1 : ( RULE_INT ) ;
     public final void rule__ProtoTOC__MaxLevelAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4365:1: ( ( RULE_INT ) )
-            // InternalPubProto.g:4366:2: ( RULE_INT )
+            // InternalPubProto.g:4358:1: ( ( RULE_INT ) )
+            // InternalPubProto.g:4359:2: ( RULE_INT )
             {
-            // InternalPubProto.g:4366:2: ( RULE_INT )
-            // InternalPubProto.g:4367:3: RULE_INT
+            // InternalPubProto.g:4359:2: ( RULE_INT )
+            // InternalPubProto.g:4360:3: RULE_INT
             {
              before(grammarAccess.getProtoTOCAccess().getMaxLevelINTTerminalRuleCall_4_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -12813,17 +12777,17 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProtoDivisionBody__NumberingStyleAssignment_1"
-    // InternalPubProto.g:4376:1: rule__ProtoDivisionBody__NumberingStyleAssignment_1 : ( ruleProtoSequenceNumberStyle ) ;
+    // InternalPubProto.g:4369:1: rule__ProtoDivisionBody__NumberingStyleAssignment_1 : ( ruleProtoSequenceNumberStyle ) ;
     public final void rule__ProtoDivisionBody__NumberingStyleAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPubProto.g:4380:1: ( ( ruleProtoSequenceNumberStyle ) )
-            // InternalPubProto.g:4381:2: ( ruleProtoSequenceNumberStyle )
+            // InternalPubProto.g:4373:1: ( ( ruleProtoSequenceNumberStyle ) )
+            // InternalPubProto.g:4374:2: ( ruleProtoSequenceNumberStyle )
             {
-            // InternalPubProto.g:4381:2: ( ruleProtoSequenceNumberStyle )
-            // InternalPubProto.g:4382:3: ruleProtoSequenceNumberStyle
+            // InternalPubProto.g:4374:2: ( ruleProtoSequenceNumberStyle )
+            // InternalPubProto.g:4375:3: ruleProtoSequenceNumberStyle
             {
              before(grammarAccess.getProtoDivisionBodyAccess().getNumberingStyleProtoSequenceNumberStyleEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12865,12 +12829,12 @@ public class InternalPubProtoParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000002400000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000003000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000004800000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00001FB391000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00001FB390000002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000FC00000000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x000FC00000000002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00001FB391000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00001FB390000002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x000FC00000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000FC00000000002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0010000000000800L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000010000000L});

@@ -1103,7 +1103,7 @@ rule__PublicationClass__Group__7__Impl
 :
 (
 	{ before(grammarAccess.getPublicationClassAccess().getGroup_7()); }
-	(rule__PublicationClass__Group_7__0)?
+	(rule__PublicationClass__Group_7__0)*
 	{ after(grammarAccess.getPublicationClassAccess().getGroup_7()); }
 )
 ;
@@ -1291,9 +1291,9 @@ rule__PublicationClass__Group_7__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getPublicationClassAccess().getSymbolsKeyword_7_0()); }
-	'symbols:'
-	{ after(grammarAccess.getPublicationClassAccess().getSymbolsKeyword_7_0()); }
+	{ before(grammarAccess.getPublicationClassAccess().getSymbolKeyword_7_0()); }
+	'symbol:'
+	{ after(grammarAccess.getPublicationClassAccess().getSymbolKeyword_7_0()); }
 )
 ;
 finally {
@@ -1317,16 +1317,9 @@ rule__PublicationClass__Group_7__1__Impl
 	}
 :
 (
-	(
-		{ before(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); }
-		(rule__PublicationClass__SymbolsAssignment_7_1)
-		{ after(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); }
-	)
-	(
-		{ before(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); }
-		(rule__PublicationClass__SymbolsAssignment_7_1)*
-		{ after(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); }
-	)
+	{ before(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); }
+	(rule__PublicationClass__SymbolsAssignment_7_1)
+	{ after(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_7_1()); }
 )
 ;
 finally {

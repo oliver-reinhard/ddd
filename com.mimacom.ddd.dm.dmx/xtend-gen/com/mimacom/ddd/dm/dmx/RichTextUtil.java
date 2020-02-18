@@ -3,10 +3,13 @@ package com.mimacom.ddd.dm.dmx;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.dm.styledText.parser.StyledTextParser;
 import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -18,6 +21,26 @@ public class RichTextUtil {
   private static final int START_OFFSET = 1;
   
   private static final int END_OFFSET = 1;
+  
+  public boolean empty(final DRichText rt) {
+    if ((rt != null)) {
+      EList<IRichTextSegment> _segments = rt.getSegments();
+      for (final IRichTextSegment seg : _segments) {
+        if ((seg instanceof DExpression)) {
+          return false;
+        } else {
+          if ((seg instanceof DTextSegment)) {
+            boolean _isEmpty = ((DTextSegment)seg).getValue().trim().isEmpty();
+            boolean _not = (!_isEmpty);
+            if (_not) {
+              return false;
+            }
+          }
+        }
+      }
+    }
+    return true;
+  }
   
   /**
    * Preconditions: rt is part of an XtextResource and the syntax the resource's text is valid

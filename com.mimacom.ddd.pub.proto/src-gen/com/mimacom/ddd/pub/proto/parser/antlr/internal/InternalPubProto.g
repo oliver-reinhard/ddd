@@ -158,9 +158,9 @@ rulePublicationClass returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_8='symbols:'
+			otherlv_8='symbol:'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getPublicationClassAccess().getSymbolsKeyword_7_0());
+				newLeafNode(otherlv_8, grammarAccess.getPublicationClassAccess().getSymbolKeyword_7_0());
 			}
 			(
 				(
@@ -179,8 +179,8 @@ rulePublicationClass returns [EObject current=null]
 							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
-			)+
-		)?
+			)
+		)*
 		otherlv_10='segments:'
 		{
 			newLeafNode(otherlv_10, grammarAccess.getPublicationClassAccess().getSegmentsKeyword_8());

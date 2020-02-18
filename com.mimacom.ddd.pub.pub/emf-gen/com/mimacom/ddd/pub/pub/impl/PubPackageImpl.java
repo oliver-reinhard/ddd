@@ -733,18 +733,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSymbol_Name() {
-		return (EAttribute)symbolEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSymbol_Value() {
-		return (EReference)symbolEClass.getEStructuralFeatures().get(1);
+		return (EReference)symbolEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2308,7 +2298,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEReference(documentEClass, DOCUMENT__PUBLICATION_CLASS);
 
 		symbolEClass = createEClass(SYMBOL);
-		createEAttribute(symbolEClass, SYMBOL__NAME);
 		createEReference(symbolEClass, SYMBOL__VALUE);
 
 		publicationEClass = createEClass(PUBLICATION);
@@ -2558,6 +2547,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		// Add supertypes to classes
 		documentEClass.getESuperTypes().add(this.getReferenceTarget());
+		symbolEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
 		publicationEClass.getESuperTypes().add(this.getDocument());
 		componentEClass.getESuperTypes().add(this.getDocument());
 		referenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -2628,7 +2618,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEReference(getDocument_PublicationClass(), theProtoPackage.getPublicationClass(), null, "publicationClass", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSymbol_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSymbol_Value(), theBasePackage.getDRichText(), null, "value", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(publicationEClass, Publication.class, "Publication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

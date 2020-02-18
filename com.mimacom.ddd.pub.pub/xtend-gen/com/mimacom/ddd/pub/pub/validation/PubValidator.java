@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
@@ -25,7 +26,6 @@ import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubElementNames;
 import com.mimacom.ddd.pub.pub.PubPackage;
-import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.Subsection;
@@ -47,6 +47,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.validation.Check;
@@ -70,7 +71,7 @@ public class PubValidator extends AbstractPubValidator {
   
   @Inject
   @Extension
-  private PubUtil _pubUtil;
+  private RichTextUtil _richTextUtil;
   
   @Inject
   @Extension
@@ -101,7 +102,7 @@ public class PubValidator extends AbstractPubValidator {
   }
   
   @Check
-  public void symbols(final Document doc) {
+  public void protoSymbols(final Document doc) {
     PublicationClass _publicationClass = doc.getPublicationClass();
     boolean _tripleNotEquals = (_publicationClass != null);
     if (_tripleNotEquals) {
@@ -117,19 +118,56 @@ public class PubValidator extends AbstractPubValidator {
           boolean _isEmpty_1 = doc.getSymbols().isEmpty();
           boolean _not = (!_isEmpty_1);
           if (_not) {
-            this.error(msg, IterableExtensions.<Symbol>last(doc.getSymbols()), PubValidator.PUB.getSymbol_Name());
+            this.error(msg, IterableExtensions.<Symbol>last(doc.getSymbols()), PubValidator.BASE.getDNamedElement_Name());
           } else {
             this.error(msg, PubValidator.PUB.getReferenceTarget_Name());
           }
         }
       }
     }
-    EList<Symbol> _symbols_1 = doc.getSymbols();
-    for (final Symbol symbol : _symbols_1) {
-      boolean _equals = symbol.getName().equals(symbol.getName().toUpperCase());
-      boolean _not_1 = (!_equals);
-      if (_not_1) {
-        this.warning("Symbol name should be ALL UPPPERCASE", symbol, PubValidator.PUB.getSymbol_Name());
+  }
+  
+  @Check
+  public void symbolIsUppercase(final Symbol s) {
+    boolean _equals = s.getName().equals(s.getName().toUpperCase());
+    boolean _not = (!_equals);
+    if (_not) {
+      this.warning("Symbol name should be ALL UPPPERCASE", s, PubValidator.BASE.getDNamedElement_Name());
+    }
+  }
+  
+  @Check
+  public void symbolValueIsNotEmpty(final Symbol s) {
+    boolean _empty = this._richTextUtil.empty(s.getValue());
+    if (_empty) {
+      this.error("Symbol value is empty", s, PubValidator.PUB.getSymbol_Value());
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void includedDivisionSymbolsAreDefined(final Division div) {
+    Division _include = div.getInclude();
+    boolean _tripleNotEquals = (_include != null);
+    if (_tripleNotEquals) {
+      final Document doc = EcoreUtil2.<Document>getContainerOfType(div, Document.class);
+      final Document includedDoc = EcoreUtil2.<Document>getContainerOfType(div.getInclude(), Document.class);
+      if (((doc != null) && (includedDoc != null))) {
+        EList<Symbol> _symbols = includedDoc.getSymbols();
+        for (final Symbol includeSymbol : _symbols) {
+          final Function1<Symbol, Boolean> _function = (Symbol it) -> {
+            String _name = it.getName();
+            String _name_1 = includeSymbol.getName();
+            return Boolean.valueOf(Objects.equal(_name, _name_1));
+          };
+          boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
+          if (_isEmpty) {
+            String _name = includeSymbol.getName();
+            String _plus = ("This document must define symbol \'" + _name);
+            String _plus_1 = (_plus + 
+              "\' of included-division document");
+            this.error(_plus_1, PubValidator.PUB.getDivision_Include());
+          }
+        }
       }
     }
   }
@@ -140,6 +178,14 @@ public class PubValidator extends AbstractPubValidator {
     Iterable<Chapter> chapters = Iterables.<Chapter>filter(body.getDivisions(), Chapter.class);
     if (((!IterableExtensions.isEmpty(parts)) && (!IterableExtensions.isEmpty(chapters)))) {
       this.error("Cannot have both Parts and Chapters at the top level.", IterableExtensions.<Division>head(body.getDivisions()), PubValidator.PUB.getDivision_Title());
+    }
+  }
+  
+  @Check
+  public void includeIsNotTransitive(final Division div) {
+    if (((div.getInclude() != null) && (div.getInclude().getInclude() != null))) {
+      this.error("Included division cannot itself include another division. Replace with non-transitive include.", 
+        PubValidator.PUB.getDivision_Include());
     }
   }
   
@@ -285,27 +331,19 @@ public class PubValidator extends AbstractPubValidator {
   @Check
   public void titleForTitledListItems(final ListItem item) {
     final ListStyle style = item.getList().getStyle();
-    if ((Objects.equal(style, ListStyle.TITLE) && this._pubUtil.empty(item.getTitle()))) {
+    if ((Objects.equal(style, ListStyle.TITLE) && this._richTextUtil.empty(item.getTitle()))) {
       String _literal = style.getLiteral();
       String _plus = ("Item title must be defined for list style \'" + _literal);
       String _plus_1 = (_plus + "\'.");
       this.error(_plus_1, item.getList(), PubValidator.PUB.getList_Items(), 
         item.getList().getItems().indexOf(item));
     } else {
-      if (((!Objects.equal(style, ListStyle.TITLE)) && (!this._pubUtil.empty(item.getTitle())))) {
+      if (((!Objects.equal(style, ListStyle.TITLE)) && (!this._richTextUtil.empty(item.getTitle())))) {
         String _literal_1 = style.getLiteral();
         String _plus_2 = ("Item cannot have a title for list style \'" + _literal_1);
         String _plus_3 = (_plus_2 + "\'.");
         this.error(_plus_3, PubValidator.PUB.getListItem_Title());
       }
-    }
-  }
-  
-  @Check
-  public void includedDividionDoesNotInclude(final Division div) {
-    if (((div.getInclude() != null) && (div.getInclude().getInclude() != null))) {
-      this.error("Included division cannot itself include another division. Replace with non-transitive include.", 
-        PubValidator.PUB.getDivision_Include());
     }
   }
   

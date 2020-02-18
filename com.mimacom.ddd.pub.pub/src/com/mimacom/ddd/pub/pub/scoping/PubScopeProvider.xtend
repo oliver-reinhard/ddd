@@ -6,6 +6,7 @@ package com.mimacom.ddd.pub.pub.scoping
 
 import com.google.common.collect.Lists
 import com.google.inject.Inject
+import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubModel
@@ -21,6 +22,7 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.SimpleScope
 
 /**
@@ -94,6 +96,18 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 			}
 		}
 		return super.getScope(context, reference)
+	}
+	
+	/*
+	 * Add symbols to context-reference scope.
+	 */
+	override getContextReferenceScope(EObject context, IScope outerScope) {
+		val scope = super.getContextReferenceScope(context, outerScope)
+		val doc = EcoreUtil2.getContainerOfType(context, Document)
+		if (doc !== null && ! doc.symbols.empty) {
+			return Scopes.scopeFor(doc.symbols, scope)
+		}
+		return scope
 	}
 
 	protected def createScopeWithQualifiedNames(Iterable<? extends EObject> objects) {

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'publication'", "'class'", "'title:'", "'nature:'", "'symbols:'", "'segments:'", "'divisions:'", "'optional:'", "'true'", "'false'", "'Abstract'", "'{'", "'}'", "'Preface'", "'Epilogue'", "'Body'", "'parts:'", "'appendix:'", "'ChangeHistory'", "'TableOfContents'", "'maxLevel:'", "'Abbreviations'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'Glossary'", "'Index'", "'numbering:'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Sub'", "'Subsub'", "'Print'", "'Web'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'publication'", "'class'", "'title:'", "'nature:'", "'symbol:'", "'segments:'", "'divisions:'", "'optional:'", "'true'", "'false'", "'Abstract'", "'{'", "'}'", "'Preface'", "'Epilogue'", "'Body'", "'parts:'", "'appendix:'", "'ChangeHistory'", "'TableOfContents'", "'maxLevel:'", "'Abbreviations'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'Glossary'", "'Index'", "'numbering:'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Sub'", "'Subsub'", "'Print'", "'Web'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -151,7 +151,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePublicationClass"
-    // InternalPubProto.g:72:1: rulePublicationClass returns [EObject current=null] : ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+ )? otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* ) ;
+    // InternalPubProto.g:72:1: rulePublicationClass returns [EObject current=null] : ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) ) )* otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* ) ;
     public final EObject rulePublicationClass() throws RecognitionException {
         EObject current = null;
 
@@ -176,11 +176,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:78:2: ( ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+ )? otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* ) )
-            // InternalPubProto.g:79:2: ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+ )? otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* )
+            // InternalPubProto.g:78:2: ( ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) ) )* otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* ) )
+            // InternalPubProto.g:79:2: ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) ) )* otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* )
             {
-            // InternalPubProto.g:79:2: ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+ )? otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* )
-            // InternalPubProto.g:80:3: () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+ )? otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )*
+            // InternalPubProto.g:79:2: ( () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) ) )* otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )* )
+            // InternalPubProto.g:80:3: () otherlv_1= 'publication' otherlv_2= 'class' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'title:' ( (lv_title_5_0= RULE_STRING ) ) )? otherlv_6= 'nature:' ( (lv_nature_7_0= rulePublicationNature ) ) (otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) ) )* otherlv_10= 'segments:' ( (lv_segments_11_0= ruleProtoDocumentSegment ) )* otherlv_12= 'divisions:' ( (lv_divisions_13_0= ruleProtoDivision ) )*
             {
             // InternalPubProto.g:80:3: ()
             // InternalPubProto.g:81:4: 
@@ -309,92 +309,76 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPubProto.g:160:3: (otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+ )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalPubProto.g:160:3: (otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) ) )*
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-            if ( (LA3_0==15) ) {
-                alt3=1;
-            }
-            switch (alt3) {
-                case 1 :
-                    // InternalPubProto.g:161:4: otherlv_8= 'symbols:' ( (lv_symbols_9_0= RULE_ID ) )+
-                    {
-                    otherlv_8=(Token)match(input,15,FOLLOW_4); 
-
-                    				newLeafNode(otherlv_8, grammarAccess.getPublicationClassAccess().getSymbolsKeyword_7_0());
-                    			
-                    // InternalPubProto.g:165:4: ( (lv_symbols_9_0= RULE_ID ) )+
-                    int cnt2=0;
-                    loop2:
-                    do {
-                        int alt2=2;
-                        int LA2_0 = input.LA(1);
-
-                        if ( (LA2_0==RULE_ID) ) {
-                            alt2=1;
-                        }
+                if ( (LA2_0==15) ) {
+                    alt2=1;
+                }
 
 
-                        switch (alt2) {
-                    	case 1 :
-                    	    // InternalPubProto.g:166:5: (lv_symbols_9_0= RULE_ID )
-                    	    {
-                    	    // InternalPubProto.g:166:5: (lv_symbols_9_0= RULE_ID )
-                    	    // InternalPubProto.g:167:6: lv_symbols_9_0= RULE_ID
-                    	    {
-                    	    lv_symbols_9_0=(Token)match(input,RULE_ID,FOLLOW_10); 
+                switch (alt2) {
+            	case 1 :
+            	    // InternalPubProto.g:161:4: otherlv_8= 'symbol:' ( (lv_symbols_9_0= RULE_ID ) )
+            	    {
+            	    otherlv_8=(Token)match(input,15,FOLLOW_4); 
 
-                    	    						newLeafNode(lv_symbols_9_0, grammarAccess.getPublicationClassAccess().getSymbolsIDTerminalRuleCall_7_1_0());
-                    	    					
+            	    				newLeafNode(otherlv_8, grammarAccess.getPublicationClassAccess().getSymbolKeyword_7_0());
+            	    			
+            	    // InternalPubProto.g:165:4: ( (lv_symbols_9_0= RULE_ID ) )
+            	    // InternalPubProto.g:166:5: (lv_symbols_9_0= RULE_ID )
+            	    {
+            	    // InternalPubProto.g:166:5: (lv_symbols_9_0= RULE_ID )
+            	    // InternalPubProto.g:167:6: lv_symbols_9_0= RULE_ID
+            	    {
+            	    lv_symbols_9_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
-                    	    						if (current==null) {
-                    	    							current = createModelElement(grammarAccess.getPublicationClassRule());
-                    	    						}
-                    	    						addWithLastConsumed(
-                    	    							current,
-                    	    							"symbols",
-                    	    							lv_symbols_9_0,
-                    	    							"org.eclipse.xtext.common.Terminals.ID");
-                    	    					
+            	    						newLeafNode(lv_symbols_9_0, grammarAccess.getPublicationClassAccess().getSymbolsIDTerminalRuleCall_7_1_0());
+            	    					
 
-                    	    }
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getPublicationClassRule());
+            	    						}
+            	    						addWithLastConsumed(
+            	    							current,
+            	    							"symbols",
+            	    							lv_symbols_9_0,
+            	    							"org.eclipse.xtext.common.Terminals.ID");
+            	    					
 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt2 >= 1 ) break loop2;
-                                EarlyExitException eee =
-                                    new EarlyExitException(2, input);
-                                throw eee;
-                        }
-                        cnt2++;
-                    } while (true);
+            	    }
 
 
-                    }
-                    break;
+            	    }
 
-            }
 
-            otherlv_10=(Token)match(input,16,FOLLOW_11); 
+            	    }
+            	    break;
+
+            	default :
+            	    break loop2;
+                }
+            } while (true);
+
+            otherlv_10=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_10, grammarAccess.getPublicationClassAccess().getSegmentsKeyword_8());
             		
             // InternalPubProto.g:188:3: ( (lv_segments_11_0= ruleProtoDocumentSegment ) )*
-            loop4:
+            loop3:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-                if ( (LA4_0==21||(LA4_0>=24 && LA4_0<=26)||(LA4_0>=29 && LA4_0<=30)||(LA4_0>=32 && LA4_0<=37)) ) {
-                    alt4=1;
+                if ( (LA3_0==21||(LA3_0>=24 && LA3_0<=26)||(LA3_0>=29 && LA3_0<=30)||(LA3_0>=32 && LA3_0<=37)) ) {
+                    alt3=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt3) {
             	case 1 :
             	    // InternalPubProto.g:189:4: (lv_segments_11_0= ruleProtoDocumentSegment )
             	    {
@@ -404,7 +388,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getPublicationClassAccess().getSegmentsProtoDocumentSegmentParserRuleCall_9_0());
             	    				
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_10);
             	    lv_segments_11_0=ruleProtoDocumentSegment();
 
             	    state._fsp--;
@@ -428,26 +412,26 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop3;
                 }
             } while (true);
 
-            otherlv_12=(Token)match(input,17,FOLLOW_12); 
+            otherlv_12=(Token)match(input,17,FOLLOW_11); 
 
             			newLeafNode(otherlv_12, grammarAccess.getPublicationClassAccess().getDivisionsKeyword_10());
             		
             // InternalPubProto.g:211:3: ( (lv_divisions_13_0= ruleProtoDivision ) )*
-            loop5:
+            loop4:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( ((LA5_0>=39 && LA5_0<=44)) ) {
-                    alt5=1;
+                if ( ((LA4_0>=39 && LA4_0<=44)) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt4) {
             	case 1 :
             	    // InternalPubProto.g:212:4: (lv_divisions_13_0= ruleProtoDivision )
             	    {
@@ -457,7 +441,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getPublicationClassAccess().getDivisionsProtoDivisionParserRuleCall_11_0());
             	    				
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_11);
             	    lv_divisions_13_0=ruleProtoDivision();
 
             	    state._fsp--;
@@ -481,7 +465,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop4;
                 }
             } while (true);
 
@@ -581,76 +565,76 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             // InternalPubProto.g:248:2: (this_ProtoAbstract_0= ruleProtoAbstract | this_ProtoPreface_1= ruleProtoPreface | this_ProtoPublicationBody_2= ruleProtoPublicationBody | this_ProtoEpilogue_3= ruleProtoEpilogue | this_ProtoChangeHistory_4= ruleProtoChangeHistory | this_ProtoTOC_5= ruleProtoTOC | this_ProtoAbbreviations_6= ruleProtoAbbreviations | this_ProtoListOfTables_7= ruleProtoListOfTables | this_ProtoListOfFigures_8= ruleProtoListOfFigures | this_ProtoBibliography_9= ruleProtoBibliography | this_ProtoGlossary_10= ruleProtoGlossary | this_ProtoIndex_11= ruleProtoIndex )
             {
             // InternalPubProto.g:248:2: (this_ProtoAbstract_0= ruleProtoAbstract | this_ProtoPreface_1= ruleProtoPreface | this_ProtoPublicationBody_2= ruleProtoPublicationBody | this_ProtoEpilogue_3= ruleProtoEpilogue | this_ProtoChangeHistory_4= ruleProtoChangeHistory | this_ProtoTOC_5= ruleProtoTOC | this_ProtoAbbreviations_6= ruleProtoAbbreviations | this_ProtoListOfTables_7= ruleProtoListOfTables | this_ProtoListOfFigures_8= ruleProtoListOfFigures | this_ProtoBibliography_9= ruleProtoBibliography | this_ProtoGlossary_10= ruleProtoGlossary | this_ProtoIndex_11= ruleProtoIndex )
-            int alt6=12;
+            int alt5=12;
             switch ( input.LA(1) ) {
             case 21:
                 {
-                alt6=1;
+                alt5=1;
                 }
                 break;
             case 24:
                 {
-                alt6=2;
+                alt5=2;
                 }
                 break;
             case 26:
                 {
-                alt6=3;
+                alt5=3;
                 }
                 break;
             case 25:
                 {
-                alt6=4;
+                alt5=4;
                 }
                 break;
             case 29:
                 {
-                alt6=5;
+                alt5=5;
                 }
                 break;
             case 30:
                 {
-                alt6=6;
+                alt5=6;
                 }
                 break;
             case 32:
                 {
-                alt6=7;
+                alt5=7;
                 }
                 break;
             case 33:
                 {
-                alt6=8;
+                alt5=8;
                 }
                 break;
             case 34:
                 {
-                alt6=9;
+                alt5=9;
                 }
                 break;
             case 35:
                 {
-                alt6=10;
+                alt5=10;
                 }
                 break;
             case 36:
                 {
-                alt6=11;
+                alt5=11;
                 }
                 break;
             case 37:
                 {
-                alt6=12;
+                alt5=12;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
                     // InternalPubProto.g:249:3: this_ProtoAbstract_0= ruleProtoAbstract
                     {
@@ -911,13 +895,13 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             // InternalPubProto.g:369:3: (otherlv_0= 'title:' ( (lv_title_1_0= RULE_STRING ) ) )? (otherlv_2= 'optional:' ( ( (lv_optional_3_0= 'true' ) ) | otherlv_4= 'false' ) )?
             {
             // InternalPubProto.g:369:3: (otherlv_0= 'title:' ( (lv_title_1_0= RULE_STRING ) ) )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA7_0==13) ) {
-                alt7=1;
+            if ( (LA6_0==13) ) {
+                alt6=1;
             }
-            switch (alt7) {
+            switch (alt6) {
                 case 1 :
                     // InternalPubProto.g:370:4: otherlv_0= 'title:' ( (lv_title_1_0= RULE_STRING ) )
                     {
@@ -931,7 +915,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     // InternalPubProto.g:375:5: (lv_title_1_0= RULE_STRING )
                     // InternalPubProto.g:376:6: lv_title_1_0= RULE_STRING
                     {
-                    lv_title_1_0=(Token)match(input,RULE_STRING,FOLLOW_13); 
+                    lv_title_1_0=(Token)match(input,RULE_STRING,FOLLOW_12); 
 
                     						newLeafNode(lv_title_1_0, grammarAccess.getSegmentBodyAccess().getTitleSTRINGTerminalRuleCall_0_1_0());
                     					
@@ -958,37 +942,37 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             }
 
             // InternalPubProto.g:393:3: (otherlv_2= 'optional:' ( ( (lv_optional_3_0= 'true' ) ) | otherlv_4= 'false' ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA9_0==18) ) {
-                alt9=1;
+            if ( (LA8_0==18) ) {
+                alt8=1;
             }
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
                     // InternalPubProto.g:394:4: otherlv_2= 'optional:' ( ( (lv_optional_3_0= 'true' ) ) | otherlv_4= 'false' )
                     {
-                    otherlv_2=(Token)match(input,18,FOLLOW_14); 
+                    otherlv_2=(Token)match(input,18,FOLLOW_13); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getSegmentBodyAccess().getOptionalKeyword_1_0());
                     			
                     // InternalPubProto.g:398:4: ( ( (lv_optional_3_0= 'true' ) ) | otherlv_4= 'false' )
-                    int alt8=2;
-                    int LA8_0 = input.LA(1);
+                    int alt7=2;
+                    int LA7_0 = input.LA(1);
 
-                    if ( (LA8_0==19) ) {
-                        alt8=1;
+                    if ( (LA7_0==19) ) {
+                        alt7=1;
                     }
-                    else if ( (LA8_0==20) ) {
-                        alt8=2;
+                    else if ( (LA7_0==20) ) {
+                        alt7=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 8, 0, input);
+                            new NoViableAltException("", 7, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt8) {
+                    switch (alt7) {
                         case 1 :
                             // InternalPubProto.g:399:5: ( (lv_optional_3_0= 'true' ) )
                             {
@@ -1126,11 +1110,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_15); 
+            otherlv_1=(Token)match(input,21,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoAbstractAccess().getAbstractKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoAbstractAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -1140,7 +1124,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoAbstractAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -1243,11 +1227,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FOLLOW_15); 
+            otherlv_1=(Token)match(input,24,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoPrefaceAccess().getPrefaceKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoPrefaceAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -1257,7 +1241,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoPrefaceAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -1360,11 +1344,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,25,FOLLOW_15); 
+            otherlv_1=(Token)match(input,25,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoEpilogueAccess().getEpilogueKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoEpilogueAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -1374,7 +1358,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoEpilogueAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -1481,46 +1465,46 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,26,FOLLOW_15); 
+            otherlv_1=(Token)match(input,26,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoPublicationBodyAccess().getBodyKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_18); 
+            otherlv_2=(Token)match(input,22,FOLLOW_17); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoPublicationBodyAccess().getLeftCurlyBracketKeyword_2());
             		
             // InternalPubProto.g:601:3: (otherlv_3= 'parts:' ( ( (lv_allowParts_4_0= 'true' ) ) | otherlv_5= 'false' ) )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA11_0==27) ) {
-                alt11=1;
+            if ( (LA10_0==27) ) {
+                alt10=1;
             }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
                     // InternalPubProto.g:602:4: otherlv_3= 'parts:' ( ( (lv_allowParts_4_0= 'true' ) ) | otherlv_5= 'false' )
                     {
-                    otherlv_3=(Token)match(input,27,FOLLOW_14); 
+                    otherlv_3=(Token)match(input,27,FOLLOW_13); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getProtoPublicationBodyAccess().getPartsKeyword_3_0());
                     			
                     // InternalPubProto.g:606:4: ( ( (lv_allowParts_4_0= 'true' ) ) | otherlv_5= 'false' )
-                    int alt10=2;
-                    int LA10_0 = input.LA(1);
+                    int alt9=2;
+                    int LA9_0 = input.LA(1);
 
-                    if ( (LA10_0==19) ) {
-                        alt10=1;
+                    if ( (LA9_0==19) ) {
+                        alt9=1;
                     }
-                    else if ( (LA10_0==20) ) {
-                        alt10=2;
+                    else if ( (LA9_0==20) ) {
+                        alt9=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 10, 0, input);
+                            new NoViableAltException("", 9, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt10) {
+                    switch (alt9) {
                         case 1 :
                             // InternalPubProto.g:607:5: ( (lv_allowParts_4_0= 'true' ) )
                             {
@@ -1530,7 +1514,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                             // InternalPubProto.g:608:6: (lv_allowParts_4_0= 'true' )
                             // InternalPubProto.g:609:7: lv_allowParts_4_0= 'true'
                             {
-                            lv_allowParts_4_0=(Token)match(input,19,FOLLOW_19); 
+                            lv_allowParts_4_0=(Token)match(input,19,FOLLOW_18); 
 
                             							newLeafNode(lv_allowParts_4_0, grammarAccess.getProtoPublicationBodyAccess().getAllowPartsTrueKeyword_3_1_0_0());
                             						
@@ -1552,7 +1536,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalPubProto.g:622:5: otherlv_5= 'false'
                             {
-                            otherlv_5=(Token)match(input,20,FOLLOW_19); 
+                            otherlv_5=(Token)match(input,20,FOLLOW_18); 
 
                             					newLeafNode(otherlv_5, grammarAccess.getProtoPublicationBodyAccess().getFalseKeyword_3_1_1());
                             				
@@ -1569,37 +1553,37 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             }
 
             // InternalPubProto.g:628:3: (otherlv_6= 'appendix:' ( ( (lv_allowAppendix_7_0= 'true' ) ) | otherlv_8= 'false' ) )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==28) ) {
-                alt13=1;
+            if ( (LA12_0==28) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
                     // InternalPubProto.g:629:4: otherlv_6= 'appendix:' ( ( (lv_allowAppendix_7_0= 'true' ) ) | otherlv_8= 'false' )
                     {
-                    otherlv_6=(Token)match(input,28,FOLLOW_14); 
+                    otherlv_6=(Token)match(input,28,FOLLOW_13); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getProtoPublicationBodyAccess().getAppendixKeyword_4_0());
                     			
                     // InternalPubProto.g:633:4: ( ( (lv_allowAppendix_7_0= 'true' ) ) | otherlv_8= 'false' )
-                    int alt12=2;
-                    int LA12_0 = input.LA(1);
+                    int alt11=2;
+                    int LA11_0 = input.LA(1);
 
-                    if ( (LA12_0==19) ) {
-                        alt12=1;
+                    if ( (LA11_0==19) ) {
+                        alt11=1;
                     }
-                    else if ( (LA12_0==20) ) {
-                        alt12=2;
+                    else if ( (LA11_0==20) ) {
+                        alt11=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 12, 0, input);
+                            new NoViableAltException("", 11, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt12) {
+                    switch (alt11) {
                         case 1 :
                             // InternalPubProto.g:634:5: ( (lv_allowAppendix_7_0= 'true' ) )
                             {
@@ -1609,7 +1593,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                             // InternalPubProto.g:635:6: (lv_allowAppendix_7_0= 'true' )
                             // InternalPubProto.g:636:7: lv_allowAppendix_7_0= 'true'
                             {
-                            lv_allowAppendix_7_0=(Token)match(input,19,FOLLOW_17); 
+                            lv_allowAppendix_7_0=(Token)match(input,19,FOLLOW_16); 
 
                             							newLeafNode(lv_allowAppendix_7_0, grammarAccess.getProtoPublicationBodyAccess().getAllowAppendixTrueKeyword_4_1_0_0());
                             						
@@ -1631,7 +1615,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalPubProto.g:649:5: otherlv_8= 'false'
                             {
-                            otherlv_8=(Token)match(input,20,FOLLOW_17); 
+                            otherlv_8=(Token)match(input,20,FOLLOW_16); 
 
                             					newLeafNode(otherlv_8, grammarAccess.getProtoPublicationBodyAccess().getFalseKeyword_4_1_1());
                             				
@@ -1741,11 +1725,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,29,FOLLOW_15); 
+            otherlv_1=(Token)match(input,29,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoChangeHistoryAccess().getChangeHistoryKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoChangeHistoryAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -1755,7 +1739,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoChangeHistoryAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -1860,11 +1844,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,30,FOLLOW_15); 
+            otherlv_1=(Token)match(input,30,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoTOCAccess().getTableOfContentsKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_20); 
+            otherlv_2=(Token)match(input,22,FOLLOW_19); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoTOCAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -1874,7 +1858,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoTOCAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -1884,17 +1868,17 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			afterParserOrEnumRuleCall();
             		
             // InternalPubProto.g:753:3: (otherlv_4= 'maxLevel:' ( (lv_maxLevel_5_0= RULE_INT ) ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA14_0==31) ) {
-                alt14=1;
+            if ( (LA13_0==31) ) {
+                alt13=1;
             }
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
                     // InternalPubProto.g:754:4: otherlv_4= 'maxLevel:' ( (lv_maxLevel_5_0= RULE_INT ) )
                     {
-                    otherlv_4=(Token)match(input,31,FOLLOW_22); 
+                    otherlv_4=(Token)match(input,31,FOLLOW_21); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getProtoTOCAccess().getMaxLevelKeyword_4_0());
                     			
@@ -1904,7 +1888,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     // InternalPubProto.g:759:5: (lv_maxLevel_5_0= RULE_INT )
                     // InternalPubProto.g:760:6: lv_maxLevel_5_0= RULE_INT
                     {
-                    lv_maxLevel_5_0=(Token)match(input,RULE_INT,FOLLOW_17); 
+                    lv_maxLevel_5_0=(Token)match(input,RULE_INT,FOLLOW_16); 
 
                     						newLeafNode(lv_maxLevel_5_0, grammarAccess.getProtoTOCAccess().getMaxLevelINTTerminalRuleCall_4_1_0());
                     					
@@ -2024,11 +2008,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,32,FOLLOW_15); 
+            otherlv_1=(Token)match(input,32,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoAbbreviationsAccess().getAbbreviationsKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoAbbreviationsAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -2038,7 +2022,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoAbbreviationsAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -2141,11 +2125,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,33,FOLLOW_15); 
+            otherlv_1=(Token)match(input,33,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoListOfTablesAccess().getListOfTablesKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoListOfTablesAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -2155,7 +2139,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoListOfTablesAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -2258,11 +2242,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,34,FOLLOW_15); 
+            otherlv_1=(Token)match(input,34,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoListOfFiguresAccess().getListOfFiguresKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoListOfFiguresAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -2272,7 +2256,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoListOfFiguresAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -2375,11 +2359,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,35,FOLLOW_15); 
+            otherlv_1=(Token)match(input,35,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoBibliographyAccess().getBibliographyKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoBibliographyAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -2389,7 +2373,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoBibliographyAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -2492,11 +2476,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,36,FOLLOW_15); 
+            otherlv_1=(Token)match(input,36,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoGlossaryAccess().getGlossaryKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoGlossaryAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -2506,7 +2490,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoGlossaryAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -2609,11 +2593,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,37,FOLLOW_15); 
+            otherlv_1=(Token)match(input,37,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoIndexAccess().getIndexKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_16); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoIndexAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -2623,7 +2607,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoIndexAccess().getSegmentBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_SegmentBody_3=ruleSegmentBody(current);
 
             state._fsp--;
@@ -2720,46 +2704,46 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             // InternalPubProto.g:1093:2: (this_ProtoPart_0= ruleProtoPart | this_ProtoAppendix_1= ruleProtoAppendix | this_ProtoChapter_2= ruleProtoChapter | this_ProtoSection_3= ruleProtoSection | this_ProtoSubsection_4= ruleProtoSubsection | this_ProtoSubsubsection_5= ruleProtoSubsubsection )
             {
             // InternalPubProto.g:1093:2: (this_ProtoPart_0= ruleProtoPart | this_ProtoAppendix_1= ruleProtoAppendix | this_ProtoChapter_2= ruleProtoChapter | this_ProtoSection_3= ruleProtoSection | this_ProtoSubsection_4= ruleProtoSubsection | this_ProtoSubsubsection_5= ruleProtoSubsubsection )
-            int alt15=6;
+            int alt14=6;
             switch ( input.LA(1) ) {
             case 39:
                 {
-                alt15=1;
+                alt14=1;
                 }
                 break;
             case 40:
                 {
-                alt15=2;
+                alt14=2;
                 }
                 break;
             case 41:
                 {
-                alt15=3;
+                alt14=3;
                 }
                 break;
             case 42:
                 {
-                alt15=4;
+                alt14=4;
                 }
                 break;
             case 43:
                 {
-                alt15=5;
+                alt14=5;
                 }
                 break;
             case 44:
                 {
-                alt15=6;
+                alt14=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
                     // InternalPubProto.g:1094:3: this_ProtoPart_0= ruleProtoPart
                     {
@@ -2907,17 +2891,17 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             // InternalPubProto.g:1159:2: (otherlv_0= 'numbering:' ( (lv_numberingStyle_1_0= ruleProtoSequenceNumberStyle ) ) )?
             {
             // InternalPubProto.g:1159:2: (otherlv_0= 'numbering:' ( (lv_numberingStyle_1_0= ruleProtoSequenceNumberStyle ) ) )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==38) ) {
-                alt16=1;
+            if ( (LA15_0==38) ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
                     // InternalPubProto.g:1160:3: otherlv_0= 'numbering:' ( (lv_numberingStyle_1_0= ruleProtoSequenceNumberStyle ) )
                     {
-                    otherlv_0=(Token)match(input,38,FOLLOW_23); 
+                    otherlv_0=(Token)match(input,38,FOLLOW_22); 
 
                     			newLeafNode(otherlv_0, grammarAccess.getProtoDivisionBodyAccess().getNumberingKeyword_0());
                     		
@@ -3045,11 +3029,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,39,FOLLOW_15); 
+            otherlv_1=(Token)match(input,39,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoPartAccess().getPartKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_24); 
+            otherlv_2=(Token)match(input,22,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoPartAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -3059,7 +3043,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoPartAccess().getProtoDivisionBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_ProtoDivisionBody_3=ruleProtoDivisionBody(current);
 
             state._fsp--;
@@ -3162,11 +3146,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,40,FOLLOW_15); 
+            otherlv_1=(Token)match(input,40,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoAppendixAccess().getAppendixKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_24); 
+            otherlv_2=(Token)match(input,22,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoAppendixAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -3176,7 +3160,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoAppendixAccess().getProtoDivisionBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_ProtoDivisionBody_3=ruleProtoDivisionBody(current);
 
             state._fsp--;
@@ -3279,11 +3263,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,41,FOLLOW_15); 
+            otherlv_1=(Token)match(input,41,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoChapterAccess().getChapterKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_24); 
+            otherlv_2=(Token)match(input,22,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoChapterAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -3293,7 +3277,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoChapterAccess().getProtoDivisionBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_ProtoDivisionBody_3=ruleProtoDivisionBody(current);
 
             state._fsp--;
@@ -3396,11 +3380,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,42,FOLLOW_15); 
+            otherlv_1=(Token)match(input,42,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoSectionAccess().getSectionKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_24); 
+            otherlv_2=(Token)match(input,22,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoSectionAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -3410,7 +3394,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoSectionAccess().getProtoDivisionBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_ProtoDivisionBody_3=ruleProtoDivisionBody(current);
 
             state._fsp--;
@@ -3513,11 +3497,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FOLLOW_15); 
+            otherlv_1=(Token)match(input,43,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoSubsectionAccess().getSubKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_24); 
+            otherlv_2=(Token)match(input,22,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoSubsectionAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -3527,7 +3511,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoSubsectionAccess().getProtoDivisionBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_ProtoDivisionBody_3=ruleProtoDivisionBody(current);
 
             state._fsp--;
@@ -3630,11 +3614,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,44,FOLLOW_15); 
+            otherlv_1=(Token)match(input,44,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getProtoSubsubsectionAccess().getSubsubKeyword_1());
             		
-            otherlv_2=(Token)match(input,22,FOLLOW_24); 
+            otherlv_2=(Token)match(input,22,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getProtoSubsubsectionAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -3644,7 +3628,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             			}
             			newCompositeNode(grammarAccess.getProtoSubsubsectionAccess().getProtoDivisionBodyParserRuleCall_3());
             		
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             this_ProtoDivisionBody_3=ruleProtoDivisionBody(current);
 
             state._fsp--;
@@ -3695,22 +3679,22 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             // InternalPubProto.g:1488:2: ( (enumLiteral_0= 'Print' ) | (enumLiteral_1= 'Web' ) )
             {
             // InternalPubProto.g:1488:2: ( (enumLiteral_0= 'Print' ) | (enumLiteral_1= 'Web' ) )
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA17_0==45) ) {
-                alt17=1;
+            if ( (LA16_0==45) ) {
+                alt16=1;
             }
-            else if ( (LA17_0==46) ) {
-                alt17=2;
+            else if ( (LA16_0==46) ) {
+                alt16=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 17, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
-            switch (alt17) {
+            switch (alt16) {
                 case 1 :
                     // InternalPubProto.g:1489:3: (enumLiteral_0= 'Print' )
                     {
@@ -3787,46 +3771,46 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             // InternalPubProto.g:1515:2: ( (enumLiteral_0= 'arabic' ) | (enumLiteral_1= 'capitalLetter' ) | (enumLiteral_2= 'smallLetter' ) | (enumLiteral_3= 'capitalRoman' ) | (enumLiteral_4= 'smallRoman' ) | (enumLiteral_5= 'none' ) )
             {
             // InternalPubProto.g:1515:2: ( (enumLiteral_0= 'arabic' ) | (enumLiteral_1= 'capitalLetter' ) | (enumLiteral_2= 'smallLetter' ) | (enumLiteral_3= 'capitalRoman' ) | (enumLiteral_4= 'smallRoman' ) | (enumLiteral_5= 'none' ) )
-            int alt18=6;
+            int alt17=6;
             switch ( input.LA(1) ) {
             case 47:
                 {
-                alt18=1;
+                alt17=1;
                 }
                 break;
             case 48:
                 {
-                alt18=2;
+                alt17=2;
                 }
                 break;
             case 49:
                 {
-                alt18=3;
+                alt17=3;
                 }
                 break;
             case 50:
                 {
-                alt18=4;
+                alt17=4;
                 }
                 break;
             case 51:
                 {
-                alt18=5;
+                alt17=5;
                 }
                 break;
             case 52:
                 {
-                alt18=6;
+                alt17=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 18, 0, input);
+                    new NoViableAltException("", 17, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
                     // InternalPubProto.g:1516:3: (enumLiteral_0= 'arabic' )
                     {
@@ -3964,20 +3948,19 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000600000000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000003F67220000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00001F8000000002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000842000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000018800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000010800000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000080842000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000080800000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x001F800000000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000004000800000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000003F67220000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00001F8000000002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000842000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000018800000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000010800000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000080842000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000080800000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x001F800000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000004000800000L});
 
 }

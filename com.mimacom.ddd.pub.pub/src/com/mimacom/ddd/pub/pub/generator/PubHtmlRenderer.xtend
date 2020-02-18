@@ -29,6 +29,7 @@ import com.mimacom.ddd.pub.pub.RichTextParagraph
 import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph
 import com.mimacom.ddd.pub.pub.SegmentWithTable
 import com.mimacom.ddd.pub.pub.SegmentWithText
+import com.mimacom.ddd.pub.pub.Symbol
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TableCell
 import com.mimacom.ddd.pub.pub.TitledBlock
@@ -233,8 +234,8 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		«FOR line : codeLines»«line»«ENDFOR»</pre>
 	'''
 
-	override CharSequence renderPlainParagraph(RichTextParagraph para)
-		'''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
+	override CharSequence renderPlainParagraph(
+		RichTextParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
 
 	protected def boolean isOnlyContentBlockOfTableCell(ContentBlock para) {
 		return para.eContainer instanceof TableCell && (para.eContainer as TableCell).contents.length == 1
@@ -244,13 +245,12 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		<p><blockquote>«para.text.renderRichText»</blockquote></p>
 	'''
 
-	override CharSequence renderUnformattedParagraph(UnformattedParagraph para)
-		'''«IF para.isOnlyContentBlockOfTableCell»«para.text»«ELSE»<p>«para.text»</p>«ENDIF»'''
+	override CharSequence renderUnformattedParagraph(
+		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text»«ELSE»<p>«para.text»</p>«ENDIF»'''
 
+	override CharSequence renderRichTextReferencingParagraph(
+		RichTextReferencingParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
 
-	override CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
-		'''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
-	
 	override createRichTextRenderer(ErrorMessageAcceptor acceptor) {
 		return new AbstractRichTextToHtmlRenderer {
 
@@ -260,12 +260,18 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 
 			override protected renderStyleExpression(DExpression expr, String parsedText) {
 				switch expr {
-					DmxContextReference:
-						super.renderStyleExpression(expr, expr.target.name)
+					DmxContextReference: {
+						if (expr.target instanceof Symbol) {
+							renderRichText((expr.target as Symbol).value)
+						} else {
+							super.renderStyleExpression(expr, expr.target.name)
+						}
+					}
 					DmxStaticReference:
 						super.renderStyleExpression(expr, expr.staticReferenceLinkText)
 					Reference:
-						"<a href=\"" + expr.htmlReferenceLinkTargetId +  "\">" + expr.target.referenceDisplayText + "</a>"
+						"<a href=\"" + expr.htmlReferenceLinkTargetId + "\">" + expr.target.referenceDisplayText +
+							"</a>"
 					default:
 						super.renderStyleExpression(expr, parsedText)
 				}

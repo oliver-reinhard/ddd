@@ -1035,8 +1035,8 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 */
 	protected void sequence_PubSymbol(ISerializationContext context, Symbol semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.SYMBOL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.SYMBOL__NAME));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.SYMBOL__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.SYMBOL__VALUE));
 		}

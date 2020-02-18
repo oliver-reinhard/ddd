@@ -368,7 +368,7 @@ PubEquation returns Equation:
 	'Equation'
 	PubTitledBlockHeader
 	'{'
-	'include' 'uri:' fileUri=STRING // TODO Validation
+	'uri:' fileUri=STRING // TODO Validation
 	'}'; 
 
 PubCodeListing returns TitledCodeListing:
@@ -378,7 +378,7 @@ PubCodeListing returns TitledCodeListing:
 		'{'
 			codeLines+=STRING*
 		'}'
-	|	'include' include=[ecore::EObject|DQualifiedName]  // TODO: DQualifiedName is likely the cause of the ANTLR warning: Decision can match input such as "'.' RULE_ID" using multiple alternatives
+	|	'include:' include=[ecore::EObject|DQualifiedName]  // TODO: DQualifiedName is likely the cause of the ANTLR warning: Decision can match input such as "'.' RULE_ID" using multiple alternatives
 	);
 
 enum PubCodeLanguage returns CodeLanguage: 

@@ -42,7 +42,7 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNatureAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cNaturePublicationNatureEnumRuleCall_6_0 = (RuleCall)cNatureAssignment_6.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cSymbolsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cSymbolKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cSymbolsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cSymbolsIDTerminalRuleCall_7_1_0 = (RuleCall)cSymbolsAssignment_7_1.eContents().get(0);
 		private final Keyword cSegmentsKeyword_8 = (Keyword)cGroup.eContents().get(8);
@@ -56,13 +56,13 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		//	{PublicationClass}
 		//	'publication' 'class'
 		//	name=ID ('title:' title=STRING)?
-		//	'nature:' nature=PublicationNature ('symbols:' symbols+=ID+)?
+		//	'nature:' nature=PublicationNature ('symbol:' symbols+=ID)*
 		//	'segments:' segments+=ProtoDocumentSegment*
 		//	'divisions:' divisions+=ProtoDivision*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PublicationClass} 'publication' 'class' name=ID ('title:' title=STRING)? 'nature:' nature=PublicationNature ('symbols:'
-		//symbols+=ID+)? 'segments:' segments+=ProtoDocumentSegment* 'divisions:' divisions+=ProtoDivision*
+		//{PublicationClass} 'publication' 'class' name=ID ('title:' title=STRING)? 'nature:' nature=PublicationNature ('symbol:'
+		//symbols+=ID)* 'segments:' segments+=ProtoDocumentSegment* 'divisions:' divisions+=ProtoDivision*
 		public Group getGroup() { return cGroup; }
 		
 		//{PublicationClass}
@@ -101,13 +101,13 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		//PublicationNature
 		public RuleCall getNaturePublicationNatureEnumRuleCall_6_0() { return cNaturePublicationNatureEnumRuleCall_6_0; }
 		
-		//('symbols:' symbols+=ID+)?
+		//('symbol:' symbols+=ID)*
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'symbols:'
-		public Keyword getSymbolsKeyword_7_0() { return cSymbolsKeyword_7_0; }
+		//'symbol:'
+		public Keyword getSymbolKeyword_7_0() { return cSymbolKeyword_7_0; }
 		
-		//symbols+=ID+
+		//symbols+=ID
 		public Assignment getSymbolsAssignment_7_1() { return cSymbolsAssignment_7_1; }
 		
 		//ID
@@ -1176,7 +1176,7 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 	//	{PublicationClass}
 	//	'publication' 'class'
 	//	name=ID ('title:' title=STRING)?
-	//	'nature:' nature=PublicationNature ('symbols:' symbols+=ID+)?
+	//	'nature:' nature=PublicationNature ('symbol:' symbols+=ID)*
 	//	'segments:' segments+=ProtoDocumentSegment*
 	//	'divisions:' divisions+=ProtoDivision*;
 	public PublicationClassElements getPublicationClassAccess() {

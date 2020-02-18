@@ -260,7 +260,25 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYMBOL__NAME = 0;
+	int SYMBOL__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -269,7 +287,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYMBOL__VALUE = 1;
+	int SYMBOL__VALUE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Symbol</em>' class.
@@ -278,7 +296,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYMBOL_FEATURE_COUNT = 2;
+	int SYMBOL_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Symbol</em>' class.
@@ -287,7 +305,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYMBOL_OPERATION_COUNT = 0;
+	int SYMBOL_OPERATION_COUNT = BasePackage.DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.PublicationImpl <em>Publication</em>}' class.
@@ -4961,17 +4979,6 @@ public interface PubPackage extends EPackage {
 	EClass getSymbol();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Symbol#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Symbol#getName()
-	 * @see #getSymbol()
-	 * @generated
-	 */
-	EAttribute getSymbol_Name();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.Symbol#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6689,14 +6696,6 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SYMBOL = eINSTANCE.getSymbol();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.

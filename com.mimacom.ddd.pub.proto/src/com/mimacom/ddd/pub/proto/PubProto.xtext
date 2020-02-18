@@ -9,7 +9,7 @@ PublicationClass:
 	name=ID
 	('title:' title=STRING)?
 	'nature:' nature=PublicationNature
-	('symbols:' symbols+=ID+)?
+	('symbol:' symbols+=ID)*
 	'segments:' segments+=ProtoDocumentSegment*
 	'divisions:'divisions+=ProtoDivision*;
 

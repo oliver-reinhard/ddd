@@ -4516,19 +4516,15 @@ rulePubEquation returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getPubEquationAccess().getLeftCurlyBracketKeyword_2());
 		}
-		otherlv_3='include'
+		otherlv_3='uri:'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getPubEquationAccess().getIncludeKeyword_3());
-		}
-		otherlv_4='uri:'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getPubEquationAccess().getUriKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getPubEquationAccess().getUriKeyword_3());
 		}
 		(
 			(
-				lv_fileUri_5_0=RULE_STRING
+				lv_fileUri_4_0=RULE_STRING
 				{
-					newLeafNode(lv_fileUri_5_0, grammarAccess.getPubEquationAccess().getFileUriSTRINGTerminalRuleCall_5_0());
+					newLeafNode(lv_fileUri_4_0, grammarAccess.getPubEquationAccess().getFileUriSTRINGTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -4537,14 +4533,14 @@ rulePubEquation returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"fileUri",
-						lv_fileUri_5_0,
+						lv_fileUri_4_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.STRING");
 				}
 			)
 		)
-		otherlv_6='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getPubEquationAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_5, grammarAccess.getPubEquationAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -4636,7 +4632,7 @@ rulePubCodeListing returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_7='include'
+				otherlv_7='include:'
 				{
 					newLeafNode(otherlv_7, grammarAccess.getPubCodeListingAccess().getIncludeKeyword_2_1_0());
 				}

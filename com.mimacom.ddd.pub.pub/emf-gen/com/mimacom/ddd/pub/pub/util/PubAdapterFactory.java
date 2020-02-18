@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.pub.util;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 
 import com.mimacom.ddd.pub.pub.*;
@@ -313,6 +314,10 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUnformattedParagraph(UnformattedParagraph object) {
 				return createUnformattedParagraphAdapter();
+			}
+			@Override
+			public Adapter caseDNamedElement(DNamedElement object) {
+				return createDNamedElementAdapter();
 			}
 			@Override
 			public Adapter caseIRichTextSegment(IRichTextSegment object) {
@@ -1193,6 +1198,20 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnformattedParagraphAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter() {
 		return null;
 	}
 

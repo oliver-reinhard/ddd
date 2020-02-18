@@ -9,13 +9,30 @@ import com.mimacom.ddd.dm.styledText.parser.StyledTextParser
 import java.util.List
 import org.eclipse.xtext.nodemodel.INode
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
+import com.mimacom.ddd.dm.base.DTextSegment
 
 class RichTextUtil {
 
 	protected static val BASE = BasePackage.eINSTANCE
-	
+
 	static val START_OFFSET = 1 // Actual rich text starts after the "«" character of the DRichText element
 	static val END_OFFSET = 1 // Actual richt ends before the "»" character of the DRichText element
+
+	def boolean empty(DRichText rt) {
+		if (rt !== null) {
+			for (seg : rt.segments) {
+				if (seg instanceof DExpression) {
+					return false
+				} else if (seg instanceof DTextSegment) {
+					if (! seg.value.trim.empty) {
+						return false
+					}
+				}
+			}
+
+		}
+		return true
+	}
 
 	/**
 	 * Preconditions: rt is part of an XtextResource and the syntax the resource's text is valid
@@ -35,7 +52,7 @@ class RichTextUtil {
 		}
 		return null
 	}
-	
+
 	/**
 	 * Preconditions: expr is part of an XtextResource and the syntax the resource's text is valid
 	 */
@@ -45,7 +62,7 @@ class RichTextUtil {
 			val INode root = nodes.head.rootNode
 			val startIndex = nodes.head.offset
 			val endIndex = nodes.last.endOffset - 1 // last.endOffset points to character *after* the actual text
-			return new String(root.text.toCharArray, startIndex, endIndex-startIndex);
+			return new String(root.text.toCharArray, startIndex, endIndex - startIndex);
 		}
 		return null
 	}

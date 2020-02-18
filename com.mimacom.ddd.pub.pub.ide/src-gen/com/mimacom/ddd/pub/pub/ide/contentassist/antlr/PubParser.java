@@ -410,7 +410,7 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIncludedFigureAccess().getFileUriAssignment_1(), "rule__IncludedFigure__FileUriAssignment_1");
 			builder.put(grammarAccess.getProvidedFigureAccess().getDiagramRootAssignment_1(), "rule__ProvidedFigure__DiagramRootAssignment_1");
 			builder.put(grammarAccess.getProvidedFigureAccess().getRendererAssignment_3(), "rule__ProvidedFigure__RendererAssignment_3");
-			builder.put(grammarAccess.getPubEquationAccess().getFileUriAssignment_5(), "rule__PubEquation__FileUriAssignment_5");
+			builder.put(grammarAccess.getPubEquationAccess().getFileUriAssignment_4(), "rule__PubEquation__FileUriAssignment_4");
 			builder.put(grammarAccess.getPubCodeListingAccess().getFormatAssignment_2_0_0_1(), "rule__PubCodeListing__FormatAssignment_2_0_0_1");
 			builder.put(grammarAccess.getPubCodeListingAccess().getCodeLinesAssignment_2_0_2(), "rule__PubCodeListing__CodeLinesAssignment_2_0_2");
 			builder.put(grammarAccess.getPubCodeListingAccess().getIncludeAssignment_2_1_1(), "rule__PubCodeListing__IncludeAssignment_2_1_1");

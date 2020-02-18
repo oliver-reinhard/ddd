@@ -31,10 +31,6 @@ import com.mimacom.ddd.pub.proto.ProtoTOC
 class PubUtil {
 	
 	@Inject extension RichTextUtil
-
-	def boolean empty(DRichText text) {
-		return text === null || text.segments.empty
-	}
 	
 	def String guard(String subject, String alternative) {
 		if(subject !== null && ! subject.empty) return subject

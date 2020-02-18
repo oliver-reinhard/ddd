@@ -10,6 +10,7 @@ import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.DTextSegment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
+import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.pub.pub.Chapter
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
@@ -21,11 +22,11 @@ import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubElementNames
 import com.mimacom.ddd.pub.pub.PubPackage
-import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.Section
 import com.mimacom.ddd.pub.pub.Subsection
 import com.mimacom.ddd.pub.pub.Subsubsection
+import com.mimacom.ddd.pub.pub.Symbol
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.TitledCodeListing
@@ -33,6 +34,7 @@ import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.validation.Check
@@ -47,7 +49,7 @@ class PubValidator extends AbstractPubValidator {
 	static val BASE = BasePackage.eINSTANCE
 	static val PUB = PubPackage.eINSTANCE
 
-	@Inject extension PubUtil
+	@Inject extension RichTextUtil
 	@Inject extension PubElementNames
 	@Inject extension PubNumberingUtil
 	@Inject ISerializer serializer
@@ -64,22 +66,48 @@ class PubValidator extends AbstractPubValidator {
 	}
 
 	@Check
-	def symbols(Document doc) {
+	def protoSymbols(Document doc) {
 		if (doc.publicationClass !== null) {
 			for (protoSymbol : doc.publicationClass.symbols) {
 				if (doc.symbols.filter[it.name == protoSymbol].empty) {
 					val msg = "Document must define prototype symbol '" + protoSymbol + "'"
 					if (! doc.symbols.empty) {
-						error(msg, doc.symbols.last, PUB.symbol_Name)
+						error(msg, doc.symbols.last, BASE.DNamedElement_Name)
 					} else {
 						error(msg, PUB.referenceTarget_Name)
 					}
 				}
 			}
 		}
-		for (symbol : doc.symbols) {
-			if (! symbol.name.equals(symbol.name.toUpperCase)) {
-				warning("Symbol name should be ALL UPPPERCASE", symbol, PUB.symbol_Name)
+	}
+
+	@Check
+	def symbolIsUppercase(Symbol s) {
+		if (! s.name.equals(s.name.toUpperCase)) {
+			warning("Symbol name should be ALL UPPPERCASE", s, BASE.DNamedElement_Name)
+		}
+	}
+
+	@Check
+	def symbolValueIsNotEmpty(Symbol s) {
+		if (s.value.empty) {
+			error("Symbol value is empty", s, PUB.symbol_Value)
+		}
+	}
+
+	@Check(NORMAL)
+	def includedDivisionSymbolsAreDefined(Division div) {
+		if (div.include !== null) {
+			val doc = EcoreUtil2.getContainerOfType(div, Document)
+			val includedDoc = EcoreUtil2.getContainerOfType(div.include, Document)
+			if (doc !== null && includedDoc !== null) {
+				for (includeSymbol : includedDoc.symbols) {
+					if (doc.symbols.filter[it.name == includeSymbol.name].empty) {
+						error("This document must define symbol '" + includeSymbol.name +
+							"' of included-division document", PUB.division_Include)
+					}
+				}
+
 			}
 		}
 	}
@@ -90,6 +118,14 @@ class PubValidator extends AbstractPubValidator {
 		var chapters = body.divisions.filter(Chapter)
 		if (! parts.empty && ! chapters.empty) {
 			error("Cannot have both Parts and Chapters at the top level.", body.divisions.head, PUB.division_Title) // flag first occurrence
+		}
+	}
+
+	@Check
+	def includeIsNotTransitive(Division div) {
+		if (div.include !== null && div.include.include !== null) {
+			error("Included division cannot itself include another division. Replace with non-transitive include.",
+				PUB.division_Include)
 		}
 	}
 
@@ -193,14 +229,6 @@ class PubValidator extends AbstractPubValidator {
 				item.list.items.indexOf(item))
 		} else if (style != ListStyle.TITLE && ! (item.title.empty)) {
 			error("Item cannot have a title for list style '" + style.literal + "'.", PUB.listItem_Title)
-		}
-	}
-
-	@Check
-	def includedDividionDoesNotInclude(Division div) {
-		if (div.include !== null && div.include.include !== null) {
-			error("Included division cannot itself include another division. Replace with non-transitive include.",
-				PUB.division_Include)
 		}
 	}
 

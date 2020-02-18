@@ -3,10 +3,11 @@ package com.mimacom.ddd.pub.pub
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BaseFactory
 import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.dmx.RichTextUtil
 
 class PubTableUtil {
 
-	@Inject extension PubUtil
+	@Inject extension RichTextUtil
 
 	static val BASE = BaseFactory.eINSTANCE
 	static val PUB = PubFactory.eINSTANCE

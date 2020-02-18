@@ -5,6 +5,7 @@ package com.mimacom.ddd.pub.pub
 import org.eclipse.emf.ecore.EObject
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DImport
+import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.IDiagramRoot
 import com.mimacom.ddd.pub.pub.impl.PubConstants
@@ -32,8 +33,7 @@ abstract class Document extends ReferenceTarget {
 	refers PublicationClass publicationClass
 }
 
-class Symbol {
-	String name
+class Symbol extends DNamedElement {
 	contains DRichText value
 }
 

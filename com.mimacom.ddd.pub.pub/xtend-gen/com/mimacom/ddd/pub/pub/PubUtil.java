@@ -59,10 +59,6 @@ public class PubUtil {
   @Extension
   private RichTextUtil _richTextUtil;
   
-  public boolean empty(final DRichText text) {
-    return ((text == null) || text.getSegments().isEmpty());
-  }
-  
   public String guard(final String subject, final String alternative) {
     if (((subject != null) && (!subject.isEmpty()))) {
       return subject;
