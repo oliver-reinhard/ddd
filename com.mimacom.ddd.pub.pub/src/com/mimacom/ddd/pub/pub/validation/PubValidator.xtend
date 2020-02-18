@@ -38,6 +38,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.validation.Check
+import static com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME
 
 /**
  * This class contains custom validation rules. 
@@ -71,8 +72,9 @@ class PubValidator extends AbstractPubValidator {
 			for (protoSymbol : doc.publicationClass.symbols) {
 				if (doc.symbols.filter[it.name == protoSymbol.name].empty) {
 					val msg = "Document must define prototype symbol '" + protoSymbol.name + "'"
-					if (! doc.symbols.empty) {
-						error(msg, doc.symbols.last, BASE.DNamedElement_Name)
+					if (! (doc.symbols.empty || doc.symbols.head.name == TITLE_SYMBOL_NAME)) {
+						// the symbol TITLE_SYMBOL_NAME is a synthetic element that has not parse-tree node.
+						error(msg, doc.symbols.head, BASE.DNamedElement_Name)
 					} else {
 						error(msg, PUB.referenceTarget_Name)
 					}

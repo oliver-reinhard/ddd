@@ -19,7 +19,7 @@ class PubProtoValidator extends AbstractPubProtoValidator {
 
 	@Check def void symbolNameIsUppercase(ProtoSymbol symbol) {
 		if (! symbol.name.equals(symbol.name.toUpperCase)) {
-			warning("Symbol name should be ALL UPPPERCASE", PROTO.publicationClass_Symbols)
+			warning("Symbol name should be ALL UPPPERCASE", PROTO.protoSymbol_Name)
 		}
 	}
 

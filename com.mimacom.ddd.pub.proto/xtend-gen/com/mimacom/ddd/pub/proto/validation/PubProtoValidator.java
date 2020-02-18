@@ -23,7 +23,7 @@ public class PubProtoValidator extends AbstractPubProtoValidator {
     boolean _equals = symbol.getName().equals(symbol.getName().toUpperCase());
     boolean _not = (!_equals);
     if (_not) {
-      this.warning("Symbol name should be ALL UPPPERCASE", PubProtoValidator.PROTO.getPublicationClass_Symbols());
+      this.warning("Symbol name should be ALL UPPPERCASE", PubProtoValidator.PROTO.getProtoSymbol_Name());
     }
   }
   

@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.pub.proto.ProtoSymbol;
 import com.mimacom.ddd.pub.proto.PublicationClass;
+import com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer;
 import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
@@ -119,10 +120,9 @@ public class PubValidator extends AbstractPubValidator {
           String _name = protoSymbol.getName();
           String _plus = ("Document must define prototype symbol \'" + _name);
           final String msg = (_plus + "\'");
-          boolean _isEmpty_1 = doc.getSymbols().isEmpty();
-          boolean _not = (!_isEmpty_1);
+          boolean _not = (!(doc.getSymbols().isEmpty() || Objects.equal(IterableExtensions.<Symbol>head(doc.getSymbols()).getName(), PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME)));
           if (_not) {
-            this.error(msg, IterableExtensions.<Symbol>last(doc.getSymbols()), PubValidator.BASE.getDNamedElement_Name());
+            this.error(msg, IterableExtensions.<Symbol>head(doc.getSymbols()), PubValidator.BASE.getDNamedElement_Name());
           } else {
             this.error(msg, PubValidator.PUB.getReferenceTarget_Name());
           }
