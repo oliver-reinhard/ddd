@@ -35,8 +35,8 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_PubSubsubsection_SubsubKeyword_0_0_or_SubsubsectionKeyword_0_1;
 	protected AbstractElementAlias match_PubTableCell___LeftCurlyBracketKeyword_4_0_0_RightCurlyBracketKeyword_4_0_2__q;
 	protected AbstractElementAlias match_PubTableRow_FalseKeyword_1_0_0_0_1_1_q;
-	protected AbstractElementAlias match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q__;
-	protected AbstractElementAlias match_PubTableRow___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q;
+	protected AbstractElementAlias match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__;
+	protected AbstractElementAlias match_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -54,8 +54,8 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_PubSubsubsection_SubsubKeyword_0_0_or_SubsubsectionKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubSubsubsectionAccess().getSubsubKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPubSubsubsectionAccess().getSubsubsectionKeyword_0_1()));
 		match_PubTableCell___LeftCurlyBracketKeyword_4_0_0_RightCurlyBracketKeyword_4_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableCellAccess().getLeftCurlyBracketKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableCellAccess().getRightCurlyBracketKeyword_4_0_2()));
 		match_PubTableRow_FalseKeyword_1_0_0_0_1_1_q = new TokenAlias(false, true, grammarAccess.getPubTableRowAccess().getFalseKeyword_1_0_0_0_1_1());
-		match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRowKeyword_1_0_0_0_0()), new TokenAlias(false, true, grammarAccess.getPubTableRowAccess().getFalseKeyword_1_0_0_0_1_1()), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_2_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_2_0_2()))), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getVerticalLineVerticalLineKeyword_1_1_0_1()));
-		match_PubTableRow___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_2_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_2_0_2()));
+		match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRowKeyword_1_0_0_0_0()), new TokenAlias(false, true, grammarAccess.getPubTableRowAccess().getFalseKeyword_1_0_0_0_1_1()), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_1_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_1_0_2()))), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getVerticalLineVerticalLineKeyword_1_1_0_1()));
+		match_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_1_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_1_0_2()));
 	}
 	
 	@Override
@@ -143,10 +143,10 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_PubTableCell___LeftCurlyBracketKeyword_4_0_0_RightCurlyBracketKeyword_4_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubTableRow_FalseKeyword_1_0_0_0_1_1_q.equals(syntax))
 				emit_PubTableRow_FalseKeyword_1_0_0_0_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q__.equals(syntax))
-				emit_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PubTableRow___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q.equals(syntax))
-				emit_PubTableRow___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__.equals(syntax))
+				emit_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q.equals(syntax))
+				emit_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -366,7 +366,6 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'false'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'Row' (ambiguity) 'height:' height=NATURAL
 	 *     (rule start) 'Row' (ambiguity) '{' cells+=PubTableCell
 	 *     (rule start) 'Row' (ambiguity) cells+=PubTableCell
 	 */
@@ -381,7 +380,7 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -390,11 +389,10 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     height=NATURAL (ambiguity) (rule end)
 	 *     isHeading?='Header' 'Row' (ambiguity) (rule end)
 	 *     isHeading?='true' (ambiguity) (rule end)
 	 */
-	protected void emit_PubTableRow___LeftCurlyBracketKeyword_1_0_2_0_0_RightCurlyBracketKeyword_1_0_2_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

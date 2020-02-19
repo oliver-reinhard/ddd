@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.TableRow#getHeight <em>Height</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.TableRow#isIsHeading <em>Is Heading</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.TableRow#getCells <em>Cells</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.TableRow#getTable <em>Table</em>}</li>
@@ -26,29 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface TableRow extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Height</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Height</em>' attribute.
-	 * @see #setHeight(int)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTableRow_Height()
-	 * @model default="1" unique="false"
-	 * @generated
-	 */
-	int getHeight();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.TableRow#getHeight <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Height</em>' attribute.
-	 * @see #getHeight()
-	 * @generated
-	 */
-	void setHeight(int value);
-
 	/**
 	 * Returns the value of the '<em><b>Is Heading</b></em>' attribute.
 	 * <!-- begin-user-doc -->

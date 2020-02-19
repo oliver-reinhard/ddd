@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl#isIsHeading <em>Is Heading</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl#getCells <em>Cells</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl#getTable <em>Table</em>}</li>
@@ -41,26 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class TableRowImpl extends MinimalEObjectImpl.Container implements TableRow {
-	/**
-	 * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeight()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int HEIGHT_EDEFAULT = 1;
-
-	/**
-	 * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeight()
-	 * @generated
-	 * @ordered
-	 */
-	protected int height = HEIGHT_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #isIsHeading() <em>Is Heading</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,29 +87,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	protected EClass eStaticClass() {
 		return PubPackage.Literals.TABLE_ROW;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getHeight() {
-		return height;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHeight(int newHeight) {
-		int oldHeight = height;
-		height = newHeight;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TABLE_ROW__HEIGHT, oldHeight, height));
 	}
 
 	/**
@@ -279,8 +235,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.TABLE_ROW__HEIGHT:
-				return getHeight();
 			case PubPackage.TABLE_ROW__IS_HEADING:
 				return isIsHeading();
 			case PubPackage.TABLE_ROW__CELLS:
@@ -301,9 +255,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.TABLE_ROW__HEIGHT:
-				setHeight((Integer)newValue);
-				return;
 			case PubPackage.TABLE_ROW__IS_HEADING:
 				setIsHeading((Boolean)newValue);
 				return;
@@ -326,9 +277,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.TABLE_ROW__HEIGHT:
-				setHeight(HEIGHT_EDEFAULT);
-				return;
 			case PubPackage.TABLE_ROW__IS_HEADING:
 				setIsHeading(IS_HEADING_EDEFAULT);
 				return;
@@ -350,8 +298,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.TABLE_ROW__HEIGHT:
-				return height != HEIGHT_EDEFAULT;
 			case PubPackage.TABLE_ROW__IS_HEADING:
 				return isHeading != IS_HEADING_EDEFAULT;
 			case PubPackage.TABLE_ROW__CELLS:
@@ -372,9 +318,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (height: ");
-		result.append(height);
-		result.append(", isHeading: ");
+		result.append(" (isHeading: ");
 		result.append(isHeading);
 		result.append(')');
 		return result.toString();

@@ -312,7 +312,11 @@ AbstractTable:
 Table:
 	'columns:' columns=NATURAL
 	('widthPercent:' widthPercent=NATURAL)?
+	('gridlines:' gridlines=GridLines)?
 	rows+=PubTableRow*;
+	
+enum GridLines:
+	HORIZONTAL='horizontal' | VERTICAL='vertical' | BOTH='all' | NONE='none'; 
 
 PubTableRow returns TableRow:
 	{TableRow}
@@ -320,7 +324,6 @@ PubTableRow returns TableRow:
 			('heading:' isHeading?='true' | 'false')?
 		|	isHeading?='Header' 'Row'
 		)
-		('height:' height=NATURAL)?
 		(	'{' cells+=PubTableCell*		'}'
 		|	cells+=PubTableCell*
 		)

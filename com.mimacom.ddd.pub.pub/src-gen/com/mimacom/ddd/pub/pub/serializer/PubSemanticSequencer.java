@@ -1077,10 +1077,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubTableRow returns TableRow
 	 *
 	 * Constraint:
-	 *     (
-	 *         ((isHeading?='true' | isHeading?='Header')? height=NATURAL? (cells+=PubTableCell+ | cells+=PubTableCell+)?) | 
-	 *         (isHeading?='|||'? cells+=PubTableSimpleCell*)
-	 *     )
+	 *     (((isHeading?='true' | isHeading?='Header')? (cells+=PubTableCell+ | cells+=PubTableCell+)?) | (isHeading?='|||'? cells+=PubTableSimpleCell*))
 	 */
 	protected void sequence_PubTableRow(ISerializationContext context, TableRow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1105,7 +1102,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     Table returns Table
 	 *
 	 * Constraint:
-	 *     (columns=NATURAL widthPercent=NATURAL? rows+=PubTableRow*)
+	 *     (columns=NATURAL widthPercent=NATURAL? gridlines=GridLines? rows+=PubTableRow*)
 	 */
 	protected void sequence_Table(ISerializationContext context, Table semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

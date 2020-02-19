@@ -3821,11 +3821,36 @@ ruleTable returns [EObject current=null]
 			)
 		)?
 		(
+			otherlv_4='gridlines:'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getTableAccess().getGridlinesKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTableAccess().getGridlinesGridLinesEnumRuleCall_3_1_0());
+					}
+					lv_gridlines_5_0=ruleGridLines
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTableRule());
+						}
+						set(
+							$current,
+							"gridlines",
+							lv_gridlines_5_0,
+							"com.mimacom.ddd.pub.pub.Pub.GridLines");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTableAccess().getRowsPubTableRowParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getTableAccess().getRowsPubTableRowParserRuleCall_4_0());
 				}
-				lv_rows_4_0=rulePubTableRow
+				lv_rows_6_0=rulePubTableRow
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTableRule());
@@ -3833,7 +3858,7 @@ ruleTable returns [EObject current=null]
 					add(
 						$current,
 						"rows",
-						lv_rows_4_0,
+						lv_rows_6_0,
 						"com.mimacom.ddd.pub.pub.Pub.PubTableRow");
 					afterParserOrEnumRuleCall();
 				}
@@ -3924,41 +3949,17 @@ rulePubTableRow returns [EObject current=null]
 					)
 				)
 				(
-					otherlv_7='height:'
-					{
-						newLeafNode(otherlv_7, grammarAccess.getPubTableRowAccess().getHeightKeyword_1_0_1_0());
-					}
 					(
-						(
-							lv_height_8_0=RULE_NATURAL
-							{
-								newLeafNode(lv_height_8_0, grammarAccess.getPubTableRowAccess().getHeightNATURALTerminalRuleCall_1_0_1_1_0());
-							}
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getPubTableRowRule());
-								}
-								setWithLastConsumed(
-									$current,
-									"height",
-									lv_height_8_0,
-									"com.mimacom.ddd.dm.dmx.Dmx.NATURAL");
-							}
-						)
-					)
-				)?
-				(
-					(
-						otherlv_9='{'
+						otherlv_7='{'
 						{
-							newLeafNode(otherlv_9, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_2_0_0());
+							newLeafNode(otherlv_7, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_1_0_0());
 						}
 						(
 							(
 								{
-									newCompositeNode(grammarAccess.getPubTableRowAccess().getCellsPubTableCellParserRuleCall_1_0_2_0_1_0());
+									newCompositeNode(grammarAccess.getPubTableRowAccess().getCellsPubTableCellParserRuleCall_1_0_1_0_1_0());
 								}
-								lv_cells_10_0=rulePubTableCell
+								lv_cells_8_0=rulePubTableCell
 								{
 									if ($current==null) {
 										$current = createModelElementForParent(grammarAccess.getPubTableRowRule());
@@ -3966,24 +3967,24 @@ rulePubTableRow returns [EObject current=null]
 									add(
 										$current,
 										"cells",
-										lv_cells_10_0,
+										lv_cells_8_0,
 										"com.mimacom.ddd.pub.pub.Pub.PubTableCell");
 									afterParserOrEnumRuleCall();
 								}
 							)
 						)*
-						otherlv_11='}'
+						otherlv_9='}'
 						{
-							newLeafNode(otherlv_11, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_2_0_2());
+							newLeafNode(otherlv_9, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_1_0_2());
 						}
 					)
 					    |
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getPubTableRowAccess().getCellsPubTableCellParserRuleCall_1_0_2_1_0());
+								newCompositeNode(grammarAccess.getPubTableRowAccess().getCellsPubTableCellParserRuleCall_1_0_1_1_0());
 							}
-							lv_cells_12_0=rulePubTableCell
+							lv_cells_10_0=rulePubTableCell
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getPubTableRowRule());
@@ -3991,7 +3992,7 @@ rulePubTableRow returns [EObject current=null]
 								add(
 									$current,
 									"cells",
-									lv_cells_12_0,
+									lv_cells_10_0,
 									"com.mimacom.ddd.pub.pub.Pub.PubTableCell");
 								afterParserOrEnumRuleCall();
 							}
@@ -4004,9 +4005,9 @@ rulePubTableRow returns [EObject current=null]
 				(
 					(
 						(
-							lv_isHeading_13_0='|||'
+							lv_isHeading_11_0='|||'
 							{
-								newLeafNode(lv_isHeading_13_0, grammarAccess.getPubTableRowAccess().getIsHeadingVerticalLineVerticalLineVerticalLineKeyword_1_1_0_0_0());
+								newLeafNode(lv_isHeading_11_0, grammarAccess.getPubTableRowAccess().getIsHeadingVerticalLineVerticalLineVerticalLineKeyword_1_1_0_0_0());
 							}
 							{
 								if ($current==null) {
@@ -4017,9 +4018,9 @@ rulePubTableRow returns [EObject current=null]
 						)
 					)
 					    |
-					otherlv_14='||'
+					otherlv_12='||'
 					{
-						newLeafNode(otherlv_14, grammarAccess.getPubTableRowAccess().getVerticalLineVerticalLineKeyword_1_1_0_1());
+						newLeafNode(otherlv_12, grammarAccess.getPubTableRowAccess().getVerticalLineVerticalLineKeyword_1_1_0_1());
 					}
 				)
 				(
@@ -4027,7 +4028,7 @@ rulePubTableRow returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getPubTableRowAccess().getCellsPubTableSimpleCellParserRuleCall_1_1_1_0());
 						}
-						lv_cells_15_0=rulePubTableSimpleCell
+						lv_cells_13_0=rulePubTableSimpleCell
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPubTableRowRule());
@@ -4035,7 +4036,7 @@ rulePubTableRow returns [EObject current=null]
 							add(
 								$current,
 								"cells",
-								lv_cells_15_0,
+								lv_cells_13_0,
 								"com.mimacom.ddd.pub.pub.Pub.PubTableSimpleCell");
 							afterParserOrEnumRuleCall();
 						}
@@ -8916,6 +8917,49 @@ rulePubSequenceNumberStyle returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getPubSequenceNumberStyleAccess().getNoneEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_5, grammarAccess.getPubSequenceNumberStyleAccess().getNoneEnumLiteralDeclaration_5());
+			}
+		)
+	)
+;
+
+// Rule GridLines
+ruleGridLines returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='horizontal'
+			{
+				$current = grammarAccess.getGridLinesAccess().getHORIZONTALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getGridLinesAccess().getHORIZONTALEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='vertical'
+			{
+				$current = grammarAccess.getGridLinesAccess().getVERTICALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getGridLinesAccess().getVERTICALEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='all'
+			{
+				$current = grammarAccess.getGridLinesAccess().getBOTHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getGridLinesAccess().getBOTHEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='none'
+			{
+				$current = grammarAccess.getGridLinesAccess().getNONEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getGridLinesAccess().getNONEEnumLiteralDeclaration_3());
 			}
 		)
 	)

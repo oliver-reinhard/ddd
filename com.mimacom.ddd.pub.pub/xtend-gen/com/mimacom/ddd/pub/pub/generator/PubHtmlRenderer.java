@@ -20,6 +20,7 @@ import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
+import com.mimacom.ddd.pub.pub.GridLines;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
@@ -84,30 +85,42 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("table, th {");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("border-top: 2px solid black;");
+    _builder.append("\t");
+    _builder.append("border-top: 1px solid black;");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("border-bottom: 2px solid black;");
+    _builder.append("\t");
+    _builder.append("border-bottom: 1px solid black;");
     _builder.newLine();
-    _builder.append("  ");
+    _builder.append("\t");
+    _builder.append("border-left: 0.5px solid black;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("border-right: 0.5px solid black;");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("border-collapse: collapse;");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     _builder.append("td {");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("border-bottom: 1px solid black;");
+    _builder.append("\t");
+    _builder.append("border-bottom: 0.5px solid black;");
     _builder.newLine();
-    _builder.append("  ");
+    _builder.append("\t");
+    _builder.append("border-left: 0.5px solid black;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("border-right: 0.5px solid black;");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("border-collapse: collapse;");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     _builder.append("th {");
     _builder.newLine();
-    _builder.append("  ");
+    _builder.append("\t");
     _builder.append("text-align: left;");
     _builder.newLine();
     _builder.append("}");
@@ -437,7 +450,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("<table style=\"width:");
     int _widthPercent = t.getWidthPercent();
     _builder.append(_widthPercent);
-    _builder.append("%\">");
+    _builder.append("%; ");
+    String _tableBorders = this.tableBorders(t.getGridlines());
+    _builder.append(_tableBorders);
+    _builder.append("\">");
     _builder.newLineIfNotEmpty();
     {
       EList<TableRow> _rows = t.getRows();
@@ -480,6 +496,29 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     return _builder;
   }
   
+  protected String tableBorders(final GridLines gl) {
+    String _switchResult = null;
+    if (gl != null) {
+      switch (gl) {
+        case HORIZONTAL:
+          _switchResult = "border-left:0; border-right:0;";
+          break;
+        case VERTICAL:
+          _switchResult = "border-top:0; border-bottom:0;";
+          break;
+        case BOTH:
+          _switchResult = "";
+          break;
+        case NONE:
+          _switchResult = "border:0;";
+          break;
+        default:
+          break;
+      }
+    }
+    return _switchResult;
+  }
+  
   protected String startTag(final TableCell cell) {
     final StringBuilder b = new StringBuilder();
     String _xifexpression = null;
@@ -490,17 +529,25 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
       _xifexpression = "<td";
     }
     b.append(_xifexpression);
+    final String gridLines = this.tableBorders(cell.getRow().getTable().getGridlines());
+    boolean _isEmpty = gridLines.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      b.append(" style=\"");
+      b.append(gridLines);
+      b.append("\"");
+    }
     int _width = cell.getWidth();
     boolean _greaterThan = (_width > 1);
     if (_greaterThan) {
-      b.append(" colspan=");
+      b.append(" colspan=\"");
       b.append(cell.getWidth());
       b.append("\"");
     }
     int _height = cell.getHeight();
     boolean _greaterThan_1 = (_height > 1);
     if (_greaterThan_1) {
-      b.append(" rowspan=");
+      b.append(" rowspan=\"");
       b.append(cell.getHeight());
       b.append("\"");
     }

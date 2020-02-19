@@ -70,7 +70,7 @@ class PubValidator extends AbstractPubValidator {
 	def protoSymbols(Document doc) {
 		if (doc.publicationClass !== null) {
 			for (protoSymbol : doc.publicationClass.symbols) {
-				if (doc.symbols.filter[it.name == protoSymbol.name].empty) {
+				if (doc.getSymbol(protoSymbol.name) === null) {
 					val msg = "Document must define prototype symbol '" + protoSymbol.name + "'"
 					if (! (doc.symbols.empty || doc.symbols.head.name == TITLE_SYMBOL_NAME)) {
 						// the symbol TITLE_SYMBOL_NAME is a synthetic element that has not parse-tree node.
@@ -104,7 +104,7 @@ class PubValidator extends AbstractPubValidator {
 			val includedDoc = EcoreUtil2.getContainerOfType(div.include, Document)
 			if (doc !== null && includedDoc !== null) {
 				for (includeSymbol : includedDoc.symbols) {
-					if (doc.symbols.filter[it.name == includeSymbol.name].empty) {
+					if (doc.getSymbol(includeSymbol.name) === null) {
 						error("This document must define symbol '" + includeSymbol.name +
 							"' of included-division document", PUB.division_Include)
 					}

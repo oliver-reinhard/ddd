@@ -2,11 +2,15 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
+import com.google.common.base.Objects;
+
 import com.mimacom.ddd.pub.proto.PublicationClass;
 
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Symbol;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -246,6 +250,24 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public Symbol getSymbol(final String name) {
+		EList<Symbol> _symbols = this.getSymbols();
+		for (final Symbol sym : _symbols) {
+			String _name = sym.getName();
+			boolean _equals = Objects.equal(_name, name);
+			if (_equals) {
+				return sym;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PubPackage.DOCUMENT__SYMBOLS:
@@ -347,6 +369,20 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return publicationClass != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PubPackage.DOCUMENT___GET_SYMBOL__STRING:
+				return getSymbol((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

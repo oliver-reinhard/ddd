@@ -32,6 +32,7 @@ import com.mimacom.ddd.pub.pub.Equation;
 import com.mimacom.ddd.pub.pub.FigureRenderer;
 import com.mimacom.ddd.pub.pub.Glossary;
 import com.mimacom.ddd.pub.pub.GlossaryEntry;
+import com.mimacom.ddd.pub.pub.GridLines;
 import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.IndexEntry;
@@ -552,6 +553,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum gridLinesEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum codeLanguageEEnum = null;
 
 	/**
@@ -715,6 +723,16 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EReference getDocument_PublicationClass() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDocument__GetSymbol__String() {
+		return documentEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1793,7 +1811,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTable_HideGrid() {
+	public EAttribute getTable_Gridlines() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1813,7 +1831,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableRow_Height() {
+	public EAttribute getTableRow_IsHeading() {
 		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1823,18 +1841,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableRow_IsHeading() {
-		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getTableRow_Cells() {
-		return (EReference)tableRowEClass.getEStructuralFeatures().get(2);
+		return (EReference)tableRowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1844,7 +1852,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 */
 	@Override
 	public EReference getTableRow_Table() {
-		return (EReference)tableRowEClass.getEStructuralFeatures().get(3);
+		return (EReference)tableRowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2243,6 +2251,16 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getGridLines() {
+		return gridLinesEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getCodeLanguage() {
 		return codeLanguageEEnum;
 	}
@@ -2296,6 +2314,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEAttribute(documentEClass, DOCUMENT__TITLE);
 		createEReference(documentEClass, DOCUMENT__SYMBOLS);
 		createEReference(documentEClass, DOCUMENT__PUBLICATION_CLASS);
+		createEOperation(documentEClass, DOCUMENT___GET_SYMBOL__STRING);
 
 		symbolEClass = createEClass(SYMBOL);
 		createEReference(symbolEClass, SYMBOL__VALUE);
@@ -2447,10 +2466,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__COLUMNS);
 		createEReference(tableEClass, TABLE__ROWS);
-		createEAttribute(tableEClass, TABLE__HIDE_GRID);
+		createEAttribute(tableEClass, TABLE__GRIDLINES);
 
 		tableRowEClass = createEClass(TABLE_ROW);
-		createEAttribute(tableRowEClass, TABLE_ROW__HEIGHT);
 		createEAttribute(tableRowEClass, TABLE_ROW__IS_HEADING);
 		createEReference(tableRowEClass, TABLE_ROW__CELLS);
 		createEReference(tableRowEClass, TABLE_ROW__TABLE);
@@ -2509,6 +2527,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		referenceScopeEEnum = createEEnum(REFERENCE_SCOPE);
 		admonitionKindEEnum = createEEnum(ADMONITION_KIND);
 		listStyleEEnum = createEEnum(LIST_STYLE);
+		gridLinesEEnum = createEEnum(GRID_LINES);
 		codeLanguageEEnum = createEEnum(CODE_LANGUAGE);
 		paragraphStyleEEnum = createEEnum(PARAGRAPH_STYLE);
 	}
@@ -2617,6 +2636,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEReference(getDocument_Symbols(), this.getSymbol(), null, "symbols", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_PublicationClass(), theProtoPackage.getPublicationClass(), null, "publicationClass", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getDocument__GetSymbol__String(), this.getSymbol(), "getSymbol", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSymbol_Value(), theBasePackage.getDRichText(), null, "value", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2639,7 +2661,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEOperation(getDocumentSegment__GetName(), theEcorePackage.getEString(), "getName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getDocumentSegment__SetName__String(), null, "setName", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDocumentSegment__SetName__String(), null, "setName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(blockContainerEClass, BlockContainer.class, "BlockContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2777,10 +2799,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Columns(), theEcorePackage.getEInt(), "columns", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Rows(), this.getTableRow(), this.getTableRow_Table(), "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_HideGrid(), theEcorePackage.getEBoolean(), "hideGrid", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Gridlines(), this.getGridLines(), "gridlines", "HORIZONTAL", 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableRow_Height(), theEcorePackage.getEInt(), "height", "1", 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_IsHeading(), theEcorePackage.getEBoolean(), "isHeading", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTableRow_Cells(), this.getTableCell(), this.getTableCell_Row(), "cells", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTableRow_Table(), this.getTable(), this.getTable_Rows(), "table", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2868,6 +2889,12 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		addEEnumLiteral(listStyleEEnum, ListStyle.BULLET);
 		addEEnumLiteral(listStyleEEnum, ListStyle.SEQUENCE);
 		addEEnumLiteral(listStyleEEnum, ListStyle.TITLE);
+
+		initEEnum(gridLinesEEnum, GridLines.class, "GridLines");
+		addEEnumLiteral(gridLinesEEnum, GridLines.HORIZONTAL);
+		addEEnumLiteral(gridLinesEEnum, GridLines.VERTICAL);
+		addEEnumLiteral(gridLinesEEnum, GridLines.BOTH);
+		addEEnumLiteral(gridLinesEEnum, GridLines.NONE);
 
 		initEEnum(codeLanguageEEnum, CodeLanguage.class, "CodeLanguage");
 		addEEnumLiteral(codeLanguageEEnum, CodeLanguage.JAVA);

@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.Table#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Table#getRows <em>Rows</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.Table#isHideGrid <em>Hide Grid</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.Table#getGridlines <em>Gridlines</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getTable()
@@ -60,25 +60,29 @@ public interface Table extends AbstractTable {
 	EList<TableRow> getRows();
 
 	/**
-	 * Returns the value of the '<em><b>Hide Grid</b></em>' attribute.
+	 * Returns the value of the '<em><b>Gridlines</b></em>' attribute.
+	 * The default value is <code>"HORIZONTAL"</code>.
+	 * The literals are from the enumeration {@link com.mimacom.ddd.pub.pub.GridLines}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hide Grid</em>' attribute.
-	 * @see #setHideGrid(boolean)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTable_HideGrid()
-	 * @model unique="false"
+	 * @return the value of the '<em>Gridlines</em>' attribute.
+	 * @see com.mimacom.ddd.pub.pub.GridLines
+	 * @see #setGridlines(GridLines)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTable_Gridlines()
+	 * @model default="HORIZONTAL" unique="false"
 	 * @generated
 	 */
-	boolean isHideGrid();
+	GridLines getGridlines();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.Table#isHideGrid <em>Hide Grid</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.Table#getGridlines <em>Gridlines</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hide Grid</em>' attribute.
-	 * @see #isHideGrid()
+	 * @param value the new value of the '<em>Gridlines</em>' attribute.
+	 * @see com.mimacom.ddd.pub.pub.GridLines
+	 * @see #getGridlines()
 	 * @generated
 	 */
-	void setHideGrid(boolean value);
+	void setGridlines(GridLines value);
 
 } // Table

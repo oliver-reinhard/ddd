@@ -19,7 +19,7 @@ abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRenderer {
 	}
 	
 	override protected renderStyleMonospace(DStyledTextSpan span) {
-		"<strong>" + span.render + "</strong>"
+		"<code>" + span.render + "</code>"
 	}
 	
 	override protected renderStyleKeyword(DStyledTextSpan span) {
@@ -39,10 +39,10 @@ abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRenderer {
 	}
 	
 	override protected renderStyleSubscript(DStyledTextSpan span) {
-		"<sup>" + span.render + "</sup>"
+		"<sub>" + span.render + "</sub>"
 	}
 	
 	override protected renderStyleSuperscript(DStyledTextSpan span) {
-		"<sub>" + span.render + "</sub>"
+		"<sup>" + span.render + "</sup>"
 	}
 }

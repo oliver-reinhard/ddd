@@ -2420,15 +2420,20 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cWidthPercentKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cWidthPercentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cWidthPercentNATURALTerminalRuleCall_2_1_0 = (RuleCall)cWidthPercentAssignment_2_1.eContents().get(0);
-		private final Assignment cRowsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRowsPubTableRowParserRuleCall_3_0 = (RuleCall)cRowsAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cGridlinesKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cGridlinesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cGridlinesGridLinesEnumRuleCall_3_1_0 = (RuleCall)cGridlinesAssignment_3_1.eContents().get(0);
+		private final Assignment cRowsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRowsPubTableRowParserRuleCall_4_0 = (RuleCall)cRowsAssignment_4.eContents().get(0);
 		
 		//Table:
-		//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)?
+		//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
 		//	rows+=PubTableRow*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? rows+=PubTableRow*
+		//'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
+		//rows+=PubTableRow*
 		public Group getGroup() { return cGroup; }
 		
 		//'columns:'
@@ -2452,11 +2457,23 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//NATURAL
 		public RuleCall getWidthPercentNATURALTerminalRuleCall_2_1_0() { return cWidthPercentNATURALTerminalRuleCall_2_1_0; }
 		
+		//('gridlines:' gridlines=GridLines)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'gridlines:'
+		public Keyword getGridlinesKeyword_3_0() { return cGridlinesKeyword_3_0; }
+		
+		//gridlines=GridLines
+		public Assignment getGridlinesAssignment_3_1() { return cGridlinesAssignment_3_1; }
+		
+		//GridLines
+		public RuleCall getGridlinesGridLinesEnumRuleCall_3_1_0() { return cGridlinesGridLinesEnumRuleCall_3_1_0; }
+		
 		//rows+=PubTableRow*
-		public Assignment getRowsAssignment_3() { return cRowsAssignment_3; }
+		public Assignment getRowsAssignment_4() { return cRowsAssignment_4; }
 		
 		//PubTableRow
-		public RuleCall getRowsPubTableRowParserRuleCall_3_0() { return cRowsPubTableRowParserRuleCall_3_0; }
+		public RuleCall getRowsPubTableRowParserRuleCall_4_0() { return cRowsPubTableRowParserRuleCall_4_0; }
 	}
 	public class PubTableRowElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubTableRow");
@@ -2477,18 +2494,14 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIsHeadingAssignment_1_0_0_1_0 = (Assignment)cGroup_1_0_0_1.eContents().get(0);
 		private final Keyword cIsHeadingHeaderKeyword_1_0_0_1_0_0 = (Keyword)cIsHeadingAssignment_1_0_0_1_0.eContents().get(0);
 		private final Keyword cRowKeyword_1_0_0_1_1 = (Keyword)cGroup_1_0_0_1.eContents().get(1);
-		private final Group cGroup_1_0_1 = (Group)cGroup_1_0.eContents().get(1);
-		private final Keyword cHeightKeyword_1_0_1_0 = (Keyword)cGroup_1_0_1.eContents().get(0);
-		private final Assignment cHeightAssignment_1_0_1_1 = (Assignment)cGroup_1_0_1.eContents().get(1);
-		private final RuleCall cHeightNATURALTerminalRuleCall_1_0_1_1_0 = (RuleCall)cHeightAssignment_1_0_1_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_0_2 = (Alternatives)cGroup_1_0.eContents().get(2);
-		private final Group cGroup_1_0_2_0 = (Group)cAlternatives_1_0_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1_0_2_0_0 = (Keyword)cGroup_1_0_2_0.eContents().get(0);
-		private final Assignment cCellsAssignment_1_0_2_0_1 = (Assignment)cGroup_1_0_2_0.eContents().get(1);
-		private final RuleCall cCellsPubTableCellParserRuleCall_1_0_2_0_1_0 = (RuleCall)cCellsAssignment_1_0_2_0_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_0_2_0_2 = (Keyword)cGroup_1_0_2_0.eContents().get(2);
-		private final Assignment cCellsAssignment_1_0_2_1 = (Assignment)cAlternatives_1_0_2.eContents().get(1);
-		private final RuleCall cCellsPubTableCellParserRuleCall_1_0_2_1_0 = (RuleCall)cCellsAssignment_1_0_2_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_0_1 = (Alternatives)cGroup_1_0.eContents().get(1);
+		private final Group cGroup_1_0_1_0 = (Group)cAlternatives_1_0_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_0_1_0_0 = (Keyword)cGroup_1_0_1_0.eContents().get(0);
+		private final Assignment cCellsAssignment_1_0_1_0_1 = (Assignment)cGroup_1_0_1_0.eContents().get(1);
+		private final RuleCall cCellsPubTableCellParserRuleCall_1_0_1_0_1_0 = (RuleCall)cCellsAssignment_1_0_1_0_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_0_1_0_2 = (Keyword)cGroup_1_0_1_0.eContents().get(2);
+		private final Assignment cCellsAssignment_1_0_1_1 = (Assignment)cAlternatives_1_0_1.eContents().get(1);
+		private final RuleCall cCellsPubTableCellParserRuleCall_1_0_1_1_0 = (RuleCall)cCellsAssignment_1_0_1_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Alternatives cAlternatives_1_1_0 = (Alternatives)cGroup_1_1.eContents().get(0);
 		private final Assignment cIsHeadingAssignment_1_1_0_0 = (Assignment)cAlternatives_1_1_0.eContents().get(0);
@@ -2499,23 +2512,23 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PubTableRow TableRow:
 		//	{TableRow} (('Row' ('heading:' isHeading?='true' | 'false')?
-		//	| isHeading?='Header' 'Row') ('height:' height=NATURAL)? ('{' cells+=PubTableCell* '}'
+		//	| isHeading?='Header' 'Row') ('{' cells+=PubTableCell* '}'
 		//	| cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TableRow} (('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row') ('height:' height=NATURAL)?
-		//('{' cells+=PubTableCell* '}' | cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*)
+		//{TableRow} (('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row') ('{' cells+=PubTableCell* '}'
+		//| cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*)
 		public Group getGroup() { return cGroup; }
 		
 		//{TableRow}
 		public Action getTableRowAction_0() { return cTableRowAction_0; }
 		
-		//(('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row') ('height:' height=NATURAL)? ('{'
-		//cells+=PubTableCell* '}' | cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*)
+		//(('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row') ('{' cells+=PubTableCell* '}' |
+		//cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row') ('height:' height=NATURAL)? ('{'
-		//cells+=PubTableCell* '}' | cells+=PubTableCell*)
+		//('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row') ('{' cells+=PubTableCell* '}' |
+		//cells+=PubTableCell*)
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//('Row' ('heading:' isHeading?='true' | 'false')? | isHeading?='Header' 'Row')
@@ -2557,41 +2570,29 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'Row'
 		public Keyword getRowKeyword_1_0_0_1_1() { return cRowKeyword_1_0_0_1_1; }
 		
-		//('height:' height=NATURAL)?
-		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
-		
-		//'height:'
-		public Keyword getHeightKeyword_1_0_1_0() { return cHeightKeyword_1_0_1_0; }
-		
-		//height=NATURAL
-		public Assignment getHeightAssignment_1_0_1_1() { return cHeightAssignment_1_0_1_1; }
-		
-		//NATURAL
-		public RuleCall getHeightNATURALTerminalRuleCall_1_0_1_1_0() { return cHeightNATURALTerminalRuleCall_1_0_1_1_0; }
-		
 		//('{' cells+=PubTableCell* '}' | cells+=PubTableCell*)
-		public Alternatives getAlternatives_1_0_2() { return cAlternatives_1_0_2; }
+		public Alternatives getAlternatives_1_0_1() { return cAlternatives_1_0_1; }
 		
 		//'{' cells+=PubTableCell* '}'
-		public Group getGroup_1_0_2_0() { return cGroup_1_0_2_0; }
+		public Group getGroup_1_0_1_0() { return cGroup_1_0_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_0_2_0_0() { return cLeftCurlyBracketKeyword_1_0_2_0_0; }
+		public Keyword getLeftCurlyBracketKeyword_1_0_1_0_0() { return cLeftCurlyBracketKeyword_1_0_1_0_0; }
 		
 		//cells+=PubTableCell*
-		public Assignment getCellsAssignment_1_0_2_0_1() { return cCellsAssignment_1_0_2_0_1; }
+		public Assignment getCellsAssignment_1_0_1_0_1() { return cCellsAssignment_1_0_1_0_1; }
 		
 		//PubTableCell
-		public RuleCall getCellsPubTableCellParserRuleCall_1_0_2_0_1_0() { return cCellsPubTableCellParserRuleCall_1_0_2_0_1_0; }
+		public RuleCall getCellsPubTableCellParserRuleCall_1_0_1_0_1_0() { return cCellsPubTableCellParserRuleCall_1_0_1_0_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_0_2_0_2() { return cRightCurlyBracketKeyword_1_0_2_0_2; }
+		public Keyword getRightCurlyBracketKeyword_1_0_1_0_2() { return cRightCurlyBracketKeyword_1_0_1_0_2; }
 		
 		//cells+=PubTableCell*
-		public Assignment getCellsAssignment_1_0_2_1() { return cCellsAssignment_1_0_2_1; }
+		public Assignment getCellsAssignment_1_0_1_1() { return cCellsAssignment_1_0_1_1; }
 		
 		//PubTableCell
-		public RuleCall getCellsPubTableCellParserRuleCall_1_0_2_1_0() { return cCellsPubTableCellParserRuleCall_1_0_2_1_0; }
+		public RuleCall getCellsPubTableCellParserRuleCall_1_0_1_1_0() { return cCellsPubTableCellParserRuleCall_1_0_1_1_0; }
 		
 		//(isHeading?='|||' | '||') cells+=PubTableSimpleCell*
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -3305,6 +3306,49 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'none'
 		public Keyword getNoneNoneKeyword_5_0() { return cNoneNoneKeyword_5_0; }
 	}
+	public class GridLinesElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.GridLines");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cHORIZONTALEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cHORIZONTALHorizontalKeyword_0_0 = (Keyword)cHORIZONTALEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cVERTICALEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cVERTICALVerticalKeyword_1_0 = (Keyword)cVERTICALEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cBOTHEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cBOTHAllKeyword_2_0 = (Keyword)cBOTHEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cNONEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cNONENoneKeyword_3_0 = (Keyword)cNONEEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum GridLines:
+		//	HORIZONTAL='horizontal' | VERTICAL='vertical' | BOTH='all' | NONE='none';
+		public EnumRule getRule() { return rule; }
+		
+		//HORIZONTAL='horizontal' | VERTICAL='vertical' | BOTH='all' | NONE='none'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//HORIZONTAL='horizontal'
+		public EnumLiteralDeclaration getHORIZONTALEnumLiteralDeclaration_0() { return cHORIZONTALEnumLiteralDeclaration_0; }
+		
+		//'horizontal'
+		public Keyword getHORIZONTALHorizontalKeyword_0_0() { return cHORIZONTALHorizontalKeyword_0_0; }
+		
+		//VERTICAL='vertical'
+		public EnumLiteralDeclaration getVERTICALEnumLiteralDeclaration_1() { return cVERTICALEnumLiteralDeclaration_1; }
+		
+		//'vertical'
+		public Keyword getVERTICALVerticalKeyword_1_0() { return cVERTICALVerticalKeyword_1_0; }
+		
+		//BOTH='all'
+		public EnumLiteralDeclaration getBOTHEnumLiteralDeclaration_2() { return cBOTHEnumLiteralDeclaration_2; }
+		
+		//'all'
+		public Keyword getBOTHAllKeyword_2_0() { return cBOTHAllKeyword_2_0; }
+		
+		//NONE='none'
+		public EnumLiteralDeclaration getNONEEnumLiteralDeclaration_3() { return cNONEEnumLiteralDeclaration_3; }
+		
+		//'none'
+		public Keyword getNONENoneKeyword_3_0() { return cNONENoneKeyword_3_0; }
+	}
 	public class PubCodeLanguageElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubCodeLanguage");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -3576,6 +3620,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	private final PubTableElements pPubTable;
 	private final AbstractTableElements pAbstractTable;
 	private final TableElements pTable;
+	private final GridLinesElements eGridLines;
 	private final PubTableRowElements pPubTableRow;
 	private final PubTableCellElements pPubTableCell;
 	private final PubTableSimpleCellElements pPubTableSimpleCell;
@@ -3647,6 +3692,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPubTable = new PubTableElements();
 		this.pAbstractTable = new AbstractTableElements();
 		this.pTable = new TableElements();
+		this.eGridLines = new GridLinesElements();
 		this.pPubTableRow = new PubTableRowElements();
 		this.pPubTableCell = new PubTableCellElements();
 		this.pPubTableSimpleCell = new PubTableSimpleCellElements();
@@ -4257,7 +4303,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Table:
-	//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)?
+	//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
 	//	rows+=PubTableRow*;
 	public TableElements getTableAccess() {
 		return pTable;
@@ -4267,9 +4313,19 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		return getTableAccess().getRule();
 	}
 	
+	//enum GridLines:
+	//	HORIZONTAL='horizontal' | VERTICAL='vertical' | BOTH='all' | NONE='none';
+	public GridLinesElements getGridLinesAccess() {
+		return eGridLines;
+	}
+	
+	public EnumRule getGridLinesRule() {
+		return getGridLinesAccess().getRule();
+	}
+	
 	//PubTableRow TableRow:
 	//	{TableRow} (('Row' ('heading:' isHeading?='true' | 'false')?
-	//	| isHeading?='Header' 'Row') ('height:' height=NATURAL)? ('{' cells+=PubTableCell* '}'
+	//	| isHeading?='Header' 'Row') ('{' cells+=PubTableCell* '}'
 	//	| cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*);
 	public PubTableRowElements getPubTableRowAccess() {
 		return pPubTableRow;

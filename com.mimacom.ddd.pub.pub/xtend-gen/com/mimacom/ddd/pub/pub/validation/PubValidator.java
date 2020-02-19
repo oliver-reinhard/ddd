@@ -57,7 +57,6 @@ import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
@@ -110,13 +109,9 @@ public class PubValidator extends AbstractPubValidator {
     if (_tripleNotEquals) {
       EList<ProtoSymbol> _symbols = doc.getPublicationClass().getSymbols();
       for (final ProtoSymbol protoSymbol : _symbols) {
-        final Function1<Symbol, Boolean> _function = (Symbol it) -> {
-          String _name = it.getName();
-          String _name_1 = protoSymbol.getName();
-          return Boolean.valueOf(Objects.equal(_name, _name_1));
-        };
-        boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
-        if (_isEmpty) {
+        Symbol _symbol = doc.getSymbol(protoSymbol.getName());
+        boolean _tripleEquals = (_symbol == null);
+        if (_tripleEquals) {
           String _name = protoSymbol.getName();
           String _plus = ("Document must define prototype symbol \'" + _name);
           final String msg = (_plus + "\'");
@@ -158,13 +153,9 @@ public class PubValidator extends AbstractPubValidator {
       if (((doc != null) && (includedDoc != null))) {
         EList<Symbol> _symbols = includedDoc.getSymbols();
         for (final Symbol includeSymbol : _symbols) {
-          final Function1<Symbol, Boolean> _function = (Symbol it) -> {
-            String _name = it.getName();
-            String _name_1 = includeSymbol.getName();
-            return Boolean.valueOf(Objects.equal(_name, _name_1));
-          };
-          boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
-          if (_isEmpty) {
+          Symbol _symbol = doc.getSymbol(includeSymbol.getName());
+          boolean _tripleEquals = (_symbol == null);
+          if (_tripleEquals) {
             String _name = includeSymbol.getName();
             String _plus = ("This document must define symbol \'" + _name);
             String _plus_1 = (_plus + 

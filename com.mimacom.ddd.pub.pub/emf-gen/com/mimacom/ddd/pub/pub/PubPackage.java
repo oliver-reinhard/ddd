@@ -235,13 +235,22 @@ public interface PubPackage extends EPackage {
 	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Symbol</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT___GET_SYMBOL__STRING = REFERENCE_TARGET_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_OPERATION_COUNT = REFERENCE_TARGET_OPERATION_COUNT + 0;
+	int DOCUMENT_OPERATION_COUNT = REFERENCE_TARGET_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -381,6 +390,15 @@ public interface PubPackage extends EPackage {
 	int PUBLICATION_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Symbol</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION___GET_SYMBOL__STRING = DOCUMENT___GET_SYMBOL__STRING;
+
+	/**
 	 * The number of operations of the '<em>Publication</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,6 +479,15 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPONENT_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Symbol</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___GET_SYMBOL__STRING = DOCUMENT___GET_SYMBOL__STRING;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -3878,13 +3905,13 @@ public interface PubPackage extends EPackage {
 	int TABLE__ROWS = ABSTRACT_TABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Hide Grid</b></em>' attribute.
+	 * The feature id for the '<em><b>Gridlines</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__HIDE_GRID = ABSTRACT_TABLE_FEATURE_COUNT + 2;
+	int TABLE__GRIDLINES = ABSTRACT_TABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -3915,22 +3942,13 @@ public interface PubPackage extends EPackage {
 	int TABLE_ROW = 46;
 
 	/**
-	 * The feature id for the '<em><b>Height</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__HEIGHT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Is Heading</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__IS_HEADING = 1;
+	int TABLE_ROW__IS_HEADING = 0;
 
 	/**
 	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
@@ -3939,7 +3957,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__CELLS = 2;
+	int TABLE_ROW__CELLS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' container reference.
@@ -3948,7 +3966,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__TABLE = 3;
+	int TABLE_ROW__TABLE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -3957,7 +3975,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = 4;
+	int TABLE_ROW_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Table Row</em>' class.
@@ -4851,6 +4869,16 @@ public interface PubPackage extends EPackage {
 	int LIST_STYLE = 64;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.GridLines <em>Grid Lines</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.GridLines
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getGridLines()
+	 * @generated
+	 */
+	int GRID_LINES = 65;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4858,7 +4886,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
 	 * @generated
 	 */
-	int CODE_LANGUAGE = 65;
+	int CODE_LANGUAGE = 66;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.
@@ -4868,7 +4896,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraphStyle()
 	 * @generated
 	 */
-	int PARAGRAPH_STYLE = 66;
+	int PARAGRAPH_STYLE = 67;
 
 
 	/**
@@ -4967,6 +4995,16 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_PublicationClass();
+
+	/**
+	 * Returns the meta object for the '{@link com.mimacom.ddd.pub.pub.Document#getSymbol(java.lang.String) <em>Get Symbol</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Symbol</em>' operation.
+	 * @see com.mimacom.ddd.pub.pub.Document#getSymbol(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDocument__GetSymbol__String();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Symbol <em>Symbol</em>}'.
@@ -6093,15 +6131,15 @@ public interface PubPackage extends EPackage {
 	EReference getTable_Rows();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Table#isHideGrid <em>Hide Grid</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Table#getGridlines <em>Gridlines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hide Grid</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Table#isHideGrid()
+	 * @return the meta object for the attribute '<em>Gridlines</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Table#getGridlines()
 	 * @see #getTable()
 	 * @generated
 	 */
-	EAttribute getTable_HideGrid();
+	EAttribute getTable_Gridlines();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TableRow <em>Table Row</em>}'.
@@ -6112,17 +6150,6 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTableRow();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TableRow#getHeight <em>Height</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Height</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TableRow#getHeight()
-	 * @see #getTableRow()
-	 * @generated
-	 */
-	EAttribute getTableRow_Height();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TableRow#isIsHeading <em>Is Heading</em>}'.
@@ -6569,6 +6596,16 @@ public interface PubPackage extends EPackage {
 	EEnum getListStyle();
 
 	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.pub.pub.GridLines <em>Grid Lines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Grid Lines</em>'.
+	 * @see com.mimacom.ddd.pub.pub.GridLines
+	 * @generated
+	 */
+	EEnum getGridLines();
+
+	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6686,6 +6723,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOCUMENT__PUBLICATION_CLASS = eINSTANCE.getDocument_PublicationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Symbol</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOCUMENT___GET_SYMBOL__STRING = eINSTANCE.getDocument__GetSymbol__String();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -7632,12 +7677,12 @@ public interface PubPackage extends EPackage {
 		EReference TABLE__ROWS = eINSTANCE.getTable_Rows();
 
 		/**
-		 * The meta object literal for the '<em><b>Hide Grid</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Gridlines</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE__HIDE_GRID = eINSTANCE.getTable_HideGrid();
+		EAttribute TABLE__GRIDLINES = eINSTANCE.getTable_Gridlines();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -7648,14 +7693,6 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TABLE_ROW = eINSTANCE.getTableRow();
-
-		/**
-		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_ROW__HEIGHT = eINSTANCE.getTableRow_Height();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Heading</b></em>' attribute feature.
@@ -8028,6 +8065,16 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum LIST_STYLE = eINSTANCE.getListStyle();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.GridLines <em>Grid Lines</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.GridLines
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getGridLines()
+		 * @generated
+		 */
+		EEnum GRID_LINES = eINSTANCE.getGridLines();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.

@@ -91,7 +91,6 @@ public class PubGeneratorUtil {
   
   public Table toTable(final TOC toc, final List<Division> allDivisionsInSequence) {
     final Table t = this._pubTableUtil.createTableWithHeader(new String[] { "Section", "Title", "Reference/Page" });
-    t.setHideGrid(true);
     for (final Division div : allDivisionsInSequence) {
       {
         final Reference ref = PubGeneratorUtil.PUB.createReference();
@@ -117,7 +116,6 @@ public class PubGeneratorUtil {
   
   public Table toTable(final ListOfTables seg, final List<TitledTable> allTablesInSequence) {
     final Table lot = this._pubTableUtil.createTableWithHeader(new String[] { "Table", "Title", "Reference/Page" });
-    lot.setHideGrid(true);
     for (final TitledTable t : allTablesInSequence) {
       {
         final Reference ref = PubGeneratorUtil.PUB.createReference();
@@ -132,7 +130,6 @@ public class PubGeneratorUtil {
   
   public Table toTable(final ListOfFigures seg, final List<TitledFigure> allFiguresInSequence) {
     final Table lof = this._pubTableUtil.createTableWithHeader(new String[] { "Figure", "Title", "Reference/Page" });
-    lof.setHideGrid(true);
     for (final TitledFigure f : allFiguresInSequence) {
       {
         final Reference ref = PubGeneratorUtil.PUB.createReference();

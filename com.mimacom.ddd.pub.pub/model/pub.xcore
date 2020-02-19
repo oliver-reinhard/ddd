@@ -31,6 +31,13 @@ abstract class Document extends ReferenceTarget {
 	String title
 	contains Symbol[] symbols
 	refers PublicationClass publicationClass
+	op Symbol getSymbol(String name) {
+		for (sym : symbols) {
+			if (sym.name == name)
+				return sym
+		}
+		return null
+	}
 }
 
 class Symbol extends DNamedElement {
@@ -329,7 +336,7 @@ abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarge
 	op Division parent() {
 		if (logicalContainer !== null) {
 			return logicalContainer
-		} 
+		}
 		var p = eContainer
 		while (p !== null && ! (p instanceof Division)) {
 			p = p.eContainer
@@ -349,11 +356,12 @@ abstract class AbstractTable {
 class Table extends AbstractTable {
 	int columns
 	contains TableRow[] rows opposite table
-	boolean hideGrid
+	GridLines gridlines = "HORIZONTAL"
 }
 
+enum GridLines { HORIZONTAL, VERTICAL, BOTH, NONE }
+
 class TableRow {
-	int height = "1" // cells
 	boolean isHeading
 	contains TableCell[] cells opposite row
 	container Table table opposite rows
@@ -364,7 +372,6 @@ class TableCell extends BlockContainer {
 	int height = "1" // cells
 	container TableRow row opposite cells
 }
-
 
 class ProvidedTable extends AbstractTable {
 	refers IDiagramRoot diagramRoot
@@ -380,7 +387,8 @@ class TitledFigure extends TitledBlock {
 	contains AbstractFigure figure
 }
 
-abstract class AbstractFigure { }
+abstract class AbstractFigure {
+}
 
 class IncludedFigure extends AbstractFigure {
 	String fileUri
@@ -413,8 +421,8 @@ enum CodeLanguage {
 	, XML
 }
 
-
-abstract class Paragraph extends ContentBlock { }
+abstract class Paragraph extends ContentBlock {
+}
 
 class RichTextParagraph extends Paragraph {
 	ParagraphStyle style
@@ -436,7 +444,7 @@ class RichTextReferencingParagraph extends ContentBlock {
  * Internal, not referenced by PUB grammar. 
  * 
  * Used to reduce the complexity of table cells for simple content which is a very frequent case.
- */ 
+ */
 class UnformattedParagraph extends Paragraph {
 	String text
 }

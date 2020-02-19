@@ -18,6 +18,7 @@ import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
+import com.mimacom.ddd.pub.pub.GridLines
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
@@ -56,16 +57,20 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	override prepare(Document doc, IFileSystemAccess2 fsa) {
 		val css = ''' 
 			table, th {
-			  border-top: 2px solid black;
-			  border-bottom: 2px solid black;
-			  border-collapse: collapse;
+				border-top: 1px solid black;
+				border-bottom: 1px solid black;
+				border-left: 0.5px solid black;
+				border-right: 0.5px solid black;
+				border-collapse: collapse;
 			}
 			td {
-			  border-bottom: 1px solid black;
-			  border-collapse: collapse;
+				border-bottom: 0.5px solid black;
+				border-left: 0.5px solid black;
+				border-right: 0.5px solid black;
+				border-collapse: collapse;
 			}
 			th {
-			  text-align: left;
+				text-align: left;
 			}
 			th, td {
 				height: 10px
@@ -193,7 +198,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) '''
-		<table style="width:«t.widthPercent»%">
+		<table style="width:«t.widthPercent»%; «t.gridlines.tableBorders»">
 			«FOR row : t.rows»
 				<tr>	
 					«FOR cell : row.cells»
@@ -203,17 +208,32 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 			«ENDFOR»
 		</table>
 	'''
+	
+	protected def String tableBorders(GridLines gl) {
+		switch gl {
+			case HORIZONTAL: "border-left:0; border-right:0;"
+			case VERTICAL: "border-top:0; border-bottom:0;"
+			case BOTH: ""
+			case NONE: "border:0;"
+		}
+	}
 
 	protected def String startTag(TableCell cell) {
 		val StringBuilder b = new StringBuilder
 		b.append(cell.row.isHeading ? "<th" : "<td")
+		val gridLines = cell.row.table.gridlines.tableBorders
+		if (! gridLines.empty) {
+			b.append(" style=\"")
+			b.append(gridLines)
+			b.append("\"")
+		}
 		if (cell.width > 1) {
-			b.append(" colspan=");
+			b.append(" colspan=\"");
 			b.append(cell.width)
 			b.append("\"")
 		}
 		if (cell.height > 1) {
-			b.append(" rowspan=");
+			b.append(" rowspan=\"");
 			b.append(cell.height)
 			b.append("\"")
 		}

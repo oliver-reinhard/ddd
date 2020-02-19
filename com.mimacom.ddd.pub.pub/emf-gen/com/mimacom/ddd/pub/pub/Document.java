@@ -81,4 +81,12 @@ public interface Document extends ReferenceTarget {
 	 */
 	void setPublicationClass(PublicationClass value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" nameUnique="false"
+	 * @generated
+	 */
+	Symbol getSymbol(String name);
+
 } // Document

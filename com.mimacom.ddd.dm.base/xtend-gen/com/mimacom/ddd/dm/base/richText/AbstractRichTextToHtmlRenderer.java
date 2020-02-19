@@ -28,8 +28,8 @@ public abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRen
   @Override
   protected CharSequence renderStyleMonospace(final DStyledTextSpan span) {
     CharSequence _render = this.render(span);
-    String _plus = ("<strong>" + _render);
-    return (_plus + "</strong>");
+    String _plus = ("<code>" + _render);
+    return (_plus + "</code>");
   }
   
   @Override
@@ -61,14 +61,14 @@ public abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRen
   @Override
   protected CharSequence renderStyleSubscript(final DStyledTextSpan span) {
     CharSequence _render = this.render(span);
-    String _plus = ("<sup>" + _render);
-    return (_plus + "</sup>");
+    String _plus = ("<sub>" + _render);
+    return (_plus + "</sub>");
   }
   
   @Override
   protected CharSequence renderStyleSuperscript(final DStyledTextSpan span) {
     CharSequence _render = this.render(span);
-    String _plus = ("<sub>" + _render);
-    return (_plus + "</sub>");
+    String _plus = ("<sup>" + _render);
+    return (_plus + "</sup>");
   }
 }

@@ -24,11 +24,14 @@ public class PubTableValidator {
   
   public void validate(final Table t) {
     this.checkTableHasRows(t);
+    final int[] rowWidths = new int[t.getRows().size()];
+    int i = 0;
     EList<TableRow> _rows = t.getRows();
     for (final TableRow row : _rows) {
       {
         this.checkTableRowHasCells(row);
-        this.checkCellSizes(row);
+        int _plusPlus = i++;
+        this.checkCellSizes(row, rowWidths, _plusPlus);
       }
     }
   }
@@ -58,13 +61,7 @@ public class PubTableValidator {
     }
   }
   
-  protected void checkCellSizes(final TableRow row) {
-    int _height = row.getHeight();
-    boolean _lessEqualsThan = (_height <= 0);
-    if (_lessEqualsThan) {
-      this.error("Row height must be 1 or more.", row, PubTableValidator.PUB.getTableRow_Height(), 0);
-      return;
-    }
+  protected void checkCellSizes(final TableRow row, final int[] rowWidths, final int index) {
     boolean error = false;
     for (int i = 0; (i < ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length); i++) {
       {
@@ -73,11 +70,12 @@ public class PubTableValidator {
           this.error("Cell height and width must be 1 or more.", row, PubTableValidator.PUB.getTableRow_Cells(), i);
           error = true;
         }
-        int _height_1 = cell.getHeight();
-        int _height_2 = row.getHeight();
-        boolean _greaterThan = (_height_1 > _height_2);
+        int _height = cell.getHeight();
+        int _plus = (index + _height);
+        int _length = rowWidths.length;
+        boolean _greaterThan = (_plus > _length);
         if (_greaterThan) {
-          this.error("Cell height exceeds row height.", row, PubTableValidator.PUB.getTableRow_Cells(), i);
+          this.error("Cell height causes cell to exceeds the declared number of table rows.", row, PubTableValidator.PUB.getTableRow_Cells(), i);
           error = true;
         }
       }
@@ -86,63 +84,30 @@ public class PubTableValidator {
       return;
     }
     final int tableWidth = row.getTable().getColumns();
-    int width = 0;
-    int height = 0;
     for (int i = 0; (i < ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length); i++) {
       {
         final TableCell cell = row.getCells().get(i);
-        if ((height == 0)) {
+        for (int j = index; (j < (index + cell.getHeight())); j++) {
+          int _get = rowWidths[j];
           int _width = cell.getWidth();
-          int _plus = (width + _width);
-          width = _plus;
-          if ((width > tableWidth)) {
-            this.error("Cell causes row width to exceed declared number of table columns.", row, 
-              PubTableValidator.PUB.getTableRow_Cells(), i);
-            error = true;
-          }
-        } else {
-          if ((i > 0)) {
-            final TableCell prevCell = row.getCells().get((i - 1));
-            int _width_1 = cell.getWidth();
-            int _width_2 = prevCell.getWidth();
-            boolean _notEquals = (_width_1 != _width_2);
-            if (_notEquals) {
-              this.error("Cell width does not match width of cell above.", row, PubTableValidator.PUB.getTableRow_Cells(), i);
-              error = true;
-            }
-          }
+          int _plus = (_get + _width);
+          rowWidths[j] = _plus;
         }
-        int _height_1 = cell.getHeight();
-        int _plus_1 = (height + _height_1);
-        height = _plus_1;
-        int _height_2 = row.getHeight();
-        boolean _greaterThan = (height > _height_2);
+        int _get = rowWidths[index];
+        boolean _greaterThan = (_get > tableWidth);
         if (_greaterThan) {
-          this.error("Cell causes row height to exceed declared row height.", row, PubTableValidator.PUB.getTableRow_Cells(), i);
-          error = true;
-        } else {
-          int _height_3 = row.getHeight();
-          boolean _equals = (height == _height_3);
-          if (_equals) {
-            height = 0;
-          }
-        }
-        if (error) {
+          this.error("Cell causes row width to exceed declared number of table columns.", row, PubTableValidator.PUB.getTableRow_Cells(), i);
           return;
         }
       }
     }
-    if ((width < tableWidth)) {
+    int _get = rowWidths[index];
+    boolean _lessThan = (_get < tableWidth);
+    if (_lessThan) {
       EReference _tableRow_Cells = PubTableValidator.PUB.getTableRow_Cells();
       int _length = ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length;
       int _minus = (_length - 1);
       this.error("The cells of this row span less than the declared number of table columns.", row, _tableRow_Cells, _minus);
-    }
-    if (((height > 0) && (height < row.getHeight()))) {
-      EReference _tableRow_Cells_1 = PubTableValidator.PUB.getTableRow_Cells();
-      int _length_1 = ((Object[])Conversions.unwrapArray(row.getCells(), Object.class)).length;
-      int _minus_1 = (_length_1 - 1);
-      this.error("The cells of this row span less than the declared row height.", row, _tableRow_Cells_1, _minus_1);
     }
   }
   

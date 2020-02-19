@@ -10,6 +10,7 @@ import com.mimacom.ddd.pub.pub.Glossary
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
 import com.mimacom.ddd.pub.pub.NumberedElement
+import com.mimacom.ddd.pub.pub.PubElementNames
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.PubUtil
@@ -25,7 +26,7 @@ class PubGeneratorUtil {
 	@Inject extension PubUtil
 	@Inject extension PubTableUtil
 	@Inject extension PubNumberingUtil
-	@Inject extension com.mimacom.ddd.pub.pub.PubElementNames
+	@Inject extension PubElementNames
 	
 	static val PUB = PubFactory.eINSTANCE
 
@@ -60,11 +61,10 @@ class PubGeneratorUtil {
 
 	def Table toTable(TOC toc, List<Division> allDivisionsInSequence) {
 		val Table t = createTableWithHeader(#["Section", "Title", "Reference/Page"])
-		t.hideGrid = true
 		for (div : allDivisionsInSequence) {
 			val ref = PUB.createReference
 			ref.target = div
-			t.addRowWithReference(#[div.labelAndNumber, div.title.toPlainText], ref) 
+			t.addRowWithReference(#[div.labelAndNumber, div.title.toPlainText], ref) // TODO calculate Reference/Page
 		}
 		return t
 	}
@@ -79,22 +79,20 @@ class PubGeneratorUtil {
 
 	def Table toTable(ListOfTables seg, List<TitledTable> allTablesInSequence) {
 		val Table lot = createTableWithHeader(#["Table", "Title", "Reference/Page"])
-		lot.hideGrid = true
 		for (t : allTablesInSequence) {
 			val ref = PUB.createReference
 			ref.target = t 
-			lot.addRowWithReference(#[t.labelAndNumber, t.title.toPlainText], ref) // TODO calculate reference/page
+			lot.addRowWithReference(#[t.labelAndNumber, t.title.toPlainText], ref) // TODO calculate Reference/Page
 		}
 		return lot
 	}
 
 	def Table toTable(ListOfFigures seg, List<TitledFigure> allFiguresInSequence) {
 		val Table lof = createTableWithHeader(#["Figure", "Title", "Reference/Page"])
-		lof.hideGrid = true
 		for (f : allFiguresInSequence) {
 			val ref = PUB.createReference
 			ref.target = f 
-			lof.addRowWithReference(#[f.labelAndNumber, f.title.toPlainText], ref) // TODO calculate reference/page
+			lof.addRowWithReference(#[f.labelAndNumber, f.title.toPlainText], ref) // TODO calculate Reference/Page
 		}
 		return lof
 	}

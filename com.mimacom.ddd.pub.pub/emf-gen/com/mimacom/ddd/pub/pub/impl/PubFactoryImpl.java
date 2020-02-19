@@ -127,6 +127,8 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 				return createAdmonitionKindFromString(eDataType, initialValue);
 			case PubPackage.LIST_STYLE:
 				return createListStyleFromString(eDataType, initialValue);
+			case PubPackage.GRID_LINES:
+				return createGridLinesFromString(eDataType, initialValue);
 			case PubPackage.CODE_LANGUAGE:
 				return createCodeLanguageFromString(eDataType, initialValue);
 			case PubPackage.PARAGRAPH_STYLE:
@@ -152,6 +154,8 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 				return convertAdmonitionKindToString(eDataType, instanceValue);
 			case PubPackage.LIST_STYLE:
 				return convertListStyleToString(eDataType, instanceValue);
+			case PubPackage.GRID_LINES:
+				return convertGridLinesToString(eDataType, instanceValue);
 			case PubPackage.CODE_LANGUAGE:
 				return convertCodeLanguageToString(eDataType, instanceValue);
 			case PubPackage.PARAGRAPH_STYLE:
@@ -777,6 +781,26 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	public String convertListStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GridLines createGridLinesFromString(EDataType eDataType, String initialValue) {
+		GridLines result = GridLines.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGridLinesToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
