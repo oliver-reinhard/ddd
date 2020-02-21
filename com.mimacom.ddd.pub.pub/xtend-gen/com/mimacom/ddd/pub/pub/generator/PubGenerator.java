@@ -44,7 +44,7 @@ import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
-import com.mimacom.ddd.pub.pub.generator.PubHtmlRenderer;
+import com.mimacom.ddd.pub.pub.generator.PubLaTeXRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry;
 import com.mimacom.ddd.pub.pub.tableProvider.TableRendererProxy;
@@ -72,7 +72,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class PubGenerator extends AbstractGenerator {
   @Inject
   @Extension
-  private PubHtmlRenderer _pubHtmlRenderer;
+  private PubLaTeXRenderer _pubLaTeXRenderer;
   
   @Inject
   @Extension
@@ -116,10 +116,10 @@ public class PubGenerator extends AbstractGenerator {
     Document _document = model.getDocument();
     boolean _tripleNotEquals = (_document != null);
     if (_tripleNotEquals) {
-      this._pubHtmlRenderer.prepare(model.getDocument(), fsa);
+      this._pubLaTeXRenderer.prepare(model.getDocument(), fsa);
       final CharSequence text = this.genDocument(model.getDocument());
-      fsa.generateFile(this._pubHtmlRenderer.fileName(model.getDocument()), text);
-      this._pubHtmlRenderer.finish(model.getDocument(), fsa);
+      fsa.generateFile(this._pubLaTeXRenderer.fileName(model.getDocument()), text);
+      this._pubLaTeXRenderer.finish(model.getDocument(), fsa);
     }
   }
   
@@ -145,7 +145,7 @@ public class PubGenerator extends AbstractGenerator {
       final NestedElementsRenderer _function = () -> {
         return segmentIterator;
       };
-      _xblockexpression = this._pubHtmlRenderer.renderDocument(comp, _function);
+      _xblockexpression = this._pubLaTeXRenderer.renderDocument(comp, _function);
     }
     return _xblockexpression;
   }
@@ -172,7 +172,7 @@ public class PubGenerator extends AbstractGenerator {
       final NestedElementsRenderer _function = () -> {
         return blockIterator;
       };
-      _xblockexpression = this._pubHtmlRenderer.renderSegment(seg, _function);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, _function);
     }
     return _xblockexpression;
   }
@@ -195,7 +195,7 @@ public class PubGenerator extends AbstractGenerator {
       final NestedElementsRenderer _function = () -> {
         return divisionIterator;
       };
-      _xblockexpression = this._pubHtmlRenderer.renderSegment(seg, _function);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, _function);
     }
     return _xblockexpression;
   }
@@ -204,7 +204,7 @@ public class PubGenerator extends AbstractGenerator {
     CharSequence _xblockexpression = null;
     {
       final Table t = this._pubGeneratorUtil.toTable(seg, this.allDivisionsInSequenceOfOccurrenceCache);
-      _xblockexpression = this._pubHtmlRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
@@ -213,7 +213,7 @@ public class PubGenerator extends AbstractGenerator {
     CharSequence _xblockexpression = null;
     {
       final Table t = this._pubGeneratorUtil.toTable(seg, this.allTablesInSequenceOfOccurrenceCache);
-      _xblockexpression = this._pubHtmlRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
@@ -222,7 +222,7 @@ public class PubGenerator extends AbstractGenerator {
     CharSequence _xblockexpression = null;
     {
       final Table t = this._pubGeneratorUtil.toTable(seg, this.allFiguresInSequenceOfOccurrenceCache);
-      _xblockexpression = this._pubHtmlRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
@@ -231,13 +231,13 @@ public class PubGenerator extends AbstractGenerator {
     CharSequence _xblockexpression = null;
     {
       final Table t = this._pubGeneratorUtil.toTable(seg);
-      _xblockexpression = this._pubHtmlRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
   
   protected CharSequence _genSegment(final Index seg) {
-    return this._pubHtmlRenderer.renderSegment(seg);
+    return this._pubLaTeXRenderer.renderSegment(seg);
   }
   
   protected CharSequence _genSegment(final DocumentSegment seg) {
@@ -262,7 +262,7 @@ public class PubGenerator extends AbstractGenerator {
         }
       }
       StringConcatenation _builder = new StringConcatenation();
-      CharSequence _renderTitle = this._pubHtmlRenderer.renderTitle(divTitle);
+      CharSequence _renderTitle = this._pubLaTeXRenderer.renderTitle(divTitle);
       _builder.append(_renderTitle);
       _builder.newLineIfNotEmpty();
       {
@@ -289,7 +289,7 @@ public class PubGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _genBlock(final Admonition a) {
-    return this._pubHtmlRenderer.renderAdmonition(a);
+    return this._pubLaTeXRenderer.renderAdmonition(a);
   }
   
   protected CharSequence _genBlock(final com.mimacom.ddd.pub.pub.List list) {
@@ -313,19 +313,19 @@ public class PubGenerator extends AbstractGenerator {
             final NestedElementsRenderer _function = () -> {
               return itemIterator;
             };
-            _switchResult = this._pubHtmlRenderer.renderBulletList(list, _function);
+            _switchResult = this._pubLaTeXRenderer.renderBulletList(list, _function);
             break;
           case SEQUENCE:
             final NestedElementsRenderer _function_1 = () -> {
               return itemIterator;
             };
-            _switchResult = this._pubHtmlRenderer.renderNumberedList(list, _function_1);
+            _switchResult = this._pubLaTeXRenderer.renderNumberedList(list, _function_1);
             break;
           case TITLE:
             final NestedElementsRenderer _function_2 = () -> {
               return itemIterator;
             };
-            _switchResult = this._pubHtmlRenderer.renderTitledList(list, _function_2);
+            _switchResult = this._pubLaTeXRenderer.renderTitledList(list, _function_2);
             break;
           default:
             break;
@@ -359,13 +359,13 @@ public class PubGenerator extends AbstractGenerator {
             final NestedElementsRenderer _function = () -> {
               return blockIterator;
             };
-            _switchResult = this._pubHtmlRenderer.renderListItem(item, _function);
+            _switchResult = this._pubLaTeXRenderer.renderListItem(item, _function);
             break;
           case TITLE:
             final NestedElementsRenderer _function_1 = () -> {
               return blockIterator;
             };
-            _switchResult = this._pubHtmlRenderer.renderTitledListItem(item, _function_1);
+            _switchResult = this._pubLaTeXRenderer.renderTitledListItem(item, _function_1);
             break;
           default:
             break;
@@ -383,14 +383,14 @@ public class PubGenerator extends AbstractGenerator {
       CharSequence _genTitledBlock = this.genTitledBlock(b);
       _builder.append(_genTitledBlock);
       _builder.newLineIfNotEmpty();
-      CharSequence _renderTitledBlockTitle = this._pubHtmlRenderer.renderTitledBlockTitle(b);
+      CharSequence _renderTitledBlockTitle = this._pubLaTeXRenderer.renderTitledBlockTitle(b);
       _builder.append(_renderTitledBlockTitle);
       _builder.newLineIfNotEmpty();
       final String blockBodyDispatcher = _builder.toString();
       final NestedElementsRenderer _function = () -> {
         return blockBodyDispatcher;
       };
-      _xblockexpression = this._pubHtmlRenderer.renderTitledBlock(b, _function);
+      _xblockexpression = this._pubLaTeXRenderer.renderTitledBlock(b, _function);
     }
     return _xblockexpression;
   }
@@ -400,7 +400,7 @@ public class PubGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _genTable(final Table t) {
-    return this._pubHtmlRenderer.renderTable(t, this.nestedContentBlockGenerator);
+    return this._pubLaTeXRenderer.renderTable(t, this.nestedContentBlockGenerator);
   }
   
   protected CharSequence _genTable(final ProvidedTable t) {
@@ -412,7 +412,7 @@ public class PubGenerator extends AbstractGenerator {
         CharSequence _xblockexpression_1 = null;
         {
           final Table table = provider.render(t.getDiagramRoot());
-          _xblockexpression_1 = this._pubHtmlRenderer.renderTable(table, this.nestedContentBlockGenerator);
+          _xblockexpression_1 = this._pubLaTeXRenderer.renderTable(table, this.nestedContentBlockGenerator);
         }
         _xifexpression = _xblockexpression_1;
       } else {
@@ -432,7 +432,7 @@ public class PubGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _genFigure(final IncludedFigure f) {
-    return this._pubHtmlRenderer.renderFigure(f, f.getFileUri());
+    return this._pubLaTeXRenderer.renderFigure(f, f.getFileUri());
   }
   
   protected CharSequence _genFigure(final ProvidedFigure f) {
@@ -450,7 +450,7 @@ public class PubGenerator extends AbstractGenerator {
           final InputStream inputStream = provider.render(f.getDiagramRoot());
           final String file = ((fileName + ".") + fileExtension);
           this.fileSystemAccess.generateFile(file, inputStream);
-          _xblockexpression_1 = this._pubHtmlRenderer.renderFigure(f, file);
+          _xblockexpression_1 = this._pubLaTeXRenderer.renderFigure(f, file);
         }
         _xifexpression = _xblockexpression_1;
       } else {
@@ -466,7 +466,7 @@ public class PubGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _genTitledBlock(final Equation e) {
-    return this._pubHtmlRenderer.renderEquation(e);
+    return this._pubLaTeXRenderer.renderEquation(e);
   }
   
   protected CharSequence _genTitledBlock(final TitledCodeListing cl) {
@@ -479,7 +479,7 @@ public class PubGenerator extends AbstractGenerator {
         CharSequence _xblockexpression = null;
         {
           String formattedCode = this.serializer.serialize(cl.getInclude());
-          _xblockexpression = this._pubHtmlRenderer.renderCodeListing(cl, Lists.<String>newArrayList(formattedCode));
+          _xblockexpression = this._pubLaTeXRenderer.renderCodeListing(cl, Lists.<String>newArrayList(formattedCode));
         }
         _xtrycatchfinallyexpression = _xblockexpression;
       } catch (final Throwable _t) {
@@ -491,7 +491,7 @@ public class PubGenerator extends AbstractGenerator {
       }
       _xifexpression = _xtrycatchfinallyexpression;
     } else {
-      _xifexpression = this._pubHtmlRenderer.renderCodeListing(cl, cl.getCodeLines());
+      _xifexpression = this._pubLaTeXRenderer.renderCodeListing(cl, cl.getCodeLines());
     }
     return _xifexpression;
   }
@@ -500,18 +500,18 @@ public class PubGenerator extends AbstractGenerator {
     ParagraphStyle _style = para.getStyle();
     boolean _equals = Objects.equal(_style, ParagraphStyle.QUOTE);
     if (_equals) {
-      return this._pubHtmlRenderer.renderQuotedParagraph(para);
+      return this._pubLaTeXRenderer.renderQuotedParagraph(para);
     } else {
-      return this._pubHtmlRenderer.renderPlainParagraph(para);
+      return this._pubLaTeXRenderer.renderPlainParagraph(para);
     }
   }
   
   protected CharSequence _genBlock(final UnformattedParagraph para) {
-    return this._pubHtmlRenderer.renderUnformattedParagraph(para);
+    return this._pubLaTeXRenderer.renderUnformattedParagraph(para);
   }
   
   protected CharSequence _genBlock(final RichTextReferencingParagraph para) {
-    return this._pubHtmlRenderer.renderRichTextReferencingParagraph(para);
+    return this._pubLaTeXRenderer.renderRichTextReferencingParagraph(para);
   }
   
   protected CharSequence _genBlock(final ContentBlock block) {

@@ -50,8 +50,8 @@ import org.eclipse.xtext.serializer.ISerializer
  */
 class PubGenerator extends AbstractGenerator {
 
-	@Inject extension PubHtmlRenderer
-//	@Inject extension PubLaTeXRenderer
+//	@Inject extension PubHtmlRenderer
+	@Inject extension PubLaTeXRenderer
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer

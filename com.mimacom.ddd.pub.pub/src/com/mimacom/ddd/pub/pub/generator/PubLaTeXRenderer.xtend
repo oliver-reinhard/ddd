@@ -5,12 +5,13 @@ package com.mimacom.ddd.pub.pub.generator
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer
+import com.mimacom.ddd.dm.base.richText.AbstractRichTextToLaTeXRenderer
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
+import com.mimacom.ddd.pub.proto.ProtoSymbolReference
 import com.mimacom.ddd.pub.pub.AbstractFigure
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.ContentBlock
@@ -18,7 +19,6 @@ import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
-import com.mimacom.ddd.pub.pub.GridLines
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
@@ -40,14 +40,14 @@ import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess2
 
-class PubHtmlRenderer extends AbstractPubRenderer {
+class PubLaTeXRenderer extends AbstractPubRenderer {
 
 	@Inject extension RichTextUtil
 	@Inject extension PubUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 
-	static public val DOCUMENT_SUFFIX = "html"
+	static public val DOCUMENT_SUFFIX = "tex"
 	static public val CSS_FILENAME = "pubstyles.css"
 
 	override String fileSuffix(Document doc) {
@@ -55,29 +55,6 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	}
 
 	override prepare(Document doc, IFileSystemAccess2 fsa) {
-		val css = ''' 
-			table, th {
-				border-top: 1px solid black;
-				border-bottom: 1px solid black;
-				border-left: 0.5px solid black;
-				border-right: 0.5px solid black;
-				border-collapse: collapse;
-			}
-			td {
-				border-bottom: 0.5px solid black;
-				border-left: 0.5px solid black;
-				border-right: 0.5px solid black;
-				border-collapse: collapse;
-			}
-			th {
-				text-align: left;
-			}
-			th, td {
-				height: 10px
-				padding-left: 5px;
-			}
-		'''
-		fsa.generateFile(CSS_FILENAME, css)
 	}
 
 	override finish(Document doc, IFileSystemAccess2 fsa) {
@@ -87,21 +64,46 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	// Structure
 	//
 	override CharSequence renderDocument(Document doc, NestedElementsRenderer p) '''
-		<!DOCTYPE html>
-		<html lang="en-US">
-		<head>
-		  <meta charset="UTF-8">
-		  <title>«doc.title»</title>
-		  <link rel="stylesheet" href="«CSS_FILENAME»">
-		</head>
+		% Produced by «class.name»
+		\documentclass{«doc.publicationClass.name.toLowerCase»}
 		
-		<!-- Document class: «doc.publicationClass.name» -->
-		<body>
-		<h1>«doc.title»</h1>
-		«p.render»
-		</body>
-		</html>
+		\usepackage{ulem} % strikethrough
+		\usepackage{etoolbox} % quotes
+		\usepackage{enumitem} % list numbering
+		\usepackage{multirow} % tables with column span and or rowspan
+		
+		«doc.renderPreamble»
+		
+		\begin{document}
+			\maketitle
+			«p.render»
+		\end{document}
 	'''
+
+	protected def CharSequence renderPreamble(Document doc) {
+		val preamble = doc.publicationClass?.preamble
+		if (preamble !== null) {
+			val renderer = new AbstractRichTextToLaTeXRenderer {
+
+				override protected getSourceText(DExpression expr) {
+					expr.getSourceTextFromXtextResource
+				}
+
+				override protected renderStyleExpression(DExpression expr, String parsedText) {
+					if (expr instanceof ProtoSymbolReference) {
+						val docSymbol = doc.getSymbol(expr.target.name)
+						if (docSymbol !== null) {
+							return renderRichText(docSymbol.value)
+						}
+						throw new NullPointerException("No value for symbol '" + expr.target.name + "'")
+					}
+					return super.renderStyleExpression(expr, parsedText)
+				}
+			}
+			return renderer.render(preamble)
+		}
+		return ''
+	}
 
 	override CharSequence renderSegment(SegmentWithText seg, NestedElementsRenderer blocks) '''
 		<div>
@@ -111,9 +113,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderSegment(PublicationBody seg, NestedElementsRenderer divisions) '''
-		<div>
 		«divisions.render»
-		</div>
 	'''
 
 	override CharSequence renderSegment(SegmentWithTable seg, Table t, NestedContentBlockGenerator g) '''
@@ -135,8 +135,12 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTitle(Division div) '''
-		<h«div.level+2»>«renderAnchor(div)»«div.tieredNumber» «div.title.renderRichText»</h1>
+		«div.divisionName»{«div.title.renderRichText»} % «div.level+2»>«renderAnchor(div)»«div.tieredNumber»
 	'''
+
+	protected def CharSequence divisionName(Division div) {
+		div.eClass.name.toLowerCase
+	}
 
 	override CharSequence renderAnchor(ReferenceTarget target) {
 		val id = target.id
@@ -157,37 +161,40 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderBulletList(List list, NestedElementsRenderer p) '''
-		<ul>«renderAnchor(list)»«p.render»</ul>
+		\begin{itemize} % «renderAnchor(list)»
+			«p.render»
+		\end{itemize} 
 	'''
 
 	override CharSequence renderNumberedList(List list, NestedElementsRenderer p) '''
-		<ol type=«list.numberingStyle.htmlNumberingAttribute»">«renderAnchor(list)»«p.render»</ol>
+		\begin{enumerate}[label=\«list.numberingStyle.latexNumberingAttribute»"*]  % «renderAnchor(list)»
+			«p.render»
+		\end{enumerate}
 	'''
 
-	protected def String htmlNumberingAttribute(ProtoSequenceNumberStyle style) {
+	protected def String latexNumberingAttribute(ProtoSequenceNumberStyle style) {
 		switch style {
-			case ARABIC: "1"
-			case CAPITAL_ROMAN: "I"
-			case SMALL_ROMAN: "i"
-			case CAPITAL_LETTER: "A"
-			case SMALL_LETTER: "a"
-			case NONE: "1"
+			case ARABIC: "arabic"
+			case CAPITAL_ROMAN: "Roman"
+			case SMALL_ROMAN: "roman"
+			case CAPITAL_LETTER: "Alph"
+			case SMALL_LETTER: "alph"
+			case NONE: "arabic"
 		}
 	}
 
 	override CharSequence renderTitledList(List list, NestedElementsRenderer p) '''
-		<ul style="list-style-type:none;">«renderAnchor(list)»
-			«p.render»</ul>
+		\begin{description}	% «renderAnchor(list)»
+			«p.render»
+		\end{description}
 	'''
 
 	override CharSequence renderListItem(ListItem item, NestedElementsRenderer p) '''
-		<li>«renderAnchor(item)»«p.render»</li>
+		\item «p.render» % «renderAnchor(item)»
 	'''
 
 	override CharSequence renderTitledListItem(ListItem item, NestedElementsRenderer p) '''
-		<li>«renderAnchor(item)»<p><b>«item.title.renderRichText»</b></p>
-		«p.render»
-		</li>
+		\item[«item.title.renderRichText»] «p.render» % «renderAnchor(item)»
 	'''
 
 	override CharSequence renderTitledBlock(TitledBlock b, NestedElementsRenderer p) '''
@@ -197,49 +204,9 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		<h5>«renderAnchor(b)»«b.labelAndNumber» «b.title.renderRichText»</h5>
 	'''
 
-	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) '''
-		<table style="width:«t.widthPercent»%; «t.gridlines.tableBorders»">
-			«FOR row : t.rows»
-				<tr>	
-					«FOR cell : row.cells»
-						«cell.startTag»«FOR block : cell.contents»«g.generate(block)»«ENDFOR»«row.isHeading?"</th>":"</td>"»
-«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try HTML directly.
-					«ENDFOR»
-				</tr>
-			«ENDFOR»
-		</table>
-	'''
-	
-	protected def String tableBorders(GridLines gl) {
-		switch gl {
-			case HORIZONTAL: "border-left:0; border-right:0;"
-			case VERTICAL: "border-top:0; border-bottom:0;"
-			case BOTH: ""
-			case NONE: "border:0;"
-		}
-	}
-
-	protected def String startTag(TableCell cell) {
-		val StringBuilder b = new StringBuilder
-		b.append(cell.row.isHeading ? "<th" : "<td")
-		val gridLines = cell.row.table.gridlines.tableBorders
-		if (! gridLines.empty) {
-			b.append(" style=\"")
-			b.append(gridLines)
-			b.append("\"")
-		}
-		if (cell.width > 1) {
-			b.append(" colspan=\"");
-			b.append(cell.width)
-			b.append("\"")
-		}
-		if (cell.height > 1) {
-			b.append(" rowspan=\"");
-			b.append(cell.height)
-			b.append("\"")
-		}
-		b.append('>')
-		return b.toString
+	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) {
+		val gen = new PubLaTeXTableGenerator(t, g)
+		gen.render
 	}
 
 	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
@@ -251,29 +218,33 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
-		<pre>
-		«FOR line : codeLines»«line»«ENDFOR»</pre>
+		\\begin{verbatim}
+		«FOR line : codeLines»«line»«ENDFOR»
+		\\end{verbatim}
 	'''
 
-	override CharSequence renderPlainParagraph(
-		RichTextParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
+	override CharSequence renderPlainParagraph(RichTextParagraph para) {
+		para.text.renderRichText
+	}
 
 	protected def boolean isOnlyContentBlockOfTableCell(ContentBlock para) {
 		return para.eContainer instanceof TableCell && (para.eContainer as TableCell).contents.length == 1
 	}
 
 	override CharSequence renderQuotedParagraph(RichTextParagraph para) '''
-		<p><blockquote>«para.text.renderRichText»</blockquote></p>
+		\quote{«para.text.renderRichText»}
 	'''
 
-	override CharSequence renderUnformattedParagraph(
-		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text»«ELSE»<p>«para.text»</p>«ENDIF»'''
+	override CharSequence renderUnformattedParagraph(UnformattedParagraph para) {
+		para.text
+	}
 
-	override CharSequence renderRichTextReferencingParagraph(
-		RichTextReferencingParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
+	override CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para) {
+		para.text.renderRichText
+	}
 
 	override createRichTextRenderer(ErrorMessageAcceptor acceptor) {
-		return new AbstractRichTextToHtmlRenderer {
+		return new AbstractRichTextToLaTeXRenderer {
 
 			override protected getSourceText(DExpression expr) {
 				expr.getSourceTextFromXtextResource

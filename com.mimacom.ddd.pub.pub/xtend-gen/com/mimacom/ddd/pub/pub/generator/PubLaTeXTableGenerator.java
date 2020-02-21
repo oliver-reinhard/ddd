@@ -1,0 +1,256 @@
+package com.mimacom.ddd.pub.pub.generator;
+
+import com.google.common.base.Objects;
+import com.mimacom.ddd.pub.pub.ContentBlock;
+import com.mimacom.ddd.pub.pub.GridLines;
+import com.mimacom.ddd.pub.pub.Table;
+import com.mimacom.ddd.pub.pub.TableCell;
+import com.mimacom.ddd.pub.pub.TableRow;
+import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+
+/**
+ * PREQUISITE: this class requires <code>\\usepackage{multirow}</code> (with single backslash (thanks, unicode)) in the LaTeX preamble.
+ */
+@SuppressWarnings("all")
+public class PubLaTeXTableGenerator {
+  private static final String SENTINEL_STRING = "SENTINEL";
+  
+  private final Table table;
+  
+  private final NestedContentBlockGenerator nestedContentBlockGenereator;
+  
+  private final int rows;
+  
+  private final String[][] cellsByRow;
+  
+  private final boolean drawHorizontalGridlines;
+  
+  private boolean[][] horizontalGridlines;
+  
+  public PubLaTeXTableGenerator(final Table t, final NestedContentBlockGenerator g) {
+    this.table = t;
+    this.nestedContentBlockGenereator = g;
+    this.rows = this.table.getRows().size();
+    this.cellsByRow = new String[this.rows][this.table.getColumns()];
+    this.drawHorizontalGridlines = (Objects.equal(t.getGridlines(), GridLines.HORIZONTAL) || Objects.equal(t.getGridlines(), GridLines.BOTH));
+    boolean[][] _xifexpression = null;
+    if (this.drawHorizontalGridlines) {
+      _xifexpression = new boolean[this.rows][t.getColumns()];
+    } else {
+      _xifexpression = null;
+    }
+    this.horizontalGridlines = _xifexpression;
+  }
+  
+  protected void buildGeneratorModel() {
+    for (int r = 0; (r < this.rows); r++) {
+      {
+        final TableRow row = this.table.getRows().get(r);
+        int columnIndex = 0;
+        while (((this.cellsByRow[r])[columnIndex] != null)) {
+          columnIndex++;
+        }
+        for (int c = 0; (c < row.getCells().size()); c++) {
+          {
+            final TableCell cell = row.getCells().get(c);
+            if (((cell.getWidth() == 1) && (cell.getHeight() == 1))) {
+              (this.cellsByRow[r])[columnIndex] = this.renderCell(cell, this.nestedContentBlockGenereator);
+              if (this.drawHorizontalGridlines) {
+                (this.horizontalGridlines[r])[columnIndex] = true;
+              }
+              columnIndex++;
+            } else {
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("\\multicolumn{");
+              int _width = cell.getWidth();
+              _builder.append(_width);
+              _builder.append("} {|l|} {\\multirow{");
+              int _height = cell.getHeight();
+              _builder.append(_height);
+              _builder.append("}{*}{");
+              String _renderCell = this.renderCell(cell, this.nestedContentBlockGenereator);
+              _builder.append(_renderCell);
+              _builder.append("}}");
+              final String multirowFirst = _builder.toString();
+              (this.cellsByRow[r])[columnIndex] = multirowFirst;
+              for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
+                (this.cellsByRow[r])[i] = PubLaTeXTableGenerator.SENTINEL_STRING;
+              }
+              for (int j = (r + 1); (j < (r + cell.getHeight())); j++) {
+                {
+                  StringConcatenation _builder_1 = new StringConcatenation();
+                  _builder_1.append("\\multicolumn{");
+                  int _width_1 = cell.getWidth();
+                  _builder_1.append(_width_1);
+                  _builder_1.append("} {|l|} {}");
+                  final String multirowOther = _builder_1.toString();
+                  (this.cellsByRow[j])[columnIndex] = multirowOther;
+                  for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
+                    (this.cellsByRow[j])[i] = PubLaTeXTableGenerator.SENTINEL_STRING;
+                  }
+                }
+              }
+              if (this.drawHorizontalGridlines) {
+                for (int i = columnIndex; (i < (columnIndex + cell.getWidth())); i++) {
+                  int _height_1 = cell.getHeight();
+                  int _plus = (r + _height_1);
+                  int _minus = (_plus - 1);
+                  (this.horizontalGridlines[_minus])[i] = true;
+                }
+              }
+              int _columnIndex = columnIndex;
+              int _width_1 = cell.getWidth();
+              columnIndex = (_columnIndex + _width_1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  public CharSequence render() {
+    CharSequence _xblockexpression = null;
+    {
+      this.buildGeneratorModel();
+      int rowIndex = 0;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\\begin{tabular} { ");
+      String _columnFormat = this.columnFormat(this.table);
+      _builder.append(_columnFormat);
+      _builder.append(" }");
+      _builder.append("\t\t\t");
+      _builder.newLineIfNotEmpty();
+      {
+        if (this.drawHorizontalGridlines) {
+          _builder.append("\\hline");
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      {
+        for(final String[] row : this.cellsByRow) {
+          {
+            for(final String cell : row) {
+              {
+                if ((cell != PubLaTeXTableGenerator.SENTINEL_STRING)) {
+                  {
+                    Object _head = IterableExtensions.<Object>head(((Iterable<Object>)Conversions.doWrapArray(row)));
+                    boolean _tripleNotEquals = (cell != _head);
+                    if (_tripleNotEquals) {
+                      _builder.append(" & ");
+                    }
+                  }
+                  String _replace = cell.replace("&", "\\&");
+                  _builder.append(_replace);
+                }
+              }
+            }
+          }
+          _builder.append(" \\\\");
+          {
+            if (this.drawHorizontalGridlines) {
+              _builder.append(" ");
+              int _plusPlus = rowIndex++;
+              String _horizontalGridline = this.horizontalGridline(this.horizontalGridlines[_plusPlus]);
+              _builder.append(_horizontalGridline);
+            }
+          }
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\\end{tabular}");
+      _builder.newLine();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  protected String renderCell(final TableCell cell, final NestedContentBlockGenerator g) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<ContentBlock> _contents = cell.getContents();
+      for(final ContentBlock block : _contents) {
+        {
+          boolean _isIsHeading = cell.getRow().isIsHeading();
+          if (_isIsHeading) {
+            _builder.append("\\textbf{");
+          }
+        }
+        CharSequence _generate = g.generate(block);
+        _builder.append(_generate);
+        {
+          boolean _isIsHeading_1 = cell.getRow().isIsHeading();
+          if (_isIsHeading_1) {
+            _builder.append("}");
+          }
+        }
+      }
+    }
+    return _builder.toString();
+  }
+  
+  protected String columnFormat(final Table t) {
+    String _xblockexpression = null;
+    {
+      final StringBuilder b = new StringBuilder();
+      b.append(this.verticalGridline(t));
+      for (int i = 0; (i < t.getColumns()); i++) {
+        {
+          b.append("l");
+          b.append(this.verticalGridline(t));
+        }
+      }
+      _xblockexpression = b.toString();
+    }
+    return _xblockexpression;
+  }
+  
+  protected String verticalGridline(final Table t) {
+    String _xifexpression = null;
+    if ((Objects.equal(t.getGridlines(), GridLines.VERTICAL) || Objects.equal(t.getGridlines(), GridLines.BOTH))) {
+      _xifexpression = "|";
+    } else {
+      _xifexpression = "";
+    }
+    return _xifexpression;
+  }
+  
+  protected String horizontalGridline(final boolean[] gridlines) {
+    boolean drawHline = true;
+    for (int i = 0; (i < gridlines.length); i++) {
+      drawHline = (drawHline && gridlines[i]);
+    }
+    if (drawHline) {
+      return "\\hline";
+    }
+    final StringBuilder b = new StringBuilder();
+    int start = 0;
+    while ((start < gridlines.length)) {
+      {
+        while (((start < gridlines.length) && (!gridlines[start]))) {
+          start++;
+        }
+        int _length = gridlines.length;
+        boolean _lessThan = (start < _length);
+        if (_lessThan) {
+          int end = start;
+          while (((end < gridlines.length) && gridlines[end])) {
+            end++;
+          }
+          if ((start < end)) {
+            b.append("\\cline{");
+            b.append((start + 1));
+            b.append("-");
+            b.append(end);
+            b.append("} ");
+          }
+          start = end;
+        }
+      }
+    }
+    return b.toString();
+  }
+}
