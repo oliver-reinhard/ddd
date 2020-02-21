@@ -10,9 +10,7 @@ import org.eclipse.xtext.scoping.impl.ImportNormalizer;
 import org.eclipse.xtext.xbase.scoping.XImportSectionNamespaceScopeProvider;
 
 /**
- * This class contains custom scoping description.
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.
+ * Defines a scope provider for imported namespaces. Provides the resource scope with implicit imports.
  */
 @SuppressWarnings("all")
 public class GeneratorImportNamespaceScopeProvider extends XImportSectionNamespaceScopeProvider {
@@ -20,6 +18,7 @@ public class GeneratorImportNamespaceScopeProvider extends XImportSectionNamespa
   
   @Override
   protected List<ImportNormalizer> getImplicitImports(final boolean ignoreCase) {
-    return ImmutableList.<ImportNormalizer>builder().addAll(super.getImplicitImports(ignoreCase)).add(this.doCreateImportNormalizer(GeneratorImportNamespaceScopeProvider.BASE_MODEL, true, false)).build();
+    return ImmutableList.<ImportNormalizer>builder().addAll(super.getImplicitImports(ignoreCase)).add(
+      this.doCreateImportNormalizer(GeneratorImportNamespaceScopeProvider.BASE_MODEL, true, ignoreCase)).build();
   }
 }

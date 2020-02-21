@@ -25,18 +25,50 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.Model");
-		private final Assignment cTypeMappingsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_0 = (RuleCall)cTypeMappingsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cImportSectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cImportSectionXImportSectionParserRuleCall_0_0 = (RuleCall)cImportSectionAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cTypeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cMappingsKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cTypeMappingsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_1_3_0 = (RuleCall)cTypeMappingsAssignment_1_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
 		//Model:
-		//	typeMappings+=TypeMapping*;
+		//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//typeMappings+=TypeMapping*
-		public Assignment getTypeMappingsAssignment() { return cTypeMappingsAssignment; }
+		//importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?
+		public Group getGroup() { return cGroup; }
+		
+		//importSection=XImportSection?
+		public Assignment getImportSectionAssignment_0() { return cImportSectionAssignment_0; }
+		
+		//XImportSection
+		public RuleCall getImportSectionXImportSectionParserRuleCall_0_0() { return cImportSectionXImportSectionParserRuleCall_0_0; }
+		
+		//('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'type'
+		public Keyword getTypeKeyword_1_0() { return cTypeKeyword_1_0; }
+		
+		//'mappings'
+		public Keyword getMappingsKeyword_1_1() { return cMappingsKeyword_1_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1_2() { return cLeftCurlyBracketKeyword_1_2; }
+		
+		//typeMappings+=TypeMapping+
+		public Assignment getTypeMappingsAssignment_1_3() { return cTypeMappingsAssignment_1_3; }
 		
 		//TypeMapping
-		public RuleCall getTypeMappingsTypeMappingParserRuleCall_0() { return cTypeMappingsTypeMappingParserRuleCall_0; }
+		public RuleCall getTypeMappingsTypeMappingParserRuleCall_1_3_0() { return cTypeMappingsTypeMappingParserRuleCall_1_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_4() { return cRightCurlyBracketKeyword_1_4; }
 	}
 	public class TypeMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.TypeMapping");
@@ -44,43 +76,47 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDatatypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cNameDTypeCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameDTypeIDTerminalRuleCall_1_0_1 = (RuleCall)cNameDTypeCrossReference_1_0.eContents().get(1);
-		private final Keyword cMappedToKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cJavaTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cJavaTypeJvmTypeCrossReference_3_0 = (CrossReference)cJavaTypeAssignment_3.eContents().get(0);
-		private final RuleCall cJavaTypeJvmTypeQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cJavaTypeJvmTypeCrossReference_3_0.eContents().get(1);
+		private final RuleCall cNameDTypeQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameDTypeCrossReference_1_0.eContents().get(1);
+		private final Keyword cMapsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cJavaTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cJavaTypeJvmTypeCrossReference_4_0 = (CrossReference)cJavaTypeAssignment_4.eContents().get(0);
+		private final RuleCall cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cJavaTypeJvmTypeCrossReference_4_0.eContents().get(1);
 		
 		//TypeMapping:
-		//	'datatype' name=[base::DType]
-		//	'mapped-to' javaType=[jvmTypes::JvmType|QualifiedName];
+		//	'datatype' name=[base::DType|QualifiedName]
+		//	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'datatype' name=[base::DType] 'mapped-to' javaType=[jvmTypes::JvmType|QualifiedName]
+		//'datatype' name=[base::DType|QualifiedName] 'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//'datatype'
 		public Keyword getDatatypeKeyword_0() { return cDatatypeKeyword_0; }
 		
-		//name=[base::DType]
+		//name=[base::DType|QualifiedName]
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//[base::DType]
+		//[base::DType|QualifiedName]
 		public CrossReference getNameDTypeCrossReference_1_0() { return cNameDTypeCrossReference_1_0; }
 		
-		//ID
-		public RuleCall getNameDTypeIDTerminalRuleCall_1_0_1() { return cNameDTypeIDTerminalRuleCall_1_0_1; }
+		//QualifiedName
+		public RuleCall getNameDTypeQualifiedNameParserRuleCall_1_0_1() { return cNameDTypeQualifiedNameParserRuleCall_1_0_1; }
 		
-		//'mapped-to'
-		public Keyword getMappedToKeyword_2() { return cMappedToKeyword_2; }
+		//'maps'
+		public Keyword getMapsKeyword_2() { return cMapsKeyword_2; }
+		
+		//'to'
+		public Keyword getToKeyword_3() { return cToKeyword_3; }
 		
 		//javaType=[jvmTypes::JvmType|QualifiedName]
-		public Assignment getJavaTypeAssignment_3() { return cJavaTypeAssignment_3; }
+		public Assignment getJavaTypeAssignment_4() { return cJavaTypeAssignment_4; }
 		
 		//[jvmTypes::JvmType|QualifiedName]
-		public CrossReference getJavaTypeJvmTypeCrossReference_3_0() { return cJavaTypeJvmTypeCrossReference_3_0; }
+		public CrossReference getJavaTypeJvmTypeCrossReference_4_0() { return cJavaTypeJvmTypeCrossReference_4_0; }
 		
 		//QualifiedName
-		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_3_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1; }
 	}
 	
 	
@@ -136,7 +172,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	typeMappings+=TypeMapping*;
+	//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -146,8 +182,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TypeMapping:
-	//	'datatype' name=[base::DType]
-	//	'mapped-to' javaType=[jvmTypes::JvmType|QualifiedName];
+	//	'datatype' name=[base::DType|QualifiedName]
+	//	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
 	public TypeMappingElements getTypeMappingAccess() {
 		return pTypeMapping;
 	}

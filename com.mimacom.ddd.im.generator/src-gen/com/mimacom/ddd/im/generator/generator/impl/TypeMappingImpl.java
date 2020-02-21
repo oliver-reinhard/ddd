@@ -80,6 +80,7 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public DType getName()
   {
     if (name != null && name.eIsProxy())
@@ -110,6 +111,7 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setName(DType newName)
   {
     DType oldName = name;
@@ -123,6 +125,7 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public JvmType getJavaType()
   {
     if (javaType != null && javaType.eIsProxy())
@@ -153,6 +156,7 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setJavaType(JvmType newJavaType)
   {
     JvmType oldJavaType = javaType;

@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.xtext.common.types.TypesPackage;
 
+import org.eclipse.xtext.xtype.XtypePackage;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -69,7 +71,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   * 
+   *
    * <p>This method is used to initialize {@link GeneratorPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -84,13 +86,15 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     if (isInited) return (GeneratorPackage)EPackage.Registry.INSTANCE.getEPackage(GeneratorPackage.eNS_URI);
 
     // Obtain or create and register package
-    GeneratorPackageImpl theGeneratorPackage = (GeneratorPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GeneratorPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GeneratorPackageImpl());
+    Object registeredGeneratorPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+    GeneratorPackageImpl theGeneratorPackage = registeredGeneratorPackage instanceof GeneratorPackageImpl ? (GeneratorPackageImpl)registeredGeneratorPackage : new GeneratorPackageImpl();
 
     isInited = true;
 
     // Initialize simple dependencies
     BasePackage.eINSTANCE.eClass();
     TypesPackage.eINSTANCE.eClass();
+    XtypePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theGeneratorPackage.createPackageContents();
@@ -101,7 +105,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     // Mark meta-data to indicate it can't be changed
     theGeneratorPackage.freeze();
 
-  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(GeneratorPackage.eNS_URI, theGeneratorPackage);
     return theGeneratorPackage;
@@ -112,6 +115,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getModel()
   {
     return modelEClass;
@@ -122,7 +126,8 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_TypeMappings()
+  @Override
+  public EReference getModel_ImportSection()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -132,6 +137,18 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
+  public EReference getModel_TypeMappings()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTypeMapping()
   {
     return typeMappingEClass;
@@ -142,6 +159,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getTypeMapping_Name()
   {
     return (EReference)typeMappingEClass.getEStructuralFeatures().get(0);
@@ -152,6 +170,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getTypeMapping_JavaType()
   {
     return (EReference)typeMappingEClass.getEStructuralFeatures().get(1);
@@ -162,6 +181,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public GeneratorFactory getGeneratorFactory()
   {
     return (GeneratorFactory)getEFactoryInstance();
@@ -188,6 +208,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__IMPORT_SECTION);
     createEReference(modelEClass, MODEL__TYPE_MAPPINGS);
 
     typeMappingEClass = createEClass(TYPE_MAPPING);
@@ -220,6 +241,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
+    XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
     BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
@@ -231,6 +253,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_TypeMappings(), this.getTypeMapping(), null, "typeMappings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeMappingEClass, TypeMapping.class, "TypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

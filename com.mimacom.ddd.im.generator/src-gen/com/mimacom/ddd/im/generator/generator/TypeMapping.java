@@ -31,10 +31,6 @@ public interface TypeMapping extends EObject
   /**
    * Returns the value of the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' reference.
    * @see #setName(DType)
@@ -57,10 +53,6 @@ public interface TypeMapping extends EObject
   /**
    * Returns the value of the '<em><b>Java Type</b></em>' reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Java Type</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Java Type</em>' reference.
    * @see #setJavaType(JvmType)

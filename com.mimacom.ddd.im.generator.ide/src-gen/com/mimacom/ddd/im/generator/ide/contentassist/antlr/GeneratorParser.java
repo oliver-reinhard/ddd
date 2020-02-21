@@ -70,6 +70,8 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getJvmWildcardTypeReferenceAccess().getAlternatives_2(), "rule__JvmWildcardTypeReference__Alternatives_2");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1(), "rule__XImportDeclaration__Alternatives_1");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
+			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+			builder.put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
 			builder.put(grammarAccess.getTypeMappingAccess().getGroup(), "rule__TypeMapping__Group__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
@@ -250,9 +252,10 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getXImportDeclarationAccess().getGroup(), "rule__XImportDeclaration__Group__0");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 			builder.put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-			builder.put(grammarAccess.getModelAccess().getTypeMappingsAssignment(), "rule__Model__TypeMappingsAssignment");
+			builder.put(grammarAccess.getModelAccess().getImportSectionAssignment_0(), "rule__Model__ImportSectionAssignment_0");
+			builder.put(grammarAccess.getModelAccess().getTypeMappingsAssignment_1_3(), "rule__Model__TypeMappingsAssignment_1_3");
 			builder.put(grammarAccess.getTypeMappingAccess().getNameAssignment_1(), "rule__TypeMapping__NameAssignment_1");
-			builder.put(grammarAccess.getTypeMappingAccess().getJavaTypeAssignment_3(), "rule__TypeMapping__JavaTypeAssignment_3");
+			builder.put(grammarAccess.getTypeMappingAccess().getJavaTypeAssignment_4(), "rule__TypeMapping__JavaTypeAssignment_4");
 			builder.put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 			builder.put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 			builder.put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

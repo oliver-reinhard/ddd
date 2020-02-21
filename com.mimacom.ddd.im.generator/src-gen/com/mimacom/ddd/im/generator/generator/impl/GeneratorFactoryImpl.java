@@ -77,6 +77,7 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Model createModel()
   {
     ModelImpl model = new ModelImpl();
@@ -88,6 +89,7 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TypeMapping createTypeMapping()
   {
     TypeMappingImpl typeMapping = new TypeMappingImpl();
@@ -99,6 +101,7 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public GeneratorPackage getGeneratorPackage()
   {
     return (GeneratorPackage)getEPackage();

@@ -8,19 +8,15 @@ import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.xbase.scoping.XImportSectionNamespaceScopeProvider
 
 /** 
- * This class contains custom scoping description.
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.
+ * Defines a scope provider for imported namespaces. Provides the resource scope with implicit imports.
  */
 class GeneratorImportNamespaceScopeProvider extends XImportSectionNamespaceScopeProvider {
-	
+
 	static val BASE_MODEL = QualifiedName.create("dm", "types")
-	
+
 	override protected getImplicitImports(boolean ignoreCase) {
-		ImmutableList.builder
-			.addAll(super.getImplicitImports(ignoreCase))
-			.add(doCreateImportNormalizer(BASE_MODEL, true, false))
-			.build
+		ImmutableList.builder.addAll(super.getImplicitImports(ignoreCase)).add(
+			doCreateImportNormalizer(BASE_MODEL, true, ignoreCase)).build
 	}
-	
+
 }

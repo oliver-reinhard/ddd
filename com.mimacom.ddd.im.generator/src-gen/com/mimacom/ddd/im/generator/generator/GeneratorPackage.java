@@ -67,13 +67,22 @@ public interface GeneratorPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Import Section</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__IMPORT_SECTION = 0;
+
+  /**
    * The feature id for the '<em><b>Type Mappings</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__TYPE_MAPPINGS = 0;
+  int MODEL__TYPE_MAPPINGS = 1;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -82,7 +91,7 @@ public interface GeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl <em>Type Mapping</em>}' class.
@@ -131,6 +140,17 @@ public interface GeneratorPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.mimacom.ddd.im.generator.generator.Model#getImportSection <em>Import Section</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Import Section</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Model#getImportSection()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_ImportSection();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Model#getTypeMappings <em>Type Mappings</em>}'.
@@ -207,6 +227,14 @@ public interface GeneratorPackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Import Section</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__IMPORT_SECTION = eINSTANCE.getModel_ImportSection();
 
     /**
      * The meta object literal for the '<em><b>Type Mappings</b></em>' containment reference list feature.

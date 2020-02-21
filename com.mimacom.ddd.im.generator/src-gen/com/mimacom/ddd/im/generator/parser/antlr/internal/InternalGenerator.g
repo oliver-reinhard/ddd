@@ -77,23 +77,62 @@ ruleModel returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getModelAccess().getTypeMappingsTypeMappingParserRuleCall_0());
-			}
-			lv_typeMappings_0_0=ruleTypeMapping
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getModelRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getImportSectionXImportSectionParserRuleCall_0_0());
 				}
-				add(
-					$current,
-					"typeMappings",
-					lv_typeMappings_0_0,
-					"com.mimacom.ddd.im.generator.Generator.TypeMapping");
-				afterParserOrEnumRuleCall();
+				lv_importSection_0_0=ruleXImportSection
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					set(
+						$current,
+						"importSection",
+						lv_importSection_0_0,
+						"org.eclipse.xtext.xbase.Xtype.XImportSection");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_1='type'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getModelAccess().getTypeKeyword_1_0());
 			}
-		)
-	)*
+			otherlv_2='mappings'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getModelAccess().getMappingsKeyword_1_1());
+			}
+			otherlv_3='{'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getModelAccess().getTypeMappingsTypeMappingParserRuleCall_1_3_0());
+					}
+					lv_typeMappings_4_0=ruleTypeMapping
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getModelRule());
+						}
+						add(
+							$current,
+							"typeMappings",
+							lv_typeMappings_4_0,
+							"com.mimacom.ddd.im.generator.Generator.TypeMapping");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+			otherlv_5='}'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_4());
+			}
+		)?
+	)
 ;
 
 // Entry rule entryRuleTypeMapping
@@ -123,15 +162,22 @@ ruleTypeMapping returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getTypeMappingRule());
 					}
 				}
-				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getTypeMappingAccess().getNameDTypeCrossReference_1_0());
+					newCompositeNode(grammarAccess.getTypeMappingAccess().getNameDTypeCrossReference_1_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2='mapped-to'
+		otherlv_2='maps'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getTypeMappingAccess().getMappedToKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getTypeMappingAccess().getMapsKeyword_2());
+		}
+		otherlv_3='to'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getTypeMappingAccess().getToKeyword_3());
 		}
 		(
 			(
@@ -141,7 +187,7 @@ ruleTypeMapping returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeCrossReference_3_0());
+					newCompositeNode(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeCrossReference_4_0());
 				}
 				ruleQualifiedName
 				{
@@ -6248,6 +6294,42 @@ ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	{
 		newLeafNode(this_ID_0, grammarAccess.getValidIDAccess().getIDTerminalRuleCall());
 	}
+;
+
+// Entry rule entryRuleXImportSection
+entryRuleXImportSection returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getXImportSectionRule()); }
+	iv_ruleXImportSection=ruleXImportSection
+	{ $current=$iv_ruleXImportSection.current; }
+	EOF;
+
+// Rule XImportSection
+ruleXImportSection returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getXImportSectionAccess().getImportDeclarationsXImportDeclarationParserRuleCall_0());
+			}
+			lv_importDeclarations_0_0=ruleXImportDeclaration
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getXImportSectionRule());
+				}
+				add(
+					$current,
+					"importDeclarations",
+					lv_importDeclarations_0_0,
+					"org.eclipse.xtext.xbase.Xtype.XImportDeclaration");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)+
 ;
 
 // Entry rule entryRuleXImportDeclaration

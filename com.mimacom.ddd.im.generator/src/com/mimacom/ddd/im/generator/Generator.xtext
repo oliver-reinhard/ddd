@@ -8,8 +8,10 @@ import "http://www.mimacom.com/ddd/dm/dmx"
 import "http://www.mimacom.com/ddd/sm/asm"
 
 Model:
-	typeMappings+=TypeMapping*;
+	importSection=XImportSection?
+	('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?;
 
 TypeMapping:
-	'datatype' name=[base::DType|ID]
-  	'mapped-to' javaType=[jvmTypes::JvmType|QualifiedName];
+	'datatype' name=[base::DType|QualifiedName]
+  	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
+

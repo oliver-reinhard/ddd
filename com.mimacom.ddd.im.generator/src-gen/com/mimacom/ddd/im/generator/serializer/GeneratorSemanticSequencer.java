@@ -333,7 +333,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     typeMappings+=TypeMapping+
+	 *     ((importSection=XImportSection typeMappings+=TypeMapping+) | typeMappings+=TypeMapping+)?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -345,7 +345,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     TypeMapping returns TypeMapping
 	 *
 	 * Constraint:
-	 *     (name=[DType|ID] javaType=[JvmType|QualifiedName])
+	 *     (name=[DType|QualifiedName] javaType=[JvmType|QualifiedName])
 	 */
 	protected void sequence_TypeMapping(ISerializationContext context, TypeMapping semanticObject) {
 		if (errorAcceptor != null) {
@@ -355,8 +355,8 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeMappingAccess().getNameDTypeIDTerminalRuleCall_1_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__NAME, false));
-		feeder.accept(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE, false));
+		feeder.accept(grammarAccess.getTypeMappingAccess().getNameDTypeQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__NAME, false));
+		feeder.accept(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE, false));
 		feeder.finish();
 	}
 	

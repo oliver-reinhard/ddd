@@ -9,6 +9,7 @@ import com.mimacom.ddd.im.generator.generator.TypeMapping;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,10 +17,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.xtext.xtype.XImportSection;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getTypeMappings <em>Type Mappings</em>}</li>
  * </ul>
  *
@@ -36,6 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getImportSection() <em>Import Section</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImportSection()
+   * @generated
+   * @ordered
+   */
+  protected XImportSection importSection;
+
   /**
    * The cached value of the '{@link #getTypeMappings() <em>Type Mappings</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -72,6 +87,57 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
+  public XImportSection getImportSection()
+  {
+    return importSection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetImportSection(XImportSection newImportSection, NotificationChain msgs)
+  {
+    XImportSection oldImportSection = importSection;
+    importSection = newImportSection;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GeneratorPackage.MODEL__IMPORT_SECTION, oldImportSection, newImportSection);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setImportSection(XImportSection newImportSection)
+  {
+    if (newImportSection != importSection)
+    {
+      NotificationChain msgs = null;
+      if (importSection != null)
+        msgs = ((InternalEObject)importSection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GeneratorPackage.MODEL__IMPORT_SECTION, null, msgs);
+      if (newImportSection != null)
+        msgs = ((InternalEObject)newImportSection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GeneratorPackage.MODEL__IMPORT_SECTION, null, msgs);
+      msgs = basicSetImportSection(newImportSection, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.MODEL__IMPORT_SECTION, newImportSection, newImportSection));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<TypeMapping> getTypeMappings()
   {
     if (typeMappings == null)
@@ -91,6 +157,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__IMPORT_SECTION:
+        return basicSetImportSection(null, msgs);
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return ((InternalEList<?>)getTypeMappings()).basicRemove(otherEnd, msgs);
     }
@@ -107,6 +175,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__IMPORT_SECTION:
+        return getImportSection();
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return getTypeMappings();
     }
@@ -124,6 +194,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__IMPORT_SECTION:
+        setImportSection((XImportSection)newValue);
+        return;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         getTypeMappings().clear();
         getTypeMappings().addAll((Collection<? extends TypeMapping>)newValue);
@@ -142,6 +215,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__IMPORT_SECTION:
+        setImportSection((XImportSection)null);
+        return;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         getTypeMappings().clear();
         return;
@@ -159,6 +235,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__IMPORT_SECTION:
+        return importSection != null;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return typeMappings != null && !typeMappings.isEmpty();
     }
