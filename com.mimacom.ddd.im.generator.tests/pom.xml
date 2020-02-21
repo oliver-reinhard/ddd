@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.mimacom.ddd</groupId>
+    <artifactId>com.mimacom.ddd.tycho.plugin.parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../releng/com.mimacom.ddd.tycho.plugin.parent</relativePath>
+  </parent>
+
+  <artifactId>com.mimacom.ddd.im.generator.tests</artifactId>
+  <packaging>eclipse-test-plugin</packaging>
+
+  <name>Generator Model Tests</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.xtend</groupId>
+        <artifactId>xtend-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <failIfNoTests>false</failIfNoTests>
+          <testFailureIgnore>true</testFailureIgnore>
+          <useUIHarness>false</useUIHarness>
+          <useUIThread>false</useUIThread>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

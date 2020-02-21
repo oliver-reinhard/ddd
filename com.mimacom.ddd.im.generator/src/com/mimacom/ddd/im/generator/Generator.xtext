@@ -1,0 +1,15 @@
+grammar com.mimacom.ddd.im.generator.Generator with org.eclipse.xtext.xbase.Xbase
+
+generate generator "http://www.mimacom.com/ddd/im/generator/Generator"
+
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+import "http://www.mimacom.com/ddd/dm/base" as base
+import "http://www.mimacom.com/ddd/dm/dmx"
+import "http://www.mimacom.com/ddd/sm/asm"
+
+Model:
+	typeMappings+=TypeMapping*;
+
+TypeMapping:
+	'datatype' name=[base::DType|ID]
+  	'mapped-to' javaType=[jvmTypes::JvmType|QualifiedName];
