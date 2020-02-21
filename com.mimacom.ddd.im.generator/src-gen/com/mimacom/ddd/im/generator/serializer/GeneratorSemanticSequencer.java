@@ -4,6 +4,7 @@
 package com.mimacom.ddd.im.generator.serializer;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;
@@ -78,6 +79,9 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == GeneratorPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case GeneratorPackage.EXCEPTION_MAPPING:
+				sequence_ExceptionMapping(context, (ExceptionMapping) semanticObject); 
+				return; 
 			case GeneratorPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
@@ -330,10 +334,22 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     ExceptionMapping returns ExceptionMapping
+	 *
+	 * Constraint:
+	 *     (name=[SException|QualifiedName] extends=[JvmType|QualifiedName]? (message=STRING | package=STRING)*)
+	 */
+	protected void sequence_ExceptionMapping(ISerializationContext context, ExceptionMapping semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     ((importSection=XImportSection typeMappings+=TypeMapping+) | typeMappings+=TypeMapping+)?
+	 *     (importSection=XImportSection | (importSection=XImportSection (typeMappings+=TypeMapping | exceptionMappings+=ExceptionMapping)+))?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator.impl;
 
+import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;
@@ -35,6 +36,7 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getTypeMappings <em>Type Mappings</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getExceptionMappings <em>Exception Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +62,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<TypeMapping> typeMappings;
+
+  /**
+   * The cached value of the '{@link #getExceptionMappings() <em>Exception Mappings</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExceptionMappings()
+   * @generated
+   * @ordered
+   */
+  protected EList<ExceptionMapping> exceptionMappings;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,6 +165,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<ExceptionMapping> getExceptionMappings()
+  {
+    if (exceptionMappings == null)
+    {
+      exceptionMappings = new EObjectContainmentEList<ExceptionMapping>(ExceptionMapping.class, this, GeneratorPackage.MODEL__EXCEPTION_MAPPINGS);
+    }
+    return exceptionMappings;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -161,6 +188,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetImportSection(null, msgs);
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return ((InternalEList<?>)getTypeMappings()).basicRemove(otherEnd, msgs);
+      case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
+        return ((InternalEList<?>)getExceptionMappings()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -179,6 +208,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getImportSection();
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return getTypeMappings();
+      case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
+        return getExceptionMappings();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,6 +232,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getTypeMappings().clear();
         getTypeMappings().addAll((Collection<? extends TypeMapping>)newValue);
         return;
+      case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
+        getExceptionMappings().clear();
+        getExceptionMappings().addAll((Collection<? extends ExceptionMapping>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -221,6 +256,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         getTypeMappings().clear();
         return;
+      case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
+        getExceptionMappings().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -239,6 +277,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return importSection != null;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return typeMappings != null && !typeMappings.isEmpty();
+      case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
+        return exceptionMappings != null && !exceptionMappings.isEmpty();
     }
     return super.eIsSet(featureID);
   }

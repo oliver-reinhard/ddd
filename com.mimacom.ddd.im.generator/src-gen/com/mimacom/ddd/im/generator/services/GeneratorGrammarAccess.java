@@ -15,6 +15,7 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
+import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.xbase.services.XbaseGrammarAccess;
@@ -28,19 +29,29 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cImportSectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cImportSectionXImportSectionParserRuleCall_0_0 = (RuleCall)cImportSectionAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTypeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cMappingsKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cTypeMappingsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_1_3_0 = (RuleCall)cTypeMappingsAssignment_1_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cTypeKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cMappingsKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_0_2 = (Keyword)cGroup_1_0.eContents().get(2);
+		private final Assignment cTypeMappingsAssignment_1_0_3 = (Assignment)cGroup_1_0.eContents().get(3);
+		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_1_0_3_0 = (RuleCall)cTypeMappingsAssignment_1_0_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_0_4 = (Keyword)cGroup_1_0.eContents().get(4);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cExceptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cMappingsKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
+		private final Assignment cExceptionMappingsAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
+		private final RuleCall cExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0 = (RuleCall)cExceptionMappingsAssignment_1_1_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_1_4 = (Keyword)cGroup_1_1.eContents().get(4);
 		
 		//Model:
-		//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?;
+		//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{'
+		//	exceptionMappings+=ExceptionMapping+ '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?
+		//importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{'
+		//exceptionMappings+=ExceptionMapping+ '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//importSection=XImportSection?
@@ -49,26 +60,51 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//XImportSection
 		public RuleCall getImportSectionXImportSectionParserRuleCall_0_0() { return cImportSectionXImportSectionParserRuleCall_0_0; }
 		
-		//('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?
-		public Group getGroup_1() { return cGroup_1; }
+		//('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+
+		//'}')?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+		
+		//'type' 'mappings' '{' typeMappings+=TypeMapping+ '}'
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'type'
-		public Keyword getTypeKeyword_1_0() { return cTypeKeyword_1_0; }
+		public Keyword getTypeKeyword_1_0_0() { return cTypeKeyword_1_0_0; }
 		
 		//'mappings'
-		public Keyword getMappingsKeyword_1_1() { return cMappingsKeyword_1_1; }
+		public Keyword getMappingsKeyword_1_0_1() { return cMappingsKeyword_1_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_2() { return cLeftCurlyBracketKeyword_1_2; }
+		public Keyword getLeftCurlyBracketKeyword_1_0_2() { return cLeftCurlyBracketKeyword_1_0_2; }
 		
 		//typeMappings+=TypeMapping+
-		public Assignment getTypeMappingsAssignment_1_3() { return cTypeMappingsAssignment_1_3; }
+		public Assignment getTypeMappingsAssignment_1_0_3() { return cTypeMappingsAssignment_1_0_3; }
 		
 		//TypeMapping
-		public RuleCall getTypeMappingsTypeMappingParserRuleCall_1_3_0() { return cTypeMappingsTypeMappingParserRuleCall_1_3_0; }
+		public RuleCall getTypeMappingsTypeMappingParserRuleCall_1_0_3_0() { return cTypeMappingsTypeMappingParserRuleCall_1_0_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_4() { return cRightCurlyBracketKeyword_1_4; }
+		public Keyword getRightCurlyBracketKeyword_1_0_4() { return cRightCurlyBracketKeyword_1_0_4; }
+		
+		//'exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}'
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'exception'
+		public Keyword getExceptionKeyword_1_1_0() { return cExceptionKeyword_1_1_0; }
+		
+		//'mappings'
+		public Keyword getMappingsKeyword_1_1_1() { return cMappingsKeyword_1_1_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1_1_2() { return cLeftCurlyBracketKeyword_1_1_2; }
+		
+		//exceptionMappings+=ExceptionMapping+
+		public Assignment getExceptionMappingsAssignment_1_1_3() { return cExceptionMappingsAssignment_1_1_3; }
+		
+		//ExceptionMapping
+		public RuleCall getExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0() { return cExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_1_4() { return cRightCurlyBracketKeyword_1_1_4; }
 	}
 	public class TypeMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.TypeMapping");
@@ -118,10 +154,96 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1; }
 	}
+	public class ExceptionMappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.ExceptionMapping");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExceptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cNameSExceptionCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameSExceptionQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameSExceptionCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExtendsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cExtendsJvmTypeCrossReference_2_1_0 = (CrossReference)cExtendsAssignment_2_1.eContents().get(0);
+		private final RuleCall cExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1 = (RuleCall)cExtendsJvmTypeCrossReference_2_1_0.eContents().get(1);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
+		private final Keyword cMessageKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cMessageAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final RuleCall cMessageSTRINGTerminalRuleCall_3_0_1_0 = (RuleCall)cMessageAssignment_3_0_1.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
+		private final Keyword cPackageKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cPackageAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cPackageSTRINGTerminalRuleCall_3_1_1_0 = (RuleCall)cPackageAssignment_3_1_1.eContents().get(0);
+		
+		//ExceptionMapping:
+		//	'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
+		//	message=STRING)? & ('package' package=STRING)?);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
+		//message=STRING)? & ('package' package=STRING)?)
+		public Group getGroup() { return cGroup; }
+		
+		//'exception'
+		public Keyword getExceptionKeyword_0() { return cExceptionKeyword_0; }
+		
+		//name=[asm::SException|QualifiedName]
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//[asm::SException|QualifiedName]
+		public CrossReference getNameSExceptionCrossReference_1_0() { return cNameSExceptionCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getNameSExceptionQualifiedNameParserRuleCall_1_0_1() { return cNameSExceptionQualifiedNameParserRuleCall_1_0_1; }
+		
+		//('extends' extends=[jvmTypes::JvmType|QualifiedName])?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'extends'
+		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		
+		//extends=[jvmTypes::JvmType|QualifiedName]
+		public Assignment getExtendsAssignment_2_1() { return cExtendsAssignment_2_1; }
+		
+		//[jvmTypes::JvmType|QualifiedName]
+		public CrossReference getExtendsJvmTypeCrossReference_2_1_0() { return cExtendsJvmTypeCrossReference_2_1_0; }
+		
+		//QualifiedName
+		public RuleCall getExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1() { return cExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1; }
+		
+		//(('message' message=STRING)? & ('package' package=STRING)?)
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+		
+		//('message' message=STRING)?
+		public Group getGroup_3_0() { return cGroup_3_0; }
+		
+		//'message'
+		public Keyword getMessageKeyword_3_0_0() { return cMessageKeyword_3_0_0; }
+		
+		//message=STRING
+		public Assignment getMessageAssignment_3_0_1() { return cMessageAssignment_3_0_1; }
+		
+		//STRING
+		public RuleCall getMessageSTRINGTerminalRuleCall_3_0_1_0() { return cMessageSTRINGTerminalRuleCall_3_0_1_0; }
+		
+		//('package' package=STRING)?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'package'
+		public Keyword getPackageKeyword_3_1_0() { return cPackageKeyword_3_1_0; }
+		
+		//package=STRING
+		public Assignment getPackageAssignment_3_1_1() { return cPackageAssignment_3_1_1; }
+		
+		//STRING
+		public RuleCall getPackageSTRINGTerminalRuleCall_3_1_1_0() { return cPackageSTRINGTerminalRuleCall_3_1_1_0; }
+	}
 	
 	
 	private final ModelElements pModel;
 	private final TypeMappingElements pTypeMapping;
+	private final ExceptionMappingElements pExceptionMapping;
 	
 	private final Grammar grammar;
 	
@@ -138,6 +260,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXtype = gaXtype;
 		this.pModel = new ModelElements();
 		this.pTypeMapping = new TypeMappingElements();
+		this.pExceptionMapping = new ExceptionMappingElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -172,7 +295,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?;
+	//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{'
+	//	exceptionMappings+=ExceptionMapping+ '}')?;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -190,6 +314,17 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTypeMappingRule() {
 		return getTypeMappingAccess().getRule();
+	}
+	
+	//ExceptionMapping:
+	//	'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
+	//	message=STRING)? & ('package' package=STRING)?);
+	public ExceptionMappingElements getExceptionMappingAccess() {
+		return pExceptionMapping;
+	}
+	
+	public ParserRule getExceptionMappingRule() {
+		return getExceptionMappingAccess().getRule();
 	}
 	
 	//XExpression:

@@ -7,6 +7,8 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/xbase/scoping/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/xbase/compiler/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/generator/**"/>
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>

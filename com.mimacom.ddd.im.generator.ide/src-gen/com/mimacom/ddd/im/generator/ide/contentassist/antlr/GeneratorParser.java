@@ -71,8 +71,13 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1(), "rule__XImportDeclaration__Alternatives_1");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-			builder.put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
+			builder.put(grammarAccess.getModelAccess().getGroup_1_0(), "rule__Model__Group_1_0__0");
+			builder.put(grammarAccess.getModelAccess().getGroup_1_1(), "rule__Model__Group_1_1__0");
 			builder.put(grammarAccess.getTypeMappingAccess().getGroup(), "rule__TypeMapping__Group__0");
+			builder.put(grammarAccess.getExceptionMappingAccess().getGroup(), "rule__ExceptionMapping__Group__0");
+			builder.put(grammarAccess.getExceptionMappingAccess().getGroup_2(), "rule__ExceptionMapping__Group_2__0");
+			builder.put(grammarAccess.getExceptionMappingAccess().getGroup_3_0(), "rule__ExceptionMapping__Group_3_0__0");
+			builder.put(grammarAccess.getExceptionMappingAccess().getGroup_3_1(), "rule__ExceptionMapping__Group_3_1__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -253,9 +258,14 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 			builder.put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
 			builder.put(grammarAccess.getModelAccess().getImportSectionAssignment_0(), "rule__Model__ImportSectionAssignment_0");
-			builder.put(grammarAccess.getModelAccess().getTypeMappingsAssignment_1_3(), "rule__Model__TypeMappingsAssignment_1_3");
+			builder.put(grammarAccess.getModelAccess().getTypeMappingsAssignment_1_0_3(), "rule__Model__TypeMappingsAssignment_1_0_3");
+			builder.put(grammarAccess.getModelAccess().getExceptionMappingsAssignment_1_1_3(), "rule__Model__ExceptionMappingsAssignment_1_1_3");
 			builder.put(grammarAccess.getTypeMappingAccess().getNameAssignment_1(), "rule__TypeMapping__NameAssignment_1");
 			builder.put(grammarAccess.getTypeMappingAccess().getJavaTypeAssignment_4(), "rule__TypeMapping__JavaTypeAssignment_4");
+			builder.put(grammarAccess.getExceptionMappingAccess().getNameAssignment_1(), "rule__ExceptionMapping__NameAssignment_1");
+			builder.put(grammarAccess.getExceptionMappingAccess().getExtendsAssignment_2_1(), "rule__ExceptionMapping__ExtendsAssignment_2_1");
+			builder.put(grammarAccess.getExceptionMappingAccess().getMessageAssignment_3_0_1(), "rule__ExceptionMapping__MessageAssignment_3_0_1");
+			builder.put(grammarAccess.getExceptionMappingAccess().getPackageAssignment_3_1_1(), "rule__ExceptionMapping__PackageAssignment_3_1_1");
 			builder.put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 			builder.put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 			builder.put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");
@@ -400,6 +410,8 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getXImportDeclarationAccess().getMemberNameAssignment_1_0_3_1(), "rule__XImportDeclaration__MemberNameAssignment_1_0_3_1");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_1_1");
 			builder.put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_1_2");
+			builder.put(grammarAccess.getModelAccess().getUnorderedGroup_1(), "rule__Model__UnorderedGroup_1");
+			builder.put(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3(), "rule__ExceptionMapping__UnorderedGroup_3");
 		}
 	}
 	

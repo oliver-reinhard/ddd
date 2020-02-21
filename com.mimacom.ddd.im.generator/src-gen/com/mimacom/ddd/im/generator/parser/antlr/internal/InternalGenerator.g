@@ -96,41 +96,111 @@ ruleModel returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_1='type'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getModelAccess().getTypeKeyword_1_0());
-			}
-			otherlv_2='mappings'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getModelAccess().getMappingsKeyword_1_1());
-			}
-			otherlv_3='{'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2());
-			}
 			(
+				{ 
+				  getUnorderedGroupHelper().enter(grammarAccess.getModelAccess().getUnorderedGroup_1());
+				}
 				(
+					(
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModelAccess().getUnorderedGroup_1(), 0)}?=>(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getTypeMappingsTypeMappingParserRuleCall_1_3_0());
+						getUnorderedGroupHelper().select(grammarAccess.getModelAccess().getUnorderedGroup_1(), 0);
 					}
-					lv_typeMappings_4_0=ruleTypeMapping
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getModelRule());
-						}
-						add(
-							$current,
-							"typeMappings",
-							lv_typeMappings_4_0,
-							"com.mimacom.ddd.im.generator.Generator.TypeMapping");
-						afterParserOrEnumRuleCall();
+								({true}?=>(otherlv_2='type'
+								{
+									newLeafNode(otherlv_2, grammarAccess.getModelAccess().getTypeKeyword_1_0_0());
+								}
+								otherlv_3='mappings'
+								{
+									newLeafNode(otherlv_3, grammarAccess.getModelAccess().getMappingsKeyword_1_0_1());
+								}
+								otherlv_4='{'
+								{
+									newLeafNode(otherlv_4, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_0_2());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getModelAccess().getTypeMappingsTypeMappingParserRuleCall_1_0_3_0());
+										}
+										lv_typeMappings_5_0=ruleTypeMapping
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getModelRule());
+											}
+											add(
+												$current,
+												"typeMappings",
+												lv_typeMappings_5_0,
+												"com.mimacom.ddd.im.generator.Generator.TypeMapping");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)+
+								otherlv_6='}'
+								{
+									newLeafNode(otherlv_6, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_0_4());
+								}
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModelAccess().getUnorderedGroup_1());
 					}
 				)
-			)+
-			otherlv_5='}'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_4());
-			}
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModelAccess().getUnorderedGroup_1(), 1)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getModelAccess().getUnorderedGroup_1(), 1);
+					}
+								({true}?=>(otherlv_7='exception'
+								{
+									newLeafNode(otherlv_7, grammarAccess.getModelAccess().getExceptionKeyword_1_1_0());
+								}
+								otherlv_8='mappings'
+								{
+									newLeafNode(otherlv_8, grammarAccess.getModelAccess().getMappingsKeyword_1_1_1());
+								}
+								otherlv_9='{'
+								{
+									newLeafNode(otherlv_9, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_1_2());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getModelAccess().getExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0());
+										}
+										lv_exceptionMappings_10_0=ruleExceptionMapping
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getModelRule());
+											}
+											add(
+												$current,
+												"exceptionMappings",
+												lv_exceptionMappings_10_0,
+												"com.mimacom.ddd.im.generator.Generator.ExceptionMapping");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)+
+								otherlv_11='}'
+								{
+									newLeafNode(otherlv_11, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_1_4());
+								}
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModelAccess().getUnorderedGroup_1());
+					}
+				)
+			)
+					)+
+					{getUnorderedGroupHelper().canLeave(grammarAccess.getModelAccess().getUnorderedGroup_1())}?
+				)
+			)
+				{ 
+				  getUnorderedGroupHelper().leave(grammarAccess.getModelAccess().getUnorderedGroup_1());
+				}
 		)?
 	)
 ;
@@ -194,6 +264,147 @@ ruleTypeMapping returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)
+	)
+;
+
+// Entry rule entryRuleExceptionMapping
+entryRuleExceptionMapping returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExceptionMappingRule()); }
+	iv_ruleExceptionMapping=ruleExceptionMapping
+	{ $current=$iv_ruleExceptionMapping.current; }
+	EOF;
+
+// Rule ExceptionMapping
+ruleExceptionMapping returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='exception'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getExceptionMappingAccess().getExceptionKeyword_0());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExceptionMappingRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getExceptionMappingAccess().getNameSExceptionCrossReference_1_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_2='extends'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExceptionMappingAccess().getExtendsKeyword_2_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExceptionMappingRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getExceptionMappingAccess().getExtendsJvmTypeCrossReference_2_1_0());
+					}
+					ruleQualifiedName
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				{ 
+				  getUnorderedGroupHelper().enter(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3());
+				}
+				(
+					(
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3(), 0)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3(), 0);
+					}
+								({true}?=>(otherlv_5='message'
+								{
+									newLeafNode(otherlv_5, grammarAccess.getExceptionMappingAccess().getMessageKeyword_3_0_0());
+								}
+								(
+									(
+										lv_message_6_0=RULE_STRING
+										{
+											newLeafNode(lv_message_6_0, grammarAccess.getExceptionMappingAccess().getMessageSTRINGTerminalRuleCall_3_0_1_0());
+										}
+										{
+											if ($current==null) {
+												$current = createModelElement(grammarAccess.getExceptionMappingRule());
+											}
+											setWithLastConsumed(
+												$current,
+												"message",
+												lv_message_6_0,
+												"org.eclipse.xtext.xbase.Xtype.STRING");
+										}
+									)
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3(), 1)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3(), 1);
+					}
+								({true}?=>(otherlv_7='package'
+								{
+									newLeafNode(otherlv_7, grammarAccess.getExceptionMappingAccess().getPackageKeyword_3_1_0());
+								}
+								(
+									(
+										lv_package_8_0=RULE_STRING
+										{
+											newLeafNode(lv_package_8_0, grammarAccess.getExceptionMappingAccess().getPackageSTRINGTerminalRuleCall_3_1_1_0());
+										}
+										{
+											if ($current==null) {
+												$current = createModelElement(grammarAccess.getExceptionMappingRule());
+											}
+											setWithLastConsumed(
+												$current,
+												"package",
+												lv_package_8_0,
+												"org.eclipse.xtext.xbase.Xtype.STRING");
+										}
+									)
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3());
+					}
+				)
+			)
+					)*
+				)
+			)
+				{ 
+				  getUnorderedGroupHelper().leave(grammarAccess.getExceptionMappingAccess().getUnorderedGroup_3());
+				}
 		)
 	)
 ;

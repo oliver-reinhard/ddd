@@ -3,10 +3,12 @@
  */
 package com.mimacom.ddd.im.generator;
 
+import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
+import com.mimacom.ddd.im.generator.generator.CompositeGenerator;
 import com.mimacom.ddd.im.generator.scoping.GeneratorImportNamespaceScopeProvider;
 
 /**
@@ -20,6 +22,11 @@ public class GeneratorRuntimeModule extends AbstractGeneratorRuntimeModule {
     binder.bind(IScopeProvider.class)
         .annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
         .to(GeneratorImportNamespaceScopeProvider.class);
+  }
+  
+  @Override
+  public Class<? extends IGenerator> bindIGenerator() {
+    return CompositeGenerator.class;
   }
 
 }

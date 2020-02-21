@@ -20,6 +20,7 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getTypeMappings <em>Type Mappings</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getExceptionMappings <em>Exception Mappings</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel()
@@ -61,5 +62,17 @@ public interface Model extends EObject
    * @generated
    */
   EList<TypeMapping> getTypeMappings();
+
+  /**
+   * Returns the value of the '<em><b>Exception Mappings</b></em>' containment reference list.
+   * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.ExceptionMapping}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exception Mappings</em>' containment reference list.
+   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_ExceptionMappings()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExceptionMapping> getExceptionMappings();
 
 } // Model

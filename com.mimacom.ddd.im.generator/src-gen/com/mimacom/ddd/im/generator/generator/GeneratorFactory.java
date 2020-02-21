@@ -42,6 +42,15 @@ public interface GeneratorFactory extends EFactory
   TypeMapping createTypeMapping();
 
   /**
+   * Returns a new object of class '<em>Exception Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exception Mapping</em>'.
+   * @generated
+   */
+  ExceptionMapping createExceptionMapping();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

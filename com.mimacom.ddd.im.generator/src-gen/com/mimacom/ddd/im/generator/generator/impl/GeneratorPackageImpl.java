@@ -5,11 +5,17 @@ package com.mimacom.ddd.im.generator.generator.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
+import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorFactory;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;
 
+import com.mimacom.ddd.sm.asm.AsmPackage;
+
+import com.mimacom.ddd.sm.sim.SimPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -41,6 +47,13 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   private EClass typeMappingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exceptionMappingEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -93,8 +106,10 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     // Initialize simple dependencies
     BasePackage.eINSTANCE.eClass();
+    AsmPackage.eINSTANCE.eClass();
     TypesPackage.eINSTANCE.eClass();
     XtypePackage.eINSTANCE.eClass();
+    SimPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theGeneratorPackage.createPackageContents();
@@ -149,6 +164,17 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
+  public EReference getModel_ExceptionMappings()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTypeMapping()
   {
     return typeMappingEClass;
@@ -174,6 +200,61 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
   public EReference getTypeMapping_JavaType()
   {
     return (EReference)typeMappingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExceptionMapping()
+  {
+    return exceptionMappingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExceptionMapping_Name()
+  {
+    return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExceptionMapping_Extends()
+  {
+    return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExceptionMapping_Message()
+  {
+    return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExceptionMapping_Package()
+  {
+    return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -210,10 +291,17 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__IMPORT_SECTION);
     createEReference(modelEClass, MODEL__TYPE_MAPPINGS);
+    createEReference(modelEClass, MODEL__EXCEPTION_MAPPINGS);
 
     typeMappingEClass = createEClass(TYPE_MAPPING);
     createEReference(typeMappingEClass, TYPE_MAPPING__NAME);
     createEReference(typeMappingEClass, TYPE_MAPPING__JAVA_TYPE);
+
+    exceptionMappingEClass = createEClass(EXCEPTION_MAPPING);
+    createEReference(exceptionMappingEClass, EXCEPTION_MAPPING__NAME);
+    createEReference(exceptionMappingEClass, EXCEPTION_MAPPING__EXTENDS);
+    createEAttribute(exceptionMappingEClass, EXCEPTION_MAPPING__MESSAGE);
+    createEAttribute(exceptionMappingEClass, EXCEPTION_MAPPING__PACKAGE);
   }
 
   /**
@@ -244,6 +332,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
     BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+    AsmPackage theAsmPackage = (AsmPackage)EPackage.Registry.INSTANCE.getEPackage(AsmPackage.eNS_URI);
 
     // Create type parameters
 
@@ -255,10 +344,17 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_TypeMappings(), this.getTypeMapping(), null, "typeMappings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_ExceptionMappings(), this.getExceptionMapping(), null, "exceptionMappings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeMappingEClass, TypeMapping.class, "TypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeMapping_Name(), theBasePackage.getDType(), null, "name", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeMapping_JavaType(), theTypesPackage.getJvmType(), null, "javaType", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exceptionMappingEClass, ExceptionMapping.class, "ExceptionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExceptionMapping_Name(), theAsmPackage.getSException(), null, "name", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExceptionMapping_Extends(), theTypesPackage.getJvmType(), null, "extends", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExceptionMapping_Message(), ecorePackage.getEString(), "message", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExceptionMapping_Package(), ecorePackage.getEString(), "package", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -5,13 +5,24 @@ generate generator "http://www.mimacom.com/ddd/im/generator/Generator"
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
 import "http://www.mimacom.com/ddd/dm/base" as base
 import "http://www.mimacom.com/ddd/dm/dmx"
-import "http://www.mimacom.com/ddd/sm/asm"
+import "http://www.mimacom.com/ddd/sm/asm" as asm
 
 Model:
 	importSection=XImportSection?
-	('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?;
+	(
+		('type' 'mappings' '{' typeMappings+=TypeMapping+ '}') &
+		('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')
+	)?;
 
 TypeMapping:
 	'datatype' name=[base::DType|QualifiedName]
   	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
 
+ExceptionMapping:
+	'exception' name=[asm::SException|QualifiedName]
+	('extends' extends=[jvmTypes::JvmType|QualifiedName])?
+	(
+		('message' message=STRING)? & ('package' package=STRING)?
+	)
+	
+;
