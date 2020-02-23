@@ -21,9 +21,9 @@ PubPublication returns Publication:
 	PubReferenceTargetName
 	title=STRING
 	'class:' publicationClass=[proto::PublicationClass|ID]
+	PubGenerate
 	symbols+=PubSymbol*
-	'includes:' 
-	includes+=[Component|ID]*;
+	('include:' includes+=[Component|ID])*;
 
 PubComponent returns Component:
 	{Component}
@@ -31,9 +31,14 @@ PubComponent returns Component:
 	PubReferenceTargetName
 	title=STRING
 	'class:' publicationClass=[proto::PublicationClass|ID]
+	PubGenerate
 	symbols+=PubSymbol*
 	segments+=PubDocumentSegment*;
 
+fragment PubGenerate returns Document:
+	'generate'
+	 generateHtml?='html'? & generateLaTeX?='latex'? & generateMarkdown?='markdown'? & generateAsciiDoc?='asciidoc'?;
+	
 PubSymbol returns Symbol:
 	'symbol:'
 	name=ID '=' value=DRichText
@@ -173,7 +178,7 @@ PubPublicationBody returns PublicationBody:
 	{PublicationBody}
 	'Body'
 	'{'
-	divisions+=(PubPart | PubAppendix | PubChapter)*
+	divisions+=(PubPart | PubAppendix | PubChapter | PubSection)*
 	'}';
 	
 //
@@ -213,7 +218,7 @@ PubChapter returns Chapter:
 	'Chapter'
 	(	PubDivisionHeader
 		contents+=PubContentBlock*
-		divisions+=PubSection*
+		(-> divisions+=PubSection)*
 	|	PubDivisionIncludeHeader
 		include=[Chapter|DQualifiedName]
 		('as' title=DRichText)?

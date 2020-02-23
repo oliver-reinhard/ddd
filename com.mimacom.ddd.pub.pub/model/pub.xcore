@@ -29,6 +29,10 @@ enum PublicationNature {
 
 abstract class Document extends ReferenceTarget {
 	String title
+	boolean generateHtml
+	boolean generateLaTeX
+	boolean generateMarkdown
+	boolean generateAsciiDoc
 	contains Symbol[] symbols
 	refers PublicationClass publicationClass
 	op Symbol getSymbol(String name) {
@@ -62,6 +66,7 @@ interface ReferenceTarget {
 class Reference extends DExpression {
 	ReferenceScope scope
 	refers ReferenceTarget target
+	boolean pageReference
 }
 
 enum ReferenceScope {
@@ -105,7 +110,7 @@ enum ReferenceScope {
 //
 abstract class DocumentSegment extends ReferenceTarget {
 	op String getName() {
-		class.simpleName.replace("Impl", "").toLowerCase
+		eClass.name.toLowerCase
 	}
 	op void setName(String name) {
 		throw new UnsupportedOperationException

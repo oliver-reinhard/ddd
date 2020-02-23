@@ -3,7 +3,7 @@ package com.mimacom.ddd.pub.pub;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.dmx.RichTextUtil;
+import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.RichTextParagraph;
@@ -142,8 +142,8 @@ public class PubTableUtil {
    * the element from its old {@code eContainer}.
    */
   public TableCell addRichTextCell(final TableRow row, final DRichText text) {
-    boolean _empty = this._richTextUtil.empty(text);
-    if (_empty) {
+    boolean _isEmpty = this._richTextUtil.isEmpty(text);
+    if (_isEmpty) {
       return this.addSimpleCell(row, "");
     }
     final TableCell cell = PubTableUtil.PUB.createTableCell();

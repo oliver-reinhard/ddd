@@ -338,7 +338,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 				sequence_PubChapter_PubDivisionHeader_PubReferenceTargetName(context, (Chapter) semanticObject); 
 				return; 
 			case PubPackage.COMPONENT:
-				sequence_PubComponent_PubReferenceTargetName(context, (Component) semanticObject); 
+				sequence_PubComponent_PubGenerate_PubReferenceTargetName(context, (Component) semanticObject); 
 				return; 
 			case PubPackage.EPILOGUE:
 				sequence_PubEpilogue(context, (Epilogue) semanticObject); 
@@ -389,7 +389,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 				sequence_PubModel(context, (PubModel) semanticObject); 
 				return; 
 			case PubPackage.PUBLICATION:
-				sequence_PubPublication_PubReferenceTargetName(context, (Publication) semanticObject); 
+				sequence_PubGenerate_PubPublication_PubReferenceTargetName(context, (Publication) semanticObject); 
 				return; 
 			case PubPackage.PUBLICATION_BODY:
 				sequence_PubPublicationBody(context, (PublicationBody) semanticObject); 
@@ -680,9 +680,16 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubComponent returns Component
 	 *
 	 * Constraint:
-	 *     (name=ID title=STRING publicationClass=[PublicationClass|ID] symbols+=PubSymbol* segments+=PubDocumentSegment*)
+	 *     (
+	 *         name=ID 
+	 *         title=STRING 
+	 *         publicationClass=[PublicationClass|ID] 
+	 *         (generateHtml?='html' | generateLaTeX?='latex' | generateMarkdown?='markdown' | generateAsciiDoc?='asciidoc')* 
+	 *         symbols+=PubSymbol* 
+	 *         segments+=PubDocumentSegment*
+	 *     )
 	 */
-	protected void sequence_PubComponent_PubReferenceTargetName(ISerializationContext context, Component semanticObject) {
+	protected void sequence_PubComponent_PubGenerate_PubReferenceTargetName(ISerializationContext context, Component semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -770,6 +777,26 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     (name=ID? title=DRichText figure=AbstractFigure)
 	 */
 	protected void sequence_PubFigure_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, TitledFigure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PubDocument returns Publication
+	 *     PubPublication returns Publication
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         title=STRING 
+	 *         publicationClass=[PublicationClass|ID] 
+	 *         (generateHtml?='html' | generateLaTeX?='latex' | generateMarkdown?='markdown' | generateAsciiDoc?='asciidoc')* 
+	 *         symbols+=PubSymbol* 
+	 *         includes+=[Component|ID]*
+	 *     )
+	 */
+	protected void sequence_PubGenerate_PubPublication_PubReferenceTargetName(ISerializationContext context, Publication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -924,22 +951,9 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubPublicationBody returns PublicationBody
 	 *
 	 * Constraint:
-	 *     (divisions+=PubPart | divisions+=PubAppendix | divisions+=PubChapter)*
+	 *     (divisions+=PubPart | divisions+=PubAppendix | divisions+=PubChapter | divisions+=PubSection)*
 	 */
 	protected void sequence_PubPublicationBody(ISerializationContext context, PublicationBody semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PubDocument returns Publication
-	 *     PubPublication returns Publication
-	 *
-	 * Constraint:
-	 *     (name=ID title=STRING publicationClass=[PublicationClass|ID] symbols+=PubSymbol* includes+=[Component|ID]*)
-	 */
-	protected void sequence_PubPublication_PubReferenceTargetName(ISerializationContext context, Publication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

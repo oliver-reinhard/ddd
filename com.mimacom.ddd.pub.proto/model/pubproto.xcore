@@ -9,8 +9,10 @@ import com.mimacom.ddd.dm.base.DRichText
 class PublicationClass {
 	String name  // id
 	PublicationNature nature
+	String laTeXClass
 	contains ProtoSymbol[] symbols
-	contains DRichText preamble
+	contains DRichText laTeXPreamble
+	contains DRichText htmlPreamble
 	contains ProtoDocumentSegment[] segments opposite parent
 	contains ProtoDivision[] divisions
 }
@@ -27,7 +29,7 @@ class ProtoSymbolReference extends DExpression {
 
 abstract class ProtoDocumentSegment {
 	derived String name get {
-		class.simpleName.replace("Impl", "").toLowerCase
+		eClass.name.toLowerCase
 	}
 	String title
 	boolean optional = "false"
@@ -69,7 +71,7 @@ class ProtoIndex extends ProtoDocumentSegment { }
 
 abstract class ProtoDivision { 
 	derived String name get {
-		class.simpleName.replace("Impl", "").toLowerCase
+		eClass.name.toLowerCase
 	}
 	ProtoSequenceNumberStyle numberingStyle
 }

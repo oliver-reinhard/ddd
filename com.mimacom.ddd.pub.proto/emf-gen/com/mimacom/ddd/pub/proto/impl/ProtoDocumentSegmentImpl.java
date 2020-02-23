@@ -110,7 +110,7 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 */
 	@Override
 	public String getName() {
-		return this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
+		return this.eClass().getName().toLowerCase();
 	}
 
 	/**

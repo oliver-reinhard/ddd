@@ -43,27 +43,37 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSymbolsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cSymbolsProtoSymbolParserRuleCall_6_1_0 = (RuleCall)cSymbolsAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cPreambleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cPreambleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPreambleDRichTextParserRuleCall_7_1_0 = (RuleCall)cPreambleAssignment_7_1.eContents().get(0);
-		private final Keyword cSegmentsKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cSegmentsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cSegmentsProtoDocumentSegmentParserRuleCall_9_0 = (RuleCall)cSegmentsAssignment_9.eContents().get(0);
-		private final Keyword cDivisionsKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cDivisionsAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cDivisionsProtoDivisionParserRuleCall_11_0 = (RuleCall)cDivisionsAssignment_11.eContents().get(0);
+		private final Keyword cHtmlPreambleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cHtmlPreambleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cHtmlPreambleDRichTextParserRuleCall_7_1_0 = (RuleCall)cHtmlPreambleAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cLatexClassKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cLaTeXClassAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cLaTeXClassIDTerminalRuleCall_8_1_0 = (RuleCall)cLaTeXClassAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cLatexPreambleKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cLaTeXPreambleAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cLaTeXPreambleDRichTextParserRuleCall_9_1_0 = (RuleCall)cLaTeXPreambleAssignment_9_1.eContents().get(0);
+		private final Keyword cSegmentsKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cSegmentsAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cSegmentsProtoDocumentSegmentParserRuleCall_11_0 = (RuleCall)cSegmentsAssignment_11.eContents().get(0);
+		private final Keyword cDivisionsKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cDivisionsAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cDivisionsProtoDivisionParserRuleCall_13_0 = (RuleCall)cDivisionsAssignment_13.eContents().get(0);
 		
 		//PublicationClass:
 		//	{PublicationClass}
 		//	'publication' 'class'
 		//	name=ID
-		//	'nature:' nature=PublicationNature ('symbol:' symbols+=ProtoSymbol)* ('preamble:' preamble=DRichText)?
+		//	'nature:' nature=PublicationNature ('symbol:' symbols+=ProtoSymbol)* ('htmlPreamble:' htmlPreamble=DRichText)?
+		//	('latexClass:' laTeXClass=ID)? ('latexPreamble:' laTeXPreamble=DRichText)?
 		//	'segments:' segments+=ProtoDocumentSegment*
 		//	'divisions:' divisions+=ProtoDivision*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PublicationClass} 'publication' 'class' name=ID 'nature:' nature=PublicationNature ('symbol:' symbols+=ProtoSymbol)*
-		//('preamble:' preamble=DRichText)? 'segments:' segments+=ProtoDocumentSegment* 'divisions:' divisions+=ProtoDivision*
+		//('htmlPreamble:' htmlPreamble=DRichText)? ('latexClass:' laTeXClass=ID)? ('latexPreamble:' laTeXPreamble=DRichText)?
+		//'segments:' segments+=ProtoDocumentSegment* 'divisions:' divisions+=ProtoDivision*
 		public Group getGroup() { return cGroup; }
 		
 		//{PublicationClass}
@@ -102,35 +112,59 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		//ProtoSymbol
 		public RuleCall getSymbolsProtoSymbolParserRuleCall_6_1_0() { return cSymbolsProtoSymbolParserRuleCall_6_1_0; }
 		
-		//('preamble:' preamble=DRichText)?
+		//('htmlPreamble:' htmlPreamble=DRichText)?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'preamble:'
-		public Keyword getPreambleKeyword_7_0() { return cPreambleKeyword_7_0; }
+		//'htmlPreamble:'
+		public Keyword getHtmlPreambleKeyword_7_0() { return cHtmlPreambleKeyword_7_0; }
 		
-		//preamble=DRichText
-		public Assignment getPreambleAssignment_7_1() { return cPreambleAssignment_7_1; }
+		//htmlPreamble=DRichText
+		public Assignment getHtmlPreambleAssignment_7_1() { return cHtmlPreambleAssignment_7_1; }
 		
 		//DRichText
-		public RuleCall getPreambleDRichTextParserRuleCall_7_1_0() { return cPreambleDRichTextParserRuleCall_7_1_0; }
+		public RuleCall getHtmlPreambleDRichTextParserRuleCall_7_1_0() { return cHtmlPreambleDRichTextParserRuleCall_7_1_0; }
+		
+		//('latexClass:' laTeXClass=ID)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'latexClass:'
+		public Keyword getLatexClassKeyword_8_0() { return cLatexClassKeyword_8_0; }
+		
+		//laTeXClass=ID
+		public Assignment getLaTeXClassAssignment_8_1() { return cLaTeXClassAssignment_8_1; }
+		
+		//ID
+		public RuleCall getLaTeXClassIDTerminalRuleCall_8_1_0() { return cLaTeXClassIDTerminalRuleCall_8_1_0; }
+		
+		//('latexPreamble:' laTeXPreamble=DRichText)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'latexPreamble:'
+		public Keyword getLatexPreambleKeyword_9_0() { return cLatexPreambleKeyword_9_0; }
+		
+		//laTeXPreamble=DRichText
+		public Assignment getLaTeXPreambleAssignment_9_1() { return cLaTeXPreambleAssignment_9_1; }
+		
+		//DRichText
+		public RuleCall getLaTeXPreambleDRichTextParserRuleCall_9_1_0() { return cLaTeXPreambleDRichTextParserRuleCall_9_1_0; }
 		
 		//'segments:'
-		public Keyword getSegmentsKeyword_8() { return cSegmentsKeyword_8; }
+		public Keyword getSegmentsKeyword_10() { return cSegmentsKeyword_10; }
 		
 		//segments+=ProtoDocumentSegment*
-		public Assignment getSegmentsAssignment_9() { return cSegmentsAssignment_9; }
+		public Assignment getSegmentsAssignment_11() { return cSegmentsAssignment_11; }
 		
 		//ProtoDocumentSegment
-		public RuleCall getSegmentsProtoDocumentSegmentParserRuleCall_9_0() { return cSegmentsProtoDocumentSegmentParserRuleCall_9_0; }
+		public RuleCall getSegmentsProtoDocumentSegmentParserRuleCall_11_0() { return cSegmentsProtoDocumentSegmentParserRuleCall_11_0; }
 		
 		//'divisions:'
-		public Keyword getDivisionsKeyword_10() { return cDivisionsKeyword_10; }
+		public Keyword getDivisionsKeyword_12() { return cDivisionsKeyword_12; }
 		
 		//divisions+=ProtoDivision*
-		public Assignment getDivisionsAssignment_11() { return cDivisionsAssignment_11; }
+		public Assignment getDivisionsAssignment_13() { return cDivisionsAssignment_13; }
 		
 		//ProtoDivision
-		public RuleCall getDivisionsProtoDivisionParserRuleCall_11_0() { return cDivisionsProtoDivisionParserRuleCall_11_0; }
+		public RuleCall getDivisionsProtoDivisionParserRuleCall_13_0() { return cDivisionsProtoDivisionParserRuleCall_13_0; }
 	}
 	public class ProtoSymbolElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.proto.PubProto.ProtoSymbol");
@@ -1230,7 +1264,8 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 	//	{PublicationClass}
 	//	'publication' 'class'
 	//	name=ID
-	//	'nature:' nature=PublicationNature ('symbol:' symbols+=ProtoSymbol)* ('preamble:' preamble=DRichText)?
+	//	'nature:' nature=PublicationNature ('symbol:' symbols+=ProtoSymbol)* ('htmlPreamble:' htmlPreamble=DRichText)?
+	//	('latexClass:' laTeXClass=ID)? ('latexPreamble:' laTeXPreamble=DRichText)?
 	//	'segments:' segments+=ProtoDocumentSegment*
 	//	'divisions:' divisions+=ProtoDivision*;
 	public PublicationClassElements getPublicationClassAccess() {

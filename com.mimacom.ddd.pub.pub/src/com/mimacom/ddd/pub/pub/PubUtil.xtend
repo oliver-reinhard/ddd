@@ -6,7 +6,6 @@ import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
-import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations
 import com.mimacom.ddd.pub.proto.ProtoAbstract
 import com.mimacom.ddd.pub.proto.ProtoAppendix
@@ -27,10 +26,20 @@ import com.mimacom.ddd.pub.proto.ProtoSection
 import com.mimacom.ddd.pub.proto.ProtoSubsection
 import com.mimacom.ddd.pub.proto.ProtoSubsubsection
 import com.mimacom.ddd.pub.proto.ProtoTOC
+import org.eclipse.emf.ecore.EObject
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 
 class PubUtil {
 	
-	@Inject extension RichTextUtil
+	@Inject extension DmxRichTextUtil
+	
+	def dispatch String displayName(EObject obj) {
+		obj.eClass.name.replace("Titled", "")
+	}
+	
+	def dispatch String displayName(Object obj) {
+		throw new IllegalArgumentException("Unsupported object type: " + obj.class.name)
+	}
 	
 	def String guard(String subject, String alternative) {
 		if(subject !== null && ! subject.empty) return subject
@@ -79,6 +88,11 @@ class PubUtil {
 		return result.head
 	}
 
+	/**
+	 * Returns the prototype division corresponding to the given division.
+	 * 
+	 * @return null if no corresponding prototype division was found, or the first one if several prototype division match
+	 */
 	def ProtoDivision prototype(Division div) {
 		val prototypeType = switch div {
 			Appendix:
@@ -122,6 +136,10 @@ class PubUtil {
 					default:
 						throw new IllegalArgumentException("Unsupported content-block type: " + expr.class.name)
 				}
+			}
+			
+			override protected escape(String plainText) {
+				return plainText
 			}
 			
 		}

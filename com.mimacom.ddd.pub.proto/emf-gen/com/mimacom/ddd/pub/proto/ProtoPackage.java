@@ -87,22 +87,40 @@ public interface ProtoPackage extends EPackage {
 	int PUBLICATION_CLASS__NATURE = 1;
 
 	/**
+	 * The feature id for the '<em><b>La Te XClass</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION_CLASS__LA_TE_XCLASS = 2;
+
+	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS__SYMBOLS = 2;
+	int PUBLICATION_CLASS__SYMBOLS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Preamble</b></em>' containment reference.
+	 * The feature id for the '<em><b>La Te XPreamble</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS__PREAMBLE = 3;
+	int PUBLICATION_CLASS__LA_TE_XPREAMBLE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Html Preamble</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION_CLASS__HTML_PREAMBLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
@@ -111,7 +129,7 @@ public interface ProtoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS__SEGMENTS = 4;
+	int PUBLICATION_CLASS__SEGMENTS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -120,7 +138,7 @@ public interface ProtoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS__DIVISIONS = 5;
+	int PUBLICATION_CLASS__DIVISIONS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Publication Class</em>' class.
@@ -129,7 +147,7 @@ public interface ProtoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLICATION_CLASS_FEATURE_COUNT = 6;
+	int PUBLICATION_CLASS_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Publication Class</em>' class.
@@ -1449,6 +1467,17 @@ public interface ProtoPackage extends EPackage {
 	EAttribute getPublicationClass_Nature();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXClass <em>La Te XClass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>La Te XClass</em>'.
+	 * @see com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXClass()
+	 * @see #getPublicationClass()
+	 * @generated
+	 */
+	EAttribute getPublicationClass_LaTeXClass();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.proto.PublicationClass#getSymbols <em>Symbols</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1460,15 +1489,26 @@ public interface ProtoPackage extends EPackage {
 	EReference getPublicationClass_Symbols();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.proto.PublicationClass#getPreamble <em>Preamble</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXPreamble <em>La Te XPreamble</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Preamble</em>'.
-	 * @see com.mimacom.ddd.pub.proto.PublicationClass#getPreamble()
+	 * @return the meta object for the containment reference '<em>La Te XPreamble</em>'.
+	 * @see com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXPreamble()
 	 * @see #getPublicationClass()
 	 * @generated
 	 */
-	EReference getPublicationClass_Preamble();
+	EReference getPublicationClass_LaTeXPreamble();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.proto.PublicationClass#getHtmlPreamble <em>Html Preamble</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Html Preamble</em>'.
+	 * @see com.mimacom.ddd.pub.proto.PublicationClass#getHtmlPreamble()
+	 * @see #getPublicationClass()
+	 * @generated
+	 */
+	EReference getPublicationClass_HtmlPreamble();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.proto.PublicationClass#getSegments <em>Segments</em>}'.
@@ -1903,6 +1943,14 @@ public interface ProtoPackage extends EPackage {
 		EAttribute PUBLICATION_CLASS__NATURE = eINSTANCE.getPublicationClass_Nature();
 
 		/**
+		 * The meta object literal for the '<em><b>La Te XClass</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PUBLICATION_CLASS__LA_TE_XCLASS = eINSTANCE.getPublicationClass_LaTeXClass();
+
+		/**
 		 * The meta object literal for the '<em><b>Symbols</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1911,12 +1959,20 @@ public interface ProtoPackage extends EPackage {
 		EReference PUBLICATION_CLASS__SYMBOLS = eINSTANCE.getPublicationClass_Symbols();
 
 		/**
-		 * The meta object literal for the '<em><b>Preamble</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>La Te XPreamble</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PUBLICATION_CLASS__PREAMBLE = eINSTANCE.getPublicationClass_Preamble();
+		EReference PUBLICATION_CLASS__LA_TE_XPREAMBLE = eINSTANCE.getPublicationClass_LaTeXPreamble();
+
+		/**
+		 * The meta object literal for the '<em><b>Html Preamble</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PUBLICATION_CLASS__HTML_PREAMBLE = eINSTANCE.getPublicationClass_HtmlPreamble();
 
 		/**
 		 * The meta object literal for the '<em><b>Segments</b></em>' containment reference list feature.

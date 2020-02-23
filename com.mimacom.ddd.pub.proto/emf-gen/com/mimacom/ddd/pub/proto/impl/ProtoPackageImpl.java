@@ -323,8 +323,8 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPublicationClass_Symbols() {
-		return (EReference)publicationClassEClass.getEStructuralFeatures().get(2);
+	public EAttribute getPublicationClass_LaTeXClass() {
+		return (EAttribute)publicationClassEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -333,7 +333,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPublicationClass_Preamble() {
+	public EReference getPublicationClass_Symbols() {
 		return (EReference)publicationClassEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -343,7 +343,7 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPublicationClass_Segments() {
+	public EReference getPublicationClass_LaTeXPreamble() {
 		return (EReference)publicationClassEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -353,8 +353,28 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPublicationClass_Divisions() {
+	public EReference getPublicationClass_HtmlPreamble() {
 		return (EReference)publicationClassEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPublicationClass_Segments() {
+		return (EReference)publicationClassEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPublicationClass_Divisions() {
+		return (EReference)publicationClassEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -739,8 +759,10 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 		publicationClassEClass = createEClass(PUBLICATION_CLASS);
 		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__NAME);
 		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__NATURE);
+		createEAttribute(publicationClassEClass, PUBLICATION_CLASS__LA_TE_XCLASS);
 		createEReference(publicationClassEClass, PUBLICATION_CLASS__SYMBOLS);
-		createEReference(publicationClassEClass, PUBLICATION_CLASS__PREAMBLE);
+		createEReference(publicationClassEClass, PUBLICATION_CLASS__LA_TE_XPREAMBLE);
+		createEReference(publicationClassEClass, PUBLICATION_CLASS__HTML_PREAMBLE);
 		createEReference(publicationClassEClass, PUBLICATION_CLASS__SEGMENTS);
 		createEReference(publicationClassEClass, PUBLICATION_CLASS__DIVISIONS);
 
@@ -860,8 +882,10 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 		initEClass(publicationClassEClass, PublicationClass.class, "PublicationClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPublicationClass_Name(), theEcorePackage.getEString(), "name", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPublicationClass_Nature(), this.getPublicationNature(), "nature", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPublicationClass_LaTeXClass(), theEcorePackage.getEString(), "laTeXClass", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPublicationClass_Symbols(), this.getProtoSymbol(), null, "symbols", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublicationClass_Preamble(), theBasePackage.getDRichText(), null, "preamble", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPublicationClass_LaTeXPreamble(), theBasePackage.getDRichText(), null, "laTeXPreamble", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPublicationClass_HtmlPreamble(), theBasePackage.getDRichText(), null, "htmlPreamble", null, 0, 1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPublicationClass_Segments(), this.getProtoDocumentSegment(), this.getProtoDocumentSegment_Parent(), "segments", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPublicationClass_Divisions(), this.getProtoDivision(), null, "divisions", null, 0, -1, PublicationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

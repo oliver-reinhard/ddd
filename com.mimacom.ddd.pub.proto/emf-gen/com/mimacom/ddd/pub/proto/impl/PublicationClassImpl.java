@@ -36,8 +36,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getNature <em>Nature</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getLaTeXClass <em>La Te XClass</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getSymbols <em>Symbols</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getPreamble <em>Preamble</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getLaTeXPreamble <em>La Te XPreamble</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getHtmlPreamble <em>Html Preamble</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getSegments <em>Segments</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.impl.PublicationClassImpl#getDivisions <em>Divisions</em>}</li>
  * </ul>
@@ -86,6 +88,26 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	protected PublicationNature nature = NATURE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getLaTeXClass() <em>La Te XClass</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLaTeXClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LA_TE_XCLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLaTeXClass() <em>La Te XClass</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLaTeXClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected String laTeXClass = LA_TE_XCLASS_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,14 +118,24 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	protected EList<ProtoSymbol> symbols;
 
 	/**
-	 * The cached value of the '{@link #getPreamble() <em>Preamble</em>}' containment reference.
+	 * The cached value of the '{@link #getLaTeXPreamble() <em>La Te XPreamble</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPreamble()
+	 * @see #getLaTeXPreamble()
 	 * @generated
 	 * @ordered
 	 */
-	protected DRichText preamble;
+	protected DRichText laTeXPreamble;
+
+	/**
+	 * The cached value of the '{@link #getHtmlPreamble() <em>Html Preamble</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHtmlPreamble()
+	 * @generated
+	 * @ordered
+	 */
+	protected DRichText htmlPreamble;
 
 	/**
 	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' containment reference list.
@@ -196,6 +228,29 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	public String getLaTeXClass() {
+		return laTeXClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLaTeXClass(String newLaTeXClass) {
+		String oldLaTeXClass = laTeXClass;
+		laTeXClass = newLaTeXClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__LA_TE_XCLASS, oldLaTeXClass, laTeXClass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<ProtoSymbol> getSymbols() {
 		if (symbols == null) {
 			symbols = new EObjectContainmentEList<ProtoSymbol>(ProtoSymbol.class, this, ProtoPackage.PUBLICATION_CLASS__SYMBOLS);
@@ -209,8 +264,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public DRichText getPreamble() {
-		return preamble;
+	public DRichText getLaTeXPreamble() {
+		return laTeXPreamble;
 	}
 
 	/**
@@ -218,11 +273,11 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPreamble(DRichText newPreamble, NotificationChain msgs) {
-		DRichText oldPreamble = preamble;
-		preamble = newPreamble;
+	public NotificationChain basicSetLaTeXPreamble(DRichText newLaTeXPreamble, NotificationChain msgs) {
+		DRichText oldLaTeXPreamble = laTeXPreamble;
+		laTeXPreamble = newLaTeXPreamble;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__PREAMBLE, oldPreamble, newPreamble);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE, oldLaTeXPreamble, newLaTeXPreamble);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -234,18 +289,63 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public void setPreamble(DRichText newPreamble) {
-		if (newPreamble != preamble) {
+	public void setLaTeXPreamble(DRichText newLaTeXPreamble) {
+		if (newLaTeXPreamble != laTeXPreamble) {
 			NotificationChain msgs = null;
-			if (preamble != null)
-				msgs = ((InternalEObject)preamble).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__PREAMBLE, null, msgs);
-			if (newPreamble != null)
-				msgs = ((InternalEObject)newPreamble).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__PREAMBLE, null, msgs);
-			msgs = basicSetPreamble(newPreamble, msgs);
+			if (laTeXPreamble != null)
+				msgs = ((InternalEObject)laTeXPreamble).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE, null, msgs);
+			if (newLaTeXPreamble != null)
+				msgs = ((InternalEObject)newLaTeXPreamble).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE, null, msgs);
+			msgs = basicSetLaTeXPreamble(newLaTeXPreamble, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__PREAMBLE, newPreamble, newPreamble));
+			eNotify(new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE, newLaTeXPreamble, newLaTeXPreamble));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DRichText getHtmlPreamble() {
+		return htmlPreamble;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHtmlPreamble(DRichText newHtmlPreamble, NotificationChain msgs) {
+		DRichText oldHtmlPreamble = htmlPreamble;
+		htmlPreamble = newHtmlPreamble;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE, oldHtmlPreamble, newHtmlPreamble);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHtmlPreamble(DRichText newHtmlPreamble) {
+		if (newHtmlPreamble != htmlPreamble) {
+			NotificationChain msgs = null;
+			if (htmlPreamble != null)
+				msgs = ((InternalEObject)htmlPreamble).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE, null, msgs);
+			if (newHtmlPreamble != null)
+				msgs = ((InternalEObject)newHtmlPreamble).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE, null, msgs);
+			msgs = basicSetHtmlPreamble(newHtmlPreamble, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE, newHtmlPreamble, newHtmlPreamble));
 	}
 
 	/**
@@ -299,8 +399,10 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				return ((InternalEList<?>)getSymbols()).basicRemove(otherEnd, msgs);
-			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
-				return basicSetPreamble(null, msgs);
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
+				return basicSetLaTeXPreamble(null, msgs);
+			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
+				return basicSetHtmlPreamble(null, msgs);
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return ((InternalEList<?>)getSegments()).basicRemove(otherEnd, msgs);
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -321,10 +423,14 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				return getName();
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				return getNature();
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XCLASS:
+				return getLaTeXClass();
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				return getSymbols();
-			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
-				return getPreamble();
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
+				return getLaTeXPreamble();
+			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
+				return getHtmlPreamble();
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return getSegments();
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -348,12 +454,18 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				setNature((PublicationNature)newValue);
 				return;
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XCLASS:
+				setLaTeXClass((String)newValue);
+				return;
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				getSymbols().clear();
 				getSymbols().addAll((Collection<? extends ProtoSymbol>)newValue);
 				return;
-			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
-				setPreamble((DRichText)newValue);
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
+				setLaTeXPreamble((DRichText)newValue);
+				return;
+			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
+				setHtmlPreamble((DRichText)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
@@ -381,11 +493,17 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				setNature(NATURE_EDEFAULT);
 				return;
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XCLASS:
+				setLaTeXClass(LA_TE_XCLASS_EDEFAULT);
+				return;
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				getSymbols().clear();
 				return;
-			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
-				setPreamble((DRichText)null);
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
+				setLaTeXPreamble((DRichText)null);
+				return;
+			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
+				setHtmlPreamble((DRichText)null);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
@@ -409,10 +527,14 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ProtoPackage.PUBLICATION_CLASS__NATURE:
 				return nature != NATURE_EDEFAULT;
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XCLASS:
+				return LA_TE_XCLASS_EDEFAULT == null ? laTeXClass != null : !LA_TE_XCLASS_EDEFAULT.equals(laTeXClass);
 			case ProtoPackage.PUBLICATION_CLASS__SYMBOLS:
 				return symbols != null && !symbols.isEmpty();
-			case ProtoPackage.PUBLICATION_CLASS__PREAMBLE:
-				return preamble != null;
+			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
+				return laTeXPreamble != null;
+			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
+				return htmlPreamble != null;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				return segments != null && !segments.isEmpty();
 			case ProtoPackage.PUBLICATION_CLASS__DIVISIONS:
@@ -435,6 +557,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 		result.append(name);
 		result.append(", nature: ");
 		result.append(nature);
+		result.append(", laTeXClass: ");
+		result.append(laTeXClass);
 		result.append(')');
 		return result.toString();
 	}

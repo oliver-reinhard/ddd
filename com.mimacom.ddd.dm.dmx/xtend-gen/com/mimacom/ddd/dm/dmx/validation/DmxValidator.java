@@ -18,8 +18,8 @@ import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
-import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
 import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
@@ -44,7 +44,7 @@ public class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessa
   
   @Inject
   @Extension
-  private RichTextUtil _richTextUtil;
+  private DmxRichTextUtil _dmxRichTextUtil;
   
   @Check
   public void checkAssignmentTarget(final DmxAssignment a) {
@@ -122,7 +122,7 @@ public class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessa
   
   @Check
   public DStyledTextSpan checkRichTextFormatting(final DRichText rt) {
-    return this._richTextUtil.parse(rt, this);
+    return this._dmxRichTextUtil.parse(rt, this);
   }
   
   @Override

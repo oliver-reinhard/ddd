@@ -208,13 +208,49 @@ public interface PubPackage extends EPackage {
 	int DOCUMENT__TITLE = REFERENCE_TARGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Generate Html</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__GENERATE_HTML = REFERENCE_TARGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Generate La Te X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__GENERATE_LA_TE_X = REFERENCE_TARGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Generate Markdown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__GENERATE_MARKDOWN = REFERENCE_TARGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Generate Ascii Doc</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__GENERATE_ASCII_DOC = REFERENCE_TARGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__SYMBOLS = REFERENCE_TARGET_FEATURE_COUNT + 1;
+	int DOCUMENT__SYMBOLS = REFERENCE_TARGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Publication Class</b></em>' reference.
@@ -223,7 +259,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PUBLICATION_CLASS = REFERENCE_TARGET_FEATURE_COUNT + 2;
+	int DOCUMENT__PUBLICATION_CLASS = REFERENCE_TARGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -232,7 +268,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 3;
+	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Symbol</em>' operation.
@@ -354,6 +390,42 @@ public interface PubPackage extends EPackage {
 	int PUBLICATION__TITLE = DOCUMENT__TITLE;
 
 	/**
+	 * The feature id for the '<em><b>Generate Html</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION__GENERATE_HTML = DOCUMENT__GENERATE_HTML;
+
+	/**
+	 * The feature id for the '<em><b>Generate La Te X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION__GENERATE_LA_TE_X = DOCUMENT__GENERATE_LA_TE_X;
+
+	/**
+	 * The feature id for the '<em><b>Generate Markdown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION__GENERATE_MARKDOWN = DOCUMENT__GENERATE_MARKDOWN;
+
+	/**
+	 * The feature id for the '<em><b>Generate Ascii Doc</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION__GENERATE_ASCII_DOC = DOCUMENT__GENERATE_ASCII_DOC;
+
+	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -445,6 +517,42 @@ public interface PubPackage extends EPackage {
 	int COMPONENT__TITLE = DOCUMENT__TITLE;
 
 	/**
+	 * The feature id for the '<em><b>Generate Html</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__GENERATE_HTML = DOCUMENT__GENERATE_HTML;
+
+	/**
+	 * The feature id for the '<em><b>Generate La Te X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__GENERATE_LA_TE_X = DOCUMENT__GENERATE_LA_TE_X;
+
+	/**
+	 * The feature id for the '<em><b>Generate Markdown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__GENERATE_MARKDOWN = DOCUMENT__GENERATE_MARKDOWN;
+
+	/**
+	 * The feature id for the '<em><b>Generate Ascii Doc</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__GENERATE_ASCII_DOC = DOCUMENT__GENERATE_ASCII_DOC;
+
+	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -527,13 +635,22 @@ public interface PubPackage extends EPackage {
 	int REFERENCE__TARGET = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Page Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__PAGE_REFERENCE = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+	int REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -4975,6 +5092,50 @@ public interface PubPackage extends EPackage {
 	EAttribute getDocument_Title();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Document#isGenerateHtml <em>Generate Html</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Html</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Document#isGenerateHtml()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_GenerateHtml();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Document#isGenerateLaTeX <em>Generate La Te X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate La Te X</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Document#isGenerateLaTeX()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_GenerateLaTeX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Document#isGenerateMarkdown <em>Generate Markdown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Markdown</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Document#isGenerateMarkdown()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_GenerateMarkdown();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Document#isGenerateAsciiDoc <em>Generate Ascii Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Ascii Doc</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Document#isGenerateAsciiDoc()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_GenerateAsciiDoc();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.Document#getSymbols <em>Symbols</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5132,6 +5293,17 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReference_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Reference#isPageReference <em>Page Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Page Reference</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Reference#isPageReference()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_PageReference();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.DocumentSegment <em>Document Segment</em>}'.
@@ -6709,6 +6881,38 @@ public interface PubPackage extends EPackage {
 		EAttribute DOCUMENT__TITLE = eINSTANCE.getDocument_Title();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Html</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__GENERATE_HTML = eINSTANCE.getDocument_GenerateHtml();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate La Te X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__GENERATE_LA_TE_X = eINSTANCE.getDocument_GenerateLaTeX();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Markdown</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__GENERATE_MARKDOWN = eINSTANCE.getDocument_GenerateMarkdown();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Ascii Doc</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__GENERATE_ASCII_DOC = eINSTANCE.getDocument_GenerateAsciiDoc();
+
+		/**
 		 * The meta object literal for the '<em><b>Symbols</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6837,6 +7041,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REFERENCE__TARGET = eINSTANCE.getReference_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Page Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__PAGE_REFERENCE = eINSTANCE.getReference_PageReference();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.DocumentSegmentImpl <em>Document Segment</em>}' class.

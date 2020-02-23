@@ -6,11 +6,13 @@ package com.mimacom.ddd.pub.pub.generator
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer
+import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
-import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
+import com.mimacom.ddd.pub.proto.ProtoSymbolReference
 import com.mimacom.ddd.pub.pub.AbstractFigure
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.ContentBlock
@@ -43,6 +45,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 class PubHtmlRenderer extends AbstractPubRenderer {
 
 	@Inject extension RichTextUtil
+	@Inject extension DmxRichTextUtil
 	@Inject extension PubUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
@@ -95,6 +98,8 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		  <link rel="stylesheet" href="«CSS_FILENAME»">
 		</head>
 		
+		«doc.renderPreamble»
+		
 		<!-- Document class: «doc.publicationClass.name» -->
 		<body>
 		<h1>«doc.title»</h1>
@@ -103,6 +108,37 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		</html>
 	'''
 
+	
+	protected def CharSequence renderPreamble(Document doc) {
+		val preamble = doc.publicationClass.htmlPreamble
+		if (preamble !== null) {
+			val renderer = new AbstractRichTextToHtmlRenderer {
+
+				override protected getSourceText(DExpression expr) {
+					expr.getSourceTextFromXtextResource
+				}
+
+				override protected renderStyleExpression(DExpression expr, String parsedText) {
+					if (expr instanceof ProtoSymbolReference) {
+						val docSymbol = doc.getSymbol(expr.target.name)
+						if (docSymbol !== null) {
+							return renderRichText(docSymbol.value)
+						}
+						throw new NullPointerException("No value for symbol '" + expr.target.name + "'")
+					}
+					return super.renderStyleExpression(expr, parsedText)
+				}
+				
+				override protected escape(String plainText) {
+					// do not escape the actual preamble template text:
+					return plainText
+				}
+				
+			}
+			return renderer.render(preamble)
+		}
+		return ''
+	}
 	override CharSequence renderSegment(SegmentWithText seg, NestedElementsRenderer blocks) '''
 		<div>
 		«seg.renderTitle»
@@ -131,7 +167,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTitle(DocumentSegment seg) '''
-		<h2>«renderAnchor(seg)»«seg.nonEmptyTitle»</h2>
+		<h2>«renderAnchor(seg)»«seg.nonEmptyTitle.escape»</h2>
 	'''
 
 	override CharSequence renderTitle(Division div) '''
@@ -145,9 +181,9 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		}
 		return ""
 	}
-
-	override CharSequence renderReferenceTo(ReferenceTarget target,
-		String linkText) '''<a href="#«target.id»">«linkText»</a>'''
+//
+//	override CharSequence renderReferenceTo(ReferenceTarget target,
+//		String linkText) '''<a href="#«target.id»">«linkText»</a>'''
 
 	//
 	// Content
@@ -243,7 +279,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	}
 
 	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
-		<img src="«fileUri»" alt="«(f.eContainer as TitledFigure).title.renderRichText»">
+		<img src="«fileUri.escape»" alt="«(f.eContainer as TitledFigure).title.renderRichText»">
 	'''
 
 	override CharSequence renderEquation(Equation e) '''
@@ -252,7 +288,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
 		<pre>
-		«FOR line : codeLines»«line»«ENDFOR»</pre>
+		«FOR line : codeLines»«escape(line)»«ENDFOR»</pre>
 	'''
 
 	override CharSequence renderPlainParagraph(
@@ -267,7 +303,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderUnformattedParagraph(
-		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text»«ELSE»<p>«para.text»</p>«ENDIF»'''
+		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«escape(para.text)»«ELSE»<p>«escape(para.text)»</p>«ENDIF»'''
 
 	override CharSequence renderRichTextReferencingParagraph(
 		RichTextReferencingParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
@@ -319,6 +355,10 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 			return targetContainer.fileName + result
 		}
 		return result
+	}
+	
+	override protected CharSequence escape(CharSequence plainText) {
+		escapeHtml(plainText as String)
 	}
 
 }

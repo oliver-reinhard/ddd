@@ -71,6 +71,8 @@ public class PubProtoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPublicationClassAccess().getGroup(), "rule__PublicationClass__Group__0");
 			builder.put(grammarAccess.getPublicationClassAccess().getGroup_6(), "rule__PublicationClass__Group_6__0");
 			builder.put(grammarAccess.getPublicationClassAccess().getGroup_7(), "rule__PublicationClass__Group_7__0");
+			builder.put(grammarAccess.getPublicationClassAccess().getGroup_8(), "rule__PublicationClass__Group_8__0");
+			builder.put(grammarAccess.getPublicationClassAccess().getGroup_9(), "rule__PublicationClass__Group_9__0");
 			builder.put(grammarAccess.getSegmentBodyAccess().getGroup(), "rule__SegmentBody__Group__0");
 			builder.put(grammarAccess.getSegmentBodyAccess().getGroup_0(), "rule__SegmentBody__Group_0__0");
 			builder.put(grammarAccess.getSegmentBodyAccess().getGroup_1(), "rule__SegmentBody__Group_1__0");
@@ -200,9 +202,11 @@ public class PubProtoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPublicationClassAccess().getNameAssignment_3(), "rule__PublicationClass__NameAssignment_3");
 			builder.put(grammarAccess.getPublicationClassAccess().getNatureAssignment_5(), "rule__PublicationClass__NatureAssignment_5");
 			builder.put(grammarAccess.getPublicationClassAccess().getSymbolsAssignment_6_1(), "rule__PublicationClass__SymbolsAssignment_6_1");
-			builder.put(grammarAccess.getPublicationClassAccess().getPreambleAssignment_7_1(), "rule__PublicationClass__PreambleAssignment_7_1");
-			builder.put(grammarAccess.getPublicationClassAccess().getSegmentsAssignment_9(), "rule__PublicationClass__SegmentsAssignment_9");
-			builder.put(grammarAccess.getPublicationClassAccess().getDivisionsAssignment_11(), "rule__PublicationClass__DivisionsAssignment_11");
+			builder.put(grammarAccess.getPublicationClassAccess().getHtmlPreambleAssignment_7_1(), "rule__PublicationClass__HtmlPreambleAssignment_7_1");
+			builder.put(grammarAccess.getPublicationClassAccess().getLaTeXClassAssignment_8_1(), "rule__PublicationClass__LaTeXClassAssignment_8_1");
+			builder.put(grammarAccess.getPublicationClassAccess().getLaTeXPreambleAssignment_9_1(), "rule__PublicationClass__LaTeXPreambleAssignment_9_1");
+			builder.put(grammarAccess.getPublicationClassAccess().getSegmentsAssignment_11(), "rule__PublicationClass__SegmentsAssignment_11");
+			builder.put(grammarAccess.getPublicationClassAccess().getDivisionsAssignment_13(), "rule__PublicationClass__DivisionsAssignment_13");
 			builder.put(grammarAccess.getProtoSymbolAccess().getNameAssignment(), "rule__ProtoSymbol__NameAssignment");
 			builder.put(grammarAccess.getProtoSymbolReferenceAccess().getTargetAssignment(), "rule__ProtoSymbolReference__TargetAssignment");
 			builder.put(grammarAccess.getSegmentBodyAccess().getTitleAssignment_0_1(), "rule__SegmentBody__TitleAssignment_0_1");

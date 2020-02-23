@@ -10,7 +10,6 @@ import com.mimacom.ddd.pub.pub.Glossary
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
 import com.mimacom.ddd.pub.pub.NumberedElement
-import com.mimacom.ddd.pub.pub.PubElementNames
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.PubUtil
@@ -26,10 +25,12 @@ class PubGeneratorUtil {
 	@Inject extension PubUtil
 	@Inject extension PubTableUtil
 	@Inject extension PubNumberingUtil
-	@Inject extension PubElementNames
 	
 	static val PUB = PubFactory.eINSTANCE
 
+	def boolean empty(String s) {
+		return s === null || s.isEmpty
+	}
 
 	def String nonEmptyTitle(DocumentSegment segment) {
 		val protoSegment = segment.prototype
@@ -60,11 +61,12 @@ class PubGeneratorUtil {
 	}
 
 	def Table toTable(TOC toc, List<Division> allDivisionsInSequence) {
-		val Table t = createTableWithHeader(#["Section", "Title", "Reference/Page"])
+		val Table t = createTableWithHeader(#["Section", "Title", "Page"])
 		for (div : allDivisionsInSequence) {
 			val ref = PUB.createReference
 			ref.target = div
-			t.addRowWithReference(#[div.labelAndNumber, div.title.toPlainText], ref) // TODO calculate Reference/Page
+			ref.pageReference = true
+			t.addRowWithReference(#[div.labelAndNumber, div.title.toPlainText], ref)
 		}
 		return t
 	}
@@ -78,21 +80,23 @@ class PubGeneratorUtil {
 	}
 
 	def Table toTable(ListOfTables seg, List<TitledTable> allTablesInSequence) {
-		val Table lot = createTableWithHeader(#["Table", "Title", "Reference/Page"])
+		val Table lot = createTableWithHeader(#["Table", "Title", "Page"])
 		for (t : allTablesInSequence) {
 			val ref = PUB.createReference
 			ref.target = t 
-			lot.addRowWithReference(#[t.labelAndNumber, t.title.toPlainText], ref) // TODO calculate Reference/Page
+			ref.pageReference = true
+			lot.addRowWithReference(#[t.labelAndNumber, t.title.toPlainText], ref)
 		}
 		return lot
 	}
 
 	def Table toTable(ListOfFigures seg, List<TitledFigure> allFiguresInSequence) {
-		val Table lof = createTableWithHeader(#["Figure", "Title", "Reference/Page"])
+		val Table lof = createTableWithHeader(#["Figure", "Title", "Page"])
 		for (f : allFiguresInSequence) {
 			val ref = PUB.createReference
 			ref.target = f 
-			lof.addRowWithReference(#[f.labelAndNumber, f.title.toPlainText], ref) // TODO calculate Reference/Page
+			ref.pageReference = true
+			lof.addRowWithReference(#[f.labelAndNumber, f.title.toPlainText], ref)
 		}
 		return lof
 	}

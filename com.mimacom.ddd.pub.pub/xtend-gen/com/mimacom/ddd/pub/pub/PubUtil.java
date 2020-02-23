@@ -6,8 +6,8 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
-import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations;
 import com.mimacom.ddd.pub.proto.ProtoAbstract;
 import com.mimacom.ddd.pub.proto.ProtoAppendix;
@@ -50,6 +50,8 @@ import com.mimacom.ddd.pub.pub.Subsection;
 import com.mimacom.ddd.pub.pub.Subsubsection;
 import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import java.util.Arrays;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -57,7 +59,17 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class PubUtil {
   @Inject
   @Extension
-  private RichTextUtil _richTextUtil;
+  private DmxRichTextUtil _dmxRichTextUtil;
+  
+  protected String _displayName(final EObject obj) {
+    return obj.eClass().getName().replace("Titled", "");
+  }
+  
+  protected String _displayName(final Object obj) {
+    String _name = obj.getClass().getName();
+    String _plus = ("Unsupported object type: " + _name);
+    throw new IllegalArgumentException(_plus);
+  }
   
   public String guard(final String subject, final String alternative) {
     if (((subject != null) && (!subject.isEmpty()))) {
@@ -161,6 +173,11 @@ public class PubUtil {
     return IterableExtensions.head(result);
   }
   
+  /**
+   * Returns the prototype division corresponding to the given division.
+   * 
+   * @return null if no corresponding prototype division was found, or the first one if several prototype division match
+   */
   public ProtoDivision prototype(final Division div) {
     Class<? extends ProtoDivision> _switchResult = null;
     boolean _matched = false;
@@ -222,7 +239,7 @@ public class PubUtil {
       final AbstractRichTextToPlainTextRenderer renderer = new AbstractRichTextToPlainTextRenderer() {
         @Override
         protected String getSourceText(final DExpression expr) {
-          return PubUtil.this._richTextUtil.getSourceTextFromXtextResource(expr);
+          return PubUtil.this._dmxRichTextUtil.getSourceTextFromXtextResource(expr);
         }
         
         @Override
@@ -246,6 +263,11 @@ public class PubUtil {
           }
           return _switchResult;
         }
+        
+        @Override
+        protected String escape(final String plainText) {
+          return plainText;
+        }
       };
       CharSequence _render = renderer.render(text);
       _xblockexpression = ((String) _render);
@@ -268,5 +290,16 @@ public class PubUtil {
     String _plus = (_name + ".");
     String _name_1 = ref.getMember().getName();
     return (_plus + _name_1);
+  }
+  
+  public String displayName(final Object obj) {
+    if (obj instanceof EObject) {
+      return _displayName((EObject)obj);
+    } else if (obj != null) {
+      return _displayName(obj);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(obj).toString());
+    }
   }
 }

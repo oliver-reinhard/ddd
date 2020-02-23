@@ -100,7 +100,9 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
 			builder.put(grammarAccess.getPubModelAccess().getGroup(), "rule__PubModel__Group__0");
 			builder.put(grammarAccess.getPubPublicationAccess().getGroup(), "rule__PubPublication__Group__0");
+			builder.put(grammarAccess.getPubPublicationAccess().getGroup_8(), "rule__PubPublication__Group_8__0");
 			builder.put(grammarAccess.getPubComponentAccess().getGroup(), "rule__PubComponent__Group__0");
+			builder.put(grammarAccess.getPubGenerateAccess().getGroup_0(), "rule__PubGenerate__Group_0__0");
 			builder.put(grammarAccess.getPubSymbolAccess().getGroup(), "rule__PubSymbol__Group__0");
 			builder.put(grammarAccess.getPubReferenceTargetNameAccess().getGroup(), "rule__PubReferenceTargetName__Group__0");
 			builder.put(grammarAccess.getPubAbstractAccess().getGroup(), "rule__PubAbstract__Group__0");
@@ -298,12 +300,16 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubModelAccess().getDocumentAssignment_2(), "rule__PubModel__DocumentAssignment_2");
 			builder.put(grammarAccess.getPubPublicationAccess().getTitleAssignment_3(), "rule__PubPublication__TitleAssignment_3");
 			builder.put(grammarAccess.getPubPublicationAccess().getPublicationClassAssignment_5(), "rule__PubPublication__PublicationClassAssignment_5");
-			builder.put(grammarAccess.getPubPublicationAccess().getSymbolsAssignment_6(), "rule__PubPublication__SymbolsAssignment_6");
-			builder.put(grammarAccess.getPubPublicationAccess().getIncludesAssignment_8(), "rule__PubPublication__IncludesAssignment_8");
+			builder.put(grammarAccess.getPubPublicationAccess().getSymbolsAssignment_7(), "rule__PubPublication__SymbolsAssignment_7");
+			builder.put(grammarAccess.getPubPublicationAccess().getIncludesAssignment_8_1(), "rule__PubPublication__IncludesAssignment_8_1");
 			builder.put(grammarAccess.getPubComponentAccess().getTitleAssignment_3(), "rule__PubComponent__TitleAssignment_3");
 			builder.put(grammarAccess.getPubComponentAccess().getPublicationClassAssignment_5(), "rule__PubComponent__PublicationClassAssignment_5");
-			builder.put(grammarAccess.getPubComponentAccess().getSymbolsAssignment_6(), "rule__PubComponent__SymbolsAssignment_6");
-			builder.put(grammarAccess.getPubComponentAccess().getSegmentsAssignment_7(), "rule__PubComponent__SegmentsAssignment_7");
+			builder.put(grammarAccess.getPubComponentAccess().getSymbolsAssignment_7(), "rule__PubComponent__SymbolsAssignment_7");
+			builder.put(grammarAccess.getPubComponentAccess().getSegmentsAssignment_8(), "rule__PubComponent__SegmentsAssignment_8");
+			builder.put(grammarAccess.getPubGenerateAccess().getGenerateHtmlAssignment_0_1(), "rule__PubGenerate__GenerateHtmlAssignment_0_1");
+			builder.put(grammarAccess.getPubGenerateAccess().getGenerateLaTeXAssignment_1(), "rule__PubGenerate__GenerateLaTeXAssignment_1");
+			builder.put(grammarAccess.getPubGenerateAccess().getGenerateMarkdownAssignment_2(), "rule__PubGenerate__GenerateMarkdownAssignment_2");
+			builder.put(grammarAccess.getPubGenerateAccess().getGenerateAsciiDocAssignment_3(), "rule__PubGenerate__GenerateAsciiDocAssignment_3");
 			builder.put(grammarAccess.getPubSymbolAccess().getNameAssignment_1(), "rule__PubSymbol__NameAssignment_1");
 			builder.put(grammarAccess.getPubSymbolAccess().getValueAssignment_3(), "rule__PubSymbol__ValueAssignment_3");
 			builder.put(grammarAccess.getPubReferenceTargetNameAccess().getNameAssignment_2(), "rule__PubReferenceTargetName__NameAssignment_2");
@@ -523,6 +529,7 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxNaturalLiteralAccess().getValueAssignment_1(), "rule__DmxNaturalLiteral__ValueAssignment_1");
 			builder.put(grammarAccess.getDmxDecimalLiteralAccess().getValueAssignment_1(), "rule__DmxDecimalLiteral__ValueAssignment_1");
 			builder.put(grammarAccess.getDmxStringLiteralAccess().getValueAssignment_1(), "rule__DmxStringLiteral__ValueAssignment_1");
+			builder.put(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), "rule__PubGenerate__UnorderedGroup");
 		}
 	}
 	

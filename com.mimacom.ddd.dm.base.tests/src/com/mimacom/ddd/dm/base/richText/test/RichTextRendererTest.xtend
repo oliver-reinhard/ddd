@@ -46,6 +46,11 @@ class RichTextRendererTest {
 			override protected getSourceText(DExpression expr) {
 				(expr as TestExpression).text
 			}
+			
+			override protected escape(String plainText) {
+				return plainText
+			}
+			
 		}
 		assertEquals("aaa bbb ccc ddd eee", renderer.render(rt))
 	}

@@ -43,6 +43,11 @@ public class RichTextRendererTest {
       protected String getSourceText(final DExpression expr) {
         return ((RichTextRendererTest.TestExpression) expr).text;
       }
+      
+      @Override
+      protected String escape(final String plainText) {
+        return plainText;
+      }
     };
     Assert.assertEquals("aaa bbb ccc ddd eee", renderer.render(rt));
   }

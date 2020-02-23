@@ -6,13 +6,16 @@ package com.mimacom.ddd.pub.pub.generator;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer;
+import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
-import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
+import com.mimacom.ddd.pub.proto.ProtoSymbolReference;
 import com.mimacom.ddd.pub.pub.AbstractFigure;
 import com.mimacom.ddd.pub.pub.Admonition;
 import com.mimacom.ddd.pub.pub.ContentBlock;
@@ -58,6 +61,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   @Inject
   @Extension
   private RichTextUtil _richTextUtil;
+  
+  @Inject
+  @Extension
+  private DmxRichTextUtil _dmxRichTextUtil;
   
   @Inject
   @Extension
@@ -169,6 +176,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("</head>");
     _builder.newLine();
     _builder.newLine();
+    CharSequence _renderPreamble = this.renderPreamble(doc);
+    _builder.append(_renderPreamble);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("<!-- Document class: ");
     String _name = doc.getPublicationClass().getName();
     _builder.append(_name);
@@ -189,6 +200,40 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("</html>");
     _builder.newLine();
     return _builder;
+  }
+  
+  protected CharSequence renderPreamble(final Document doc) {
+    final DRichText preamble = doc.getPublicationClass().getHtmlPreamble();
+    if ((preamble != null)) {
+      final AbstractRichTextToHtmlRenderer renderer = new AbstractRichTextToHtmlRenderer() {
+        @Override
+        protected String getSourceText(final DExpression expr) {
+          return PubHtmlRenderer.this._dmxRichTextUtil.getSourceTextFromXtextResource(expr);
+        }
+        
+        @Override
+        protected CharSequence renderStyleExpression(final DExpression expr, final String parsedText) {
+          if ((expr instanceof ProtoSymbolReference)) {
+            final Symbol docSymbol = doc.getSymbol(((ProtoSymbolReference)expr).getTarget().getName());
+            if ((docSymbol != null)) {
+              return PubHtmlRenderer.this.renderRichText(docSymbol.getValue());
+            }
+            String _name = ((ProtoSymbolReference)expr).getTarget().getName();
+            String _plus = ("No value for symbol \'" + _name);
+            String _plus_1 = (_plus + "\'");
+            throw new NullPointerException(_plus_1);
+          }
+          return super.renderStyleExpression(expr, parsedText);
+        }
+        
+        @Override
+        protected String escape(final String plainText) {
+          return plainText;
+        }
+      };
+      return renderer.render(preamble);
+    }
+    return "";
   }
   
   @Override
@@ -257,8 +302,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("<h2>");
     CharSequence _renderAnchor = this.renderAnchor(seg);
     _builder.append(_renderAnchor);
-    String _nonEmptyTitle = this._pubGeneratorUtil.nonEmptyTitle(seg);
-    _builder.append(_nonEmptyTitle);
+    CharSequence _escape = this.escape(this._pubGeneratorUtil.nonEmptyTitle(seg));
+    _builder.append(_escape);
     _builder.append("</h2>");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -291,18 +336,6 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
       return (("<a id=\"" + id) + "\"></a>");
     }
     return "";
-  }
-  
-  @Override
-  public CharSequence renderReferenceTo(final ReferenceTarget target, final String linkText) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<a href=\"#");
-    String _id = target.getId();
-    _builder.append(_id);
-    _builder.append("\">");
-    _builder.append(linkText);
-    _builder.append("</a>");
-    return _builder;
   }
   
   @Override
@@ -559,7 +592,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   public CharSequence renderFigure(final AbstractFigure f, final String fileUri) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<img src=\"");
-    _builder.append(fileUri);
+    CharSequence _escape = this.escape(fileUri);
+    _builder.append(_escape);
     _builder.append("\" alt=\"");
     EObject _eContainer = f.eContainer();
     CharSequence _renderRichText = this.renderRichText(((TitledFigure) _eContainer).getTitle());
@@ -584,7 +618,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     {
       for(final String line : codeLines) {
-        _builder.append(line);
+        CharSequence _escape = this.escape(line);
+        _builder.append(_escape);
       }
     }
     _builder.append("</pre>");
@@ -631,12 +666,12 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     {
       boolean _isOnlyContentBlockOfTableCell = this.isOnlyContentBlockOfTableCell(para);
       if (_isOnlyContentBlockOfTableCell) {
-        String _text = para.getText();
-        _builder.append(_text);
+        CharSequence _escape = this.escape(para.getText());
+        _builder.append(_escape);
       } else {
         _builder.append("<p>");
-        String _text_1 = para.getText();
-        _builder.append(_text_1);
+        CharSequence _escape_1 = this.escape(para.getText());
+        _builder.append(_escape_1);
         _builder.append("</p>");
       }
     }
@@ -666,7 +701,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     return new AbstractRichTextToHtmlRenderer() {
       @Override
       protected String getSourceText(final DExpression expr) {
-        return PubHtmlRenderer.this._richTextUtil.getSourceTextFromXtextResource(expr);
+        return PubHtmlRenderer.this._dmxRichTextUtil.getSourceTextFromXtextResource(expr);
       }
       
       @Override
@@ -738,5 +773,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
       return (_fileName + result);
     }
     return result;
+  }
+  
+  @Override
+  protected CharSequence escape(final CharSequence plainText) {
+    return this._richTextUtil.escapeHtml(((String) plainText));
   }
 }

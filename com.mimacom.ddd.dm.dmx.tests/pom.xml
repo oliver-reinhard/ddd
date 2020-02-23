@@ -35,7 +35,6 @@
         <artifactId>tycho-surefire-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <testFailureIgnore>true</testFailureIgnore>
           <useUIHarness>false</useUIHarness>
           <useUIThread>false</useUIThread>
         </configuration>

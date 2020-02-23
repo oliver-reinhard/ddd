@@ -5,6 +5,11 @@ import com.mimacom.ddd.dm.styledText.DStyledTextSpan
 
 abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRenderer {
 	
+	extension RichTextUtil = new RichTextUtil
+		
+	override protected escape(String plainText) {
+		return escapeHtml(plainText)
+	}
 	
 	override protected renderStylePlain(DStyledTextSpan span) {
 		span.render

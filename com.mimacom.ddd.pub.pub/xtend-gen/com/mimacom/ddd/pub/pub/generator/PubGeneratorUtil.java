@@ -15,7 +15,6 @@ import com.mimacom.ddd.pub.pub.GlossaryEntry;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
 import com.mimacom.ddd.pub.pub.NumberedElement;
-import com.mimacom.ddd.pub.pub.PubElementNames;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.PubUtil;
@@ -44,11 +43,11 @@ public class PubGeneratorUtil {
   @Extension
   private PubNumberingUtil _pubNumberingUtil;
   
-  @Inject
-  @Extension
-  private PubElementNames _pubElementNames;
-  
   private static final PubFactory PUB = PubFactory.eINSTANCE;
+  
+  public boolean empty(final String s) {
+    return ((s == null) || s.isEmpty());
+  }
   
   public String nonEmptyTitle(final DocumentSegment segment) {
     final ProtoDocumentSegment protoSegment = this._pubUtil.prototype(segment);
@@ -60,18 +59,18 @@ public class PubGeneratorUtil {
     if (_tripleNotEquals) {
       return protoSegment.getTitle();
     }
-    return this._pubElementNames.displayName(segment);
+    return this._pubUtil.displayName(segment);
   }
   
   public String referenceDisplayText(final ReferenceTarget t) {
     String _xifexpression = null;
     if ((t instanceof NumberedElement)) {
-      String _displayName = this._pubElementNames.displayName(t);
+      String _displayName = this._pubUtil.displayName(t);
       String _plus = (_displayName + " ");
       String _tieredNumber = this._pubNumberingUtil.tieredNumber(((NumberedElement)t));
       _xifexpression = (_plus + _tieredNumber);
     } else {
-      _xifexpression = this._pubElementNames.displayName(t);
+      _xifexpression = this._pubUtil.displayName(t);
     }
     return _xifexpression;
   }
@@ -90,11 +89,12 @@ public class PubGeneratorUtil {
   }
   
   public Table toTable(final TOC toc, final List<Division> allDivisionsInSequence) {
-    final Table t = this._pubTableUtil.createTableWithHeader(new String[] { "Section", "Title", "Reference/Page" });
+    final Table t = this._pubTableUtil.createTableWithHeader(new String[] { "Section", "Title", "Page" });
     for (final Division div : allDivisionsInSequence) {
       {
         final Reference ref = PubGeneratorUtil.PUB.createReference();
         ref.setTarget(div);
+        ref.setPageReference(true);
         String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(div);
         String _plainText = this._pubUtil.toPlainText(div.getTitle());
         this._pubTableUtil.addRowWithReference(t, new String[] { _labelAndNumber, _plainText }, ref);
@@ -115,11 +115,12 @@ public class PubGeneratorUtil {
   }
   
   public Table toTable(final ListOfTables seg, final List<TitledTable> allTablesInSequence) {
-    final Table lot = this._pubTableUtil.createTableWithHeader(new String[] { "Table", "Title", "Reference/Page" });
+    final Table lot = this._pubTableUtil.createTableWithHeader(new String[] { "Table", "Title", "Page" });
     for (final TitledTable t : allTablesInSequence) {
       {
         final Reference ref = PubGeneratorUtil.PUB.createReference();
         ref.setTarget(t);
+        ref.setPageReference(true);
         String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(t);
         String _plainText = this._pubUtil.toPlainText(t.getTitle());
         this._pubTableUtil.addRowWithReference(lot, new String[] { _labelAndNumber, _plainText }, ref);
@@ -129,11 +130,12 @@ public class PubGeneratorUtil {
   }
   
   public Table toTable(final ListOfFigures seg, final List<TitledFigure> allFiguresInSequence) {
-    final Table lof = this._pubTableUtil.createTableWithHeader(new String[] { "Figure", "Title", "Reference/Page" });
+    final Table lof = this._pubTableUtil.createTableWithHeader(new String[] { "Figure", "Title", "Page" });
     for (final TitledFigure f : allFiguresInSequence) {
       {
         final Reference ref = PubGeneratorUtil.PUB.createReference();
         ref.setTarget(f);
+        ref.setPageReference(true);
         String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(f);
         String _plainText = this._pubUtil.toPlainText(f.getTitle());
         this._pubTableUtil.addRowWithReference(lof, new String[] { _labelAndNumber, _plainText }, ref);

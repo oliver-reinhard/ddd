@@ -159,40 +159,89 @@ rulePublicationClass returns [EObject current=null]
 			)
 		)*
 		(
-			otherlv_8='preamble:'
+			otherlv_8='htmlPreamble:'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getPublicationClassAccess().getPreambleKeyword_7_0());
+				newLeafNode(otherlv_8, grammarAccess.getPublicationClassAccess().getHtmlPreambleKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPublicationClassAccess().getPreambleDRichTextParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getPublicationClassAccess().getHtmlPreambleDRichTextParserRuleCall_7_1_0());
 					}
-					lv_preamble_9_0=ruleDRichText
+					lv_htmlPreamble_9_0=ruleDRichText
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPublicationClassRule());
 						}
 						set(
 							$current,
-							"preamble",
-							lv_preamble_9_0,
+							"htmlPreamble",
+							lv_htmlPreamble_9_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_10='segments:'
+		(
+			otherlv_10='latexClass:'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getPublicationClassAccess().getLatexClassKeyword_8_0());
+			}
+			(
+				(
+					lv_laTeXClass_11_0=RULE_ID
+					{
+						newLeafNode(lv_laTeXClass_11_0, grammarAccess.getPublicationClassAccess().getLaTeXClassIDTerminalRuleCall_8_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPublicationClassRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"laTeXClass",
+							lv_laTeXClass_11_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.ID");
+					}
+				)
+			)
+		)?
+		(
+			otherlv_12='latexPreamble:'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getPublicationClassAccess().getLatexPreambleKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPublicationClassAccess().getLaTeXPreambleDRichTextParserRuleCall_9_1_0());
+					}
+					lv_laTeXPreamble_13_0=ruleDRichText
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPublicationClassRule());
+						}
+						set(
+							$current,
+							"laTeXPreamble",
+							lv_laTeXPreamble_13_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_14='segments:'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getPublicationClassAccess().getSegmentsKeyword_8());
+			newLeafNode(otherlv_14, grammarAccess.getPublicationClassAccess().getSegmentsKeyword_10());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPublicationClassAccess().getSegmentsProtoDocumentSegmentParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getPublicationClassAccess().getSegmentsProtoDocumentSegmentParserRuleCall_11_0());
 				}
-				lv_segments_11_0=ruleProtoDocumentSegment
+				lv_segments_15_0=ruleProtoDocumentSegment
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPublicationClassRule());
@@ -200,22 +249,22 @@ rulePublicationClass returns [EObject current=null]
 					add(
 						$current,
 						"segments",
-						lv_segments_11_0,
+						lv_segments_15_0,
 						"com.mimacom.ddd.pub.proto.PubProto.ProtoDocumentSegment");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_12='divisions:'
+		otherlv_16='divisions:'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getPublicationClassAccess().getDivisionsKeyword_10());
+			newLeafNode(otherlv_16, grammarAccess.getPublicationClassAccess().getDivisionsKeyword_12());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPublicationClassAccess().getDivisionsProtoDivisionParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getPublicationClassAccess().getDivisionsProtoDivisionParserRuleCall_13_0());
 				}
-				lv_divisions_13_0=ruleProtoDivision
+				lv_divisions_17_0=ruleProtoDivision
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPublicationClassRule());
@@ -223,7 +272,7 @@ rulePublicationClass returns [EObject current=null]
 					add(
 						$current,
 						"divisions",
-						lv_divisions_13_0,
+						lv_divisions_17_0,
 						"com.mimacom.ddd.pub.proto.PubProto.ProtoDivision");
 					afterParserOrEnumRuleCall();
 				}

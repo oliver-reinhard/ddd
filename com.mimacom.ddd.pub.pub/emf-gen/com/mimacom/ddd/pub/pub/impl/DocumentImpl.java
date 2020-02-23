@@ -39,6 +39,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateHtml <em>Generate Html</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateLaTeX <em>Generate La Te X</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateMarkdown <em>Generate Markdown</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateAsciiDoc <em>Generate Ascii Doc</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getPublicationClass <em>Publication Class</em>}</li>
  * </ul>
@@ -95,6 +99,86 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGenerateHtml() <em>Generate Html</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateHtml()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GENERATE_HTML_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGenerateHtml() <em>Generate Html</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateHtml()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean generateHtml = GENERATE_HTML_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGenerateLaTeX() <em>Generate La Te X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateLaTeX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GENERATE_LA_TE_X_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGenerateLaTeX() <em>Generate La Te X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateLaTeX()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean generateLaTeX = GENERATE_LA_TE_X_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGenerateMarkdown() <em>Generate Markdown</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateMarkdown()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GENERATE_MARKDOWN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGenerateMarkdown() <em>Generate Markdown</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateMarkdown()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean generateMarkdown = GENERATE_MARKDOWN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGenerateAsciiDoc() <em>Generate Ascii Doc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateAsciiDoc()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GENERATE_ASCII_DOC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGenerateAsciiDoc() <em>Generate Ascii Doc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateAsciiDoc()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean generateAsciiDoc = GENERATE_ASCII_DOC_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
@@ -197,6 +281,98 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public boolean isGenerateHtml() {
+		return generateHtml;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGenerateHtml(boolean newGenerateHtml) {
+		boolean oldGenerateHtml = generateHtml;
+		generateHtml = newGenerateHtml;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DOCUMENT__GENERATE_HTML, oldGenerateHtml, generateHtml));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isGenerateLaTeX() {
+		return generateLaTeX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGenerateLaTeX(boolean newGenerateLaTeX) {
+		boolean oldGenerateLaTeX = generateLaTeX;
+		generateLaTeX = newGenerateLaTeX;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DOCUMENT__GENERATE_LA_TE_X, oldGenerateLaTeX, generateLaTeX));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isGenerateMarkdown() {
+		return generateMarkdown;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGenerateMarkdown(boolean newGenerateMarkdown) {
+		boolean oldGenerateMarkdown = generateMarkdown;
+		generateMarkdown = newGenerateMarkdown;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DOCUMENT__GENERATE_MARKDOWN, oldGenerateMarkdown, generateMarkdown));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isGenerateAsciiDoc() {
+		return generateAsciiDoc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGenerateAsciiDoc(boolean newGenerateAsciiDoc) {
+		boolean oldGenerateAsciiDoc = generateAsciiDoc;
+		generateAsciiDoc = newGenerateAsciiDoc;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DOCUMENT__GENERATE_ASCII_DOC, oldGenerateAsciiDoc, generateAsciiDoc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Symbol> getSymbols() {
 		if (symbols == null) {
 			symbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, PubPackage.DOCUMENT__SYMBOLS);
@@ -290,6 +466,14 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return getId();
 			case PubPackage.DOCUMENT__TITLE:
 				return getTitle();
+			case PubPackage.DOCUMENT__GENERATE_HTML:
+				return isGenerateHtml();
+			case PubPackage.DOCUMENT__GENERATE_LA_TE_X:
+				return isGenerateLaTeX();
+			case PubPackage.DOCUMENT__GENERATE_MARKDOWN:
+				return isGenerateMarkdown();
+			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
+				return isGenerateAsciiDoc();
 			case PubPackage.DOCUMENT__SYMBOLS:
 				return getSymbols();
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
@@ -313,6 +497,18 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case PubPackage.DOCUMENT__TITLE:
 				setTitle((String)newValue);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_HTML:
+				setGenerateHtml((Boolean)newValue);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_LA_TE_X:
+				setGenerateLaTeX((Boolean)newValue);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_MARKDOWN:
+				setGenerateMarkdown((Boolean)newValue);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
+				setGenerateAsciiDoc((Boolean)newValue);
 				return;
 			case PubPackage.DOCUMENT__SYMBOLS:
 				getSymbols().clear();
@@ -339,6 +535,18 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 			case PubPackage.DOCUMENT__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
+			case PubPackage.DOCUMENT__GENERATE_HTML:
+				setGenerateHtml(GENERATE_HTML_EDEFAULT);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_LA_TE_X:
+				setGenerateLaTeX(GENERATE_LA_TE_X_EDEFAULT);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_MARKDOWN:
+				setGenerateMarkdown(GENERATE_MARKDOWN_EDEFAULT);
+				return;
+			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
+				setGenerateAsciiDoc(GENERATE_ASCII_DOC_EDEFAULT);
+				return;
 			case PubPackage.DOCUMENT__SYMBOLS:
 				getSymbols().clear();
 				return;
@@ -363,6 +571,14 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case PubPackage.DOCUMENT__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case PubPackage.DOCUMENT__GENERATE_HTML:
+				return generateHtml != GENERATE_HTML_EDEFAULT;
+			case PubPackage.DOCUMENT__GENERATE_LA_TE_X:
+				return generateLaTeX != GENERATE_LA_TE_X_EDEFAULT;
+			case PubPackage.DOCUMENT__GENERATE_MARKDOWN:
+				return generateMarkdown != GENERATE_MARKDOWN_EDEFAULT;
+			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
+				return generateAsciiDoc != GENERATE_ASCII_DOC_EDEFAULT;
 			case PubPackage.DOCUMENT__SYMBOLS:
 				return symbols != null && !symbols.isEmpty();
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
@@ -399,6 +615,14 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 		result.append(name);
 		result.append(", title: ");
 		result.append(title);
+		result.append(", generateHtml: ");
+		result.append(generateHtml);
+		result.append(", generateLaTeX: ");
+		result.append(generateLaTeX);
+		result.append(", generateMarkdown: ");
+		result.append(generateMarkdown);
+		result.append(", generateAsciiDoc: ");
+		result.append(generateAsciiDoc);
 		result.append(')');
 		return result.toString();
 	}

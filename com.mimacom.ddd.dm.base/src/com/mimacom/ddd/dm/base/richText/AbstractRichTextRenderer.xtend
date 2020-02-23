@@ -62,7 +62,7 @@ abstract class AbstractRichTextRenderer {
 
 	protected def CharSequence render(DStyledTextSpan parent) {
 		if (parent.leaf) {
-			return parent.text
+			return escape(parent.text)
 		}
 		val StringBuilder b = new StringBuilder
 		for (subspan : parent.subspans) {
@@ -119,11 +119,18 @@ abstract class AbstractRichTextRenderer {
 		currentExpressionIndex++
 		if (currentExpressionIndex < expressions.length) {
 			val expr = expressions.get(currentExpressionIndex)
-			return renderStyleExpression(expr, span.text)
+			return renderStyleExpression(expr, escape(span.text) as String)
 		}
 		throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match")
 	}
 
+	/**
+	 * Ensure special characters of the rendering language (e.g. HTML) are properly escaped.
+	 * 
+	 * @param plainText can be {@code null}
+	 */
+	abstract protected def String escape(String plainText)
+	
 	abstract protected def CharSequence renderStylePlain(DStyledTextSpan span)
 
 	abstract protected def CharSequence renderStyleEmphasis(DStyledTextSpan span)

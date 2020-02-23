@@ -18,8 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getNature <em>Nature</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXClass <em>La Te XClass</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getSymbols <em>Symbols</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getPreamble <em>Preamble</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXPreamble <em>La Te XPreamble</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getHtmlPreamble <em>Html Preamble</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getSegments <em>Segments</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.proto.PublicationClass#getDivisions <em>Divisions</em>}</li>
  * </ul>
@@ -77,6 +79,28 @@ public interface PublicationClass extends EObject {
 	void setNature(PublicationNature value);
 
 	/**
+	 * Returns the value of the '<em><b>La Te XClass</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>La Te XClass</em>' attribute.
+	 * @see #setLaTeXClass(String)
+	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_LaTeXClass()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getLaTeXClass();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXClass <em>La Te XClass</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>La Te XClass</em>' attribute.
+	 * @see #getLaTeXClass()
+	 * @generated
+	 */
+	void setLaTeXClass(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Symbols</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.pub.proto.ProtoSymbol}.
 	 * <!-- begin-user-doc -->
@@ -89,26 +113,48 @@ public interface PublicationClass extends EObject {
 	EList<ProtoSymbol> getSymbols();
 
 	/**
-	 * Returns the value of the '<em><b>Preamble</b></em>' containment reference.
+	 * Returns the value of the '<em><b>La Te XPreamble</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Preamble</em>' containment reference.
-	 * @see #setPreamble(DRichText)
-	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_Preamble()
+	 * @return the value of the '<em>La Te XPreamble</em>' containment reference.
+	 * @see #setLaTeXPreamble(DRichText)
+	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_LaTeXPreamble()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DRichText getPreamble();
+	DRichText getLaTeXPreamble();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.proto.PublicationClass#getPreamble <em>Preamble</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.proto.PublicationClass#getLaTeXPreamble <em>La Te XPreamble</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Preamble</em>' containment reference.
-	 * @see #getPreamble()
+	 * @param value the new value of the '<em>La Te XPreamble</em>' containment reference.
+	 * @see #getLaTeXPreamble()
 	 * @generated
 	 */
-	void setPreamble(DRichText value);
+	void setLaTeXPreamble(DRichText value);
+
+	/**
+	 * Returns the value of the '<em><b>Html Preamble</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Html Preamble</em>' containment reference.
+	 * @see #setHtmlPreamble(DRichText)
+	 * @see com.mimacom.ddd.pub.proto.ProtoPackage#getPublicationClass_HtmlPreamble()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DRichText getHtmlPreamble();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.proto.PublicationClass#getHtmlPreamble <em>Html Preamble</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Html Preamble</em>' containment reference.
+	 * @see #getHtmlPreamble()
+	 * @generated
+	 */
+	void setHtmlPreamble(DRichText value);
 
 	/**
 	 * Returns the value of the '<em><b>Segments</b></em>' containment reference list.

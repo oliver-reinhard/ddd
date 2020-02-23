@@ -3,7 +3,7 @@ package com.mimacom.ddd.pub.pub
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BaseFactory
 import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.dmx.RichTextUtil
+import com.mimacom.ddd.dm.base.richText.RichTextUtil
 
 class PubTableUtil {
 
@@ -95,7 +95,7 @@ class PubTableUtil {
 	 * the element from its old {@code eContainer}.
 	 */
 	def TableCell addRichTextCell(TableRow row, DRichText text) {
-		if (empty(text)) {
+		if (isEmpty(text)) {
 			return row.addSimpleCell("")
 		}
 		val cell = PUB.createTableCell

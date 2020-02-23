@@ -849,7 +849,9 @@ public class PubProtoSemanticSequencer extends DmxSemanticSequencer {
 	 *         name=ID 
 	 *         nature=PublicationNature 
 	 *         symbols+=ProtoSymbol* 
-	 *         preamble=DRichText? 
+	 *         htmlPreamble=DRichText? 
+	 *         laTeXClass=ID? 
+	 *         laTeXPreamble=DRichText? 
 	 *         segments+=ProtoDocumentSegment* 
 	 *         divisions+=ProtoDivision*
 	 *     )

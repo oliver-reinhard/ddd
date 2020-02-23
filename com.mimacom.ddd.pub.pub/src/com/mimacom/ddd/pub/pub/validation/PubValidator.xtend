@@ -8,20 +8,21 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.DTextSegment
+import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
-import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.pub.pub.Chapter
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
+import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
-import com.mimacom.ddd.pub.pub.PubElementNames
 import com.mimacom.ddd.pub.pub.PubPackage
+import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.Section
 import com.mimacom.ddd.pub.pub.Subsection
@@ -34,10 +35,13 @@ import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.validation.Check
+
 import static com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME
 
 /**
@@ -51,7 +55,7 @@ class PubValidator extends AbstractPubValidator {
 	static val PUB = PubPackage.eINSTANCE
 
 	@Inject extension RichTextUtil
-	@Inject extension PubElementNames
+	@Inject extension PubUtil
 	@Inject extension PubNumberingUtil
 	@Inject ISerializer serializer
 	@Inject TableProviderRegistry tableProviderRegistry
@@ -63,6 +67,13 @@ class PubValidator extends AbstractPubValidator {
 	def publicationClass(Document doc) {
 		if (doc.publicationClass === null) {
 			error("Document has no publication class.", PUB.document_PublicationClass)
+		}
+	}
+
+	@Check 
+	def generatorTarget(Document doc) {
+		if (!(doc.generateHtml || doc.generateLaTeX || doc.generateMarkdown || doc.generateAsciiDoc)) {
+			error("Document must define at least one generator target.", PUB.document_PublicationClass)
 		}
 	}
 
@@ -115,11 +126,43 @@ class PubValidator extends AbstractPubValidator {
 	}
 
 	@Check
-	def partsXorSections(PublicationBody body) {
+	def segmentsOfDocumentClass(DocumentSegment seg) {
+		if (seg.prototype === null) {
+			val node = NodeModelUtils.findActualNodeFor(seg)
+			acceptError(seg.displayName +
+				" is not a valid segment with respect to the class definition for this document", seg, node.offset,
+				node.length, null)
+		}
+	}
+
+	@Check
+	def divisionsOfDocumentClass(Division div) {
+		if (div.prototype === null) {
+			error(div.displayName + " is not a valid division with respect to the class definition for this document",
+				PUB.division_Title)
+		}
+	}
+
+	@Check
+	def partsXorChaptersXorSections(PublicationBody body) {
 		var parts = body.divisions.filter(Part)
 		var chapters = body.divisions.filter(Chapter)
-		if (! parts.empty && ! chapters.empty) {
-			error("Cannot have both Parts and Chapters at the top level.", body.divisions.head, PUB.division_Title) // flag first occurrence
+		var sections = body.divisions.filter(Section)
+		if (! parts.empty && ! chapters.empty || ! parts.empty && ! sections.empty ||
+			! sections.empty && ! chapters.empty) {
+			val msg = "Cannot only have one type of division (Part, Chapter, Section) at the top level."
+			val part = parts.head
+			if (part !== null) {
+				error(msg, part, PUB.division_Title) // flag first occurrence
+			}
+			val chapter = chapters.head
+			if (chapter !== null) {
+				error(msg, chapter, PUB.division_Title) // flag first occurrence
+			}
+			val section = sections.head
+			if (section !== null) {
+				error(msg, section, PUB.division_Title) // flag first occurrence
+			}
 		}
 	}
 
@@ -292,4 +335,26 @@ class PubValidator extends AbstractPubValidator {
 		}
 	}
 
+	//
+	// laTeX
+	//
+	protected def boolean generateHtml(EObject obj) {
+		val document = EcoreUtil2.getContainerOfType(obj, Document)
+		return document !== null && document.generateHtml
+	}
+
+	protected def boolean generateLaTeX(EObject obj) {
+		val document = EcoreUtil2.getContainerOfType(obj, Document)
+		return document !== null && document.generateLaTeX
+	}
+
+	protected def boolean generateMarkdown(EObject obj) {
+		val document = EcoreUtil2.getContainerOfType(obj, Document)
+		return document !== null && document.generateMarkdown
+	}
+
+	protected def boolean generateAsciiDoc(EObject obj) {
+		val document = EcoreUtil2.getContainerOfType(obj, Document)
+		return document !== null && document.generateAsciiDoc
+	}
 }

@@ -74,7 +74,7 @@ public abstract class AbstractRichTextRenderer {
   protected CharSequence render(final DStyledTextSpan parent) {
     boolean _isLeaf = parent.isLeaf();
     if (_isLeaf) {
-      return parent.getText();
+      return this.escape(parent.getText());
     }
     final StringBuilder b = new StringBuilder();
     EList<DStyledTextSpan> _subspans = parent.getSubspans();
@@ -176,10 +176,18 @@ public abstract class AbstractRichTextRenderer {
     boolean _lessThan = (this.currentExpressionIndex < _length);
     if (_lessThan) {
       final DExpression expr = this.expressions.get(this.currentExpressionIndex);
-      return this.renderStyleExpression(expr, span.getText());
+      String _escape = this.escape(span.getText());
+      return this.renderStyleExpression(expr, ((String) _escape));
     }
     throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match");
   }
+  
+  /**
+   * Ensure special characters of the rendering language (e.g. HTML) are properly escaped.
+   * 
+   * @param plainText can be {@code null}
+   */
+  protected abstract String escape(final String plainText);
   
   protected abstract CharSequence renderStylePlain(final DStyledTextSpan span);
   

@@ -6,7 +6,9 @@ import com.mimacom.ddd.pub.pub.TableCell
 import static com.mimacom.ddd.pub.pub.GridLines.*
 
 /*
- * PREQUISITE: this class requires <code>\\usepackage{multirow}</code> (with single backslash (thanks, unicode)) in the LaTeX preamble.
+ * PREQUISITE: this class requires <code>\\usepackage{multirow}</code> (with single backslash (thanks, unicode …)) in the LaTeX preamble.
+ * 
+ * See https://en.wikibooks.org/wiki/LaTeX/Tables for an excellent tutorial on multirow.
  */
 class PubLaTeXTableGenerator {
 	
@@ -89,7 +91,7 @@ class PubLaTeXTableGenerator {
 			
 			«IF drawHorizontalGridlines»\hline«ENDIF»
 			«FOR row : cellsByRow»
-				«FOR cell : row»«IF cell !== SENTINEL_STRING»«IF cell !== row.head» & «ENDIF»«cell.replace("&", "\\&")»«ENDIF»«ENDFOR» \\«IF drawHorizontalGridlines» «horizontalGridlines.get(rowIndex++).horizontalGridline()»«ENDIF»
+				«FOR cell : row»«IF cell !== SENTINEL_STRING»«IF cell !== row.head» & «ENDIF»«cell»«ENDIF»«ENDFOR» \\«IF drawHorizontalGridlines» «horizontalGridlines.get(rowIndex++).horizontalGridline()»«ENDIF»
 				«ENDFOR»
 			\end{tabular}
 		'''

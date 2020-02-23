@@ -15,9 +15,9 @@ import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxUtil
-import com.mimacom.ddd.dm.dmx.RichTextUtil
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import org.eclipse.xtext.validation.Check
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 
 /**
  * This class contains custom validation rules. 
@@ -27,7 +27,7 @@ import org.eclipse.xtext.validation.Check
 class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessageAcceptor {
 
 	@Inject extension DmxUtil 
-	@Inject extension RichTextUtil
+	@Inject extension DmxRichTextUtil
 
 	@Check
 	def checkAssignmentTarget(DmxAssignment a) {

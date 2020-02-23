@@ -13,7 +13,9 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
- * PREQUISITE: this class requires <code>\\usepackage{multirow}</code> (with single backslash (thanks, unicode)) in the LaTeX preamble.
+ * PREQUISITE: this class requires <code>\\usepackage{multirow}</code> (with single backslash (thanks, unicode …)) in the LaTeX preamble.
+ * 
+ * See https://en.wikibooks.org/wiki/LaTeX/Tables for an excellent tutorial on multirow.
  */
 @SuppressWarnings("all")
 public class PubLaTeXTableGenerator {
@@ -143,8 +145,7 @@ public class PubLaTeXTableGenerator {
                       _builder.append(" & ");
                     }
                   }
-                  String _replace = cell.replace("&", "\\&");
-                  _builder.append(_replace);
+                  _builder.append(cell);
                 }
               }
             }

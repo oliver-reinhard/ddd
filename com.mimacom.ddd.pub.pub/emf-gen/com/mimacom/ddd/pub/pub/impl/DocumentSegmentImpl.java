@@ -177,7 +177,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 */
 	@Override
 	public String getName() {
-		return this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
+		return this.eClass().getName().toLowerCase();
 	}
 
 	/**

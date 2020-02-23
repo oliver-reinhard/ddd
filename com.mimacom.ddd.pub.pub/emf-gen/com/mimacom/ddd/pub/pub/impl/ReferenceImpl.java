@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ReferenceImpl#getScope <em>Scope</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ReferenceImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ReferenceImpl#isPageReference <em>Page Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,26 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * @ordered
 	 */
 	protected ReferenceTarget target;
+
+	/**
+	 * The default value of the '{@link #isPageReference() <em>Page Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPageReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PAGE_REFERENCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPageReference() <em>Page Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPageReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean pageReference = PAGE_REFERENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +170,29 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * @generated
 	 */
 	@Override
+	public boolean isPageReference() {
+		return pageReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPageReference(boolean newPageReference) {
+		boolean oldPageReference = pageReference;
+		pageReference = newPageReference;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.REFERENCE__PAGE_REFERENCE, oldPageReference, pageReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PubPackage.REFERENCE__SCOPE:
@@ -156,6 +200,8 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 			case PubPackage.REFERENCE__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case PubPackage.REFERENCE__PAGE_REFERENCE:
+				return isPageReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,6 +219,9 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 				return;
 			case PubPackage.REFERENCE__TARGET:
 				setTarget((ReferenceTarget)newValue);
+				return;
+			case PubPackage.REFERENCE__PAGE_REFERENCE:
+				setPageReference((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,6 +241,9 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 			case PubPackage.REFERENCE__TARGET:
 				setTarget((ReferenceTarget)null);
 				return;
+			case PubPackage.REFERENCE__PAGE_REFERENCE:
+				setPageReference(PAGE_REFERENCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,6 +260,8 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 				return scope != SCOPE_EDEFAULT;
 			case PubPackage.REFERENCE__TARGET:
 				return target != null;
+			case PubPackage.REFERENCE__PAGE_REFERENCE:
+				return pageReference != PAGE_REFERENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -224,6 +278,8 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (scope: ");
 		result.append(scope);
+		result.append(", pageReference: ");
+		result.append(pageReference);
 		result.append(')');
 		return result.toString();
 	}

@@ -5,29 +5,34 @@ import com.mimacom.ddd.dm.styledText.DStyledTextSpan
 
 abstract class AbstractRichTextToLaTeXRenderer extends AbstractRichTextRenderer {
 	
+	extension RichTextUtil = new RichTextUtil
+	
+	override protected String escape(String plainText) {
+		return escapeLaTeX(plainText)
+	}
 	
 	override protected renderStylePlain(DStyledTextSpan span) {
 		span.render
 	}
 	
 	override protected renderStyleEmphasis(DStyledTextSpan span) {
-		"\textit{" + span.render + "}"
+		"\\textit{" + span.render + "}"
 	}
 	
 	override protected renderStyleStrong(DStyledTextSpan span) {
-		"\textbf{" + span.render + "}"
+		"\\textbf{" + span.render + "}"
 	}
 	
 	override protected renderStyleMonospace(DStyledTextSpan span) {
-		"\texttt{" + span.render + "}"
+		"\\texttt{" + span.render + "}"
 	}
 	
 	override protected renderStyleKeyword(DStyledTextSpan span) {
-		"\textbf{\textsf{" + span.render + "}}"
+		"\\textbf{\\textsf{" + span.render + "}}"
 	}
 	
 	override protected renderStyleExpression(DExpression expr, String parsedText) {
-		"\textbf{\texttt{" + parsedText + "}}"
+		"\\textbf{\\texttt{" + parsedText + "}}"
 	}
 	
 	override protected renderStyleUnderline(DStyledTextSpan span) {
@@ -39,10 +44,10 @@ abstract class AbstractRichTextToLaTeXRenderer extends AbstractRichTextRenderer 
 	}
 	
 	override protected renderStyleSubscript(DStyledTextSpan span) {
-		"\textsubscript{" + span.render + "}"
+		"\\textsubscript{" + span.render + "}"
 	}
 	
 	override protected renderStyleSuperscript(DStyledTextSpan span) {
-		"\textsuperscript{" + span.render + "}"
+		"\\textsuperscript{" + span.render + "}"
 	}
 }

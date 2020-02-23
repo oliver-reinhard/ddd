@@ -12,7 +12,9 @@ PublicationClass:
 	name=ID
 	'nature:' nature=PublicationNature
 	('symbol:' symbols+=ProtoSymbol)*
-	('preamble:' preamble=DRichText)?
+	('htmlPreamble:' htmlPreamble=DRichText)?
+	('latexClass:' laTeXClass=ID)?
+	('latexPreamble:' laTeXPreamble=DRichText)?
 	'segments:' segments+=ProtoDocumentSegment*
 	'divisions:'divisions+=ProtoDivision*;
 

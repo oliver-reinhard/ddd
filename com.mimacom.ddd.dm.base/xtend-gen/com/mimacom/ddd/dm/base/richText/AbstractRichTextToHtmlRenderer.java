@@ -2,10 +2,20 @@ package com.mimacom.ddd.dm.base.richText;
 
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer;
+import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRenderer {
+  @Extension
+  private RichTextUtil _richTextUtil = new RichTextUtil();
+  
+  @Override
+  protected String escape(final String plainText) {
+    return this._richTextUtil.escapeHtml(plainText);
+  }
+  
   @Override
   protected CharSequence renderStylePlain(final DStyledTextSpan span) {
     return this.render(span);

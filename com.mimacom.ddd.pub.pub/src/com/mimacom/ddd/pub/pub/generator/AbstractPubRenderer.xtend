@@ -61,7 +61,7 @@ abstract class AbstractPubRenderer {
 	
 	abstract def CharSequence renderAnchor(ReferenceTarget target)
 	
-	abstract def CharSequence renderReferenceTo(ReferenceTarget target, String linkText)
+//	abstract def CharSequence renderReferenceTo(ReferenceTarget target, String linkText)
 	
 
 	//
@@ -100,6 +100,9 @@ abstract class AbstractPubRenderer {
 	
 	abstract def CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
 
+	
+	abstract protected def CharSequence escape(CharSequence plainText)
+	
 	//
 	// RichText
 	//

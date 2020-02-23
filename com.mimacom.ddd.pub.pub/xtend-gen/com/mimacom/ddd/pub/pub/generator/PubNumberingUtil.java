@@ -13,7 +13,6 @@ import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.NumberedElement;
 import com.mimacom.ddd.pub.pub.Part;
-import com.mimacom.ddd.pub.pub.PubElementNames;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.TitledBlock;
@@ -34,16 +33,12 @@ public class PubNumberingUtil {
   @Extension
   private PubUtil _pubUtil;
   
-  @Inject
-  @Extension
-  private PubElementNames _pubElementNames;
-  
   public String labelAndNumber(final Division div) {
     String _switchResult = null;
     boolean _matched = false;
     if (div instanceof Part) {
       _matched=true;
-      String _displayName = this._pubElementNames.displayName(div);
+      String _displayName = this._pubUtil.displayName(div);
       String _plus = (_displayName + " ");
       String _formattedSingleNumber = this.formattedSingleNumber(div);
       _switchResult = (_plus + _formattedSingleNumber);
@@ -55,7 +50,7 @@ public class PubNumberingUtil {
   }
   
   public String labelAndNumber(final TitledBlock b) {
-    String _displayName = this._pubElementNames.displayName(b);
+    String _displayName = this._pubUtil.displayName(b);
     String _plus = (_displayName + " ");
     String _tieredNumber = this.tieredNumber(b);
     return (_plus + _tieredNumber);

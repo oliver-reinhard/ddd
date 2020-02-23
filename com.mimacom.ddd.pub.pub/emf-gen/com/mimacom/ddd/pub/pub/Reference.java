@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.base.DExpression;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.Reference#getScope <em>Scope</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Reference#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.Reference#isPageReference <em>Page Reference</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getReference()
@@ -68,5 +69,27 @@ public interface Reference extends DExpression {
 	 * @generated
 	 */
 	void setTarget(ReferenceTarget value);
+
+	/**
+	 * Returns the value of the '<em><b>Page Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Page Reference</em>' attribute.
+	 * @see #setPageReference(boolean)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getReference_PageReference()
+	 * @model unique="false"
+	 * @generated
+	 */
+	boolean isPageReference();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.Reference#isPageReference <em>Page Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Page Reference</em>' attribute.
+	 * @see #isPageReference()
+	 * @generated
+	 */
+	void setPageReference(boolean value);
 
 } // Reference

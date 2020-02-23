@@ -11,9 +11,11 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
-import com.mimacom.ddd.dm.dmx.RichTextUtil;
+import com.mimacom.ddd.pub.proto.ProtoDivision;
+import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.proto.ProtoSymbol;
 import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer;
@@ -21,13 +23,14 @@ import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
+import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
-import com.mimacom.ddd.pub.pub.PubElementNames;
 import com.mimacom.ddd.pub.pub.PubPackage;
+import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.Subsection;
@@ -50,6 +53,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.validation.Check;
@@ -76,7 +81,7 @@ public class PubValidator extends AbstractPubValidator {
   
   @Inject
   @Extension
-  private PubElementNames _pubElementNames;
+  private PubUtil _pubUtil;
   
   @Inject
   @Extension
@@ -99,6 +104,14 @@ public class PubValidator extends AbstractPubValidator {
     boolean _tripleEquals = (_publicationClass == null);
     if (_tripleEquals) {
       this.error("Document has no publication class.", PubValidator.PUB.getDocument_PublicationClass());
+    }
+  }
+  
+  @Check
+  public void generatorTarget(final Document doc) {
+    boolean _not = (!(((doc.isGenerateHtml() || doc.isGenerateLaTeX()) || doc.isGenerateMarkdown()) || doc.isGenerateAsciiDoc()));
+    if (_not) {
+      this.error("Document must define at least one generator target.", PubValidator.PUB.getDocument_PublicationClass());
     }
   }
   
@@ -137,8 +150,8 @@ public class PubValidator extends AbstractPubValidator {
   
   @Check
   public void symbolValueIsNotEmpty(final Symbol s) {
-    boolean _empty = this._richTextUtil.empty(s.getValue());
-    if (_empty) {
+    boolean _isEmpty = this._richTextUtil.isEmpty(s.getValue());
+    if (_isEmpty) {
       this.error("Symbol value is empty", s, PubValidator.PUB.getSymbol_Value());
     }
   }
@@ -168,11 +181,51 @@ public class PubValidator extends AbstractPubValidator {
   }
   
   @Check
-  public void partsXorSections(final PublicationBody body) {
+  public void segmentsOfDocumentClass(final DocumentSegment seg) {
+    ProtoDocumentSegment _prototype = this._pubUtil.prototype(seg);
+    boolean _tripleEquals = (_prototype == null);
+    if (_tripleEquals) {
+      final ICompositeNode node = NodeModelUtils.findActualNodeFor(seg);
+      String _displayName = this._pubUtil.displayName(seg);
+      String _plus = (_displayName + 
+        " is not a valid segment with respect to the class definition for this document");
+      this.acceptError(_plus, seg, node.getOffset(), 
+        node.getLength(), null);
+    }
+  }
+  
+  @Check
+  public void divisionsOfDocumentClass(final Division div) {
+    ProtoDivision _prototype = this._pubUtil.prototype(div);
+    boolean _tripleEquals = (_prototype == null);
+    if (_tripleEquals) {
+      String _displayName = this._pubUtil.displayName(div);
+      String _plus = (_displayName + " is not a valid division with respect to the class definition for this document");
+      this.error(_plus, 
+        PubValidator.PUB.getDivision_Title());
+    }
+  }
+  
+  @Check
+  public void partsXorChaptersXorSections(final PublicationBody body) {
     Iterable<Part> parts = Iterables.<Part>filter(body.getDivisions(), Part.class);
     Iterable<Chapter> chapters = Iterables.<Chapter>filter(body.getDivisions(), Chapter.class);
-    if (((!IterableExtensions.isEmpty(parts)) && (!IterableExtensions.isEmpty(chapters)))) {
-      this.error("Cannot have both Parts and Chapters at the top level.", IterableExtensions.<Division>head(body.getDivisions()), PubValidator.PUB.getDivision_Title());
+    Iterable<Section> sections = Iterables.<Section>filter(body.getDivisions(), Section.class);
+    if (((((!IterableExtensions.isEmpty(parts)) && (!IterableExtensions.isEmpty(chapters))) || ((!IterableExtensions.isEmpty(parts)) && (!IterableExtensions.isEmpty(sections)))) || 
+      ((!IterableExtensions.isEmpty(sections)) && (!IterableExtensions.isEmpty(chapters))))) {
+      final String msg = "Cannot only have one type of division (Part, Chapter, Section) at the top level.";
+      final Part part = IterableExtensions.<Part>head(parts);
+      if ((part != null)) {
+        this.error(msg, part, PubValidator.PUB.getDivision_Title());
+      }
+      final Chapter chapter = IterableExtensions.<Chapter>head(chapters);
+      if ((chapter != null)) {
+        this.error(msg, chapter, PubValidator.PUB.getDivision_Title());
+      }
+      final Section section = IterableExtensions.<Section>head(sections);
+      if ((section != null)) {
+        this.error(msg, section, PubValidator.PUB.getDivision_Title());
+      }
     }
   }
   
@@ -203,7 +256,7 @@ public class PubValidator extends AbstractPubValidator {
       Class<? extends Division> _class_1 = d.getInclude().getClass();
       boolean _notEquals = (!Objects.equal(_class, _class_1));
       if (_notEquals) {
-        String _displayName = this._pubElementNames.displayName(d.getInclude());
+        String _displayName = this._pubUtil.displayName(d.getInclude());
         String _plus = ("Division include must be of the same type as the including division: " + _displayName);
         this.error(_plus, 
           PubValidator.PUB.getDivision_Include());
@@ -326,14 +379,14 @@ public class PubValidator extends AbstractPubValidator {
   @Check
   public void titleForTitledListItems(final ListItem item) {
     final ListStyle style = item.getList().getStyle();
-    if ((Objects.equal(style, ListStyle.TITLE) && this._richTextUtil.empty(item.getTitle()))) {
+    if ((Objects.equal(style, ListStyle.TITLE) && this._richTextUtil.isEmpty(item.getTitle()))) {
       String _literal = style.getLiteral();
       String _plus = ("Item title must be defined for list style \'" + _literal);
       String _plus_1 = (_plus + "\'.");
       this.error(_plus_1, item.getList(), PubValidator.PUB.getList_Items(), 
         item.getList().getItems().indexOf(item));
     } else {
-      if (((!Objects.equal(style, ListStyle.TITLE)) && (!this._richTextUtil.empty(item.getTitle())))) {
+      if (((!Objects.equal(style, ListStyle.TITLE)) && (!this._richTextUtil.isEmpty(item.getTitle())))) {
         String _literal_1 = style.getLiteral();
         String _plus_2 = ("Item cannot have a title for list style \'" + _literal_1);
         String _plus_3 = (_plus_2 + "\'.");
@@ -399,5 +452,25 @@ public class PubValidator extends AbstractPubValidator {
           PubValidator.PUB.getProvidedTable_DiagramRoot());
       }
     }
+  }
+  
+  protected boolean generateHtml(final EObject obj) {
+    final Document document = EcoreUtil2.<Document>getContainerOfType(obj, Document.class);
+    return ((document != null) && document.isGenerateHtml());
+  }
+  
+  protected boolean generateLaTeX(final EObject obj) {
+    final Document document = EcoreUtil2.<Document>getContainerOfType(obj, Document.class);
+    return ((document != null) && document.isGenerateLaTeX());
+  }
+  
+  protected boolean generateMarkdown(final EObject obj) {
+    final Document document = EcoreUtil2.<Document>getContainerOfType(obj, Document.class);
+    return ((document != null) && document.isGenerateMarkdown());
+  }
+  
+  protected boolean generateAsciiDoc(final EObject obj) {
+    final Document document = EcoreUtil2.<Document>getContainerOfType(obj, Document.class);
+    return ((document != null) && document.isGenerateAsciiDoc());
   }
 }

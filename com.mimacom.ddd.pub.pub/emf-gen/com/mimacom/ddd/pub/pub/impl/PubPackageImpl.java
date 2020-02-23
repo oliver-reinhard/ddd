@@ -711,8 +711,48 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDocument_GenerateHtml() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDocument_GenerateLaTeX() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDocument_GenerateMarkdown() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDocument_GenerateAsciiDoc() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getDocument_Symbols() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(1);
+		return (EReference)documentEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -722,7 +762,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 */
 	@Override
 	public EReference getDocument_PublicationClass() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(2);
+		return (EReference)documentEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -853,6 +893,16 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EReference getReference_Target() {
 		return (EReference)referenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getReference_PageReference() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2312,6 +2362,10 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__TITLE);
+		createEAttribute(documentEClass, DOCUMENT__GENERATE_HTML);
+		createEAttribute(documentEClass, DOCUMENT__GENERATE_LA_TE_X);
+		createEAttribute(documentEClass, DOCUMENT__GENERATE_MARKDOWN);
+		createEAttribute(documentEClass, DOCUMENT__GENERATE_ASCII_DOC);
 		createEReference(documentEClass, DOCUMENT__SYMBOLS);
 		createEReference(documentEClass, DOCUMENT__PUBLICATION_CLASS);
 		createEOperation(documentEClass, DOCUMENT___GET_SYMBOL__STRING);
@@ -2332,6 +2386,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		referenceEClass = createEClass(REFERENCE);
 		createEAttribute(referenceEClass, REFERENCE__SCOPE);
 		createEReference(referenceEClass, REFERENCE__TARGET);
+		createEAttribute(referenceEClass, REFERENCE__PAGE_REFERENCE);
 
 		documentSegmentEClass = createEClass(DOCUMENT_SEGMENT);
 		createEReference(documentSegmentEClass, DOCUMENT_SEGMENT__PARENT);
@@ -2633,6 +2688,10 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(documentEClass, Document.class, "Document", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_Title(), theEcorePackage.getEString(), "title", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_GenerateHtml(), theEcorePackage.getEBoolean(), "generateHtml", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_GenerateLaTeX(), theEcorePackage.getEBoolean(), "generateLaTeX", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_GenerateMarkdown(), theEcorePackage.getEBoolean(), "generateMarkdown", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_GenerateAsciiDoc(), theEcorePackage.getEBoolean(), "generateAsciiDoc", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_Symbols(), this.getSymbol(), null, "symbols", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_PublicationClass(), theProtoPackage.getPublicationClass(), null, "publicationClass", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2655,6 +2714,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReference_Scope(), this.getReferenceScope(), "scope", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_Target(), this.getReferenceTarget(), null, "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_PageReference(), theEcorePackage.getEBoolean(), "pageReference", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentSegmentEClass, DocumentSegment.class, "DocumentSegment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocumentSegment_Parent(), this.getComponent(), this.getComponent_Segments(), "parent", null, 0, 1, DocumentSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

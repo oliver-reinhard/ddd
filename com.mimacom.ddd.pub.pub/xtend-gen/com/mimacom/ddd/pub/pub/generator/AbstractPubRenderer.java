@@ -63,8 +63,6 @@ public abstract class AbstractPubRenderer {
   
   public abstract CharSequence renderAnchor(final ReferenceTarget target);
   
-  public abstract CharSequence renderReferenceTo(final ReferenceTarget target, final String linkText);
-  
   public abstract CharSequence renderAdmonition(final Admonition a);
   
   public abstract CharSequence renderBulletList(final List list, final NestedElementsRenderer p);
@@ -96,6 +94,8 @@ public abstract class AbstractPubRenderer {
   public abstract CharSequence renderUnformattedParagraph(final UnformattedParagraph para);
   
   public abstract CharSequence renderRichTextReferencingParagraph(final RichTextReferencingParagraph para);
+  
+  protected abstract CharSequence escape(final CharSequence plainText);
   
   public abstract AbstractRichTextRenderer createRichTextRenderer(final ErrorMessageAcceptor acceptor);
   
