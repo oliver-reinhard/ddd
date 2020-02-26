@@ -110,6 +110,8 @@
                   </enumeration>
                   <enumeration value="SVG">
                   </enumeration>
+                  <enumeration value="EPS">
+                  </enumeration>
                </restriction>
             </simpleType>
          </attribute>

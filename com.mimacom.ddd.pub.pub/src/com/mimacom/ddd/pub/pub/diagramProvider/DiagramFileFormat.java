@@ -2,6 +2,6 @@ package com.mimacom.ddd.pub.pub.diagramProvider;
 
 public enum DiagramFileFormat {
 	
-	PNG, JPG, SVG
+	PNG, JPG, SVG, EPS
 
 }

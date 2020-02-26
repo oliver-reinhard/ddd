@@ -21,6 +21,15 @@
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
       
+      <renderer
+            id="dim.typeDiagram.eps"
+            diagramName="Domain Information Structure (EPS)"
+            diagramType="informationStructure"
+            diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
+      </renderer>
+      
       <diagramType
             id="informationStructure"
             name="Information Structure">
