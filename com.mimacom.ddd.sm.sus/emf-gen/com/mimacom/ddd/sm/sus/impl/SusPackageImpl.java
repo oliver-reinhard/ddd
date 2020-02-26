@@ -78,7 +78,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link SusPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -93,13 +93,11 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		if (isInited) return (SusPackage)EPackage.Registry.INSTANCE.getEPackage(SusPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredSusPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		SusPackageImpl theSusPackage = registeredSusPackage instanceof SusPackageImpl ? (SusPackageImpl)registeredSusPackage : new SusPackageImpl();
+		SusPackageImpl theSusPackage = (SusPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SusPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SusPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
 		DemPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -111,6 +109,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		// Mark meta-data to indicate it can't be changed
 		theSusPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SusPackage.eNS_URI, theSusPackage);
 		return theSusPackage;
@@ -121,7 +120,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getUserStory()
 	{
 		return userStoryEClass;
@@ -132,7 +130,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getUserStory_Sections()
 	{
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(0);
@@ -143,7 +140,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getUserStory_Event()
 	{
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(1);
@@ -154,7 +150,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSection()
 	{
 		return sectionEClass;
@@ -165,7 +160,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSection_Name()
 	{
 		return (EAttribute)sectionEClass.getEStructuralFeatures().get(0);
@@ -176,7 +170,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSection_Paragraphs()
 	{
 		return (EReference)sectionEClass.getEStructuralFeatures().get(1);
@@ -187,7 +180,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getParagraph()
 	{
 		return paragraphEClass;
@@ -198,7 +190,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getParagraph_Text()
 	{
 		return (EReference)paragraphEClass.getEStructuralFeatures().get(0);
@@ -209,7 +200,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SusFactory getSusFactory()
 	{
 		return (SusFactory)getEFactoryInstance();

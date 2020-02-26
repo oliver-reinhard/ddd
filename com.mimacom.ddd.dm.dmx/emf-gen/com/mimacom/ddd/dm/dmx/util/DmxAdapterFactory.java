@@ -225,6 +225,11 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxDateLiteralAdapter();
 			}
 			@Override
+			public Adapter caseDmxUrlLiteral(DmxUrlLiteral object)
+			{
+				return createDmxUrlLiteralAdapter();
+			}
+			@Override
 			public Adapter caseDmxUndefinedLiteral(DmxUndefinedLiteral object)
 			{
 				return createDmxUndefinedLiteralAdapter();
@@ -742,6 +747,21 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDmxDateLiteralAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxUrlLiteral <em>Url Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxUrlLiteral
+	 * @generated
+	 */
+	public Adapter createDmxUrlLiteralAdapter()
 	{
 		return null;
 	}

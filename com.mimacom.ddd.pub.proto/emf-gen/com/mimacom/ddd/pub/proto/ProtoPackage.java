@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.proto;
 
 import com.mimacom.ddd.dm.base.BasePackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;

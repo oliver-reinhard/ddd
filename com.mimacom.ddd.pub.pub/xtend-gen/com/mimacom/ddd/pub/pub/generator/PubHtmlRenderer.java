@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
 import com.mimacom.ddd.pub.proto.ProtoSymbolReference;
@@ -727,15 +728,24 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
           }
         }
         if (!_matched) {
+          if (expr instanceof DmxUrlLiteral) {
+            _matched=true;
+            String _value = ((DmxUrlLiteral)expr).getValue();
+            String _xifexpression = null;
+            String _display = ((DmxUrlLiteral)expr).getDisplay();
+            boolean _tripleNotEquals = (_display != null);
+            if (_tripleNotEquals) {
+              _xifexpression = ((DmxUrlLiteral)expr).getDisplay();
+            } else {
+              _xifexpression = ((DmxUrlLiteral)expr).getValue();
+            }
+            _switchResult = PubHtmlRenderer.this.hyperlink(_value, _xifexpression);
+          }
+        }
+        if (!_matched) {
           if (expr instanceof Reference) {
             _matched=true;
-            String _htmlReferenceLinkTargetId = PubHtmlRenderer.this.htmlReferenceLinkTargetId(((Reference)expr));
-            String _plus = ("<a href=\"" + _htmlReferenceLinkTargetId);
-            String _plus_1 = (_plus + "\">");
-            String _referenceDisplayText = PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayText(((Reference)expr).getTarget());
-            String _plus_2 = (_plus_1 + _referenceDisplayText);
-            _switchResult = (_plus_2 + 
-              "</a>");
+            _switchResult = PubHtmlRenderer.this.hyperlink(PubHtmlRenderer.this.htmlReferenceLinkTargetId(((Reference)expr)), PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayText(((Reference)expr).getTarget()));
           }
         }
         if (!_matched) {
@@ -744,6 +754,16 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
         return _switchResult;
       }
     };
+  }
+  
+  protected String hyperlink(final String url, final String displayText) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<a href=\"");
+    _builder.append(url);
+    _builder.append("\">\" ");
+    _builder.append(displayText);
+    _builder.append("</a>");
+    return _builder.toString();
   }
   
   protected String staticReferenceLinkText(final DmxStaticReference ref) {

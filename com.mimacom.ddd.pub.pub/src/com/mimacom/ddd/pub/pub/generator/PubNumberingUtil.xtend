@@ -11,6 +11,7 @@ import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
+import com.mimacom.ddd.pub.pub.ReferenceTarget
 import com.mimacom.ddd.pub.pub.Section
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.TitledFigure
@@ -74,8 +75,16 @@ class PubNumberingUtil {
 		return ""
 	}
 
+	def dispatch String tieredNumber(ReferenceTarget t) {
+		t.id
+	}
+
 	def dispatch String tieredNumber(NumberedElement e) {
-		throw new IllegalArgumentException("Unsupported object type: " + e.class.name)
+		if (e.sequenceNumber == PubConstants::UNDEFINED_SEQUENCE_NUMBER) {
+			"UNDEFINED"
+		} else {
+			e.sequenceNumber.toString
+		}
 	}
 
 	def String formattedSingleNumber(Division div) {

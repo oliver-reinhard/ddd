@@ -15,6 +15,7 @@ import com.mimacom.ddd.pub.pub.NumberedElement;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
+import com.mimacom.ddd.pub.pub.ReferenceTarget;
 import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledFigure;
@@ -119,10 +120,20 @@ public class PubNumberingUtil {
     return "";
   }
   
+  protected String _tieredNumber(final ReferenceTarget t) {
+    return t.getId();
+  }
+  
   protected String _tieredNumber(final NumberedElement e) {
-    String _name = e.getClass().getName();
-    String _plus = ("Unsupported object type: " + _name);
-    throw new IllegalArgumentException(_plus);
+    String _xifexpression = null;
+    int _sequenceNumber = e.getSequenceNumber();
+    boolean _equals = (_sequenceNumber == PubConstants.UNDEFINED_SEQUENCE_NUMBER);
+    if (_equals) {
+      _xifexpression = "UNDEFINED";
+    } else {
+      _xifexpression = Integer.valueOf(e.getSequenceNumber()).toString();
+    }
+    return _xifexpression;
   }
   
   public String formattedSingleNumber(final Division div) {
@@ -400,13 +411,15 @@ public class PubNumberingUtil {
     }
   }
   
-  public String tieredNumber(final NumberedElement div) {
+  public String tieredNumber(final EObject div) {
     if (div instanceof Division) {
       return _tieredNumber((Division)div);
     } else if (div instanceof TitledBlock) {
       return _tieredNumber((TitledBlock)div);
-    } else if (div != null) {
-      return _tieredNumber(div);
+    } else if (div instanceof NumberedElement) {
+      return _tieredNumber((NumberedElement)div);
+    } else if (div instanceof ReferenceTarget) {
+      return _tieredNumber((ReferenceTarget)div);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(div).toString());

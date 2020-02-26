@@ -329,6 +329,15 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_URL_LITERAL:
+			{
+				DmxUrlLiteral dmxUrlLiteral = (DmxUrlLiteral)theEObject;
+				T result = caseDmxUrlLiteral(dmxUrlLiteral);
+				if (result == null) result = caseDExpression(dmxUrlLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxUrlLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DmxPackage.DMX_UNDEFINED_LITERAL:
 			{
 				DmxUndefinedLiteral dmxUndefinedLiteral = (DmxUndefinedLiteral)theEObject;
@@ -811,6 +820,22 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDmxDateLiteral(DmxDateLiteral object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Url Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Url Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxUrlLiteral(DmxUrlLiteral object)
 	{
 		return null;
 	}

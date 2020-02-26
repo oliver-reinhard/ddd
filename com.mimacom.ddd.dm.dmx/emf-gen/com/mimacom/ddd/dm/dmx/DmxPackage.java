@@ -1655,6 +1655,52 @@ public interface DmxPackage extends EPackage
 	int DMX_DATE_LITERAL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxUrlLiteralImpl <em>Url Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxUrlLiteralImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUrlLiteral()
+	 * @generated
+	 */
+	int DMX_URL_LITERAL = 27;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_URL_LITERAL__VALUE = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Display</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_URL_LITERAL__DISPLAY = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Url Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_URL_LITERAL_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Url Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_URL_LITERAL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxUndefinedLiteralImpl <em>Undefined Literal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1662,7 +1708,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUndefinedLiteral()
 	 * @generated
 	 */
-	int DMX_UNDEFINED_LITERAL = 27;
+	int DMX_UNDEFINED_LITERAL = 28;
 
 	/**
 	 * The number of structural features of the '<em>Undefined Literal</em>' class.
@@ -1690,7 +1736,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxComplexObject()
 	 * @generated
 	 */
-	int DMX_COMPLEX_OBJECT = 28;
+	int DMX_COMPLEX_OBJECT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -1745,7 +1791,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxField()
 	 * @generated
 	 */
-	int DMX_FIELD = 29;
+	int DMX_FIELD = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1854,7 +1900,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxEntity()
 	 * @generated
 	 */
-	int DMX_ENTITY = 30;
+	int DMX_ENTITY = 31;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -1909,7 +1955,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxDetail()
 	 * @generated
 	 */
-	int DMX_DETAIL = 31;
+	int DMX_DETAIL = 32;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -1964,7 +2010,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBaseType()
 	 * @generated
 	 */
-	int DMX_BASE_TYPE = 32;
+	int DMX_BASE_TYPE = 33;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxBinaryOperator <em>Binary Operator</em>}' enum.
@@ -1974,7 +2020,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBinaryOperator()
 	 * @generated
 	 */
-	int DMX_BINARY_OPERATOR = 33;
+	int DMX_BINARY_OPERATOR = 34;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxUnaryOperator <em>Unary Operator</em>}' enum.
@@ -1984,7 +2030,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUnaryOperator()
 	 * @generated
 	 */
-	int DMX_UNARY_OPERATOR = 34;
+	int DMX_UNARY_OPERATOR = 35;
 
 
 	/**
@@ -2894,6 +2940,38 @@ public interface DmxPackage extends EPackage
 	EAttribute getDmxDateLiteral_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxUrlLiteral <em>Url Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Url Literal</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxUrlLiteral
+	 * @generated
+	 */
+	EClass getDmxUrlLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxUrlLiteral#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxUrlLiteral#getValue()
+	 * @see #getDmxUrlLiteral()
+	 * @generated
+	 */
+	EAttribute getDmxUrlLiteral_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxUrlLiteral#getDisplay <em>Display</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Display</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxUrlLiteral#getDisplay()
+	 * @see #getDmxUrlLiteral()
+	 * @generated
+	 */
+	EAttribute getDmxUrlLiteral_Display();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral <em>Undefined Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3774,6 +3852,32 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DMX_DATE_LITERAL__VALUE = eINSTANCE.getDmxDateLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxUrlLiteralImpl <em>Url Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxUrlLiteralImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUrlLiteral()
+		 * @generated
+		 */
+		EClass DMX_URL_LITERAL = eINSTANCE.getDmxUrlLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_URL_LITERAL__VALUE = eINSTANCE.getDmxUrlLiteral_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Display</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_URL_LITERAL__DISPLAY = eINSTANCE.getDmxUrlLiteral_Display();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxUndefinedLiteralImpl <em>Undefined Literal</em>}' class.

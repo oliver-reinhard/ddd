@@ -2803,9 +2803,9 @@ rule__DNamespace__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0()); }
-	'namespace'
-	{ after(grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0()); }
+	{ before(grammarAccess.getDNamespaceAccess().getSystemKeyword_0()); }
+	'system'
+	{ after(grammarAccess.getDNamespaceAccess().getSystemKeyword_0()); }
 )
 ;
 finally {

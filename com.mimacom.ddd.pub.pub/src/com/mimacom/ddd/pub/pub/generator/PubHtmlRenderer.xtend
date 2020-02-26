@@ -10,6 +10,7 @@ import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.proto.ProtoSymbolReference
@@ -326,9 +327,10 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 					}
 					DmxStaticReference:
 						super.renderStyleExpression(expr, expr.staticReferenceLinkText)
+					DmxUrlLiteral:
+						hyperlink(expr.value, expr.display !== null ? expr.display : expr.value)
 					Reference:
-						"<a href=\"" + expr.htmlReferenceLinkTargetId + "\">" + expr.target.referenceDisplayText +
-							"</a>"
+						hyperlink(expr.htmlReferenceLinkTargetId, expr.target.referenceDisplayText)
 					default:
 						super.renderStyleExpression(expr, parsedText)
 				}
@@ -336,6 +338,9 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 
 		}
 	}
+	
+	protected def String hyperlink(String url, String displayText) 
+		'''<a href="«url»">" «displayText»</a>'''
 
 	protected def String staticReferenceLinkText(DmxStaticReference ref) {
 		if (! guard(ref.displayName, "").empty) {

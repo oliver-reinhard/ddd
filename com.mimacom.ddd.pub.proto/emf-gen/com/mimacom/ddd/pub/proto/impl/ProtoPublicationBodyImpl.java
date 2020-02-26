@@ -4,6 +4,7 @@ package com.mimacom.ddd.pub.proto.impl;
 
 import com.mimacom.ddd.pub.proto.ProtoPackage;
 import com.mimacom.ddd.pub.proto.ProtoPublicationBody;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

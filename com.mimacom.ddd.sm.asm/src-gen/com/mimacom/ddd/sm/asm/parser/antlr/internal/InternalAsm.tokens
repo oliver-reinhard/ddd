@@ -77,13 +77,13 @@
 'is'=43
 'isa'=51
 'model'=20
-'namespace'=17
 'not'=111
 'operation'=26
 'or'=90
 'out'=77
 'raises'=30
 'service'=21
+'system'=17
 'test'=38
 'then'=62
 'true'=67

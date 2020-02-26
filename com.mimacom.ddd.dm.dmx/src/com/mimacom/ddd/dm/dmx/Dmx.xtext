@@ -317,6 +317,13 @@ DmxDecimalLiteral returns DExpression: {DmxDecimalLiteral} value=DECIMAL;
 DmxStringLiteral returns DExpression: {DmxStringLiteral} value=STRING;
 DmxUndefinedLiteral returns DExpression: {DmxUndefinedLiteral} ('UNDEFINED' | 'undefined');
 
+DmxUrlLiteral returns DExpression: 
+	{DmxUrlLiteral} 
+	'URL:'
+	value=STRING
+	('|'display=STRING)?
+;
+
 DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
 
 DomFieldListStartSymbol:

@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.proto.impl;
 
 import com.mimacom.ddd.dm.base.DRichText;
+
 import com.mimacom.ddd.pub.proto.ProtoDivision;
 import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.proto.ProtoPackage;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;

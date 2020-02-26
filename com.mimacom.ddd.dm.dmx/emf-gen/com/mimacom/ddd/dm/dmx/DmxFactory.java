@@ -266,6 +266,15 @@ public interface DmxFactory extends EFactory
 	DmxDateLiteral createDmxDateLiteral();
 
 	/**
+	 * Returns a new object of class '<em>Url Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Url Literal</em>'.
+	 * @generated
+	 */
+	DmxUrlLiteral createDmxUrlLiteral();
+
+	/**
 	 * Returns a new object of class '<em>Undefined Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

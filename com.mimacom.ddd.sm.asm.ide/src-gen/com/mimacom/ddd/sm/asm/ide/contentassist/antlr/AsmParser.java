@@ -175,6 +175,8 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxDecimalLiteralAccess().getGroup(), "rule__DmxDecimalLiteral__Group__0");
 			builder.put(grammarAccess.getDmxStringLiteralAccess().getGroup(), "rule__DmxStringLiteral__Group__0");
 			builder.put(grammarAccess.getDmxUndefinedLiteralAccess().getGroup(), "rule__DmxUndefinedLiteral__Group__0");
+			builder.put(grammarAccess.getDmxUrlLiteralAccess().getGroup(), "rule__DmxUrlLiteral__Group__0");
+			builder.put(grammarAccess.getDmxUrlLiteralAccess().getGroup_3(), "rule__DmxUrlLiteral__Group_3__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup_3(), "rule__DECIMAL__Group_3__0");
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
@@ -307,6 +309,8 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxNaturalLiteralAccess().getValueAssignment_1(), "rule__DmxNaturalLiteral__ValueAssignment_1");
 			builder.put(grammarAccess.getDmxDecimalLiteralAccess().getValueAssignment_1(), "rule__DmxDecimalLiteral__ValueAssignment_1");
 			builder.put(grammarAccess.getDmxStringLiteralAccess().getValueAssignment_1(), "rule__DmxStringLiteral__ValueAssignment_1");
+			builder.put(grammarAccess.getDmxUrlLiteralAccess().getValueAssignment_2(), "rule__DmxUrlLiteral__ValueAssignment_2");
+			builder.put(grammarAccess.getDmxUrlLiteralAccess().getDisplayAssignment_3_1(), "rule__DmxUrlLiteral__DisplayAssignment_3_1");
 		}
 	}
 	

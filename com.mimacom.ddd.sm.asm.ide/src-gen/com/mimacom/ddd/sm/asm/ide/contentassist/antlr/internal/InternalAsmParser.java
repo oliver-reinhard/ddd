@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalAsmParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'in'", "'out'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'namespace'", "'application'", "'information'", "'model'", "'service'", "'interface'", "'core'", "'watchdog'", "'human'", "'operation'", "'('", "')'", "'}'", "','", "'raises'", "'guard'", "'effect'", "':'", "'exception'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'entity'", "'detail'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'in'", "'out'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'system'", "'application'", "'information'", "'model'", "'service'", "'interface'", "'core'", "'watchdog'", "'human'", "'operation'", "'('", "')'", "'}'", "','", "'raises'", "'guard'", "'effect'", "':'", "'exception'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'entity'", "'detail'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -10560,24 +10560,24 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DNamespace__Group__0__Impl"
-    // InternalAsm.g:2800:1: rule__DNamespace__Group__0__Impl : ( 'namespace' ) ;
+    // InternalAsm.g:2800:1: rule__DNamespace__Group__0__Impl : ( 'system' ) ;
     public final void rule__DNamespace__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:2804:1: ( ( 'namespace' ) )
-            // InternalAsm.g:2805:1: ( 'namespace' )
+            // InternalAsm.g:2804:1: ( ( 'system' ) )
+            // InternalAsm.g:2805:1: ( 'system' )
             {
-            // InternalAsm.g:2805:1: ( 'namespace' )
-            // InternalAsm.g:2806:2: 'namespace'
+            // InternalAsm.g:2805:1: ( 'system' )
+            // InternalAsm.g:2806:2: 'system'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0()); 
+               before(grammarAccess.getDNamespaceAccess().getSystemKeyword_0()); 
             }
             match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDNamespaceAccess().getNamespaceKeyword_0()); 
+               after(grammarAccess.getDNamespaceAccess().getSystemKeyword_0()); 
             }
 
             }

@@ -6,8 +6,11 @@ package com.mimacom.ddd.pub.pub.generator
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToLaTeXRenderer
+import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.proto.ProtoSymbolReference
@@ -41,8 +44,6 @@ import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess2
-import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
-import com.mimacom.ddd.dm.base.richText.RichTextUtil
 
 class PubLaTeXRenderer extends AbstractPubRenderer {
 
@@ -78,8 +79,8 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\usepackage{enumitem} % list numbering
 		\usepackage{multirow} % tables with column span and or rowspan
 		\usepackage{pbox} % paragraphs or line breaks in table cell
-		\usepackage{graphicx} % include figures (does not support .svg)
-		\graphicspath{{figures/}} % Setting the graphicspath
+		\usepackage{graphicx} % include graphics files (does not support .svg)
+		\usepackage{hyperref} % hyperlinks
 				
 		«doc.renderPreamble»
 		
@@ -187,9 +188,6 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		}
 		return ""
 	}
-
-//	override CharSequence renderReferenceTo(ReferenceTarget target, String linkText) 
-//		'''«linkText» \ref{«target.labelFor»}''' // TODO link text not supported
 
 	//
 	// Content
@@ -319,6 +317,8 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 					}
 					DmxStaticReference:
 						super.renderStyleExpression(expr, expr.staticReferenceLinkText)
+					DmxUrlLiteral:
+						hyperlink(expr.value, expr.display)
 					Reference:
 						expr.refToReferenceTarget
 					default:
@@ -327,6 +327,9 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 			}
 		}
 	}
+	
+	protected def String hyperlink(String url, String displayText) 
+		'''\textsf{«IF empty(displayText)»\url{«url»}«ELSE»\href{«url»}{«displayText»}«ENDIF»}'''
 
 	protected def String staticReferenceLinkText(DmxStaticReference ref) {
 		if (! guard(ref.displayName, "").empty) {
@@ -343,9 +346,9 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		val refContainer = EcoreUtil2.getContainerOfType(ref, Document)
 		val targetContainer = EcoreUtil2.getContainerOfType(ref.target, Document)
 		if (refContainer !== null && targetContainer !== refContainer) {
-			result = targetContainer.fileName + result
+			result = targetContainer.fileName + "/" + result
 		}
-		return ref.pageReference ? '''\pageref{«result»}''' : '''\ref{«result»}'''
+		return ref.pageReference ? '''\pageref{«result»}''' : '''\hyperref[«result»]{«IF ref.scope !== null»«ref.scope.displayName» «ENDIF»«ref.target.id»}'''
 	}
 	
 	override protected CharSequence escape(CharSequence plainText) {

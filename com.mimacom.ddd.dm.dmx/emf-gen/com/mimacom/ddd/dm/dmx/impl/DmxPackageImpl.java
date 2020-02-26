@@ -41,6 +41,7 @@ import com.mimacom.ddd.dm.dmx.DmxTestContext;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -247,6 +248,13 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	private EClass dmxDateLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxUrlLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1225,6 +1233,36 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDmxUrlLiteral()
+	{
+		return dmxUrlLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDmxUrlLiteral_Value()
+	{
+		return (EAttribute)dmxUrlLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDmxUrlLiteral_Display()
+	{
+		return (EAttribute)dmxUrlLiteralEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDmxUndefinedLiteral()
 	{
 		return dmxUndefinedLiteralEClass;
@@ -1482,6 +1520,10 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxDateLiteralEClass = createEClass(DMX_DATE_LITERAL);
 		createEAttribute(dmxDateLiteralEClass, DMX_DATE_LITERAL__VALUE);
 
+		dmxUrlLiteralEClass = createEClass(DMX_URL_LITERAL);
+		createEAttribute(dmxUrlLiteralEClass, DMX_URL_LITERAL__VALUE);
+		createEAttribute(dmxUrlLiteralEClass, DMX_URL_LITERAL__DISPLAY);
+
 		dmxUndefinedLiteralEClass = createEClass(DMX_UNDEFINED_LITERAL);
 
 		dmxComplexObjectEClass = createEClass(DMX_COMPLEX_OBJECT);
@@ -1559,6 +1601,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxNaturalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxDecimalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxDateLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxUrlLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxUndefinedLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxComplexObjectEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		dmxComplexObjectEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1683,6 +1726,10 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		initEClass(dmxDateLiteralEClass, DmxDateLiteral.class, "DmxDateLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDmxDateLiteral_Value(), ecorePackage.getEDate(), "value", null, 0, 1, DmxDateLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxUrlLiteralEClass, DmxUrlLiteral.class, "DmxUrlLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxUrlLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, DmxUrlLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxUrlLiteral_Display(), ecorePackage.getEString(), "display", null, 0, 1, DmxUrlLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxUndefinedLiteralEClass, DmxUndefinedLiteral.class, "DmxUndefinedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

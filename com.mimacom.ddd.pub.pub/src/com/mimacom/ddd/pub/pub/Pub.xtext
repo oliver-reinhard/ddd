@@ -412,10 +412,11 @@ DmxPrimaryExpression returns DExpression:
 	DmxParenthesizedExpression |
 	DmxListExpression |
 	DmxFunctionCall |
+	DmxIfExpression |
 	DmxStaticReference |
 	DmxContextReference |
-	DmxIfExpression |
-	PubReference;
+	PubReference |
+	DmxUrlLiteral;
 
 PubReference returns Reference:
 	'#'

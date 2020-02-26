@@ -52,6 +52,7 @@ import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxTestContext;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -297,6 +298,9 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_UNDEFINED_LITERAL:
 				sequence_DmxUndefinedLiteral(context, (DmxUndefinedLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DMX_URL_LITERAL:
+				sequence_DmxUrlLiteral(context, (DmxUrlLiteral) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)

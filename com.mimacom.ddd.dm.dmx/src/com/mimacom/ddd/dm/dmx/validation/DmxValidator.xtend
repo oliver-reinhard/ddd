@@ -18,6 +18,9 @@ import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import org.eclipse.xtext.validation.Check
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral
+import java.net.URL
+import java.net.MalformedURLException
 
 /**
  * This class contains custom validation rules. 
@@ -94,6 +97,20 @@ class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessageAccep
 	override acceptError(String message, int offset, int length) {
 		val current = getCurrentObject()
 		messageAcceptor.acceptError(message, current, offset, length, null);
+	}
+	@Check
+	def urlFormat(DmxUrlLiteral url) {
+		if (url.value !== null && ! url.value.empty) {
+			try {
+				new URL(url.value)
+			} catch (MalformedURLException ex) {
+				error("Malformed URL: " + ex.message, DMX.dmxUrlLiteral_Value)
+			}
+		}
+		if (url.value !== null && url.value.empty) {
+			error("Display value cannot be empty when specified", DMX.dmxUrlLiteral_Display)
+		}
+		
 	}
 	
 }

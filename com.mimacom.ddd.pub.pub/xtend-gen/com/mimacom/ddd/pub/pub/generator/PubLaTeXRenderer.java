@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
 import com.mimacom.ddd.pub.proto.ProtoSymbolReference;
@@ -32,6 +33,7 @@ import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Reference;
+import com.mimacom.ddd.pub.pub.ReferenceScope;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
 import com.mimacom.ddd.pub.pub.RichTextParagraph;
 import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph;
@@ -118,9 +120,9 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\\usepackage{pbox} % paragraphs or line breaks in table cell");
     _builder.newLine();
-    _builder.append("\\usepackage{graphicx} % include figures (does not support .svg)");
+    _builder.append("\\usepackage{graphicx} % include graphics files (does not support .svg)");
     _builder.newLine();
-    _builder.append("\\graphicspath{{figures/}} % Setting the graphicspath");
+    _builder.append("\\usepackage{hyperref} % hyperlinks");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
@@ -606,6 +608,12 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
           }
         }
         if (!_matched) {
+          if (expr instanceof DmxUrlLiteral) {
+            _matched=true;
+            _switchResult = PubLaTeXRenderer.this.hyperlink(((DmxUrlLiteral)expr).getValue(), ((DmxUrlLiteral)expr).getDisplay());
+          }
+        }
+        if (!_matched) {
           if (expr instanceof Reference) {
             _matched=true;
             _switchResult = PubLaTeXRenderer.this.refToReferenceTarget(((Reference)expr));
@@ -617,6 +625,27 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
         return _switchResult;
       }
     };
+  }
+  
+  protected String hyperlink(final String url, final String displayText) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\\textsf{");
+    {
+      boolean _empty = this._pubGeneratorUtil.empty(displayText);
+      if (_empty) {
+        _builder.append("\\url{");
+        _builder.append(url);
+        _builder.append("}");
+      } else {
+        _builder.append("\\href{");
+        _builder.append(url);
+        _builder.append("}{");
+        _builder.append(displayText);
+        _builder.append("}");
+      }
+    }
+    _builder.append("}");
+    return _builder.toString();
   }
   
   protected String staticReferenceLinkText(final DmxStaticReference ref) {
@@ -642,8 +671,9 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     final Document targetContainer = EcoreUtil2.<Document>getContainerOfType(ref.getTarget(), Document.class);
     if (((refContainer != null) && (targetContainer != refContainer))) {
       String _fileName = this.fileName(targetContainer);
-      String _plus = (_fileName + result);
-      result = _plus;
+      String _plus = (_fileName + "/");
+      String _plus_1 = (_plus + result);
+      result = _plus_1;
     }
     String _xifexpression = null;
     boolean _isPageReference = ref.isPageReference();
@@ -655,8 +685,20 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
       _xifexpression = _builder.toString();
     } else {
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("\\ref{");
+      _builder_1.append("\\hyperref[");
       _builder_1.append(result);
+      _builder_1.append("]{");
+      {
+        ReferenceScope _scope = ref.getScope();
+        boolean _tripleNotEquals = (_scope != null);
+        if (_tripleNotEquals) {
+          String _displayName = this._pubUtil.displayName(ref.getScope());
+          _builder_1.append(_displayName);
+          _builder_1.append(" ");
+        }
+      }
+      String _id = ref.getTarget().getId();
+      _builder_1.append(_id);
       _builder_1.append("}");
       _xifexpression = _builder_1.toString();
     }

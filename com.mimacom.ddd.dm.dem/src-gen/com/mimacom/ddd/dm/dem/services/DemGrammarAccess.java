@@ -1614,6 +1614,18 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxUndefinedLiteralAccess().getRule();
 	}
 	
+	//DmxUrlLiteral DExpression:
+	//	{DmxUrlLiteral}
+	//	'URL:'
+	//	value=STRING ('|' display=STRING)?;
+	public DmxGrammarAccess.DmxUrlLiteralElements getDmxUrlLiteralAccess() {
+		return gaDmx.getDmxUrlLiteralAccess();
+	}
+	
+	public ParserRule getDmxUrlLiteralRule() {
+		return getDmxUrlLiteralAccess().getRule();
+	}
+	
 	//DECIMAL:
 	//	NATURAL '.' NATURAL (('E' | 'e') ('+' | '-')? NATURAL)?;
 	public DmxGrammarAccess.DECIMALElements getDECIMALAccess() {

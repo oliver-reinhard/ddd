@@ -14,5 +14,4 @@ package com.mimacom.ddd.pub.proto;
  * @generated
  */
 public interface ProtoPublicationBody extends ProtoDocumentSegment {
-
 } // ProtoPublicationBody

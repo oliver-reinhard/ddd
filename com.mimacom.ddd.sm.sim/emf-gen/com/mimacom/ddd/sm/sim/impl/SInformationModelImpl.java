@@ -147,7 +147,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -162,7 +161,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -177,7 +175,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isGenerate()
 	{
 		return generate;
@@ -188,7 +185,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setGenerate(boolean newGenerate)
 	{
 		boolean oldGenerate = generate;
@@ -202,7 +198,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SInformationModelKind getKind()
 	{
 		return kind;
@@ -213,7 +208,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setKind(SInformationModelKind newKind)
 	{
 		SInformationModelKind oldKind = kind;
@@ -227,7 +221,6 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SDomainDeduction> getDomainProxies()
 	{
 		if (domainProxies == null)
@@ -459,7 +452,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (generate: ");
 		result.append(generate);
 		result.append(", kind: ");

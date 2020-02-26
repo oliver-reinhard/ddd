@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.proto.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
+
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations;
 import com.mimacom.ddd.pub.proto.ProtoAbstract;
 import com.mimacom.ddd.pub.proto.ProtoAppendix;

@@ -2355,6 +2355,51 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//'undefined'
 		public Keyword getUndefinedKeyword_1_1() { return cUndefinedKeyword_1_1; }
 	}
+	public class DmxUrlLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxUrlLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDmxUrlLiteralAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cURLKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cVerticalLineKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDisplayAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cDisplaySTRINGTerminalRuleCall_3_1_0 = (RuleCall)cDisplayAssignment_3_1.eContents().get(0);
+		
+		//DmxUrlLiteral DExpression:
+		//	{DmxUrlLiteral}
+		//	'URL:'
+		//	value=STRING ('|' display=STRING)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{DmxUrlLiteral} 'URL:' value=STRING ('|' display=STRING)?
+		public Group getGroup() { return cGroup; }
+		
+		//{DmxUrlLiteral}
+		public Action getDmxUrlLiteralAction_0() { return cDmxUrlLiteralAction_0; }
+		
+		//'URL:'
+		public Keyword getURLKeyword_1() { return cURLKeyword_1; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
+		
+		//('|' display=STRING)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_3_0() { return cVerticalLineKeyword_3_0; }
+		
+		//display=STRING
+		public Assignment getDisplayAssignment_3_1() { return cDisplayAssignment_3_1; }
+		
+		//STRING
+		public RuleCall getDisplaySTRINGTerminalRuleCall_3_1_0() { return cDisplaySTRINGTerminalRuleCall_3_1_0; }
+	}
 	public class DECIMALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DECIMAL");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -3005,6 +3050,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final DmxDecimalLiteralElements pDmxDecimalLiteral;
 	private final DmxStringLiteralElements pDmxStringLiteral;
 	private final DmxUndefinedLiteralElements pDmxUndefinedLiteral;
+	private final DmxUrlLiteralElements pDmxUrlLiteral;
 	private final DECIMALElements pDECIMAL;
 	private final DomFieldListStartSymbolElements pDomFieldListStartSymbol;
 	private final DQualifiedNameWithWildcardElements pDQualifiedNameWithWildcard;
@@ -3092,6 +3138,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDmxDecimalLiteral = new DmxDecimalLiteralElements();
 		this.pDmxStringLiteral = new DmxStringLiteralElements();
 		this.pDmxUndefinedLiteral = new DmxUndefinedLiteralElements();
+		this.pDmxUrlLiteral = new DmxUrlLiteralElements();
 		this.pDECIMAL = new DECIMALElements();
 		this.pDomFieldListStartSymbol = new DomFieldListStartSymbolElements();
 		this.pDQualifiedNameWithWildcard = new DQualifiedNameWithWildcardElements();
@@ -3844,6 +3891,18 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxUndefinedLiteralRule() {
 		return getDmxUndefinedLiteralAccess().getRule();
+	}
+	
+	//DmxUrlLiteral DExpression:
+	//	{DmxUrlLiteral}
+	//	'URL:'
+	//	value=STRING ('|' display=STRING)?;
+	public DmxUrlLiteralElements getDmxUrlLiteralAccess() {
+		return pDmxUrlLiteral;
+	}
+	
+	public ParserRule getDmxUrlLiteralRule() {
+		return getDmxUrlLiteralAccess().getRule();
 	}
 	
 	//DECIMAL:

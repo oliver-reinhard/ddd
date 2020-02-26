@@ -4,6 +4,7 @@ package com.mimacom.ddd.pub.proto.util;
 
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
+
 import com.mimacom.ddd.pub.proto.*;
 
 import org.eclipse.emf.ecore.EObject;

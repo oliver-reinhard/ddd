@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.proto;
 
 import com.mimacom.ddd.dm.base.DRichText;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;

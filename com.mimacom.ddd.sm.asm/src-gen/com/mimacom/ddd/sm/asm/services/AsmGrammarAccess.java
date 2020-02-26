@@ -29,7 +29,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	public class DNamespaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.DNamespace");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNamespaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -41,17 +41,17 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//@Override
 		//DNamespace:
-		//	'namespace'
+		//	'system'
 		//	name=DQualifiedName
 		//	imports+=DImport*
 		//	model=(SApplication | SServiceInterface);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'namespace' name=DQualifiedName imports+=DImport* model=(SApplication | SServiceInterface)
+		//'system' name=DQualifiedName imports+=DImport* model=(SApplication | SServiceInterface)
 		public Group getGroup() { return cGroup; }
 		
-		//'namespace'
-		public Keyword getNamespaceKeyword_0() { return cNamespaceKeyword_0; }
+		//'system'
+		public Keyword getSystemKeyword_0() { return cSystemKeyword_0; }
 		
 		//name=DQualifiedName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -646,7 +646,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//@Override
 	//DNamespace:
-	//	'namespace'
+	//	'system'
 	//	name=DQualifiedName
 	//	imports+=DImport*
 	//	model=(SApplication | SServiceInterface);
@@ -1474,6 +1474,18 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxUndefinedLiteralRule() {
 		return getDmxUndefinedLiteralAccess().getRule();
+	}
+	
+	//DmxUrlLiteral DExpression:
+	//	{DmxUrlLiteral}
+	//	'URL:'
+	//	value=STRING ('|' display=STRING)?;
+	public DmxGrammarAccess.DmxUrlLiteralElements getDmxUrlLiteralAccess() {
+		return gaDmx.getDmxUrlLiteralAccess();
+	}
+	
+	public ParserRule getDmxUrlLiteralRule() {
+		return getDmxUrlLiteralAccess().getRule();
 	}
 	
 	//DECIMAL:

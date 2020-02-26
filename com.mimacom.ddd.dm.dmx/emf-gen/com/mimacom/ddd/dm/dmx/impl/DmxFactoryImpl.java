@@ -92,6 +92,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_NATURAL_LITERAL: return createDmxNaturalLiteral();
 			case DmxPackage.DMX_DECIMAL_LITERAL: return createDmxDecimalLiteral();
 			case DmxPackage.DMX_DATE_LITERAL: return createDmxDateLiteral();
+			case DmxPackage.DMX_URL_LITERAL: return createDmxUrlLiteral();
 			case DmxPackage.DMX_UNDEFINED_LITERAL: return createDmxUndefinedLiteral();
 			case DmxPackage.DMX_COMPLEX_OBJECT: return createDmxComplexObject();
 			case DmxPackage.DMX_FIELD: return createDmxField();
@@ -439,6 +440,17 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxDateLiteralImpl dmxDateLiteral = new DmxDateLiteralImpl();
 		return dmxDateLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DmxUrlLiteral createDmxUrlLiteral()
+	{
+		DmxUrlLiteralImpl dmxUrlLiteral = new DmxUrlLiteralImpl();
+		return dmxUrlLiteral;
 	}
 
 	/**

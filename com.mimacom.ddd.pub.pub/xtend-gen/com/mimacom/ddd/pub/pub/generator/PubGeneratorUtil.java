@@ -67,7 +67,7 @@ public class PubGeneratorUtil {
     if ((t instanceof NumberedElement)) {
       String _displayName = this._pubUtil.displayName(t);
       String _plus = (_displayName + " ");
-      String _tieredNumber = this._pubNumberingUtil.tieredNumber(((NumberedElement)t));
+      String _tieredNumber = this._pubNumberingUtil.tieredNumber(t);
       _xifexpression = (_plus + _tieredNumber);
     } else {
       _xifexpression = this._pubUtil.displayName(t);

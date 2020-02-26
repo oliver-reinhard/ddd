@@ -5,6 +5,7 @@ import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer
 import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations
 import com.mimacom.ddd.pub.proto.ProtoAbstract
@@ -26,8 +27,8 @@ import com.mimacom.ddd.pub.proto.ProtoSection
 import com.mimacom.ddd.pub.proto.ProtoSubsection
 import com.mimacom.ddd.pub.proto.ProtoSubsubsection
 import com.mimacom.ddd.pub.proto.ProtoTOC
+import org.eclipse.emf.common.util.Enumerator
 import org.eclipse.emf.ecore.EObject
-import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 
 class PubUtil {
 	
@@ -35,6 +36,10 @@ class PubUtil {
 	
 	def dispatch String displayName(EObject obj) {
 		obj.eClass.name.replace("Titled", "")
+	}
+	
+	def dispatch String displayName(Enumerator e) {
+		e.name
 	}
 	
 	def dispatch String displayName(Object obj) {

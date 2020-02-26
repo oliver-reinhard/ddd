@@ -95,7 +95,6 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 		return name;
@@ -106,7 +105,6 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -120,7 +118,6 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Paragraph> getParagraphs()
 	{
 		if (paragraphs == null)
@@ -234,7 +231,7 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

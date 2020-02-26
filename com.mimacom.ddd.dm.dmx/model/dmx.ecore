@@ -194,6 +194,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="DmxDateLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxUrlLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="display" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxUndefinedLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="DmxComplexObject" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>

@@ -19,14 +19,18 @@ import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
+import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
 import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -129,5 +133,27 @@ public class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessa
   public void acceptError(final String message, final int offset, final int length) {
     final EObject current = this.getCurrentObject();
     this.getMessageAcceptor().acceptError(message, current, offset, length, null);
+  }
+  
+  @Check
+  public void urlFormat(final DmxUrlLiteral url) {
+    if (((url.getValue() != null) && (!url.getValue().isEmpty()))) {
+      try {
+        String _value = url.getValue();
+        new URL(_value);
+      } catch (final Throwable _t) {
+        if (_t instanceof MalformedURLException) {
+          final MalformedURLException ex = (MalformedURLException)_t;
+          String _message = ex.getMessage();
+          String _plus = ("Malformed URL: " + _message);
+          this.error(_plus, DmxTypeCheckingValidator.DMX.getDmxUrlLiteral_Value());
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+    }
+    if (((url.getValue() != null) && url.getValue().isEmpty())) {
+      this.error("Display value cannot be empty when specified", DmxTypeCheckingValidator.DMX.getDmxUrlLiteral_Display());
+    }
   }
 }

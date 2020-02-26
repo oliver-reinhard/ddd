@@ -51,6 +51,7 @@ import com.mimacom.ddd.pub.pub.Subsubsection;
 import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import java.util.Arrays;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -63,6 +64,10 @@ public class PubUtil {
   
   protected String _displayName(final EObject obj) {
     return obj.eClass().getName().replace("Titled", "");
+  }
+  
+  protected String _displayName(final Enumerator e) {
+    return e.getName();
   }
   
   protected String _displayName(final Object obj) {
@@ -295,6 +300,8 @@ public class PubUtil {
   public String displayName(final Object obj) {
     if (obj instanceof EObject) {
       return _displayName((EObject)obj);
+    } else if (obj instanceof Enumerator) {
+      return _displayName((Enumerator)obj);
     } else if (obj != null) {
       return _displayName(obj);
     } else {
