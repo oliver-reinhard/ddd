@@ -11,26 +11,25 @@ import static com.mimacom.ddd.pub.pub.GridLines.*
  * See https://en.wikibooks.org/wiki/LaTeX/Tables for an excellent tutorial on multirow.
  */
 class PubLaTeXTableGenerator {
-	
+
 	static val SENTINEL_STRING = "SENTINEL"
-	
+
 	val Table table
 	val NestedContentBlockGenerator nestedContentBlockGenereator
-	val int rows 
+	val int rows
 	val String[][] cellsByRow
 	val boolean drawHorizontalGridlines
 	var boolean[][] horizontalGridlines
-		
-	
+
 	new(Table t, NestedContentBlockGenerator g) {
 		table = t
 		nestedContentBlockGenereator = g
 		rows = table.rows.size
 		cellsByRow = newArrayOfSize(rows, table.columns)
 		drawHorizontalGridlines = t.gridlines == HORIZONTAL || t.gridlines == BOTH
-		horizontalGridlines = drawHorizontalGridlines? newBooleanArrayOfSize(rows, t.columns) : null
+		horizontalGridlines = drawHorizontalGridlines ? newBooleanArrayOfSize(rows, t.columns) : null
 	}
-	
+
 	protected def void buildGeneratorModel() {
 
 		for (var r = 0; r < rows; r++) {
@@ -81,8 +80,7 @@ class PubLaTeXTableGenerator {
 			}
 		}
 	}
-	
-	
+
 	def CharSequence render() {
 		buildGeneratorModel()
 		var rowIndex = 0
@@ -97,9 +95,23 @@ class PubLaTeXTableGenerator {
 		'''
 	}
 
-	protected def String renderCell(TableCell cell,
-		NestedContentBlockGenerator g) '''«FOR block : cell.contents»«IF cell.row.isIsHeading»\textbf{«ENDIF»«g.generate(block)»«IF cell.row.isIsHeading»}«ENDIF»«ENDFOR»'''
-
+	protected def String renderCell(TableCell cell, NestedContentBlockGenerator g) {
+		val StringBuilder b = new StringBuilder()
+		var hasLineBreaks = cell.contents.size > 1
+		for(block : cell.contents) {
+			val renderedBlock = (g.generate(block) as String).replaceAll("[ \t\n\f\r]+", " ")
+			hasLineBreaks = hasLineBreaks || renderedBlock.contains("\\\\")
+			b.append(renderedBlock)
+		}
+		var result = b.toString
+		if(hasLineBreaks) {
+			result = '''\pbox{\textwidth}{\smallskip{}«result»\smallskip}'''
+		}
+		if(cell.row.isIsHeading) {
+			result = '''\textbf{«result»}'''
+		}
+		return result
+	}
 
 	protected def String columnFormat(Table t) {
 		val StringBuilder b = new StringBuilder()
@@ -136,9 +148,9 @@ class PubLaTeXTableGenerator {
 				}
 				if (start < end) {
 					b.append("\\cline{")
-					b.append(start + 1)  // numbering starts at 1
+					b.append(start + 1) // numbering starts at 1
 					b.append("-")
-					b.append(end )
+					b.append(end)
 					b.append("} ")
 				}
 				start = end

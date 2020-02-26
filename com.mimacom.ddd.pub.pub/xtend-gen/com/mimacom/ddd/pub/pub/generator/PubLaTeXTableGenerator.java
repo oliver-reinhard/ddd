@@ -170,27 +170,35 @@ public class PubLaTeXTableGenerator {
   }
   
   protected String renderCell(final TableCell cell, final NestedContentBlockGenerator g) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<ContentBlock> _contents = cell.getContents();
-      for(final ContentBlock block : _contents) {
-        {
-          boolean _isIsHeading = cell.getRow().isIsHeading();
-          if (_isIsHeading) {
-            _builder.append("\\textbf{");
-          }
-        }
+    final StringBuilder b = new StringBuilder();
+    int _size = cell.getContents().size();
+    boolean hasLineBreaks = (_size > 1);
+    EList<ContentBlock> _contents = cell.getContents();
+    for (final ContentBlock block : _contents) {
+      {
         CharSequence _generate = g.generate(block);
-        _builder.append(_generate);
-        {
-          boolean _isIsHeading_1 = cell.getRow().isIsHeading();
-          if (_isIsHeading_1) {
-            _builder.append("}");
-          }
-        }
+        final String renderedBlock = ((String) _generate).replaceAll("[ \t\n\f\r]+", " ");
+        hasLineBreaks = (hasLineBreaks || renderedBlock.contains("\\\\"));
+        b.append(renderedBlock);
       }
     }
-    return _builder.toString();
+    String result = b.toString();
+    if (hasLineBreaks) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\\pbox{\\textwidth}{\\smallskip{}");
+      _builder.append(result);
+      _builder.append("\\smallskip}");
+      result = _builder.toString();
+    }
+    boolean _isIsHeading = cell.getRow().isIsHeading();
+    if (_isIsHeading) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("\\textbf{");
+      _builder_1.append(result);
+      _builder_1.append("}");
+      result = _builder_1.toString();
+    }
+    return result;
   }
   
   protected String columnFormat(final Table t) {
