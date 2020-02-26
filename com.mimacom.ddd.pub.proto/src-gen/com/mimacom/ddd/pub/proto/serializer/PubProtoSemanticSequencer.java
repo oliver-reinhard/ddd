@@ -759,7 +759,7 @@ public class PubProtoSemanticSequencer extends DmxSemanticSequencer {
 	 *     ProtoPublicationBody returns ProtoPublicationBody
 	 *
 	 * Constraint:
-	 *     (allowParts?='true'? allowAppendix?='true'?)
+	 *     {ProtoPublicationBody}
 	 */
 	protected void sequence_ProtoPublicationBody(ISerializationContext context, ProtoPublicationBody semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

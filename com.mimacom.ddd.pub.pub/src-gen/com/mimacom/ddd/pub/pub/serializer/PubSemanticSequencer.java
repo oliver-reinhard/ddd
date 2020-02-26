@@ -462,16 +462,10 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     IncludedFigure returns IncludedFigure
 	 *
 	 * Constraint:
-	 *     fileUri=STRING
+	 *     (widthPercent=NATURAL? fileUri=STRING)
 	 */
 	protected void sequence_IncludedFigure(ISerializationContext context, IncludedFigure semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.INCLUDED_FIGURE__FILE_URI) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.INCLUDED_FIGURE__FILE_URI));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIncludedFigureAccess().getFileUriSTRINGTerminalRuleCall_1_0(), semanticObject.getFileUri());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -481,19 +475,10 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     ProvidedFigure returns ProvidedFigure
 	 *
 	 * Constraint:
-	 *     (diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[FigureRenderer|DQualifiedName])
+	 *     (widthPercent=NATURAL? diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[FigureRenderer|DQualifiedName])
 	 */
 	protected void sequence_ProvidedFigure(ISerializationContext context, ProvidedFigure semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__DIAGRAM_ROOT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__DIAGRAM_ROOT));
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__RENDERER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_FIGURE__RENDERER));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getProvidedFigureAccess().getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_FIGURE__DIAGRAM_ROOT, false));
-		feeder.accept(grammarAccess.getProvidedFigureAccess().getRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_FIGURE__RENDERER, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -503,19 +488,10 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     ProvidedTable returns ProvidedTable
 	 *
 	 * Constraint:
-	 *     (diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[TableRenderer|DQualifiedName])
+	 *     (widthPercent=NATURAL? diagramRoot=[IDiagramRoot|DQualifiedName] renderer=[TableRenderer|DQualifiedName])
 	 */
 	protected void sequence_ProvidedTable(ISerializationContext context, ProvidedTable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_TABLE__DIAGRAM_ROOT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_TABLE__DIAGRAM_ROOT));
-			if (transientValues.isValueTransient(semanticObject, PubPackage.Literals.PROVIDED_TABLE__RENDERER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PubPackage.Literals.PROVIDED_TABLE__RENDERER));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getProvidedTableAccess().getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_TABLE__DIAGRAM_ROOT, false));
-		feeder.accept(grammarAccess.getProvidedTableAccess().getRendererTableRendererDQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(PubPackage.Literals.PROVIDED_TABLE__RENDERER, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

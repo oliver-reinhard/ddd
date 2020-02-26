@@ -116,6 +116,13 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\\usepackage{multirow} % tables with column span and or rowspan");
     _builder.newLine();
+    _builder.append("\\usepackage{pbox} % paragraphs or line breaks in table cell");
+    _builder.newLine();
+    _builder.append("\\usepackage{graphicx} % include figures (does not support .svg)");
+    _builder.newLine();
+    _builder.append("\\graphicspath{{figures/}} % Setting the graphicspath");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.newLine();
     CharSequence _renderPreamble = this.renderPreamble(doc);
     _builder.append(_renderPreamble);
@@ -463,6 +470,9 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.append("\\begin{figure}[hpt]");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("\\centering");
+    _builder.newLine();
+    _builder.append("\t");
     CharSequence _render = p.render();
     _builder.append(_render, "\t");
     _builder.newLineIfNotEmpty();
@@ -497,7 +507,11 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   @Override
   public CharSequence renderFigure(final AbstractFigure f, final String fileUri) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\includegraphics{");
+    _builder.append("\\includegraphics[width=");
+    int _widthPercent = f.getWidthPercent();
+    double _divide = (_widthPercent / 100.0);
+    _builder.append(_divide);
+    _builder.append("\\textwidth]{");
     CharSequence _escape = this.escape(fileUri);
     _builder.append(_escape);
     _builder.append("}");

@@ -4397,13 +4397,22 @@ public interface PubPackage extends EPackage {
 	int ABSTRACT_FIGURE = 51;
 
 	/**
+	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_FIGURE__WIDTH_PERCENT = 0;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Figure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_FIGURE_FEATURE_COUNT = 0;
+	int ABSTRACT_FIGURE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Abstract Figure</em>' class.
@@ -4423,6 +4432,15 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	int INCLUDED_FIGURE = 52;
+
+	/**
+	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDED_FIGURE__WIDTH_PERCENT = ABSTRACT_FIGURE__WIDTH_PERCENT;
 
 	/**
 	 * The feature id for the '<em><b>File Uri</b></em>' attribute.
@@ -4460,6 +4478,15 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	int PROVIDED_FIGURE = 53;
+
+	/**
+	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_FIGURE__WIDTH_PERCENT = ABSTRACT_FIGURE__WIDTH_PERCENT;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Root</b></em>' reference.
@@ -6495,6 +6522,17 @@ public interface PubPackage extends EPackage {
 	EClass getAbstractFigure();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.AbstractFigure#getWidthPercent <em>Width Percent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width Percent</em>'.
+	 * @see com.mimacom.ddd.pub.pub.AbstractFigure#getWidthPercent()
+	 * @see #getAbstractFigure()
+	 * @generated
+	 */
+	EAttribute getAbstractFigure_WidthPercent();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.IncludedFigure <em>Included Figure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8043,6 +8081,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_FIGURE = eINSTANCE.getAbstractFigure();
+
+		/**
+		 * The meta object literal for the '<em><b>Width Percent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_FIGURE__WIDTH_PERCENT = eINSTANCE.getAbstractFigure_WidthPercent();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.IncludedFigureImpl <em>Included Figure</em>}' class.

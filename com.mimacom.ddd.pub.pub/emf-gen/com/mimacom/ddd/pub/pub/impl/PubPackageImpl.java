@@ -2041,6 +2041,16 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAbstractFigure_WidthPercent() {
+		return (EAttribute)abstractFigureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getIncludedFigure() {
 		return includedFigureEClass;
 	}
@@ -2545,6 +2555,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEReference(titledFigureEClass, TITLED_FIGURE__FIGURE);
 
 		abstractFigureEClass = createEClass(ABSTRACT_FIGURE);
+		createEAttribute(abstractFigureEClass, ABSTRACT_FIGURE__WIDTH_PERCENT);
 
 		includedFigureEClass = createEClass(INCLUDED_FIGURE);
 		createEAttribute(includedFigureEClass, INCLUDED_FIGURE__FILE_URI);
@@ -2883,6 +2894,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEReference(getTitledFigure_Figure(), this.getAbstractFigure(), null, "figure", null, 0, 1, TitledFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractFigureEClass, AbstractFigure.class, "AbstractFigure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractFigure_WidthPercent(), theEcorePackage.getEInt(), "widthPercent", "100", 0, 1, AbstractFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(includedFigureEClass, IncludedFigure.class, "IncludedFigure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIncludedFigure_FileUri(), theEcorePackage.getEString(), "fileUri", null, 0, 1, IncludedFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

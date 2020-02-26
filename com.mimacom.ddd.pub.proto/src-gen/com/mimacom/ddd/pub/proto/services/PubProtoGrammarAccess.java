@@ -436,29 +436,16 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cProtoPublicationBodyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBodyKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cPartsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Alternatives cAlternatives_3_1 = (Alternatives)cGroup_3.eContents().get(1);
-		private final Assignment cAllowPartsAssignment_3_1_0 = (Assignment)cAlternatives_3_1.eContents().get(0);
-		private final Keyword cAllowPartsTrueKeyword_3_1_0_0 = (Keyword)cAllowPartsAssignment_3_1_0.eContents().get(0);
-		private final Keyword cFalseKeyword_3_1_1 = (Keyword)cAlternatives_3_1.eContents().get(1);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cAppendixKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Alternatives cAlternatives_4_1 = (Alternatives)cGroup_4.eContents().get(1);
-		private final Assignment cAllowAppendixAssignment_4_1_0 = (Assignment)cAlternatives_4_1.eContents().get(0);
-		private final Keyword cAllowAppendixTrueKeyword_4_1_0_0 = (Keyword)cAllowAppendixAssignment_4_1_0.eContents().get(0);
-		private final Keyword cFalseKeyword_4_1_1 = (Keyword)cAlternatives_4_1.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ProtoPublicationBody:
 		//	{ProtoPublicationBody}
 		//	'Body'
-		//	'{' ('parts:' (allowParts?='true' | 'false'))? ('appendix:' (allowAppendix?='true' | 'false'))?
+		//	'{'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ProtoPublicationBody} 'Body' '{' ('parts:' (allowParts?='true' | 'false'))? ('appendix:' (allowAppendix?='true' |
-		//'false'))? '}'
+		//{ProtoPublicationBody} 'Body' '{' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{ProtoPublicationBody}
@@ -470,44 +457,8 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('parts:' (allowParts?='true' | 'false'))?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'parts:'
-		public Keyword getPartsKeyword_3_0() { return cPartsKeyword_3_0; }
-		
-		//(allowParts?='true' | 'false')
-		public Alternatives getAlternatives_3_1() { return cAlternatives_3_1; }
-		
-		//allowParts?='true'
-		public Assignment getAllowPartsAssignment_3_1_0() { return cAllowPartsAssignment_3_1_0; }
-		
-		//'true'
-		public Keyword getAllowPartsTrueKeyword_3_1_0_0() { return cAllowPartsTrueKeyword_3_1_0_0; }
-		
-		//'false'
-		public Keyword getFalseKeyword_3_1_1() { return cFalseKeyword_3_1_1; }
-		
-		//('appendix:' (allowAppendix?='true' | 'false'))?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'appendix:'
-		public Keyword getAppendixKeyword_4_0() { return cAppendixKeyword_4_0; }
-		
-		//(allowAppendix?='true' | 'false')
-		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
-		
-		//allowAppendix?='true'
-		public Assignment getAllowAppendixAssignment_4_1_0() { return cAllowAppendixAssignment_4_1_0; }
-		
-		//'true'
-		public Keyword getAllowAppendixTrueKeyword_4_1_0_0() { return cAllowAppendixTrueKeyword_4_1_0_0; }
-		
-		//'false'
-		public Keyword getFalseKeyword_4_1_1() { return cFalseKeyword_4_1_1; }
-		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 	public class ProtoChangeHistoryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.proto.PubProto.ProtoChangeHistory");
@@ -1383,7 +1334,7 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 	//ProtoPublicationBody:
 	//	{ProtoPublicationBody}
 	//	'Body'
-	//	'{' ('parts:' (allowParts?='true' | 'false'))? ('appendix:' (allowAppendix?='true' | 'false'))?
+	//	'{'
 	//	'}';
 	public ProtoPublicationBodyElements getProtoPublicationBodyAccess() {
 		return pProtoPublicationBody;

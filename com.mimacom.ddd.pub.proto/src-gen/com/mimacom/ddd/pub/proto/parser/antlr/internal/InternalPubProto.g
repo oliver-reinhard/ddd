@@ -739,63 +739,9 @@ ruleProtoPublicationBody returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getProtoPublicationBodyAccess().getLeftCurlyBracketKeyword_2());
 		}
-		(
-			otherlv_3='parts:'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getProtoPublicationBodyAccess().getPartsKeyword_3_0());
-			}
-			(
-				(
-					(
-						lv_allowParts_4_0='true'
-						{
-							newLeafNode(lv_allowParts_4_0, grammarAccess.getProtoPublicationBodyAccess().getAllowPartsTrueKeyword_3_1_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getProtoPublicationBodyRule());
-							}
-							setWithLastConsumed($current, "allowParts", true, "true");
-						}
-					)
-				)
-				    |
-				otherlv_5='false'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getProtoPublicationBodyAccess().getFalseKeyword_3_1_1());
-				}
-			)
-		)?
-		(
-			otherlv_6='appendix:'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getProtoPublicationBodyAccess().getAppendixKeyword_4_0());
-			}
-			(
-				(
-					(
-						lv_allowAppendix_7_0='true'
-						{
-							newLeafNode(lv_allowAppendix_7_0, grammarAccess.getProtoPublicationBodyAccess().getAllowAppendixTrueKeyword_4_1_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getProtoPublicationBodyRule());
-							}
-							setWithLastConsumed($current, "allowAppendix", true, "true");
-						}
-					)
-				)
-				    |
-				otherlv_8='false'
-				{
-					newLeafNode(otherlv_8, grammarAccess.getProtoPublicationBodyAccess().getFalseKeyword_4_1_1());
-				}
-			)
-		)?
-		otherlv_9='}'
+		otherlv_3='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getProtoPublicationBodyAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_3, grammarAccess.getProtoPublicationBodyAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;

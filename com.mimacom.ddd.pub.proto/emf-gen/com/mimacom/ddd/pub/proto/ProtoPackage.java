@@ -535,31 +535,13 @@ public interface ProtoPackage extends EPackage {
 	int PROTO_PUBLICATION_BODY__PARENT = PROTO_DOCUMENT_SEGMENT__PARENT;
 
 	/**
-	 * The feature id for the '<em><b>Allow Parts</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTO_PUBLICATION_BODY__ALLOW_PARTS = PROTO_DOCUMENT_SEGMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Allow Appendix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTO_PUBLICATION_BODY__ALLOW_APPENDIX = PROTO_DOCUMENT_SEGMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Publication Body</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROTO_PUBLICATION_BODY_FEATURE_COUNT = PROTO_DOCUMENT_SEGMENT_FEATURE_COUNT + 2;
+	int PROTO_PUBLICATION_BODY_FEATURE_COUNT = PROTO_DOCUMENT_SEGMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Publication Body</em>' class.
@@ -1669,28 +1651,6 @@ public interface ProtoPackage extends EPackage {
 	EClass getProtoPublicationBody();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.proto.ProtoPublicationBody#isAllowParts <em>Allow Parts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Allow Parts</em>'.
-	 * @see com.mimacom.ddd.pub.proto.ProtoPublicationBody#isAllowParts()
-	 * @see #getProtoPublicationBody()
-	 * @generated
-	 */
-	EAttribute getProtoPublicationBody_AllowParts();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.proto.ProtoPublicationBody#isAllowAppendix <em>Allow Appendix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Allow Appendix</em>'.
-	 * @see com.mimacom.ddd.pub.proto.ProtoPublicationBody#isAllowAppendix()
-	 * @see #getProtoPublicationBody()
-	 * @generated
-	 */
-	EAttribute getProtoPublicationBody_AllowAppendix();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.proto.ProtoChangeHistory <em>Change History</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2107,22 +2067,6 @@ public interface ProtoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROTO_PUBLICATION_BODY = eINSTANCE.getProtoPublicationBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Allow Parts</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROTO_PUBLICATION_BODY__ALLOW_PARTS = eINSTANCE.getProtoPublicationBody_AllowParts();
-
-		/**
-		 * The meta object literal for the '<em><b>Allow Appendix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROTO_PUBLICATION_BODY__ALLOW_APPENDIX = eINSTANCE.getProtoPublicationBody_AllowAppendix();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.proto.impl.ProtoChangeHistoryImpl <em>Change History</em>}' class.

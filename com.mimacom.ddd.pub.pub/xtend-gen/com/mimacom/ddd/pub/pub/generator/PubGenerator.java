@@ -445,7 +445,7 @@ public class PubGenerator extends AbstractGenerator {
         {
           EObject _eContainer = f.eContainer();
           String _tieredNumber = this._pubNumberingUtil.tieredNumber(((TitledFigure) _eContainer));
-          final String fileName = ("figures/figure_" + _tieredNumber);
+          final String fileName = ("figures/figure-" + _tieredNumber);
           final String fileExtension = provider.format.name().toLowerCase();
           final InputStream inputStream = provider.render(f.getDiagramRoot());
           final String file = ((fileName + ".") + fileExtension);

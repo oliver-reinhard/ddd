@@ -15,6 +15,7 @@ import com.mimacom.ddd.pub.pub.NumberedElement;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
+import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.TitledTable;
@@ -63,6 +64,11 @@ public class PubNumberingUtil {
       if ((div instanceof Chapter)) {
         String _formattedSingleNumber = this.formattedSingleNumber(div);
         return (_formattedSingleNumber + ".");
+      } else {
+        if (((div instanceof Section) && (!(((Section) div).parent() instanceof Chapter)))) {
+          String _formattedSingleNumber_1 = this.formattedSingleNumber(div);
+          return (_formattedSingleNumber_1 + ".");
+        }
       }
     }
     final String parentNumber = this.tieredNumber(div.parent());
@@ -75,11 +81,11 @@ public class PubNumberingUtil {
       if (_greaterThan_1) {
         boolean _endsWith = parentNumber.endsWith(".");
         if (_endsWith) {
-          String _formattedSingleNumber_1 = this.formattedSingleNumber(div);
-          return (parentNumber + _formattedSingleNumber_1);
-        } else {
           String _formattedSingleNumber_2 = this.formattedSingleNumber(div);
-          return ((parentNumber + ".") + _formattedSingleNumber_2);
+          return (parentNumber + _formattedSingleNumber_2);
+        } else {
+          String _formattedSingleNumber_3 = this.formattedSingleNumber(div);
+          return ((parentNumber + ".") + _formattedSingleNumber_3);
         }
       }
     }

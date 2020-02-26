@@ -77,7 +77,10 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\usepackage{etoolbox} % quotes
 		\usepackage{enumitem} % list numbering
 		\usepackage{multirow} % tables with column span and or rowspan
-		
+		\usepackage{pbox} % paragraphs or line breaks in table cell
+		\usepackage{graphicx} % include figures (does not support .svg)
+		\graphicspath{{figures/}} % Setting the graphicspath
+				
 		«doc.renderPreamble»
 		
 		\begin{document}
@@ -250,6 +253,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	
 	protected def dispatch CharSequence renderTitledBlockImpl(TitledBlock b, NestedElementsRenderer p) '''
 		\begin{figure}[hpt]
+			\centering
 			«p.render»
 		\end{figure}
 	'''
@@ -264,7 +268,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	}
 
 	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
-		\includegraphics{«fileUri.escape»}
+		\includegraphics[width=«f.widthPercent/100.0»\textwidth]{«fileUri.escape»}
 	'''
 
 	override CharSequence renderEquation(Equation e) '''

@@ -253,7 +253,7 @@ class PubGenerator extends AbstractGenerator {
 	def dispatch CharSequence genFigure(ProvidedFigure f) {
 		val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
 		if (provider !== null) {
-			val fileName = "figures/figure_" + (f.eContainer as TitledFigure).tieredNumber
+			val fileName = "figures/figure-" + (f.eContainer as TitledFigure).tieredNumber
 			val fileExtension = provider.format.name.toLowerCase
 			val inputStream = provider.render(f.diagramRoot)
 			val file = fileName + "." + fileExtension

@@ -42,10 +42,7 @@ class ProtoPreface extends ProtoDocumentSegment { }
 
 class ProtoEpilogue extends ProtoDocumentSegment { }
 
-class ProtoPublicationBody extends ProtoDocumentSegment {
-	boolean allowParts = "false"
-	boolean allowAppendix = "false"
-}
+class ProtoPublicationBody extends ProtoDocumentSegment { }
 
 class ProtoChangeHistory extends ProtoDocumentSegment { }
 

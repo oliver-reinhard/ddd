@@ -2801,46 +2801,64 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	public class ProvidedTableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.ProvidedTable");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRootKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cDiagramRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cDiagramRootIDiagramRootCrossReference_1_0 = (CrossReference)cDiagramRootAssignment_1.eContents().get(0);
-		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_1_0.eContents().get(1);
-		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRendererAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cRendererTableRendererCrossReference_3_0 = (CrossReference)cRendererAssignment_3.eContents().get(0);
-		private final RuleCall cRendererTableRendererDQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cRendererTableRendererCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWidthPercentKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWidthPercentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWidthPercentNATURALTerminalRuleCall_0_1_0 = (RuleCall)cWidthPercentAssignment_0_1.eContents().get(0);
+		private final Keyword cRootKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDiagramRootAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cDiagramRootIDiagramRootCrossReference_2_0 = (CrossReference)cDiagramRootAssignment_2.eContents().get(0);
+		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_2_0.eContents().get(1);
+		private final Keyword cTableKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRendererAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cRendererTableRendererCrossReference_4_0 = (CrossReference)cRendererAssignment_4.eContents().get(0);
+		private final RuleCall cRendererTableRendererDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cRendererTableRendererCrossReference_4_0.eContents().get(1);
 		
 		//ProvidedTable:
+		//	('widthPercent:' widthPercent=NATURAL)?
 		//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 		//	'table:' renderer=[TableRenderer|DQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'table:' renderer=[TableRenderer|DQualifiedName]
+		//('widthPercent:' widthPercent=NATURAL)? 'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'table:'
+		//renderer=[TableRenderer|DQualifiedName]
 		public Group getGroup() { return cGroup; }
 		
+		//('widthPercent:' widthPercent=NATURAL)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'widthPercent:'
+		public Keyword getWidthPercentKeyword_0_0() { return cWidthPercentKeyword_0_0; }
+		
+		//widthPercent=NATURAL
+		public Assignment getWidthPercentAssignment_0_1() { return cWidthPercentAssignment_0_1; }
+		
+		//NATURAL
+		public RuleCall getWidthPercentNATURALTerminalRuleCall_0_1_0() { return cWidthPercentNATURALTerminalRuleCall_0_1_0; }
+		
 		//'root:'
-		public Keyword getRootKeyword_0() { return cRootKeyword_0; }
+		public Keyword getRootKeyword_1() { return cRootKeyword_1; }
 		
 		//diagramRoot=[IDiagramRoot|DQualifiedName]
-		public Assignment getDiagramRootAssignment_1() { return cDiagramRootAssignment_1; }
+		public Assignment getDiagramRootAssignment_2() { return cDiagramRootAssignment_2; }
 		
 		//[IDiagramRoot|DQualifiedName]
-		public CrossReference getDiagramRootIDiagramRootCrossReference_1_0() { return cDiagramRootIDiagramRootCrossReference_1_0; }
+		public CrossReference getDiagramRootIDiagramRootCrossReference_2_0() { return cDiagramRootIDiagramRootCrossReference_2_0; }
 		
 		//DQualifiedName
-		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1; }
 		
 		//'table:'
-		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
+		public Keyword getTableKeyword_3() { return cTableKeyword_3; }
 		
 		//renderer=[TableRenderer|DQualifiedName]
-		public Assignment getRendererAssignment_3() { return cRendererAssignment_3; }
+		public Assignment getRendererAssignment_4() { return cRendererAssignment_4; }
 		
 		//[TableRenderer|DQualifiedName]
-		public CrossReference getRendererTableRendererCrossReference_3_0() { return cRendererTableRendererCrossReference_3_0; }
+		public CrossReference getRendererTableRendererCrossReference_4_0() { return cRendererTableRendererCrossReference_4_0; }
 		
 		//DQualifiedName
-		public RuleCall getRendererTableRendererDQualifiedNameParserRuleCall_3_0_1() { return cRendererTableRendererDQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getRendererTableRendererDQualifiedNameParserRuleCall_4_0_1() { return cRendererTableRendererDQualifiedNameParserRuleCall_4_0_1; }
 	}
 	public class PubFigureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubFigure");
@@ -2903,70 +2921,105 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	public class IncludedFigureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.IncludedFigure");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cUriKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFileUriAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFileUriSTRINGTerminalRuleCall_1_0 = (RuleCall)cFileUriAssignment_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWidthPercentKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWidthPercentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWidthPercentNATURALTerminalRuleCall_0_1_0 = (RuleCall)cWidthPercentAssignment_0_1.eContents().get(0);
+		private final Keyword cUriKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFileUriAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFileUriSTRINGTerminalRuleCall_2_0 = (RuleCall)cFileUriAssignment_2.eContents().get(0);
 		
 		//IncludedFigure:
+		//	('widthPercent:' widthPercent=NATURAL)?
 		//	'uri:' fileUri=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'uri:' fileUri=STRING
+		//('widthPercent:' widthPercent=NATURAL)? 'uri:' fileUri=STRING
 		public Group getGroup() { return cGroup; }
 		
+		//('widthPercent:' widthPercent=NATURAL)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'widthPercent:'
+		public Keyword getWidthPercentKeyword_0_0() { return cWidthPercentKeyword_0_0; }
+		
+		//widthPercent=NATURAL
+		public Assignment getWidthPercentAssignment_0_1() { return cWidthPercentAssignment_0_1; }
+		
+		//NATURAL
+		public RuleCall getWidthPercentNATURALTerminalRuleCall_0_1_0() { return cWidthPercentNATURALTerminalRuleCall_0_1_0; }
+		
 		//'uri:'
-		public Keyword getUriKeyword_0() { return cUriKeyword_0; }
+		public Keyword getUriKeyword_1() { return cUriKeyword_1; }
 		
 		//fileUri=STRING
-		public Assignment getFileUriAssignment_1() { return cFileUriAssignment_1; }
+		public Assignment getFileUriAssignment_2() { return cFileUriAssignment_2; }
 		
 		//STRING
-		public RuleCall getFileUriSTRINGTerminalRuleCall_1_0() { return cFileUriSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getFileUriSTRINGTerminalRuleCall_2_0() { return cFileUriSTRINGTerminalRuleCall_2_0; }
 	}
 	public class ProvidedFigureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.ProvidedFigure");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRootKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cDiagramRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cDiagramRootIDiagramRootCrossReference_1_0 = (CrossReference)cDiagramRootAssignment_1.eContents().get(0);
-		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_1_0.eContents().get(1);
-		private final Keyword cFigureKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRendererAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cRendererFigureRendererCrossReference_3_0 = (CrossReference)cRendererAssignment_3.eContents().get(0);
-		private final RuleCall cRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cRendererFigureRendererCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWidthPercentKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWidthPercentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWidthPercentNATURALTerminalRuleCall_0_1_0 = (RuleCall)cWidthPercentAssignment_0_1.eContents().get(0);
+		private final Keyword cRootKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDiagramRootAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cDiagramRootIDiagramRootCrossReference_2_0 = (CrossReference)cDiagramRootAssignment_2.eContents().get(0);
+		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_2_0.eContents().get(1);
+		private final Keyword cFigureKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRendererAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cRendererFigureRendererCrossReference_4_0 = (CrossReference)cRendererAssignment_4.eContents().get(0);
+		private final RuleCall cRendererFigureRendererDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cRendererFigureRendererCrossReference_4_0.eContents().get(1);
 		
 		//// TODO Validation
 		//ProvidedFigure:
+		//	('widthPercent:' widthPercent=NATURAL)?
 		//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 		//	'figure:' renderer=[FigureRenderer|DQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'figure:' renderer=[FigureRenderer|DQualifiedName]
+		//('widthPercent:' widthPercent=NATURAL)? 'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'figure:'
+		//renderer=[FigureRenderer|DQualifiedName]
 		public Group getGroup() { return cGroup; }
 		
+		//('widthPercent:' widthPercent=NATURAL)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'widthPercent:'
+		public Keyword getWidthPercentKeyword_0_0() { return cWidthPercentKeyword_0_0; }
+		
+		//widthPercent=NATURAL
+		public Assignment getWidthPercentAssignment_0_1() { return cWidthPercentAssignment_0_1; }
+		
+		//NATURAL
+		public RuleCall getWidthPercentNATURALTerminalRuleCall_0_1_0() { return cWidthPercentNATURALTerminalRuleCall_0_1_0; }
+		
 		//'root:'
-		public Keyword getRootKeyword_0() { return cRootKeyword_0; }
+		public Keyword getRootKeyword_1() { return cRootKeyword_1; }
 		
 		//diagramRoot=[IDiagramRoot|DQualifiedName]
-		public Assignment getDiagramRootAssignment_1() { return cDiagramRootAssignment_1; }
+		public Assignment getDiagramRootAssignment_2() { return cDiagramRootAssignment_2; }
 		
 		//[IDiagramRoot|DQualifiedName]
-		public CrossReference getDiagramRootIDiagramRootCrossReference_1_0() { return cDiagramRootIDiagramRootCrossReference_1_0; }
+		public CrossReference getDiagramRootIDiagramRootCrossReference_2_0() { return cDiagramRootIDiagramRootCrossReference_2_0; }
 		
 		//DQualifiedName
-		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1; }
 		
 		//'figure:'
-		public Keyword getFigureKeyword_2() { return cFigureKeyword_2; }
+		public Keyword getFigureKeyword_3() { return cFigureKeyword_3; }
 		
 		//renderer=[FigureRenderer|DQualifiedName]
-		public Assignment getRendererAssignment_3() { return cRendererAssignment_3; }
+		public Assignment getRendererAssignment_4() { return cRendererAssignment_4; }
 		
 		//[FigureRenderer|DQualifiedName]
-		public CrossReference getRendererFigureRendererCrossReference_3_0() { return cRendererFigureRendererCrossReference_3_0; }
+		public CrossReference getRendererFigureRendererCrossReference_4_0() { return cRendererFigureRendererCrossReference_4_0; }
 		
 		//DQualifiedName
-		public RuleCall getRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1() { return cRendererFigureRendererDQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getRendererFigureRendererDQualifiedNameParserRuleCall_4_0_1() { return cRendererFigureRendererDQualifiedNameParserRuleCall_4_0_1; }
 	}
 	public class PubEquationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubEquation");
@@ -4441,6 +4494,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ProvidedTable:
+	//	('widthPercent:' widthPercent=NATURAL)?
 	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	//	'table:' renderer=[TableRenderer|DQualifiedName];
 	public ProvidedTableElements getProvidedTableAccess() {
@@ -4476,6 +4530,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IncludedFigure:
+	//	('widthPercent:' widthPercent=NATURAL)?
 	//	'uri:' fileUri=STRING;
 	public IncludedFigureElements getIncludedFigureAccess() {
 		return pIncludedFigure;
@@ -4487,6 +4542,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// TODO Validation
 	//ProvidedFigure:
+	//	('widthPercent:' widthPercent=NATURAL)?
 	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	//	'figure:' renderer=[FigureRenderer|DQualifiedName];
 	public ProvidedFigureElements getProvidedFigureAccess() {

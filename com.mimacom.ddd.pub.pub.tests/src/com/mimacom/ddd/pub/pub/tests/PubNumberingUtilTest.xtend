@@ -66,6 +66,24 @@ package class PubNumberingUtilTest {
 		assertEquals(3, d3.level)
 	}
 
+	@Test def testLevelsWithoutChapter() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+		val d0 = PUB.createSection
+		body.divisions.add(d0)
+		val d1 = PUB.createSubsection
+		d0.divisions.add(d1)
+		val d2 = PUB.createSubsubsection
+		d1.divisions.add(d2)
+
+		compo.gatherAllDivisionsAndSetSequenceNumbers
+
+		assertEquals(0, d0.level)
+		assertEquals(1, d1.level)
+		assertEquals(2, d2.level)
+	}
+
 	@Test def testSequenceNumberWithPart() {
 		val Component compo = PUB.createComponent
 		val body = PUB.createPublicationBody
@@ -146,6 +164,33 @@ package class PubNumberingUtilTest {
 
 		assertEquals(1, d01.sequenceNumber)
 		assertEquals(2, d02.sequenceNumber)
+	}
+
+	@Test def testSequenceNumberWithoutChapter() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+		val d0 = PUB.createSection
+		body.divisions.add(d0)
+		val d1 = PUB.createSection
+		body.divisions.add(d1)
+		val d00 = PUB.createSubsection
+		d0.divisions.add(d00)
+		val d01 = PUB.createSubsection
+		d0.divisions.add(d01)
+		val d000 = PUB.createSubsubsection
+		d00.divisions.add(d000)
+		val d001 = PUB.createSubsubsection
+		d00.divisions.add(d001)
+
+		compo.gatherAllDivisionsAndSetSequenceNumbers
+
+		assertEquals(0, d0.sequenceNumber)
+		assertEquals(1, d1.sequenceNumber)
+		assertEquals(0, d00.sequenceNumber)
+		assertEquals(1, d01.sequenceNumber)
+		assertEquals(0, d000.sequenceNumber)
+		assertEquals(1, d001.sequenceNumber)
 	}
 
 	@Test def testDivisionIdWithPart() {
@@ -261,6 +306,39 @@ package class PubNumberingUtilTest {
 
 		d01.name = "a"
 		assertEquals("a", d01.id)
+	}
+
+	@Test def testDivisionIdWithoutChapter() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+
+		val d0 = PUB.createSection
+		body.divisions.add(d0)
+		val d1 = PUB.createSection
+		body.divisions.add(d1)
+
+		val d00 = PUB.createSubsection
+		d0.divisions.add(d00)
+		val d01 = PUB.createSubsection
+		d0.divisions.add(d01)
+
+		val d10 = PUB.createSubsection
+		d1.divisions.add(d10)
+		val d11 = PUB.createSubsection
+		d1.divisions.add(d11)
+
+		compo.gatherAllDivisionsAndSetSequenceNumbers
+
+		assertEquals("0", d0.id)
+		assertEquals("1", d1.id)
+		assertEquals("0-0", d00.id)
+		assertEquals("0-1", d01.id)
+		assertEquals("1-0", d10.id)
+		assertEquals("1-1", d11.id)
+
+		d1.name = "a"
+		assertEquals("a", d1.id)
 	}
 
 	@Test def testPartInclude() {
@@ -548,6 +626,93 @@ package class PubNumberingUtilTest {
 		assertEquals("table-" + t41a.hashCode, t41a.id)
 	}
 
+	@Test def testTitledBlockIdWithoutPart() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+
+		val d10 = PUB.createChapter
+		body.divisions.add(d10)
+		val d11 = PUB.createChapter
+		body.divisions.add(d11)
+		val t11 = PUB.createTitledTable
+		t11.sequenceNumber = 1
+		d11.contents.add(t11)
+
+		val d20 = PUB.createSection
+		d10.divisions.add(d20)
+		val d21 = PUB.createSection
+		d10.divisions.add(d21)
+		val t21 = PUB.createTitledTable
+		t21.sequenceNumber = 2
+		d21.contents.add(t21)
+
+		val d30 = PUB.createSubsection
+		d20.divisions.add(d30)
+		val t30 = PUB.createTitledTable
+		t30.sequenceNumber = 3
+		d30.contents.add(t30)
+
+		val d40 = PUB.createSubsubsection
+		d30.divisions.add(d40)
+		val d41 = PUB.createSubsubsection
+		d30.divisions.add(d41)
+		val t41 = PUB.createTitledTable
+		t41.sequenceNumber = 4
+		d41.contents.add(t41)
+
+		assertEquals("table-1", t11.id)
+		assertEquals("table-2", t21.id)
+		assertEquals("table-3", t30.id)
+		assertEquals("table-4", t41.id)
+
+		t11.name = "a"
+		assertEquals("a", t11.id)
+
+		val t41a = PUB.createTitledTable
+		d41.contents.add(t41)
+		assertEquals("table-" + t41a.hashCode, t41a.id)
+	}
+
+	@Test def testTitledBlockIdWithoutChapter() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+
+		val d20 = PUB.createSection
+		body.divisions.add(d20)
+		val d21 = PUB.createSection
+		body.divisions.add(d21)
+		val t21 = PUB.createTitledTable
+		t21.sequenceNumber = 2
+		d21.contents.add(t21)
+
+		val d30 = PUB.createSubsection
+		d20.divisions.add(d30)
+		val t30 = PUB.createTitledTable
+		t30.sequenceNumber = 3
+		d30.contents.add(t30)
+
+		val d40 = PUB.createSubsubsection
+		d30.divisions.add(d40)
+		val d41 = PUB.createSubsubsection
+		d30.divisions.add(d41)
+		val t41 = PUB.createTitledTable
+		t41.sequenceNumber = 4
+		d41.contents.add(t41)
+
+		assertEquals("table-2", t21.id)
+		assertEquals("table-3", t30.id)
+		assertEquals("table-4", t41.id)
+
+		t21.name = "a"
+		assertEquals("a", t21.id)
+
+		val t41a = PUB.createTitledTable
+		d41.contents.add(t41)
+		assertEquals("table-" + t41a.hashCode, t41a.id)
+	}
+
 	@Test def testTitledBlockSequenceNumber() {
 		val Component compo = PUB.createComponent
 		val body = PUB.createPublicationBody
@@ -614,6 +779,110 @@ package class PubNumberingUtilTest {
 		assertEquals("2.2", t30.tieredNumber)
 		assertEquals("2.3", t41.tieredNumber)
 		assertEquals("2.4", t21.tieredNumber)
+	}
+
+	@Test def testTitledBlockSequenceNumberWithoutPart() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+
+		val d10 = PUB.createChapter // CHAPTER
+		body.divisions.add(d10)
+		val t10 = PUB.createTitledTable
+		d10.contents.add(t10)
+
+		val d11 = PUB.createChapter // CHAPTER
+		body.divisions.add(d11)
+		val t11 = PUB.createTitledTable
+		d11.contents.add(t11)
+
+		val d20 = PUB.createSection
+		d11.divisions.add(d20)
+
+		val d30 = PUB.createSubsection
+		d20.divisions.add(d30)
+		val t30 = PUB.createTitledTable
+		d30.contents.add(t30)
+
+		val d40 = PUB.createSubsubsection
+		d30.divisions.add(d40)
+
+		val d41 = PUB.createSubsubsection
+		d30.divisions.add(d41)
+		val t41 = PUB.createTitledTable
+		d41.contents.add(t41)
+
+		val d21 = PUB.createSection
+		d11.divisions.add(d21)
+		val t21 = PUB.createTitledTable
+		d21.contents.add(t21)
+
+		compo.gatherAllDivisionsAndSetSequenceNumbers
+		compo.gatherAllTablesInSequenceAndSetSequenceNumbers
+
+		assertEquals(0, t10.sequenceNumber)
+		assertEquals(0, t10.sequenceNumberInChapter)
+		assertEquals(1, t11.sequenceNumber)
+		assertEquals(0, t11.sequenceNumberInChapter)
+		assertEquals(2, t30.sequenceNumber)
+		assertEquals(1, t30.sequenceNumberInChapter)
+		assertEquals(3, t41.sequenceNumber)
+		assertEquals(2, t41.sequenceNumberInChapter)
+		assertEquals(4, t21.sequenceNumber)
+		assertEquals(3, t21.sequenceNumberInChapter)
+
+		val pPubClass = PROTO.createPublicationClass
+		compo.publicationClass = pPubClass
+
+		assertEquals("1.1", t10.tieredNumber)
+		assertEquals("2.1", t11.tieredNumber)
+		assertEquals("2.2", t30.tieredNumber)
+		assertEquals("2.3", t41.tieredNumber)
+		assertEquals("2.4", t21.tieredNumber)
+	}
+
+	@Test def testTitledBlockSequenceNumberWithoutChapter() {
+		val Component compo = PUB.createComponent
+		val body = PUB.createPublicationBody
+		compo.segments.add(body);
+
+		val d20 = PUB.createSection
+		body.divisions.add(d20)
+
+		val d30 = PUB.createSubsection
+		d20.divisions.add(d30)
+		val t30 = PUB.createTitledTable
+		d30.contents.add(t30)
+
+		val d40 = PUB.createSubsubsection
+		d30.divisions.add(d40)
+
+		val d41 = PUB.createSubsubsection
+		d30.divisions.add(d41)
+		val t41 = PUB.createTitledTable
+		d41.contents.add(t41)
+
+		val d21 = PUB.createSection
+		body.divisions.add(d21)
+		val t21 = PUB.createTitledTable
+		d21.contents.add(t21)
+
+		compo.gatherAllDivisionsAndSetSequenceNumbers
+		compo.gatherAllTablesInSequenceAndSetSequenceNumbers
+
+		assertEquals(0, t30.sequenceNumber)
+		assertEquals(-1, t30.sequenceNumberInChapter)
+		assertEquals(1, t41.sequenceNumber)
+		assertEquals(-1, t41.sequenceNumberInChapter)
+		assertEquals(2, t21.sequenceNumber)
+		assertEquals(-1, t21.sequenceNumberInChapter)
+
+		val pPubClass = PROTO.createPublicationClass
+		compo.publicationClass = pPubClass
+
+		assertEquals("1", t30.tieredNumber)
+		assertEquals("2", t41.tieredNumber)
+		assertEquals("3", t21.tieredNumber)
 	}
 
 	@Test def testTitledBlockSequenceNumberWithInclude() {

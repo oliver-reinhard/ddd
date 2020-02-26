@@ -352,6 +352,7 @@ PubTableSimpleCell returns TableCell:
 ;
 
 ProvidedTable:
+	('widthPercent:' widthPercent=NATURAL)?
 	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	'table:' renderer=[TableRenderer|DQualifiedName];
 
@@ -366,9 +367,11 @@ AbstractFigure:
 	IncludedFigure | ProvidedFigure; 
 	
 IncludedFigure:
+	('widthPercent:' widthPercent=NATURAL)?
 	'uri:' fileUri=STRING; // TODO Validation
 
 ProvidedFigure:
+	('widthPercent:' widthPercent=NATURAL)?
 	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	'figure:' renderer=[FigureRenderer|DQualifiedName];
 

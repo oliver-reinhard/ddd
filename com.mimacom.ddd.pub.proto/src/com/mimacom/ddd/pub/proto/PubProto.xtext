@@ -65,8 +65,6 @@ ProtoPublicationBody:
 	{ProtoPublicationBody}
 	'Body'
 	'{'
-	('parts:' (allowParts?='true' | 'false'))?
-	('appendix:'(allowAppendix?='true' | 'false'))?
 	'}';
 
 ProtoChangeHistory:

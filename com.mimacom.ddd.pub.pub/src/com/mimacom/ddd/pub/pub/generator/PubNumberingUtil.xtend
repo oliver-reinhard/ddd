@@ -11,6 +11,7 @@ import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
+import com.mimacom.ddd.pub.pub.Section
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.TitledFigure
 import com.mimacom.ddd.pub.pub.TitledTable
@@ -40,6 +41,8 @@ class PubNumberingUtil {
 		if (div instanceof Part) {
 			return div.formattedSingleNumber
 		} else if (div instanceof Chapter) {
+			return div.formattedSingleNumber + "."
+		} else if (div instanceof Section && ! ((div as Section).parent instanceof Chapter)) {
 			return div.formattedSingleNumber + "."
 		}
 		val parentNumber = tieredNumber(div.parent)

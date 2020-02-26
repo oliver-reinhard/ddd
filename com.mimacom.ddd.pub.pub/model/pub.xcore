@@ -393,6 +393,7 @@ class TitledFigure extends TitledBlock {
 }
 
 abstract class AbstractFigure {
+	int widthPercent = "100"
 }
 
 class IncludedFigure extends AbstractFigure {

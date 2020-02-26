@@ -4407,9 +4407,33 @@ ruleProvidedTable returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='root:'
+		(
+			otherlv_0='widthPercent:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getProvidedTableAccess().getWidthPercentKeyword_0_0());
+			}
+			(
+				(
+					lv_widthPercent_1_0=RULE_NATURAL
+					{
+						newLeafNode(lv_widthPercent_1_0, grammarAccess.getProvidedTableAccess().getWidthPercentNATURALTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getProvidedTableRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"widthPercent",
+							lv_widthPercent_1_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.NATURAL");
+					}
+				)
+			)
+		)?
+		otherlv_2='root:'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getProvidedTableAccess().getRootKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getProvidedTableAccess().getRootKeyword_1());
 		}
 		(
 			(
@@ -4419,7 +4443,7 @@ ruleProvidedTable returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getProvidedTableAccess().getDiagramRootIDiagramRootCrossReference_1_0());
+					newCompositeNode(grammarAccess.getProvidedTableAccess().getDiagramRootIDiagramRootCrossReference_2_0());
 				}
 				ruleDQualifiedName
 				{
@@ -4427,9 +4451,9 @@ ruleProvidedTable returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='table:'
+		otherlv_4='table:'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getProvidedTableAccess().getTableKeyword_2());
+			newLeafNode(otherlv_4, grammarAccess.getProvidedTableAccess().getTableKeyword_3());
 		}
 		(
 			(
@@ -4439,7 +4463,7 @@ ruleProvidedTable returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getProvidedTableAccess().getRendererTableRendererCrossReference_3_0());
+					newCompositeNode(grammarAccess.getProvidedTableAccess().getRendererTableRendererCrossReference_4_0());
 				}
 				ruleDQualifiedName
 				{
@@ -4563,15 +4587,39 @@ ruleIncludedFigure returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='uri:'
+		(
+			otherlv_0='widthPercent:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getIncludedFigureAccess().getWidthPercentKeyword_0_0());
+			}
+			(
+				(
+					lv_widthPercent_1_0=RULE_NATURAL
+					{
+						newLeafNode(lv_widthPercent_1_0, grammarAccess.getIncludedFigureAccess().getWidthPercentNATURALTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getIncludedFigureRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"widthPercent",
+							lv_widthPercent_1_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.NATURAL");
+					}
+				)
+			)
+		)?
+		otherlv_2='uri:'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getIncludedFigureAccess().getUriKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getIncludedFigureAccess().getUriKeyword_1());
 		}
 		(
 			(
-				lv_fileUri_1_0=RULE_STRING
+				lv_fileUri_3_0=RULE_STRING
 				{
-					newLeafNode(lv_fileUri_1_0, grammarAccess.getIncludedFigureAccess().getFileUriSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_fileUri_3_0, grammarAccess.getIncludedFigureAccess().getFileUriSTRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -4580,7 +4628,7 @@ ruleIncludedFigure returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"fileUri",
-						lv_fileUri_1_0,
+						lv_fileUri_3_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.STRING");
 				}
 			)
@@ -4604,9 +4652,33 @@ ruleProvidedFigure returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='root:'
+		(
+			otherlv_0='widthPercent:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getProvidedFigureAccess().getWidthPercentKeyword_0_0());
+			}
+			(
+				(
+					lv_widthPercent_1_0=RULE_NATURAL
+					{
+						newLeafNode(lv_widthPercent_1_0, grammarAccess.getProvidedFigureAccess().getWidthPercentNATURALTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getProvidedFigureRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"widthPercent",
+							lv_widthPercent_1_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.NATURAL");
+					}
+				)
+			)
+		)?
+		otherlv_2='root:'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getProvidedFigureAccess().getRootKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getProvidedFigureAccess().getRootKeyword_1());
 		}
 		(
 			(
@@ -4616,7 +4688,7 @@ ruleProvidedFigure returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getProvidedFigureAccess().getDiagramRootIDiagramRootCrossReference_1_0());
+					newCompositeNode(grammarAccess.getProvidedFigureAccess().getDiagramRootIDiagramRootCrossReference_2_0());
 				}
 				ruleDQualifiedName
 				{
@@ -4624,9 +4696,9 @@ ruleProvidedFigure returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='figure:'
+		otherlv_4='figure:'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getProvidedFigureAccess().getFigureKeyword_2());
+			newLeafNode(otherlv_4, grammarAccess.getProvidedFigureAccess().getFigureKeyword_3());
 		}
 		(
 			(
@@ -4636,7 +4708,7 @@ ruleProvidedFigure returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getProvidedFigureAccess().getRendererFigureRendererCrossReference_3_0());
+					newCompositeNode(grammarAccess.getProvidedFigureAccess().getRendererFigureRendererCrossReference_4_0());
 				}
 				ruleDQualifiedName
 				{

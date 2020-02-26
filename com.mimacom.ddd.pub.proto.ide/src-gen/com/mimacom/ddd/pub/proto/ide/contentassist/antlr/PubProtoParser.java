@@ -33,8 +33,6 @@ public class PubProtoParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, PubProtoGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getProtoDocumentSegmentAccess().getAlternatives(), "rule__ProtoDocumentSegment__Alternatives");
 			builder.put(grammarAccess.getSegmentBodyAccess().getAlternatives_1_1(), "rule__SegmentBody__Alternatives_1_1");
-			builder.put(grammarAccess.getProtoPublicationBodyAccess().getAlternatives_3_1(), "rule__ProtoPublicationBody__Alternatives_3_1");
-			builder.put(grammarAccess.getProtoPublicationBodyAccess().getAlternatives_4_1(), "rule__ProtoPublicationBody__Alternatives_4_1");
 			builder.put(grammarAccess.getProtoDivisionAccess().getAlternatives(), "rule__ProtoDivision__Alternatives");
 			builder.put(grammarAccess.getDmxTestContextAccess().getAlternatives_4_1(), "rule__DmxTestContext__Alternatives_4_1");
 			builder.put(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0(), "rule__DmxFilterTypeDescriptor__Alternatives_0");
@@ -80,8 +78,6 @@ public class PubProtoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProtoPrefaceAccess().getGroup(), "rule__ProtoPreface__Group__0");
 			builder.put(grammarAccess.getProtoEpilogueAccess().getGroup(), "rule__ProtoEpilogue__Group__0");
 			builder.put(grammarAccess.getProtoPublicationBodyAccess().getGroup(), "rule__ProtoPublicationBody__Group__0");
-			builder.put(grammarAccess.getProtoPublicationBodyAccess().getGroup_3(), "rule__ProtoPublicationBody__Group_3__0");
-			builder.put(grammarAccess.getProtoPublicationBodyAccess().getGroup_4(), "rule__ProtoPublicationBody__Group_4__0");
 			builder.put(grammarAccess.getProtoChangeHistoryAccess().getGroup(), "rule__ProtoChangeHistory__Group__0");
 			builder.put(grammarAccess.getProtoTOCAccess().getGroup(), "rule__ProtoTOC__Group__0");
 			builder.put(grammarAccess.getProtoTOCAccess().getGroup_4(), "rule__ProtoTOC__Group_4__0");
@@ -211,8 +207,6 @@ public class PubProtoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProtoSymbolReferenceAccess().getTargetAssignment(), "rule__ProtoSymbolReference__TargetAssignment");
 			builder.put(grammarAccess.getSegmentBodyAccess().getTitleAssignment_0_1(), "rule__SegmentBody__TitleAssignment_0_1");
 			builder.put(grammarAccess.getSegmentBodyAccess().getOptionalAssignment_1_1_0(), "rule__SegmentBody__OptionalAssignment_1_1_0");
-			builder.put(grammarAccess.getProtoPublicationBodyAccess().getAllowPartsAssignment_3_1_0(), "rule__ProtoPublicationBody__AllowPartsAssignment_3_1_0");
-			builder.put(grammarAccess.getProtoPublicationBodyAccess().getAllowAppendixAssignment_4_1_0(), "rule__ProtoPublicationBody__AllowAppendixAssignment_4_1_0");
 			builder.put(grammarAccess.getProtoTOCAccess().getMaxLevelAssignment_4_1(), "rule__ProtoTOC__MaxLevelAssignment_4_1");
 			builder.put(grammarAccess.getProtoDivisionBodyAccess().getNumberingStyleAssignment_1(), "rule__ProtoDivisionBody__NumberingStyleAssignment_1");
 			builder.put(grammarAccess.getDNamespaceAccess().getNameAssignment_1(), "rule__DNamespace__NameAssignment_1");

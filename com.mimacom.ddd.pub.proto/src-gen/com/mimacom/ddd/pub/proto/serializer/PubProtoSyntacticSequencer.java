@@ -24,8 +24,6 @@ public class PubProtoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected PubProtoGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
 	protected AbstractElementAlias match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
-	protected AbstractElementAlias match_ProtoPublicationBody___AppendixKeyword_4_0_FalseKeyword_4_1_1__q;
-	protected AbstractElementAlias match_ProtoPublicationBody___PartsKeyword_3_0_FalseKeyword_3_1_1__q;
 	protected AbstractElementAlias match_SegmentBody___OptionalKeyword_1_0_FalseKeyword_1_1_1__q;
 	
 	@Inject
@@ -33,8 +31,6 @@ public class PubProtoSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (PubProtoGrammarAccess) access;
 		match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFalseKeyword_1_3()));
 		match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
-		match_ProtoPublicationBody___AppendixKeyword_4_0_FalseKeyword_4_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getProtoPublicationBodyAccess().getAppendixKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getProtoPublicationBodyAccess().getFalseKeyword_4_1_1()));
-		match_ProtoPublicationBody___PartsKeyword_3_0_FalseKeyword_3_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getProtoPublicationBodyAccess().getPartsKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getProtoPublicationBodyAccess().getFalseKeyword_3_1_1()));
 		match_SegmentBody___OptionalKeyword_1_0_FalseKeyword_1_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSegmentBodyAccess().getOptionalKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getSegmentBodyAccess().getFalseKeyword_1_1_1()));
 	}
 	
@@ -101,10 +97,6 @@ public class PubProtoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
 				emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ProtoPublicationBody___AppendixKeyword_4_0_FalseKeyword_4_1_1__q.equals(syntax))
-				emit_ProtoPublicationBody___AppendixKeyword_4_0_FalseKeyword_4_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ProtoPublicationBody___PartsKeyword_3_0_FalseKeyword_3_1_1__q.equals(syntax))
-				emit_ProtoPublicationBody___PartsKeyword_3_0_FalseKeyword_3_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SegmentBody___OptionalKeyword_1_0_FalseKeyword_1_1_1__q.equals(syntax))
 				emit_SegmentBody___OptionalKeyword_1_0_FalseKeyword_1_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -130,30 +122,6 @@ public class PubProtoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 */
 	protected void emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('appendix:' 'false')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'Body' '{' ('parts:' 'false')? (ambiguity) '}' (rule start)
-	 *     allowParts?='true' (ambiguity) '}' (rule end)
-	 */
-	protected void emit_ProtoPublicationBody___AppendixKeyword_4_0_FalseKeyword_4_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('parts:' 'false')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'Body' '{' (ambiguity) 'appendix:' allowAppendix?='true'
-	 *     (rule start) 'Body' '{' (ambiguity) ('appendix:' 'false')? '}' (rule start)
-	 */
-	protected void emit_ProtoPublicationBody___PartsKeyword_3_0_FalseKeyword_3_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

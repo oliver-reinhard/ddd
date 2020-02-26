@@ -77,6 +77,23 @@ class PubNumberingUtilTest {
   }
   
   @Test
+  public void testLevelsWithoutChapter() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Section d0 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d0);
+    final Subsection d1 = PubNumberingUtilTest.PUB.createSubsection();
+    d0.getDivisions().add(d1);
+    final Subsubsection d2 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d1.getDivisions().add(d2);
+    this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    Assertions.assertEquals(0, d0.getLevel());
+    Assertions.assertEquals(1, d1.getLevel());
+    Assertions.assertEquals(2, d2.getLevel());
+  }
+  
+  @Test
   public void testSequenceNumberWithPart() {
     final Component compo = PubNumberingUtilTest.PUB.createComponent();
     final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
@@ -150,6 +167,32 @@ class PubNumberingUtilTest {
     Assertions.assertEquals(1, d00001.getSequenceNumber());
     Assertions.assertEquals(1, d01.getSequenceNumber());
     Assertions.assertEquals(2, d02.getSequenceNumber());
+  }
+  
+  @Test
+  public void testSequenceNumberWithoutChapter() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Section d0 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d0);
+    final Section d1 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d1);
+    final Subsection d00 = PubNumberingUtilTest.PUB.createSubsection();
+    d0.getDivisions().add(d00);
+    final Subsection d01 = PubNumberingUtilTest.PUB.createSubsection();
+    d0.getDivisions().add(d01);
+    final Subsubsection d000 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d00.getDivisions().add(d000);
+    final Subsubsection d001 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d00.getDivisions().add(d001);
+    this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    Assertions.assertEquals(0, d0.getSequenceNumber());
+    Assertions.assertEquals(1, d1.getSequenceNumber());
+    Assertions.assertEquals(0, d00.getSequenceNumber());
+    Assertions.assertEquals(1, d01.getSequenceNumber());
+    Assertions.assertEquals(0, d000.getSequenceNumber());
+    Assertions.assertEquals(1, d001.getSequenceNumber());
   }
   
   @Test
@@ -246,6 +289,34 @@ class PubNumberingUtilTest {
     Assertions.assertEquals("1-1", d11.getId());
     d01.setName("a");
     Assertions.assertEquals("a", d01.getId());
+  }
+  
+  @Test
+  public void testDivisionIdWithoutChapter() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Section d0 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d0);
+    final Section d1 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d1);
+    final Subsection d00 = PubNumberingUtilTest.PUB.createSubsection();
+    d0.getDivisions().add(d00);
+    final Subsection d01 = PubNumberingUtilTest.PUB.createSubsection();
+    d0.getDivisions().add(d01);
+    final Subsection d10 = PubNumberingUtilTest.PUB.createSubsection();
+    d1.getDivisions().add(d10);
+    final Subsection d11 = PubNumberingUtilTest.PUB.createSubsection();
+    d1.getDivisions().add(d11);
+    this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    Assertions.assertEquals("0", d0.getId());
+    Assertions.assertEquals("1", d1.getId());
+    Assertions.assertEquals("0-0", d00.getId());
+    Assertions.assertEquals("0-1", d01.getId());
+    Assertions.assertEquals("1-0", d10.getId());
+    Assertions.assertEquals("1-1", d11.getId());
+    d1.setName("a");
+    Assertions.assertEquals("a", d1.getId());
   }
   
   @Test
@@ -494,6 +565,86 @@ class PubNumberingUtilTest {
   }
   
   @Test
+  public void testTitledBlockIdWithoutPart() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Chapter d10 = PubNumberingUtilTest.PUB.createChapter();
+    body.getDivisions().add(d10);
+    final Chapter d11 = PubNumberingUtilTest.PUB.createChapter();
+    body.getDivisions().add(d11);
+    final TitledTable t11 = PubNumberingUtilTest.PUB.createTitledTable();
+    t11.setSequenceNumber(1);
+    d11.getContents().add(t11);
+    final Section d20 = PubNumberingUtilTest.PUB.createSection();
+    d10.getDivisions().add(d20);
+    final Section d21 = PubNumberingUtilTest.PUB.createSection();
+    d10.getDivisions().add(d21);
+    final TitledTable t21 = PubNumberingUtilTest.PUB.createTitledTable();
+    t21.setSequenceNumber(2);
+    d21.getContents().add(t21);
+    final Subsection d30 = PubNumberingUtilTest.PUB.createSubsection();
+    d20.getDivisions().add(d30);
+    final TitledTable t30 = PubNumberingUtilTest.PUB.createTitledTable();
+    t30.setSequenceNumber(3);
+    d30.getContents().add(t30);
+    final Subsubsection d40 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d40);
+    final Subsubsection d41 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d41);
+    final TitledTable t41 = PubNumberingUtilTest.PUB.createTitledTable();
+    t41.setSequenceNumber(4);
+    d41.getContents().add(t41);
+    Assertions.assertEquals("table-1", t11.getId());
+    Assertions.assertEquals("table-2", t21.getId());
+    Assertions.assertEquals("table-3", t30.getId());
+    Assertions.assertEquals("table-4", t41.getId());
+    t11.setName("a");
+    Assertions.assertEquals("a", t11.getId());
+    final TitledTable t41a = PubNumberingUtilTest.PUB.createTitledTable();
+    d41.getContents().add(t41);
+    int _hashCode = t41a.hashCode();
+    String _plus = ("table-" + Integer.valueOf(_hashCode));
+    Assertions.assertEquals(_plus, t41a.getId());
+  }
+  
+  @Test
+  public void testTitledBlockIdWithoutChapter() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Section d20 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d20);
+    final Section d21 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d21);
+    final TitledTable t21 = PubNumberingUtilTest.PUB.createTitledTable();
+    t21.setSequenceNumber(2);
+    d21.getContents().add(t21);
+    final Subsection d30 = PubNumberingUtilTest.PUB.createSubsection();
+    d20.getDivisions().add(d30);
+    final TitledTable t30 = PubNumberingUtilTest.PUB.createTitledTable();
+    t30.setSequenceNumber(3);
+    d30.getContents().add(t30);
+    final Subsubsection d40 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d40);
+    final Subsubsection d41 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d41);
+    final TitledTable t41 = PubNumberingUtilTest.PUB.createTitledTable();
+    t41.setSequenceNumber(4);
+    d41.getContents().add(t41);
+    Assertions.assertEquals("table-2", t21.getId());
+    Assertions.assertEquals("table-3", t30.getId());
+    Assertions.assertEquals("table-4", t41.getId());
+    t21.setName("a");
+    Assertions.assertEquals("a", t21.getId());
+    final TitledTable t41a = PubNumberingUtilTest.PUB.createTitledTable();
+    d41.getContents().add(t41);
+    int _hashCode = t41a.hashCode();
+    String _plus = ("table-" + Integer.valueOf(_hashCode));
+    Assertions.assertEquals(_plus, t41a.getId());
+  }
+  
+  @Test
   public void testTitledBlockSequenceNumber() {
     final Component compo = PubNumberingUtilTest.PUB.createComponent();
     final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
@@ -548,6 +699,92 @@ class PubNumberingUtilTest {
     Assertions.assertEquals("2.2", this._pubNumberingUtil.tieredNumber(t30));
     Assertions.assertEquals("2.3", this._pubNumberingUtil.tieredNumber(t41));
     Assertions.assertEquals("2.4", this._pubNumberingUtil.tieredNumber(t21));
+  }
+  
+  @Test
+  public void testTitledBlockSequenceNumberWithoutPart() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Chapter d10 = PubNumberingUtilTest.PUB.createChapter();
+    body.getDivisions().add(d10);
+    final TitledTable t10 = PubNumberingUtilTest.PUB.createTitledTable();
+    d10.getContents().add(t10);
+    final Chapter d11 = PubNumberingUtilTest.PUB.createChapter();
+    body.getDivisions().add(d11);
+    final TitledTable t11 = PubNumberingUtilTest.PUB.createTitledTable();
+    d11.getContents().add(t11);
+    final Section d20 = PubNumberingUtilTest.PUB.createSection();
+    d11.getDivisions().add(d20);
+    final Subsection d30 = PubNumberingUtilTest.PUB.createSubsection();
+    d20.getDivisions().add(d30);
+    final TitledTable t30 = PubNumberingUtilTest.PUB.createTitledTable();
+    d30.getContents().add(t30);
+    final Subsubsection d40 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d40);
+    final Subsubsection d41 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d41);
+    final TitledTable t41 = PubNumberingUtilTest.PUB.createTitledTable();
+    d41.getContents().add(t41);
+    final Section d21 = PubNumberingUtilTest.PUB.createSection();
+    d11.getDivisions().add(d21);
+    final TitledTable t21 = PubNumberingUtilTest.PUB.createTitledTable();
+    d21.getContents().add(t21);
+    this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    this._pubNumberingUtil.gatherAllTablesInSequenceAndSetSequenceNumbers(compo);
+    Assertions.assertEquals(0, t10.getSequenceNumber());
+    Assertions.assertEquals(0, t10.getSequenceNumberInChapter());
+    Assertions.assertEquals(1, t11.getSequenceNumber());
+    Assertions.assertEquals(0, t11.getSequenceNumberInChapter());
+    Assertions.assertEquals(2, t30.getSequenceNumber());
+    Assertions.assertEquals(1, t30.getSequenceNumberInChapter());
+    Assertions.assertEquals(3, t41.getSequenceNumber());
+    Assertions.assertEquals(2, t41.getSequenceNumberInChapter());
+    Assertions.assertEquals(4, t21.getSequenceNumber());
+    Assertions.assertEquals(3, t21.getSequenceNumberInChapter());
+    final PublicationClass pPubClass = PubNumberingUtilTest.PROTO.createPublicationClass();
+    compo.setPublicationClass(pPubClass);
+    Assertions.assertEquals("1.1", this._pubNumberingUtil.tieredNumber(t10));
+    Assertions.assertEquals("2.1", this._pubNumberingUtil.tieredNumber(t11));
+    Assertions.assertEquals("2.2", this._pubNumberingUtil.tieredNumber(t30));
+    Assertions.assertEquals("2.3", this._pubNumberingUtil.tieredNumber(t41));
+    Assertions.assertEquals("2.4", this._pubNumberingUtil.tieredNumber(t21));
+  }
+  
+  @Test
+  public void testTitledBlockSequenceNumberWithoutChapter() {
+    final Component compo = PubNumberingUtilTest.PUB.createComponent();
+    final PublicationBody body = PubNumberingUtilTest.PUB.createPublicationBody();
+    compo.getSegments().add(body);
+    final Section d20 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d20);
+    final Subsection d30 = PubNumberingUtilTest.PUB.createSubsection();
+    d20.getDivisions().add(d30);
+    final TitledTable t30 = PubNumberingUtilTest.PUB.createTitledTable();
+    d30.getContents().add(t30);
+    final Subsubsection d40 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d40);
+    final Subsubsection d41 = PubNumberingUtilTest.PUB.createSubsubsection();
+    d30.getDivisions().add(d41);
+    final TitledTable t41 = PubNumberingUtilTest.PUB.createTitledTable();
+    d41.getContents().add(t41);
+    final Section d21 = PubNumberingUtilTest.PUB.createSection();
+    body.getDivisions().add(d21);
+    final TitledTable t21 = PubNumberingUtilTest.PUB.createTitledTable();
+    d21.getContents().add(t21);
+    this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    this._pubNumberingUtil.gatherAllTablesInSequenceAndSetSequenceNumbers(compo);
+    Assertions.assertEquals(0, t30.getSequenceNumber());
+    Assertions.assertEquals((-1), t30.getSequenceNumberInChapter());
+    Assertions.assertEquals(1, t41.getSequenceNumber());
+    Assertions.assertEquals((-1), t41.getSequenceNumberInChapter());
+    Assertions.assertEquals(2, t21.getSequenceNumber());
+    Assertions.assertEquals((-1), t21.getSequenceNumberInChapter());
+    final PublicationClass pPubClass = PubNumberingUtilTest.PROTO.createPublicationClass();
+    compo.setPublicationClass(pPubClass);
+    Assertions.assertEquals("1", this._pubNumberingUtil.tieredNumber(t30));
+    Assertions.assertEquals("2", this._pubNumberingUtil.tieredNumber(t41));
+    Assertions.assertEquals("3", this._pubNumberingUtil.tieredNumber(t21));
   }
   
   @Test

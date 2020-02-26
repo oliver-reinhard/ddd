@@ -513,26 +513,6 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProtoPublicationBody_AllowParts() {
-		return (EAttribute)protoPublicationBodyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getProtoPublicationBody_AllowAppendix() {
-		return (EAttribute)protoPublicationBodyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getProtoChangeHistory() {
 		return protoChangeHistoryEClass;
 	}
@@ -785,8 +765,6 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 		protoEpilogueEClass = createEClass(PROTO_EPILOGUE);
 
 		protoPublicationBodyEClass = createEClass(PROTO_PUBLICATION_BODY);
-		createEAttribute(protoPublicationBodyEClass, PROTO_PUBLICATION_BODY__ALLOW_PARTS);
-		createEAttribute(protoPublicationBodyEClass, PROTO_PUBLICATION_BODY__ALLOW_APPENDIX);
 
 		protoChangeHistoryEClass = createEClass(PROTO_CHANGE_HISTORY);
 
@@ -908,8 +886,6 @@ public class ProtoPackageImpl extends EPackageImpl implements ProtoPackage {
 		initEClass(protoEpilogueEClass, ProtoEpilogue.class, "ProtoEpilogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(protoPublicationBodyEClass, ProtoPublicationBody.class, "ProtoPublicationBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProtoPublicationBody_AllowParts(), theEcorePackage.getEBoolean(), "allowParts", "false", 0, 1, ProtoPublicationBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProtoPublicationBody_AllowAppendix(), theEcorePackage.getEBoolean(), "allowAppendix", "false", 0, 1, ProtoPublicationBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(protoChangeHistoryEClass, ProtoChangeHistory.class, "ProtoChangeHistory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
