@@ -3,10 +3,9 @@
  */
 package com.mimacom.ddd.im.generator.generator
 
-import org.eclipse.xtext.xbase.compiler.JvmModelGenerator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
-import com.google.inject.Inject
+import org.eclipse.xtext.xbase.compiler.JvmModelGenerator
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +14,8 @@ import com.google.inject.Inject
  */
 class CompositeGenerator extends JvmModelGenerator {
 
-	@Inject ExceptionGenerator exceptionGenerator
-
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		super.doGenerate(input, fsa)
-		exceptionGenerator.doGenerate(input, fsa)
 	}
 	
 }

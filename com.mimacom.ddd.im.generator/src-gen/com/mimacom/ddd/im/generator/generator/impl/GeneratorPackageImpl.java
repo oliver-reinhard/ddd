@@ -5,6 +5,7 @@ package com.mimacom.ddd.im.generator.generator.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
+import com.mimacom.ddd.im.generator.generator.DtoMapping;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorFactory;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
@@ -47,6 +48,13 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   private EClass typeMappingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dtoMappingEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,9 +172,20 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EReference getModel_ExceptionMappings()
+  public EReference getModel_DtoMappings()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_ExceptionMappings()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -200,6 +219,28 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
   public EReference getTypeMapping_JavaType()
   {
     return (EReference)typeMappingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDtoMapping()
+  {
+    return dtoMappingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDtoMapping_Name()
+  {
+    return (EReference)dtoMappingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -291,11 +332,15 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__IMPORT_SECTION);
     createEReference(modelEClass, MODEL__TYPE_MAPPINGS);
+    createEReference(modelEClass, MODEL__DTO_MAPPINGS);
     createEReference(modelEClass, MODEL__EXCEPTION_MAPPINGS);
 
     typeMappingEClass = createEClass(TYPE_MAPPING);
     createEReference(typeMappingEClass, TYPE_MAPPING__NAME);
     createEReference(typeMappingEClass, TYPE_MAPPING__JAVA_TYPE);
+
+    dtoMappingEClass = createEClass(DTO_MAPPING);
+    createEReference(dtoMappingEClass, DTO_MAPPING__NAME);
 
     exceptionMappingEClass = createEClass(EXCEPTION_MAPPING);
     createEReference(exceptionMappingEClass, EXCEPTION_MAPPING__NAME);
@@ -344,11 +389,15 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_TypeMappings(), this.getTypeMapping(), null, "typeMappings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_DtoMappings(), this.getDtoMapping(), null, "dtoMappings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_ExceptionMappings(), this.getExceptionMapping(), null, "exceptionMappings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeMappingEClass, TypeMapping.class, "TypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeMapping_Name(), theBasePackage.getDType(), null, "name", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeMapping_JavaType(), theTypesPackage.getJvmType(), null, "javaType", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dtoMappingEClass, DtoMapping.class, "DtoMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDtoMapping_Name(), theBasePackage.getDComplexType(), null, "name", null, 0, 1, DtoMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exceptionMappingEClass, ExceptionMapping.class, "ExceptionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExceptionMapping_Name(), theAsmPackage.getSException(), null, "name", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -10,13 +10,18 @@ import "http://www.mimacom.com/ddd/sm/asm" as asm
 Model:
 	importSection=XImportSection?
 	(
-		('type' 'mappings' '{' typeMappings+=TypeMapping+ '}') &
-		('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')
-	)?;
+		('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? &
+		('data' 'transfer' 'objects' '{' dtoMappings+=DtoMapping+ '}')? &
+		('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?
+	);
 
 TypeMapping:
 	'datatype' name=[base::DType|QualifiedName]
   	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
+
+DtoMapping:
+	'type' name=[base::DComplexType|QualifiedName]
+;
 
 ExceptionMapping:
 	'exception' name=[asm::SException|QualifiedName]

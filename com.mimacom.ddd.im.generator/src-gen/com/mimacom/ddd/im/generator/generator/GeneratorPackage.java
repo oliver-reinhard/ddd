@@ -86,13 +86,22 @@ public interface GeneratorPackage extends EPackage
   int MODEL__TYPE_MAPPINGS = 1;
 
   /**
+   * The feature id for the '<em><b>Dto Mappings</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__DTO_MAPPINGS = 2;
+
+  /**
    * The feature id for the '<em><b>Exception Mappings</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__EXCEPTION_MAPPINGS = 2;
+  int MODEL__EXCEPTION_MAPPINGS = 3;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -101,7 +110,7 @@ public interface GeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 3;
+  int MODEL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl <em>Type Mapping</em>}' class.
@@ -141,6 +150,34 @@ public interface GeneratorPackage extends EPackage
   int TYPE_MAPPING_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl <em>Dto Mapping</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl
+   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getDtoMapping()
+   * @generated
+   */
+  int DTO_MAPPING = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DTO_MAPPING__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Dto Mapping</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DTO_MAPPING_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl <em>Exception Mapping</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -148,7 +185,7 @@ public interface GeneratorPackage extends EPackage
    * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getExceptionMapping()
    * @generated
    */
-  int EXCEPTION_MAPPING = 2;
+  int EXCEPTION_MAPPING = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -229,6 +266,17 @@ public interface GeneratorPackage extends EPackage
   EReference getModel_TypeMappings();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Model#getDtoMappings <em>Dto Mappings</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Dto Mappings</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Model#getDtoMappings()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_DtoMappings();
+
+  /**
    * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Model#getExceptionMappings <em>Exception Mappings</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -270,6 +318,27 @@ public interface GeneratorPackage extends EPackage
    * @generated
    */
   EReference getTypeMapping_JavaType();
+
+  /**
+   * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.DtoMapping <em>Dto Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dto Mapping</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.DtoMapping
+   * @generated
+   */
+  EClass getDtoMapping();
+
+  /**
+   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.DtoMapping#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Name</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.DtoMapping#getName()
+   * @see #getDtoMapping()
+   * @generated
+   */
+  EReference getDtoMapping_Name();
 
   /**
    * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping <em>Exception Mapping</em>}'.
@@ -375,6 +444,14 @@ public interface GeneratorPackage extends EPackage
     EReference MODEL__TYPE_MAPPINGS = eINSTANCE.getModel_TypeMappings();
 
     /**
+     * The meta object literal for the '<em><b>Dto Mappings</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__DTO_MAPPINGS = eINSTANCE.getModel_DtoMappings();
+
+    /**
      * The meta object literal for the '<em><b>Exception Mappings</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -407,6 +484,24 @@ public interface GeneratorPackage extends EPackage
      * @generated
      */
     EReference TYPE_MAPPING__JAVA_TYPE = eINSTANCE.getTypeMapping_JavaType();
+
+    /**
+     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl <em>Dto Mapping</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl
+     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getDtoMapping()
+     * @generated
+     */
+    EClass DTO_MAPPING = eINSTANCE.getDtoMapping();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DTO_MAPPING__NAME = eINSTANCE.getDtoMapping_Name();
 
     /**
      * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl <em>Exception Mapping</em>}' class.

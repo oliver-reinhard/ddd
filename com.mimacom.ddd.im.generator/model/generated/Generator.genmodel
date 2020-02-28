@@ -9,11 +9,15 @@
     <genClasses ecoreClass="Generator.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//Model/importSection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//Model/typeMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//Model/dtoMappings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//Model/exceptionMappings"/>
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//TypeMapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//TypeMapping/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//TypeMapping/javaType"/>
+    </genClasses>
+    <genClasses ecoreClass="Generator.ecore#//DtoMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//DtoMapping/name"/>
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//ExceptionMapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//ExceptionMapping/name"/>

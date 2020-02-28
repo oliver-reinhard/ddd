@@ -73,7 +73,9 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 			builder.put(grammarAccess.getModelAccess().getGroup_1_0(), "rule__Model__Group_1_0__0");
 			builder.put(grammarAccess.getModelAccess().getGroup_1_1(), "rule__Model__Group_1_1__0");
+			builder.put(grammarAccess.getModelAccess().getGroup_1_2(), "rule__Model__Group_1_2__0");
 			builder.put(grammarAccess.getTypeMappingAccess().getGroup(), "rule__TypeMapping__Group__0");
+			builder.put(grammarAccess.getDtoMappingAccess().getGroup(), "rule__DtoMapping__Group__0");
 			builder.put(grammarAccess.getExceptionMappingAccess().getGroup(), "rule__ExceptionMapping__Group__0");
 			builder.put(grammarAccess.getExceptionMappingAccess().getGroup_2(), "rule__ExceptionMapping__Group_2__0");
 			builder.put(grammarAccess.getExceptionMappingAccess().getGroup_3_0(), "rule__ExceptionMapping__Group_3_0__0");
@@ -259,9 +261,11 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
 			builder.put(grammarAccess.getModelAccess().getImportSectionAssignment_0(), "rule__Model__ImportSectionAssignment_0");
 			builder.put(grammarAccess.getModelAccess().getTypeMappingsAssignment_1_0_3(), "rule__Model__TypeMappingsAssignment_1_0_3");
-			builder.put(grammarAccess.getModelAccess().getExceptionMappingsAssignment_1_1_3(), "rule__Model__ExceptionMappingsAssignment_1_1_3");
+			builder.put(grammarAccess.getModelAccess().getDtoMappingsAssignment_1_1_4(), "rule__Model__DtoMappingsAssignment_1_1_4");
+			builder.put(grammarAccess.getModelAccess().getExceptionMappingsAssignment_1_2_3(), "rule__Model__ExceptionMappingsAssignment_1_2_3");
 			builder.put(grammarAccess.getTypeMappingAccess().getNameAssignment_1(), "rule__TypeMapping__NameAssignment_1");
 			builder.put(grammarAccess.getTypeMappingAccess().getJavaTypeAssignment_4(), "rule__TypeMapping__JavaTypeAssignment_4");
+			builder.put(grammarAccess.getDtoMappingAccess().getNameAssignment_1(), "rule__DtoMapping__NameAssignment_1");
 			builder.put(grammarAccess.getExceptionMappingAccess().getNameAssignment_1(), "rule__ExceptionMapping__NameAssignment_1");
 			builder.put(grammarAccess.getExceptionMappingAccess().getExtendsAssignment_2_1(), "rule__ExceptionMapping__ExtendsAssignment_2_1");
 			builder.put(grammarAccess.getExceptionMappingAccess().getMessageAssignment_3_0_1(), "rule__ExceptionMapping__MessageAssignment_3_0_1");

@@ -67,6 +67,7 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
     {
       case GeneratorPackage.MODEL: return createModel();
       case GeneratorPackage.TYPE_MAPPING: return createTypeMapping();
+      case GeneratorPackage.DTO_MAPPING: return createDtoMapping();
       case GeneratorPackage.EXCEPTION_MAPPING: return createExceptionMapping();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -95,6 +96,18 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
   {
     TypeMappingImpl typeMapping = new TypeMappingImpl();
     return typeMapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DtoMapping createDtoMapping()
+  {
+    DtoMappingImpl dtoMapping = new DtoMappingImpl();
+    return dtoMapping;
   }
 
   /**

@@ -4,6 +4,7 @@
 package com.mimacom.ddd.im.generator.serializer;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.im.generator.generator.DtoMapping;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
@@ -79,6 +80,9 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == GeneratorPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case GeneratorPackage.DTO_MAPPING:
+				sequence_DtoMapping(context, (DtoMapping) semanticObject); 
+				return; 
 			case GeneratorPackage.EXCEPTION_MAPPING:
 				sequence_ExceptionMapping(context, (ExceptionMapping) semanticObject); 
 				return; 
@@ -334,6 +338,24 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DtoMapping returns DtoMapping
+	 *
+	 * Constraint:
+	 *     name=[DComplexType|QualifiedName]
+	 */
+	protected void sequence_DtoMapping(ISerializationContext context, DtoMapping semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GeneratorPackage.Literals.DTO_MAPPING__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GeneratorPackage.Literals.DTO_MAPPING__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDtoMappingAccess().getNameDComplexTypeQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(GeneratorPackage.Literals.DTO_MAPPING__NAME, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ExceptionMapping returns ExceptionMapping
 	 *
 	 * Constraint:
@@ -349,7 +371,10 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (importSection=XImportSection | (importSection=XImportSection (typeMappings+=TypeMapping | exceptionMappings+=ExceptionMapping)+))?
+	 *     (
+	 *         importSection=XImportSection | 
+	 *         (importSection=XImportSection (typeMappings+=TypeMapping | dtoMappings+=DtoMapping | exceptionMappings+=ExceptionMapping)+)
+	 *     )?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

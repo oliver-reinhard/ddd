@@ -86,6 +86,11 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
         return createTypeMappingAdapter();
       }
       @Override
+      public Adapter caseDtoMapping(DtoMapping object)
+      {
+        return createDtoMappingAdapter();
+      }
+      @Override
       public Adapter caseExceptionMapping(ExceptionMapping object)
       {
         return createExceptionMappingAdapter();
@@ -138,6 +143,21 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.DtoMapping <em>Dto Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.mimacom.ddd.im.generator.generator.DtoMapping
+   * @generated
+   */
+  public Adapter createDtoMappingAdapter()
   {
     return null;
   }

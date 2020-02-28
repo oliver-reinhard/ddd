@@ -7,12 +7,17 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeMappings" upperBound="-1"
         eType="#//TypeMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoMappings" upperBound="-1"
+        eType="#//DtoMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptionMappings" upperBound="-1"
         eType="#//ExceptionMapping" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMapping">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="javaType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoMapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExceptionMapping">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SException"/>

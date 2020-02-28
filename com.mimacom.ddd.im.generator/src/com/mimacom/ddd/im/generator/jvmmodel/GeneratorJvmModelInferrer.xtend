@@ -4,7 +4,10 @@
 package com.mimacom.ddd.im.generator.jvmmodel
 
 import com.google.inject.Inject
-import com.mimacom.ddd.im.generator.generator.Model
+import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
+import com.mimacom.ddd.im.generator.generator.ExceptionMapping
+import org.eclipse.xtext.common.types.JvmDeclaredType
+import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
@@ -21,42 +24,41 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	 * convenience API to build and initialize JVM types and their members.
 	 */
 	@Inject extension JvmTypesBuilder
-
-	/**
-	 * The dispatch method {@code infer} is called for each instance of the
-	 * given element's type that is contained in a resource.
-	 * 
-	 * @param element
-	 *            the model to create one or more
-	 *            {@link org.eclipse.xtext.common.types.JvmDeclaredType declared
-	 *            types} from.
-	 * @param acceptor
-	 *            each created
-	 *            {@link org.eclipse.xtext.common.types.JvmDeclaredType type}
-	 *            without a container should be passed to the acceptor in order
-	 *            get attached to the current resource. The acceptor's
-	 *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
-	 *            accept(..)} method takes the constructed empty type for the
-	 *            pre-indexing phase. This one is further initialized in the
-	 *            indexing phase using the lambda you pass as the last argument.
-	 * @param isPreIndexingPhase
-	 *            whether the method is called in a pre-indexing phase, i.e.
-	 *            when the global index is not yet fully updated. You must not
-	 *            rely on linking using the index if isPreIndexingPhase is
-	 *            <code>true</code>.
-	 */
-	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		// Here you explain how your model is mapped to Java elements, by writing the actual translation code.
-		
-		// An implementation for the initial hello world example could look like this:
-// 		acceptor.accept(element.toClass("my.company.greeting.MyGreetings")) [
-// 			for (greeting : element.greetings) {
-// 				members += greeting.toMethod("hello" + greeting.name, typeRef(String)) [
-// 					body = '''
-//						return "Hello «greeting.name»";
-//					'''
-//				]
-//			}
-//		]
+	
+  	@Inject extension DmxQualifiedNameProvider
+  	
+	def dispatch void infer(ExceptionMapping element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val qualifiedName = element.getQualifiedName
+		if (qualifiedName !== null)
+			acceptor.accept(element.toClass(qualifiedName)) [
+				// documentation
+				documentation = element.documentation
+			
+				// extends
+				var JvmTypeReference parentException
+				if (element.extends !== null)
+					parentException = element.extends.typeRef
+				else
+					parentException = typeRef(RuntimeException)
+				if (parentException !== null)
+					superTypes += parentException
+				
+				// message
+				members += element.toConstructor[
+					if (element.message !== null)
+						body = '''super("«element.message»");'''
+				]
+			]
+	}
+	
+	private def dispatch getQualifiedName(ExceptionMapping mapping) {
+		if (mapping.package !== null)
+			return '''«mapping.package.toLowerCase».«mapping.name.name»'''
+		val qualifiedName = mapping.name?.fullyQualifiedName
+		if (qualifiedName !== null) {
+			val packageName = qualifiedName.segments.take(qualifiedName.segmentCount - 1).map[toLowerCase].join('.')
+			return '''«packageName».«qualifiedName.lastSegment.toString»'''
+		}
+		return null			
 	}
 }

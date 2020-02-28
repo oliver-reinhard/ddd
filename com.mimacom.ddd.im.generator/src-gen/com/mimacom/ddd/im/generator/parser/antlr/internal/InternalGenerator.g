@@ -153,24 +153,74 @@ ruleModel returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getModelAccess().getUnorderedGroup_1(), 1);
 					}
-								({true}?=>(otherlv_7='exception'
+								({true}?=>(otherlv_7='data'
 								{
-									newLeafNode(otherlv_7, grammarAccess.getModelAccess().getExceptionKeyword_1_1_0());
+									newLeafNode(otherlv_7, grammarAccess.getModelAccess().getDataKeyword_1_1_0());
 								}
-								otherlv_8='mappings'
+								otherlv_8='transfer'
 								{
-									newLeafNode(otherlv_8, grammarAccess.getModelAccess().getMappingsKeyword_1_1_1());
+									newLeafNode(otherlv_8, grammarAccess.getModelAccess().getTransferKeyword_1_1_1());
 								}
-								otherlv_9='{'
+								otherlv_9='objects'
 								{
-									newLeafNode(otherlv_9, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_1_2());
+									newLeafNode(otherlv_9, grammarAccess.getModelAccess().getObjectsKeyword_1_1_2());
+								}
+								otherlv_10='{'
+								{
+									newLeafNode(otherlv_10, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_1_3());
 								}
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getModelAccess().getExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0());
+											newCompositeNode(grammarAccess.getModelAccess().getDtoMappingsDtoMappingParserRuleCall_1_1_4_0());
 										}
-										lv_exceptionMappings_10_0=ruleExceptionMapping
+										lv_dtoMappings_11_0=ruleDtoMapping
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getModelRule());
+											}
+											add(
+												$current,
+												"dtoMappings",
+												lv_dtoMappings_11_0,
+												"com.mimacom.ddd.im.generator.Generator.DtoMapping");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)+
+								otherlv_12='}'
+								{
+									newLeafNode(otherlv_12, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_1_5());
+								}
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModelAccess().getUnorderedGroup_1());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModelAccess().getUnorderedGroup_1(), 2)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getModelAccess().getUnorderedGroup_1(), 2);
+					}
+								({true}?=>(otherlv_13='exception'
+								{
+									newLeafNode(otherlv_13, grammarAccess.getModelAccess().getExceptionKeyword_1_2_0());
+								}
+								otherlv_14='mappings'
+								{
+									newLeafNode(otherlv_14, grammarAccess.getModelAccess().getMappingsKeyword_1_2_1());
+								}
+								otherlv_15='{'
+								{
+									newLeafNode(otherlv_15, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2_2());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getModelAccess().getExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0());
+										}
+										lv_exceptionMappings_16_0=ruleExceptionMapping
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -178,15 +228,15 @@ ruleModel returns [EObject current=null]
 											add(
 												$current,
 												"exceptionMappings",
-												lv_exceptionMappings_10_0,
+												lv_exceptionMappings_16_0,
 												"com.mimacom.ddd.im.generator.Generator.ExceptionMapping");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)+
-								otherlv_11='}'
+								otherlv_17='}'
 								{
-									newLeafNode(otherlv_11, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_1_4());
+									newLeafNode(otherlv_17, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_2_4());
 								}
 								))
 					{ 
@@ -194,14 +244,13 @@ ruleModel returns [EObject current=null]
 					}
 				)
 			)
-					)+
-					{getUnorderedGroupHelper().canLeave(grammarAccess.getModelAccess().getUnorderedGroup_1())}?
+					)*
 				)
 			)
 				{ 
 				  getUnorderedGroupHelper().leave(grammarAccess.getModelAccess().getUnorderedGroup_1());
 				}
-		)?
+		)
 	)
 ;
 
@@ -258,6 +307,45 @@ ruleTypeMapping returns [EObject current=null]
 				}
 				{
 					newCompositeNode(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeCrossReference_4_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleDtoMapping
+entryRuleDtoMapping returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDtoMappingRule()); }
+	iv_ruleDtoMapping=ruleDtoMapping
+	{ $current=$iv_ruleDtoMapping.current; }
+	EOF;
+
+// Rule DtoMapping
+ruleDtoMapping returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='type'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDtoMappingAccess().getTypeKeyword_0());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDtoMappingRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getDtoMappingAccess().getNameDComplexTypeCrossReference_1_0());
 				}
 				ruleQualifiedName
 				{

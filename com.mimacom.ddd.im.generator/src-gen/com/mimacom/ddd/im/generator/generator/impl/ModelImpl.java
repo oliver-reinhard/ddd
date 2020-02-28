@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator.impl;
 
+import com.mimacom.ddd.im.generator.generator.DtoMapping;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
@@ -36,6 +37,7 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getTypeMappings <em>Type Mappings</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getDtoMappings <em>Dto Mappings</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getExceptionMappings <em>Exception Mappings</em>}</li>
  * </ul>
  *
@@ -62,6 +64,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<TypeMapping> typeMappings;
+
+  /**
+   * The cached value of the '{@link #getDtoMappings() <em>Dto Mappings</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDtoMappings()
+   * @generated
+   * @ordered
+   */
+  protected EList<DtoMapping> dtoMappings;
 
   /**
    * The cached value of the '{@link #getExceptionMappings() <em>Exception Mappings</em>}' containment reference list.
@@ -165,6 +177,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<DtoMapping> getDtoMappings()
+  {
+    if (dtoMappings == null)
+    {
+      dtoMappings = new EObjectContainmentEList<DtoMapping>(DtoMapping.class, this, GeneratorPackage.MODEL__DTO_MAPPINGS);
+    }
+    return dtoMappings;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<ExceptionMapping> getExceptionMappings()
   {
     if (exceptionMappings == null)
@@ -188,6 +215,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetImportSection(null, msgs);
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return ((InternalEList<?>)getTypeMappings()).basicRemove(otherEnd, msgs);
+      case GeneratorPackage.MODEL__DTO_MAPPINGS:
+        return ((InternalEList<?>)getDtoMappings()).basicRemove(otherEnd, msgs);
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         return ((InternalEList<?>)getExceptionMappings()).basicRemove(otherEnd, msgs);
     }
@@ -208,6 +237,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getImportSection();
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return getTypeMappings();
+      case GeneratorPackage.MODEL__DTO_MAPPINGS:
+        return getDtoMappings();
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         return getExceptionMappings();
     }
@@ -231,6 +262,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         getTypeMappings().clear();
         getTypeMappings().addAll((Collection<? extends TypeMapping>)newValue);
+        return;
+      case GeneratorPackage.MODEL__DTO_MAPPINGS:
+        getDtoMappings().clear();
+        getDtoMappings().addAll((Collection<? extends DtoMapping>)newValue);
         return;
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         getExceptionMappings().clear();
@@ -256,6 +291,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         getTypeMappings().clear();
         return;
+      case GeneratorPackage.MODEL__DTO_MAPPINGS:
+        getDtoMappings().clear();
+        return;
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         getExceptionMappings().clear();
         return;
@@ -277,6 +315,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return importSection != null;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return typeMappings != null && !typeMappings.isEmpty();
+      case GeneratorPackage.MODEL__DTO_MAPPINGS:
+        return dtoMappings != null && !dtoMappings.isEmpty();
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         return exceptionMappings != null && !exceptionMappings.isEmpty();
     }

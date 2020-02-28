@@ -38,20 +38,28 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_1_0_3_0 = (RuleCall)cTypeMappingsAssignment_1_0_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_1_0_4 = (Keyword)cGroup_1_0.eContents().get(4);
 		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
-		private final Keyword cExceptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Keyword cMappingsKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
-		private final Assignment cExceptionMappingsAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
-		private final RuleCall cExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0 = (RuleCall)cExceptionMappingsAssignment_1_1_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_1_4 = (Keyword)cGroup_1_1.eContents().get(4);
+		private final Keyword cDataKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cTransferKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Keyword cObjectsKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_1_1_3 = (Keyword)cGroup_1_1.eContents().get(3);
+		private final Assignment cDtoMappingsAssignment_1_1_4 = (Assignment)cGroup_1_1.eContents().get(4);
+		private final RuleCall cDtoMappingsDtoMappingParserRuleCall_1_1_4_0 = (RuleCall)cDtoMappingsAssignment_1_1_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_1_5 = (Keyword)cGroup_1_1.eContents().get(5);
+		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
+		private final Keyword cExceptionKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cMappingsKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
+		private final Assignment cExceptionMappingsAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
+		private final RuleCall cExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0 = (RuleCall)cExceptionMappingsAssignment_1_2_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_2_4 = (Keyword)cGroup_1_2.eContents().get(4);
 		
 		//Model:
-		//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{'
-		//	exceptionMappings+=ExceptionMapping+ '}')?;
+		//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects'
+		//	'{' dtoMappings+=DtoMapping+ '}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{'
-		//exceptionMappings+=ExceptionMapping+ '}')?
+		//importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects'
+		//'{' dtoMappings+=DtoMapping+ '}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?)
 		public Group getGroup() { return cGroup; }
 		
 		//importSection=XImportSection?
@@ -60,11 +68,11 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//XImportSection
 		public RuleCall getImportSectionXImportSectionParserRuleCall_0_0() { return cImportSectionXImportSectionParserRuleCall_0_0; }
 		
-		//('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+
-		//'}')?
+		//(('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects' '{' dtoMappings+=DtoMapping+
+		//'}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?)
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 		
-		//'type' 'mappings' '{' typeMappings+=TypeMapping+ '}'
+		//('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'type'
@@ -85,26 +93,50 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_1_0_4() { return cRightCurlyBracketKeyword_1_0_4; }
 		
-		//'exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}'
+		//('data' 'transfer' 'objects' '{' dtoMappings+=DtoMapping+ '}')?
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//'exception'
-		public Keyword getExceptionKeyword_1_1_0() { return cExceptionKeyword_1_1_0; }
+		//'data'
+		public Keyword getDataKeyword_1_1_0() { return cDataKeyword_1_1_0; }
 		
-		//'mappings'
-		public Keyword getMappingsKeyword_1_1_1() { return cMappingsKeyword_1_1_1; }
+		//'transfer'
+		public Keyword getTransferKeyword_1_1_1() { return cTransferKeyword_1_1_1; }
+		
+		//'objects'
+		public Keyword getObjectsKeyword_1_1_2() { return cObjectsKeyword_1_1_2; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_1_2() { return cLeftCurlyBracketKeyword_1_1_2; }
+		public Keyword getLeftCurlyBracketKeyword_1_1_3() { return cLeftCurlyBracketKeyword_1_1_3; }
 		
-		//exceptionMappings+=ExceptionMapping+
-		public Assignment getExceptionMappingsAssignment_1_1_3() { return cExceptionMappingsAssignment_1_1_3; }
+		//dtoMappings+=DtoMapping+
+		public Assignment getDtoMappingsAssignment_1_1_4() { return cDtoMappingsAssignment_1_1_4; }
 		
-		//ExceptionMapping
-		public RuleCall getExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0() { return cExceptionMappingsExceptionMappingParserRuleCall_1_1_3_0; }
+		//DtoMapping
+		public RuleCall getDtoMappingsDtoMappingParserRuleCall_1_1_4_0() { return cDtoMappingsDtoMappingParserRuleCall_1_1_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_1_4() { return cRightCurlyBracketKeyword_1_1_4; }
+		public Keyword getRightCurlyBracketKeyword_1_1_5() { return cRightCurlyBracketKeyword_1_1_5; }
+		
+		//('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//'exception'
+		public Keyword getExceptionKeyword_1_2_0() { return cExceptionKeyword_1_2_0; }
+		
+		//'mappings'
+		public Keyword getMappingsKeyword_1_2_1() { return cMappingsKeyword_1_2_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1_2_2() { return cLeftCurlyBracketKeyword_1_2_2; }
+		
+		//exceptionMappings+=ExceptionMapping+
+		public Assignment getExceptionMappingsAssignment_1_2_3() { return cExceptionMappingsAssignment_1_2_3; }
+		
+		//ExceptionMapping
+		public RuleCall getExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0() { return cExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_2_4() { return cRightCurlyBracketKeyword_1_2_4; }
 	}
 	public class TypeMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.TypeMapping");
@@ -153,6 +185,33 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//QualifiedName
 		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1; }
+	}
+	public class DtoMappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.DtoMapping");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cNameDComplexTypeCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameDComplexTypeQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameDComplexTypeCrossReference_1_0.eContents().get(1);
+		
+		//DtoMapping:
+		//	'type' name=[base::DComplexType|QualifiedName];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'type' name=[base::DComplexType|QualifiedName]
+		public Group getGroup() { return cGroup; }
+		
+		//'type'
+		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
+		
+		//name=[base::DComplexType|QualifiedName]
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//[base::DComplexType|QualifiedName]
+		public CrossReference getNameDComplexTypeCrossReference_1_0() { return cNameDComplexTypeCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getNameDComplexTypeQualifiedNameParserRuleCall_1_0_1() { return cNameDComplexTypeQualifiedNameParserRuleCall_1_0_1; }
 	}
 	public class ExceptionMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.ExceptionMapping");
@@ -243,6 +302,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final TypeMappingElements pTypeMapping;
+	private final DtoMappingElements pDtoMapping;
 	private final ExceptionMappingElements pExceptionMapping;
 	
 	private final Grammar grammar;
@@ -260,6 +320,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXtype = gaXtype;
 		this.pModel = new ModelElements();
 		this.pTypeMapping = new TypeMappingElements();
+		this.pDtoMapping = new DtoMappingElements();
 		this.pExceptionMapping = new ExceptionMappingElements();
 	}
 	
@@ -295,8 +356,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	importSection=XImportSection? ('type' 'mappings' '{' typeMappings+=TypeMapping+ '}' & 'exception' 'mappings' '{'
-	//	exceptionMappings+=ExceptionMapping+ '}')?;
+	//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects'
+	//	'{' dtoMappings+=DtoMapping+ '}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?);
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -314,6 +375,16 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTypeMappingRule() {
 		return getTypeMappingAccess().getRule();
+	}
+	
+	//DtoMapping:
+	//	'type' name=[base::DComplexType|QualifiedName];
+	public DtoMappingElements getDtoMappingAccess() {
+		return pDtoMapping;
+	}
+	
+	public ParserRule getDtoMappingRule() {
+		return getDtoMappingAccess().getRule();
 	}
 	
 	//ExceptionMapping:

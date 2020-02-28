@@ -3,8 +3,6 @@
  */
 package com.mimacom.ddd.im.generator.generator;
 
-import com.google.inject.Inject;
-import com.mimacom.ddd.im.generator.generator.ExceptionGenerator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.xbase.compiler.JvmModelGenerator;
@@ -16,12 +14,8 @@ import org.eclipse.xtext.xbase.compiler.JvmModelGenerator;
  */
 @SuppressWarnings("all")
 public class CompositeGenerator extends JvmModelGenerator {
-  @Inject
-  private ExceptionGenerator exceptionGenerator;
-  
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
     super.doGenerate(input, fsa);
-    this.exceptionGenerator.doGenerate(input, fsa);
   }
 }

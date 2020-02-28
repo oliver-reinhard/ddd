@@ -6,7 +6,8 @@ Bundle-Vendor: %providerName
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.im.generator; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.sm.asm;visibility:=reexport,
+Require-Bundle: com.mimacom.ddd.dm.base,
+ com.mimacom.ddd.sm.asm,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",

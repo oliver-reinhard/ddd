@@ -4,13 +4,28 @@
 package com.mimacom.ddd.im.generator.jvmmodel;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.im.generator.generator.Model;
+import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
+import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
+import com.mimacom.ddd.sm.asm.SException;
 import java.util.Arrays;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtend2.lib.StringConcatenationClient;
+import org.eclipse.xtext.common.types.JvmConstructor;
+import org.eclipse.xtext.common.types.JvmGenericType;
+import org.eclipse.xtext.common.types.JvmMember;
+import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * <p>Infers a JVM model from the source model.</p>
@@ -27,35 +42,90 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   @Extension
   private JvmTypesBuilder _jvmTypesBuilder;
   
-  /**
-   * The dispatch method {@code infer} is called for each instance of the
-   * given element's type that is contained in a resource.
-   * 
-   * @param element
-   *            the model to create one or more
-   *            {@link org.eclipse.xtext.common.types.JvmDeclaredType declared
-   *            types} from.
-   * @param acceptor
-   *            each created
-   *            {@link org.eclipse.xtext.common.types.JvmDeclaredType type}
-   *            without a container should be passed to the acceptor in order
-   *            get attached to the current resource. The acceptor's
-   *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
-   *            accept(..)} method takes the constructed empty type for the
-   *            pre-indexing phase. This one is further initialized in the
-   *            indexing phase using the lambda you pass as the last argument.
-   * @param isPreIndexingPhase
-   *            whether the method is called in a pre-indexing phase, i.e.
-   *            when the global index is not yet fully updated. You must not
-   *            rely on linking using the index if isPreIndexingPhase is
-   *            <code>true</code>.
-   */
-  protected void _infer(final Model element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+  @Inject
+  @Extension
+  private DmxQualifiedNameProvider _dmxQualifiedNameProvider;
+  
+  protected void _infer(final ExceptionMapping element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    final String qualifiedName = this.getQualifiedName(element);
+    if ((qualifiedName != null)) {
+      final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+        this._jvmTypesBuilder.setDocumentation(it, this._jvmTypesBuilder.getDocumentation(element));
+        JvmTypeReference parentException = null;
+        JvmType _extends = element.getExtends();
+        boolean _tripleNotEquals = (_extends != null);
+        if (_tripleNotEquals) {
+          parentException = this._typeReferenceBuilder.typeRef(element.getExtends());
+        } else {
+          parentException = this._typeReferenceBuilder.typeRef(RuntimeException.class);
+        }
+        if ((parentException != null)) {
+          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+          this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, parentException);
+        }
+        EList<JvmMember> _members = it.getMembers();
+        final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
+          String _message = element.getMessage();
+          boolean _tripleNotEquals_1 = (_message != null);
+          if (_tripleNotEquals_1) {
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("super(\"");
+                String _message = element.getMessage();
+                _builder.append(_message);
+                _builder.append("\");");
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          }
+        };
+        JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(element, _function_1);
+        this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+      };
+      acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, qualifiedName), _function);
+    }
+  }
+  
+  private String _getQualifiedName(final ExceptionMapping mapping) {
+    String _package = mapping.getPackage();
+    boolean _tripleNotEquals = (_package != null);
+    if (_tripleNotEquals) {
+      StringConcatenation _builder = new StringConcatenation();
+      String _lowerCase = mapping.getPackage().toLowerCase();
+      _builder.append(_lowerCase);
+      _builder.append(".");
+      String _name = mapping.getName().getName();
+      _builder.append(_name);
+      return _builder.toString();
+    }
+    SException _name_1 = mapping.getName();
+    QualifiedName _fullyQualifiedName = null;
+    if (_name_1!=null) {
+      _fullyQualifiedName=this._dmxQualifiedNameProvider.getFullyQualifiedName(_name_1);
+    }
+    final QualifiedName qualifiedName = _fullyQualifiedName;
+    if ((qualifiedName != null)) {
+      List<String> _segments = qualifiedName.getSegments();
+      int _segmentCount = qualifiedName.getSegmentCount();
+      int _minus = (_segmentCount - 1);
+      final Function1<String, String> _function = (String it) -> {
+        return it.toLowerCase();
+      };
+      final String packageName = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_segments, _minus), _function), ".");
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append(packageName);
+      _builder_1.append(".");
+      String _string = qualifiedName.getLastSegment().toString();
+      _builder_1.append(_string);
+      return _builder_1.toString();
+    }
+    return null;
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof Model) {
-      _infer((Model)element, acceptor, isPreIndexingPhase);
+    if (element instanceof ExceptionMapping) {
+      _infer((ExceptionMapping)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element != null) {
       _infer(element, acceptor, isPreIndexingPhase);
@@ -64,5 +134,9 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(element, acceptor, isPreIndexingPhase).toString());
     }
+  }
+  
+  private String getQualifiedName(final ExceptionMapping mapping) {
+    return _getQualifiedName(mapping);
   }
 }
