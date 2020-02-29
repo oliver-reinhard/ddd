@@ -9,7 +9,6 @@ import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Glossary
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
-import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.PubUtil
@@ -19,6 +18,7 @@ import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledFigure
 import com.mimacom.ddd.pub.pub.TitledTable
 import java.util.List
+import com.mimacom.ddd.pub.pub.Numbered
 
 class PubGeneratorUtil {
 
@@ -41,7 +41,7 @@ class PubGeneratorUtil {
 	}
 
 	def String referenceDisplayText(ReferenceTarget t) {
-		if (t instanceof NumberedElement) {
+		if (t instanceof Numbered) {
 			t.displayName + " " + t.tieredNumber
 		} else {
 			t.displayName

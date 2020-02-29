@@ -14,7 +14,7 @@ import com.mimacom.ddd.pub.pub.Glossary;
 import com.mimacom.ddd.pub.pub.GlossaryEntry;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
-import com.mimacom.ddd.pub.pub.NumberedElement;
+import com.mimacom.ddd.pub.pub.Numbered;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.PubUtil;
@@ -64,7 +64,7 @@ public class PubGeneratorUtil {
   
   public String referenceDisplayText(final ReferenceTarget t) {
     String _xifexpression = null;
-    if ((t instanceof NumberedElement)) {
+    if ((t instanceof Numbered)) {
       String _displayName = this._pubUtil.displayName(t);
       String _plus = (_displayName + " ");
       String _tieredNumber = this._pubNumberingUtil.tieredNumber(t);

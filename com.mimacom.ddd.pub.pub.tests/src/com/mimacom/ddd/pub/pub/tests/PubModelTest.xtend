@@ -36,11 +36,11 @@ package class PubModelTest {
 		
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.level)
-		assertEquals(1, d1.level)
-		assertEquals(2, d2.level)
-		assertEquals(3, d3.level)
-		assertEquals(4, d4.level)
+		assertEquals(0, d0.getLevel)
+		assertEquals(1, d1.getLevel)
+		assertEquals(2, d2.getLevel)
+		assertEquals(3, d3.getLevel)
+		assertEquals(4, d4.getLevel)
 	}
 
 	@Test def testLevelsWithoutPart() {
@@ -58,10 +58,10 @@ package class PubModelTest {
 		
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.level)
-		assertEquals(1, d1.level)
-		assertEquals(2, d2.level)
-		assertEquals(3, d3.level)
+		assertEquals(0, d0.getLevel)
+		assertEquals(1, d1.getLevel)
+		assertEquals(2, d2.getLevel)
+		assertEquals(3, d3.getLevel)
 	}
 
 	@Test def testSequenceNumberWithPart() {
@@ -91,16 +91,16 @@ package class PubModelTest {
 		
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d00.sequenceNumber)
-		assertEquals(1, d01.sequenceNumber)
-		assertEquals(0, d10.sequenceNumber)
-		assertEquals(1, d11.sequenceNumber)
-		assertEquals(0, d20.sequenceNumber)
-		assertEquals(1, d21.sequenceNumber)
-		assertEquals(0, d30.sequenceNumber)
-		assertEquals(1, d31.sequenceNumber)
-		assertEquals(0, d40.sequenceNumber)
-		assertEquals(1, d41.sequenceNumber)
+		assertEquals(0, d00.getSequenceNumber)
+		assertEquals(1, d01.getSequenceNumber)
+		assertEquals(0, d10.getSequenceNumber)
+		assertEquals(1, d11.getSequenceNumber)
+		assertEquals(0, d20.getSequenceNumber)
+		assertEquals(1, d21.getSequenceNumber)
+		assertEquals(0, d30.getSequenceNumber)
+		assertEquals(1, d31.getSequenceNumber)
+		assertEquals(0, d40.getSequenceNumber)
+		assertEquals(1, d41.getSequenceNumber)
 	}
 
 	@Test def testSequenceNumberWithoutPart() {
@@ -126,14 +126,14 @@ package class PubModelTest {
 		
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d00.sequenceNumber)
-		assertEquals(1, d01.sequenceNumber)
-		assertEquals(0, d10.sequenceNumber)
-		assertEquals(1, d11.sequenceNumber)
-		assertEquals(0, d20.sequenceNumber)
-		assertEquals(1, d21.sequenceNumber)
-		assertEquals(0, d30.sequenceNumber)
-		assertEquals(1, d31.sequenceNumber)
+		assertEquals(0, d00.getSequenceNumber)
+		assertEquals(1, d01.getSequenceNumber)
+		assertEquals(0, d10.getSequenceNumber)
+		assertEquals(1, d11.getSequenceNumber)
+		assertEquals(0, d20.getSequenceNumber)
+		assertEquals(1, d21.getSequenceNumber)
+		assertEquals(0, d30.getSequenceNumber)
+		assertEquals(1, d31.getSequenceNumber)
 	}
 
 	@Test def testDivisionIdWithPart() {

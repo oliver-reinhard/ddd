@@ -10,8 +10,10 @@ import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.ListItem;
-import com.mimacom.ddd.pub.pub.NumberedElement;
+import com.mimacom.ddd.pub.pub.Numbered;
+import com.mimacom.ddd.pub.pub.NumberedByChapter;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
@@ -124,7 +126,7 @@ public class PubNumberingUtil {
     return t.getId();
   }
   
-  protected String _tieredNumber(final NumberedElement e) {
+  protected String _tieredNumber(final Numbered e) {
     String _xifexpression = null;
     int _sequenceNumber = e.getSequenceNumber();
     boolean _equals = (_sequenceNumber == PubConstants.UNDEFINED_SEQUENCE_NUMBER);
@@ -166,6 +168,16 @@ public class PubNumberingUtil {
     final int n = (_sequenceNumber + 1);
     final String formatted = this.formatNumbering(item.getList().getNumberingStyle(), n);
     return formatted;
+  }
+  
+  public String formattedSingleNumber(final Footnote f) {
+    String _xblockexpression = null;
+    {
+      int _sequenceNumber = f.getSequenceNumber();
+      final int n = (_sequenceNumber + 1);
+      _xblockexpression = Integer.valueOf(n).toString();
+    }
+    return _xblockexpression;
   }
   
   protected String formatNumbering(final ProtoSequenceNumberStyle numberingStyle, final int n) {
@@ -356,7 +368,13 @@ public class PubNumberingUtil {
     return acceptor;
   }
   
-  protected <T extends TitledBlock> void gatherAllElementsInSequenceAndSetSequenceNumbers(final Component compo, final Class<T> clazz, final List<T> acceptor) {
+  public List<Footnote> gatherAllFootnotesInSequenceAndSetSequenceNumbers(final Component compo) {
+    final List<Footnote> acceptor = Lists.<Footnote>newArrayList();
+    this.<Footnote>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Footnote.class, acceptor);
+    return acceptor;
+  }
+  
+  protected <T extends NumberedByChapter> void gatherAllElementsInSequenceAndSetSequenceNumbers(final Component compo, final Class<T> clazz, final List<T> acceptor) {
     final Iterable<PublicationBody> bodySegment = Iterables.<PublicationBody>filter(compo.getSegments(), PublicationBody.class);
     boolean _isEmpty = IterableExtensions.isEmpty(bodySegment);
     boolean _not = (!_isEmpty);
@@ -365,7 +383,7 @@ public class PubNumberingUtil {
     }
   }
   
-  protected <T extends TitledBlock> void gatherAllElementsInSequenceAndSetSequenceNumbers(final List<Division> divisions, final Class<T> clazz, final List<T> globalAcceptor, final Chapter logicalContainer, final List<T> acceptorInChapter) {
+  protected <T extends NumberedByChapter> void gatherAllElementsInSequenceAndSetSequenceNumbers(final List<Division> divisions, final Class<T> clazz, final List<T> globalAcceptor, final Chapter logicalContainer, final List<T> acceptorInChapter) {
     for (final Division div : divisions) {
       {
         Chapter _xifexpression = null;
@@ -411,18 +429,18 @@ public class PubNumberingUtil {
     }
   }
   
-  public String tieredNumber(final EObject div) {
-    if (div instanceof Division) {
-      return _tieredNumber((Division)div);
-    } else if (div instanceof TitledBlock) {
-      return _tieredNumber((TitledBlock)div);
-    } else if (div instanceof NumberedElement) {
-      return _tieredNumber((NumberedElement)div);
-    } else if (div instanceof ReferenceTarget) {
-      return _tieredNumber((ReferenceTarget)div);
+  public String tieredNumber(final EObject b) {
+    if (b instanceof TitledBlock) {
+      return _tieredNumber((TitledBlock)b);
+    } else if (b instanceof Division) {
+      return _tieredNumber((Division)b);
+    } else if (b instanceof Numbered) {
+      return _tieredNumber((Numbered)b);
+    } else if (b instanceof ReferenceTarget) {
+      return _tieredNumber((ReferenceTarget)b);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(div).toString());
+        Arrays.<Object>asList(b).toString());
     }
   }
 }

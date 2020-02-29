@@ -10,6 +10,7 @@ import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
@@ -92,6 +93,10 @@ public abstract class AbstractPubRenderer {
   public abstract CharSequence renderQuotedParagraph(final RichTextParagraph para);
   
   public abstract CharSequence renderUnformattedParagraph(final UnformattedParagraph para);
+  
+  public abstract CharSequence renderFootnoteInPlace(final Footnote f);
+  
+  public abstract CharSequence renderFootnotes(final Iterable<Footnote> footnotes);
   
   public abstract CharSequence renderRichTextReferencingParagraph(final RichTextReferencingParagraph para);
   

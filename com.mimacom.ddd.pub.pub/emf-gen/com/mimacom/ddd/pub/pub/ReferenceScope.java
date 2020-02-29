@@ -109,6 +109,26 @@ public enum ReferenceScope implements Enumerator {
 	SUBSUBSECTION(0, "Subsubsection", "Subsubsection"),
 
 	/**
+	 * The '<em><b>List Item</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LIST_ITEM_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	LIST_ITEM(0, "ListItem", "ListItem"),
+
+	/**
+	 * The '<em><b>Footnote</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOOTNOTE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FOOTNOTE(0, "Footnote", "Footnote"),
+
+	/**
 	 * The '<em><b>Table</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,6 +308,28 @@ public enum ReferenceScope implements Enumerator {
 	public static final int SUBSUBSECTION_VALUE = 0;
 
 	/**
+	 * The '<em><b>List Item</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LIST_ITEM
+	 * @model name="ListItem"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LIST_ITEM_VALUE = 0;
+
+	/**
+	 * The '<em><b>Footnote</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOOTNOTE
+	 * @model name="Footnote"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FOOTNOTE_VALUE = 0;
+
+	/**
 	 * The '<em><b>Table</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +434,8 @@ public enum ReferenceScope implements Enumerator {
 			SECTION,
 			SUBSECTION,
 			SUBSUBSECTION,
+			LIST_ITEM,
+			FOOTNOTE,
 			TABLE,
 			FIGURE,
 			EQUATION,

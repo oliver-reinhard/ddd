@@ -188,8 +188,12 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createPublicationBodyAdapter();
 			}
 			@Override
-			public Adapter caseNumberedElement(NumberedElement object) {
-				return createNumberedElementAdapter();
+			public Adapter caseNumbered(Numbered object) {
+				return createNumberedAdapter();
+			}
+			@Override
+			public Adapter caseNumberedByChapter(NumberedByChapter object) {
+				return createNumberedByChapterAdapter();
 			}
 			@Override
 			public Adapter caseDivisionContainer(DivisionContainer object) {
@@ -314,6 +318,10 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUnformattedParagraph(UnformattedParagraph object) {
 				return createUnformattedParagraphAdapter();
+			}
+			@Override
+			public Adapter caseFootnote(Footnote object) {
+				return createFootnoteAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object) {
@@ -754,16 +762,30 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.NumberedElement <em>Numbered Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.Numbered <em>Numbered</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.pub.pub.NumberedElement
+	 * @see com.mimacom.ddd.pub.pub.Numbered
 	 * @generated
 	 */
-	public Adapter createNumberedElementAdapter() {
+	public Adapter createNumberedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.NumberedByChapter <em>Numbered By Chapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.NumberedByChapter
+	 * @generated
+	 */
+	public Adapter createNumberedByChapterAdapter() {
 		return null;
 	}
 
@@ -1198,6 +1220,20 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnformattedParagraphAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.Footnote <em>Footnote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.Footnote
+	 * @generated
+	 */
+	public Adapter createFootnoteAdapter() {
 		return null;
 	}
 

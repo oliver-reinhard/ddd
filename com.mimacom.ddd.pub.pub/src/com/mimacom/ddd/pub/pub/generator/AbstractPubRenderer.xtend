@@ -10,6 +10,7 @@ import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
+import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
 import com.mimacom.ddd.pub.pub.ListItem
@@ -97,6 +98,12 @@ abstract class AbstractPubRenderer {
 	abstract def CharSequence renderQuotedParagraph(RichTextParagraph para)
 	
 	abstract def CharSequence renderUnformattedParagraph(UnformattedParagraph para)
+	
+	// Render a single footnote in the position it has been defined.
+	abstract def CharSequence renderFootnoteInPlace(Footnote f)
+	
+	// Render a batch of footnotes -- use when the generator decides where footnotes are rendered
+	abstract def CharSequence renderFootnotes(Iterable<Footnote> footnotes)
 	
 	abstract def CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
 

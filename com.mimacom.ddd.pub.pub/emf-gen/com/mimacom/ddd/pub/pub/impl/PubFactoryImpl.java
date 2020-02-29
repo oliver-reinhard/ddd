@@ -106,6 +106,7 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 			case PubPackage.RICH_TEXT_PARAGRAPH: return createRichTextParagraph();
 			case PubPackage.RICH_TEXT_REFERENCING_PARAGRAPH: return createRichTextReferencingParagraph();
 			case PubPackage.UNFORMATTED_PARAGRAPH: return createUnformattedParagraph();
+			case PubPackage.FOOTNOTE: return createFootnote();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -702,6 +703,17 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	public UnformattedParagraph createUnformattedParagraph() {
 		UnformattedParagraphImpl unformattedParagraph = new UnformattedParagraphImpl();
 		return unformattedParagraph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Footnote createFootnote() {
+		FootnoteImpl footnote = new FootnoteImpl();
+		return footnote;
 	}
 
 	/**

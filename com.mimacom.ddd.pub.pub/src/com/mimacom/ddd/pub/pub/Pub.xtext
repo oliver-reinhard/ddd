@@ -258,7 +258,7 @@ PubSubsubsection returns Subsubsection:
 //
 
 PubContentBlock returns ContentBlock:
-	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph;
+	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph | PubFootnote;
 
 PubAdmonition returns Admonition:
 	'Admonition'
@@ -403,6 +403,11 @@ PubRichTextParagraph returns RichTextParagraph:
 PubParagraphTextOnly returns RichTextParagraph:
 	text=DRichText;
 	
+PubFootnote returns Footnote:
+	'Footnote'
+	name=ID
+	text=DRichText;
+	
 enum PubParagraphStyle returns ParagraphStyle: 
 	Plain='plain' | Quote='quote';
 
@@ -431,7 +436,9 @@ enum PubReferenceScope returns ReferenceScope:
 	Chapter='chapter' | 
 	Section='section' | 
 	Subsection='sub' | 
-	Subsubsection='subsub' | 
+	Subsubsection='subsub' |
+	Footnote='footnote' |
+	ListItem='item' | 
 	Table='table' | 
 	Figure='figure' | 
 	Equation='equation' | 

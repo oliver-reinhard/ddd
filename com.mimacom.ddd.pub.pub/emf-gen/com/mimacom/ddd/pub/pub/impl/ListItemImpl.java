@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
-import com.mimacom.ddd.pub.pub.NumberedElement;
+import com.mimacom.ddd.pub.pub.Numbered;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
 
@@ -498,10 +498,10 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == NumberedElement.class) {
+		if (baseClass == Numbered.class) {
 			switch (derivedFeatureID) {
-				case PubPackage.LIST_ITEM__LEVEL: return PubPackage.NUMBERED_ELEMENT__LEVEL;
-				case PubPackage.LIST_ITEM__SEQUENCE_NUMBER: return PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER;
+				case PubPackage.LIST_ITEM__LEVEL: return PubPackage.NUMBERED__LEVEL;
+				case PubPackage.LIST_ITEM__SEQUENCE_NUMBER: return PubPackage.NUMBERED__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
@@ -522,10 +522,10 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == NumberedElement.class) {
+		if (baseClass == Numbered.class) {
 			switch (baseFeatureID) {
-				case PubPackage.NUMBERED_ELEMENT__LEVEL: return PubPackage.LIST_ITEM__LEVEL;
-				case PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER: return PubPackage.LIST_ITEM__SEQUENCE_NUMBER;
+				case PubPackage.NUMBERED__LEVEL: return PubPackage.LIST_ITEM__LEVEL;
+				case PubPackage.NUMBERED__SEQUENCE_NUMBER: return PubPackage.LIST_ITEM__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}

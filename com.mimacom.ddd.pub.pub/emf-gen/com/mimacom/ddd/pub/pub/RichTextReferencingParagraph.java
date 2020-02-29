@@ -12,7 +12,7 @@ import com.mimacom.ddd.dm.base.DRichText;
  * <!-- begin-model-doc -->
  * Internal, not referenced by PUB grammar.
  * 
- * Used to by table providers to reference DRichText elements of models instead of
+ * Used by table providers to reference DRichText elements of models instead of
  * 	- copying the full DRichText structure (which creates challenges in resolving cross-references) or
  * 	- changing the DRichText element's eContainer (which causes problems for the former eContainer)
  * <!-- end-model-doc -->

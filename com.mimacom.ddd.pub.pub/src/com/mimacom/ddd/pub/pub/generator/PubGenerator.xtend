@@ -7,11 +7,13 @@ import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.ChangeHistory
+import com.mimacom.ddd.pub.pub.Chapter
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.ContentBlock
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
+import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.IncludedFigure
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
@@ -19,6 +21,7 @@ import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
 import com.mimacom.ddd.pub.pub.ParagraphStyle
+import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubModel
@@ -37,7 +40,9 @@ import com.mimacom.ddd.pub.pub.UnformattedParagraph
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
 import org.apache.log4j.Logger
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
@@ -58,7 +63,8 @@ class PubGenerator extends AbstractGenerator {
 	@Inject TableProviderRegistry tableProviderRegistry
 	@Inject DiagramProviderRegistry diagramProviderRegistry
 
-	static final Logger LOGGER = Logger.getLogger(PubGenerator);
+	static val Logger LOGGER = Logger.getLogger(PubGenerator);
+	static val FIGURES_GEN_DIRECTORY = "figures"
 
 	var IFileSystemAccess2 fileSystemAccess
 //	var IGeneratorContext generatorContext
@@ -104,6 +110,7 @@ class PubGenerator extends AbstractGenerator {
 		allDivisionsInSequenceOfOccurrenceCache = compo.gatherAllDivisionsAndSetSequenceNumbers
 		allTablesInSequenceOfOccurrenceCache = compo.gatherAllTablesInSequenceAndSetSequenceNumbers
 		allFiguresInSequenceOfOccurrenceCache = compo.gatherAllFiguresInSequenceAndSetSequenceNumbers
+		compo.gatherAllFootnotesInSequenceAndSetSequenceNumbers
 	}
 
 	//
@@ -118,38 +125,41 @@ class PubGenerator extends AbstractGenerator {
 		seg.renderSegment([blockIterator])
 	}
 
-	def dispatch CharSequence genSegment(PublicationBody seg) {
+	def dispatch CharSequence genSegment(PublicationBody body) {
+		val topLevelDivision = body.divisions.head
+		val hasChapters = topLevelDivision instanceof Part || topLevelDivision instanceof Chapter
 		val divisionIterator = '''
-			«FOR div : seg.divisions»
+			«FOR div : body.divisions»
 				
-					«div.genDivision»
+				«div.genDivision»
 			«ENDFOR»
+			«IF ! hasChapters»«body.genFootnotes(true)»«ENDIF»
 		'''
-		seg.renderSegment([divisionIterator])
+		body.renderSegment([divisionIterator])
 	}
 
-	def dispatch CharSequence genSegment(TOC seg) {
-		val Table t = seg.toTable(allDivisionsInSequenceOfOccurrenceCache)
-		seg.renderSegment(t, nestedContentBlockGenerator)
+	def dispatch CharSequence genSegment(TOC toc) {
+		val Table t = toc.toTable(allDivisionsInSequenceOfOccurrenceCache)
+		toc.renderSegment(t, nestedContentBlockGenerator)
 	}
 
-	def dispatch CharSequence genSegment(ListOfTables seg) {
-		val Table t = seg.toTable(allTablesInSequenceOfOccurrenceCache)
-		seg.renderSegment(t, nestedContentBlockGenerator)
+	def dispatch CharSequence genSegment(ListOfTables lot) {
+		val Table t = lot.toTable(allTablesInSequenceOfOccurrenceCache)
+		lot.renderSegment(t, nestedContentBlockGenerator)
 	}
 
-	def dispatch CharSequence genSegment(ListOfFigures seg) {
-		val Table t = seg.toTable(allFiguresInSequenceOfOccurrenceCache)
-		seg.renderSegment(t, nestedContentBlockGenerator)
+	def dispatch CharSequence genSegment(ListOfFigures lof) {
+		val Table t = lof.toTable(allFiguresInSequenceOfOccurrenceCache)
+		lof.renderSegment(t, nestedContentBlockGenerator)
 	}
 
-	def dispatch CharSequence genSegment(ChangeHistory seg) {
-		val Table t = seg.toTable
-		seg.renderSegment(t, nestedContentBlockGenerator)
+	def dispatch CharSequence genSegment(ChangeHistory hist) {
+		val Table t = hist.toTable
+		hist.renderSegment(t, nestedContentBlockGenerator)
 	}
 
-	def dispatch CharSequence genSegment(Index seg) {
-		seg.renderSegment
+	def dispatch CharSequence genSegment(Index index) {
+		index.renderSegment
 	}
 
 	def dispatch CharSequence genSegment(DocumentSegment seg) {
@@ -174,10 +184,13 @@ class PubGenerator extends AbstractGenerator {
 			«FOR block : divContents.contents»
 				«block.genBlock»
 			«ENDFOR»
+			«IF div instanceof Part && ! divContents.divisions.empty && (div.eContainer as PublicationBody).divisions.last !== div»«div.genFootnotes(false)»«ENDIF»
+			
 			«FOR subdiv : divContents.divisions»
 				
 					«subdiv.genDivision»
 			«ENDFOR»
+			«IF div instanceof Chapter»«div.genFootnotes(true)»«ENDIF»
 		'''
 	}
 
@@ -195,9 +208,9 @@ class PubGenerator extends AbstractGenerator {
 			«ENDFOR»
 		'''
 		switch list.style {
-			case BULLET: renderBulletList(list, [itemIterator])
-			case SEQUENCE: renderNumberedList(list, [itemIterator])
-			case TITLE: renderTitledList(list, [itemIterator])
+			case BULLET: list.renderBulletList([itemIterator])
+			case SEQUENCE: list.renderNumberedList([itemIterator])
+			case TITLE: list.renderTitledList([itemIterator])
 		}
 	}
 
@@ -208,8 +221,8 @@ class PubGenerator extends AbstractGenerator {
 		«ENDFOR»'''
 		switch item.list.style {
 			case BULLET,
-			case SEQUENCE: renderListItem(item, [blockIterator])
-			case TITLE: renderTitledListItem(item, [blockIterator])
+			case SEQUENCE: item.renderListItem([blockIterator])
+			case TITLE: item.renderTitledListItem([blockIterator])
 		}
 	}
 
@@ -218,7 +231,7 @@ class PubGenerator extends AbstractGenerator {
 			«b.genTitledBlock»
 			«b.renderTitledBlockTitle»
 		'''
-		renderTitledBlock(b, [blockBodyDispatcher])
+		b.renderTitledBlock([blockBodyDispatcher])
 	}
 
 	def dispatch CharSequence genTitledBlock(TitledTable t) {
@@ -253,7 +266,7 @@ class PubGenerator extends AbstractGenerator {
 	def dispatch CharSequence genFigure(ProvidedFigure f) {
 		val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
 		if (provider !== null) {
-			val fileName = "figures/figure-" + (f.eContainer as TitledFigure).tieredNumber
+			val fileName = FIGURES_GEN_DIRECTORY + "/figure-" + (f.eContainer as TitledFigure).tieredNumber
 			val fileExtension = provider.format.name.toLowerCase
 			val inputStream = provider.render(f.diagramRoot)
 			val file = fileName + "." + fileExtension
@@ -300,7 +313,17 @@ class PubGenerator extends AbstractGenerator {
 		para.renderRichTextReferencingParagraph
 	}
 
+	def dispatch CharSequence genBlock(Footnote f) {
+		// for some targets, footnotes are inlined at any defined, then they are placed by the target's processor
+		f.renderFootnoteInPlace
+	}
+
 	def dispatch CharSequence genBlock(ContentBlock block) {
 		throw new IllegalArgumentException("Unsupported content-block type: " + block.class.name)
+	}
+	
+	def CharSequence genFootnotes(EObject container, boolean allContents) {
+		val footnotes = allContents ? EcoreUtil2.eAllOfType(container, Footnote) : container.eContents.filter(Footnote)
+		'''«IF (! footnotes.empty)»«footnotes.renderFootnotes»«ENDIF»'''
 	}
 }

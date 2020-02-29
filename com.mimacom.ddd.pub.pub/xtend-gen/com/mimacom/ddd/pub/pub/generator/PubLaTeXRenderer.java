@@ -26,9 +26,11 @@ import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
+import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
@@ -51,6 +53,7 @@ import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
 import com.mimacom.ddd.pub.pub.generator.PubLaTeXTableGenerator;
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import java.util.Arrays;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
@@ -75,6 +78,10 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   @Inject
   @Extension
   private PubGeneratorUtil _pubGeneratorUtil;
+  
+  @Inject
+  @Extension
+  private PubNumberingUtil _pubNumberingUtil;
   
   public static final String DOCUMENT_SUFFIX = "tex";
   
@@ -102,6 +109,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     String _name = this.getClass().getName();
     _builder.append(_name);
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("\\documentclass[a4paper]{");
     String _laTeXClass = this.laTeXClass(doc);
     _builder.append(_laTeXClass);
@@ -110,7 +118,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\\usepackage{fullpage} % use narrower page margins");
     _builder.newLine();
-    _builder.append("\\usepackage{ulem} % strikethrough");
+    _builder.append("\\usepackage{ulem}     % strikethrough");
     _builder.newLine();
     _builder.append("\\usepackage{etoolbox} % quotes");
     _builder.newLine();
@@ -118,13 +126,12 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\\usepackage{multirow} % tables with column span and or rowspan");
     _builder.newLine();
-    _builder.append("\\usepackage{pbox} % paragraphs or line breaks in table cell");
+    _builder.append("\\usepackage{pbox}     % paragraphs or line breaks in table cell");
     _builder.newLine();
-    _builder.append("\\usepackage{graphicx} % include graphics files (does not support .svg)");
+    _builder.append("\\usepackage{graphicx} % include graphics files; supports.eps (but not .svg)");
     _builder.newLine();
     _builder.append("\\usepackage{hyperref} % hyperlinks");
     _builder.newLine();
-    _builder.append("\t\t");
     _builder.newLine();
     CharSequence _renderPreamble = this.renderPreamble(doc);
     _builder.append(_renderPreamble);
@@ -549,7 +556,9 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   
   @Override
   public CharSequence renderPlainParagraph(final RichTextParagraph para) {
-    return this.renderRichText(para.getText());
+    CharSequence _renderRichText = this.renderRichText(para.getText());
+    String _endParagraph = this.endParagraph(para);
+    return (_renderRichText + _endParagraph);
   }
   
   protected boolean isOnlyContentBlockOfTableCell(final ContentBlock para) {
@@ -569,12 +578,30 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   
   @Override
   public CharSequence renderUnformattedParagraph(final UnformattedParagraph para) {
-    return this.escape(para.getText());
+    CharSequence _escape = this.escape(para.getText());
+    String _endParagraph = this.endParagraph(para);
+    return (_escape + _endParagraph);
   }
   
   @Override
   public CharSequence renderRichTextReferencingParagraph(final RichTextReferencingParagraph para) {
     return this.renderRichText(para.getText());
+  }
+  
+  protected String endParagraph(final Paragraph para) {
+    String _xifexpression = null;
+    boolean _isInTableCell = this.isInTableCell(para);
+    boolean _not = (!_isInTableCell);
+    if (_not) {
+      _xifexpression = "\\par";
+    } else {
+      _xifexpression = "";
+    }
+    return _xifexpression;
+  }
+  
+  protected boolean isInTableCell(final ContentBlock para) {
+    return ((para.eContainer() instanceof TableCell) && (((Object[])Conversions.unwrapArray(((TableCell) para.eContainer()).getContents(), Object.class)).length == 1));
   }
   
   @Override
@@ -616,7 +643,20 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
         if (!_matched) {
           if (expr instanceof Reference) {
             _matched=true;
-            _switchResult = PubLaTeXRenderer.this.refToReferenceTarget(((Reference)expr));
+            CharSequence _xifexpression = null;
+            ReferenceTarget _target = ((Reference)expr).getTarget();
+            if ((_target instanceof Footnote)) {
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("\\footnotemark[");
+              ReferenceTarget _target_1 = ((Reference)expr).getTarget();
+              String _formattedSingleNumber = PubLaTeXRenderer.this._pubNumberingUtil.formattedSingleNumber(((Footnote) _target_1));
+              _builder.append(_formattedSingleNumber);
+              _builder.append("]");
+              _xifexpression = _builder;
+            } else {
+              _xifexpression = PubLaTeXRenderer.this.refToReferenceTarget(((Reference)expr));
+            }
+            _switchResult = _xifexpression;
           }
         }
         if (!_matched) {
@@ -703,6 +743,24 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
       _xifexpression = _builder_1.toString();
     }
     return _xifexpression;
+  }
+  
+  @Override
+  public CharSequence renderFootnoteInPlace(final Footnote f) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\\footnotetext[");
+    String _formattedSingleNumber = this._pubNumberingUtil.formattedSingleNumber(f);
+    _builder.append(_formattedSingleNumber);
+    _builder.append("]{");
+    CharSequence _renderRichText = this.renderRichText(f.getText());
+    _builder.append(_renderRichText);
+    _builder.append("}");
+    return _builder;
+  }
+  
+  @Override
+  public CharSequence renderFootnotes(final Iterable<Footnote> footnotes) {
+    return null;
   }
   
   @Override

@@ -21,6 +21,7 @@ import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
+import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.GridLines
 import com.mimacom.ddd.pub.pub.Index
 import com.mimacom.ddd.pub.pub.List
@@ -109,7 +110,6 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		</html>
 	'''
 
-	
 	protected def CharSequence renderPreamble(Document doc) {
 		val preamble = doc.publicationClass.htmlPreamble
 		if (preamble !== null) {
@@ -129,17 +129,18 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 					}
 					return super.renderStyleExpression(expr, parsedText)
 				}
-				
+
 				override protected escape(String plainText) {
 					// do not escape the actual preamble template text:
 					return plainText
 				}
-				
+
 			}
 			return renderer.render(preamble)
 		}
 		return ''
 	}
+
 	override CharSequence renderSegment(SegmentWithText seg, NestedElementsRenderer blocks) '''
 		<div>
 		«seg.renderTitle»
@@ -172,7 +173,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTitle(Division div) '''
-		<h«div.level+2»>«renderAnchor(div)»«div.tieredNumber» «div.title.renderRichText»</h1>
+		<h«div.getLevel+2»>«renderAnchor(div)»«div.tieredNumber» «div.title.renderRichText»</h1>
 	'''
 
 	override CharSequence renderAnchor(ReferenceTarget target) {
@@ -182,10 +183,10 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		}
 		return ""
 	}
+
 //
 //	override CharSequence renderReferenceTo(ReferenceTarget target,
 //		String linkText) '''<a href="#«target.id»">«linkText»</a>'''
-
 	//
 	// Content
 	//
@@ -240,13 +241,13 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				<tr>	
 					«FOR cell : row.cells»
 						«cell.startTag»«FOR block : cell.contents»«g.generate(block)»«ENDFOR»«row.isHeading?"</th>":"</td>"»
-«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try HTML directly.
+		«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try HTML directly.
 					«ENDFOR»
-				</tr>
+			</tr>
 			«ENDFOR»
 		</table>
 	'''
-	
+
 	protected def String tableBorders(GridLines gl) {
 		switch gl {
 			case HORIZONTAL: "border-left:0; border-right:0;"
@@ -330,17 +331,19 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 					DmxUrlLiteral:
 						hyperlink(expr.value, expr.display !== null ? expr.display : expr.value)
 					Reference:
-						hyperlink(expr.htmlReferenceLinkTargetId, expr.target.referenceDisplayText)
+						if (expr.target instanceof Footnote) {
+							'''<sup>[«hyperlink(expr.htmlReferenceLinkTargetId, (expr.target as Footnote).formattedSingleNumber)»]</sup>'''
+						} else {
+							hyperlink(expr.htmlReferenceLinkTargetId, expr.target.referenceDisplayText)
+						}
 					default:
 						super.renderStyleExpression(expr, parsedText)
 				}
 			}
-
 		}
 	}
-	
-	protected def String hyperlink(String url, String displayText) 
-		'''<a href="«url»">" «displayText»</a>'''
+
+	protected def String hyperlink(String url, String displayText) '''<a href="«url»">«displayText»</a>'''
 
 	protected def String staticReferenceLinkText(DmxStaticReference ref) {
 		if (! guard(ref.displayName, "").empty) {
@@ -361,7 +364,18 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		}
 		return result
 	}
+
+	override CharSequence renderFootnoteInPlace(Footnote f) {
+		// footnotes are not rendered where they occur
+	}
 	
+	override CharSequence renderFootnotes(Iterable<Footnote> footnotes) '''
+		<br><div style="border:0.5px solid grey; width: 200px;"></div><br>
+		«FOR f : footnotes»
+			«renderAnchor(f)» <sup>«f.formattedSingleNumber»</sup> <small>«f.text.renderRichText»</small>
+		«ENDFOR»
+	'''
+
 	override protected CharSequence escape(CharSequence plainText) {
 		escapeHtml(plainText as String)
 	}

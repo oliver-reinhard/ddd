@@ -6,22 +6,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Numbered Element</b></em>'.
+ * A representation of the model object '<em><b>Numbered</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.NumberedElement#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.NumberedElement#getSequenceNumber <em>Sequence Number</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.Numbered#getLevel <em>Level</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.Numbered#getSequenceNumber <em>Sequence Number</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.pub.pub.PubPackage#getNumberedElement()
+ * @see com.mimacom.ddd.pub.pub.PubPackage#getNumbered()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NumberedElement extends EObject {
+public interface Numbered extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Level</b></em>' attribute.
 	 * The default value is <code>"-1"</code>.
@@ -29,14 +29,14 @@ public interface NumberedElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Level</em>' attribute.
 	 * @see #setLevel(int)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getNumberedElement_Level()
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getNumbered_Level()
 	 * @model default="-1" unique="false" transient="true"
 	 * @generated
 	 */
 	int getLevel();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.NumberedElement#getLevel <em>Level</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.Numbered#getLevel <em>Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Level</em>' attribute.
@@ -52,14 +52,14 @@ public interface NumberedElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sequence Number</em>' attribute.
 	 * @see #setSequenceNumber(int)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getNumberedElement_SequenceNumber()
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getNumbered_SequenceNumber()
 	 * @model default="-1" unique="false" transient="true"
 	 * @generated
 	 */
 	int getSequenceNumber();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.NumberedElement#getSequenceNumber <em>Sequence Number</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.Numbered#getSequenceNumber <em>Sequence Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Sequence Number</em>' attribute.
@@ -68,4 +68,4 @@ public interface NumberedElement extends EObject {
 	 */
 	void setSequenceNumber(int value);
 
-} // NumberedElement
+} // Numbered

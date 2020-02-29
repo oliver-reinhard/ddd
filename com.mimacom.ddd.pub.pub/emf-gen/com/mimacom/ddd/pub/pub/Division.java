@@ -23,7 +23,7 @@ import com.mimacom.ddd.dm.base.DRichText;
  * @model abstract="true"
  * @generated
  */
-public interface Division extends DivisionContainer, BlockContainer, NumberedElement, ReferenceTarget {
+public interface Division extends DivisionContainer, BlockContainer, Numbered, ReferenceTarget {
 	/**
 	 * Returns the value of the '<em><b>Start Numbering At</b></em>' attribute.
 	 * The default value is <code>"1"</code>.

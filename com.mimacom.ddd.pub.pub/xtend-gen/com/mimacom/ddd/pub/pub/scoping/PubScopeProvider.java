@@ -86,6 +86,12 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
           case SUBSUBSECTION:
             _switchResult = PubScopeProvider.PUB.getSubsubsection();
             break;
+          case FOOTNOTE:
+            _switchResult = PubScopeProvider.PUB.getFootnote();
+            break;
+          case LIST_ITEM:
+            _switchResult = PubScopeProvider.PUB.getListItem();
+            break;
           case TABLE:
             _switchResult = PubScopeProvider.PUB.getTitledTable();
             break;

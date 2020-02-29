@@ -88,6 +88,10 @@ enum ReferenceScope {
 	,
 	Subsubsection
 	,
+	ListItem
+	,
+	Footnote
+	,
 	Table
 	,
 	Figure
@@ -209,17 +213,22 @@ class PublicationBody extends DocumentSegment, DivisionContainer {
 // 
 // Divisions
 //
-interface NumberedElement {
+interface Numbered {
 	transient int level = "-1" // -1 = not set (undefined)
 	// The sequence number, not necessarily the displayed number of an element
 	transient int sequenceNumber = "-1" // -1 = not set (undefined)
+}
+
+interface NumberedByChapter extends Numbered {
+	refers transient Chapter logicalContainer // with includes this can be different from the actual eContainer
+	transient int sequenceNumberInChapter = "-1" // -1 = not set (undefined)
 }
 
 interface DivisionContainer {
 	contains Division[] divisions
 }
 
-abstract class Division extends DivisionContainer, BlockContainer, NumberedElement, ReferenceTarget {
+abstract class Division extends DivisionContainer, BlockContainer, Numbered, ReferenceTarget {
 	op String getId() {
 		if (name === null || name.empty) {
 			val StringBuilder b = new StringBuilder
@@ -227,7 +236,7 @@ abstract class Division extends DivisionContainer, BlockContainer, NumberedEleme
 			var p = parent
 			while (p !== null) {
 				b.insert(0, '-')
-				b.insert(0, p.sequenceNumber)
+				b.insert(0, p.getSequenceNumber)
 				p = p.parent
 			}
 			return b.toString
@@ -312,7 +321,7 @@ enum ListStyle {
 	, Title
 }
 
-class ListItem extends BlockContainer, NumberedElement, ReferenceTarget {
+class ListItem extends BlockContainer, Numbered, ReferenceTarget {
 	contains DRichText title
 	container List list opposite items
 	op int getLevel() {
@@ -324,10 +333,8 @@ class ListItem extends BlockContainer, NumberedElement, ReferenceTarget {
 	}
 }
 
-abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarget {
+abstract class TitledBlock extends ContentBlock, NumberedByChapter, ReferenceTarget {
 	contains DRichText title
-	refers transient Chapter logicalContainer // with includes this can be different from the actual eContainer
-	transient int sequenceNumberInChapter = "-1" // -1 = not set (undefined)
 	op String getId() {
 		if (name === null || name.empty) {
 			val blockType = class.simpleName.replace("Titled", "").replace("Impl", "").toLowerCase
@@ -339,8 +346,8 @@ abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarge
 		return name
 	}
 	op Division parent() {
-		if (logicalContainer !== null) {
-			return logicalContainer
+		if (getLogicalContainer !== null) {
+			return getLogicalContainer
 		}
 		var p = eContainer
 		while (p !== null && ! (p instanceof Division)) {
@@ -438,7 +445,7 @@ class RichTextParagraph extends Paragraph {
 /*
  * Internal, not referenced by PUB grammar. 
  * 
- * Used to by table providers to reference DRichText elements of models instead of 
+ * Used by table providers to reference DRichText elements of models instead of 
  * 	- copying the full DRichText structure (which creates challenges in resolving cross-references) or 
  * 	- changing the DRichText element's eContainer (which causes problems for the former eContainer)
  */
@@ -453,6 +460,11 @@ class RichTextReferencingParagraph extends ContentBlock {
  */
 class UnformattedParagraph extends Paragraph {
 	String text
+}
+
+
+class Footnote extends ContentBlock, ReferenceTarget, NumberedByChapter {
+	contains DRichText text
 }
 
 enum ParagraphStyle {

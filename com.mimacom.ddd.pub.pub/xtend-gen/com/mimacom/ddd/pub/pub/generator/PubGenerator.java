@@ -4,6 +4,7 @@
 package com.mimacom.ddd.pub.pub.generator;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -11,12 +12,14 @@ import com.mimacom.ddd.pub.pub.AbstractFigure;
 import com.mimacom.ddd.pub.pub.AbstractTable;
 import com.mimacom.ddd.pub.pub.Admonition;
 import com.mimacom.ddd.pub.pub.ChangeHistory;
+import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.ListItem;
@@ -24,6 +27,7 @@ import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.ParagraphStyle;
+import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubModel;
@@ -56,12 +60,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -92,6 +98,8 @@ public class PubGenerator extends AbstractGenerator {
   private DiagramProviderRegistry diagramProviderRegistry;
   
   private static final Logger LOGGER = Logger.getLogger(PubGenerator.class);
+  
+  private static final String FIGURES_GEN_DIRECTORY = "figures";
   
   private IFileSystemAccess2 fileSystemAccess;
   
@@ -154,6 +162,7 @@ public class PubGenerator extends AbstractGenerator {
     this.allDivisionsInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
     this.allTablesInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllTablesInSequenceAndSetSequenceNumbers(compo);
     this.allFiguresInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllFiguresInSequenceAndSetSequenceNumbers(compo);
+    this._pubNumberingUtil.gatherAllFootnotesInSequenceAndSetSequenceNumbers(compo);
   }
   
   protected CharSequence _genSegment(final SegmentWithText seg) {
@@ -177,67 +186,75 @@ public class PubGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  protected CharSequence _genSegment(final PublicationBody seg) {
+  protected CharSequence _genSegment(final PublicationBody body) {
     CharSequence _xblockexpression = null;
     {
+      final Division topLevelDivision = IterableExtensions.<Division>head(body.getDivisions());
+      final boolean hasChapters = ((topLevelDivision instanceof Part) || (topLevelDivision instanceof Chapter));
       StringConcatenation _builder = new StringConcatenation();
       {
-        EList<Division> _divisions = seg.getDivisions();
+        EList<Division> _divisions = body.getDivisions();
         for(final Division div : _divisions) {
           _builder.newLine();
-          _builder.append("\t");
           CharSequence _genDivision = this.genDivision(div);
-          _builder.append(_genDivision, "\t");
+          _builder.append(_genDivision);
           _builder.newLineIfNotEmpty();
         }
       }
+      {
+        if ((!hasChapters)) {
+          CharSequence _genFootnotes = this.genFootnotes(body, true);
+          _builder.append(_genFootnotes);
+        }
+      }
+      _builder.newLineIfNotEmpty();
       final String divisionIterator = _builder.toString();
       final NestedElementsRenderer _function = () -> {
         return divisionIterator;
       };
-      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, _function);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(body, _function);
     }
     return _xblockexpression;
   }
   
-  protected CharSequence _genSegment(final TOC seg) {
+  protected CharSequence _genSegment(final TOC toc) {
     CharSequence _xblockexpression = null;
     {
-      final Table t = this._pubGeneratorUtil.toTable(seg, this.allDivisionsInSequenceOfOccurrenceCache);
-      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      final Table t = this._pubGeneratorUtil.toTable(toc, this.allDivisionsInSequenceOfOccurrenceCache);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(toc, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
   
-  protected CharSequence _genSegment(final ListOfTables seg) {
+  protected CharSequence _genSegment(final ListOfTables lot) {
     CharSequence _xblockexpression = null;
     {
-      final Table t = this._pubGeneratorUtil.toTable(seg, this.allTablesInSequenceOfOccurrenceCache);
-      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      final Table t = this._pubGeneratorUtil.toTable(lot, this.allTablesInSequenceOfOccurrenceCache);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(lot, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
   
-  protected CharSequence _genSegment(final ListOfFigures seg) {
+  protected CharSequence _genSegment(final ListOfFigures lof) {
     CharSequence _xblockexpression = null;
     {
-      final Table t = this._pubGeneratorUtil.toTable(seg, this.allFiguresInSequenceOfOccurrenceCache);
-      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      final Table t = this._pubGeneratorUtil.toTable(lof, this.allFiguresInSequenceOfOccurrenceCache);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(lof, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
   
-  protected CharSequence _genSegment(final ChangeHistory seg) {
+  protected CharSequence _genSegment(final ChangeHistory hist) {
     CharSequence _xblockexpression = null;
     {
-      final Table t = this._pubGeneratorUtil.toTable(seg);
-      _xblockexpression = this._pubLaTeXRenderer.renderSegment(seg, t, this.nestedContentBlockGenerator);
+      final Table t = this._pubGeneratorUtil.toTable(hist);
+      _xblockexpression = this._pubLaTeXRenderer.renderSegment(hist, t, this.nestedContentBlockGenerator);
     }
     return _xblockexpression;
   }
   
-  protected CharSequence _genSegment(final Index seg) {
-    return this._pubLaTeXRenderer.renderSegment(seg);
+  protected CharSequence _genSegment(final Index index) {
+    return this._pubLaTeXRenderer.renderSegment(index);
   }
   
   protected CharSequence _genSegment(final DocumentSegment seg) {
@@ -274,6 +291,14 @@ public class PubGenerator extends AbstractGenerator {
         }
       }
       {
+        if ((((div instanceof Part) && (!divContents.getDivisions().isEmpty())) && (IterableExtensions.<Division>last(((PublicationBody) div.eContainer()).getDivisions()) != div))) {
+          CharSequence _genFootnotes = this.genFootnotes(div, false);
+          _builder.append(_genFootnotes);
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      _builder.newLine();
+      {
         EList<Division> _divisions = divContents.getDivisions();
         for(final Division subdiv : _divisions) {
           _builder.newLine();
@@ -283,6 +308,13 @@ public class PubGenerator extends AbstractGenerator {
           _builder.newLineIfNotEmpty();
         }
       }
+      {
+        if ((div instanceof Chapter)) {
+          CharSequence _genFootnotes_1 = this.genFootnotes(div, true);
+          _builder.append(_genFootnotes_1);
+        }
+      }
+      _builder.newLineIfNotEmpty();
       _xblockexpression = _builder;
     }
     return _xblockexpression;
@@ -445,7 +477,7 @@ public class PubGenerator extends AbstractGenerator {
         {
           EObject _eContainer = f.eContainer();
           String _tieredNumber = this._pubNumberingUtil.tieredNumber(((TitledFigure) _eContainer));
-          final String fileName = ("figures/figure-" + _tieredNumber);
+          final String fileName = ((PubGenerator.FIGURES_GEN_DIRECTORY + "/figure-") + _tieredNumber);
           final String fileExtension = provider.format.name().toLowerCase();
           final InputStream inputStream = provider.render(f.getDiagramRoot());
           final String file = ((fileName + ".") + fileExtension);
@@ -514,10 +546,38 @@ public class PubGenerator extends AbstractGenerator {
     return this._pubLaTeXRenderer.renderRichTextReferencingParagraph(para);
   }
   
+  protected CharSequence _genBlock(final Footnote f) {
+    return this._pubLaTeXRenderer.renderFootnoteInPlace(f);
+  }
+  
   protected CharSequence _genBlock(final ContentBlock block) {
     String _name = block.getClass().getName();
     String _plus = ("Unsupported content-block type: " + _name);
     throw new IllegalArgumentException(_plus);
+  }
+  
+  public CharSequence genFootnotes(final EObject container, final boolean allContents) {
+    CharSequence _xblockexpression = null;
+    {
+      Iterable<Footnote> _xifexpression = null;
+      if (allContents) {
+        _xifexpression = EcoreUtil2.<Footnote>eAllOfType(container, Footnote.class);
+      } else {
+        _xifexpression = Iterables.<Footnote>filter(container.eContents(), Footnote.class);
+      }
+      final Iterable<Footnote> footnotes = _xifexpression;
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        boolean _isEmpty = IterableExtensions.isEmpty(footnotes);
+        boolean _not = (!_isEmpty);
+        if (_not) {
+          CharSequence _renderFootnotes = this._pubLaTeXRenderer.renderFootnotes(footnotes);
+          _builder.append(_renderFootnotes);
+        }
+      }
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
   
   public CharSequence genDocument(final Document comp) {
@@ -531,47 +591,49 @@ public class PubGenerator extends AbstractGenerator {
     }
   }
   
-  public CharSequence genSegment(final DocumentSegment seg) {
-    if (seg instanceof ChangeHistory) {
-      return _genSegment((ChangeHistory)seg);
-    } else if (seg instanceof ListOfFigures) {
-      return _genSegment((ListOfFigures)seg);
-    } else if (seg instanceof ListOfTables) {
-      return _genSegment((ListOfTables)seg);
-    } else if (seg instanceof TOC) {
-      return _genSegment((TOC)seg);
-    } else if (seg instanceof Index) {
-      return _genSegment((Index)seg);
-    } else if (seg instanceof PublicationBody) {
-      return _genSegment((PublicationBody)seg);
-    } else if (seg instanceof SegmentWithText) {
-      return _genSegment((SegmentWithText)seg);
-    } else if (seg != null) {
-      return _genSegment(seg);
+  public CharSequence genSegment(final DocumentSegment hist) {
+    if (hist instanceof ChangeHistory) {
+      return _genSegment((ChangeHistory)hist);
+    } else if (hist instanceof ListOfFigures) {
+      return _genSegment((ListOfFigures)hist);
+    } else if (hist instanceof ListOfTables) {
+      return _genSegment((ListOfTables)hist);
+    } else if (hist instanceof TOC) {
+      return _genSegment((TOC)hist);
+    } else if (hist instanceof Index) {
+      return _genSegment((Index)hist);
+    } else if (hist instanceof PublicationBody) {
+      return _genSegment((PublicationBody)hist);
+    } else if (hist instanceof SegmentWithText) {
+      return _genSegment((SegmentWithText)hist);
+    } else if (hist != null) {
+      return _genSegment(hist);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(seg).toString());
+        Arrays.<Object>asList(hist).toString());
     }
   }
   
-  public CharSequence genBlock(final ContentBlock para) {
-    if (para instanceof RichTextParagraph) {
-      return _genBlock((RichTextParagraph)para);
-    } else if (para instanceof UnformattedParagraph) {
-      return _genBlock((UnformattedParagraph)para);
-    } else if (para instanceof Admonition) {
-      return _genBlock((Admonition)para);
-    } else if (para instanceof com.mimacom.ddd.pub.pub.List) {
-      return _genBlock((com.mimacom.ddd.pub.pub.List)para);
-    } else if (para instanceof RichTextReferencingParagraph) {
-      return _genBlock((RichTextReferencingParagraph)para);
-    } else if (para instanceof TitledBlock) {
-      return _genBlock((TitledBlock)para);
-    } else if (para != null) {
-      return _genBlock(para);
+  public CharSequence genBlock(final ContentBlock f) {
+    if (f instanceof Footnote) {
+      return _genBlock((Footnote)f);
+    } else if (f instanceof RichTextParagraph) {
+      return _genBlock((RichTextParagraph)f);
+    } else if (f instanceof TitledBlock) {
+      return _genBlock((TitledBlock)f);
+    } else if (f instanceof UnformattedParagraph) {
+      return _genBlock((UnformattedParagraph)f);
+    } else if (f instanceof Admonition) {
+      return _genBlock((Admonition)f);
+    } else if (f instanceof com.mimacom.ddd.pub.pub.List) {
+      return _genBlock((com.mimacom.ddd.pub.pub.List)f);
+    } else if (f instanceof RichTextReferencingParagraph) {
+      return _genBlock((RichTextReferencingParagraph)f);
+    } else if (f != null) {
+      return _genBlock(f);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(para).toString());
+        Arrays.<Object>asList(f).toString());
     }
   }
   

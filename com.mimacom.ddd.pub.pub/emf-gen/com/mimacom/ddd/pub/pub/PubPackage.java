@@ -2331,14 +2331,14 @@ public interface PubPackage extends EPackage {
 	int PUBLICATION_BODY_OPERATION_COUNT = DOCUMENT_SEGMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.NumberedElement <em>Numbered Element</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.Numbered <em>Numbered</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.NumberedElement
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumberedElement()
+	 * @see com.mimacom.ddd.pub.pub.Numbered
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumbered()
 	 * @generated
 	 */
-	int NUMBERED_ELEMENT = 29;
+	int NUMBERED = 29;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -2347,7 +2347,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBERED_ELEMENT__LEVEL = 0;
+	int NUMBERED__LEVEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
@@ -2356,25 +2356,89 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBERED_ELEMENT__SEQUENCE_NUMBER = 1;
+	int NUMBERED__SEQUENCE_NUMBER = 1;
 
 	/**
-	 * The number of structural features of the '<em>Numbered Element</em>' class.
+	 * The number of structural features of the '<em>Numbered</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBERED_ELEMENT_FEATURE_COUNT = 2;
+	int NUMBERED_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Numbered Element</em>' class.
+	 * The number of operations of the '<em>Numbered</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBERED_ELEMENT_OPERATION_COUNT = 0;
+	int NUMBERED_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.NumberedByChapter <em>Numbered By Chapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.NumberedByChapter
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumberedByChapter()
+	 * @generated
+	 */
+	int NUMBERED_BY_CHAPTER = 30;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBERED_BY_CHAPTER__LEVEL = NUMBERED__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER = NUMBERED__SEQUENCE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER = NUMBERED_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER = NUMBERED_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Numbered By Chapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBERED_BY_CHAPTER_FEATURE_COUNT = NUMBERED_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Numbered By Chapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBERED_BY_CHAPTER_OPERATION_COUNT = NUMBERED_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.DivisionContainer <em>Division Container</em>}' class.
@@ -2384,7 +2448,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getDivisionContainer()
 	 * @generated
 	 */
-	int DIVISION_CONTAINER = 30;
+	int DIVISION_CONTAINER = 31;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2421,7 +2485,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getDivision()
 	 * @generated
 	 */
-	int DIVISION = 31;
+	int DIVISION = 32;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2566,7 +2630,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPart()
 	 * @generated
 	 */
-	int PART = 32;
+	int PART = 33;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2711,7 +2775,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAppendix()
 	 * @generated
 	 */
-	int APPENDIX = 33;
+	int APPENDIX = 34;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -2856,7 +2920,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getChapter()
 	 * @generated
 	 */
-	int CHAPTER = 34;
+	int CHAPTER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -3001,7 +3065,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSection()
 	 * @generated
 	 */
-	int SECTION = 35;
+	int SECTION = 36;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -3146,7 +3210,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSubsection()
 	 * @generated
 	 */
-	int SUBSECTION = 36;
+	int SUBSECTION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -3291,7 +3355,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getSubsubsection()
 	 * @generated
 	 */
-	int SUBSUBSECTION = 37;
+	int SUBSUBSECTION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Divisions</b></em>' containment reference list.
@@ -3436,7 +3500,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getContentBlock()
 	 * @generated
 	 */
-	int CONTENT_BLOCK = 38;
+	int CONTENT_BLOCK = 39;
 
 	/**
 	 * The number of structural features of the '<em>Content Block</em>' class.
@@ -3464,7 +3528,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAdmonition()
 	 * @generated
 	 */
-	int ADMONITION = 39;
+	int ADMONITION = 40;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -3537,7 +3601,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 40;
+	int LIST = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3619,7 +3683,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListItem()
 	 * @generated
 	 */
-	int LIST_ITEM = 41;
+	int LIST_ITEM = 42;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -3728,7 +3792,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledBlock()
 	 * @generated
 	 */
-	int TITLED_BLOCK = 42;
+	int TITLED_BLOCK = 43;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -3749,40 +3813,13 @@ public interface PubPackage extends EPackage {
 	int TITLED_BLOCK__SEQUENCE_NUMBER = CONTENT_BLOCK_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_BLOCK__NAME = CONTENT_BLOCK_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_BLOCK__ID = CONTENT_BLOCK_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_BLOCK__TITLE = CONTENT_BLOCK_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TITLED_BLOCK__LOGICAL_CONTAINER = CONTENT_BLOCK_FEATURE_COUNT + 5;
+	int TITLED_BLOCK__LOGICAL_CONTAINER = CONTENT_BLOCK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
@@ -3791,7 +3828,34 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER = CONTENT_BLOCK_FEATURE_COUNT + 6;
+	int TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER = CONTENT_BLOCK_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_BLOCK__NAME = CONTENT_BLOCK_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_BLOCK__ID = CONTENT_BLOCK_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_BLOCK__TITLE = CONTENT_BLOCK_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Titled Block</em>' class.
@@ -3837,7 +3901,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledTable()
 	 * @generated
 	 */
-	int TITLED_TABLE = 43;
+	int TITLED_TABLE = 44;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -3856,6 +3920,24 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TITLED_TABLE__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_TABLE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_TABLE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3883,24 +3965,6 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TITLED_TABLE__TITLE = TITLED_BLOCK__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_TABLE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_TABLE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' containment reference.
@@ -3955,7 +4019,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractTable()
 	 * @generated
 	 */
-	int ABSTRACT_TABLE = 44;
+	int ABSTRACT_TABLE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -3992,7 +4056,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 45;
+	int TABLE = 46;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -4056,7 +4120,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 46;
+	int TABLE_ROW = 47;
 
 	/**
 	 * The feature id for the '<em><b>Is Heading</b></em>' attribute.
@@ -4111,7 +4175,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableCell()
 	 * @generated
 	 */
-	int TABLE_CELL = 47;
+	int TABLE_CELL = 48;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -4175,7 +4239,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedTable()
 	 * @generated
 	 */
-	int PROVIDED_TABLE = 48;
+	int PROVIDED_TABLE = 49;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -4230,7 +4294,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRenderer()
 	 * @generated
 	 */
-	int TABLE_RENDERER = 49;
+	int TABLE_RENDERER = 50;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4276,7 +4340,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledFigure()
 	 * @generated
 	 */
-	int TITLED_FIGURE = 50;
+	int TITLED_FIGURE = 51;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4295,6 +4359,24 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TITLED_FIGURE__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_FIGURE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4322,24 +4404,6 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TITLED_FIGURE__TITLE = TITLED_BLOCK__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_FIGURE__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_FIGURE__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Figure</b></em>' containment reference.
@@ -4394,7 +4458,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAbstractFigure()
 	 * @generated
 	 */
-	int ABSTRACT_FIGURE = 51;
+	int ABSTRACT_FIGURE = 52;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -4431,7 +4495,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getIncludedFigure()
 	 * @generated
 	 */
-	int INCLUDED_FIGURE = 52;
+	int INCLUDED_FIGURE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -4477,7 +4541,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedFigure()
 	 * @generated
 	 */
-	int PROVIDED_FIGURE = 53;
+	int PROVIDED_FIGURE = 54;
 
 	/**
 	 * The feature id for the '<em><b>Width Percent</b></em>' attribute.
@@ -4532,7 +4596,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
 	 * @generated
 	 */
-	int FIGURE_RENDERER = 54;
+	int FIGURE_RENDERER = 55;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4578,7 +4642,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getEquation()
 	 * @generated
 	 */
-	int EQUATION = 55;
+	int EQUATION = 56;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4597,6 +4661,24 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int EQUATION__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUATION__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUATION__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4624,24 +4706,6 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int EQUATION__TITLE = TITLED_BLOCK__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EQUATION__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EQUATION__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>File Uri</b></em>' attribute.
@@ -4696,7 +4760,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTitledCodeListing()
 	 * @generated
 	 */
-	int TITLED_CODE_LISTING = 56;
+	int TITLED_CODE_LISTING = 57;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -4715,6 +4779,24 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TITLED_CODE_LISTING__SEQUENCE_NUMBER = TITLED_BLOCK__SEQUENCE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_CODE_LISTING__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLED_CODE_LISTING__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4742,24 +4824,6 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TITLED_CODE_LISTING__TITLE = TITLED_BLOCK__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_CODE_LISTING__LOGICAL_CONTAINER = TITLED_BLOCK__LOGICAL_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLED_CODE_LISTING__SEQUENCE_NUMBER_IN_CHAPTER = TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -4832,7 +4896,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 57;
+	int PARAGRAPH = 58;
 
 	/**
 	 * The number of structural features of the '<em>Paragraph</em>' class.
@@ -4860,7 +4924,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextParagraph()
 	 * @generated
 	 */
-	int RICH_TEXT_PARAGRAPH = 58;
+	int RICH_TEXT_PARAGRAPH = 59;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
@@ -4906,7 +4970,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getRichTextReferencingParagraph()
 	 * @generated
 	 */
-	int RICH_TEXT_REFERENCING_PARAGRAPH = 59;
+	int RICH_TEXT_REFERENCING_PARAGRAPH = 60;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' reference.
@@ -4943,7 +5007,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getUnformattedParagraph()
 	 * @generated
 	 */
-	int UNFORMATTED_PARAGRAPH = 60;
+	int UNFORMATTED_PARAGRAPH = 61;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -4973,6 +5037,97 @@ public interface PubPackage extends EPackage {
 	int UNFORMATTED_PARAGRAPH_OPERATION_COUNT = PARAGRAPH_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl <em>Footnote</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.pub.pub.impl.FootnoteImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFootnote()
+	 * @generated
+	 */
+	int FOOTNOTE = 62;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__NAME = CONTENT_BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__ID = CONTENT_BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__LEVEL = CONTENT_BLOCK_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__SEQUENCE_NUMBER = CONTENT_BLOCK_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Logical Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__LOGICAL_CONTAINER = CONTENT_BLOCK_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Number In Chapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER = CONTENT_BLOCK_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE__TEXT = CONTENT_BLOCK_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Footnote</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of operations of the '<em>Footnote</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOTNOTE_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.PublicationNature <em>Publication Nature</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4980,7 +5135,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getPublicationNature()
 	 * @generated
 	 */
-	int PUBLICATION_NATURE = 61;
+	int PUBLICATION_NATURE = 63;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ReferenceScope <em>Reference Scope</em>}' enum.
@@ -4990,7 +5145,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getReferenceScope()
 	 * @generated
 	 */
-	int REFERENCE_SCOPE = 62;
+	int REFERENCE_SCOPE = 64;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.AdmonitionKind <em>Admonition Kind</em>}' enum.
@@ -5000,7 +5155,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getAdmonitionKind()
 	 * @generated
 	 */
-	int ADMONITION_KIND = 63;
+	int ADMONITION_KIND = 65;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ListStyle <em>List Style</em>}' enum.
@@ -5010,7 +5165,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getListStyle()
 	 * @generated
 	 */
-	int LIST_STYLE = 64;
+	int LIST_STYLE = 66;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.GridLines <em>Grid Lines</em>}' enum.
@@ -5020,7 +5175,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getGridLines()
 	 * @generated
 	 */
-	int GRID_LINES = 65;
+	int GRID_LINES = 67;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
@@ -5030,7 +5185,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
 	 * @generated
 	 */
-	int CODE_LANGUAGE = 66;
+	int CODE_LANGUAGE = 68;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.
@@ -5040,7 +5195,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraphStyle()
 	 * @generated
 	 */
-	int PARAGRAPH_STYLE = 67;
+	int PARAGRAPH_STYLE = 69;
 
 
 	/**
@@ -5848,36 +6003,68 @@ public interface PubPackage extends EPackage {
 	EClass getPublicationBody();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.NumberedElement <em>Numbered Element</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Numbered <em>Numbered</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Numbered Element</em>'.
-	 * @see com.mimacom.ddd.pub.pub.NumberedElement
+	 * @return the meta object for class '<em>Numbered</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Numbered
 	 * @generated
 	 */
-	EClass getNumberedElement();
+	EClass getNumbered();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.NumberedElement#getLevel <em>Level</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Numbered#getLevel <em>Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see com.mimacom.ddd.pub.pub.NumberedElement#getLevel()
-	 * @see #getNumberedElement()
+	 * @see com.mimacom.ddd.pub.pub.Numbered#getLevel()
+	 * @see #getNumbered()
 	 * @generated
 	 */
-	EAttribute getNumberedElement_Level();
+	EAttribute getNumbered_Level();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.NumberedElement#getSequenceNumber <em>Sequence Number</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Numbered#getSequenceNumber <em>Sequence Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Sequence Number</em>'.
-	 * @see com.mimacom.ddd.pub.pub.NumberedElement#getSequenceNumber()
-	 * @see #getNumberedElement()
+	 * @see com.mimacom.ddd.pub.pub.Numbered#getSequenceNumber()
+	 * @see #getNumbered()
 	 * @generated
 	 */
-	EAttribute getNumberedElement_SequenceNumber();
+	EAttribute getNumbered_SequenceNumber();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.NumberedByChapter <em>Numbered By Chapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Numbered By Chapter</em>'.
+	 * @see com.mimacom.ddd.pub.pub.NumberedByChapter
+	 * @generated
+	 */
+	EClass getNumberedByChapter();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.NumberedByChapter#getLogicalContainer <em>Logical Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Logical Container</em>'.
+	 * @see com.mimacom.ddd.pub.pub.NumberedByChapter#getLogicalContainer()
+	 * @see #getNumberedByChapter()
+	 * @generated
+	 */
+	EReference getNumberedByChapter_LogicalContainer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.NumberedByChapter#getSequenceNumberInChapter <em>Sequence Number In Chapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sequence Number In Chapter</em>'.
+	 * @see com.mimacom.ddd.pub.pub.NumberedByChapter#getSequenceNumberInChapter()
+	 * @see #getNumberedByChapter()
+	 * @generated
+	 */
+	EAttribute getNumberedByChapter_SequenceNumberInChapter();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.DivisionContainer <em>Division Container</em>}'.
@@ -6212,28 +6399,6 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTitledBlock_Title();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.TitledBlock#getLogicalContainer <em>Logical Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Logical Container</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TitledBlock#getLogicalContainer()
-	 * @see #getTitledBlock()
-	 * @generated
-	 */
-	EReference getTitledBlock_LogicalContainer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TitledBlock#getSequenceNumberInChapter <em>Sequence Number In Chapter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sequence Number In Chapter</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TitledBlock#getSequenceNumberInChapter()
-	 * @see #getTitledBlock()
-	 * @generated
-	 */
-	EAttribute getTitledBlock_SequenceNumberInChapter();
 
 	/**
 	 * Returns the meta object for the '{@link com.mimacom.ddd.pub.pub.TitledBlock#getId() <em>Get Id</em>}' operation.
@@ -6764,6 +6929,27 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUnformattedParagraph_Text();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Footnote <em>Footnote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Footnote</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Footnote
+	 * @generated
+	 */
+	EClass getFootnote();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.pub.pub.Footnote#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Text</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Footnote#getText()
+	 * @see #getFootnote()
+	 * @generated
+	 */
+	EReference getFootnote_Text();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.pub.pub.PublicationNature <em>Publication Nature</em>}'.
@@ -7525,14 +7711,14 @@ public interface PubPackage extends EPackage {
 		EClass PUBLICATION_BODY = eINSTANCE.getPublicationBody();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.NumberedElement <em>Numbered Element</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.Numbered <em>Numbered</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.NumberedElement
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumberedElement()
+		 * @see com.mimacom.ddd.pub.pub.Numbered
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumbered()
 		 * @generated
 		 */
-		EClass NUMBERED_ELEMENT = eINSTANCE.getNumberedElement();
+		EClass NUMBERED = eINSTANCE.getNumbered();
 
 		/**
 		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
@@ -7540,7 +7726,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBERED_ELEMENT__LEVEL = eINSTANCE.getNumberedElement_Level();
+		EAttribute NUMBERED__LEVEL = eINSTANCE.getNumbered_Level();
 
 		/**
 		 * The meta object literal for the '<em><b>Sequence Number</b></em>' attribute feature.
@@ -7548,7 +7734,33 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBERED_ELEMENT__SEQUENCE_NUMBER = eINSTANCE.getNumberedElement_SequenceNumber();
+		EAttribute NUMBERED__SEQUENCE_NUMBER = eINSTANCE.getNumbered_SequenceNumber();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.NumberedByChapter <em>Numbered By Chapter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.NumberedByChapter
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getNumberedByChapter()
+		 * @generated
+		 */
+		EClass NUMBERED_BY_CHAPTER = eINSTANCE.getNumberedByChapter();
+
+		/**
+		 * The meta object literal for the '<em><b>Logical Container</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER = eINSTANCE.getNumberedByChapter_LogicalContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence Number In Chapter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER = eINSTANCE.getNumberedByChapter_SequenceNumberInChapter();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.DivisionContainer <em>Division Container</em>}' class.
@@ -7831,22 +8043,6 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TITLED_BLOCK__TITLE = eINSTANCE.getTitledBlock_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Logical Container</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TITLED_BLOCK__LOGICAL_CONTAINER = eINSTANCE.getTitledBlock_LogicalContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Sequence Number In Chapter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER = eINSTANCE.getTitledBlock_SequenceNumberInChapter();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Id</b></em>' operation.
@@ -8283,6 +8479,24 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNFORMATTED_PARAGRAPH__TEXT = eINSTANCE.getUnformattedParagraph_Text();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl <em>Footnote</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.FootnoteImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFootnote()
+		 * @generated
+		 */
+		EClass FOOTNOTE = eINSTANCE.getFootnote();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOOTNOTE__TEXT = eINSTANCE.getFootnote_Text();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.PublicationNature <em>Publication Nature</em>}' enum.

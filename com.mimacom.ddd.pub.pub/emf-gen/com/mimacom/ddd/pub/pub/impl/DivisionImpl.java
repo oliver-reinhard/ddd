@@ -8,7 +8,7 @@ import com.mimacom.ddd.pub.pub.BlockContainer;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
-import com.mimacom.ddd.pub.pub.NumberedElement;
+import com.mimacom.ddd.pub.pub.Numbered;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
 
@@ -693,10 +693,10 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 				default: return -1;
 			}
 		}
-		if (baseClass == NumberedElement.class) {
+		if (baseClass == Numbered.class) {
 			switch (derivedFeatureID) {
-				case PubPackage.DIVISION__LEVEL: return PubPackage.NUMBERED_ELEMENT__LEVEL;
-				case PubPackage.DIVISION__SEQUENCE_NUMBER: return PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER;
+				case PubPackage.DIVISION__LEVEL: return PubPackage.NUMBERED__LEVEL;
+				case PubPackage.DIVISION__SEQUENCE_NUMBER: return PubPackage.NUMBERED__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
@@ -723,10 +723,10 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 				default: return -1;
 			}
 		}
-		if (baseClass == NumberedElement.class) {
+		if (baseClass == Numbered.class) {
 			switch (baseFeatureID) {
-				case PubPackage.NUMBERED_ELEMENT__LEVEL: return PubPackage.DIVISION__LEVEL;
-				case PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER: return PubPackage.DIVISION__SEQUENCE_NUMBER;
+				case PubPackage.NUMBERED__LEVEL: return PubPackage.DIVISION__LEVEL;
+				case PubPackage.NUMBERED__SEQUENCE_NUMBER: return PubPackage.DIVISION__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}

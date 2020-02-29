@@ -24,6 +24,7 @@ import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.GridLines;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
@@ -493,20 +494,21 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
       EList<TableRow> _rows = t.getRows();
       for(final TableRow row : _rows) {
         _builder.append("\t");
+        _builder.append("\t");
         _builder.append("<tr>\t");
         _builder.newLine();
         {
           EList<TableCell> _cells = row.getCells();
           for(final TableCell cell : _cells) {
             _builder.append("\t");
-            _builder.append("\t");
+            _builder.append("\t\t");
             String _startTag = this.startTag(cell);
-            _builder.append(_startTag, "\t\t");
+            _builder.append(_startTag, "\t\t\t");
             {
               EList<ContentBlock> _contents = cell.getContents();
               for(final ContentBlock block : _contents) {
                 CharSequence _generate = g.generate(block);
-                _builder.append(_generate, "\t\t");
+                _builder.append(_generate, "\t\t\t");
               }
             }
             String _xifexpression = null;
@@ -516,7 +518,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
             } else {
               _xifexpression = "</td>";
             }
-            _builder.append(_xifexpression, "\t\t");
+            _builder.append(_xifexpression, "\t\t\t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -745,7 +747,20 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
         if (!_matched) {
           if (expr instanceof Reference) {
             _matched=true;
-            _switchResult = PubHtmlRenderer.this.hyperlink(PubHtmlRenderer.this.htmlReferenceLinkTargetId(((Reference)expr)), PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayText(((Reference)expr).getTarget()));
+            CharSequence _xifexpression = null;
+            ReferenceTarget _target = ((Reference)expr).getTarget();
+            if ((_target instanceof Footnote)) {
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("<sup>[");
+              ReferenceTarget _target_1 = ((Reference)expr).getTarget();
+              String _hyperlink = PubHtmlRenderer.this.hyperlink(PubHtmlRenderer.this.htmlReferenceLinkTargetId(((Reference)expr)), PubHtmlRenderer.this._pubNumberingUtil.formattedSingleNumber(((Footnote) _target_1)));
+              _builder.append(_hyperlink);
+              _builder.append("]</sup>");
+              _xifexpression = _builder;
+            } else {
+              _xifexpression = PubHtmlRenderer.this.hyperlink(PubHtmlRenderer.this.htmlReferenceLinkTargetId(((Reference)expr)), PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayText(((Reference)expr).getTarget()));
+            }
+            _switchResult = _xifexpression;
           }
         }
         if (!_matched) {
@@ -760,7 +775,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<a href=\"");
     _builder.append(url);
-    _builder.append("\">\" ");
+    _builder.append("\">");
     _builder.append(displayText);
     _builder.append("</a>");
     return _builder.toString();
@@ -793,6 +808,33 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
       return (_fileName + result);
     }
     return result;
+  }
+  
+  @Override
+  public CharSequence renderFootnoteInPlace(final Footnote f) {
+    return null;
+  }
+  
+  @Override
+  public CharSequence renderFootnotes(final Iterable<Footnote> footnotes) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<br><div style=\"border:0.5px solid grey; width: 200px;\"></div><br>");
+    _builder.newLine();
+    {
+      for(final Footnote f : footnotes) {
+        CharSequence _renderAnchor = this.renderAnchor(f);
+        _builder.append(_renderAnchor);
+        _builder.append(" <sup>");
+        String _formattedSingleNumber = this._pubNumberingUtil.formattedSingleNumber(f);
+        _builder.append(_formattedSingleNumber);
+        _builder.append("</sup> <small>");
+        CharSequence _renderRichText = this.renderRichText(f.getText());
+        _builder.append(_renderRichText);
+        _builder.append("</small>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
   }
   
   @Override

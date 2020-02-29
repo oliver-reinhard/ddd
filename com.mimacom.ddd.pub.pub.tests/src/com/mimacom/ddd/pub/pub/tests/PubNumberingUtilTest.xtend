@@ -38,11 +38,11 @@ package class PubNumberingUtilTest {
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.level)
-		assertEquals(1, d1.level)
-		assertEquals(2, d2.level)
-		assertEquals(3, d3.level)
-		assertEquals(4, d4.level)
+		assertEquals(0, d0.getLevel)
+		assertEquals(1, d1.getLevel)
+		assertEquals(2, d2.getLevel)
+		assertEquals(3, d3.getLevel)
+		assertEquals(4, d4.getLevel)
 	}
 
 	@Test def testLevelsWithoutPart() {
@@ -60,10 +60,10 @@ package class PubNumberingUtilTest {
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.level)
-		assertEquals(1, d1.level)
-		assertEquals(2, d2.level)
-		assertEquals(3, d3.level)
+		assertEquals(0, d0.getLevel)
+		assertEquals(1, d1.getLevel)
+		assertEquals(2, d2.getLevel)
+		assertEquals(3, d3.getLevel)
 	}
 
 	@Test def testLevelsWithoutChapter() {
@@ -79,9 +79,9 @@ package class PubNumberingUtilTest {
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.level)
-		assertEquals(1, d1.level)
-		assertEquals(2, d2.level)
+		assertEquals(0, d0.getLevel)
+		assertEquals(1, d1.getLevel)
+		assertEquals(2, d2.getLevel)
 	}
 
 	@Test def testSequenceNumberWithPart() {
@@ -114,18 +114,18 @@ package class PubNumberingUtilTest {
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.sequenceNumber)
-		assertEquals(0, d00.sequenceNumber)
-		assertEquals(0, d000.sequenceNumber)
-		assertEquals(1, d001.sequenceNumber)
-		assertEquals(0, d0000.sequenceNumber)
-		assertEquals(1, d0001.sequenceNumber)
-		assertEquals(0, d00000.sequenceNumber)
-		assertEquals(1, d00001.sequenceNumber)
+		assertEquals(0, d0.getSequenceNumber)
+		assertEquals(0, d00.getSequenceNumber)
+		assertEquals(0, d000.getSequenceNumber)
+		assertEquals(1, d001.getSequenceNumber)
+		assertEquals(0, d0000.getSequenceNumber)
+		assertEquals(1, d0001.getSequenceNumber)
+		assertEquals(0, d00000.getSequenceNumber)
+		assertEquals(1, d00001.getSequenceNumber)
 
-		assertEquals(1, d1.sequenceNumber)
-		assertEquals(1, d10.sequenceNumber)
-		assertEquals(2, d11.sequenceNumber)
+		assertEquals(1, d1.getSequenceNumber)
+		assertEquals(1, d10.getSequenceNumber)
+		assertEquals(2, d11.getSequenceNumber)
 	}
 
 	@Test def testSequenceNumberWithoutPart() {
@@ -154,16 +154,16 @@ package class PubNumberingUtilTest {
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d00.sequenceNumber)
-		assertEquals(0, d000.sequenceNumber)
-		assertEquals(1, d001.sequenceNumber)
-		assertEquals(0, d0000.sequenceNumber)
-		assertEquals(1, d0001.sequenceNumber)
-		assertEquals(0, d00000.sequenceNumber)
-		assertEquals(1, d00001.sequenceNumber)
+		assertEquals(0, d00.getSequenceNumber)
+		assertEquals(0, d000.getSequenceNumber)
+		assertEquals(1, d001.getSequenceNumber)
+		assertEquals(0, d0000.getSequenceNumber)
+		assertEquals(1, d0001.getSequenceNumber)
+		assertEquals(0, d00000.getSequenceNumber)
+		assertEquals(1, d00001.getSequenceNumber)
 
-		assertEquals(1, d01.sequenceNumber)
-		assertEquals(2, d02.sequenceNumber)
+		assertEquals(1, d01.getSequenceNumber)
+		assertEquals(2, d02.getSequenceNumber)
 	}
 
 	@Test def testSequenceNumberWithoutChapter() {
@@ -185,12 +185,12 @@ package class PubNumberingUtilTest {
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, d0.sequenceNumber)
-		assertEquals(1, d1.sequenceNumber)
-		assertEquals(0, d00.sequenceNumber)
-		assertEquals(1, d01.sequenceNumber)
-		assertEquals(0, d000.sequenceNumber)
-		assertEquals(1, d001.sequenceNumber)
+		assertEquals(0, d0.getSequenceNumber)
+		assertEquals(1, d1.getSequenceNumber)
+		assertEquals(0, d00.getSequenceNumber)
+		assertEquals(1, d01.getSequenceNumber)
+		assertEquals(0, d000.getSequenceNumber)
+		assertEquals(1, d001.getSequenceNumber)
 	}
 
 	@Test def testDivisionIdWithPart() {
@@ -402,11 +402,11 @@ package class PubNumberingUtilTest {
 
 		b.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, b0.sequenceNumber)
-		assertEquals(0, b00.sequenceNumber)
-		assertEquals(1, b01.sequenceNumber)
-		assertEquals(0, b000.sequenceNumber)
-		assertEquals(1, b001.sequenceNumber)
+		assertEquals(0, b0.getSequenceNumber)
+		assertEquals(0, b00.getSequenceNumber)
+		assertEquals(1, b01.getSequenceNumber)
+		assertEquals(0, b000.getSequenceNumber)
+		assertEquals(1, b001.getSequenceNumber)
 
 		assertEquals("0", b0.id)
 		assertEquals("0-0", b00.id)
@@ -414,14 +414,14 @@ package class PubNumberingUtilTest {
 		assertEquals("0-0-0", b000.id)
 		assertEquals("0-0-1", b001.id)
 
-		assertEquals(1, b1.sequenceNumber)
-		assertEquals(-1, a0.sequenceNumber) // included => skipped when assigning numbers
-		assertEquals(2, a00.sequenceNumber)
-		assertEquals(3, a01.sequenceNumber)
-		assertEquals(0, a000.sequenceNumber)
-		assertEquals(1, a001.sequenceNumber)
-		assertEquals(0, a010.sequenceNumber)
-		assertEquals(1, a011.sequenceNumber)
+		assertEquals(1, b1.getSequenceNumber)
+		assertEquals(-1, a0.getSequenceNumber) // included => skipped when assigning numbers
+		assertEquals(2, a00.getSequenceNumber)
+		assertEquals(3, a01.getSequenceNumber)
+		assertEquals(0, a000.getSequenceNumber)
+		assertEquals(1, a001.getSequenceNumber)
+		assertEquals(0, a010.getSequenceNumber)
+		assertEquals(1, a011.getSequenceNumber)
 
 		assertEquals("1", b1.id)
 		assertEquals("1-2", a00.id)
@@ -431,11 +431,11 @@ package class PubNumberingUtilTest {
 		assertEquals("1-3-0", a010.id)
 		assertEquals("1-3-1", a011.id)
 
-		assertEquals(2, b2.sequenceNumber)
-		assertEquals(4, b20.sequenceNumber)
-		assertEquals(5, b21.sequenceNumber)
-		assertEquals(0, b200.sequenceNumber)
-		assertEquals(1, b201.sequenceNumber)
+		assertEquals(2, b2.getSequenceNumber)
+		assertEquals(4, b20.getSequenceNumber)
+		assertEquals(5, b21.getSequenceNumber)
+		assertEquals(0, b200.getSequenceNumber)
+		assertEquals(1, b201.getSequenceNumber)
 
 		assertEquals("2", b2.id)
 		assertEquals("2-4", b20.id)
@@ -508,11 +508,11 @@ package class PubNumberingUtilTest {
 
 		b.gatherAllDivisionsAndSetSequenceNumbers
 
-		assertEquals(0, b0.sequenceNumber)
-		assertEquals(0, b00.sequenceNumber)
-		assertEquals(1, b01.sequenceNumber)
-		assertEquals(0, b000.sequenceNumber)
-		assertEquals(0, b010.sequenceNumber)
+		assertEquals(0, b0.getSequenceNumber)
+		assertEquals(0, b00.getSequenceNumber)
+		assertEquals(1, b01.getSequenceNumber)
+		assertEquals(0, b000.getSequenceNumber)
+		assertEquals(0, b010.getSequenceNumber)
 
 		assertEquals("0", b0.id)
 		assertEquals("0-0", b00.id)
@@ -520,26 +520,26 @@ package class PubNumberingUtilTest {
 		assertEquals("0-0-0", b000.id)
 		assertEquals("0-1-0", b010.id)
 
-		assertEquals(1, b1.sequenceNumber)
-		assertEquals(2, b10.sequenceNumber)
-		assertEquals(3, b11.sequenceNumber)
-		assertEquals(-1, a00.sequenceNumber) // included => skipped when assigning numbers
-		assertEquals(0, a000.sequenceNumber)	// included via a00
-		assertEquals(1, a001.sequenceNumber)	// included via a00
-		assertEquals(-1, a01.sequenceNumber) // not included
-		assertEquals(-1, a010.sequenceNumber) // not included
-		assertEquals(-1, a011.sequenceNumber) // not included
+		assertEquals(1, b1.getSequenceNumber)
+		assertEquals(2, b10.getSequenceNumber)
+		assertEquals(3, b11.getSequenceNumber)
+		assertEquals(-1, a00.getSequenceNumber) // included => skipped when assigning numbers
+		assertEquals(0, a000.getSequenceNumber)	// included via a00
+		assertEquals(1, a001.getSequenceNumber)	// included via a00
+		assertEquals(-1, a01.getSequenceNumber) // not included
+		assertEquals(-1, a010.getSequenceNumber) // not included
+		assertEquals(-1, a011.getSequenceNumber) // not included
 		assertEquals("1", b1.id)
 		assertEquals("1-2", b10.id)
 		assertEquals("1-3", b11.id)
 		assertEquals("1-3-0", a000.id)	// included via a00
 		assertEquals("1-3-1", a001.id)	// included via a00
 
-		assertEquals(2, b2.sequenceNumber)
-		assertEquals(4, b20.sequenceNumber)
-		assertEquals(5, b21.sequenceNumber)
-		assertEquals(0, b200.sequenceNumber)
-		assertEquals(1, b201.sequenceNumber)
+		assertEquals(2, b2.getSequenceNumber)
+		assertEquals(4, b20.getSequenceNumber)
+		assertEquals(5, b21.getSequenceNumber)
+		assertEquals(0, b200.getSequenceNumber)
+		assertEquals(1, b201.getSequenceNumber)
 
 		assertEquals("2", b2.id)
 		assertEquals("2-4", b20.id)
@@ -757,18 +757,18 @@ package class PubNumberingUtilTest {
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 		compo.gatherAllTablesInSequenceAndSetSequenceNumbers
 
-		assertEquals(0, t00.sequenceNumber)
-		assertEquals(-1, t00.sequenceNumberInChapter)
-		assertEquals(1, t10.sequenceNumber)
-		assertEquals(0, t10.sequenceNumberInChapter)
-		assertEquals(2, t11.sequenceNumber)
-		assertEquals(0, t11.sequenceNumberInChapter)
-		assertEquals(3, t30.sequenceNumber)
-		assertEquals(1, t30.sequenceNumberInChapter)
-		assertEquals(4, t41.sequenceNumber)
-		assertEquals(2, t41.sequenceNumberInChapter)
-		assertEquals(5, t21.sequenceNumber)
-		assertEquals(3, t21.sequenceNumberInChapter)
+		assertEquals(0, t00.getSequenceNumber)
+		assertEquals(-1, t00.getSequenceNumberInChapter)
+		assertEquals(1, t10.getSequenceNumber)
+		assertEquals(0, t10.getSequenceNumberInChapter)
+		assertEquals(2, t11.getSequenceNumber)
+		assertEquals(0, t11.getSequenceNumberInChapter)
+		assertEquals(3, t30.getSequenceNumber)
+		assertEquals(1, t30.getSequenceNumberInChapter)
+		assertEquals(4, t41.getSequenceNumber)
+		assertEquals(2, t41.getSequenceNumberInChapter)
+		assertEquals(5, t21.getSequenceNumber)
+		assertEquals(3, t21.getSequenceNumberInChapter)
 
 		val pPubClass = PROTO.createPublicationClass
 		compo.publicationClass = pPubClass
@@ -820,16 +820,16 @@ package class PubNumberingUtilTest {
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 		compo.gatherAllTablesInSequenceAndSetSequenceNumbers
 
-		assertEquals(0, t10.sequenceNumber)
-		assertEquals(0, t10.sequenceNumberInChapter)
-		assertEquals(1, t11.sequenceNumber)
-		assertEquals(0, t11.sequenceNumberInChapter)
-		assertEquals(2, t30.sequenceNumber)
-		assertEquals(1, t30.sequenceNumberInChapter)
-		assertEquals(3, t41.sequenceNumber)
-		assertEquals(2, t41.sequenceNumberInChapter)
-		assertEquals(4, t21.sequenceNumber)
-		assertEquals(3, t21.sequenceNumberInChapter)
+		assertEquals(0, t10.getSequenceNumber)
+		assertEquals(0, t10.getSequenceNumberInChapter)
+		assertEquals(1, t11.getSequenceNumber)
+		assertEquals(0, t11.getSequenceNumberInChapter)
+		assertEquals(2, t30.getSequenceNumber)
+		assertEquals(1, t30.getSequenceNumberInChapter)
+		assertEquals(3, t41.getSequenceNumber)
+		assertEquals(2, t41.getSequenceNumberInChapter)
+		assertEquals(4, t21.getSequenceNumber)
+		assertEquals(3, t21.getSequenceNumberInChapter)
 
 		val pPubClass = PROTO.createPublicationClass
 		compo.publicationClass = pPubClass
@@ -870,12 +870,12 @@ package class PubNumberingUtilTest {
 		compo.gatherAllDivisionsAndSetSequenceNumbers
 		compo.gatherAllTablesInSequenceAndSetSequenceNumbers
 
-		assertEquals(0, t30.sequenceNumber)
-		assertEquals(-1, t30.sequenceNumberInChapter)
-		assertEquals(1, t41.sequenceNumber)
-		assertEquals(-1, t41.sequenceNumberInChapter)
-		assertEquals(2, t21.sequenceNumber)
-		assertEquals(-1, t21.sequenceNumberInChapter)
+		assertEquals(0, t30.getSequenceNumber)
+		assertEquals(-1, t30.getSequenceNumberInChapter)
+		assertEquals(1, t41.getSequenceNumber)
+		assertEquals(-1, t41.getSequenceNumberInChapter)
+		assertEquals(2, t21.getSequenceNumber)
+		assertEquals(-1, t21.getSequenceNumberInChapter)
 
 		val pPubClass = PROTO.createPublicationClass
 		compo.publicationClass = pPubClass
@@ -931,19 +931,19 @@ package class PubNumberingUtilTest {
 		b.gatherAllDivisionsAndSetSequenceNumbers
 		b.gatherAllTablesInSequenceAndSetSequenceNumbers
 
-		assertEquals(0, tb00.sequenceNumber)
-		assertEquals(-1, tb00.sequenceNumberInChapter)
-		assertEquals(1, tb10.sequenceNumber)
-		assertEquals(0, tb10.sequenceNumberInChapter)
-		assertEquals(2, tb20.sequenceNumber)
-		assertEquals(1, tb20.sequenceNumberInChapter)
-		assertEquals(3, tb11.sequenceNumber)
-		assertEquals(0, tb11.sequenceNumberInChapter)
-		assertEquals(4, ta000.sequenceNumber)
-		assertEquals(1, ta000.sequenceNumberInChapter)
+		assertEquals(0, tb00.getSequenceNumber)
+		assertEquals(-1, tb00.getSequenceNumberInChapter)
+		assertEquals(1, tb10.getSequenceNumber)
+		assertEquals(0, tb10.getSequenceNumberInChapter)
+		assertEquals(2, tb20.getSequenceNumber)
+		assertEquals(1, tb20.getSequenceNumberInChapter)
+		assertEquals(3, tb11.getSequenceNumber)
+		assertEquals(0, tb11.getSequenceNumberInChapter)
+		assertEquals(4, ta000.getSequenceNumber)
+		assertEquals(1, ta000.getSequenceNumberInChapter)
 
-		assertEquals(-1, ta00.sequenceNumber)
-		assertEquals(-1, ta00.sequenceNumberInChapter)
+		assertEquals(-1, ta00.getSequenceNumber)
+		assertEquals(-1, ta00.getSequenceNumberInChapter)
 
 		val pPubClass = PROTO.createPublicationClass
 		b.publicationClass = pPubClass

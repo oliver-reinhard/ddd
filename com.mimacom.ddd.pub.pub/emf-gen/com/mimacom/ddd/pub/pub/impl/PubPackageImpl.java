@@ -30,6 +30,7 @@ import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Epilogue;
 import com.mimacom.ddd.pub.pub.Equation;
 import com.mimacom.ddd.pub.pub.FigureRenderer;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Glossary;
 import com.mimacom.ddd.pub.pub.GlossaryEntry;
 import com.mimacom.ddd.pub.pub.GridLines;
@@ -41,7 +42,8 @@ import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
 import com.mimacom.ddd.pub.pub.ListStyle;
-import com.mimacom.ddd.pub.pub.NumberedElement;
+import com.mimacom.ddd.pub.pub.Numbered;
+import com.mimacom.ddd.pub.pub.NumberedByChapter;
 import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.ParagraphStyle;
 import com.mimacom.ddd.pub.pub.Part;
@@ -301,7 +303,14 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass numberedElementEClass = null;
+	private EClass numberedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberedByChapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -519,6 +528,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	private EClass unformattedParagraphEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass footnoteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1401,8 +1417,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getNumberedElement() {
-		return numberedElementEClass;
+	public EClass getNumbered() {
+		return numberedEClass;
 	}
 
 	/**
@@ -1411,8 +1427,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNumberedElement_Level() {
-		return (EAttribute)numberedElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getNumbered_Level() {
+		return (EAttribute)numberedEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1421,8 +1437,38 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNumberedElement_SequenceNumber() {
-		return (EAttribute)numberedElementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getNumbered_SequenceNumber() {
+		return (EAttribute)numberedEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNumberedByChapter() {
+		return numberedByChapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNumberedByChapter_LogicalContainer() {
+		return (EReference)numberedByChapterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNumberedByChapter_SequenceNumberInChapter() {
+		return (EAttribute)numberedByChapterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1743,26 +1789,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EReference getTitledBlock_Title() {
 		return (EReference)titledBlockEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTitledBlock_LogicalContainer() {
-		return (EReference)titledBlockEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTitledBlock_SequenceNumberInChapter() {
-		return (EAttribute)titledBlockEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2271,6 +2297,26 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getFootnote() {
+		return footnoteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFootnote_Text() {
+		return (EReference)footnoteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getPublicationNature() {
 		return publicationNatureEEnum;
 	}
@@ -2469,9 +2515,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		publicationBodyEClass = createEClass(PUBLICATION_BODY);
 
-		numberedElementEClass = createEClass(NUMBERED_ELEMENT);
-		createEAttribute(numberedElementEClass, NUMBERED_ELEMENT__LEVEL);
-		createEAttribute(numberedElementEClass, NUMBERED_ELEMENT__SEQUENCE_NUMBER);
+		numberedEClass = createEClass(NUMBERED);
+		createEAttribute(numberedEClass, NUMBERED__LEVEL);
+		createEAttribute(numberedEClass, NUMBERED__SEQUENCE_NUMBER);
+
+		numberedByChapterEClass = createEClass(NUMBERED_BY_CHAPTER);
+		createEReference(numberedByChapterEClass, NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER);
+		createEAttribute(numberedByChapterEClass, NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER);
 
 		divisionContainerEClass = createEClass(DIVISION_CONTAINER);
 		createEReference(divisionContainerEClass, DIVISION_CONTAINER__DIVISIONS);
@@ -2517,8 +2567,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		titledBlockEClass = createEClass(TITLED_BLOCK);
 		createEReference(titledBlockEClass, TITLED_BLOCK__TITLE);
-		createEReference(titledBlockEClass, TITLED_BLOCK__LOGICAL_CONTAINER);
-		createEAttribute(titledBlockEClass, TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER);
 		createEOperation(titledBlockEClass, TITLED_BLOCK___GET_ID);
 		createEOperation(titledBlockEClass, TITLED_BLOCK___PARENT);
 
@@ -2588,6 +2636,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		unformattedParagraphEClass = createEClass(UNFORMATTED_PARAGRAPH);
 		createEAttribute(unformattedParagraphEClass, UNFORMATTED_PARAGRAPH__TEXT);
 
+		footnoteEClass = createEClass(FOOTNOTE);
+		createEReference(footnoteEClass, FOOTNOTE__TEXT);
+
 		// Create enums
 		publicationNatureEEnum = createEEnum(PUBLICATION_NATURE);
 		referenceScopeEEnum = createEEnum(REFERENCE_SCOPE);
@@ -2655,9 +2706,10 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		segmentIncludeEClass.getESuperTypes().add(this.getDocumentSegment());
 		publicationBodyEClass.getESuperTypes().add(this.getDocumentSegment());
 		publicationBodyEClass.getESuperTypes().add(this.getDivisionContainer());
+		numberedByChapterEClass.getESuperTypes().add(this.getNumbered());
 		divisionEClass.getESuperTypes().add(this.getDivisionContainer());
 		divisionEClass.getESuperTypes().add(this.getBlockContainer());
-		divisionEClass.getESuperTypes().add(this.getNumberedElement());
+		divisionEClass.getESuperTypes().add(this.getNumbered());
 		divisionEClass.getESuperTypes().add(this.getReferenceTarget());
 		partEClass.getESuperTypes().add(this.getDivision());
 		appendixEClass.getESuperTypes().add(this.getPart());
@@ -2671,10 +2723,10 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		listEClass.getESuperTypes().add(this.getContentBlock());
 		listEClass.getESuperTypes().add(this.getReferenceTarget());
 		listItemEClass.getESuperTypes().add(this.getBlockContainer());
-		listItemEClass.getESuperTypes().add(this.getNumberedElement());
+		listItemEClass.getESuperTypes().add(this.getNumbered());
 		listItemEClass.getESuperTypes().add(this.getReferenceTarget());
 		titledBlockEClass.getESuperTypes().add(this.getContentBlock());
-		titledBlockEClass.getESuperTypes().add(this.getNumberedElement());
+		titledBlockEClass.getESuperTypes().add(this.getNumberedByChapter());
 		titledBlockEClass.getESuperTypes().add(this.getReferenceTarget());
 		titledTableEClass.getESuperTypes().add(this.getTitledBlock());
 		tableEClass.getESuperTypes().add(this.getAbstractTable());
@@ -2689,6 +2741,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		richTextParagraphEClass.getESuperTypes().add(this.getParagraph());
 		richTextReferencingParagraphEClass.getESuperTypes().add(this.getContentBlock());
 		unformattedParagraphEClass.getESuperTypes().add(this.getParagraph());
+		footnoteEClass.getESuperTypes().add(this.getContentBlock());
+		footnoteEClass.getESuperTypes().add(this.getReferenceTarget());
+		footnoteEClass.getESuperTypes().add(this.getNumberedByChapter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(pubModelEClass, PubModel.class, "PubModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2801,9 +2856,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(publicationBodyEClass, PublicationBody.class, "PublicationBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(numberedElementEClass, NumberedElement.class, "NumberedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumberedElement_Level(), theEcorePackage.getEInt(), "level", "-1", 0, 1, NumberedElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumberedElement_SequenceNumber(), theEcorePackage.getEInt(), "sequenceNumber", "-1", 0, 1, NumberedElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(numberedEClass, Numbered.class, "Numbered", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumbered_Level(), theEcorePackage.getEInt(), "level", "-1", 0, 1, Numbered.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumbered_SequenceNumber(), theEcorePackage.getEInt(), "sequenceNumber", "-1", 0, 1, Numbered.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numberedByChapterEClass, NumberedByChapter.class, "NumberedByChapter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNumberedByChapter_LogicalContainer(), this.getChapter(), null, "logicalContainer", null, 0, 1, NumberedByChapter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumberedByChapter_SequenceNumberInChapter(), theEcorePackage.getEInt(), "sequenceNumberInChapter", "-1", 0, 1, NumberedByChapter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(divisionContainerEClass, DivisionContainer.class, "DivisionContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDivisionContainer_Divisions(), this.getDivision(), null, "divisions", null, 0, -1, DivisionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2854,8 +2913,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(titledBlockEClass, TitledBlock.class, "TitledBlock", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTitledBlock_Title(), theBasePackage.getDRichText(), null, "title", null, 0, 1, TitledBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTitledBlock_LogicalContainer(), this.getChapter(), null, "logicalContainer", null, 0, 1, TitledBlock.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTitledBlock_SequenceNumberInChapter(), theEcorePackage.getEInt(), "sequenceNumberInChapter", "-1", 0, 1, TitledBlock.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTitledBlock__GetId(), theEcorePackage.getEString(), "getId", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -2927,6 +2984,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(unformattedParagraphEClass, UnformattedParagraph.class, "UnformattedParagraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnformattedParagraph_Text(), theEcorePackage.getEString(), "text", null, 0, 1, UnformattedParagraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(footnoteEClass, Footnote.class, "Footnote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFootnote_Text(), theBasePackage.getDRichText(), null, "text", null, 0, 1, Footnote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(publicationNatureEEnum, PublicationNature.class, "PublicationNature");
 		addEEnumLiteral(publicationNatureEEnum, PublicationNature.PRINT);
@@ -2942,6 +3002,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SECTION);
 		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SUBSECTION);
 		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SUBSUBSECTION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.LIST_ITEM);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.FOOTNOTE);
 		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.TABLE);
 		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.FIGURE);
 		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.EQUATION);

@@ -5,46 +5,70 @@ package com.mimacom.ddd.pub.pub.impl;
 import com.mimacom.ddd.dm.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.Chapter;
-import com.mimacom.ddd.pub.pub.Division;
+import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Numbered;
 import com.mimacom.ddd.pub.pub.NumberedByChapter;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
-import com.mimacom.ddd.pub.pub.TitledBlock;
-
-import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Titled Block</b></em>'.
+ * An implementation of the model object '<em><b>Footnote</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getSequenceNumber <em>Sequence Number</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getLogicalContainer <em>Logical Container</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getSequenceNumberInChapter <em>Sequence Number In Chapter</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledBlockImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getId <em>Id</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getSequenceNumber <em>Sequence Number</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getLogicalContainer <em>Logical Container</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getSequenceNumberInChapter <em>Sequence Number In Chapter</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.FootnoteImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class TitledBlockImpl extends ContentBlockImpl implements TitledBlock {
+public class FootnoteImpl extends ContentBlockImpl implements Footnote {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -116,51 +140,21 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	protected int sequenceNumberInChapter = SEQUENCE_NUMBER_IN_CHAPTER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTitle()
-	 * @generated
-	 * @ordered
-	 */
-	protected DRichText title;
+	protected DRichText text;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TitledBlockImpl() {
+	protected FootnoteImpl() {
 		super();
 	}
 
@@ -171,7 +165,40 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PubPackage.Literals.TITLED_BLOCK;
+		return PubPackage.Literals.FOOTNOTE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getId() {
+		return this.getName();
 	}
 
 	/**
@@ -194,7 +221,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 		int oldLevel = level;
 		level = newLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__LEVEL, oldLevel, level));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__LEVEL, oldLevel, level));
 	}
 
 	/**
@@ -217,7 +244,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 		int oldSequenceNumber = sequenceNumber;
 		sequenceNumber = newSequenceNumber;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER, oldSequenceNumber, sequenceNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__SEQUENCE_NUMBER, oldSequenceNumber, sequenceNumber));
 	}
 
 	/**
@@ -232,7 +259,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 			logicalContainer = (Chapter)eResolveProxy(oldLogicalContainer);
 			if (logicalContainer != oldLogicalContainer) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER, oldLogicalContainer, logicalContainer));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.FOOTNOTE__LOGICAL_CONTAINER, oldLogicalContainer, logicalContainer));
 			}
 		}
 		return logicalContainer;
@@ -257,7 +284,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 		Chapter oldLogicalContainer = logicalContainer;
 		logicalContainer = newLogicalContainer;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER, oldLogicalContainer, logicalContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__LOGICAL_CONTAINER, oldLogicalContainer, logicalContainer));
 	}
 
 	/**
@@ -280,7 +307,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 		int oldSequenceNumberInChapter = sequenceNumberInChapter;
 		sequenceNumberInChapter = newSequenceNumberInChapter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER, oldSequenceNumberInChapter, sequenceNumberInChapter));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER, oldSequenceNumberInChapter, sequenceNumberInChapter));
 	}
 
 	/**
@@ -289,8 +316,8 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
+	public DRichText getText() {
+		return text;
 	}
 
 	/**
@@ -298,55 +325,11 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getId() {
-		if (((this.getName() == null) || this.getName().isEmpty())) {
-			final String blockType = this.getClass().getSimpleName().replace("Titled", "").replace("Impl", "").toLowerCase();
-			int _sequenceNumber = this.getSequenceNumber();
-			boolean _notEquals = (_sequenceNumber != (-1));
-			if (_notEquals) {
-				int _sequenceNumber_1 = this.getSequenceNumber();
-				return ((blockType + "-") + Integer.valueOf(_sequenceNumber_1));
-			}
-			int _hashCode = this.hashCode();
-			return ((blockType + "-") + Integer.valueOf(_hashCode));
-		}
-		return this.getName();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DRichText getTitle() {
-		return title;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTitle(DRichText newTitle, NotificationChain msgs) {
-		DRichText oldTitle = title;
-		title = newTitle;
+	public NotificationChain basicSetText(DRichText newText, NotificationChain msgs) {
+		DRichText oldText = text;
+		text = newText;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__TITLE, oldTitle, newTitle);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__TEXT, oldText, newText);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -358,38 +341,18 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * @generated
 	 */
 	@Override
-	public void setTitle(DRichText newTitle) {
-		if (newTitle != title) {
+	public void setText(DRichText newText) {
+		if (newText != text) {
 			NotificationChain msgs = null;
-			if (title != null)
-				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PubPackage.TITLED_BLOCK__TITLE, null, msgs);
-			if (newTitle != null)
-				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PubPackage.TITLED_BLOCK__TITLE, null, msgs);
-			msgs = basicSetTitle(newTitle, msgs);
+			if (text != null)
+				msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PubPackage.FOOTNOTE__TEXT, null, msgs);
+			if (newText != null)
+				msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PubPackage.FOOTNOTE__TEXT, null, msgs);
+			msgs = basicSetText(newText, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_BLOCK__TITLE, newTitle, newTitle));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Division parent() {
-		Chapter _logicalContainer = this.getLogicalContainer();
-		boolean _tripleNotEquals = (_logicalContainer != null);
-		if (_tripleNotEquals) {
-			return this.getLogicalContainer();
-		}
-		EObject p = this.eContainer();
-		while (((p != null) && (!(p instanceof Division)))) {
-			p = p.eContainer();
-		}
-		EObject _eContainer = this.eContainer();
-		return ((Division) _eContainer);
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.FOOTNOTE__TEXT, newText, newText));
 	}
 
 	/**
@@ -400,8 +363,8 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PubPackage.TITLED_BLOCK__TITLE:
-				return basicSetTitle(null, msgs);
+			case PubPackage.FOOTNOTE__TEXT:
+				return basicSetText(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -414,21 +377,21 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.TITLED_BLOCK__LEVEL:
+			case PubPackage.FOOTNOTE__NAME:
+				return getName();
+			case PubPackage.FOOTNOTE__ID:
+				return getId();
+			case PubPackage.FOOTNOTE__LEVEL:
 				return getLevel();
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER:
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER:
 				return getSequenceNumber();
-			case PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER:
+			case PubPackage.FOOTNOTE__LOGICAL_CONTAINER:
 				if (resolve) return getLogicalContainer();
 				return basicGetLogicalContainer();
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER:
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER:
 				return getSequenceNumberInChapter();
-			case PubPackage.TITLED_BLOCK__NAME:
-				return getName();
-			case PubPackage.TITLED_BLOCK__ID:
-				return getId();
-			case PubPackage.TITLED_BLOCK__TITLE:
-				return getTitle();
+			case PubPackage.FOOTNOTE__TEXT:
+				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -441,23 +404,23 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.TITLED_BLOCK__LEVEL:
-				setLevel((Integer)newValue);
-				return;
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER:
-				setSequenceNumber((Integer)newValue);
-				return;
-			case PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER:
-				setLogicalContainer((Chapter)newValue);
-				return;
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER:
-				setSequenceNumberInChapter((Integer)newValue);
-				return;
-			case PubPackage.TITLED_BLOCK__NAME:
+			case PubPackage.FOOTNOTE__NAME:
 				setName((String)newValue);
 				return;
-			case PubPackage.TITLED_BLOCK__TITLE:
-				setTitle((DRichText)newValue);
+			case PubPackage.FOOTNOTE__LEVEL:
+				setLevel((Integer)newValue);
+				return;
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER:
+				setSequenceNumber((Integer)newValue);
+				return;
+			case PubPackage.FOOTNOTE__LOGICAL_CONTAINER:
+				setLogicalContainer((Chapter)newValue);
+				return;
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER:
+				setSequenceNumberInChapter((Integer)newValue);
+				return;
+			case PubPackage.FOOTNOTE__TEXT:
+				setText((DRichText)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -471,23 +434,23 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.TITLED_BLOCK__LEVEL:
-				setLevel(LEVEL_EDEFAULT);
-				return;
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER:
-				setSequenceNumber(SEQUENCE_NUMBER_EDEFAULT);
-				return;
-			case PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER:
-				setLogicalContainer((Chapter)null);
-				return;
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER:
-				setSequenceNumberInChapter(SEQUENCE_NUMBER_IN_CHAPTER_EDEFAULT);
-				return;
-			case PubPackage.TITLED_BLOCK__NAME:
+			case PubPackage.FOOTNOTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case PubPackage.TITLED_BLOCK__TITLE:
-				setTitle((DRichText)null);
+			case PubPackage.FOOTNOTE__LEVEL:
+				setLevel(LEVEL_EDEFAULT);
+				return;
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER:
+				setSequenceNumber(SEQUENCE_NUMBER_EDEFAULT);
+				return;
+			case PubPackage.FOOTNOTE__LOGICAL_CONTAINER:
+				setLogicalContainer((Chapter)null);
+				return;
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER:
+				setSequenceNumberInChapter(SEQUENCE_NUMBER_IN_CHAPTER_EDEFAULT);
+				return;
+			case PubPackage.FOOTNOTE__TEXT:
+				setText((DRichText)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -501,20 +464,20 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.TITLED_BLOCK__LEVEL:
-				return level != LEVEL_EDEFAULT;
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER:
-				return sequenceNumber != SEQUENCE_NUMBER_EDEFAULT;
-			case PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER:
-				return logicalContainer != null;
-			case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER:
-				return sequenceNumberInChapter != SEQUENCE_NUMBER_IN_CHAPTER_EDEFAULT;
-			case PubPackage.TITLED_BLOCK__NAME:
+			case PubPackage.FOOTNOTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PubPackage.TITLED_BLOCK__ID:
+			case PubPackage.FOOTNOTE__ID:
 				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
-			case PubPackage.TITLED_BLOCK__TITLE:
-				return title != null;
+			case PubPackage.FOOTNOTE__LEVEL:
+				return level != LEVEL_EDEFAULT;
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER:
+				return sequenceNumber != SEQUENCE_NUMBER_EDEFAULT;
+			case PubPackage.FOOTNOTE__LOGICAL_CONTAINER:
+				return logicalContainer != null;
+			case PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER:
+				return sequenceNumberInChapter != SEQUENCE_NUMBER_IN_CHAPTER_EDEFAULT;
+			case PubPackage.FOOTNOTE__TEXT:
+				return text != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -526,24 +489,24 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ReferenceTarget.class) {
+			switch (derivedFeatureID) {
+				case PubPackage.FOOTNOTE__NAME: return PubPackage.REFERENCE_TARGET__NAME;
+				case PubPackage.FOOTNOTE__ID: return PubPackage.REFERENCE_TARGET__ID;
+				default: return -1;
+			}
+		}
 		if (baseClass == Numbered.class) {
 			switch (derivedFeatureID) {
-				case PubPackage.TITLED_BLOCK__LEVEL: return PubPackage.NUMBERED__LEVEL;
-				case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER: return PubPackage.NUMBERED__SEQUENCE_NUMBER;
+				case PubPackage.FOOTNOTE__LEVEL: return PubPackage.NUMBERED__LEVEL;
+				case PubPackage.FOOTNOTE__SEQUENCE_NUMBER: return PubPackage.NUMBERED__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
 		if (baseClass == NumberedByChapter.class) {
 			switch (derivedFeatureID) {
-				case PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER: return PubPackage.NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER;
-				case PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER: return PubPackage.NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER;
-				default: return -1;
-			}
-		}
-		if (baseClass == ReferenceTarget.class) {
-			switch (derivedFeatureID) {
-				case PubPackage.TITLED_BLOCK__NAME: return PubPackage.REFERENCE_TARGET__NAME;
-				case PubPackage.TITLED_BLOCK__ID: return PubPackage.REFERENCE_TARGET__ID;
+				case PubPackage.FOOTNOTE__LOGICAL_CONTAINER: return PubPackage.NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER;
+				case PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER: return PubPackage.NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER;
 				default: return -1;
 			}
 		}
@@ -557,24 +520,24 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ReferenceTarget.class) {
+			switch (baseFeatureID) {
+				case PubPackage.REFERENCE_TARGET__NAME: return PubPackage.FOOTNOTE__NAME;
+				case PubPackage.REFERENCE_TARGET__ID: return PubPackage.FOOTNOTE__ID;
+				default: return -1;
+			}
+		}
 		if (baseClass == Numbered.class) {
 			switch (baseFeatureID) {
-				case PubPackage.NUMBERED__LEVEL: return PubPackage.TITLED_BLOCK__LEVEL;
-				case PubPackage.NUMBERED__SEQUENCE_NUMBER: return PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER;
+				case PubPackage.NUMBERED__LEVEL: return PubPackage.FOOTNOTE__LEVEL;
+				case PubPackage.NUMBERED__SEQUENCE_NUMBER: return PubPackage.FOOTNOTE__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
 		if (baseClass == NumberedByChapter.class) {
 			switch (baseFeatureID) {
-				case PubPackage.NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER: return PubPackage.TITLED_BLOCK__LOGICAL_CONTAINER;
-				case PubPackage.NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER: return PubPackage.TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER;
-				default: return -1;
-			}
-		}
-		if (baseClass == ReferenceTarget.class) {
-			switch (baseFeatureID) {
-				case PubPackage.REFERENCE_TARGET__NAME: return PubPackage.TITLED_BLOCK__NAME;
-				case PubPackage.REFERENCE_TARGET__ID: return PubPackage.TITLED_BLOCK__ID;
+				case PubPackage.NUMBERED_BY_CHAPTER__LOGICAL_CONTAINER: return PubPackage.FOOTNOTE__LOGICAL_CONTAINER;
+				case PubPackage.NUMBERED_BY_CHAPTER__SEQUENCE_NUMBER_IN_CHAPTER: return PubPackage.FOOTNOTE__SEQUENCE_NUMBER_IN_CHAPTER;
 				default: return -1;
 			}
 		}
@@ -587,34 +550,20 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case PubPackage.TITLED_BLOCK___PARENT:
-				return parent();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (level: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", level: ");
 		result.append(level);
 		result.append(", sequenceNumber: ");
 		result.append(sequenceNumber);
 		result.append(", sequenceNumberInChapter: ");
 		result.append(sequenceNumberInChapter);
-		result.append(", name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //TitledBlockImpl
+} //FootnoteImpl

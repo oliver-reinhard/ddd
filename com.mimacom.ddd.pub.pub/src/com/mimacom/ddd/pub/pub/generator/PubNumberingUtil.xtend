@@ -6,8 +6,8 @@ import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.pub.Chapter
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
+import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.ListItem
-import com.mimacom.ddd.pub.pub.NumberedElement
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
@@ -19,6 +19,8 @@ import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import java.util.List
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.pub.pub.NumberedByChapter
+import com.mimacom.ddd.pub.pub.Numbered
 
 class PubNumberingUtil {
 
@@ -64,8 +66,8 @@ class PubNumberingUtil {
 		if (b.parent instanceof Chapter) {
 			val parentNumber = b.parent.formattedSingleNumber
 			if (parentNumber.length > 0) {
-				if (b.sequenceNumberInChapter != PubConstants::TITLED_BLOCK_UNDEFINED_SEQUENCE_NUMBER_IN_CHAPTER) {
-					return parentNumber + "." + Integer.toString(b.sequenceNumberInChapter + 1)
+				if (b.getSequenceNumberInChapter != PubConstants::TITLED_BLOCK_UNDEFINED_SEQUENCE_NUMBER_IN_CHAPTER) {
+					return parentNumber + "." + Integer.toString(b.getSequenceNumberInChapter + 1)
 				}
 			}
 		}
@@ -79,11 +81,11 @@ class PubNumberingUtil {
 		t.id
 	}
 
-	def dispatch String tieredNumber(NumberedElement e) {
-		if (e.sequenceNumber == PubConstants::UNDEFINED_SEQUENCE_NUMBER) {
+	def dispatch String tieredNumber(Numbered e) {
+		if (e.getSequenceNumber == PubConstants::UNDEFINED_SEQUENCE_NUMBER) {
 			"UNDEFINED"
 		} else {
-			e.sequenceNumber.toString
+			e.getSequenceNumber.toString
 		}
 	}
 
@@ -104,6 +106,11 @@ class PubNumberingUtil {
 		val n = item.getSequenceNumber() + 1
 		val formatted = formatNumbering(item.list.numberingStyle, n)
 		return formatted
+	}
+
+	def String formattedSingleNumber(Footnote f) {
+		val n = f.getSequenceNumber() + 1
+		n.toString
 	}
 
 	protected def String formatNumbering(ProtoSequenceNumberStyle numberingStyle, int n) {
@@ -253,7 +260,13 @@ class PubNumberingUtil {
 		return acceptor
 	}
 
-	protected def <T extends TitledBlock> void gatherAllElementsInSequenceAndSetSequenceNumbers(Component compo,
+	def List<Footnote> gatherAllFootnotesInSequenceAndSetSequenceNumbers(Component compo) {
+		val List<Footnote> acceptor = Lists.newArrayList
+		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Footnote, acceptor)
+		return acceptor
+	}
+
+	protected def <T extends NumberedByChapter> void gatherAllElementsInSequenceAndSetSequenceNumbers(Component compo,
 		Class<T> clazz, List<T> acceptor) {
 		val bodySegment = compo.segments.filter(PublicationBody)
 		if (! bodySegment.empty) {
@@ -261,14 +274,14 @@ class PubNumberingUtil {
 		}
 	}
 
-	protected def <T extends TitledBlock> void gatherAllElementsInSequenceAndSetSequenceNumbers(
+	protected def <T extends NumberedByChapter> void gatherAllElementsInSequenceAndSetSequenceNumbers(
 		List<Division> divisions, Class<T> clazz, List<T> globalAcceptor, Chapter logicalContainer,
 		List<T> acceptorInChapter) {
 		for (div : divisions) {
 			var chapter = if (div instanceof Chapter && logicalContainer === null) {
 					div as Chapter
 				} else {
-					logicalContainer
+					logicalContainer // can be null
 				}
 			if (div.include !== null) {
 				gatherAllElementsInSequenceAndSetSequenceNumbers(Lists.newArrayList(div.include), clazz, globalAcceptor,
@@ -290,7 +303,6 @@ class PubNumberingUtil {
 				gatherAllElementsInSequenceAndSetSequenceNumbers(div.divisions, clazz, globalAcceptor, chapter,
 					localAcceptor) // recursion
 			}
-
 		}
 	}
 }

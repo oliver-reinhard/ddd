@@ -51,6 +51,8 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 				case SECTION: PUB.section
 				case SUBSECTION: PUB.subsection
 				case SUBSUBSECTION: PUB.subsubsection
+				case FOOTNOTE:PUB.footnote
+				case LIST_ITEM: PUB.listItem
 				case TABLE: PUB.titledTable
 				case FIGURE: PUB.titledFigure
 				case EQUATION: PUB.equation

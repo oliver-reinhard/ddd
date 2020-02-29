@@ -21,7 +21,7 @@ import com.mimacom.ddd.dm.base.DRichText;
  * @model
  * @generated
  */
-public interface ListItem extends BlockContainer, NumberedElement, ReferenceTarget {
+public interface ListItem extends BlockContainer, Numbered, ReferenceTarget {
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
