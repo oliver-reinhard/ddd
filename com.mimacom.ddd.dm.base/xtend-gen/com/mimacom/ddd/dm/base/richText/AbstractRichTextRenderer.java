@@ -30,7 +30,13 @@ public abstract class AbstractRichTextRenderer {
   
   private int currentExpressionIndex = (-1);
   
+  private boolean encode = true;
+  
   public synchronized CharSequence render(final DRichText text) throws IllegalStateException {
+    return this.render(text, true);
+  }
+  
+  public synchronized CharSequence render(final DRichText text, final boolean encode) throws IllegalStateException {
     final String source = this.getSourceText(text);
     if ((source != null)) {
       this.expressions = IterableExtensions.<DExpression>toList(Iterables.<DExpression>filter(text.getSegments(), DExpression.class));
@@ -74,7 +80,13 @@ public abstract class AbstractRichTextRenderer {
   protected CharSequence render(final DStyledTextSpan parent) {
     boolean _isLeaf = parent.isLeaf();
     if (_isLeaf) {
-      return this.escape(parent.getText());
+      String _xifexpression = null;
+      if (this.encode) {
+        _xifexpression = this.encode(parent.getText());
+      } else {
+        _xifexpression = parent.getText();
+      }
+      return _xifexpression;
     }
     final StringBuilder b = new StringBuilder();
     EList<DStyledTextSpan> _subspans = parent.getSubspans();
@@ -176,8 +188,14 @@ public abstract class AbstractRichTextRenderer {
     boolean _lessThan = (this.currentExpressionIndex < _length);
     if (_lessThan) {
       final DExpression expr = this.expressions.get(this.currentExpressionIndex);
-      String _escape = this.escape(span.getText());
-      return this.renderStyleExpression(expr, ((String) _escape));
+      String _xifexpression = null;
+      if (this.encode) {
+        String _encode = this.encode(span.getText());
+        _xifexpression = ((String) _encode);
+      } else {
+        _xifexpression = span.getText();
+      }
+      return this.renderStyleExpression(expr, _xifexpression);
     }
     throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match");
   }
@@ -187,7 +205,7 @@ public abstract class AbstractRichTextRenderer {
    * 
    * @param plainText can be {@code null}
    */
-  protected abstract String escape(final String plainText);
+  protected abstract String encode(final String plainText);
   
   protected abstract CharSequence renderStylePlain(final DStyledTextSpan span);
   

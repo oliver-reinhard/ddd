@@ -24,6 +24,7 @@ import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
+import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Part;
@@ -49,7 +50,9 @@ import com.mimacom.ddd.pub.pub.validation.AbstractPubValidator;
 import com.mimacom.ddd.pub.pub.validation.PubTableValidator;
 import java.util.HashSet;
 import java.util.List;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.EcoreUtil2;
@@ -426,6 +429,21 @@ public class PubValidator extends AbstractPubValidator {
   @Check
   public void table(final Table t) {
     this.tableValidator.validate(t);
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void includedFigureFileExists(final IncludedFigure f) {
+    if (((f.getFileUri() == null) || f.getFileUri().isEmpty())) {
+      this.error("File URI cannot be empty", f.eContainer(), PubValidator.PUB.getTitledBlock_Title());
+      return;
+    }
+    final URI fileUri = URI.createURI(f.getFileUri());
+    final IFile file = this._pubUtil.resourceFile(f.eResource(), fileUri);
+    boolean _exists = file.exists();
+    boolean _not = (!_exists);
+    if (_not) {
+      this.error("File does not exist", PubValidator.PUB.getIncludedFigure_FileUri());
+    }
   }
   
   @Check(CheckType.NORMAL)

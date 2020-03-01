@@ -128,7 +128,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\\usepackage{pbox}     % paragraphs or line breaks in table cell");
     _builder.newLine();
-    _builder.append("\\usepackage{graphicx} % include graphics files; supports.eps (but not .svg)");
+    _builder.append("\\usepackage{graphicx} % include graphics files; supports .eps (but not .svg)");
     _builder.newLine();
     _builder.append("\\usepackage{hyperref} % hyperlinks");
     _builder.newLine();
@@ -187,7 +187,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
         }
         
         @Override
-        protected String escape(final String plainText) {
+        protected String encode(final String plainText) {
           return plainText;
         }
       };
@@ -265,8 +265,8 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   public CharSequence renderTitle(final DocumentSegment seg) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\section*{");
-    CharSequence _escape = this.escape(this._pubGeneratorUtil.nonEmptyTitle(seg));
-    _builder.append(_escape);
+    CharSequence _encode = this.encode(this._pubGeneratorUtil.nonEmptyTitle(seg));
+    _builder.append(_encode);
     _builder.append("}");
     _builder.newLineIfNotEmpty();
     CharSequence _renderAnchor = this.renderAnchor(seg);
@@ -521,8 +521,8 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     double _divide = (_widthPercent / 100.0);
     _builder.append(_divide);
     _builder.append("\\textwidth]{");
-    CharSequence _escape = this.escape(fileUri);
-    _builder.append(_escape);
+    CharSequence _encode = this.encode(fileUri);
+    _builder.append(_encode);
     _builder.append("}");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -544,8 +544,8 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.append("\t");
     {
       for(final String line : codeLines) {
-        CharSequence _escape = this.escape(line);
-        _builder.append(_escape, "\t");
+        CharSequence _encode = this.encode(line);
+        _builder.append(_encode, "\t");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -578,9 +578,9 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   
   @Override
   public CharSequence renderUnformattedParagraph(final UnformattedParagraph para) {
-    CharSequence _escape = this.escape(para.getText());
+    CharSequence _encode = this.encode(para.getText());
     String _endParagraph = this.endParagraph(para);
-    return (_escape + _endParagraph);
+    return (_encode + _endParagraph);
   }
   
   @Override
@@ -764,7 +764,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  protected CharSequence escape(final CharSequence plainText) {
+  protected CharSequence encode(final CharSequence plainText) {
     return this._richTextUtil.escapeLaTeX(((String) plainText));
   }
   

@@ -22,8 +22,13 @@ abstract class AbstractRichTextRenderer {
 
 	var List<DExpression> expressions
 	var currentExpressionIndex = -1
+	var encode = true
 
 	synchronized def CharSequence render(DRichText text) throws IllegalStateException {
+		render(text, true)
+	}
+	
+	synchronized def CharSequence render(DRichText text, boolean encode) throws IllegalStateException {
 		val source = text.sourceText
 		if (source !== null) {
 			expressions = text.segments.filter(DExpression).toList
@@ -62,7 +67,7 @@ abstract class AbstractRichTextRenderer {
 
 	protected def CharSequence render(DStyledTextSpan parent) {
 		if (parent.leaf) {
-			return escape(parent.text)
+			return encode ? encode(parent.text) : parent.text
 		}
 		val StringBuilder b = new StringBuilder
 		for (subspan : parent.subspans) {
@@ -119,7 +124,7 @@ abstract class AbstractRichTextRenderer {
 		currentExpressionIndex++
 		if (currentExpressionIndex < expressions.length) {
 			val expr = expressions.get(currentExpressionIndex)
-			return renderStyleExpression(expr, escape(span.text) as String)
+			return renderStyleExpression(expr, encode ? encode(span.text) as String : span.text)
 		}
 		throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match")
 	}
@@ -129,7 +134,7 @@ abstract class AbstractRichTextRenderer {
 	 * 
 	 * @param plainText can be {@code null}
 	 */
-	abstract protected def String escape(String plainText)
+	abstract protected def String encode(String plainText)
 	
 	abstract protected def CharSequence renderStylePlain(DStyledTextSpan span)
 

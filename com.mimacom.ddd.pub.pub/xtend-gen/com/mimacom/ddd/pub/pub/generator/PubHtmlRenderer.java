@@ -145,7 +145,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("}");
     _builder.newLine();
     final String css = _builder.toString();
-    fsa.generateFile(PubHtmlRenderer.CSS_FILENAME, css);
+    String _fileSuffix = this.fileSuffix(doc);
+    String _plus = (_fileSuffix + "/");
+    String _plus_1 = (_plus + PubHtmlRenderer.CSS_FILENAME);
+    fsa.generateFile(_plus_1, css);
   }
   
   @Override
@@ -229,7 +232,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
         }
         
         @Override
-        protected String escape(final String plainText) {
+        public String encode(final String plainText) {
           return plainText;
         }
       };
@@ -304,8 +307,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("<h2>");
     CharSequence _renderAnchor = this.renderAnchor(seg);
     _builder.append(_renderAnchor);
-    CharSequence _escape = this.escape(this._pubGeneratorUtil.nonEmptyTitle(seg));
-    _builder.append(_escape);
+    CharSequence _encode = this.encode(this._pubGeneratorUtil.nonEmptyTitle(seg));
+    _builder.append(_encode);
     _builder.append("</h2>");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -457,8 +460,15 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   public CharSequence renderTitledBlock(final TitledBlock b, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<div>");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _renderAnchor = this.renderAnchor(b);
+    _builder.append(_renderAnchor, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     CharSequence _render = p.render();
-    _builder.append(_render);
+    _builder.append(_render, "\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("</div>");
     return _builder;
   }
@@ -467,8 +477,6 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   public CharSequence renderTitledBlockTitle(final TitledBlock b) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<h5>");
-    CharSequence _renderAnchor = this.renderAnchor(b);
-    _builder.append(_renderAnchor);
     String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(b);
     _builder.append(_labelAndNumber);
     _builder.append(" ");
@@ -595,8 +603,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   public CharSequence renderFigure(final AbstractFigure f, final String fileUri) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<img src=\"");
-    CharSequence _escape = this.escape(fileUri);
-    _builder.append(_escape);
+    CharSequence _encode = this.encode(fileUri);
+    _builder.append(_encode);
     _builder.append("\" alt=\"");
     EObject _eContainer = f.eContainer();
     CharSequence _renderRichText = this.renderRichText(((TitledFigure) _eContainer).getTitle());
@@ -621,8 +629,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     {
       for(final String line : codeLines) {
-        CharSequence _escape = this.escape(line);
-        _builder.append(_escape);
+        CharSequence _encode = this.encode(line);
+        _builder.append(_encode);
       }
     }
     _builder.append("</pre>");
@@ -669,12 +677,12 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     {
       boolean _isOnlyContentBlockOfTableCell = this.isOnlyContentBlockOfTableCell(para);
       if (_isOnlyContentBlockOfTableCell) {
-        CharSequence _escape = this.escape(para.getText());
-        _builder.append(_escape);
+        CharSequence _encode = this.encode(para.getText());
+        _builder.append(_encode);
       } else {
         _builder.append("<p>");
-        CharSequence _escape_1 = this.escape(para.getText());
-        _builder.append(_escape_1);
+        CharSequence _encode_1 = this.encode(para.getText());
+        _builder.append(_encode_1);
         _builder.append("</p>");
       }
     }
@@ -838,7 +846,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  protected CharSequence escape(final CharSequence plainText) {
+  protected CharSequence encode(final CharSequence plainText) {
     return this._richTextUtil.escapeHtml(((String) plainText));
   }
 }

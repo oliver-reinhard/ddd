@@ -45,7 +45,7 @@ public class RichTextRendererTest {
       }
       
       @Override
-      protected String escape(final String plainText) {
+      protected String encode(final String plainText) {
         return plainText;
       }
     };

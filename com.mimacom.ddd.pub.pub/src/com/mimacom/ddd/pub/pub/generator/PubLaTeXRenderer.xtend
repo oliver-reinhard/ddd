@@ -83,7 +83,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\usepackage{enumitem} % list numbering
 		\usepackage{multirow} % tables with column span and or rowspan
 		\usepackage{pbox}     % paragraphs or line breaks in table cell
-		\usepackage{graphicx} % include graphics files; supports.eps (but not .svg)
+		\usepackage{graphicx} % include graphics files; supports .eps (but not .svg)
 		\usepackage{hyperref} % hyperlinks
 		
 		«doc.renderPreamble»
@@ -118,7 +118,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 					return super.renderStyleExpression(expr, parsedText)
 				}
 				
-				override protected escape(String plainText) {
+				override protected encode(String plainText) {
 					// do not escape the actual preamble template text:
 					return plainText
 				}
@@ -160,7 +160,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTitle(DocumentSegment seg) '''
-		\section*{«seg.nonEmptyTitle.escape»}
+		\section*{«seg.nonEmptyTitle.encode»}
 		«renderAnchor(seg)»
 	'''
 
@@ -270,7 +270,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	}
 
 	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
-		\includegraphics[width=«f.widthPercent/100.0»\textwidth]{«fileUri.escape»}
+		\includegraphics[width=«f.widthPercent/100.0»\textwidth]{«fileUri.encode»}
 	'''
 
 	override CharSequence renderEquation(Equation e) '''
@@ -279,7 +279,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
 		\begin{verbatim}
-			«FOR line : codeLines»«line.escape»«ENDFOR»
+			«FOR line : codeLines»«line.encode»«ENDFOR»
 		\end{verbatim}
 	'''
 
@@ -296,7 +296,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderUnformattedParagraph(UnformattedParagraph para) {
-		escape(para.text) + para.endParagraph
+		encode(para.text) + para.endParagraph
 	}
 
 	override CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para) {
@@ -375,7 +375,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		// footnotes are rendered in place and the LaTeX decides where they are placed in the document.
 	}
 	
-	override protected CharSequence escape(CharSequence plainText) {
+	override protected CharSequence encode(CharSequence plainText) {
 		escapeLaTeX(plainText as String)
 	}
 

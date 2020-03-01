@@ -100,7 +100,7 @@ public abstract class AbstractPubRenderer {
   
   public abstract CharSequence renderRichTextReferencingParagraph(final RichTextReferencingParagraph para);
   
-  protected abstract CharSequence escape(final CharSequence plainText);
+  protected abstract CharSequence encode(final CharSequence plainText);
   
   public abstract AbstractRichTextRenderer createRichTextRenderer(final ErrorMessageAcceptor acceptor);
   

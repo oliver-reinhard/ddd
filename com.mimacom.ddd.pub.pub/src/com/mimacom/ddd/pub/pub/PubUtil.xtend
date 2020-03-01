@@ -27,11 +27,17 @@ import com.mimacom.ddd.pub.proto.ProtoSection
 import com.mimacom.ddd.pub.proto.ProtoSubsection
 import com.mimacom.ddd.pub.proto.ProtoSubsubsection
 import com.mimacom.ddd.pub.proto.ProtoTOC
+import org.eclipse.core.resources.IFile
+import org.eclipse.core.resources.IWorkspaceRoot
+import org.eclipse.core.runtime.Path
 import org.eclipse.emf.common.util.Enumerator
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.resource.Resource
 
 class PubUtil {
 	
+	@Inject IWorkspaceRoot root;
 	@Inject extension DmxRichTextUtil
 	
 	def dispatch String displayName(EObject obj) {
@@ -40,6 +46,23 @@ class PubUtil {
 	
 	def dispatch String displayName(Enumerator e) {
 		e.name
+	}
+	
+	/**
+	 * Get the workspace resource file for the given fileUri.
+	 *
+	 * The fileUri can be a path relative to the given context resource (typically the actual PUB resource) 
+	 * or a platform URI (starting with "platform:/resource/...")
+	 */
+	def IFile resourceFile(Resource context, URI fileUri) {
+		var platformUri = fileUri
+		if (! fileUri.isPlatformResource) {
+			val resourceUri = context.URI
+			val baseUri = resourceUri.trimSegments(1)
+			platformUri = URI.createPlatformResourceURI(baseUri.toPlatformString(true), true).appendSegments(fileUri.segments)
+		}
+		val file = root.getFile(new Path(platformUri.toPlatformString(true)));
+		return file
 	}
 	
 	def dispatch String displayName(Object obj) {
@@ -143,7 +166,7 @@ class PubUtil {
 				}
 			}
 			
-			override protected escape(String plainText) {
+			override protected encode(String plainText) {
 				return plainText
 			}
 			

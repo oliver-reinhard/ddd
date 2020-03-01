@@ -7,7 +7,7 @@ abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRenderer {
 	
 	extension RichTextUtil = new RichTextUtil
 		
-	override protected escape(String plainText) {
+	override protected encode(String plainText) {
 		return escapeHtml(plainText)
 	}
 	

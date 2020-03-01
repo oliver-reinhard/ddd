@@ -47,7 +47,7 @@ class RichTextRendererTest {
 				(expr as TestExpression).text
 			}
 			
-			override protected escape(String plainText) {
+			override protected encode(String plainText) {
 				return plainText
 			}
 			

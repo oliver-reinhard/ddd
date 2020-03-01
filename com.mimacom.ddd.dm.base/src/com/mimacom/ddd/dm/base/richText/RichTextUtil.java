@@ -39,6 +39,8 @@ public class RichTextUtil {
 //	}
 
 	/**
+	 * Replace characters reserved by LaTeX language by their "escaped" counterparts.
+	 * 
 	 * @param plainText can be {@code null}.
 	 * @return {@code null} if input is {@code null}
 	 */
@@ -98,6 +100,8 @@ public class RichTextUtil {
 	}
 
 	/**
+	 * Replace characters reserved by HTML language by their "escaped" counterparts.
+	 * 
 	 * @param plainText can be {@code null}.
 	 * @return {@code null} if input is {@code null}
 	 */
@@ -121,6 +125,9 @@ public class RichTextUtil {
 				break;
 			case '\'':
 				b.append("&apos;");
+				break;
+			case '\n':
+				b.append("<br>");
 				break;
 			default:
 				b.append(c);

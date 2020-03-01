@@ -16,6 +16,7 @@ import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.DocumentSegment
+import com.mimacom.ddd.pub.pub.IncludedFigure
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
@@ -35,6 +36,7 @@ import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
@@ -70,7 +72,7 @@ class PubValidator extends AbstractPubValidator {
 		}
 	}
 
-	@Check 
+	@Check
 	def generatorTarget(Document doc) {
 		if (!(doc.generateHtml || doc.generateLaTeX || doc.generateMarkdown || doc.generateAsciiDoc)) {
 			error("Document must define at least one generator target.", PUB.document_PublicationClass)
@@ -310,6 +312,19 @@ class PubValidator extends AbstractPubValidator {
 	//
 	// Figure / Diagram Renderers
 	//
+	@Check(NORMAL)
+	def includedFigureFileExists(IncludedFigure f) {
+		if (f.fileUri === null || f.fileUri.empty) {
+			error("File URI cannot be empty", f.eContainer, PUB.titledBlock_Title)
+			return
+		}
+		val fileUri = URI.createURI(f.fileUri)
+		val file = f.eResource.resourceFile(fileUri)
+		if (!file.exists) {
+			error("File does not exist", PUB.includedFigure_FileUri)
+		}
+	}
+
 	@Check(NORMAL)
 	def diagramCanRender(ProvidedFigure f) {
 		if (f.diagramRoot !== null && f.renderer !== null && f.renderer.name !== null) {

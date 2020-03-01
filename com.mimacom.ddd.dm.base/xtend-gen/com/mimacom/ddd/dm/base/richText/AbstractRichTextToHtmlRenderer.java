@@ -12,7 +12,7 @@ public abstract class AbstractRichTextToHtmlRenderer extends AbstractRichTextRen
   private RichTextUtil _richTextUtil = new RichTextUtil();
   
   @Override
-  protected String escape(final String plainText) {
+  protected String encode(final String plainText) {
     return this._richTextUtil.escapeHtml(plainText);
   }
   

@@ -108,7 +108,7 @@ abstract class AbstractPubRenderer {
 	abstract def CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
 
 	
-	abstract protected def CharSequence escape(CharSequence plainText)
+	abstract protected def CharSequence encode(CharSequence plainText)
 	
 	//
 	// RichText

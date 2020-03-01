@@ -7,7 +7,7 @@ abstract class AbstractRichTextToLaTeXRenderer extends AbstractRichTextRenderer 
 	
 	extension RichTextUtil = new RichTextUtil
 	
-	override protected String escape(String plainText) {
+	override protected String encode(String plainText) {
 		return escapeLaTeX(plainText)
 	}
 	

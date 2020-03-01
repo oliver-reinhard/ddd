@@ -82,7 +82,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				padding-left: 5px;
 			}
 		'''
-		fsa.generateFile(CSS_FILENAME, css)
+		fsa.generateFile(doc.fileSuffix + "/" + CSS_FILENAME, css)
 	}
 
 	override finish(Document doc, IFileSystemAccess2 fsa) {
@@ -130,11 +130,10 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 					return super.renderStyleExpression(expr, parsedText)
 				}
 
-				override protected escape(String plainText) {
+				override encode(String plainText) {
 					// do not escape the actual preamble template text:
 					return plainText
 				}
-
 			}
 			return renderer.render(preamble)
 		}
@@ -169,7 +168,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTitle(DocumentSegment seg) '''
-		<h2>«renderAnchor(seg)»«seg.nonEmptyTitle.escape»</h2>
+		<h2>«renderAnchor(seg)»«seg.nonEmptyTitle.encode»</h2>
 	'''
 
 	override CharSequence renderTitle(Division div) '''
@@ -229,10 +228,13 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderTitledBlock(TitledBlock b, NestedElementsRenderer p) '''
-	<div>«p.render»</div>'''
+	<div>
+		«renderAnchor(b)»
+		«p.render»
+	</div>'''
 
 	override CharSequence renderTitledBlockTitle(TitledBlock b) '''
-		<h5>«renderAnchor(b)»«b.labelAndNumber» «b.title.renderRichText»</h5>
+		<h5>«b.labelAndNumber» «b.title.renderRichText»</h5>
 	'''
 
 	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) '''
@@ -281,7 +283,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	}
 
 	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
-		<img src="«fileUri.escape»" alt="«(f.eContainer as TitledFigure).title.renderRichText»">
+		<img src="«fileUri.encode»" alt="«(f.eContainer as TitledFigure).title.renderRichText»">
 	'''
 
 	override CharSequence renderEquation(Equation e) '''
@@ -290,7 +292,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
 		<pre>
-		«FOR line : codeLines»«escape(line)»«ENDFOR»</pre>
+		«FOR line : codeLines»«encode(line)»«ENDFOR»</pre>
 	'''
 
 	override CharSequence renderPlainParagraph(
@@ -305,7 +307,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderUnformattedParagraph(
-		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«escape(para.text)»«ELSE»<p>«escape(para.text)»</p>«ENDIF»'''
+		UnformattedParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«encode(para.text)»«ELSE»<p>«encode(para.text)»</p>«ENDIF»'''
 
 	override CharSequence renderRichTextReferencingParagraph(
 		RichTextReferencingParagraph para) '''«IF para.isOnlyContentBlockOfTableCell»«para.text.renderRichText»«ELSE»<p>«para.text.renderRichText»</p>«ENDIF»'''
@@ -376,7 +378,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		«ENDFOR»
 	'''
 
-	override protected CharSequence escape(CharSequence plainText) {
+	override protected CharSequence encode(CharSequence plainText) {
 		escapeHtml(plainText as String)
 	}
 
