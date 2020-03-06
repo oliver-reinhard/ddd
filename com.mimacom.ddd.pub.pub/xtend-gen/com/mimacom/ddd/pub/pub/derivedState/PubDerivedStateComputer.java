@@ -60,12 +60,10 @@ public class PubDerivedStateComputer implements IDerivedStateComputer {
   
   protected void installTitleSymbol(final PubModel model) {
     final Document doc = model.getDocument();
-    final Function1<Symbol, Boolean> _function = (Symbol it) -> {
+    if (((doc != null) && IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), ((Function1<Symbol, Boolean>) (Symbol it) -> {
       String _name = it.getName();
       return Boolean.valueOf(Objects.equal(_name, PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME));
-    };
-    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
-    if (_isEmpty) {
+    }))))) {
       final Symbol titleSymbol = PubDerivedStateComputer.PUB.createSymbol();
       titleSymbol.setName(PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME);
       titleSymbol.setValue(PubDerivedStateComputer.BASE.createDRichText());
@@ -78,13 +76,15 @@ public class PubDerivedStateComputer implements IDerivedStateComputer {
   
   protected void removeTitleSymbol(final PubModel model) {
     final Document doc = model.getDocument();
-    final Function1<Symbol, Boolean> _function = (Symbol it) -> {
-      String _name = it.getName();
-      return Boolean.valueOf(Objects.equal(_name, PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME));
-    };
-    final Symbol titleSymbol = IterableExtensions.<Symbol>head(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
-    if ((titleSymbol != null)) {
-      doc.getSymbols().remove(titleSymbol);
+    if ((doc != null)) {
+      final Function1<Symbol, Boolean> _function = (Symbol it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equal(_name, PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME));
+      };
+      final Symbol titleSymbol = IterableExtensions.<Symbol>head(IterableExtensions.<Symbol>filter(doc.getSymbols(), _function));
+      if ((titleSymbol != null)) {
+        doc.getSymbols().remove(titleSymbol);
+      }
     }
   }
   

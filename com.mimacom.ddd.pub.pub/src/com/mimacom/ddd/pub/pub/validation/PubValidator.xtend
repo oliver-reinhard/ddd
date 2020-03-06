@@ -23,6 +23,7 @@ import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubPackage
+import com.mimacom.ddd.pub.pub.PubPlatformUtil
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.Section
@@ -58,6 +59,7 @@ class PubValidator extends AbstractPubValidator {
 
 	@Inject extension RichTextUtil
 	@Inject extension PubUtil
+	@Inject extension PubPlatformUtil
 	@Inject extension PubNumberingUtil
 	@Inject ISerializer serializer
 	@Inject TableProviderRegistry tableProviderRegistry
@@ -241,6 +243,9 @@ class PubValidator extends AbstractPubValidator {
 	@Check(NORMAL)
 	def includedCodeSyntax(TitledCodeListing cl) {
 		if (cl.include !== null) {
+//			if (cl.eIsProxy) {
+//				cl.eResource.resourceSet.getEObject(cl.include., true)
+//			}
 			var hasErrors = false
 			val res = cl.include.eResource
 			if (res instanceof XtextResource) {
@@ -320,7 +325,7 @@ class PubValidator extends AbstractPubValidator {
 		}
 		val fileUri = URI.createURI(f.fileUri)
 		val file = f.eResource.resourceFile(fileUri)
-		if (!file.exists) {
+		if (file === null || !file.exists) {
 			error("File does not exist", PUB.includedFigure_FileUri)
 		}
 	}

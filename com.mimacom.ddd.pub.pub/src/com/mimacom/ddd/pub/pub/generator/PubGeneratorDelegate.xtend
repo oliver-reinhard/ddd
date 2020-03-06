@@ -26,7 +26,7 @@ import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubModel
-import com.mimacom.ddd.pub.pub.PubUtil
+import com.mimacom.ddd.pub.pub.PubPlatformUtil
 import com.mimacom.ddd.pub.pub.Publication
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.RichTextParagraph
@@ -58,7 +58,7 @@ import org.eclipse.xtext.serializer.ISerializer
 class PubGeneratorDelegate {
 
 	extension AbstractPubRenderer renderer
-	@Inject extension PubUtil
+	@Inject extension PubPlatformUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer

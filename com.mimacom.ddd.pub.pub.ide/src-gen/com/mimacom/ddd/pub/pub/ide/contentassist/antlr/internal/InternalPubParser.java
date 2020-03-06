@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalPubParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_STRING", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'Sub'", "'Subsection'", "'Subsub'", "'Subsubsection'", "'false'", "'||'", "'Paragraph'", "'P'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'note'", "'tip'", "'caution'", "'important'", "'bullet'", "'sequence'", "'title'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'", "'horizontal'", "'vertical'", "'all'", "'Java'", "'JavaScript'", "'HTML'", "'XML'", "'plain'", "'quote'", "'seg'", "'div'", "'part'", "'appendix'", "'chapter'", "'section'", "'sub'", "'subsub'", "'footnote'", "'item'", "'table'", "'figure'", "'equation'", "'code'", "'admonition'", "'abbrev'", "'glossary'", "'bilio'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'Publication'", "'class:'", "'include:'", "'Component'", "'generate'", "'symbol:'", "'('", "'#'", "')'", "'Abstract'", "'}'", "'Preface'", "'Epilogue'", "'ChangeHistory'", "'Entry'", "'version:'", "'date:'", "'author:'", "'description:'", "':'", "','", "'TableOfContents'", "'Abbreviations'", "'id:'", "'text:'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'title:'", "'authors:'", "'publisher:'", "'comment:'", "'Glossary'", "'text'", "'Index'", "'references:'", "'Segment'", "'Body'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Admonition'", "'kind:'", "'List'", "'style:'", "'numbering:'", "'Item'", "'Table'", "'columns:'", "'widthPercent:'", "'gridlines:'", "'Row'", "'heading:'", "'Cell'", "'width:'", "'height:'", "'|'", "'root:'", "'table:'", "'Figure'", "'uri:'", "'figure:'", "'Equation'", "'CodeListing'", "'format:'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'entity'", "'detail'", "'['", "']'", "'if'", "'then'", "'end'", "'else'", "'URL:'", "'.*'", "'html'", "'latex'", "'markdown'", "'asciidoc'", "'true'", "'Header'", "'|||'", "'@before'", "'TRUE'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_STRING", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'Sub'", "'Subsection'", "'Subsub'", "'Subsubsection'", "'false'", "'||'", "'Paragraph'", "'P'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'note'", "'tip'", "'caution'", "'important'", "'bullet'", "'sequence'", "'title'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'", "'horizontal'", "'vertical'", "'all'", "'Java'", "'JavaScript'", "'HTML'", "'XML'", "'plain'", "'quote'", "'seg'", "'div'", "'part'", "'appendix'", "'chapter'", "'section'", "'sub'", "'subsub'", "'footnote'", "'item'", "'table'", "'figure'", "'equation'", "'code'", "'admonition'", "'abbrev'", "'glossary'", "'bilio'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'Publication'", "'class:'", "'include:'", "'Component'", "'generate'", "'symbol:'", "'('", "'#'", "')'", "'Abstract'", "'}'", "'Preface'", "'Epilogue'", "'ChangeHistory'", "'Entry'", "'version:'", "'date:'", "'author:'", "'description:'", "':'", "','", "'TableOfContents'", "'Abbreviations'", "'id:'", "'text:'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'title:'", "'authors:'", "'publisher:'", "'comment:'", "'Glossary'", "'text'", "'Index'", "'references:'", "'Segment'", "'Body'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Admonition'", "'kind:'", "'List'", "'style:'", "'numbering:'", "'Item'", "'Table'", "'columns:'", "'widthPercent:'", "'gridlines:'", "'Row'", "'heading:'", "'Cell'", "'width:'", "'height:'", "'|'", "'root:'", "'table:'", "'Figure'", "'uri:'", "'figure:'", "'Equation'", "'CodeListing'", "'format:'", "'Footnote'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'entity'", "'detail'", "'['", "']'", "'if'", "'then'", "'end'", "'else'", "'URL:'", "'.*'", "'html'", "'latex'", "'markdown'", "'asciidoc'", "'true'", "'Header'", "'|||'", "'@before'", "'TRUE'"
     };
     public static final int T__144=144;
     public static final int T__143=143;
@@ -118,6 +118,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     public static final int T__19=19;
     public static final int T__17=17;
     public static final int T__18=18;
+    public static final int T__210=210;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -13053,7 +13054,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 alt17=7;
                 }
                 break;
-            case 69:
+            case 183:
                 {
                 alt17=8;
                 }
@@ -13382,7 +13383,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( (LA20_0==18) ) {
                 alt20=1;
             }
-            else if ( (LA20_0==EOF||(LA20_0>=25 && LA20_0<=26)||LA20_0==38||LA20_0==69||LA20_0==127||LA20_0==159||LA20_0==161||(LA20_0>=164 && LA20_0<=165)||LA20_0==177||(LA20_0>=180 && LA20_0<=181)) ) {
+            else if ( (LA20_0==EOF||(LA20_0>=25 && LA20_0<=26)||LA20_0==38||LA20_0==127||LA20_0==159||LA20_0==161||(LA20_0>=164 && LA20_0<=165)||LA20_0==177||(LA20_0>=180 && LA20_0<=181)||LA20_0==183) ) {
                 alt20=2;
             }
             else {
@@ -13437,7 +13438,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                         int alt19=2;
                         int LA19_0 = input.LA(1);
 
-                        if ( ((LA19_0>=25 && LA19_0<=26)||LA19_0==69||LA19_0==159||LA19_0==161||LA19_0==165||LA19_0==177||(LA19_0>=180 && LA19_0<=181)) ) {
+                        if ( ((LA19_0>=25 && LA19_0<=26)||LA19_0==159||LA19_0==161||LA19_0==165||LA19_0==177||(LA19_0>=180 && LA19_0<=181)||LA19_0==183) ) {
                             alt19=1;
                         }
 
@@ -13585,10 +13586,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( (LA22_0==169||LA22_0==206) ) {
+            if ( (LA22_0==169||LA22_0==207) ) {
                 alt22=1;
             }
-            else if ( (LA22_0==24||LA22_0==207) ) {
+            else if ( (LA22_0==24||LA22_0==208) ) {
                 alt22=2;
             }
             else {
@@ -13688,7 +13689,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( (LA23_0==169) ) {
                 alt23=1;
             }
-            else if ( (LA23_0==206) ) {
+            else if ( (LA23_0==207) ) {
                 alt23=2;
             }
             else {
@@ -13878,7 +13879,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( (LA26_0==18) ) {
                 alt26=1;
             }
-            else if ( (LA26_0==EOF||LA26_0==24||LA26_0==127||LA26_0==169||LA26_0==171||(LA26_0>=206 && LA26_0<=207)) ) {
+            else if ( (LA26_0==EOF||LA26_0==24||LA26_0==127||LA26_0==169||LA26_0==171||(LA26_0>=207 && LA26_0<=208)) ) {
                 alt26=2;
             }
             else {
@@ -13993,7 +13994,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( (LA27_0==207) ) {
+            if ( (LA27_0==208) ) {
                 alt27=1;
             }
             else if ( (LA27_0==24) ) {
@@ -14086,7 +14087,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( (LA29_0==18) ) {
                 alt29=1;
             }
-            else if ( (LA29_0==EOF||(LA29_0>=24 && LA29_0<=26)||LA29_0==69||LA29_0==127||LA29_0==159||LA29_0==161||LA29_0==165||LA29_0==169||LA29_0==171||LA29_0==177||(LA29_0>=180 && LA29_0<=181)||(LA29_0>=206 && LA29_0<=207)) ) {
+            else if ( (LA29_0==EOF||(LA29_0>=24 && LA29_0<=26)||LA29_0==127||LA29_0==159||LA29_0==161||LA29_0==165||LA29_0==169||LA29_0==171||LA29_0==177||(LA29_0>=180 && LA29_0<=181)||LA29_0==183||(LA29_0>=207 && LA29_0<=208)) ) {
                 alt29=2;
             }
             else {
@@ -14141,7 +14142,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                         int alt28=2;
                         int LA28_0 = input.LA(1);
 
-                        if ( ((LA28_0>=25 && LA28_0<=26)||LA28_0==69||LA28_0==159||LA28_0==161||LA28_0==165||LA28_0==177||(LA28_0>=180 && LA28_0<=181)) ) {
+                        if ( ((LA28_0>=25 && LA28_0<=26)||LA28_0==159||LA28_0==161||LA28_0==165||LA28_0==177||(LA28_0>=180 && LA28_0<=181)||LA28_0==183) ) {
                             alt28=1;
                         }
 
@@ -14738,7 +14739,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( (LA34_0==RULE_NATURAL||LA34_0==RULE_STRING||LA34_0==23||(LA34_0>=32 && LA34_0<=34)||(LA34_0>=191 && LA34_0<=192)||LA34_0==205||LA34_0==209) ) {
+            if ( (LA34_0==RULE_NATURAL||LA34_0==RULE_STRING||LA34_0==23||(LA34_0>=32 && LA34_0<=34)||(LA34_0>=192 && LA34_0<=193)||LA34_0==206||LA34_0==210) ) {
                 alt34=1;
             }
             else if ( (LA34_0==18) ) {
@@ -14941,7 +14942,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 {
                 int LA36_1 = input.LA(2);
 
-                if ( (LA36_1==EOF||LA36_1==RULE_ID||(LA36_1>=RULE_RICH_TEXT_MIDDLE && LA36_1<=RULE_RICH_TEXT_END)||(LA36_1>=27 && LA36_1<=31)||(LA36_1>=37 && LA36_1<=38)||(LA36_1>=90 && LA36_1<=112)||LA36_1==123||LA36_1==125||LA36_1==127||LA36_1==137||LA36_1==174||LA36_1==190||(LA36_1>=196 && LA36_1<=198)||LA36_1==208) ) {
+                if ( (LA36_1==EOF||LA36_1==RULE_ID||(LA36_1>=RULE_RICH_TEXT_MIDDLE && LA36_1<=RULE_RICH_TEXT_END)||(LA36_1>=27 && LA36_1<=31)||(LA36_1>=37 && LA36_1<=38)||(LA36_1>=90 && LA36_1<=112)||LA36_1==123||LA36_1==125||LA36_1==127||LA36_1==137||LA36_1==174||LA36_1==191||(LA36_1>=197 && LA36_1<=199)||LA36_1==209) ) {
                     alt36=2;
                 }
                 else if ( (LA36_1==17) ) {
@@ -14970,13 +14971,13 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             case 115:
             case 123:
             case 124:
-            case 191:
             case 192:
             case 193:
-            case 195:
-            case 199:
-            case 205:
-            case 209:
+            case 194:
+            case 196:
+            case 200:
+            case 206:
+            case 210:
                 {
                 alt36=2;
                 }
@@ -15193,7 +15194,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( (LA38_0==190) ) {
+            if ( (LA38_0==191) ) {
                 int LA38_1 = input.LA(2);
 
                 if ( (LA38_1==RULE_ID) ) {
@@ -15202,7 +15203,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                     if ( (LA38_2==17) ) {
                         alt38=1;
                     }
-                    else if ( (LA38_2==EOF||LA38_2==RULE_ID||(LA38_2>=RULE_RICH_TEXT_MIDDLE && LA38_2<=RULE_RICH_TEXT_END)||(LA38_2>=27 && LA38_2<=31)||(LA38_2>=37 && LA38_2<=38)||(LA38_2>=90 && LA38_2<=112)||LA38_2==123||LA38_2==125||LA38_2==127||LA38_2==137||LA38_2==190||(LA38_2>=196 && LA38_2<=198)||LA38_2==208) ) {
+                    else if ( (LA38_2==EOF||LA38_2==RULE_ID||(LA38_2>=RULE_RICH_TEXT_MIDDLE && LA38_2<=RULE_RICH_TEXT_END)||(LA38_2>=27 && LA38_2<=31)||(LA38_2>=37 && LA38_2<=38)||(LA38_2>=90 && LA38_2<=112)||LA38_2==123||LA38_2==125||LA38_2==127||LA38_2==137||LA38_2==191||(LA38_2>=197 && LA38_2<=199)||LA38_2==209) ) {
                         alt38=2;
                     }
                     else {
@@ -15318,7 +15319,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( (LA39_0==123) ) {
                 alt39=1;
             }
-            else if ( (LA39_0==208) ) {
+            else if ( (LA39_0==209) ) {
                 alt39=2;
             }
             else {
@@ -15418,7 +15419,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( (LA40_0==RULE_ID) ) {
                 int LA40_1 = input.LA(2);
 
-                if ( (LA40_1==EOF||LA40_1==RULE_ID||(LA40_1>=RULE_RICH_TEXT_MIDDLE && LA40_1<=RULE_RICH_TEXT_END)||(LA40_1>=27 && LA40_1<=31)||(LA40_1>=37 && LA40_1<=38)||(LA40_1>=90 && LA40_1<=112)||LA40_1==123||LA40_1==125||LA40_1==127||LA40_1==137||LA40_1==190||(LA40_1>=196 && LA40_1<=198)||LA40_1==208) ) {
+                if ( (LA40_1==EOF||LA40_1==RULE_ID||(LA40_1>=RULE_RICH_TEXT_MIDDLE && LA40_1<=RULE_RICH_TEXT_END)||(LA40_1>=27 && LA40_1<=31)||(LA40_1>=37 && LA40_1<=38)||(LA40_1>=90 && LA40_1<=112)||LA40_1==123||LA40_1==125||LA40_1==127||LA40_1==137||LA40_1==191||(LA40_1>=197 && LA40_1<=199)||LA40_1==209) ) {
                     alt40=2;
                 }
                 else if ( (LA40_1==174) ) {
@@ -15432,7 +15433,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                     throw nvae;
                 }
             }
-            else if ( (LA40_0==RULE_NATURAL||LA40_0==RULE_STRING||LA40_0==18||LA40_0==23||(LA40_0>=32 && LA40_0<=34)||(LA40_0>=37 && LA40_0<=38)||(LA40_0>=113 && LA40_0<=115)||(LA40_0>=123 && LA40_0<=124)||(LA40_0>=191 && LA40_0<=193)||LA40_0==195||LA40_0==199||LA40_0==205||LA40_0==209) ) {
+            else if ( (LA40_0==RULE_NATURAL||LA40_0==RULE_STRING||LA40_0==18||LA40_0==23||(LA40_0>=32 && LA40_0<=34)||(LA40_0>=37 && LA40_0<=38)||(LA40_0>=113 && LA40_0<=115)||(LA40_0>=123 && LA40_0<=124)||(LA40_0>=192 && LA40_0<=194)||LA40_0==196||LA40_0==200||LA40_0==206||LA40_0==210) ) {
                 alt40=2;
             }
             else {
@@ -15706,7 +15707,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( ((LA43_0>=37 && LA43_0<=38)||(LA43_0>=113 && LA43_0<=115)) ) {
                 alt43=1;
             }
-            else if ( ((LA43_0>=RULE_NATURAL && LA43_0<=RULE_STRING)||LA43_0==18||LA43_0==23||(LA43_0>=32 && LA43_0<=34)||(LA43_0>=123 && LA43_0<=124)||(LA43_0>=191 && LA43_0<=193)||LA43_0==195||LA43_0==199||LA43_0==205||LA43_0==209) ) {
+            else if ( ((LA43_0>=RULE_NATURAL && LA43_0<=RULE_STRING)||LA43_0==18||LA43_0==23||(LA43_0>=32 && LA43_0<=34)||(LA43_0>=123 && LA43_0<=124)||(LA43_0>=192 && LA43_0<=194)||LA43_0==196||LA43_0==200||LA43_0==206||LA43_0==210) ) {
                 alt43=2;
             }
             else {
@@ -16166,10 +16167,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==208) ) {
+            if ( (LA47_0==209) ) {
                 alt47=1;
             }
-            else if ( (LA47_0==190) ) {
+            else if ( (LA47_0==191) ) {
                 alt47=2;
             }
             else {
@@ -16445,12 +16446,12 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:4289:1: ( ( ( rule__DmxBooleanLiteral__ValueAssignment_1_0 ) ) | ( ( rule__DmxBooleanLiteral__ValueAssignment_1_1 ) ) | ( 'FALSE' ) | ( 'false' ) )
             int alt50=4;
             switch ( input.LA(1) ) {
-            case 209:
+            case 210:
                 {
                 alt50=1;
                 }
                 break;
-            case 205:
+            case 206:
                 {
                 alt50=2;
                 }
@@ -20146,7 +20147,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt71=2;
                 int LA71_0 = input.LA(1);
 
-                if ( (LA71_0==183) ) {
+                if ( (LA71_0==184) ) {
                     alt71=1;
                 }
 
@@ -22152,7 +22153,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt76=2;
             int LA76_0 = input.LA(1);
 
-            if ( (LA76_0==201) ) {
+            if ( (LA76_0==202) ) {
                 alt76=1;
             }
             switch (alt76) {
@@ -23160,7 +23161,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt78=2;
                 int LA78_0 = input.LA(1);
 
-                if ( ((LA78_0>=25 && LA78_0<=26)||LA78_0==69||LA78_0==159||LA78_0==161||LA78_0==165||LA78_0==177||(LA78_0>=180 && LA78_0<=181)) ) {
+                if ( ((LA78_0>=25 && LA78_0<=26)||LA78_0==159||LA78_0==161||LA78_0==165||LA78_0==177||(LA78_0>=180 && LA78_0<=181)||LA78_0==183) ) {
                     alt78=1;
                 }
 
@@ -23578,7 +23579,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt79=2;
                 int LA79_0 = input.LA(1);
 
-                if ( ((LA79_0>=25 && LA79_0<=26)||LA79_0==69||LA79_0==159||LA79_0==161||LA79_0==165||LA79_0==177||(LA79_0>=180 && LA79_0<=181)) ) {
+                if ( ((LA79_0>=25 && LA79_0<=26)||LA79_0==159||LA79_0==161||LA79_0==165||LA79_0==177||(LA79_0>=180 && LA79_0<=181)||LA79_0==183) ) {
                     alt79=1;
                 }
 
@@ -23996,7 +23997,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt80=2;
                 int LA80_0 = input.LA(1);
 
-                if ( ((LA80_0>=25 && LA80_0<=26)||LA80_0==69||LA80_0==159||LA80_0==161||LA80_0==165||LA80_0==177||(LA80_0>=180 && LA80_0<=181)) ) {
+                if ( ((LA80_0>=25 && LA80_0<=26)||LA80_0==159||LA80_0==161||LA80_0==165||LA80_0==177||(LA80_0>=180 && LA80_0<=181)||LA80_0==183) ) {
                     alt80=1;
                 }
 
@@ -35219,7 +35220,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt91=2;
                 int LA91_0 = input.LA(1);
 
-                if ( ((LA91_0>=25 && LA91_0<=26)||LA91_0==69||LA91_0==159||LA91_0==161||LA91_0==165||LA91_0==177||(LA91_0>=180 && LA91_0<=181)) ) {
+                if ( ((LA91_0>=25 && LA91_0<=26)||LA91_0==159||LA91_0==161||LA91_0==165||LA91_0==177||(LA91_0>=180 && LA91_0<=181)||LA91_0==183) ) {
                     alt91=1;
                 }
 
@@ -36110,7 +36111,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt94=2;
                 int LA94_0 = input.LA(1);
 
-                if ( ((LA94_0>=25 && LA94_0<=26)||LA94_0==69||LA94_0==159||LA94_0==161||LA94_0==165||LA94_0==177||(LA94_0>=180 && LA94_0<=181)) ) {
+                if ( ((LA94_0>=25 && LA94_0<=26)||LA94_0==159||LA94_0==161||LA94_0==165||LA94_0==177||(LA94_0>=180 && LA94_0<=181)||LA94_0==183) ) {
                     alt94=1;
                 }
 
@@ -37001,7 +37002,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt97=2;
                 int LA97_0 = input.LA(1);
 
-                if ( ((LA97_0>=25 && LA97_0<=26)||LA97_0==69||LA97_0==159||LA97_0==161||LA97_0==165||LA97_0==177||(LA97_0>=180 && LA97_0<=181)) ) {
+                if ( ((LA97_0>=25 && LA97_0<=26)||LA97_0==159||LA97_0==161||LA97_0==165||LA97_0==177||(LA97_0>=180 && LA97_0<=181)||LA97_0==183) ) {
                     alt97=1;
                 }
 
@@ -37892,7 +37893,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt100=2;
                 int LA100_0 = input.LA(1);
 
-                if ( ((LA100_0>=25 && LA100_0<=26)||LA100_0==69||LA100_0==159||LA100_0==161||LA100_0==165||LA100_0==177||(LA100_0>=180 && LA100_0<=181)) ) {
+                if ( ((LA100_0>=25 && LA100_0<=26)||LA100_0==159||LA100_0==161||LA100_0==165||LA100_0==177||(LA100_0>=180 && LA100_0<=181)||LA100_0==183) ) {
                     alt100=1;
                 }
 
@@ -38787,7 +38788,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt103=2;
                 int LA103_0 = input.LA(1);
 
-                if ( ((LA103_0>=25 && LA103_0<=26)||LA103_0==69||LA103_0==159||LA103_0==161||LA103_0==165||LA103_0==177||(LA103_0>=180 && LA103_0<=181)) ) {
+                if ( ((LA103_0>=25 && LA103_0<=26)||LA103_0==159||LA103_0==161||LA103_0==165||LA103_0==177||(LA103_0>=180 && LA103_0<=181)||LA103_0==183) ) {
                     alt103=1;
                 }
 
@@ -39677,7 +39678,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt106=2;
                 int LA106_0 = input.LA(1);
 
-                if ( ((LA106_0>=25 && LA106_0<=26)||LA106_0==69||LA106_0==159||LA106_0==161||LA106_0==165||LA106_0==177||(LA106_0>=180 && LA106_0<=181)) ) {
+                if ( ((LA106_0>=25 && LA106_0<=26)||LA106_0==159||LA106_0==161||LA106_0==165||LA106_0==177||(LA106_0>=180 && LA106_0<=181)||LA106_0==183) ) {
                     alt106=1;
                 }
 
@@ -40740,7 +40741,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt110=2;
                 int LA110_0 = input.LA(1);
 
-                if ( ((LA110_0>=25 && LA110_0<=26)||LA110_0==69||LA110_0==159||LA110_0==161||LA110_0==165||LA110_0==177||(LA110_0>=180 && LA110_0<=181)) ) {
+                if ( ((LA110_0>=25 && LA110_0<=26)||LA110_0==159||LA110_0==161||LA110_0==165||LA110_0==177||(LA110_0>=180 && LA110_0<=181)||LA110_0==183) ) {
                     alt110=1;
                 }
 
@@ -43234,7 +43235,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt118=2;
                 int LA118_0 = input.LA(1);
 
-                if ( ((LA118_0>=25 && LA118_0<=26)||LA118_0==69||LA118_0==159||LA118_0==161||LA118_0==165||LA118_0==177||(LA118_0>=180 && LA118_0<=181)) ) {
+                if ( ((LA118_0>=25 && LA118_0<=26)||LA118_0==159||LA118_0==161||LA118_0==165||LA118_0==177||(LA118_0>=180 && LA118_0<=181)||LA118_0==183) ) {
                     alt118=1;
                 }
 
@@ -44629,7 +44630,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt123=2;
                 int LA123_0 = input.LA(1);
 
-                if ( (LA123_0==24||LA123_0==169||(LA123_0>=206 && LA123_0<=207)) ) {
+                if ( (LA123_0==24||LA123_0==169||(LA123_0>=207 && LA123_0<=208)) ) {
                     alt123=1;
                 }
 
@@ -47196,7 +47197,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt129=2;
                 int LA129_0 = input.LA(1);
 
-                if ( ((LA129_0>=25 && LA129_0<=26)||LA129_0==69||LA129_0==159||LA129_0==161||LA129_0==165||LA129_0==177||(LA129_0>=180 && LA129_0<=181)) ) {
+                if ( ((LA129_0>=25 && LA129_0<=26)||LA129_0==159||LA129_0==161||LA129_0==165||LA129_0==177||(LA129_0>=180 && LA129_0<=181)||LA129_0==183) ) {
                     alt129=1;
                 }
 
@@ -51304,22 +51305,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PubFootnote__Group__0__Impl"
-    // InternalPub.g:14971:1: rule__PubFootnote__Group__0__Impl : ( 'footnote' ) ;
+    // InternalPub.g:14971:1: rule__PubFootnote__Group__0__Impl : ( 'Footnote' ) ;
     public final void rule__PubFootnote__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPub.g:14975:1: ( ( 'footnote' ) )
-            // InternalPub.g:14976:1: ( 'footnote' )
+            // InternalPub.g:14975:1: ( ( 'Footnote' ) )
+            // InternalPub.g:14976:1: ( 'Footnote' )
             {
-            // InternalPub.g:14976:1: ( 'footnote' )
-            // InternalPub.g:14977:2: 'footnote'
+            // InternalPub.g:14976:1: ( 'Footnote' )
+            // InternalPub.g:14977:2: 'Footnote'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubFootnoteAccess().getFootnoteKeyword_0()); 
             }
-            match(input,69,FOLLOW_2); if (state.failed) return ;
+            match(input,183,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubFootnoteAccess().getFootnoteKeyword_0()); 
             }
@@ -51919,7 +51920,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt137=2;
                 int LA137_0 = input.LA(1);
 
-                if ( (LA137_0==186) ) {
+                if ( (LA137_0==187) ) {
                     alt137=1;
                 }
 
@@ -52026,7 +52027,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt138=2;
                 int LA138_0 = input.LA(1);
 
-                if ( (LA138_0==188) ) {
+                if ( (LA138_0==189) ) {
                     alt138=1;
                 }
 
@@ -52128,7 +52129,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt139=2;
                 int LA139_0 = input.LA(1);
 
-                if ( (LA139_0==184) ) {
+                if ( (LA139_0==185) ) {
                     alt139=1;
                 }
 
@@ -52229,7 +52230,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDImportAccess().getImportKeyword_0()); 
             }
-            match(input,183,FOLLOW_2); if (state.failed) return ;
+            match(input,184,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDImportAccess().getImportKeyword_0()); 
             }
@@ -52392,7 +52393,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getTestKeyword_0()); 
             }
-            match(input,184,FOLLOW_2); if (state.failed) return ;
+            match(input,185,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxTestAccess().getTestKeyword_0()); 
             }
@@ -52564,7 +52565,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt140=2;
             int LA140_0 = input.LA(1);
 
-            if ( (LA140_0==185) ) {
+            if ( (LA140_0==186) ) {
                 alt140=1;
             }
             switch (alt140) {
@@ -52902,7 +52903,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getContextKeyword_2_0()); 
             }
-            match(input,185,FOLLOW_2); if (state.failed) return ;
+            match(input,186,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxTestAccess().getContextKeyword_2_0()); 
             }
@@ -54659,7 +54660,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getArchetypeKeyword_0()); 
             }
-            match(input,186,FOLLOW_2); if (state.failed) return ;
+            match(input,187,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxArchetypeAccess().getArchetypeKeyword_0()); 
             }
@@ -54827,7 +54828,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getIsKeyword_2()); 
             }
-            match(input,187,FOLLOW_2); if (state.failed) return ;
+            match(input,188,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxArchetypeAccess().getIsKeyword_2()); 
             }
@@ -55090,7 +55091,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFilterAccess().getFilterKeyword_0()); 
             }
-            match(input,188,FOLLOW_2); if (state.failed) return ;
+            match(input,189,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxFilterAccess().getFilterKeyword_0()); 
             }
@@ -55683,7 +55684,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt147=2;
             int LA147_0 = input.LA(1);
 
-            if ( (LA147_0==189) ) {
+            if ( (LA147_0==190) ) {
                 alt147=1;
             }
             switch (alt147) {
@@ -56133,7 +56134,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFilterAccess().getWithKeyword_7_0()); 
             }
-            match(input,189,FOLLOW_2); if (state.failed) return ;
+            match(input,190,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxFilterAccess().getWithKeyword_7_0()); 
             }
@@ -57358,7 +57359,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt151=2;
                 int LA151_0 = input.LA(1);
 
-                if ( (LA151_0==190) ) {
+                if ( (LA151_0==191) ) {
                     int LA151_2 = input.LA(2);
 
                     if ( (synpred237_InternalPub()) ) {
@@ -57801,7 +57802,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
             }
-            match(input,190,FOLLOW_2); if (state.failed) return ;
+            match(input,191,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
             }
@@ -58224,7 +58225,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt152=2;
             int LA152_0 = input.LA(1);
 
-            if ( (LA152_0==123||LA152_0==208) ) {
+            if ( (LA152_0==123||LA152_0==209) ) {
                 alt152=1;
             }
             switch (alt152) {
@@ -58478,7 +58479,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
             }
-            match(input,190,FOLLOW_2); if (state.failed) return ;
+            match(input,191,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
             }
@@ -58887,7 +58888,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt153=2;
             int LA153_0 = input.LA(1);
 
-            if ( ((LA153_0>=RULE_NATURAL && LA153_0<=RULE_STRING)||LA153_0==18||LA153_0==23||(LA153_0>=32 && LA153_0<=34)||(LA153_0>=37 && LA153_0<=38)||(LA153_0>=113 && LA153_0<=115)||(LA153_0>=123 && LA153_0<=124)||(LA153_0>=191 && LA153_0<=193)||LA153_0==195||LA153_0==199||LA153_0==205||LA153_0==209) ) {
+            if ( ((LA153_0>=RULE_NATURAL && LA153_0<=RULE_STRING)||LA153_0==18||LA153_0==23||(LA153_0>=32 && LA153_0<=34)||(LA153_0>=37 && LA153_0<=38)||(LA153_0>=113 && LA153_0<=115)||(LA153_0>=123 && LA153_0<=124)||(LA153_0>=192 && LA153_0<=194)||LA153_0==196||LA153_0==200||LA153_0==206||LA153_0==210) ) {
                 alt153=1;
             }
             switch (alt153) {
@@ -66093,7 +66094,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt163=2;
             int LA163_0 = input.LA(1);
 
-            if ( ((LA163_0>=RULE_NATURAL && LA163_0<=RULE_RICH_TEXT_START)||LA163_0==18||LA163_0==23||(LA163_0>=32 && LA163_0<=34)||(LA163_0>=37 && LA163_0<=38)||(LA163_0>=113 && LA163_0<=115)||(LA163_0>=123 && LA163_0<=124)||(LA163_0>=191 && LA163_0<=193)||LA163_0==195||LA163_0==199||LA163_0==205||LA163_0==209) ) {
+            if ( ((LA163_0>=RULE_NATURAL && LA163_0<=RULE_RICH_TEXT_START)||LA163_0==18||LA163_0==23||(LA163_0>=32 && LA163_0<=34)||(LA163_0>=37 && LA163_0<=38)||(LA163_0>=113 && LA163_0<=115)||(LA163_0>=123 && LA163_0<=124)||(LA163_0>=192 && LA163_0<=194)||LA163_0==196||LA163_0==200||LA163_0==206||LA163_0==210) ) {
                 alt163=1;
             }
             switch (alt163) {
@@ -66779,7 +66780,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt165=2;
             int LA165_0 = input.LA(1);
 
-            if ( (LA165_0==RULE_NATURAL||LA165_0==RULE_STRING||LA165_0==23||(LA165_0>=32 && LA165_0<=34)||(LA165_0>=191 && LA165_0<=192)||LA165_0==205||LA165_0==209) ) {
+            if ( (LA165_0==RULE_NATURAL||LA165_0==RULE_STRING||LA165_0==23||(LA165_0>=32 && LA165_0<=34)||(LA165_0>=192 && LA165_0<=193)||LA165_0==206||LA165_0==210) ) {
                 alt165=1;
             }
             switch (alt165) {
@@ -67791,7 +67792,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt167=2;
             int LA167_0 = input.LA(1);
 
-            if ( ((LA167_0>=RULE_NATURAL && LA167_0<=RULE_RICH_TEXT_START)||LA167_0==18||LA167_0==23||(LA167_0>=32 && LA167_0<=34)||(LA167_0>=37 && LA167_0<=38)||(LA167_0>=113 && LA167_0<=115)||(LA167_0>=123 && LA167_0<=124)||(LA167_0>=191 && LA167_0<=193)||LA167_0==195||LA167_0==199||LA167_0==205||LA167_0==209) ) {
+            if ( ((LA167_0>=RULE_NATURAL && LA167_0<=RULE_RICH_TEXT_START)||LA167_0==18||LA167_0==23||(LA167_0>=32 && LA167_0<=34)||(LA167_0>=37 && LA167_0<=38)||(LA167_0>=113 && LA167_0<=115)||(LA167_0>=123 && LA167_0<=124)||(LA167_0>=192 && LA167_0<=194)||LA167_0==196||LA167_0==200||LA167_0==206||LA167_0==210) ) {
                 alt167=1;
             }
             switch (alt167) {
@@ -68241,7 +68242,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEntityAccess().getEntityKeyword_0()); 
             }
-            match(input,191,FOLLOW_2); if (state.failed) return ;
+            match(input,192,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxEntityAccess().getEntityKeyword_0()); 
             }
@@ -68398,7 +68399,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDetailAccess().getDetailKeyword_0()); 
             }
-            match(input,192,FOLLOW_2); if (state.failed) return ;
+            match(input,193,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxDetailAccess().getDetailKeyword_0()); 
             }
@@ -69239,7 +69240,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getLeftSquareBracketKeyword_1()); 
             }
-            match(input,193,FOLLOW_2); if (state.failed) return ;
+            match(input,194,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxStaticReferenceAccess().getLeftSquareBracketKeyword_1()); 
             }
@@ -69605,7 +69606,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:20654:2: ( ']' )
             // InternalPub.g:20654:3: ']'
             {
-            match(input,194,FOLLOW_2); if (state.failed) return ;
+            match(input,195,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -70180,10 +70181,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt172=2;
             int LA172_0 = input.LA(1);
 
-            if ( (LA172_0==208) ) {
+            if ( (LA172_0==209) ) {
                 alt172=1;
             }
-            else if ( (LA172_0==190) ) {
+            else if ( (LA172_0==191) ) {
                 int LA172_2 = input.LA(2);
 
                 if ( (LA172_2==54) ) {
@@ -70283,7 +70284,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getFullStopKeyword_2_1_0()); 
             }
-            match(input,190,FOLLOW_2); if (state.failed) return ;
+            match(input,191,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxContextReferenceAccess().getFullStopKeyword_2_1_0()); 
             }
@@ -70525,7 +70526,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfKeyword_1()); 
             }
-            match(input,195,FOLLOW_2); if (state.failed) return ;
+            match(input,196,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxIfExpressionAccess().getIfKeyword_1()); 
             }
@@ -70693,7 +70694,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenKeyword_3()); 
             }
-            match(input,196,FOLLOW_2); if (state.failed) return ;
+            match(input,197,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxIfExpressionAccess().getThenKeyword_3()); 
             }
@@ -70865,7 +70866,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt173=2;
             int LA173_0 = input.LA(1);
 
-            if ( (LA173_0==198) ) {
+            if ( (LA173_0==199) ) {
                 alt173=1;
             }
             switch (alt173) {
@@ -70956,7 +70957,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getEndKeyword_6()); 
             }
-            match(input,197,FOLLOW_2); if (state.failed) return ;
+            match(input,198,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxIfExpressionAccess().getEndKeyword_6()); 
             }
@@ -71038,7 +71039,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:21114:2: ( 'else' )
             // InternalPub.g:21114:3: 'else'
             {
-            match(input,198,FOLLOW_2); if (state.failed) return ;
+            match(input,199,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -72508,7 +72509,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUrlLiteralAccess().getURLKeyword_1()); 
             }
-            match(input,199,FOLLOW_2); if (state.failed) return ;
+            match(input,200,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxUrlLiteralAccess().getURLKeyword_1()); 
             }
@@ -73013,7 +73014,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getFullStopKeyword_1()); 
             }
-            match(input,190,FOLLOW_2); if (state.failed) return ;
+            match(input,191,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDECIMALAccess().getFullStopKeyword_1()); 
             }
@@ -73611,14 +73612,14 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             int alt177=2;
             int LA177_0 = input.LA(1);
 
-            if ( (LA177_0==200) ) {
+            if ( (LA177_0==201) ) {
                 alt177=1;
             }
             switch (alt177) {
                 case 1 :
                     // InternalPub.g:21950:3: '.*'
                     {
-                    match(input,200,FOLLOW_2); if (state.failed) return ;
+                    match(input,201,FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -73783,7 +73784,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
                 int alt178=2;
                 int LA178_0 = input.LA(1);
 
-                if ( (LA178_0==190) ) {
+                if ( (LA178_0==191) ) {
                     int LA178_2 = input.LA(2);
 
                     if ( (LA178_2==RULE_ID) ) {
@@ -73896,7 +73897,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,190,FOLLOW_2); if (state.failed) return ;
+            match(input,191,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
@@ -74052,13 +74053,13 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( LA179_0 == 121 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 0) ) {
                 alt179=1;
             }
-            else if ( LA179_0 == 202 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
+            else if ( LA179_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
                 alt179=2;
             }
-            else if ( LA179_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
+            else if ( LA179_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
                 alt179=3;
             }
-            else if ( LA179_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
+            else if ( LA179_0 == 205 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
                 alt179=4;
             }
             else {
@@ -74302,13 +74303,13 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( LA180_0 == 121 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 0) ) {
                 alt180=1;
             }
-            else if ( LA180_0 == 202 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
+            else if ( LA180_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
                 alt180=1;
             }
-            else if ( LA180_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
+            else if ( LA180_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
                 alt180=1;
             }
-            else if ( LA180_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
+            else if ( LA180_0 == 205 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
                 alt180=1;
             }
             switch (alt180) {
@@ -74366,13 +74367,13 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( LA181_0 == 121 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 0) ) {
                 alt181=1;
             }
-            else if ( LA181_0 == 202 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
+            else if ( LA181_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
                 alt181=1;
             }
-            else if ( LA181_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
+            else if ( LA181_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
                 alt181=1;
             }
-            else if ( LA181_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
+            else if ( LA181_0 == 205 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
                 alt181=1;
             }
             switch (alt181) {
@@ -74430,13 +74431,13 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( LA182_0 == 121 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 0) ) {
                 alt182=1;
             }
-            else if ( LA182_0 == 202 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
+            else if ( LA182_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 1) ) {
                 alt182=1;
             }
-            else if ( LA182_0 == 203 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
+            else if ( LA182_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 2) ) {
                 alt182=1;
             }
-            else if ( LA182_0 == 204 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
+            else if ( LA182_0 == 205 && getUnorderedGroupHelper().canSelect(grammarAccess.getPubGenerateAccess().getUnorderedGroup(), 3) ) {
                 alt182=1;
             }
             switch (alt182) {
@@ -74993,7 +74994,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubGenerateAccess().getGenerateHtmlHtmlKeyword_0_1_0()); 
             }
-            match(input,201,FOLLOW_2); if (state.failed) return ;
+            match(input,202,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubGenerateAccess().getGenerateHtmlHtmlKeyword_0_1_0()); 
             }
@@ -75046,7 +75047,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubGenerateAccess().getGenerateLaTeXLatexKeyword_1_0()); 
             }
-            match(input,202,FOLLOW_2); if (state.failed) return ;
+            match(input,203,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubGenerateAccess().getGenerateLaTeXLatexKeyword_1_0()); 
             }
@@ -75099,7 +75100,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubGenerateAccess().getGenerateMarkdownMarkdownKeyword_2_0()); 
             }
-            match(input,203,FOLLOW_2); if (state.failed) return ;
+            match(input,204,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubGenerateAccess().getGenerateMarkdownMarkdownKeyword_2_0()); 
             }
@@ -75152,7 +75153,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubGenerateAccess().getGenerateAsciiDocAsciidocKeyword_3_0()); 
             }
-            match(input,204,FOLLOW_2); if (state.failed) return ;
+            match(input,205,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubGenerateAccess().getGenerateAsciiDocAsciidocKeyword_3_0()); 
             }
@@ -79225,7 +79226,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubTableRowAccess().getIsHeadingTrueKeyword_1_0_0_0_1_0_1_0()); 
             }
-            match(input,205,FOLLOW_2); if (state.failed) return ;
+            match(input,206,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubTableRowAccess().getIsHeadingTrueKeyword_1_0_0_0_1_0_1_0()); 
             }
@@ -79278,7 +79279,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubTableRowAccess().getIsHeadingHeaderKeyword_1_0_0_1_0_0()); 
             }
-            match(input,206,FOLLOW_2); if (state.failed) return ;
+            match(input,207,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubTableRowAccess().getIsHeadingHeaderKeyword_1_0_0_1_0_0()); 
             }
@@ -79421,7 +79422,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPubTableRowAccess().getIsHeadingVerticalLineVerticalLineVerticalLineKeyword_1_1_0_0_0()); 
             }
-            match(input,207,FOLLOW_2); if (state.failed) return ;
+            match(input,208,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPubTableRowAccess().getIsHeadingVerticalLineVerticalLineVerticalLineKeyword_1_1_0_0_0()); 
             }
@@ -82668,7 +82669,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
-            match(input,208,FOLLOW_2); if (state.failed) return ;
+            match(input,209,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
@@ -84687,7 +84688,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
             }
-            match(input,208,FOLLOW_2); if (state.failed) return ;
+            match(input,209,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
             }
@@ -85059,7 +85060,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
             }
-            match(input,209,FOLLOW_2); if (state.failed) return ;
+            match(input,210,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
             }
@@ -85112,7 +85113,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
             }
-            match(input,205,FOLLOW_2); if (state.failed) return ;
+            match(input,206,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
             }
@@ -86008,15 +86009,15 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     static final String dfa_1s = "\13\uffff";
     static final String dfa_2s = "\4\uffff\1\12\6\uffff";
     static final String dfa_3s = "\1\4\3\uffff\1\5\6\uffff";
-    static final String dfa_4s = "\1\u00d1\3\uffff\1\u00d0\6\uffff";
+    static final String dfa_4s = "\1\u00d2\3\uffff\1\u00d1\6\uffff";
     static final String dfa_5s = "\1\uffff\1\1\1\2\1\3\1\uffff\1\5\1\6\1\10\1\11\1\4\1\7";
     static final String dfa_6s = "\13\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\1\4\1\1\13\uffff\1\3\4\uffff\1\1\10\uffff\3\1\130\uffff\1\2\1\7\102\uffff\2\1\1\6\1\uffff\1\5\3\uffff\1\10\5\uffff\1\1\3\uffff\1\1",
+            "\1\1\1\4\1\1\13\uffff\1\3\4\uffff\1\1\10\uffff\3\1\130\uffff\1\2\1\7\103\uffff\2\1\1\6\1\uffff\1\5\3\uffff\1\10\5\uffff\1\1\3\uffff\1\1",
             "",
             "",
             "",
-            "\1\12\3\uffff\2\12\20\uffff\5\12\5\uffff\2\12\63\uffff\27\12\12\uffff\1\11\1\uffff\1\12\1\uffff\1\12\11\uffff\1\12\64\uffff\1\12\5\uffff\3\12\11\uffff\1\12",
+            "\1\12\3\uffff\2\12\20\uffff\5\12\5\uffff\2\12\63\uffff\27\12\12\uffff\1\11\1\uffff\1\12\1\uffff\1\12\11\uffff\1\12\65\uffff\1\12\5\uffff\3\12\11\uffff\1\12",
             "",
             "",
             "",
@@ -86053,14 +86054,14 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     static final String dfa_8s = "\12\uffff";
     static final String dfa_9s = "\3\uffff\1\10\6\uffff";
     static final String dfa_10s = "\1\4\2\uffff\1\5\3\uffff\1\4\2\uffff";
-    static final String dfa_11s = "\1\u00d1\2\uffff\1\u00c6\3\uffff\1\5\2\uffff";
+    static final String dfa_11s = "\1\u00d2\2\uffff\1\u00c7\3\uffff\1\5\2\uffff";
     static final String dfa_12s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\1\uffff\1\3\1\4";
     static final String dfa_13s = "\12\uffff}>";
     static final String[] dfa_14s = {
-            "\1\3\1\uffff\1\2\20\uffff\1\1\10\uffff\1\1\2\4\u009c\uffff\1\5\1\6\14\uffff\1\1\3\uffff\1\1",
+            "\1\3\1\uffff\1\2\20\uffff\1\1\10\uffff\1\1\2\4\u009d\uffff\1\5\1\6\14\uffff\1\1\3\uffff\1\1",
             "",
             "",
-            "\1\10\3\uffff\2\10\7\uffff\1\10\10\uffff\5\10\5\uffff\2\10\63\uffff\27\10\14\uffff\1\10\1\uffff\1\10\11\uffff\1\10\64\uffff\1\7\5\uffff\3\10",
+            "\1\10\3\uffff\2\10\7\uffff\1\10\10\uffff\5\10\5\uffff\2\10\63\uffff\27\10\14\uffff\1\10\1\uffff\1\10\11\uffff\1\10\65\uffff\1\7\5\uffff\3\10",
             "",
             "",
             "",
@@ -86096,11 +86097,11 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     }
     static final String dfa_15s = "\1\1\12\uffff";
     static final String dfa_16s = "\1\5\1\uffff\10\0\1\uffff";
-    static final String dfa_17s = "\1\u00c6\1\uffff\10\0\1\uffff";
+    static final String dfa_17s = "\1\u00c7\1\uffff\10\0\1\uffff";
     static final String dfa_18s = "\1\uffff\1\2\10\uffff\1\1";
     static final String dfa_19s = "\2\uffff\1\7\1\4\1\1\1\5\1\6\1\0\1\2\1\3\1\uffff}>";
     static final String[] dfa_20s = {
-            "\1\1\3\uffff\2\1\20\uffff\1\2\1\3\3\1\5\uffff\2\1\63\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\10\1\14\uffff\1\1\1\uffff\1\1\11\uffff\1\1\64\uffff\1\1\5\uffff\3\1",
+            "\1\1\3\uffff\2\1\20\uffff\1\2\1\3\3\1\5\uffff\2\1\63\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\10\1\14\uffff\1\1\1\uffff\1\1\11\uffff\1\1\65\uffff\1\1\5\uffff\3\1",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -86271,29 +86272,29 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000006000002L,0x0000000000000020L,0x0032002280000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000006000002L,0x0000000000000000L,0x00B2002280000000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000080000000000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000000L,0x0120000000000000L,0x0080000000000000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000000L,0x0120000000000000L,0x0100000000000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0100000000000000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000000L,0x0040000000000000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000000L,0x0200000000000000L,0x0000000000000000L,0x0000000000001C00L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000000L,0x0200000000000000L,0x0000000000000000L,0x0000000000003800L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000000L,0x0480000000000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000002L,0x0400000000000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000002L,0x0080000000000000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000000L,0x4400000000000000L,0x0000000006A1CC07L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L,0x0000000006A1CC07L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000180L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000020L,0x1000000000000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000006000000L,0x8000000000000020L,0x0032002280000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000006000000L,0x8000000000000000L,0x00B2002280000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
@@ -86329,15 +86330,15 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000078000000L});
     public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000008000000L});
     public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000180L,0x0880000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000006000000L,0x0000000000000020L,0x00320022A0000000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000006000000L,0x0000000000000000L,0x00B20022A0000000L});
     public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000006000000L,0x0000000000000020L,0x00320022F8000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000006180000L,0x0000000000000020L,0x0032002280000000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000006000000L,0x0000000000000000L,0x00B20022F8000000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000006180000L,0x0000000000000000L,0x00B2002280000000L});
     public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000180002L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000006600000L,0x0000000000000020L,0x0032002280000000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000006600000L,0x0000000000000000L,0x00B2002280000000L});
     public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000600002L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000006000000L,0x0000000000000020L,0x0032002280000000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000006000000L,0x0000000000000000L,0x00B2002280000000L});
     public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000100000000L});
     public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000078000000000L});
     public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000000L,0x0000000000020000L});
@@ -86348,22 +86349,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000380000000000L});
     public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x000FC00000000000L});
     public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000004000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000006040000L,0x0800000000000020L,0x0032002280020000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000006040000L,0x0800000000000000L,0x00B2002280020000L});
     public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000180L,0x0800000000000000L});
     public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x000080C000000000L});
     public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000001000000L,0x0000000000000000L,0x0000038000000000L,0x000000000000C000L});
-    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000001000002L,0x0000000000000000L,0x0000020000000000L,0x000000000000C000L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000001000000L,0x0000000000000000L,0x0000038000000000L,0x0000000000018000L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000001000002L,0x0000000000000000L,0x0000020000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0078000000000000L});
-    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000001000000L,0x0000000000000000L,0x0000020000000000L,0x000000000000C000L});
+    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000001000000L,0x0000000000000000L,0x0000020000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000000L,0x0000080000000000L});
     public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
     public static final BitSet FOLLOW_91 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
     public static final BitSet FOLLOW_92 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L,0x0000080000000000L});
     public static final BitSet FOLLOW_93 = new BitSet(new long[]{0x0000000000000182L,0x0800000000000000L});
     public static final BitSet FOLLOW_94 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000080000000000L});
-    public static final BitSet FOLLOW_95 = new BitSet(new long[]{0x0000000006040000L,0x0000000000000020L,0x0032302280000000L});
+    public static final BitSet FOLLOW_95 = new BitSet(new long[]{0x0000000006040000L,0x0000000000000000L,0x00B2302280000000L});
     public static final BitSet FOLLOW_96 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000400000000000L});
     public static final BitSet FOLLOW_97 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0001000000000000L});
     public static final BitSet FOLLOW_98 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0004808000000000L});
@@ -86377,28 +86378,28 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_106 = new BitSet(new long[]{0x0780000000000000L});
     public static final BitSet FOLLOW_107 = new BitSet(new long[]{0x1800000000000180L});
     public static final BitSet FOLLOW_108 = new BitSet(new long[]{0xE000000000000020L,0x0000000000007FFFL});
-    public static final BitSet FOLLOW_109 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x1500000000000000L});
-    public static final BitSet FOLLOW_110 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0400000000000000L});
-    public static final BitSet FOLLOW_111 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x1000000000000000L});
-    public static final BitSet FOLLOW_112 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0100000000000000L});
-    public static final BitSet FOLLOW_113 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000000L,0x0200000000000000L});
-    public static final BitSet FOLLOW_114 = new BitSet(new long[]{0x00000067008401F0L,0x180E000000000000L,0x8000000000000000L,0x000000000002208BL});
+    public static final BitSet FOLLOW_109 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x2A00000000000000L});
+    public static final BitSet FOLLOW_110 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0800000000000000L});
+    public static final BitSet FOLLOW_111 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x2000000000000000L});
+    public static final BitSet FOLLOW_112 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0200000000000000L});
+    public static final BitSet FOLLOW_113 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000000L,0x0400000000000000L});
+    public static final BitSet FOLLOW_114 = new BitSet(new long[]{0x00000067008401F0L,0x180E000000000000L,0x0000000000000000L,0x0000000000044117L});
     public static final BitSet FOLLOW_115 = new BitSet(new long[]{0x0000002080020000L,0x0810000000000000L});
-    public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x0000000700840050L,0x0000000000000000L,0x8000000000000000L,0x0000000000022001L});
+    public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x0000000700840050L,0x0000000000000000L,0x0000000000000000L,0x0000000000044003L});
     public static final BitSet FOLLOW_117 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
     public static final BitSet FOLLOW_118 = new BitSet(new long[]{0x0000000000000000L,0x0000000003FF8000L});
-    public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0800000000000000L});
+    public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
     public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0000000000000020L,0x2000000000000000L});
     public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0000000000000020L,0x0000000003FF8000L});
-    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x2000000000000000L});
+    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
     public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x0000000000000600L});
     public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_126 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-    public static final BitSet FOLLOW_127 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x4000000000000000L});
-    public static final BitSet FOLLOW_128 = new BitSet(new long[]{0x0000006700840070L,0x180E000000000000L,0x8000000000000000L,0x000000000002208BL});
+    public static final BitSet FOLLOW_126 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+    public static final BitSet FOLLOW_127 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x8000000000000000L});
+    public static final BitSet FOLLOW_128 = new BitSet(new long[]{0x0000006700840070L,0x180E000000000000L,0x0000000000000000L,0x0000000000044117L});
     public static final BitSet FOLLOW_129 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_130 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_130 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000000000L,0x0000000000020000L});
     public static final BitSet FOLLOW_131 = new BitSet(new long[]{0x0000000000000000L,0x000000003C000000L});
     public static final BitSet FOLLOW_132 = new BitSet(new long[]{0x0000000000000002L,0x000000003C000000L});
     public static final BitSet FOLLOW_133 = new BitSet(new long[]{0x0000000000000000L,0x00000000C0000000L});
@@ -86416,26 +86417,26 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_145 = new BitSet(new long[]{0x0000000080000002L,0x0001C00000000000L});
     public static final BitSet FOLLOW_146 = new BitSet(new long[]{0x0000006000000000L,0x000E000000000000L});
     public static final BitSet FOLLOW_147 = new BitSet(new long[]{0x0000000060000000L});
-    public static final BitSet FOLLOW_148 = new BitSet(new long[]{0x00000067008401F0L,0x980E000000000000L,0x8000000000000000L,0x000000000002208BL});
-    public static final BitSet FOLLOW_149 = new BitSet(new long[]{0x0000000700800050L,0x8000000000000000L,0x8000000000000000L,0x0000000000022001L});
-    public static final BitSet FOLLOW_150 = new BitSet(new long[]{0x0000000700800050L,0x0000000000000000L,0x8000000000000000L,0x0000000000022001L});
+    public static final BitSet FOLLOW_148 = new BitSet(new long[]{0x00000067008401F0L,0x980E000000000000L,0x0000000000000000L,0x0000000000044117L});
+    public static final BitSet FOLLOW_149 = new BitSet(new long[]{0x0000000700800050L,0x8000000000000000L,0x0000000000000000L,0x0000000000044003L});
+    public static final BitSet FOLLOW_150 = new BitSet(new long[]{0x0000000700800050L,0x0000000000000000L,0x0000000000000000L,0x0000000000044003L});
     public static final BitSet FOLLOW_151 = new BitSet(new long[]{0x0000000000000020L,0x8000000000000000L});
     public static final BitSet FOLLOW_152 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_153 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_154 = new BitSet(new long[]{0x0000000000000000L,0x1000000000000000L,0x0000400000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_153 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_154 = new BitSet(new long[]{0x0000000000000000L,0x1000000000000000L,0x0000400000000000L,0x0000000000000008L});
     public static final BitSet FOLLOW_155 = new BitSet(new long[]{0x0000000080000020L});
-    public static final BitSet FOLLOW_156 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_156 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L,0x0000000000020000L});
     public static final BitSet FOLLOW_157 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_158 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_159 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_160 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000060L});
+    public static final BitSet FOLLOW_158 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_159 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_160 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000000000C0L});
     public static final BitSet FOLLOW_161 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});
     public static final BitSet FOLLOW_162 = new BitSet(new long[]{0x0000000080000010L});
-    public static final BitSet FOLLOW_163 = new BitSet(new long[]{0x0000000100800000L,0x0000000000000000L,0x0000000000000000L,0x0000000000022000L});
+    public static final BitSet FOLLOW_163 = new BitSet(new long[]{0x0000000100800000L,0x0000000000000000L,0x0000000000000000L,0x0000000000044000L});
     public static final BitSet FOLLOW_164 = new BitSet(new long[]{0x0000000600000000L});
     public static final BitSet FOLLOW_165 = new BitSet(new long[]{0x0000001800000000L});
     public static final BitSet FOLLOW_166 = new BitSet(new long[]{0x0000006000000010L});
-    public static final BitSet FOLLOW_167 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_168 = new BitSet(new long[]{0x0000000000000002L,0x0200000000000000L,0x0000000000000000L,0x0000000000001C00L});
+    public static final BitSet FOLLOW_167 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_168 = new BitSet(new long[]{0x0000000000000002L,0x0200000000000000L,0x0000000000000000L,0x0000000000003800L});
 
 }

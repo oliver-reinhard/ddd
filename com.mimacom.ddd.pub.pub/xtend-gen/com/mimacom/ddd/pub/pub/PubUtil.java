@@ -51,21 +51,13 @@ import com.mimacom.ddd.pub.pub.Subsubsection;
 import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import java.util.Arrays;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class PubUtil {
-  @Inject
-  private IWorkspaceRoot root;
-  
   @Inject
   @Extension
   private DmxRichTextUtil _dmxRichTextUtil;
@@ -76,27 +68,6 @@ public class PubUtil {
   
   protected String _displayName(final Enumerator e) {
     return e.getName();
-  }
-  
-  /**
-   * Get the workspace resource file for the given fileUri.
-   * 
-   * The fileUri can be a path relative to the given context resource (typically the actual PUB resource)
-   * or a platform URI (starting with "platform:/resource/...")
-   */
-  public IFile resourceFile(final Resource context, final URI fileUri) {
-    URI platformUri = fileUri;
-    boolean _isPlatformResource = fileUri.isPlatformResource();
-    boolean _not = (!_isPlatformResource);
-    if (_not) {
-      final URI resourceUri = context.getURI();
-      final URI baseUri = resourceUri.trimSegments(1);
-      platformUri = URI.createPlatformResourceURI(baseUri.toPlatformString(true), true).appendSegments(fileUri.segments());
-    }
-    String _platformString = platformUri.toPlatformString(true);
-    Path _path = new Path(_platformString);
-    final IFile file = this.root.getFile(_path);
-    return file;
   }
   
   protected String _displayName(final Object obj) {

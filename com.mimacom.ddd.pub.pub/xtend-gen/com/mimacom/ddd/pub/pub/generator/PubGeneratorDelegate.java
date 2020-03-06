@@ -31,7 +31,7 @@ import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubModel;
-import com.mimacom.ddd.pub.pub.PubUtil;
+import com.mimacom.ddd.pub.pub.PubPlatformUtil;
 import com.mimacom.ddd.pub.pub.Publication;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.RichTextParagraph;
@@ -84,7 +84,7 @@ public class PubGeneratorDelegate {
   
   @Inject
   @Extension
-  private PubUtil _pubUtil;
+  private PubPlatformUtil _pubPlatformUtil;
   
   @Inject
   @Extension
@@ -496,7 +496,7 @@ public class PubGeneratorDelegate {
       CharSequence _xblockexpression = null;
       {
         final URI fileUri = URI.createURI(f.getFileUri());
-        final IFile file = this._pubUtil.resourceFile(f.eResource(), fileUri);
+        final IFile file = this._pubPlatformUtil.resourceFile(f.eResource(), fileUri);
         String _last = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(fileUri.segments())));
         final String outputFileName = ((PubGeneratorDelegate.FIGURES_GEN_DIRECTORY + "/") + _last);
         this.fileSystemAccess.generateFile(((this.genDirectory + "/") + outputFileName), file.getContents());

@@ -15,7 +15,7 @@ import static com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateCompute
 class PubDerivedStateComputer implements IDerivedStateComputer {
 
 	static val BASE = BaseFactory.eINSTANCE
-	static  val PUB = PubFactory.eINSTANCE
+	static val PUB = PubFactory.eINSTANCE
 
 	@Inject TableProviderRegistry tableProviderRegistry
 	@Inject DiagramProviderRegistry diagramProviderRegistry
@@ -37,10 +37,10 @@ class PubDerivedStateComputer implements IDerivedStateComputer {
 			model.figureRenderers.clear
 		}
 	}
-	
+
 	protected def void installTitleSymbol(PubModel model) {
 		val doc = model.document
-		if (doc.symbols.filter[it.name == TITLE_SYMBOL_NAME].empty) {
+		if (doc !== null && doc.symbols.filter[it.name == TITLE_SYMBOL_NAME].empty) {
 			val titleSymbol = PubDerivedStateComputer.PUB.createSymbol
 			titleSymbol.name = TITLE_SYMBOL_NAME
 			titleSymbol.value = BASE.createDRichText
@@ -50,16 +50,18 @@ class PubDerivedStateComputer implements IDerivedStateComputer {
 			doc.symbols.add(titleSymbol)
 		}
 	}
-	
+
 	protected def void removeTitleSymbol(PubModel model) {
 		val doc = model.document
-		val titleSymbol = doc.symbols.filter[it.name == TITLE_SYMBOL_NAME].head
-		if (titleSymbol !== null) {
-			doc.symbols.remove(titleSymbol)
+		if (doc !== null) {
+			val titleSymbol = doc.symbols.filter[it.name == TITLE_SYMBOL_NAME].head
+			if (titleSymbol !== null) {
+				doc.symbols.remove(titleSymbol)
+			}
 		}
 	}
-	
-	// Used to support extension point
+
+// Used to support extension point
 	protected def void installTableRenderers(PubModel model) {
 		if (model !== null && model.tableRenderers.empty) {
 			val renderers = tableProviderRegistry.allTableRenderers
@@ -71,8 +73,8 @@ class PubDerivedStateComputer implements IDerivedStateComputer {
 			}
 		}
 	}
-	
-	// Used to support extension point
+
+// Used to support extension point
 	protected def void installFigureRenderers(PubModel model) {
 		if (model !== null && model.figureRenderers.empty) {
 			val renderers = diagramProviderRegistry.allDiagramRenderers

@@ -31,6 +31,7 @@ import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubPackage;
+import com.mimacom.ddd.pub.pub.PubPlatformUtil;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Section;
@@ -85,6 +86,10 @@ public class PubValidator extends AbstractPubValidator {
   @Inject
   @Extension
   private PubUtil _pubUtil;
+  
+  @Inject
+  @Extension
+  private PubPlatformUtil _pubPlatformUtil;
   
   @Inject
   @Extension
@@ -438,10 +443,8 @@ public class PubValidator extends AbstractPubValidator {
       return;
     }
     final URI fileUri = URI.createURI(f.getFileUri());
-    final IFile file = this._pubUtil.resourceFile(f.eResource(), fileUri);
-    boolean _exists = file.exists();
-    boolean _not = (!_exists);
-    if (_not) {
+    final IFile file = this._pubPlatformUtil.resourceFile(f.eResource(), fileUri);
+    if (((file == null) || (!file.exists()))) {
       this.error("File does not exist", PubValidator.PUB.getIncludedFigure_FileUri());
     }
   }
