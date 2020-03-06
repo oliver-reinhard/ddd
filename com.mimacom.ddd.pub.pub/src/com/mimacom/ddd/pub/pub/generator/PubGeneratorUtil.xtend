@@ -1,6 +1,7 @@
 package com.mimacom.ddd.pub.pub.generator
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.IDiagramRoot
 import com.mimacom.ddd.pub.pub.Abbreviations
 import com.mimacom.ddd.pub.pub.Bibliography
 import com.mimacom.ddd.pub.pub.ChangeHistory
@@ -9,6 +10,8 @@ import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Glossary
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
+import com.mimacom.ddd.pub.pub.Numbered
+import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.PubUtil
@@ -17,14 +20,17 @@ import com.mimacom.ddd.pub.pub.TOC
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledFigure
 import com.mimacom.ddd.pub.pub.TitledTable
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy
 import java.util.List
-import com.mimacom.ddd.pub.pub.Numbered
 
 class PubGeneratorUtil {
 
 	@Inject extension PubUtil
 	@Inject extension PubTableUtil
 	@Inject extension PubNumberingUtil
+	@Inject DiagramProviderRegistry diagramProviderRegistry
 	
 	static val PUB = PubFactory.eINSTANCE
 
@@ -46,6 +52,28 @@ class PubGeneratorUtil {
 		} else {
 			t.displayName
 		}
+	}
+	
+	 def DiagramRendererProxy preferredDiagramRenderer(ProvidedFigure f, IDiagramFileFormatPreference format) {
+	 	val preferRasterDiagram = f.preferRasterDiagram
+		val preferredFileFormats = preferRasterDiagram ? format.raster : format.vector
+		val renderer = preferredFileFormats.findDiagramRenderer(f.diagramRoot.class, f.diagramType.name)
+		if (renderer !== null) {
+			return renderer
+		}
+		val otherFileFormats = preferRasterDiagram ? format.vector : format.raster
+		return otherFileFormats.findDiagramRenderer(f.diagramRoot.class, f.diagramType.name)
+	}
+
+	protected def DiagramRendererProxy findDiagramRenderer(List<DiagramFileFormat> preferredFileFormats,
+		Class<? extends IDiagramRoot> diagramRootClass, String diagramTypeID) {
+		for (format : preferredFileFormats) {
+			val renderer = diagramProviderRegistry.getDiagramRenderer(diagramRootClass, diagramTypeID, format)
+			if (renderer !== null) {
+				return renderer
+			}
+		}
+		return null
 	}
 	
 	//

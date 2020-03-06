@@ -21,8 +21,8 @@ class DiagramProviderRegistry {
 
 	static final Logger LOGGER = Logger.getLogger(DiagramProviderRegistry);
 
-	var List<DiagramRendererProxy> cachedRenderers
 	var Map<String, String> cachedDiagramTypes
+	var List<DiagramRendererProxy> cachedRenderers
 
 	private def loadExtensions() {
 		cachedDiagramTypes = Maps.newHashMap
@@ -111,16 +111,16 @@ class DiagramProviderRegistry {
 		return candidates
 	}
 
-	def DiagramRendererProxy getDiagramRenderer(Class<? extends IDiagramRoot> diagramRootClass,
-		DiagramFileFormat format) {
-		val candidates = allDiagramRenderers.filter [
-			it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.format == format
-		]
-		if (candidates.empty) {
-			return null
-		}
-		return candidates.head
-	}
+//	def DiagramRendererProxy getDiagramRenderer(Class<? extends IDiagramRoot> diagramRootClass,
+//		DiagramFileFormat format) {
+//		val candidates = allDiagramRenderers.filter [
+//			it.diagramRootClass.isAssignableFrom(diagramRootClass) && it.format == format
+//		]
+//		if (candidates.empty) {
+//			return null
+//		}
+//		return candidates.head
+//	}
 
 	def DiagramRendererProxy getDiagramRenderer(Class<? extends IDiagramRoot> diagramRootClass, String diagramTypeID,
 		DiagramFileFormat format) {

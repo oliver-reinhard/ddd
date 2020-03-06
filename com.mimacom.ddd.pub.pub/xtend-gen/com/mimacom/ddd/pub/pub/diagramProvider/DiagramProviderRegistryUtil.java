@@ -20,7 +20,7 @@ public class DiagramProviderRegistryUtil {
   
   public static final String ATTR_RENDERER_OUTPUT_FILE_FORMAT = "outputFileFormat";
   
-  public static final String ELEMENT_DIAGRAM_TYPE = "renderer";
+  public static final String ELEMENT_DIAGRAM_TYPE = "diagramType";
   
   public static final String ATTR_DIAGRAM_TYPE_ID = "id";
   

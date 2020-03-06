@@ -26,9 +26,9 @@ import org.osgi.framework.Bundle;
 public class DiagramProviderRegistry {
   private static final Logger LOGGER = Logger.getLogger(DiagramProviderRegistry.class);
   
-  private List<DiagramRendererProxy> cachedRenderers;
-  
   private Map<String, String> cachedDiagramTypes;
+  
+  private List<DiagramRendererProxy> cachedRenderers;
   
   private void loadExtensions() {
     this.cachedDiagramTypes = Maps.<String, String>newHashMap();
@@ -143,18 +143,6 @@ public class DiagramProviderRegistry {
       return null;
     }
     return candidates;
-  }
-  
-  public DiagramRendererProxy getDiagramRenderer(final Class<? extends IDiagramRoot> diagramRootClass, final DiagramFileFormat format) {
-    final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
-      return Boolean.valueOf((it.diagramRootClass.isAssignableFrom(diagramRootClass) && Objects.equal(it.format, format)));
-    };
-    final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getAllDiagramRenderers())), _function);
-    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
-    if (_isEmpty) {
-      return null;
-    }
-    return IterableExtensions.<DiagramRendererProxy>head(candidates);
   }
   
   public DiagramRendererProxy getDiagramRenderer(final Class<? extends IDiagramRoot> diagramRootClass, final String diagramTypeID, final DiagramFileFormat format) {

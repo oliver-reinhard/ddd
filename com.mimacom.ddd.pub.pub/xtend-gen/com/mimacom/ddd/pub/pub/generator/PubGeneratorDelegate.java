@@ -44,7 +44,6 @@ import com.mimacom.ddd.pub.pub.TitledCodeListing;
 import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
-import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
@@ -99,9 +98,6 @@ public class PubGeneratorDelegate {
   
   @Inject
   private TableProviderRegistry tableProviderRegistry;
-  
-  @Inject
-  private DiagramProviderRegistry diagramProviderRegistry;
   
   private static final Logger LOGGER = Logger.getLogger(PubGeneratorDelegate.class);
   
@@ -466,7 +462,7 @@ public class PubGeneratorDelegate {
   protected CharSequence _genTable(final ProvidedTable t) {
     CharSequence _xblockexpression = null;
     {
-      final TableRendererProxy provider = this.tableProviderRegistry.getTableRenderer(t.getRenderer().getName());
+      final TableRendererProxy provider = this.tableProviderRegistry.getTableRenderer(t.getTableType().getName());
       CharSequence _xifexpression = null;
       if ((provider != null)) {
         CharSequence _xblockexpression_1 = null;
@@ -476,7 +472,7 @@ public class PubGeneratorDelegate {
         }
         _xifexpression = _xblockexpression_1;
       } else {
-        String _name = t.getRenderer().getName();
+        String _name = t.getTableType().getName();
         String _plus = ("Table renderer \'" + _name);
         final String msg = (_plus + "\' not found.");
         PubGeneratorDelegate.LOGGER.error(msg);
@@ -511,23 +507,23 @@ public class PubGeneratorDelegate {
   protected CharSequence _genFigure(final ProvidedFigure f) {
     CharSequence _xblockexpression = null;
     {
-      final DiagramRendererProxy provider = this.diagramProviderRegistry.getDiagramRenderer(f.getRenderer().getName());
+      final DiagramRendererProxy rendererProxy = this._pubGeneratorUtil.preferredDiagramRenderer(f, this.renderer.diagramFileFormatPreference());
       CharSequence _xifexpression = null;
-      if ((provider != null)) {
+      if ((rendererProxy != null)) {
         CharSequence _xblockexpression_1 = null;
         {
           EObject _eContainer = f.eContainer();
           String _tieredNumber = this._pubNumberingUtil.tieredNumber(((TitledFigure) _eContainer));
           final String fileName = ((PubGeneratorDelegate.FIGURES_GEN_DIRECTORY + "/figure-") + _tieredNumber);
-          final String fileExtension = provider.format.name().toLowerCase();
-          final InputStream inputStream = provider.render(f.getDiagramRoot());
+          final String fileExtension = rendererProxy.format.name().toLowerCase();
+          final InputStream inputStream = rendererProxy.render(f.getDiagramRoot());
           final String file = ((fileName + ".") + fileExtension);
           this.fileSystemAccess.generateFile(((this.genDirectory + "/") + file), inputStream);
           _xblockexpression_1 = this.renderer.renderFigure(f, file);
         }
         _xifexpression = _xblockexpression_1;
       } else {
-        String _name = f.getRenderer().getName();
+        String _name = f.getDiagramType().getName();
         String _plus = ("Figure renderer \'" + _name);
         final String msg = (_plus + "\' not found.");
         PubGeneratorDelegate.LOGGER.error(msg);

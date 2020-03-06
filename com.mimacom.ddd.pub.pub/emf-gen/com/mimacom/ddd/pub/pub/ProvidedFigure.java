@@ -14,7 +14,8 @@ import com.mimacom.ddd.dm.base.IDiagramRoot;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramRoot <em>Diagram Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getRenderer <em>Renderer</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramType <em>Diagram Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedFigure#isPreferRasterDiagram <em>Prefer Raster Diagram</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedFigure()
@@ -45,25 +46,36 @@ public interface ProvidedFigure extends AbstractFigure {
 	void setDiagramRoot(IDiagramRoot value);
 
 	/**
-	 * Returns the value of the '<em><b>Renderer</b></em>' reference.
+	 * Returns the value of the '<em><b>Diagram Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Renderer</em>' reference.
-	 * @see #setRenderer(FigureRenderer)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedFigure_Renderer()
+	 * @return the value of the '<em>Diagram Type</em>' reference.
+	 * @see #setDiagramType(ProvidedDiagramType)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedFigure_DiagramType()
 	 * @model
 	 * @generated
 	 */
-	FigureRenderer getRenderer();
+	ProvidedDiagramType getDiagramType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getRenderer <em>Renderer</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramType <em>Diagram Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Renderer</em>' reference.
-	 * @see #getRenderer()
+	 * @param value the new value of the '<em>Diagram Type</em>' reference.
+	 * @see #getDiagramType()
 	 * @generated
 	 */
-	void setRenderer(FigureRenderer value);
+	void setDiagramType(ProvidedDiagramType value);
+
+	/**
+	 * Returns the value of the '<em><b>Prefer Raster Diagram</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefer Raster Diagram</em>' attribute.
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedFigure_PreferRasterDiagram()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isPreferRasterDiagram();
 
 } // ProvidedFigure

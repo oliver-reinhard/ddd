@@ -373,13 +373,13 @@ public interface PubFactory extends EFactory {
 	ProvidedTable createProvidedTable();
 
 	/**
-	 * Returns a new object of class '<em>Table Renderer</em>'.
+	 * Returns a new object of class '<em>Provided Table Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Table Renderer</em>'.
+	 * @return a new object of class '<em>Provided Table Type</em>'.
 	 * @generated
 	 */
-	TableRenderer createTableRenderer();
+	ProvidedTableType createProvidedTableType();
 
 	/**
 	 * Returns a new object of class '<em>Titled Figure</em>'.
@@ -409,13 +409,13 @@ public interface PubFactory extends EFactory {
 	ProvidedFigure createProvidedFigure();
 
 	/**
-	 * Returns a new object of class '<em>Figure Renderer</em>'.
+	 * Returns a new object of class '<em>Provided Diagram Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Figure Renderer</em>'.
+	 * @return a new object of class '<em>Provided Diagram Type</em>'.
 	 * @generated
 	 */
-	FigureRenderer createFigureRenderer();
+	ProvidedDiagramType createProvidedDiagramType();
 
 	/**
 	 * Returns a new object of class '<em>Equation</em>'.

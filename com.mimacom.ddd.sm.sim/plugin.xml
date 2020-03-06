@@ -17,21 +17,26 @@
    <extension
          point="com.mimacom.ddd.pub.pub.diagramProvider">
       <renderer
-            id="sim.typeDiagram.png"
+            id="sim.informationStructure.png"
             diagramName="System Information Structure (PNG)"
-            diagramType="informationStructure"
+            diagramType="sim.informationStructure"
             diagramRootClass="com.mimacom.ddd.sm.sim.SInformationModel"
             outputFileFormat="PNG"
             rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRenderer">
       </renderer>
       <renderer
-            id="sim.typeDiagram.svg"
+            id="sim.informationStructure.svg"
             diagramName="System Information Structure (SVG)"
-            diagramType="informationStructure"
+            diagramType="sim.informationStructure"
             diagramRootClass="com.mimacom.ddd.sm.sim.SInformationModel"
             outputFileFormat="SVG"
             rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRenderer">
       </renderer>
+      
+      <diagramType
+            id="sim.informationStructure"
+            name="System Information Structure">
+      </diagramType>
    </extension>
 
 </plugin>

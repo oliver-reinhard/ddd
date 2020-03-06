@@ -5,8 +5,8 @@ package com.mimacom.ddd.pub.pub.impl;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 
 import com.mimacom.ddd.pub.pub.ProvidedTable;
+import com.mimacom.ddd.pub.pub.ProvidedTableType;
 import com.mimacom.ddd.pub.pub.PubPackage;
-import com.mimacom.ddd.pub.pub.TableRenderer;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl#getDiagramRoot <em>Diagram Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl#getRenderer <em>Renderer</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableImpl#getTableType <em>Table Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,14 +41,14 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	protected IDiagramRoot diagramRoot;
 
 	/**
-	 * The cached value of the '{@link #getRenderer() <em>Renderer</em>}' reference.
+	 * The cached value of the '{@link #getTableType() <em>Table Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRenderer()
+	 * @see #getTableType()
 	 * @generated
 	 * @ordered
 	 */
-	protected TableRenderer renderer;
+	protected ProvidedTableType tableType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,16 +115,16 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * @generated
 	 */
 	@Override
-	public TableRenderer getRenderer() {
-		if (renderer != null && renderer.eIsProxy()) {
-			InternalEObject oldRenderer = (InternalEObject)renderer;
-			renderer = (TableRenderer)eResolveProxy(oldRenderer);
-			if (renderer != oldRenderer) {
+	public ProvidedTableType getTableType() {
+		if (tableType != null && tableType.eIsProxy()) {
+			InternalEObject oldTableType = (InternalEObject)tableType;
+			tableType = (ProvidedTableType)eResolveProxy(oldTableType);
+			if (tableType != oldTableType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.PROVIDED_TABLE__RENDERER, oldRenderer, renderer));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.PROVIDED_TABLE__TABLE_TYPE, oldTableType, tableType));
 			}
 		}
-		return renderer;
+		return tableType;
 	}
 
 	/**
@@ -132,8 +132,8 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRenderer basicGetRenderer() {
-		return renderer;
+	public ProvidedTableType basicGetTableType() {
+		return tableType;
 	}
 
 	/**
@@ -142,11 +142,11 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * @generated
 	 */
 	@Override
-	public void setRenderer(TableRenderer newRenderer) {
-		TableRenderer oldRenderer = renderer;
-		renderer = newRenderer;
+	public void setTableType(ProvidedTableType newTableType) {
+		ProvidedTableType oldTableType = tableType;
+		tableType = newTableType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.PROVIDED_TABLE__RENDERER, oldRenderer, renderer));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.PROVIDED_TABLE__TABLE_TYPE, oldTableType, tableType));
 	}
 
 	/**
@@ -160,9 +160,9 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 			case PubPackage.PROVIDED_TABLE__DIAGRAM_ROOT:
 				if (resolve) return getDiagramRoot();
 				return basicGetDiagramRoot();
-			case PubPackage.PROVIDED_TABLE__RENDERER:
-				if (resolve) return getRenderer();
-				return basicGetRenderer();
+			case PubPackage.PROVIDED_TABLE__TABLE_TYPE:
+				if (resolve) return getTableType();
+				return basicGetTableType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,8 +178,8 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 			case PubPackage.PROVIDED_TABLE__DIAGRAM_ROOT:
 				setDiagramRoot((IDiagramRoot)newValue);
 				return;
-			case PubPackage.PROVIDED_TABLE__RENDERER:
-				setRenderer((TableRenderer)newValue);
+			case PubPackage.PROVIDED_TABLE__TABLE_TYPE:
+				setTableType((ProvidedTableType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,8 +196,8 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 			case PubPackage.PROVIDED_TABLE__DIAGRAM_ROOT:
 				setDiagramRoot((IDiagramRoot)null);
 				return;
-			case PubPackage.PROVIDED_TABLE__RENDERER:
-				setRenderer((TableRenderer)null);
+			case PubPackage.PROVIDED_TABLE__TABLE_TYPE:
+				setTableType((ProvidedTableType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,8 +213,8 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 		switch (featureID) {
 			case PubPackage.PROVIDED_TABLE__DIAGRAM_ROOT:
 				return diagramRoot != null;
-			case PubPackage.PROVIDED_TABLE__RENDERER:
-				return renderer != null;
+			case PubPackage.PROVIDED_TABLE__TABLE_TYPE:
+				return tableType != null;
 		}
 		return super.eIsSet(featureID);
 	}

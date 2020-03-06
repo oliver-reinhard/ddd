@@ -65,35 +65,35 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 			}
 			return getDefaultScopeOfType(context, targetScope)
 
-		} else if (reference == PUB.providedTable_Renderer && context instanceof ProvidedTable) {
+		} else if (reference == PUB.providedTable_TableType && context instanceof ProvidedTable) {
 			val table = context as ProvidedTable
 			val model = EcoreUtil2.getContainerOfType(context, PubModel)
 			if (model !== null) {
 				// model.tableRenderers are installed by ExtensionPointsScopeElementsDerivedStateComputer
-				if (model.tableRenderers.empty) {
+				if (model.providedTableTypes.empty) {
 					return IScope.NULLSCOPE
 					
 				} else if (table.diagramRoot !== null) {
 					// limit table renderers to those providing for the class of the given diagram-root: 
 					val tableRendererIds = tableProviderRegistry.getTableRenderers(table.diagramRoot.class).map[it.id].toList
 					// Scopes.scopeFor does not use an IQualifiedNameProvider to compute the qualified name of the objects
-					return createScopeWithQualifiedNames(model.tableRenderers.filter[tableRendererIds.contains(it.name)])
+					return createScopeWithQualifiedNames(model.providedTableTypes.filter[tableRendererIds.contains(it.name)])
 				}
 			}
 		
-		} else if (reference == PUB.providedFigure_Renderer && context instanceof ProvidedFigure) {
+		} else if (reference == PUB.providedFigure_DiagramType && context instanceof ProvidedFigure) {
 			val figure = context as ProvidedFigure
 			val model = EcoreUtil2.getContainerOfType(context, PubModel)
 			if (model !== null) {
 				// model.figureRenderers are installed by ExtensionPointsScopeElementsDerivedStateComputer
-				if (model.figureRenderers.empty) {
+				if (model.providedDiagramTypes.empty) {
 					return IScope.NULLSCOPE
 					
 				} else if (figure.diagramRoot !== null) {
-					// limit figure renderers to those providing for the class of the given diagram-root: 
-					val diagramProviderIds = diagramProviderRegistry.getDiagramRenderers(figure.diagramRoot.class).map[it.id].toList
+					// limit diagram renderers to the diagram types supported for the class of the given diagram-root: 
+					val diagramProviderIds = diagramProviderRegistry.getDiagramRenderers(figure.diagramRoot.class).map[it.diagramTypeID].toList
 					// Scopes.scopeFor does not use an IQualifiedNameProvider to compute the qualified name of the objects
-					return createScopeWithQualifiedNames(model.figureRenderers.filter[diagramProviderIds.contains(it.name)])
+					return createScopeWithQualifiedNames(model.providedDiagramTypes.filter[diagramProviderIds.contains(it.name)])
 				}
 			}
 		}

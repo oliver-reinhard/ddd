@@ -96,11 +96,11 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 			case PubPackage.TABLE_ROW: return createTableRow();
 			case PubPackage.TABLE_CELL: return createTableCell();
 			case PubPackage.PROVIDED_TABLE: return createProvidedTable();
-			case PubPackage.TABLE_RENDERER: return createTableRenderer();
+			case PubPackage.PROVIDED_TABLE_TYPE: return createProvidedTableType();
 			case PubPackage.TITLED_FIGURE: return createTitledFigure();
 			case PubPackage.INCLUDED_FIGURE: return createIncludedFigure();
 			case PubPackage.PROVIDED_FIGURE: return createProvidedFigure();
-			case PubPackage.FIGURE_RENDERER: return createFigureRenderer();
+			case PubPackage.PROVIDED_DIAGRAM_TYPE: return createProvidedDiagramType();
 			case PubPackage.EQUATION: return createEquation();
 			case PubPackage.TITLED_CODE_LISTING: return createTitledCodeListing();
 			case PubPackage.RICH_TEXT_PARAGRAPH: return createRichTextParagraph();
@@ -601,9 +601,9 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	@Override
-	public TableRenderer createTableRenderer() {
-		TableRendererImpl tableRenderer = new TableRendererImpl();
-		return tableRenderer;
+	public ProvidedTableType createProvidedTableType() {
+		ProvidedTableTypeImpl providedTableType = new ProvidedTableTypeImpl();
+		return providedTableType;
 	}
 
 	/**
@@ -645,9 +645,9 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	@Override
-	public FigureRenderer createFigureRenderer() {
-		FigureRendererImpl figureRenderer = new FigureRendererImpl();
-		return figureRenderer;
+	public ProvidedDiagramType createProvidedDiagramType() {
+		ProvidedDiagramTypeImpl providedDiagramType = new ProvidedDiagramTypeImpl();
+		return providedDiagramType;
 	}
 
 	/**

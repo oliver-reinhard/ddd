@@ -89,22 +89,22 @@ public interface PubPackage extends EPackage {
 	int PUB_MODEL__DOCUMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Figure Renderers</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Diagram Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUB_MODEL__FIGURE_RENDERERS = 2;
+	int PUB_MODEL__PROVIDED_DIAGRAM_TYPES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Table Renderers</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Table Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUB_MODEL__TABLE_RENDERERS = 3;
+	int PUB_MODEL__PROVIDED_TABLE_TYPES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -244,13 +244,22 @@ public interface PubPackage extends EPackage {
 	int DOCUMENT__GENERATE_ASCII_DOC = REFERENCE_TARGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Prefer Raster Diagrams</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__PREFER_RASTER_DIAGRAMS = REFERENCE_TARGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__SYMBOLS = REFERENCE_TARGET_FEATURE_COUNT + 5;
+	int DOCUMENT__SYMBOLS = REFERENCE_TARGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Publication Class</b></em>' reference.
@@ -259,7 +268,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PUBLICATION_CLASS = REFERENCE_TARGET_FEATURE_COUNT + 6;
+	int DOCUMENT__PUBLICATION_CLASS = REFERENCE_TARGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -268,7 +277,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 7;
+	int DOCUMENT_FEATURE_COUNT = REFERENCE_TARGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Symbol</em>' operation.
@@ -426,6 +435,15 @@ public interface PubPackage extends EPackage {
 	int PUBLICATION__GENERATE_ASCII_DOC = DOCUMENT__GENERATE_ASCII_DOC;
 
 	/**
+	 * The feature id for the '<em><b>Prefer Raster Diagrams</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLICATION__PREFER_RASTER_DIAGRAMS = DOCUMENT__PREFER_RASTER_DIAGRAMS;
+
+	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,6 +569,15 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPONENT__GENERATE_ASCII_DOC = DOCUMENT__GENERATE_ASCII_DOC;
+
+	/**
+	 * The feature id for the '<em><b>Prefer Raster Diagrams</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__PREFER_RASTER_DIAGRAMS = DOCUMENT__PREFER_RASTER_DIAGRAMS;
 
 	/**
 	 * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
@@ -4260,13 +4287,13 @@ public interface PubPackage extends EPackage {
 	int PROVIDED_TABLE__DIAGRAM_ROOT = ABSTRACT_TABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Renderer</b></em>' reference.
+	 * The feature id for the '<em><b>Table Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_TABLE__RENDERER = ABSTRACT_TABLE_FEATURE_COUNT + 1;
+	int PROVIDED_TABLE__TABLE_TYPE = ABSTRACT_TABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Provided Table</em>' class.
@@ -4287,14 +4314,14 @@ public interface PubPackage extends EPackage {
 	int PROVIDED_TABLE_OPERATION_COUNT = ABSTRACT_TABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TableRendererImpl <em>Table Renderer</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableTypeImpl <em>Provided Table Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.impl.TableRendererImpl
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRenderer()
+	 * @see com.mimacom.ddd.pub.pub.impl.ProvidedTableTypeImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedTableType()
 	 * @generated
 	 */
-	int TABLE_RENDERER = 50;
+	int PROVIDED_TABLE_TYPE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4303,34 +4330,34 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_RENDERER__NAME = 0;
+	int PROVIDED_TABLE_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Table Type Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_RENDERER__TABLE_NAME = 1;
+	int PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME = 1;
 
 	/**
-	 * The number of structural features of the '<em>Table Renderer</em>' class.
+	 * The number of structural features of the '<em>Provided Table Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_RENDERER_FEATURE_COUNT = 2;
+	int PROVIDED_TABLE_TYPE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Table Renderer</em>' class.
+	 * The number of operations of the '<em>Provided Table Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_RENDERER_OPERATION_COUNT = 0;
+	int PROVIDED_TABLE_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.TitledFigureImpl <em>Titled Figure</em>}' class.
@@ -4562,13 +4589,22 @@ public interface PubPackage extends EPackage {
 	int PROVIDED_FIGURE__DIAGRAM_ROOT = ABSTRACT_FIGURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Renderer</b></em>' reference.
+	 * The feature id for the '<em><b>Diagram Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_FIGURE__RENDERER = ABSTRACT_FIGURE_FEATURE_COUNT + 1;
+	int PROVIDED_FIGURE__DIAGRAM_TYPE = ABSTRACT_FIGURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefer Raster Diagram</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_FIGURE__PREFER_RASTER_DIAGRAM = ABSTRACT_FIGURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Provided Figure</em>' class.
@@ -4577,7 +4613,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_FIGURE_FEATURE_COUNT = ABSTRACT_FIGURE_FEATURE_COUNT + 2;
+	int PROVIDED_FIGURE_FEATURE_COUNT = ABSTRACT_FIGURE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Provided Figure</em>' class.
@@ -4589,14 +4625,14 @@ public interface PubPackage extends EPackage {
 	int PROVIDED_FIGURE_OPERATION_COUNT = ABSTRACT_FIGURE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl <em>Figure Renderer</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedDiagramTypeImpl <em>Provided Diagram Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.impl.FigureRendererImpl
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
+	 * @see com.mimacom.ddd.pub.pub.impl.ProvidedDiagramTypeImpl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedDiagramType()
 	 * @generated
 	 */
-	int FIGURE_RENDERER = 55;
+	int PROVIDED_DIAGRAM_TYPE = 55;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4605,34 +4641,34 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_RENDERER__NAME = 0;
+	int PROVIDED_DIAGRAM_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Diagram Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Diagram Type Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_RENDERER__DIAGRAM_NAME = 1;
+	int PROVIDED_DIAGRAM_TYPE__DIAGRAM_TYPE_NAME = 1;
 
 	/**
-	 * The number of structural features of the '<em>Figure Renderer</em>' class.
+	 * The number of structural features of the '<em>Provided Diagram Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_RENDERER_FEATURE_COUNT = 2;
+	int PROVIDED_DIAGRAM_TYPE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Figure Renderer</em>' class.
+	 * The number of operations of the '<em>Provided Diagram Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIGURE_RENDERER_OPERATION_COUNT = 0;
+	int PROVIDED_DIAGRAM_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.EquationImpl <em>Equation</em>}' class.
@@ -5231,26 +5267,26 @@ public interface PubPackage extends EPackage {
 	EReference getPubModel_Document();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.PubModel#getFigureRenderers <em>Figure Renderers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.PubModel#getProvidedDiagramTypes <em>Provided Diagram Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Figure Renderers</em>'.
-	 * @see com.mimacom.ddd.pub.pub.PubModel#getFigureRenderers()
+	 * @return the meta object for the containment reference list '<em>Provided Diagram Types</em>'.
+	 * @see com.mimacom.ddd.pub.pub.PubModel#getProvidedDiagramTypes()
 	 * @see #getPubModel()
 	 * @generated
 	 */
-	EReference getPubModel_FigureRenderers();
+	EReference getPubModel_ProvidedDiagramTypes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.PubModel#getTableRenderers <em>Table Renderers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.PubModel#getProvidedTableTypes <em>Provided Table Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Table Renderers</em>'.
-	 * @see com.mimacom.ddd.pub.pub.PubModel#getTableRenderers()
+	 * @return the meta object for the containment reference list '<em>Provided Table Types</em>'.
+	 * @see com.mimacom.ddd.pub.pub.PubModel#getProvidedTableTypes()
 	 * @see #getPubModel()
 	 * @generated
 	 */
-	EReference getPubModel_TableRenderers();
+	EReference getPubModel_ProvidedTableTypes();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Document <em>Document</em>}'.
@@ -5316,6 +5352,17 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDocument_GenerateAsciiDoc();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Document#isPreferRasterDiagrams <em>Prefer Raster Diagrams</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefer Raster Diagrams</em>'.
+	 * @see com.mimacom.ddd.pub.pub.Document#isPreferRasterDiagrams()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_PreferRasterDiagrams();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.Document#getSymbols <em>Symbols</em>}'.
@@ -6613,47 +6660,47 @@ public interface PubPackage extends EPackage {
 	EReference getProvidedTable_DiagramRoot();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedTable#getRenderer <em>Renderer</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedTable#getTableType <em>Table Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Renderer</em>'.
-	 * @see com.mimacom.ddd.pub.pub.ProvidedTable#getRenderer()
+	 * @return the meta object for the reference '<em>Table Type</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTable#getTableType()
 	 * @see #getProvidedTable()
 	 * @generated
 	 */
-	EReference getProvidedTable_Renderer();
+	EReference getProvidedTable_TableType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TableRenderer <em>Table Renderer</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.ProvidedTableType <em>Provided Table Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table Renderer</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TableRenderer
+	 * @return the meta object for class '<em>Provided Table Type</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTableType
 	 * @generated
 	 */
-	EClass getTableRenderer();
+	EClass getProvidedTableType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TableRenderer#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.ProvidedTableType#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TableRenderer#getName()
-	 * @see #getTableRenderer()
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTableType#getName()
+	 * @see #getProvidedTableType()
 	 * @generated
 	 */
-	EAttribute getTableRenderer_Name();
+	EAttribute getProvidedTableType_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TableRenderer#getTableName <em>Table Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.ProvidedTableType#getTableTypeName <em>Table Type Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Table Name</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TableRenderer#getTableName()
-	 * @see #getTableRenderer()
+	 * @return the meta object for the attribute '<em>Table Type Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTableType#getTableTypeName()
+	 * @see #getProvidedTableType()
 	 * @generated
 	 */
-	EAttribute getTableRenderer_TableName();
+	EAttribute getProvidedTableType_TableTypeName();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TitledFigure <em>Titled Figure</em>}'.
@@ -6740,47 +6787,58 @@ public interface PubPackage extends EPackage {
 	EReference getProvidedFigure_DiagramRoot();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getRenderer <em>Renderer</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramType <em>Diagram Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Renderer</em>'.
-	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure#getRenderer()
+	 * @return the meta object for the reference '<em>Diagram Type</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure#getDiagramType()
 	 * @see #getProvidedFigure()
 	 * @generated
 	 */
-	EReference getProvidedFigure_Renderer();
+	EReference getProvidedFigure_DiagramType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.FigureRenderer <em>Figure Renderer</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.ProvidedFigure#isPreferRasterDiagram <em>Prefer Raster Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Figure Renderer</em>'.
-	 * @see com.mimacom.ddd.pub.pub.FigureRenderer
+	 * @return the meta object for the attribute '<em>Prefer Raster Diagram</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedFigure#isPreferRasterDiagram()
+	 * @see #getProvidedFigure()
 	 * @generated
 	 */
-	EClass getFigureRenderer();
+	EAttribute getProvidedFigure_PreferRasterDiagram();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getName <em>Name</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.ProvidedDiagramType <em>Provided Diagram Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Provided Diagram Type</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedDiagramType
+	 * @generated
+	 */
+	EClass getProvidedDiagramType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.ProvidedDiagramType#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.pub.pub.FigureRenderer#getName()
-	 * @see #getFigureRenderer()
+	 * @see com.mimacom.ddd.pub.pub.ProvidedDiagramType#getName()
+	 * @see #getProvidedDiagramType()
 	 * @generated
 	 */
-	EAttribute getFigureRenderer_Name();
+	EAttribute getProvidedDiagramType_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.FigureRenderer#getDiagramName <em>Diagram Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.ProvidedDiagramType#getDiagramTypeName <em>Diagram Type Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Diagram Name</em>'.
-	 * @see com.mimacom.ddd.pub.pub.FigureRenderer#getDiagramName()
-	 * @see #getFigureRenderer()
+	 * @return the meta object for the attribute '<em>Diagram Type Name</em>'.
+	 * @see com.mimacom.ddd.pub.pub.ProvidedDiagramType#getDiagramTypeName()
+	 * @see #getProvidedDiagramType()
 	 * @generated
 	 */
-	EAttribute getFigureRenderer_DiagramName();
+	EAttribute getProvidedDiagramType_DiagramTypeName();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Equation <em>Equation</em>}'.
@@ -7071,20 +7129,20 @@ public interface PubPackage extends EPackage {
 		EReference PUB_MODEL__DOCUMENT = eINSTANCE.getPubModel_Document();
 
 		/**
-		 * The meta object literal for the '<em><b>Figure Renderers</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Provided Diagram Types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PUB_MODEL__FIGURE_RENDERERS = eINSTANCE.getPubModel_FigureRenderers();
+		EReference PUB_MODEL__PROVIDED_DIAGRAM_TYPES = eINSTANCE.getPubModel_ProvidedDiagramTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Table Renderers</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Provided Table Types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PUB_MODEL__TABLE_RENDERERS = eINSTANCE.getPubModel_TableRenderers();
+		EReference PUB_MODEL__PROVIDED_TABLE_TYPES = eINSTANCE.getPubModel_ProvidedTableTypes();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl <em>Document</em>}' class.
@@ -7135,6 +7193,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOCUMENT__GENERATE_ASCII_DOC = eINSTANCE.getDocument_GenerateAsciiDoc();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefer Raster Diagrams</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__PREFER_RASTER_DIAGRAMS = eINSTANCE.getDocument_PreferRasterDiagrams();
 
 		/**
 		 * The meta object literal for the '<em><b>Symbols</b></em>' containment reference list feature.
@@ -8217,22 +8283,22 @@ public interface PubPackage extends EPackage {
 		EReference PROVIDED_TABLE__DIAGRAM_ROOT = eINSTANCE.getProvidedTable_DiagramRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Renderer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Table Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_TABLE__RENDERER = eINSTANCE.getProvidedTable_Renderer();
+		EReference PROVIDED_TABLE__TABLE_TYPE = eINSTANCE.getProvidedTable_TableType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableRendererImpl <em>Table Renderer</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableTypeImpl <em>Provided Table Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.impl.TableRendererImpl
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getTableRenderer()
+		 * @see com.mimacom.ddd.pub.pub.impl.ProvidedTableTypeImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedTableType()
 		 * @generated
 		 */
-		EClass TABLE_RENDERER = eINSTANCE.getTableRenderer();
+		EClass PROVIDED_TABLE_TYPE = eINSTANCE.getProvidedTableType();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -8240,15 +8306,15 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE_RENDERER__NAME = eINSTANCE.getTableRenderer_Name();
+		EAttribute PROVIDED_TABLE_TYPE__NAME = eINSTANCE.getProvidedTableType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Table Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Table Type Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE_RENDERER__TABLE_NAME = eINSTANCE.getTableRenderer_TableName();
+		EAttribute PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME = eINSTANCE.getProvidedTableType_TableTypeName();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TitledFigureImpl <em>Titled Figure</em>}' class.
@@ -8323,22 +8389,30 @@ public interface PubPackage extends EPackage {
 		EReference PROVIDED_FIGURE__DIAGRAM_ROOT = eINSTANCE.getProvidedFigure_DiagramRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Renderer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Diagram Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_FIGURE__RENDERER = eINSTANCE.getProvidedFigure_Renderer();
+		EReference PROVIDED_FIGURE__DIAGRAM_TYPE = eINSTANCE.getProvidedFigure_DiagramType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.FigureRendererImpl <em>Figure Renderer</em>}' class.
+		 * The meta object literal for the '<em><b>Prefer Raster Diagram</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.impl.FigureRendererImpl
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getFigureRenderer()
 		 * @generated
 		 */
-		EClass FIGURE_RENDERER = eINSTANCE.getFigureRenderer();
+		EAttribute PROVIDED_FIGURE__PREFER_RASTER_DIAGRAM = eINSTANCE.getProvidedFigure_PreferRasterDiagram();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ProvidedDiagramTypeImpl <em>Provided Diagram Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.pub.pub.impl.ProvidedDiagramTypeImpl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getProvidedDiagramType()
+		 * @generated
+		 */
+		EClass PROVIDED_DIAGRAM_TYPE = eINSTANCE.getProvidedDiagramType();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -8346,15 +8420,15 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIGURE_RENDERER__NAME = eINSTANCE.getFigureRenderer_Name();
+		EAttribute PROVIDED_DIAGRAM_TYPE__NAME = eINSTANCE.getProvidedDiagramType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Diagram Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Diagram Type Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIGURE_RENDERER__DIAGRAM_NAME = eINSTANCE.getFigureRenderer_DiagramName();
+		EAttribute PROVIDED_DIAGRAM_TYPE__DIAGRAM_TYPE_NAME = eINSTANCE.getProvidedDiagramType_DiagramTypeName();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.EquationImpl <em>Equation</em>}' class.

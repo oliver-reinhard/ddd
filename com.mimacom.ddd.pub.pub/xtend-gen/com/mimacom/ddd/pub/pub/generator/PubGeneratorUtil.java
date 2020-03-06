@@ -1,6 +1,7 @@
 package com.mimacom.ddd.pub.pub.generator;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.pub.Abbreviation;
 import com.mimacom.ddd.pub.pub.Abbreviations;
@@ -15,6 +16,7 @@ import com.mimacom.ddd.pub.pub.GlossaryEntry;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
 import com.mimacom.ddd.pub.pub.Numbered;
+import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.PubUtil;
@@ -24,6 +26,10 @@ import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.TitledTable;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
+import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -42,6 +48,9 @@ public class PubGeneratorUtil {
   @Inject
   @Extension
   private PubNumberingUtil _pubNumberingUtil;
+  
+  @Inject
+  private DiagramProviderRegistry diagramProviderRegistry;
   
   private static final PubFactory PUB = PubFactory.eINSTANCE;
   
@@ -73,6 +82,41 @@ public class PubGeneratorUtil {
       _xifexpression = this._pubUtil.displayName(t);
     }
     return _xifexpression;
+  }
+  
+  public DiagramRendererProxy preferredDiagramRenderer(final ProvidedFigure f, final IDiagramFileFormatPreference format) {
+    final boolean preferRasterDiagram = f.isPreferRasterDiagram();
+    List<DiagramFileFormat> _xifexpression = null;
+    if (preferRasterDiagram) {
+      _xifexpression = format.raster();
+    } else {
+      _xifexpression = format.vector();
+    }
+    final List<DiagramFileFormat> preferredFileFormats = _xifexpression;
+    final DiagramRendererProxy renderer = this.findDiagramRenderer(preferredFileFormats, f.getDiagramRoot().getClass(), f.getDiagramType().getName());
+    if ((renderer != null)) {
+      return renderer;
+    }
+    List<DiagramFileFormat> _xifexpression_1 = null;
+    if (preferRasterDiagram) {
+      _xifexpression_1 = format.vector();
+    } else {
+      _xifexpression_1 = format.raster();
+    }
+    final List<DiagramFileFormat> otherFileFormats = _xifexpression_1;
+    return this.findDiagramRenderer(otherFileFormats, f.getDiagramRoot().getClass(), f.getDiagramType().getName());
+  }
+  
+  protected DiagramRendererProxy findDiagramRenderer(final List<DiagramFileFormat> preferredFileFormats, final Class<? extends IDiagramRoot> diagramRootClass, final String diagramTypeID) {
+    for (final DiagramFileFormat format : preferredFileFormats) {
+      {
+        final DiagramRendererProxy renderer = this.diagramProviderRegistry.getDiagramRenderer(diagramRootClass, diagramTypeID, format);
+        if ((renderer != null)) {
+          return renderer;
+        }
+      }
+    }
+    return null;
   }
   
   public Table toTable(final ChangeHistory ch) {

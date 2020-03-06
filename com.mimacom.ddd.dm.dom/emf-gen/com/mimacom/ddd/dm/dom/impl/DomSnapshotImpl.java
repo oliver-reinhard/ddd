@@ -78,6 +78,7 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -92,6 +93,7 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DomObject> getObjects()
 	{
 		if (objects == null)

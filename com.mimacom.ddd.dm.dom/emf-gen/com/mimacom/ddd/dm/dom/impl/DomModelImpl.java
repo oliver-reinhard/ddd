@@ -72,6 +72,7 @@ public class DomModelImpl extends DModelImpl implements DomModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DomSnapshot> getSnapshots()
 	{
 		if (snapshots == null)

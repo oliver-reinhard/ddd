@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateLaTeX <em>Generate La Te X</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateMarkdown <em>Generate Markdown</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isGenerateAsciiDoc <em>Generate Ascii Doc</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#isPreferRasterDiagrams <em>Prefer Raster Diagrams</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DocumentImpl#getPublicationClass <em>Publication Class</em>}</li>
  * </ul>
@@ -179,6 +180,26 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected boolean generateAsciiDoc = GENERATE_ASCII_DOC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPreferRasterDiagrams() <em>Prefer Raster Diagrams</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPreferRasterDiagrams()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PREFER_RASTER_DIAGRAMS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPreferRasterDiagrams() <em>Prefer Raster Diagrams</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPreferRasterDiagrams()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean preferRasterDiagrams = PREFER_RASTER_DIAGRAMS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
@@ -373,6 +394,29 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public boolean isPreferRasterDiagrams() {
+		return preferRasterDiagrams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPreferRasterDiagrams(boolean newPreferRasterDiagrams) {
+		boolean oldPreferRasterDiagrams = preferRasterDiagrams;
+		preferRasterDiagrams = newPreferRasterDiagrams;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DOCUMENT__PREFER_RASTER_DIAGRAMS, oldPreferRasterDiagrams, preferRasterDiagrams));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Symbol> getSymbols() {
 		if (symbols == null) {
 			symbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, PubPackage.DOCUMENT__SYMBOLS);
@@ -474,6 +518,8 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return isGenerateMarkdown();
 			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
 				return isGenerateAsciiDoc();
+			case PubPackage.DOCUMENT__PREFER_RASTER_DIAGRAMS:
+				return isPreferRasterDiagrams();
 			case PubPackage.DOCUMENT__SYMBOLS:
 				return getSymbols();
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
@@ -509,6 +555,9 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
 				setGenerateAsciiDoc((Boolean)newValue);
+				return;
+			case PubPackage.DOCUMENT__PREFER_RASTER_DIAGRAMS:
+				setPreferRasterDiagrams((Boolean)newValue);
 				return;
 			case PubPackage.DOCUMENT__SYMBOLS:
 				getSymbols().clear();
@@ -547,6 +596,9 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
 				setGenerateAsciiDoc(GENERATE_ASCII_DOC_EDEFAULT);
 				return;
+			case PubPackage.DOCUMENT__PREFER_RASTER_DIAGRAMS:
+				setPreferRasterDiagrams(PREFER_RASTER_DIAGRAMS_EDEFAULT);
+				return;
 			case PubPackage.DOCUMENT__SYMBOLS:
 				getSymbols().clear();
 				return;
@@ -579,6 +631,8 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 				return generateMarkdown != GENERATE_MARKDOWN_EDEFAULT;
 			case PubPackage.DOCUMENT__GENERATE_ASCII_DOC:
 				return generateAsciiDoc != GENERATE_ASCII_DOC_EDEFAULT;
+			case PubPackage.DOCUMENT__PREFER_RASTER_DIAGRAMS:
+				return preferRasterDiagrams != PREFER_RASTER_DIAGRAMS_EDEFAULT;
 			case PubPackage.DOCUMENT__SYMBOLS:
 				return symbols != null && !symbols.isEmpty();
 			case PubPackage.DOCUMENT__PUBLICATION_CLASS:
@@ -623,6 +677,8 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 		result.append(generateMarkdown);
 		result.append(", generateAsciiDoc: ");
 		result.append(generateAsciiDoc);
+		result.append(", preferRasterDiagrams: ");
+		result.append(preferRasterDiagrams);
 		result.append(')');
 		return result.toString();
 	}

@@ -488,9 +488,9 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PubPackage.TABLE_RENDERER: {
-				TableRenderer tableRenderer = (TableRenderer)theEObject;
-				T result = caseTableRenderer(tableRenderer);
+			case PubPackage.PROVIDED_TABLE_TYPE: {
+				ProvidedTableType providedTableType = (ProvidedTableType)theEObject;
+				T result = caseProvidedTableType(providedTableType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -525,9 +525,9 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PubPackage.FIGURE_RENDERER: {
-				FigureRenderer figureRenderer = (FigureRenderer)theEObject;
-				T result = caseFigureRenderer(figureRenderer);
+			case PubPackage.PROVIDED_DIAGRAM_TYPE: {
+				ProvidedDiagramType providedDiagramType = (ProvidedDiagramType)theEObject;
+				T result = caseProvidedDiagramType(providedDiagramType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1348,17 +1348,17 @@ public class PubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Table Renderer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Table Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Table Renderer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Provided Table Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTableRenderer(TableRenderer object) {
+	public T caseProvidedTableType(ProvidedTableType object) {
 		return null;
 	}
 
@@ -1423,17 +1423,17 @@ public class PubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Figure Renderer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Diagram Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Figure Renderer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Provided Diagram Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFigureRenderer(FigureRenderer object) {
+	public T caseProvidedDiagramType(ProvidedDiagramType object) {
 		return null;
 	}
 

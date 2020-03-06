@@ -14,7 +14,7 @@ import com.mimacom.ddd.dm.base.IDiagramRoot;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedTable#getDiagramRoot <em>Diagram Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedTable#getRenderer <em>Renderer</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.ProvidedTable#getTableType <em>Table Type</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedTable()
@@ -45,25 +45,25 @@ public interface ProvidedTable extends AbstractTable {
 	void setDiagramRoot(IDiagramRoot value);
 
 	/**
-	 * Returns the value of the '<em><b>Renderer</b></em>' reference.
+	 * Returns the value of the '<em><b>Table Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Renderer</em>' reference.
-	 * @see #setRenderer(TableRenderer)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedTable_Renderer()
+	 * @return the value of the '<em>Table Type</em>' reference.
+	 * @see #setTableType(ProvidedTableType)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getProvidedTable_TableType()
 	 * @model
 	 * @generated
 	 */
-	TableRenderer getRenderer();
+	ProvidedTableType getTableType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.ProvidedTable#getRenderer <em>Renderer</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.ProvidedTable#getTableType <em>Table Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Renderer</em>' reference.
-	 * @see #getRenderer()
+	 * @param value the new value of the '<em>Table Type</em>' reference.
+	 * @see #getTableType()
 	 * @generated
 	 */
-	void setRenderer(TableRenderer value);
+	void setTableType(ProvidedTableType value);
 
 } // ProvidedTable

@@ -49,9 +49,12 @@ import com.mimacom.ddd.pub.pub.TitledCodeListing;
 import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
 import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
+import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorTarget;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
+import com.mimacom.ddd.pub.pub.generator.PubLaTeXDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.PubLaTeXTableGenerator;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import java.util.Arrays;
@@ -89,9 +92,17 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   
   private static final PubPackage PUB = PubPackage.eINSTANCE;
   
+  @Inject
+  private PubLaTeXDiagramFileFormatPreference diagramFileFormatPreference;
+  
   @Override
   public String fileSuffix(final Document doc) {
     return PubLaTeXRenderer.DOCUMENT_SUFFIX;
+  }
+  
+  @Override
+  public PubGeneratorTarget target() {
+    return PubGeneratorTarget.LaTeX;
   }
   
   @Override
@@ -526,6 +537,11 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.append("}");
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  @Override
+  public IDiagramFileFormatPreference diagramFileFormatPreference() {
+    return this.diagramFileFormatPreference;
   }
   
   @Override

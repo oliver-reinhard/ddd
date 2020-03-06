@@ -7,21 +7,25 @@ import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer;
 import com.mimacom.ddd.pub.pub.Document;
-import com.mimacom.ddd.pub.pub.FigureRenderer;
+import com.mimacom.ddd.pub.pub.ProvidedDiagramType;
+import com.mimacom.ddd.pub.pub.ProvidedTableType;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.Symbol;
-import com.mimacom.ddd.pub.pub.TableRenderer;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry;
 import com.mimacom.ddd.pub.pub.tableProvider.TableRendererProxy;
+import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @Singleton
 @SuppressWarnings("all")
@@ -53,8 +57,8 @@ public class PubDerivedStateComputer implements IDerivedStateComputer {
     final PubModel model = ((PubModel) _head);
     if ((model != null)) {
       this.removeTitleSymbol(model);
-      model.getTableRenderers().clear();
-      model.getFigureRenderers().clear();
+      model.getProvidedTableTypes().clear();
+      model.getProvidedDiagramTypes().clear();
     }
   }
   
@@ -89,28 +93,31 @@ public class PubDerivedStateComputer implements IDerivedStateComputer {
   }
   
   protected void installTableRenderers(final PubModel model) {
-    if (((model != null) && model.getTableRenderers().isEmpty())) {
+    if (((model != null) && model.getProvidedTableTypes().isEmpty())) {
       final TableRendererProxy[] renderers = this.tableProviderRegistry.getAllTableRenderers();
       for (final TableRendererProxy r : renderers) {
         {
-          final TableRenderer tr = PubDerivedStateComputer.PUB.createTableRenderer();
+          final ProvidedTableType tr = PubDerivedStateComputer.PUB.createProvidedTableType();
           tr.setName(r.id);
-          tr.setTableName(r.tableName);
-          model.getTableRenderers().add(tr);
+          tr.setTableTypeName(r.tableName);
+          model.getProvidedTableTypes().add(tr);
         }
       }
     }
   }
   
   protected void installFigureRenderers(final PubModel model) {
-    if (((model != null) && model.getFigureRenderers().isEmpty())) {
-      final DiagramRendererProxy[] renderers = this.diagramProviderRegistry.getAllDiagramRenderers();
-      for (final DiagramRendererProxy r : renderers) {
+    if (((model != null) && model.getProvidedDiagramTypes().isEmpty())) {
+      final Function1<DiagramRendererProxy, String> _function = (DiagramRendererProxy it) -> {
+        return it.diagramTypeID;
+      };
+      final Set<String> diagramTypeIDs = IterableExtensions.<String>toSet(ListExtensions.<DiagramRendererProxy, String>map(((List<DiagramRendererProxy>)Conversions.doWrapArray(this.diagramProviderRegistry.getAllDiagramRenderers())), _function));
+      for (final String id : diagramTypeIDs) {
         {
-          final FigureRenderer fr = PubDerivedStateComputer.PUB.createFigureRenderer();
-          fr.setName(r.id);
-          fr.setDiagramName(r.diagramName);
-          model.getFigureRenderers().add(fr);
+          final ProvidedDiagramType fr = PubDerivedStateComputer.PUB.createProvidedDiagramType();
+          fr.setName(id);
+          fr.setDiagramTypeName(this.diagramProviderRegistry.getDiagramTypeName(id));
+          model.getProvidedDiagramTypes().add(fr);
         }
       }
     }

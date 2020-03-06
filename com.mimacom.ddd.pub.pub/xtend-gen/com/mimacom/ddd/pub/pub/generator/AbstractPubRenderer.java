@@ -24,8 +24,10 @@ import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledCodeListing;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
+import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorTarget;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 
 @SuppressWarnings("all")
@@ -43,6 +45,8 @@ public abstract class AbstractPubRenderer {
    * Returns file-name suffix excluding any leading dot.
    */
   public abstract String fileSuffix(final Document doc);
+  
+  public abstract PubGeneratorTarget target();
   
   public abstract void prepare(final Document doc, final IFileSystemAccess2 fsa);
   
@@ -83,6 +87,8 @@ public abstract class AbstractPubRenderer {
   public abstract CharSequence renderTable(final Table t, final NestedContentBlockGenerator g);
   
   public abstract CharSequence renderFigure(final AbstractFigure f, final String fileUri);
+  
+  public abstract IDiagramFileFormatPreference diagramFileFormatPreference();
   
   public abstract CharSequence renderEquation(final Equation e);
   

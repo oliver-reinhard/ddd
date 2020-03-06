@@ -4,7 +4,8 @@ package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 
-import com.mimacom.ddd.pub.pub.FigureRenderer;
+import com.mimacom.ddd.pub.pub.Document;
+import com.mimacom.ddd.pub.pub.ProvidedDiagramType;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.PubPackage;
 
@@ -15,6 +16,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.xtext.EcoreUtil2;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Provided Figure</b></em>'.
@@ -24,7 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl#getDiagramRoot <em>Diagram Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl#getRenderer <em>Renderer</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl#getDiagramType <em>Diagram Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedFigureImpl#isPreferRasterDiagram <em>Prefer Raster Diagram</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,14 +45,24 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	protected IDiagramRoot diagramRoot;
 
 	/**
-	 * The cached value of the '{@link #getRenderer() <em>Renderer</em>}' reference.
+	 * The cached value of the '{@link #getDiagramType() <em>Diagram Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRenderer()
+	 * @see #getDiagramType()
 	 * @generated
 	 * @ordered
 	 */
-	protected FigureRenderer renderer;
+	protected ProvidedDiagramType diagramType;
+
+	/**
+	 * The default value of the '{@link #isPreferRasterDiagram() <em>Prefer Raster Diagram</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPreferRasterDiagram()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PREFER_RASTER_DIAGRAM_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,16 +129,16 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * @generated
 	 */
 	@Override
-	public FigureRenderer getRenderer() {
-		if (renderer != null && renderer.eIsProxy()) {
-			InternalEObject oldRenderer = (InternalEObject)renderer;
-			renderer = (FigureRenderer)eResolveProxy(oldRenderer);
-			if (renderer != oldRenderer) {
+	public ProvidedDiagramType getDiagramType() {
+		if (diagramType != null && diagramType.eIsProxy()) {
+			InternalEObject oldDiagramType = (InternalEObject)diagramType;
+			diagramType = (ProvidedDiagramType)eResolveProxy(oldDiagramType);
+			if (diagramType != oldDiagramType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.PROVIDED_FIGURE__RENDERER, oldRenderer, renderer));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.PROVIDED_FIGURE__DIAGRAM_TYPE, oldDiagramType, diagramType));
 			}
 		}
-		return renderer;
+		return diagramType;
 	}
 
 	/**
@@ -132,8 +146,8 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FigureRenderer basicGetRenderer() {
-		return renderer;
+	public ProvidedDiagramType basicGetDiagramType() {
+		return diagramType;
 	}
 
 	/**
@@ -142,11 +156,25 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * @generated
 	 */
 	@Override
-	public void setRenderer(FigureRenderer newRenderer) {
-		FigureRenderer oldRenderer = renderer;
-		renderer = newRenderer;
+	public void setDiagramType(ProvidedDiagramType newDiagramType) {
+		ProvidedDiagramType oldDiagramType = diagramType;
+		diagramType = newDiagramType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.PROVIDED_FIGURE__RENDERER, oldRenderer, renderer));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.PROVIDED_FIGURE__DIAGRAM_TYPE, oldDiagramType, diagramType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isPreferRasterDiagram() {
+		final Document doc = EcoreUtil2.<Document>getContainerOfType(this, Document.class);
+		if ((doc != null)) {
+			return doc.isPreferRasterDiagrams();
+		}
+		return false;
 	}
 
 	/**
@@ -160,9 +188,11 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 			case PubPackage.PROVIDED_FIGURE__DIAGRAM_ROOT:
 				if (resolve) return getDiagramRoot();
 				return basicGetDiagramRoot();
-			case PubPackage.PROVIDED_FIGURE__RENDERER:
-				if (resolve) return getRenderer();
-				return basicGetRenderer();
+			case PubPackage.PROVIDED_FIGURE__DIAGRAM_TYPE:
+				if (resolve) return getDiagramType();
+				return basicGetDiagramType();
+			case PubPackage.PROVIDED_FIGURE__PREFER_RASTER_DIAGRAM:
+				return isPreferRasterDiagram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,8 +208,8 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 			case PubPackage.PROVIDED_FIGURE__DIAGRAM_ROOT:
 				setDiagramRoot((IDiagramRoot)newValue);
 				return;
-			case PubPackage.PROVIDED_FIGURE__RENDERER:
-				setRenderer((FigureRenderer)newValue);
+			case PubPackage.PROVIDED_FIGURE__DIAGRAM_TYPE:
+				setDiagramType((ProvidedDiagramType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,8 +226,8 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 			case PubPackage.PROVIDED_FIGURE__DIAGRAM_ROOT:
 				setDiagramRoot((IDiagramRoot)null);
 				return;
-			case PubPackage.PROVIDED_FIGURE__RENDERER:
-				setRenderer((FigureRenderer)null);
+			case PubPackage.PROVIDED_FIGURE__DIAGRAM_TYPE:
+				setDiagramType((ProvidedDiagramType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,8 +243,10 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 		switch (featureID) {
 			case PubPackage.PROVIDED_FIGURE__DIAGRAM_ROOT:
 				return diagramRoot != null;
-			case PubPackage.PROVIDED_FIGURE__RENDERER:
-				return renderer != null;
+			case PubPackage.PROVIDED_FIGURE__DIAGRAM_TYPE:
+				return diagramType != null;
+			case PubPackage.PROVIDED_FIGURE__PREFER_RASTER_DIAGRAM:
+				return isPreferRasterDiagram() != PREFER_RASTER_DIAGRAM_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

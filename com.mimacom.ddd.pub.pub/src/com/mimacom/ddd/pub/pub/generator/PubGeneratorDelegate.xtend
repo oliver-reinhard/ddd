@@ -39,7 +39,6 @@ import com.mimacom.ddd.pub.pub.TitledCodeListing
 import com.mimacom.ddd.pub.pub.TitledFigure
 import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.UnformattedParagraph
-import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
 import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
@@ -63,7 +62,6 @@ class PubGeneratorDelegate {
 	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer
 	@Inject TableProviderRegistry tableProviderRegistry
-	@Inject DiagramProviderRegistry diagramProviderRegistry
 
 	static val Logger LOGGER = Logger.getLogger(PubGeneratorDelegate);
 	static val FIGURES_GEN_DIRECTORY = "figures"
@@ -265,12 +263,12 @@ class PubGeneratorDelegate {
 	}
 
 	def dispatch CharSequence genTable(ProvidedTable t) {
-		val provider = tableProviderRegistry.getTableRenderer(t.renderer.name)
+		val provider = tableProviderRegistry.getTableRenderer(t.tableType.name)
 		if (provider !== null) {
 			val table = provider.render(t.diagramRoot)
 			renderTable(table, nestedContentBlockGenerator)
 		} else {
-			val msg = "Table renderer '" + t.renderer.name + "' not found."
+			val msg = "Table renderer '" + t.tableType.name + "' not found."
 			LOGGER.error(msg)
 			return "ERROR: " + msg
 		}
@@ -290,16 +288,16 @@ class PubGeneratorDelegate {
 	}
 
 	def dispatch CharSequence genFigure(ProvidedFigure f) {
-		val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
-		if (provider !== null) {
+		val rendererProxy = f.preferredDiagramRenderer(diagramFileFormatPreference)
+		if (rendererProxy !== null) {
 			val fileName = FIGURES_GEN_DIRECTORY + "/figure-" + (f.eContainer as TitledFigure).tieredNumber
-			val fileExtension = provider.format.name.toLowerCase
-			val inputStream = provider.render(f.diagramRoot)
+			val fileExtension = rendererProxy.format.name.toLowerCase
+			val inputStream = rendererProxy.render(f.diagramRoot)
 			val file = fileName + "." + fileExtension
 			fileSystemAccess.generateFile(genDirectory + "/" + file, inputStream)
 			renderFigure(f, file)
 		} else {
-			val msg = "Figure renderer '" + f.renderer.name + "' not found."
+			val msg = "Figure renderer '" + f.diagramType.name + "' not found."
 			LOGGER.error(msg)
 			return "ERROR: " + msg
 		}

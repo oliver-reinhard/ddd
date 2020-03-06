@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#isGenerateLaTeX <em>Generate La Te X</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#isGenerateMarkdown <em>Generate Markdown</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#isGenerateAsciiDoc <em>Generate Ascii Doc</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.Document#isPreferRasterDiagrams <em>Prefer Raster Diagrams</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.Document#getPublicationClass <em>Publication Class</em>}</li>
  * </ul>
@@ -138,6 +139,28 @@ public interface Document extends ReferenceTarget {
 	 * @generated
 	 */
 	void setGenerateAsciiDoc(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Prefer Raster Diagrams</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefer Raster Diagrams</em>' attribute.
+	 * @see #setPreferRasterDiagrams(boolean)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getDocument_PreferRasterDiagrams()
+	 * @model unique="false"
+	 * @generated
+	 */
+	boolean isPreferRasterDiagrams();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.Document#isPreferRasterDiagrams <em>Prefer Raster Diagrams</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prefer Raster Diagrams</em>' attribute.
+	 * @see #isPreferRasterDiagrams()
+	 * @generated
+	 */
+	void setPreferRasterDiagrams(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Symbols</b></em>' containment reference list.

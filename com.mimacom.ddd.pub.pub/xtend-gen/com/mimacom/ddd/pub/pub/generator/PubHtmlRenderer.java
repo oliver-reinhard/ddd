@@ -46,9 +46,12 @@ import com.mimacom.ddd.pub.pub.TitledCodeListing;
 import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
 import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
+import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorTarget;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
+import com.mimacom.ddd.pub.pub.generator.PubHtmlDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -84,9 +87,17 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   
   public static final String CSS_FILENAME = "pubstyles.css";
   
+  @Inject
+  private PubHtmlDiagramFileFormatPreference diagramFileFormatPreference;
+  
   @Override
   public String fileSuffix(final Document doc) {
     return PubHtmlRenderer.DOCUMENT_SUFFIX;
+  }
+  
+  @Override
+  public PubGeneratorTarget target() {
+    return PubGeneratorTarget.HTML;
   }
   
   @Override
@@ -612,6 +623,11 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("\">");
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  @Override
+  public IDiagramFileFormatPreference diagramFileFormatPreference() {
+    return this.diagramFileFormatPreference;
   }
   
   @Override

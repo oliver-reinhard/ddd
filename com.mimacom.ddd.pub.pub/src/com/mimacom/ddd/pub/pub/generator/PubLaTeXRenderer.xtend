@@ -59,10 +59,16 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	static public val CSS_FILENAME = "pubstyles.css"
 	static val PUB = PubPackage.eINSTANCE
 
+	@Inject PubLaTeXDiagramFileFormatPreference diagramFileFormatPreference
+
 	override String fileSuffix(Document doc) {
 		DOCUMENT_SUFFIX
 	}
 
+	override PubGeneratorTarget target() {
+		PubGeneratorTarget.LaTeX
+	}
+	
 	override prepare(Document doc, IFileSystemAccess2 fsa) {
 	}
 
@@ -273,6 +279,10 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\includegraphics[width=«f.widthPercent/100.0»\textwidth]{«fileUri.encode»}
 	'''
 
+	override IDiagramFileFormatPreference diagramFileFormatPreference(){
+		diagramFileFormatPreference
+	}
+	
 	override CharSequence renderEquation(Equation e) '''
 		-- equation (TODO)
 	'''

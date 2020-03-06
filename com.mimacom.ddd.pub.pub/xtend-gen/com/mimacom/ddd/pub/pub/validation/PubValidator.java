@@ -41,8 +41,14 @@ import com.mimacom.ddd.pub.pub.Symbol;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledCodeListing;
+import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
+import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference;
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorTarget;
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
+import com.mimacom.ddd.pub.pub.generator.PubHtmlDiagramFileFormatPreference;
+import com.mimacom.ddd.pub.pub.generator.PubLaTeXDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import com.mimacom.ddd.pub.pub.impl.PubConstants;
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry;
@@ -96,6 +102,10 @@ public class PubValidator extends AbstractPubValidator {
   private PubNumberingUtil _pubNumberingUtil;
   
   @Inject
+  @Extension
+  private PubGeneratorUtil _pubGeneratorUtil;
+  
+  @Inject
   private ISerializer serializer;
   
   @Inject
@@ -103,6 +113,12 @@ public class PubValidator extends AbstractPubValidator {
   
   @Inject
   private DiagramProviderRegistry diagramProviderRegistry;
+  
+  @Inject
+  private PubHtmlDiagramFileFormatPreference htmlDiagramFileFormatPreference;
+  
+  @Inject
+  private PubLaTeXDiagramFileFormatPreference laTeXDiagramFileFormatPreference;
   
   private final PubTableValidator tableValidator = new PubTableValidator(this);
   
@@ -451,21 +467,61 @@ public class PubValidator extends AbstractPubValidator {
   
   @Check(CheckType.NORMAL)
   public void diagramCanRender(final ProvidedFigure f) {
-    if ((((f.getDiagramRoot() != null) && (f.getRenderer() != null)) && (f.getRenderer().getName() != null))) {
-      final DiagramRendererProxy provider = this.diagramProviderRegistry.getDiagramRenderer(f.getRenderer().getName());
+    if ((((f.getDiagramRoot() != null) && (f.getDiagramType() != null)) && (f.getDiagramType().getName() != null))) {
+      final DiagramRendererProxy provider = this.diagramProviderRegistry.getDiagramRenderer(f.getDiagramType().getName());
       boolean _canRender = provider.canRender(f.getDiagramRoot());
       boolean _not = (!_canRender);
       if (_not) {
-        this.error("The referenced model does not provide content, the generated diagram will be empty", 
+        this.warning("The referenced model does not provide content, the generated diagram will be empty", 
           PubValidator.PUB.getProvidedFigure_DiagramRoot());
       }
     }
   }
   
   @Check(CheckType.NORMAL)
+  public void preferredFileFormatSupported(final ProvidedFigure f) {
+    if ((this.generateHtml(f) && (this._pubGeneratorUtil.preferredDiagramRenderer(f, this.htmlDiagramFileFormatPreference) == null))) {
+      this.preferredFileFormatError(f, PubGeneratorTarget.HTML, this.htmlDiagramFileFormatPreference);
+    }
+    if ((this.generateLaTeX(f) && (this._pubGeneratorUtil.preferredDiagramRenderer(f, this.laTeXDiagramFileFormatPreference) == null))) {
+      this.preferredFileFormatError(f, PubGeneratorTarget.LaTeX, this.laTeXDiagramFileFormatPreference);
+    }
+  }
+  
+  protected void preferredFileFormatError(final ProvidedFigure f, final PubGeneratorTarget target, final IDiagramFileFormatPreference prefs) {
+    boolean first = true;
+    final StringBuilder b = new StringBuilder();
+    List<DiagramFileFormat> _vector = prefs.vector();
+    for (final DiagramFileFormat p : _vector) {
+      {
+        if ((!first)) {
+          b.append(",");
+        }
+        b.append(p.name());
+        first = false;
+      }
+    }
+    List<DiagramFileFormat> _raster = prefs.raster();
+    for (final DiagramFileFormat r : _raster) {
+      {
+        if ((!first)) {
+          b.append(",");
+        }
+        b.append(r.name());
+        first = false;
+      }
+    }
+    String _name = target.name();
+    String _plus = ("For " + _name);
+    String _plus_1 = (_plus + ", there is no registered renderer to generate any of the preferred file formats: ");
+    String _plus_2 = (_plus_1 + b);
+    this.error(_plus_2, PubValidator.PUB.getProvidedFigure_DiagramType());
+  }
+  
+  @Check(CheckType.NORMAL)
   public void tableCanRender(final ProvidedTable t) {
-    if ((((t.getDiagramRoot() != null) && (t.getRenderer() != null)) && (t.getRenderer().getName() != null))) {
-      final TableRendererProxy provider = this.tableProviderRegistry.getTableRenderer(t.getRenderer().getName());
+    if ((((t.getDiagramRoot() != null) && (t.getTableType() != null)) && (t.getTableType().getName() != null))) {
+      final TableRendererProxy provider = this.tableProviderRegistry.getTableRenderer(t.getTableType().getName());
       boolean _canRender = provider.canRender(t.getDiagramRoot());
       boolean _not = (!_canRender);
       if (_not) {

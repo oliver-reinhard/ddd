@@ -272,8 +272,8 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createProvidedTableAdapter();
 			}
 			@Override
-			public Adapter caseTableRenderer(TableRenderer object) {
-				return createTableRendererAdapter();
+			public Adapter caseProvidedTableType(ProvidedTableType object) {
+				return createProvidedTableTypeAdapter();
 			}
 			@Override
 			public Adapter caseTitledFigure(TitledFigure object) {
@@ -292,8 +292,8 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createProvidedFigureAdapter();
 			}
 			@Override
-			public Adapter caseFigureRenderer(FigureRenderer object) {
-				return createFigureRendererAdapter();
+			public Adapter caseProvidedDiagramType(ProvidedDiagramType object) {
+				return createProvidedDiagramTypeAdapter();
 			}
 			@Override
 			public Adapter caseEquation(Equation object) {
@@ -1056,16 +1056,16 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.TableRenderer <em>Table Renderer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.ProvidedTableType <em>Provided Table Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.pub.pub.TableRenderer
+	 * @see com.mimacom.ddd.pub.pub.ProvidedTableType
 	 * @generated
 	 */
-	public Adapter createTableRendererAdapter() {
+	public Adapter createProvidedTableTypeAdapter() {
 		return null;
 	}
 
@@ -1126,16 +1126,16 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.FigureRenderer <em>Figure Renderer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.ProvidedDiagramType <em>Provided Diagram Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.pub.pub.FigureRenderer
+	 * @see com.mimacom.ddd.pub.pub.ProvidedDiagramType
 	 * @generated
 	 */
-	public Adapter createFigureRendererAdapter() {
+	public Adapter createProvidedDiagramTypeAdapter() {
 		return null;
 	}
 

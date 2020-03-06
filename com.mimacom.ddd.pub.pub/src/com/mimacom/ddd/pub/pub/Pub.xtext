@@ -37,12 +37,12 @@ PubComponent returns Component:
 
 fragment PubGenerate returns Document:
 	'generate'
-	 generateHtml?='html'? & generateLaTeX?='latex'? & generateMarkdown?='markdown'? & generateAsciiDoc?='asciidoc'?;
+	 (generateHtml?='html'? & generateLaTeX?='latex'? /* & generateMarkdown?='markdown'? & generateAsciiDoc?='asciidoc'? */)
+	 ('diagrams:' (preferRasterDiagrams?='raster' | 'vector'))?;
 	
 PubSymbol returns Symbol:
 	'symbol:'
-	name=ID '=' value=DRichText
-;
+	name=ID '=' value=DRichText;
 
 fragment PubReferenceTargetName returns ReferenceTarget: 
 	'(' ('#')? name=ID ')';
@@ -354,7 +354,7 @@ PubTableSimpleCell returns TableCell:
 ProvidedTable:
 	('widthPercent:' widthPercent=NATURAL)?
 	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
-	'table:' renderer=[TableRenderer|DQualifiedName];
+	'type:' tableType=[ProvidedTableType|DQualifiedName];
 
 PubFigure returns TitledFigure:
 	'Figure'
@@ -373,7 +373,7 @@ IncludedFigure:
 ProvidedFigure:
 	('widthPercent:' widthPercent=NATURAL)?
 	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
-	'figure:' renderer=[FigureRenderer|DQualifiedName];
+	'type:' diagramType=[ProvidedDiagramType|DQualifiedName];
 
 PubEquation returns Equation:
 	'Equation'

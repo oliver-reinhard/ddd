@@ -33,8 +33,8 @@ class PubDerivedStateComputer implements IDerivedStateComputer {
 		val model = resource.allContents.head as PubModel
 		if (model !== null) {
 			model.removeTitleSymbol
-			model.tableRenderers.clear
-			model.figureRenderers.clear
+			model.providedTableTypes.clear
+			model.providedDiagramTypes.clear
 		}
 	}
 
@@ -63,26 +63,26 @@ class PubDerivedStateComputer implements IDerivedStateComputer {
 
 // Used to support extension point
 	protected def void installTableRenderers(PubModel model) {
-		if (model !== null && model.tableRenderers.empty) {
+		if (model !== null && model.providedTableTypes.empty) {
 			val renderers = tableProviderRegistry.allTableRenderers
 			for (r : renderers) {
-				val tr = PubDerivedStateComputer.PUB.createTableRenderer
+				val tr = PubDerivedStateComputer.PUB.createProvidedTableType
 				tr.name = r.id
-				tr.tableName = r.tableName
-				model.tableRenderers.add(tr)
+				tr.tableTypeName = r.tableName
+				model.providedTableTypes.add(tr)
 			}
 		}
 	}
 
 // Used to support extension point
 	protected def void installFigureRenderers(PubModel model) {
-		if (model !== null && model.figureRenderers.empty) {
-			val renderers = diagramProviderRegistry.allDiagramRenderers
-			for (r : renderers) {
-				val fr = PubDerivedStateComputer.PUB.createFigureRenderer
-				fr.name = r.id
-				fr.diagramName = r.diagramName
-				model.figureRenderers.add(fr)
+		if (model !== null && model.providedDiagramTypes.empty) {
+			val diagramTypeIDs = diagramProviderRegistry.allDiagramRenderers.map[it.diagramTypeID].toSet
+			for (id : diagramTypeIDs) {
+				val fr = PubDerivedStateComputer.PUB.createProvidedDiagramType
+				fr.name = id
+				fr.diagramTypeName = diagramProviderRegistry.getDiagramTypeName(id)
+				model.providedDiagramTypes.add(fr)
 			}
 		}
 	}

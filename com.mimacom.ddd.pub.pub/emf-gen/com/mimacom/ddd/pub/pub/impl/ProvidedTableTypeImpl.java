@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
+import com.mimacom.ddd.pub.pub.ProvidedTableType;
 import com.mimacom.ddd.pub.pub.PubPackage;
-import com.mimacom.ddd.pub.pub.TableRenderer;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,19 +14,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Table Renderer</b></em>'.
+ * An implementation of the model object '<em><b>Provided Table Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableRendererImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableRendererImpl#getTableName <em>Table Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ProvidedTableTypeImpl#getTableTypeName <em>Table Type Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TableRendererImpl extends MinimalEObjectImpl.Container implements TableRenderer {
+public class ProvidedTableTypeImpl extends MinimalEObjectImpl.Container implements ProvidedTableType {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,31 +48,31 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTableName() <em>Table Name</em>}' attribute.
+	 * The default value of the '{@link #getTableTypeName() <em>Table Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTableName()
+	 * @see #getTableTypeName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TABLE_NAME_EDEFAULT = null;
+	protected static final String TABLE_TYPE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTableName() <em>Table Name</em>}' attribute.
+	 * The cached value of the '{@link #getTableTypeName() <em>Table Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTableName()
+	 * @see #getTableTypeName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String tableName = TABLE_NAME_EDEFAULT;
+	protected String tableTypeName = TABLE_TYPE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TableRendererImpl() {
+	protected ProvidedTableTypeImpl() {
 		super();
 	}
 
@@ -83,7 +83,7 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PubPackage.Literals.TABLE_RENDERER;
+		return PubPackage.Literals.PROVIDED_TABLE_TYPE;
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TABLE_RENDERER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.PROVIDED_TABLE_TYPE__NAME, oldName, name));
 	}
 
 	/**
@@ -115,8 +115,8 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	@Override
-	public String getTableName() {
-		return tableName;
+	public String getTableTypeName() {
+		return tableTypeName;
 	}
 
 	/**
@@ -125,11 +125,11 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	@Override
-	public void setTableName(String newTableName) {
-		String oldTableName = tableName;
-		tableName = newTableName;
+	public void setTableTypeName(String newTableTypeName) {
+		String oldTableTypeName = tableTypeName;
+		tableTypeName = newTableTypeName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TABLE_RENDERER__TABLE_NAME, oldTableName, tableName));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME, oldTableTypeName, tableTypeName));
 	}
 
 	/**
@@ -140,10 +140,10 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.TABLE_RENDERER__NAME:
+			case PubPackage.PROVIDED_TABLE_TYPE__NAME:
 				return getName();
-			case PubPackage.TABLE_RENDERER__TABLE_NAME:
-				return getTableName();
+			case PubPackage.PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME:
+				return getTableTypeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +156,11 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.TABLE_RENDERER__NAME:
+			case PubPackage.PROVIDED_TABLE_TYPE__NAME:
 				setName((String)newValue);
 				return;
-			case PubPackage.TABLE_RENDERER__TABLE_NAME:
-				setTableName((String)newValue);
+			case PubPackage.PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME:
+				setTableTypeName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +174,11 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.TABLE_RENDERER__NAME:
+			case PubPackage.PROVIDED_TABLE_TYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case PubPackage.TABLE_RENDERER__TABLE_NAME:
-				setTableName(TABLE_NAME_EDEFAULT);
+			case PubPackage.PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME:
+				setTableTypeName(TABLE_TYPE_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +192,10 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.TABLE_RENDERER__NAME:
+			case PubPackage.PROVIDED_TABLE_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PubPackage.TABLE_RENDERER__TABLE_NAME:
-				return TABLE_NAME_EDEFAULT == null ? tableName != null : !TABLE_NAME_EDEFAULT.equals(tableName);
+			case PubPackage.PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME:
+				return TABLE_TYPE_NAME_EDEFAULT == null ? tableTypeName != null : !TABLE_TYPE_NAME_EDEFAULT.equals(tableTypeName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,10 +212,10 @@ public class TableRendererImpl extends MinimalEObjectImpl.Container implements T
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", tableName: ");
-		result.append(tableName);
+		result.append(", tableTypeName: ");
+		result.append(tableTypeName);
 		result.append(')');
 		return result.toString();
 	}
 
-} //TableRendererImpl
+} //ProvidedTableTypeImpl

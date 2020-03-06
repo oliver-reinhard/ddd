@@ -29,7 +29,6 @@ import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Epilogue;
 import com.mimacom.ddd.pub.pub.Equation;
-import com.mimacom.ddd.pub.pub.FigureRenderer;
 import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Glossary;
 import com.mimacom.ddd.pub.pub.GlossaryEntry;
@@ -48,8 +47,10 @@ import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.ParagraphStyle;
 import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.Preface;
+import com.mimacom.ddd.pub.pub.ProvidedDiagramType;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
+import com.mimacom.ddd.pub.pub.ProvidedTableType;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
@@ -70,7 +71,6 @@ import com.mimacom.ddd.pub.pub.Subsubsection;
 import com.mimacom.ddd.pub.pub.Symbol;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
-import com.mimacom.ddd.pub.pub.TableRenderer;
 import com.mimacom.ddd.pub.pub.TableRow;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.TitledCodeListing;
@@ -450,7 +450,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tableRendererEClass = null;
+	private EClass providedTableTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -485,7 +485,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass figureRendererEClass = null;
+	private EClass providedDiagramTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -687,7 +687,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPubModel_FigureRenderers() {
+	public EReference getPubModel_ProvidedDiagramTypes() {
 		return (EReference)pubModelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -697,7 +697,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPubModel_TableRenderers() {
+	public EReference getPubModel_ProvidedTableTypes() {
 		return (EReference)pubModelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -767,8 +767,18 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDocument_PreferRasterDiagrams() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getDocument_Symbols() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(5);
+		return (EReference)documentEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -778,7 +788,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 */
 	@Override
 	public EReference getDocument_PublicationClass() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(6);
+		return (EReference)documentEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1997,7 +2007,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProvidedTable_Renderer() {
+	public EReference getProvidedTable_TableType() {
 		return (EReference)providedTableEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2007,8 +2017,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getTableRenderer() {
-		return tableRendererEClass;
+	public EClass getProvidedTableType() {
+		return providedTableTypeEClass;
 	}
 
 	/**
@@ -2017,8 +2027,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableRenderer_Name() {
-		return (EAttribute)tableRendererEClass.getEStructuralFeatures().get(0);
+	public EAttribute getProvidedTableType_Name() {
+		return (EAttribute)providedTableTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2027,8 +2037,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableRenderer_TableName() {
-		return (EAttribute)tableRendererEClass.getEStructuralFeatures().get(1);
+	public EAttribute getProvidedTableType_TableTypeName() {
+		return (EAttribute)providedTableTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2117,7 +2127,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProvidedFigure_Renderer() {
+	public EReference getProvidedFigure_DiagramType() {
 		return (EReference)providedFigureEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2127,8 +2137,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getFigureRenderer() {
-		return figureRendererEClass;
+	public EAttribute getProvidedFigure_PreferRasterDiagram() {
+		return (EAttribute)providedFigureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2137,8 +2147,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFigureRenderer_Name() {
-		return (EAttribute)figureRendererEClass.getEStructuralFeatures().get(0);
+	public EClass getProvidedDiagramType() {
+		return providedDiagramTypeEClass;
 	}
 
 	/**
@@ -2147,8 +2157,18 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFigureRenderer_DiagramName() {
-		return (EAttribute)figureRendererEClass.getEStructuralFeatures().get(1);
+	public EAttribute getProvidedDiagramType_Name() {
+		return (EAttribute)providedDiagramTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProvidedDiagramType_DiagramTypeName() {
+		return (EAttribute)providedDiagramTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2413,8 +2433,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		pubModelEClass = createEClass(PUB_MODEL);
 		createEReference(pubModelEClass, PUB_MODEL__IMPORTS);
 		createEReference(pubModelEClass, PUB_MODEL__DOCUMENT);
-		createEReference(pubModelEClass, PUB_MODEL__FIGURE_RENDERERS);
-		createEReference(pubModelEClass, PUB_MODEL__TABLE_RENDERERS);
+		createEReference(pubModelEClass, PUB_MODEL__PROVIDED_DIAGRAM_TYPES);
+		createEReference(pubModelEClass, PUB_MODEL__PROVIDED_TABLE_TYPES);
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__TITLE);
@@ -2422,6 +2442,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEAttribute(documentEClass, DOCUMENT__GENERATE_LA_TE_X);
 		createEAttribute(documentEClass, DOCUMENT__GENERATE_MARKDOWN);
 		createEAttribute(documentEClass, DOCUMENT__GENERATE_ASCII_DOC);
+		createEAttribute(documentEClass, DOCUMENT__PREFER_RASTER_DIAGRAMS);
 		createEReference(documentEClass, DOCUMENT__SYMBOLS);
 		createEReference(documentEClass, DOCUMENT__PUBLICATION_CLASS);
 		createEOperation(documentEClass, DOCUMENT___GET_SYMBOL__STRING);
@@ -2593,11 +2614,11 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		providedTableEClass = createEClass(PROVIDED_TABLE);
 		createEReference(providedTableEClass, PROVIDED_TABLE__DIAGRAM_ROOT);
-		createEReference(providedTableEClass, PROVIDED_TABLE__RENDERER);
+		createEReference(providedTableEClass, PROVIDED_TABLE__TABLE_TYPE);
 
-		tableRendererEClass = createEClass(TABLE_RENDERER);
-		createEAttribute(tableRendererEClass, TABLE_RENDERER__NAME);
-		createEAttribute(tableRendererEClass, TABLE_RENDERER__TABLE_NAME);
+		providedTableTypeEClass = createEClass(PROVIDED_TABLE_TYPE);
+		createEAttribute(providedTableTypeEClass, PROVIDED_TABLE_TYPE__NAME);
+		createEAttribute(providedTableTypeEClass, PROVIDED_TABLE_TYPE__TABLE_TYPE_NAME);
 
 		titledFigureEClass = createEClass(TITLED_FIGURE);
 		createEReference(titledFigureEClass, TITLED_FIGURE__FIGURE);
@@ -2610,11 +2631,12 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		providedFigureEClass = createEClass(PROVIDED_FIGURE);
 		createEReference(providedFigureEClass, PROVIDED_FIGURE__DIAGRAM_ROOT);
-		createEReference(providedFigureEClass, PROVIDED_FIGURE__RENDERER);
+		createEReference(providedFigureEClass, PROVIDED_FIGURE__DIAGRAM_TYPE);
+		createEAttribute(providedFigureEClass, PROVIDED_FIGURE__PREFER_RASTER_DIAGRAM);
 
-		figureRendererEClass = createEClass(FIGURE_RENDERER);
-		createEAttribute(figureRendererEClass, FIGURE_RENDERER__NAME);
-		createEAttribute(figureRendererEClass, FIGURE_RENDERER__DIAGRAM_NAME);
+		providedDiagramTypeEClass = createEClass(PROVIDED_DIAGRAM_TYPE);
+		createEAttribute(providedDiagramTypeEClass, PROVIDED_DIAGRAM_TYPE__NAME);
+		createEAttribute(providedDiagramTypeEClass, PROVIDED_DIAGRAM_TYPE__DIAGRAM_TYPE_NAME);
 
 		equationEClass = createEClass(EQUATION);
 		createEAttribute(equationEClass, EQUATION__FILE_URI);
@@ -2749,8 +2771,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(pubModelEClass, PubModel.class, "PubModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPubModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, PubModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPubModel_Document(), this.getDocument(), null, "document", null, 0, 1, PubModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPubModel_FigureRenderers(), this.getFigureRenderer(), null, "figureRenderers", null, 0, -1, PubModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPubModel_TableRenderers(), this.getTableRenderer(), null, "tableRenderers", null, 0, -1, PubModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPubModel_ProvidedDiagramTypes(), this.getProvidedDiagramType(), null, "providedDiagramTypes", null, 0, -1, PubModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPubModel_ProvidedTableTypes(), this.getProvidedTableType(), null, "providedTableTypes", null, 0, -1, PubModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentEClass, Document.class, "Document", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_Title(), theEcorePackage.getEString(), "title", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2758,6 +2780,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEAttribute(getDocument_GenerateLaTeX(), theEcorePackage.getEBoolean(), "generateLaTeX", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocument_GenerateMarkdown(), theEcorePackage.getEBoolean(), "generateMarkdown", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocument_GenerateAsciiDoc(), theEcorePackage.getEBoolean(), "generateAsciiDoc", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_PreferRasterDiagrams(), theEcorePackage.getEBoolean(), "preferRasterDiagrams", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_Symbols(), this.getSymbol(), null, "symbols", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_PublicationClass(), theProtoPackage.getPublicationClass(), null, "publicationClass", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2941,11 +2964,11 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(providedTableEClass, ProvidedTable.class, "ProvidedTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProvidedTable_DiagramRoot(), theBasePackage.getIDiagramRoot(), null, "diagramRoot", null, 0, 1, ProvidedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProvidedTable_Renderer(), this.getTableRenderer(), null, "renderer", null, 0, 1, ProvidedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProvidedTable_TableType(), this.getProvidedTableType(), null, "tableType", null, 0, 1, ProvidedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(tableRendererEClass, TableRenderer.class, "TableRenderer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableRenderer_Name(), theEcorePackage.getEString(), "name", null, 0, 1, TableRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableRenderer_TableName(), theEcorePackage.getEString(), "tableName", null, 0, 1, TableRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(providedTableTypeEClass, ProvidedTableType.class, "ProvidedTableType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProvidedTableType_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ProvidedTableType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProvidedTableType_TableTypeName(), theEcorePackage.getEString(), "tableTypeName", null, 0, 1, ProvidedTableType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(titledFigureEClass, TitledFigure.class, "TitledFigure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTitledFigure_Figure(), this.getAbstractFigure(), null, "figure", null, 0, 1, TitledFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2958,11 +2981,12 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(providedFigureEClass, ProvidedFigure.class, "ProvidedFigure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProvidedFigure_DiagramRoot(), theBasePackage.getIDiagramRoot(), null, "diagramRoot", null, 0, 1, ProvidedFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProvidedFigure_Renderer(), this.getFigureRenderer(), null, "renderer", null, 0, 1, ProvidedFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProvidedFigure_DiagramType(), this.getProvidedDiagramType(), null, "diagramType", null, 0, 1, ProvidedFigure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProvidedFigure_PreferRasterDiagram(), theEcorePackage.getEBoolean(), "preferRasterDiagram", null, 0, 1, ProvidedFigure.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(figureRendererEClass, FigureRenderer.class, "FigureRenderer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFigureRenderer_Name(), theEcorePackage.getEString(), "name", null, 0, 1, FigureRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFigureRenderer_DiagramName(), theEcorePackage.getEString(), "diagramName", null, 0, 1, FigureRenderer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(providedDiagramTypeEClass, ProvidedDiagramType.class, "ProvidedDiagramType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProvidedDiagramType_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ProvidedDiagramType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProvidedDiagramType_DiagramTypeName(), theEcorePackage.getEString(), "diagramTypeName", null, 0, 1, ProvidedDiagramType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(equationEClass, Equation.class, "Equation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEquation_FileUri(), theEcorePackage.getEString(), "fileUri", null, 0, 1, Equation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

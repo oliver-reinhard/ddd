@@ -34,6 +34,11 @@ import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.TitledCodeListing
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
+import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorTarget
+import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil
+import com.mimacom.ddd.pub.pub.generator.PubHtmlDiagramFileFormatPreference
+import com.mimacom.ddd.pub.pub.generator.PubLaTeXDiagramFileFormatPreference
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
@@ -61,9 +66,12 @@ class PubValidator extends AbstractPubValidator {
 	@Inject extension PubUtil
 	@Inject extension PubPlatformUtil
 	@Inject extension PubNumberingUtil
+	@Inject extension PubGeneratorUtil
 	@Inject ISerializer serializer
 	@Inject TableProviderRegistry tableProviderRegistry
 	@Inject DiagramProviderRegistry diagramProviderRegistry
+	@Inject PubHtmlDiagramFileFormatPreference htmlDiagramFileFormatPreference
+	@Inject PubLaTeXDiagramFileFormatPreference laTeXDiagramFileFormatPreference
 
 	val tableValidator = new PubTableValidator(this)
 
@@ -332,13 +340,45 @@ class PubValidator extends AbstractPubValidator {
 
 	@Check(NORMAL)
 	def diagramCanRender(ProvidedFigure f) {
-		if (f.diagramRoot !== null && f.renderer !== null && f.renderer.name !== null) {
-			val provider = diagramProviderRegistry.getDiagramRenderer(f.renderer.name)
+		if (f.diagramRoot !== null && f.diagramType !== null && f.diagramType.name !== null) {
+			val provider = diagramProviderRegistry.getDiagramRenderer(f.diagramType.name)
 			if (! provider.canRender(f.diagramRoot)) {
-				error("The referenced model does not provide content, the generated diagram will be empty",
+				warning("The referenced model does not provide content, the generated diagram will be empty",
 					PUB.providedFigure_DiagramRoot)
 			}
 		}
+	}
+
+	@Check(NORMAL)
+	def preferredFileFormatSupported(ProvidedFigure f) {
+		if (f.generateHtml && f.preferredDiagramRenderer(htmlDiagramFileFormatPreference) === null) {
+			f.preferredFileFormatError(PubGeneratorTarget.HTML, htmlDiagramFileFormatPreference)
+		}
+		if (f.generateLaTeX && f.preferredDiagramRenderer(laTeXDiagramFileFormatPreference) === null) {
+			f.preferredFileFormatError(PubGeneratorTarget.LaTeX, laTeXDiagramFileFormatPreference)
+		}
+//		if (f.generateMarkupl && f.preferredDiagramRenderer(markupDiagramFileFormatPreference) === null) {
+//			f.preferredFileFormatError(PubGeneratorTarget.Markup, markupDiagramFileFormatPreference)
+//		}
+//		if (f.generateAsciiDoc && f.preferredDiagramRenderer(asciiDocDiagramFileFormatPreference) === null) {
+//			f.preferredFileFormatError(PubGeneratorTarget.AsciiDoc, asciiDocDiagramFileFormatPreference)
+//		}
+	}
+	
+	protected def preferredFileFormatError(ProvidedFigure f, PubGeneratorTarget target, IDiagramFileFormatPreference prefs) {
+		var first = true
+		val b = new StringBuilder
+		for (p : prefs.vector) {
+			if (! first) b.append(",")
+			b.append(p.name)
+			first = false
+		}
+		for (r : prefs.raster) {
+			if (! first) b.append(",")
+			b.append(r.name)
+			first = false
+		}
+		error("For " + target.name + ", there is no registered renderer to generate any of the preferred file formats: " + b, PUB.providedFigure_DiagramType)
 	}
 
 	//
@@ -346,8 +386,8 @@ class PubValidator extends AbstractPubValidator {
 	//
 	@Check(NORMAL)
 	def tableCanRender(ProvidedTable t) {
-		if (t.diagramRoot !== null && t.renderer !== null && t.renderer.name !== null) {
-			val provider = tableProviderRegistry.getTableRenderer(t.renderer.name)
+		if (t.diagramRoot !== null && t.tableType !== null && t.tableType.name !== null) {
+			val provider = tableProviderRegistry.getTableRenderer(t.tableType.name)
 			if (! provider.canRender(t.diagramRoot)) {
 				error("The referenced model does not provide content, the generated table will be empty",
 					PUB.providedTable_DiagramRoot)

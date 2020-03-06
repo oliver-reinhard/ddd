@@ -4,35 +4,35 @@
    <extension
          point="com.mimacom.ddd.pub.pub.diagramProvider">
       <renderer
-            id="dim.typeDiagram.png"
+            id="dim.informationStructure.png"
             diagramName="Domain Information Structure (PNG)"
-            diagramType="informationStructure"
+            diagramType="dim.informationStructure"
             diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
             outputFileFormat="PNG"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
       
       <renderer
-            id="dim.typeDiagram.svg"
+            id="dim.informationStructure.svg"
             diagramName="Domain Information Structure (SVG)"
-            diagramType="informationStructure"
+            diagramType="dim.informationStructure"
             diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
             outputFileFormat="SVG"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
       
       <renderer
-            id="dim.typeDiagram.eps"
+            id="dim.informationStructure.eps"
             diagramName="Domain Information Structure (EPS)"
-            diagramType="informationStructure"
+            diagramType="dim.informationStructure"
             diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
             outputFileFormat="EPS"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
       
       <diagramType
-            id="informationStructure"
-            name="Information Structure">
+            id="dim.informationStructure"
+            name="Domain Information Structure">
       </diagramType>
    </extension>
    
@@ -41,26 +41,26 @@
       <renderer
             id="dim.allTypesOverviewTable"
             tableName="All Types (Overview)"
-            tableType="typesOverview"
+            tableType="dim.typesOverview"
             tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
             rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimAllTypesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimAllTypesTableRenderer">
       </renderer>
       
       <tableType
-            id="typesOverview"
+            id="dim.typesOverview"
             name="Descriptions of Types">
       </tableType>
       
       <renderer
             id="dim.allFeaturesOverviewTable"
             tableName="All Features (Overview)"
-            tableType="featuresOverview"
+            tableType="dim.featuresOverview"
             tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
             rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimAllFeaturesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimAllFeaturesTableRenderer">
       </renderer>
       
       <tableType
-            id="featuresOverview"
+            id="dim.featuresOverview"
             name="Descriptions of Features">
       </tableType>
    </extension>

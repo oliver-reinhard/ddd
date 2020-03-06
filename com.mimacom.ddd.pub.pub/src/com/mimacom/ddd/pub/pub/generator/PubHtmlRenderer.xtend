@@ -55,8 +55,14 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	static public val DOCUMENT_SUFFIX = "html"
 	static public val CSS_FILENAME = "pubstyles.css"
 
+	@Inject PubHtmlDiagramFileFormatPreference diagramFileFormatPreference
+
 	override String fileSuffix(Document doc) {
 		DOCUMENT_SUFFIX
+	}
+
+	override PubGeneratorTarget target() {
+		PubGeneratorTarget.HTML
 	}
 
 	override prepare(Document doc, IFileSystemAccess2 fsa) {
@@ -243,7 +249,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				<tr>	
 					«FOR cell : row.cells»
 						«cell.startTag»«FOR block : cell.contents»«g.generate(block)»«ENDFOR»«row.isHeading?"</th>":"</td>"»
-		«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try HTML directly.
+			«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try HTML directly.
 					«ENDFOR»
 			</tr>
 			«ENDFOR»
@@ -285,6 +291,10 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	override CharSequence renderFigure(AbstractFigure f, String fileUri) '''
 		<img src="«fileUri.encode»" alt="«(f.eContainer as TitledFigure).title.renderRichText»">
 	'''
+
+	override IDiagramFileFormatPreference diagramFileFormatPreference(){
+		diagramFileFormatPreference
+	}
 
 	override CharSequence renderEquation(Equation e) '''
 		-- equation (TODO)
@@ -370,7 +380,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	override CharSequence renderFootnoteInPlace(Footnote f) {
 		// footnotes are not rendered where they occur
 	}
-	
+
 	override CharSequence renderFootnotes(Iterable<Footnote> footnotes) '''
 		<br><div style="border:0.5px solid grey; width: 200px;"></div><br>
 		«FOR f : footnotes»
