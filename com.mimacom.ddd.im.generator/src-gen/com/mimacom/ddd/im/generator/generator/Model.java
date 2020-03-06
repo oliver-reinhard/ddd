@@ -18,10 +18,11 @@ import org.eclipse.xtext.xtype.XImportSection;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getTypeMappings <em>Type Mappings</em>}</li>
- *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getDtoMappings <em>Dto Mappings</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getExceptionMappings <em>Exception Mappings</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.Model#getEndpointDeclarations <em>Endpoint Declarations</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel()
@@ -30,6 +31,28 @@ import org.eclipse.xtext.xtype.XImportSection;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.Model#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Import Section</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -65,18 +88,6 @@ public interface Model extends EObject
   EList<TypeMapping> getTypeMappings();
 
   /**
-   * Returns the value of the '<em><b>Dto Mappings</b></em>' containment reference list.
-   * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.DtoMapping}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Dto Mappings</em>' containment reference list.
-   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_DtoMappings()
-   * @model containment="true"
-   * @generated
-   */
-  EList<DtoMapping> getDtoMappings();
-
-  /**
    * Returns the value of the '<em><b>Exception Mappings</b></em>' containment reference list.
    * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.ExceptionMapping}.
    * <!-- begin-user-doc -->
@@ -87,5 +98,17 @@ public interface Model extends EObject
    * @generated
    */
   EList<ExceptionMapping> getExceptionMappings();
+
+  /**
+   * Returns the value of the '<em><b>Endpoint Declarations</b></em>' containment reference list.
+   * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Endpoint Declarations</em>' containment reference list.
+   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_EndpointDeclarations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EndpointDeclarationBlock> getEndpointDeclarations();
 
 } // Model

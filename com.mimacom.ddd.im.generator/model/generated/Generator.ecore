@@ -3,26 +3,42 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="generator" nsURI="http://www.mimacom.com/ddd/im/generator/Generator"
     nsPrefix="generator">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importSection" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportSection"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeMappings" upperBound="-1"
         eType="#//TypeMapping" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoMappings" upperBound="-1"
-        eType="#//DtoMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptionMappings" upperBound="-1"
         eType="#//ExceptionMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointDeclarations" upperBound="-1"
+        eType="#//EndpointDeclarationBlock" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMapping">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="javaType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoMapping">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExceptionMapping">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndpointDeclarationBlock">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
+        eType="#//EndpointDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndpointDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//HttpVerb"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SServiceOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HttpVerb">
+    <eLiterals name="PUT" literal="PUT"/>
+    <eLiterals name="POST" value="1" literal="POST"/>
+    <eLiterals name="GET" value="2" literal="GET"/>
+    <eLiterals name="DELETE" value="3" literal="DELETE"/>
+    <eLiterals name="PATCH" value="4" literal="PATCH"/>
   </eClassifiers>
 </ecore:EPackage>

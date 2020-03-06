@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator.impl;
 
-import com.mimacom.ddd.im.generator.generator.DtoMapping;
+import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
@@ -35,16 +35,37 @@ import org.eclipse.xtext.xtype.XImportSection;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getTypeMappings <em>Type Mappings</em>}</li>
- *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getDtoMappings <em>Dto Mappings</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getExceptionMappings <em>Exception Mappings</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ModelImpl#getEndpointDeclarations <em>Endpoint Declarations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getImportSection() <em>Import Section</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -66,16 +87,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<TypeMapping> typeMappings;
 
   /**
-   * The cached value of the '{@link #getDtoMappings() <em>Dto Mappings</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDtoMappings()
-   * @generated
-   * @ordered
-   */
-  protected EList<DtoMapping> dtoMappings;
-
-  /**
    * The cached value of the '{@link #getExceptionMappings() <em>Exception Mappings</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,6 +95,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<ExceptionMapping> exceptionMappings;
+
+  /**
+   * The cached value of the '{@link #getEndpointDeclarations() <em>Endpoint Declarations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEndpointDeclarations()
+   * @generated
+   * @ordered
+   */
+  protected EList<EndpointDeclarationBlock> endpointDeclarations;
 
   /**
    * <!-- begin-user-doc -->
@@ -104,6 +125,31 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return GeneratorPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.MODEL__NAME, oldName, name));
   }
 
   /**
@@ -177,13 +223,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<DtoMapping> getDtoMappings()
+  public EList<ExceptionMapping> getExceptionMappings()
   {
-    if (dtoMappings == null)
+    if (exceptionMappings == null)
     {
-      dtoMappings = new EObjectContainmentEList<DtoMapping>(DtoMapping.class, this, GeneratorPackage.MODEL__DTO_MAPPINGS);
+      exceptionMappings = new EObjectContainmentEList<ExceptionMapping>(ExceptionMapping.class, this, GeneratorPackage.MODEL__EXCEPTION_MAPPINGS);
     }
-    return dtoMappings;
+    return exceptionMappings;
   }
 
   /**
@@ -192,13 +238,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<ExceptionMapping> getExceptionMappings()
+  public EList<EndpointDeclarationBlock> getEndpointDeclarations()
   {
-    if (exceptionMappings == null)
+    if (endpointDeclarations == null)
     {
-      exceptionMappings = new EObjectContainmentEList<ExceptionMapping>(ExceptionMapping.class, this, GeneratorPackage.MODEL__EXCEPTION_MAPPINGS);
+      endpointDeclarations = new EObjectContainmentEList<EndpointDeclarationBlock>(EndpointDeclarationBlock.class, this, GeneratorPackage.MODEL__ENDPOINT_DECLARATIONS);
     }
-    return exceptionMappings;
+    return endpointDeclarations;
   }
 
   /**
@@ -215,10 +261,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetImportSection(null, msgs);
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return ((InternalEList<?>)getTypeMappings()).basicRemove(otherEnd, msgs);
-      case GeneratorPackage.MODEL__DTO_MAPPINGS:
-        return ((InternalEList<?>)getDtoMappings()).basicRemove(otherEnd, msgs);
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         return ((InternalEList<?>)getExceptionMappings()).basicRemove(otherEnd, msgs);
+      case GeneratorPackage.MODEL__ENDPOINT_DECLARATIONS:
+        return ((InternalEList<?>)getEndpointDeclarations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -233,14 +279,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__NAME:
+        return getName();
       case GeneratorPackage.MODEL__IMPORT_SECTION:
         return getImportSection();
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return getTypeMappings();
-      case GeneratorPackage.MODEL__DTO_MAPPINGS:
-        return getDtoMappings();
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         return getExceptionMappings();
+      case GeneratorPackage.MODEL__ENDPOINT_DECLARATIONS:
+        return getEndpointDeclarations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -256,6 +304,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__NAME:
+        setName((String)newValue);
+        return;
       case GeneratorPackage.MODEL__IMPORT_SECTION:
         setImportSection((XImportSection)newValue);
         return;
@@ -263,13 +314,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getTypeMappings().clear();
         getTypeMappings().addAll((Collection<? extends TypeMapping>)newValue);
         return;
-      case GeneratorPackage.MODEL__DTO_MAPPINGS:
-        getDtoMappings().clear();
-        getDtoMappings().addAll((Collection<? extends DtoMapping>)newValue);
-        return;
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         getExceptionMappings().clear();
         getExceptionMappings().addAll((Collection<? extends ExceptionMapping>)newValue);
+        return;
+      case GeneratorPackage.MODEL__ENDPOINT_DECLARATIONS:
+        getEndpointDeclarations().clear();
+        getEndpointDeclarations().addAll((Collection<? extends EndpointDeclarationBlock>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -285,17 +336,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case GeneratorPackage.MODEL__IMPORT_SECTION:
         setImportSection((XImportSection)null);
         return;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         getTypeMappings().clear();
         return;
-      case GeneratorPackage.MODEL__DTO_MAPPINGS:
-        getDtoMappings().clear();
-        return;
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         getExceptionMappings().clear();
+        return;
+      case GeneratorPackage.MODEL__ENDPOINT_DECLARATIONS:
+        getEndpointDeclarations().clear();
         return;
     }
     super.eUnset(featureID);
@@ -311,16 +365,35 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case GeneratorPackage.MODEL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case GeneratorPackage.MODEL__IMPORT_SECTION:
         return importSection != null;
       case GeneratorPackage.MODEL__TYPE_MAPPINGS:
         return typeMappings != null && !typeMappings.isEmpty();
-      case GeneratorPackage.MODEL__DTO_MAPPINGS:
-        return dtoMappings != null && !dtoMappings.isEmpty();
       case GeneratorPackage.MODEL__EXCEPTION_MAPPINGS:
         return exceptionMappings != null && !exceptionMappings.isEmpty();
+      case GeneratorPackage.MODEL__ENDPOINT_DECLARATIONS:
+        return endpointDeclarations != null && !endpointDeclarations.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

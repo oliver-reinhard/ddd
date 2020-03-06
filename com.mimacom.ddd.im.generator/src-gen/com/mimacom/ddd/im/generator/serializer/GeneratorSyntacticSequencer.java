@@ -21,9 +21,9 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GeneratorGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_1_0_4_TypeKeyword_1_0_0_MappingsKeyword_1_0_1_LeftCurlyBracketKeyword_1_0_2__q;
-	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_1_1_5_DataKeyword_1_1_0_TransferKeyword_1_1_1_ObjectsKeyword_1_1_2_LeftCurlyBracketKeyword_1_1_3__q;
-	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_1_2_4_ExceptionKeyword_1_2_0_MappingsKeyword_1_2_1_LeftCurlyBracketKeyword_1_2_2__q;
+	protected AbstractElementAlias match_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q;
+	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q;
+	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -34,9 +34,9 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GeneratorGrammarAccess) access;
-		match_Model___RightCurlyBracketKeyword_1_0_4_TypeKeyword_1_0_0_MappingsKeyword_1_0_1_LeftCurlyBracketKeyword_1_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_0_4()), new TokenAlias(false, false, grammarAccess.getModelAccess().getTypeKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getMappingsKeyword_1_0_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_0_2()));
-		match_Model___RightCurlyBracketKeyword_1_1_5_DataKeyword_1_1_0_TransferKeyword_1_1_1_ObjectsKeyword_1_1_2_LeftCurlyBracketKeyword_1_1_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_1_5()), new TokenAlias(false, false, grammarAccess.getModelAccess().getDataKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getTransferKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getObjectsKeyword_1_1_2()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_1_3()));
-		match_Model___RightCurlyBracketKeyword_1_2_4_ExceptionKeyword_1_2_0_MappingsKeyword_1_2_1_LeftCurlyBracketKeyword_1_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_2_4()), new TokenAlias(false, false, grammarAccess.getModelAccess().getExceptionKeyword_1_2_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getMappingsKeyword_1_2_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2_2()));
+		match_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEndpointDeclarationAccess().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getEndpointDeclarationAccess().getRightCurlyBracketKeyword_2_2()));
+		match_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_4_0_4()), new TokenAlias(false, false, grammarAccess.getModelAccess().getTypeKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getMappingsKeyword_4_0_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_4_0_2()));
+		match_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_4_1_4()), new TokenAlias(false, false, grammarAccess.getModelAccess().getExceptionKeyword_4_1_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getMappingsKeyword_4_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_4_1_2()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -82,12 +82,12 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Model___RightCurlyBracketKeyword_1_0_4_TypeKeyword_1_0_0_MappingsKeyword_1_0_1_LeftCurlyBracketKeyword_1_0_2__q.equals(syntax))
-				emit_Model___RightCurlyBracketKeyword_1_0_4_TypeKeyword_1_0_0_MappingsKeyword_1_0_1_LeftCurlyBracketKeyword_1_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Model___RightCurlyBracketKeyword_1_1_5_DataKeyword_1_1_0_TransferKeyword_1_1_1_ObjectsKeyword_1_1_2_LeftCurlyBracketKeyword_1_1_3__q.equals(syntax))
-				emit_Model___RightCurlyBracketKeyword_1_1_5_DataKeyword_1_1_0_TransferKeyword_1_1_1_ObjectsKeyword_1_1_2_LeftCurlyBracketKeyword_1_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Model___RightCurlyBracketKeyword_1_2_4_ExceptionKeyword_1_2_0_MappingsKeyword_1_2_1_LeftCurlyBracketKeyword_1_2_2__q.equals(syntax))
-				emit_Model___RightCurlyBracketKeyword_1_2_4_ExceptionKeyword_1_2_0_MappingsKeyword_1_2_1_LeftCurlyBracketKeyword_1_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q.equals(syntax))
+				emit_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q.equals(syntax))
+				emit_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q.equals(syntax))
+				emit_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
@@ -106,23 +106,23 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     ('}' 'type' 'mappings' '{')?
+	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     typeMappings+=TypeMapping (ambiguity) typeMappings+=TypeMapping
+	 *     name=[SServiceOperation|QualifiedName] (ambiguity) (rule end)
 	 */
-	protected void emit_Model___RightCurlyBracketKeyword_1_0_4_TypeKeyword_1_0_0_MappingsKeyword_1_0_1_LeftCurlyBracketKeyword_1_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('}' 'data' 'transfer' 'objects' '{')?
+	 *     ('}' 'type' 'mappings' '{')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     dtoMappings+=DtoMapping (ambiguity) dtoMappings+=DtoMapping
+	 *     typeMappings+=TypeMapping (ambiguity) typeMappings+=TypeMapping
 	 */
-	protected void emit_Model___RightCurlyBracketKeyword_1_1_5_DataKeyword_1_1_0_TransferKeyword_1_1_1_ObjectsKeyword_1_1_2_LeftCurlyBracketKeyword_1_1_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -133,7 +133,7 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     exceptionMappings+=ExceptionMapping (ambiguity) exceptionMappings+=ExceptionMapping
 	 */
-	protected void emit_Model___RightCurlyBracketKeyword_1_2_4_ExceptionKeyword_1_2_0_MappingsKeyword_1_2_1_LeftCurlyBracketKeyword_1_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -87,17 +87,24 @@ public class GeneratorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GeneratorPackage.DTO_MAPPING:
-      {
-        DtoMapping dtoMapping = (DtoMapping)theEObject;
-        T result = caseDtoMapping(dtoMapping);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GeneratorPackage.EXCEPTION_MAPPING:
       {
         ExceptionMapping exceptionMapping = (ExceptionMapping)theEObject;
         T result = caseExceptionMapping(exceptionMapping);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GeneratorPackage.ENDPOINT_DECLARATION_BLOCK:
+      {
+        EndpointDeclarationBlock endpointDeclarationBlock = (EndpointDeclarationBlock)theEObject;
+        T result = caseEndpointDeclarationBlock(endpointDeclarationBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GeneratorPackage.ENDPOINT_DECLARATION:
+      {
+        EndpointDeclaration endpointDeclaration = (EndpointDeclaration)theEObject;
+        T result = caseEndpointDeclaration(endpointDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,22 +145,6 @@ public class GeneratorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Dto Mapping</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dto Mapping</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDtoMapping(DtoMapping object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Exception Mapping</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -165,6 +156,38 @@ public class GeneratorSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExceptionMapping(ExceptionMapping object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Endpoint Declaration Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Endpoint Declaration Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEndpointDeclarationBlock(EndpointDeclarationBlock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Endpoint Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Endpoint Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEndpointDeclaration(EndpointDeclaration object)
   {
     return null;
   }

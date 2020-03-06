@@ -4,7 +4,8 @@
 package com.mimacom.ddd.im.generator.serializer;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.im.generator.generator.DtoMapping;
+import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
+import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
@@ -80,8 +81,11 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == GeneratorPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case GeneratorPackage.DTO_MAPPING:
-				sequence_DtoMapping(context, (DtoMapping) semanticObject); 
+			case GeneratorPackage.ENDPOINT_DECLARATION:
+				sequence_EndpointDeclaration(context, (EndpointDeclaration) semanticObject); 
+				return; 
+			case GeneratorPackage.ENDPOINT_DECLARATION_BLOCK:
+				sequence_EndpointDeclarationBlock(context, (EndpointDeclarationBlock) semanticObject); 
 				return; 
 			case GeneratorPackage.EXCEPTION_MAPPING:
 				sequence_ExceptionMapping(context, (ExceptionMapping) semanticObject); 
@@ -338,19 +342,25 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DtoMapping returns DtoMapping
+	 *     EndpointDeclarationBlock returns EndpointDeclarationBlock
 	 *
 	 * Constraint:
-	 *     name=[DComplexType|QualifiedName]
+	 *     (name=QualifiedName path=PathID? endpoints+=EndpointDeclaration+)
 	 */
-	protected void sequence_DtoMapping(ISerializationContext context, DtoMapping semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GeneratorPackage.Literals.DTO_MAPPING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GeneratorPackage.Literals.DTO_MAPPING__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDtoMappingAccess().getNameDComplexTypeQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(GeneratorPackage.Literals.DTO_MAPPING__NAME, false));
-		feeder.finish();
+	protected void sequence_EndpointDeclarationBlock(ISerializationContext context, EndpointDeclarationBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EndpointDeclaration returns EndpointDeclaration
+	 *
+	 * Constraint:
+	 *     (verb=HttpVerb name=[SServiceOperation|QualifiedName] path=PathID?)
+	 */
+	protected void sequence_EndpointDeclaration(ISerializationContext context, EndpointDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -359,7 +369,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     ExceptionMapping returns ExceptionMapping
 	 *
 	 * Constraint:
-	 *     (name=[SException|QualifiedName] extends=[JvmType|QualifiedName]? (message=STRING | package=STRING)*)
+	 *     (name=[SException|QualifiedName] extends=[JvmType|QualifiedName]? (message=STRING | package=QualifiedName)*)
 	 */
 	protected void sequence_ExceptionMapping(ISerializationContext context, ExceptionMapping semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -372,9 +382,10 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         importSection=XImportSection | 
-	 *         (importSection=XImportSection (typeMappings+=TypeMapping | dtoMappings+=DtoMapping | exceptionMappings+=ExceptionMapping)+)
-	 *     )?
+	 *         name=ID 
+	 *         importSection=XImportSection? 
+	 *         (typeMappings+=TypeMapping | exceptionMappings+=ExceptionMapping | endpointDeclarations+=EndpointDeclarationBlock)*
+	 *     )
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

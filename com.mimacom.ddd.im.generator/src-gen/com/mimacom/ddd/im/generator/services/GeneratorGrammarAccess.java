@@ -6,8 +6,11 @@ package com.mimacom.ddd.im.generator.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -16,6 +19,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.UnorderedGroup;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.xbase.services.XbaseGrammarAccess;
@@ -27,116 +31,110 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportSectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportSectionXImportSectionParserRuleCall_0_0 = (RuleCall)cImportSectionAssignment_0.eContents().get(0);
-		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
-		private final Keyword cTypeKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
-		private final Keyword cMappingsKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_0_2 = (Keyword)cGroup_1_0.eContents().get(2);
-		private final Assignment cTypeMappingsAssignment_1_0_3 = (Assignment)cGroup_1_0.eContents().get(3);
-		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_1_0_3_0 = (RuleCall)cTypeMappingsAssignment_1_0_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_0_4 = (Keyword)cGroup_1_0.eContents().get(4);
-		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
-		private final Keyword cDataKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Keyword cTransferKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Keyword cObjectsKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_1_1_3 = (Keyword)cGroup_1_1.eContents().get(3);
-		private final Assignment cDtoMappingsAssignment_1_1_4 = (Assignment)cGroup_1_1.eContents().get(4);
-		private final RuleCall cDtoMappingsDtoMappingParserRuleCall_1_1_4_0 = (RuleCall)cDtoMappingsAssignment_1_1_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_1_5 = (Keyword)cGroup_1_1.eContents().get(5);
-		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
-		private final Keyword cExceptionKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
-		private final Keyword cMappingsKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
-		private final Assignment cExceptionMappingsAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
-		private final RuleCall cExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0 = (RuleCall)cExceptionMappingsAssignment_1_2_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_2_4 = (Keyword)cGroup_1_2.eContents().get(4);
+		private final Keyword cGeneratorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cImportSectionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cImportSectionXImportSectionParserRuleCall_3_0 = (RuleCall)cImportSectionAssignment_3.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
+		private final Keyword cTypeKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Keyword cMappingsKeyword_4_0_1 = (Keyword)cGroup_4_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4_0_2 = (Keyword)cGroup_4_0.eContents().get(2);
+		private final Assignment cTypeMappingsAssignment_4_0_3 = (Assignment)cGroup_4_0.eContents().get(3);
+		private final RuleCall cTypeMappingsTypeMappingParserRuleCall_4_0_3_0 = (RuleCall)cTypeMappingsAssignment_4_0_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_0_4 = (Keyword)cGroup_4_0.eContents().get(4);
+		private final Group cGroup_4_1 = (Group)cUnorderedGroup_4.eContents().get(1);
+		private final Keyword cExceptionKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Keyword cMappingsKeyword_4_1_1 = (Keyword)cGroup_4_1.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
+		private final Assignment cExceptionMappingsAssignment_4_1_3 = (Assignment)cGroup_4_1.eContents().get(3);
+		private final RuleCall cExceptionMappingsExceptionMappingParserRuleCall_4_1_3_0 = (RuleCall)cExceptionMappingsAssignment_4_1_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_1_4 = (Keyword)cGroup_4_1.eContents().get(4);
+		private final Assignment cEndpointDeclarationsAssignment_4_2 = (Assignment)cUnorderedGroup_4.eContents().get(2);
+		private final RuleCall cEndpointDeclarationsEndpointDeclarationBlockParserRuleCall_4_2_0 = (RuleCall)cEndpointDeclarationsAssignment_4_2.eContents().get(0);
 		
 		//Model:
-		//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects'
-		//	'{' dtoMappings+=DtoMapping+ '}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?);
+		//	'generator' 'model' name=ID
+		//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('exception' 'mappings' '{'
+		//	exceptionMappings+=ExceptionMapping+ '}')? & endpointDeclarations+=EndpointDeclarationBlock?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects'
-		//'{' dtoMappings+=DtoMapping+ '}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?)
+		//'generator' 'model' name=ID importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? &
+		//('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')? &
+		//endpointDeclarations+=EndpointDeclarationBlock?)
 		public Group getGroup() { return cGroup; }
 		
+		//'generator'
+		public Keyword getGeneratorKeyword_0() { return cGeneratorKeyword_0; }
+		
+		//'model'
+		public Keyword getModelKeyword_1() { return cModelKeyword_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
 		//importSection=XImportSection?
-		public Assignment getImportSectionAssignment_0() { return cImportSectionAssignment_0; }
+		public Assignment getImportSectionAssignment_3() { return cImportSectionAssignment_3; }
 		
 		//XImportSection
-		public RuleCall getImportSectionXImportSectionParserRuleCall_0_0() { return cImportSectionXImportSectionParserRuleCall_0_0; }
+		public RuleCall getImportSectionXImportSectionParserRuleCall_3_0() { return cImportSectionXImportSectionParserRuleCall_3_0; }
 		
-		//(('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects' '{' dtoMappings+=DtoMapping+
-		//'}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?)
-		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+		//(('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('exception' 'mappings' '{'
+		//exceptionMappings+=ExceptionMapping+ '}')? & endpointDeclarations+=EndpointDeclarationBlock?)
+		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
 		
 		//('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')?
-		public Group getGroup_1_0() { return cGroup_1_0; }
+		public Group getGroup_4_0() { return cGroup_4_0; }
 		
 		//'type'
-		public Keyword getTypeKeyword_1_0_0() { return cTypeKeyword_1_0_0; }
+		public Keyword getTypeKeyword_4_0_0() { return cTypeKeyword_4_0_0; }
 		
 		//'mappings'
-		public Keyword getMappingsKeyword_1_0_1() { return cMappingsKeyword_1_0_1; }
+		public Keyword getMappingsKeyword_4_0_1() { return cMappingsKeyword_4_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_0_2() { return cLeftCurlyBracketKeyword_1_0_2; }
+		public Keyword getLeftCurlyBracketKeyword_4_0_2() { return cLeftCurlyBracketKeyword_4_0_2; }
 		
 		//typeMappings+=TypeMapping+
-		public Assignment getTypeMappingsAssignment_1_0_3() { return cTypeMappingsAssignment_1_0_3; }
+		public Assignment getTypeMappingsAssignment_4_0_3() { return cTypeMappingsAssignment_4_0_3; }
 		
 		//TypeMapping
-		public RuleCall getTypeMappingsTypeMappingParserRuleCall_1_0_3_0() { return cTypeMappingsTypeMappingParserRuleCall_1_0_3_0; }
+		public RuleCall getTypeMappingsTypeMappingParserRuleCall_4_0_3_0() { return cTypeMappingsTypeMappingParserRuleCall_4_0_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_0_4() { return cRightCurlyBracketKeyword_1_0_4; }
-		
-		//('data' 'transfer' 'objects' '{' dtoMappings+=DtoMapping+ '}')?
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//'data'
-		public Keyword getDataKeyword_1_1_0() { return cDataKeyword_1_1_0; }
-		
-		//'transfer'
-		public Keyword getTransferKeyword_1_1_1() { return cTransferKeyword_1_1_1; }
-		
-		//'objects'
-		public Keyword getObjectsKeyword_1_1_2() { return cObjectsKeyword_1_1_2; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_1_3() { return cLeftCurlyBracketKeyword_1_1_3; }
-		
-		//dtoMappings+=DtoMapping+
-		public Assignment getDtoMappingsAssignment_1_1_4() { return cDtoMappingsAssignment_1_1_4; }
-		
-		//DtoMapping
-		public RuleCall getDtoMappingsDtoMappingParserRuleCall_1_1_4_0() { return cDtoMappingsDtoMappingParserRuleCall_1_1_4_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_1_5() { return cRightCurlyBracketKeyword_1_1_5; }
+		public Keyword getRightCurlyBracketKeyword_4_0_4() { return cRightCurlyBracketKeyword_4_0_4; }
 		
 		//('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?
-		public Group getGroup_1_2() { return cGroup_1_2; }
+		public Group getGroup_4_1() { return cGroup_4_1; }
 		
 		//'exception'
-		public Keyword getExceptionKeyword_1_2_0() { return cExceptionKeyword_1_2_0; }
+		public Keyword getExceptionKeyword_4_1_0() { return cExceptionKeyword_4_1_0; }
 		
 		//'mappings'
-		public Keyword getMappingsKeyword_1_2_1() { return cMappingsKeyword_1_2_1; }
+		public Keyword getMappingsKeyword_4_1_1() { return cMappingsKeyword_4_1_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_2_2() { return cLeftCurlyBracketKeyword_1_2_2; }
+		public Keyword getLeftCurlyBracketKeyword_4_1_2() { return cLeftCurlyBracketKeyword_4_1_2; }
 		
 		//exceptionMappings+=ExceptionMapping+
-		public Assignment getExceptionMappingsAssignment_1_2_3() { return cExceptionMappingsAssignment_1_2_3; }
+		public Assignment getExceptionMappingsAssignment_4_1_3() { return cExceptionMappingsAssignment_4_1_3; }
 		
 		//ExceptionMapping
-		public RuleCall getExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0() { return cExceptionMappingsExceptionMappingParserRuleCall_1_2_3_0; }
+		public RuleCall getExceptionMappingsExceptionMappingParserRuleCall_4_1_3_0() { return cExceptionMappingsExceptionMappingParserRuleCall_4_1_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_2_4() { return cRightCurlyBracketKeyword_1_2_4; }
+		public Keyword getRightCurlyBracketKeyword_4_1_4() { return cRightCurlyBracketKeyword_4_1_4; }
+		
+		//endpointDeclarations+=EndpointDeclarationBlock?
+		public Assignment getEndpointDeclarationsAssignment_4_2() { return cEndpointDeclarationsAssignment_4_2; }
+		
+		//EndpointDeclarationBlock
+		public RuleCall getEndpointDeclarationsEndpointDeclarationBlockParserRuleCall_4_2_0() { return cEndpointDeclarationsEndpointDeclarationBlockParserRuleCall_4_2_0; }
 	}
 	public class TypeMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.TypeMapping");
@@ -186,33 +184,6 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1; }
 	}
-	public class DtoMappingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.DtoMapping");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameDComplexTypeCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameDComplexTypeQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameDComplexTypeCrossReference_1_0.eContents().get(1);
-		
-		//DtoMapping:
-		//	'type' name=[base::DComplexType|QualifiedName];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'type' name=[base::DComplexType|QualifiedName]
-		public Group getGroup() { return cGroup; }
-		
-		//'type'
-		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
-		
-		//name=[base::DComplexType|QualifiedName]
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//[base::DComplexType|QualifiedName]
-		public CrossReference getNameDComplexTypeCrossReference_1_0() { return cNameDComplexTypeCrossReference_1_0; }
-		
-		//QualifiedName
-		public RuleCall getNameDComplexTypeQualifiedNameParserRuleCall_1_0_1() { return cNameDComplexTypeQualifiedNameParserRuleCall_1_0_1; }
-	}
 	public class ExceptionMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.ExceptionMapping");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -233,15 +204,15 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
 		private final Keyword cPackageKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
 		private final Assignment cPackageAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cPackageSTRINGTerminalRuleCall_3_1_1_0 = (RuleCall)cPackageAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cPackageQualifiedNameParserRuleCall_3_1_1_0 = (RuleCall)cPackageAssignment_3_1_1.eContents().get(0);
 		
 		//ExceptionMapping:
 		//	'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
-		//	message=STRING)? & ('package' package=STRING)?);
+		//	message=STRING)? & ('package' package=QualifiedName)?);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
-		//message=STRING)? & ('package' package=STRING)?)
+		//message=STRING)? & ('package' package=QualifiedName)?)
 		public Group getGroup() { return cGroup; }
 		
 		//'exception'
@@ -271,7 +242,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1() { return cExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1; }
 		
-		//(('message' message=STRING)? & ('package' package=STRING)?)
+		//(('message' message=STRING)? & ('package' package=QualifiedName)?)
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 		
 		//('message' message=STRING)?
@@ -286,24 +257,226 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getMessageSTRINGTerminalRuleCall_3_0_1_0() { return cMessageSTRINGTerminalRuleCall_3_0_1_0; }
 		
-		//('package' package=STRING)?
+		//('package' package=QualifiedName)?
 		public Group getGroup_3_1() { return cGroup_3_1; }
 		
 		//'package'
 		public Keyword getPackageKeyword_3_1_0() { return cPackageKeyword_3_1_0; }
 		
-		//package=STRING
+		//package=QualifiedName
 		public Assignment getPackageAssignment_3_1_1() { return cPackageAssignment_3_1_1; }
 		
-		//STRING
-		public RuleCall getPackageSTRINGTerminalRuleCall_3_1_1_0() { return cPackageSTRINGTerminalRuleCall_3_1_1_0; }
+		//QualifiedName
+		public RuleCall getPackageQualifiedNameParserRuleCall_3_1_1_0() { return cPackageQualifiedNameParserRuleCall_3_1_1_0; }
+	}
+	public class EndpointDeclarationBlockElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.EndpointDeclarationBlock");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEndpointsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cForKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cPathKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPathAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPathPathIDParserRuleCall_3_1_0 = (RuleCall)cPathAssignment_3_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cEndpointsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cEndpointsEndpointDeclarationParserRuleCall_5_0 = (RuleCall)cEndpointsAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//EndpointDeclarationBlock:
+		//	'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{'
+		//	endpoints+=EndpointDeclaration+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{' endpoints+=EndpointDeclaration+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'endpoints'
+		public Keyword getEndpointsKeyword_0() { return cEndpointsKeyword_0; }
+		
+		//'for'
+		public Keyword getForKeyword_1() { return cForKeyword_1; }
+		
+		//name=QualifiedName
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
+		
+		//('path' path=PathID)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'path'
+		public Keyword getPathKeyword_3_0() { return cPathKeyword_3_0; }
+		
+		//path=PathID
+		public Assignment getPathAssignment_3_1() { return cPathAssignment_3_1; }
+		
+		//PathID
+		public RuleCall getPathPathIDParserRuleCall_3_1_0() { return cPathPathIDParserRuleCall_3_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//endpoints+=EndpointDeclaration+
+		public Assignment getEndpointsAssignment_5() { return cEndpointsAssignment_5; }
+		
+		//EndpointDeclaration
+		public RuleCall getEndpointsEndpointDeclarationParserRuleCall_5_0() { return cEndpointsEndpointDeclarationParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class EndpointDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.EndpointDeclaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVerbAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVerbHttpVerbEnumRuleCall_0_0 = (RuleCall)cVerbAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cNameSServiceOperationCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameSServiceOperationQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameSServiceOperationCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cPathKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cPathAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cPathPathIDParserRuleCall_2_1_1_0 = (RuleCall)cPathAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		
+		//EndpointDeclaration:
+		//	verb=HttpVerb name=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
+		//	'}')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//verb=HttpVerb name=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)? '}')?
+		public Group getGroup() { return cGroup; }
+		
+		//verb=HttpVerb
+		public Assignment getVerbAssignment_0() { return cVerbAssignment_0; }
+		
+		//HttpVerb
+		public RuleCall getVerbHttpVerbEnumRuleCall_0_0() { return cVerbHttpVerbEnumRuleCall_0_0; }
+		
+		//name=[asm::SServiceOperation|QualifiedName]
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//[asm::SServiceOperation|QualifiedName]
+		public CrossReference getNameSServiceOperationCrossReference_1_0() { return cNameSServiceOperationCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getNameSServiceOperationQualifiedNameParserRuleCall_1_0_1() { return cNameSServiceOperationQualifiedNameParserRuleCall_1_0_1; }
+		
+		//('{' ('path' path=PathID)? '}')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		
+		//('path' path=PathID)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'path'
+		public Keyword getPathKeyword_2_1_0() { return cPathKeyword_2_1_0; }
+		
+		//path=PathID
+		public Assignment getPathAssignment_2_1_1() { return cPathAssignment_2_1_1; }
+		
+		//PathID
+		public RuleCall getPathPathIDParserRuleCall_2_1_1_0() { return cPathPathIDParserRuleCall_2_1_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_2() { return cRightCurlyBracketKeyword_2_2; }
+	}
+	public class PathIDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.PathID");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//PathID:
+		//	ID (=> '/' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID (=> '/' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//(=> '/' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> '/'
+		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	
+	public class HttpVerbElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.HttpVerb");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cPUTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cPUTPUTKeyword_0_0 = (Keyword)cPUTEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cPOSTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cPOSTPOSTKeyword_1_0 = (Keyword)cPOSTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cGETEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cGETGETKeyword_2_0 = (Keyword)cGETEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cDELETEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cDELETEDELETEKeyword_3_0 = (Keyword)cDELETEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cPATCHEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cPATCHPATCHKeyword_4_0 = (Keyword)cPATCHEnumLiteralDeclaration_4.eContents().get(0);
+		
+		//enum HttpVerb:
+		//	PUT | POST | GET | DELETE | PATCH;
+		public EnumRule getRule() { return rule; }
+		
+		//PUT | POST | GET | DELETE | PATCH
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PUT
+		public EnumLiteralDeclaration getPUTEnumLiteralDeclaration_0() { return cPUTEnumLiteralDeclaration_0; }
+		
+		//'PUT'
+		public Keyword getPUTPUTKeyword_0_0() { return cPUTPUTKeyword_0_0; }
+		
+		//POST
+		public EnumLiteralDeclaration getPOSTEnumLiteralDeclaration_1() { return cPOSTEnumLiteralDeclaration_1; }
+		
+		//'POST'
+		public Keyword getPOSTPOSTKeyword_1_0() { return cPOSTPOSTKeyword_1_0; }
+		
+		//GET
+		public EnumLiteralDeclaration getGETEnumLiteralDeclaration_2() { return cGETEnumLiteralDeclaration_2; }
+		
+		//'GET'
+		public Keyword getGETGETKeyword_2_0() { return cGETGETKeyword_2_0; }
+		
+		//DELETE
+		public EnumLiteralDeclaration getDELETEEnumLiteralDeclaration_3() { return cDELETEEnumLiteralDeclaration_3; }
+		
+		//'DELETE'
+		public Keyword getDELETEDELETEKeyword_3_0() { return cDELETEDELETEKeyword_3_0; }
+		
+		//PATCH
+		public EnumLiteralDeclaration getPATCHEnumLiteralDeclaration_4() { return cPATCHEnumLiteralDeclaration_4; }
+		
+		//'PATCH'
+		public Keyword getPATCHPATCHKeyword_4_0() { return cPATCHPATCHKeyword_4_0; }
+	}
 	
 	private final ModelElements pModel;
 	private final TypeMappingElements pTypeMapping;
-	private final DtoMappingElements pDtoMapping;
 	private final ExceptionMappingElements pExceptionMapping;
+	private final EndpointDeclarationBlockElements pEndpointDeclarationBlock;
+	private final EndpointDeclarationElements pEndpointDeclaration;
+	private final PathIDElements pPathID;
+	private final HttpVerbElements eHttpVerb;
 	
 	private final Grammar grammar;
 	
@@ -320,8 +493,11 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXtype = gaXtype;
 		this.pModel = new ModelElements();
 		this.pTypeMapping = new TypeMappingElements();
-		this.pDtoMapping = new DtoMappingElements();
 		this.pExceptionMapping = new ExceptionMappingElements();
+		this.pEndpointDeclarationBlock = new EndpointDeclarationBlockElements();
+		this.pEndpointDeclaration = new EndpointDeclarationElements();
+		this.pPathID = new PathIDElements();
+		this.eHttpVerb = new HttpVerbElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -356,8 +532,9 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('data' 'transfer' 'objects'
-	//	'{' dtoMappings+=DtoMapping+ '}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?);
+	//	'generator' 'model' name=ID
+	//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('exception' 'mappings' '{'
+	//	exceptionMappings+=ExceptionMapping+ '}')? & endpointDeclarations+=EndpointDeclarationBlock?);
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -377,25 +554,58 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeMappingAccess().getRule();
 	}
 	
-	//DtoMapping:
-	//	'type' name=[base::DComplexType|QualifiedName];
-	public DtoMappingElements getDtoMappingAccess() {
-		return pDtoMapping;
-	}
-	
-	public ParserRule getDtoMappingRule() {
-		return getDtoMappingAccess().getRule();
-	}
-	
 	//ExceptionMapping:
 	//	'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
-	//	message=STRING)? & ('package' package=STRING)?);
+	//	message=STRING)? & ('package' package=QualifiedName)?);
 	public ExceptionMappingElements getExceptionMappingAccess() {
 		return pExceptionMapping;
 	}
 	
 	public ParserRule getExceptionMappingRule() {
 		return getExceptionMappingAccess().getRule();
+	}
+	
+	//EndpointDeclarationBlock:
+	//	'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{'
+	//	endpoints+=EndpointDeclaration+
+	//	'}';
+	public EndpointDeclarationBlockElements getEndpointDeclarationBlockAccess() {
+		return pEndpointDeclarationBlock;
+	}
+	
+	public ParserRule getEndpointDeclarationBlockRule() {
+		return getEndpointDeclarationBlockAccess().getRule();
+	}
+	
+	//EndpointDeclaration:
+	//	verb=HttpVerb name=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
+	//	'}')?;
+	public EndpointDeclarationElements getEndpointDeclarationAccess() {
+		return pEndpointDeclaration;
+	}
+	
+	public ParserRule getEndpointDeclarationRule() {
+		return getEndpointDeclarationAccess().getRule();
+	}
+	
+	//PathID:
+	//	ID (=> '/' ID)*;
+	public PathIDElements getPathIDAccess() {
+		return pPathID;
+	}
+	
+	public ParserRule getPathIDRule() {
+		return getPathIDAccess().getRule();
+	}
+	
+	//enum HttpVerb:
+	//	PUT | POST | GET | DELETE | PATCH;
+	public HttpVerbElements getHttpVerbAccess() {
+		return eHttpVerb;
+	}
+	
+	public EnumRule getHttpVerbRule() {
+		return getHttpVerbAccess().getRule();
 	}
 	
 	//XExpression:

@@ -11,6 +11,8 @@ package com.mimacom.ddd.sm.asm.validation
  */
 class AsmValidator extends AbstractAsmValidator {
 	
+	// TODO [gh-19] validate that an operation has at most (or exactly? void?) one output param
+	
 //	public static val INVALID_NAME = 'invalidName'
 //
 //	@Check

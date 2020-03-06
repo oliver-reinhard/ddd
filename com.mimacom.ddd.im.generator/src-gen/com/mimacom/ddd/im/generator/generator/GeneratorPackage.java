@@ -5,6 +5,7 @@ package com.mimacom.ddd.im.generator.generator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -68,13 +69,22 @@ public interface GeneratorPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Import Section</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__IMPORT_SECTION = 0;
+  int MODEL__IMPORT_SECTION = 1;
 
   /**
    * The feature id for the '<em><b>Type Mappings</b></em>' containment reference list.
@@ -83,16 +93,7 @@ public interface GeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__TYPE_MAPPINGS = 1;
-
-  /**
-   * The feature id for the '<em><b>Dto Mappings</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__DTO_MAPPINGS = 2;
+  int MODEL__TYPE_MAPPINGS = 2;
 
   /**
    * The feature id for the '<em><b>Exception Mappings</b></em>' containment reference list.
@@ -104,13 +105,22 @@ public interface GeneratorPackage extends EPackage
   int MODEL__EXCEPTION_MAPPINGS = 3;
 
   /**
+   * The feature id for the '<em><b>Endpoint Declarations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ENDPOINT_DECLARATIONS = 4;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 4;
+  int MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl <em>Type Mapping</em>}' class.
@@ -150,34 +160,6 @@ public interface GeneratorPackage extends EPackage
   int TYPE_MAPPING_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl <em>Dto Mapping</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl
-   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getDtoMapping()
-   * @generated
-   */
-  int DTO_MAPPING = 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DTO_MAPPING__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Dto Mapping</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DTO_MAPPING_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl <em>Exception Mapping</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -185,7 +167,7 @@ public interface GeneratorPackage extends EPackage
    * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getExceptionMapping()
    * @generated
    */
-  int EXCEPTION_MAPPING = 3;
+  int EXCEPTION_MAPPING = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -232,6 +214,108 @@ public interface GeneratorPackage extends EPackage
    */
   int EXCEPTION_MAPPING_FEATURE_COUNT = 4;
 
+  /**
+   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationBlockImpl <em>Endpoint Declaration Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationBlockImpl
+   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getEndpointDeclarationBlock()
+   * @generated
+   */
+  int ENDPOINT_DECLARATION_BLOCK = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION_BLOCK__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION_BLOCK__PATH = 1;
+
+  /**
+   * The feature id for the '<em><b>Endpoints</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION_BLOCK__ENDPOINTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Endpoint Declaration Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION_BLOCK_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl <em>Endpoint Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl
+   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getEndpointDeclaration()
+   * @generated
+   */
+  int ENDPOINT_DECLARATION = 4;
+
+  /**
+   * The feature id for the '<em><b>Verb</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION__VERB = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION__PATH = 2;
+
+  /**
+   * The number of structural features of the '<em>Endpoint Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.mimacom.ddd.im.generator.generator.HttpVerb
+   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getHttpVerb()
+   * @generated
+   */
+  int HTTP_VERB = 5;
+
 
   /**
    * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.Model <em>Model</em>}'.
@@ -242,6 +326,17 @@ public interface GeneratorPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.Model#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Model#getName()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link com.mimacom.ddd.im.generator.generator.Model#getImportSection <em>Import Section</em>}'.
@@ -266,17 +361,6 @@ public interface GeneratorPackage extends EPackage
   EReference getModel_TypeMappings();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Model#getDtoMappings <em>Dto Mappings</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Dto Mappings</em>'.
-   * @see com.mimacom.ddd.im.generator.generator.Model#getDtoMappings()
-   * @see #getModel()
-   * @generated
-   */
-  EReference getModel_DtoMappings();
-
-  /**
    * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Model#getExceptionMappings <em>Exception Mappings</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -286,6 +370,17 @@ public interface GeneratorPackage extends EPackage
    * @generated
    */
   EReference getModel_ExceptionMappings();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Model#getEndpointDeclarations <em>Endpoint Declarations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Endpoint Declarations</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Model#getEndpointDeclarations()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_EndpointDeclarations();
 
   /**
    * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.TypeMapping <em>Type Mapping</em>}'.
@@ -318,27 +413,6 @@ public interface GeneratorPackage extends EPackage
    * @generated
    */
   EReference getTypeMapping_JavaType();
-
-  /**
-   * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.DtoMapping <em>Dto Mapping</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dto Mapping</em>'.
-   * @see com.mimacom.ddd.im.generator.generator.DtoMapping
-   * @generated
-   */
-  EClass getDtoMapping();
-
-  /**
-   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.DtoMapping#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see com.mimacom.ddd.im.generator.generator.DtoMapping#getName()
-   * @see #getDtoMapping()
-   * @generated
-   */
-  EReference getDtoMapping_Name();
 
   /**
    * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping <em>Exception Mapping</em>}'.
@@ -395,6 +469,102 @@ public interface GeneratorPackage extends EPackage
   EAttribute getExceptionMapping_Package();
 
   /**
+   * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock <em>Endpoint Declaration Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Endpoint Declaration Block</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock
+   * @generated
+   */
+  EClass getEndpointDeclarationBlock();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getName()
+   * @see #getEndpointDeclarationBlock()
+   * @generated
+   */
+  EAttribute getEndpointDeclarationBlock_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getPath()
+   * @see #getEndpointDeclarationBlock()
+   * @generated
+   */
+  EAttribute getEndpointDeclarationBlock_Path();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getEndpoints <em>Endpoints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Endpoints</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getEndpoints()
+   * @see #getEndpointDeclarationBlock()
+   * @generated
+   */
+  EReference getEndpointDeclarationBlock_Endpoints();
+
+  /**
+   * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration <em>Endpoint Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Endpoint Declaration</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration
+   * @generated
+   */
+  EClass getEndpointDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getVerb <em>Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Verb</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getVerb()
+   * @see #getEndpointDeclaration()
+   * @generated
+   */
+  EAttribute getEndpointDeclaration_Verb();
+
+  /**
+   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Name</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName()
+   * @see #getEndpointDeclaration()
+   * @generated
+   */
+  EReference getEndpointDeclaration_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath()
+   * @see #getEndpointDeclaration()
+   * @generated
+   */
+  EAttribute getEndpointDeclaration_Path();
+
+  /**
+   * Returns the meta object for enum '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Http Verb</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.HttpVerb
+   * @generated
+   */
+  EEnum getHttpVerb();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -428,6 +598,14 @@ public interface GeneratorPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+    /**
      * The meta object literal for the '<em><b>Import Section</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -444,20 +622,20 @@ public interface GeneratorPackage extends EPackage
     EReference MODEL__TYPE_MAPPINGS = eINSTANCE.getModel_TypeMappings();
 
     /**
-     * The meta object literal for the '<em><b>Dto Mappings</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__DTO_MAPPINGS = eINSTANCE.getModel_DtoMappings();
-
-    /**
      * The meta object literal for the '<em><b>Exception Mappings</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODEL__EXCEPTION_MAPPINGS = eINSTANCE.getModel_ExceptionMappings();
+
+    /**
+     * The meta object literal for the '<em><b>Endpoint Declarations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__ENDPOINT_DECLARATIONS = eINSTANCE.getModel_EndpointDeclarations();
 
     /**
      * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl <em>Type Mapping</em>}' class.
@@ -484,24 +662,6 @@ public interface GeneratorPackage extends EPackage
      * @generated
      */
     EReference TYPE_MAPPING__JAVA_TYPE = eINSTANCE.getTypeMapping_JavaType();
-
-    /**
-     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl <em>Dto Mapping</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.mimacom.ddd.im.generator.generator.impl.DtoMappingImpl
-     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getDtoMapping()
-     * @generated
-     */
-    EClass DTO_MAPPING = eINSTANCE.getDtoMapping();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DTO_MAPPING__NAME = eINSTANCE.getDtoMapping_Name();
 
     /**
      * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl <em>Exception Mapping</em>}' class.
@@ -544,6 +704,84 @@ public interface GeneratorPackage extends EPackage
      * @generated
      */
     EAttribute EXCEPTION_MAPPING__PACKAGE = eINSTANCE.getExceptionMapping_Package();
+
+    /**
+     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationBlockImpl <em>Endpoint Declaration Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationBlockImpl
+     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getEndpointDeclarationBlock()
+     * @generated
+     */
+    EClass ENDPOINT_DECLARATION_BLOCK = eINSTANCE.getEndpointDeclarationBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENDPOINT_DECLARATION_BLOCK__NAME = eINSTANCE.getEndpointDeclarationBlock_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENDPOINT_DECLARATION_BLOCK__PATH = eINSTANCE.getEndpointDeclarationBlock_Path();
+
+    /**
+     * The meta object literal for the '<em><b>Endpoints</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENDPOINT_DECLARATION_BLOCK__ENDPOINTS = eINSTANCE.getEndpointDeclarationBlock_Endpoints();
+
+    /**
+     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl <em>Endpoint Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl
+     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getEndpointDeclaration()
+     * @generated
+     */
+    EClass ENDPOINT_DECLARATION = eINSTANCE.getEndpointDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Verb</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENDPOINT_DECLARATION__VERB = eINSTANCE.getEndpointDeclaration_Verb();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENDPOINT_DECLARATION__NAME = eINSTANCE.getEndpointDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENDPOINT_DECLARATION__PATH = eINSTANCE.getEndpointDeclaration_Path();
+
+    /**
+     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.mimacom.ddd.im.generator.generator.HttpVerb
+     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getHttpVerb()
+     * @generated
+     */
+    EEnum HTTP_VERB = eINSTANCE.getHttpVerb();
 
   }
 

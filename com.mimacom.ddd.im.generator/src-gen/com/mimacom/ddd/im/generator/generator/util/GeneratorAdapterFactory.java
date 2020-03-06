@@ -86,14 +86,19 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
         return createTypeMappingAdapter();
       }
       @Override
-      public Adapter caseDtoMapping(DtoMapping object)
-      {
-        return createDtoMappingAdapter();
-      }
-      @Override
       public Adapter caseExceptionMapping(ExceptionMapping object)
       {
         return createExceptionMappingAdapter();
+      }
+      @Override
+      public Adapter caseEndpointDeclarationBlock(EndpointDeclarationBlock object)
+      {
+        return createEndpointDeclarationBlockAdapter();
+      }
+      @Override
+      public Adapter caseEndpointDeclaration(EndpointDeclaration object)
+      {
+        return createEndpointDeclarationAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -148,21 +153,6 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.DtoMapping <em>Dto Mapping</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.mimacom.ddd.im.generator.generator.DtoMapping
-   * @generated
-   */
-  public Adapter createDtoMappingAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping <em>Exception Mapping</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -173,6 +163,36 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExceptionMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock <em>Endpoint Declaration Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock
+   * @generated
+   */
+  public Adapter createEndpointDeclarationBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration <em>Endpoint Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration
+   * @generated
+   */
+  public Adapter createEndpointDeclarationAdapter()
   {
     return null;
   }

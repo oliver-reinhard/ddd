@@ -8,26 +8,48 @@ import "http://www.mimacom.com/ddd/dm/dmx"
 import "http://www.mimacom.com/ddd/sm/asm" as asm
 
 Model:
+	'generator' 'model' name=ID
 	importSection=XImportSection?
 	(
 		('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? &
-		('data' 'transfer' 'objects' '{' dtoMappings+=DtoMapping+ '}')? &
-		('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')?
-	);
+		('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')? &
+		(endpointDeclarations+=EndpointDeclarationBlock)?
+	)
+;
+
+// TODO [gh-19] use 'name' only for non-reference attributes, use 'type' for
+// ref types
 
 TypeMapping:
 	'datatype' name=[base::DType|QualifiedName]
-  	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
-
-DtoMapping:
-	'type' name=[base::DComplexType|QualifiedName]
+  	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName]
 ;
 
 ExceptionMapping:
 	'exception' name=[asm::SException|QualifiedName]
 	('extends' extends=[jvmTypes::JvmType|QualifiedName])?
 	(
-		('message' message=STRING)? & ('package' package=STRING)?
+		('message' message=STRING)? & ('package' package=QualifiedName)?
 	)
-	
+;
+
+EndpointDeclarationBlock:
+	'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{'
+		endpoints+=EndpointDeclaration+
+	'}'
+;
+
+EndpointDeclaration:
+	verb=HttpVerb name=[asm::SServiceOperation|QualifiedName]
+	('{'
+		('path' path=PathID)?
+	'}')?
+;
+
+PathID:
+	ID (=>'/' ID)*
+;
+
+enum HttpVerb:
+	PUT='PUT' | POST='POST' | GET='GET' | DELETE='DELETE' | PATCH='PATCH'
 ;

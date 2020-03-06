@@ -3,28 +3,47 @@
  */
 package com.mimacom.ddd.im.generator.jvmmodel;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
+import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
+import com.mimacom.ddd.im.generator.generator.Model;
+import com.mimacom.ddd.im.generator.jvmmodel.GeneratorTypesHelper;
+import com.mimacom.ddd.sm.asm.SDirection;
 import com.mimacom.ddd.sm.asm.SException;
+import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.SServiceParameter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmConstructor;
+import org.eclipse.xtext.common.types.JvmDeclaredType;
+import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmMember;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
+import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
@@ -44,7 +63,148 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   
   @Inject
   @Extension
-  private DmxQualifiedNameProvider _dmxQualifiedNameProvider;
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
+  @Inject
+  private IJvmModelAssociations associations;
+  
+  @Inject
+  private GeneratorTypesHelper typesHelper;
+  
+  public Iterable<DType> getParameterTypeReferences(final EndpointDeclarationBlock block) {
+    final Function1<EndpointDeclaration, EList<SServiceParameter>> _function = (EndpointDeclaration it) -> {
+      return it.getName().getParameters();
+    };
+    final Function1<SServiceParameter, DType> _function_1 = (SServiceParameter it) -> {
+      return it.getType();
+    };
+    return IterableExtensions.<SServiceParameter, DType>map(IterableExtensions.<EndpointDeclaration, SServiceParameter>flatMap(block.getEndpoints(), _function), _function_1);
+  }
+  
+  protected void _infer(final EndpointDeclarationBlock element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    if (isPreIndexingPhase) {
+      return;
+    }
+    if (((element.eResource() instanceof XtextResource) && (!IterableExtensions.isEmpty(((XtextResource) element.eResource()).getParseResult().getSyntaxErrors())))) {
+      return;
+    }
+    final Iterable<DType> refs = this.getParameterTypeReferences(element);
+    final Consumer<DType> _function = (DType it) -> {
+      String _packageName = this.getPackageName(element);
+      String _plus = (_packageName + ".");
+      String _name = it.getName();
+      String _plus_1 = (_plus + _name);
+      acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(it, _plus_1));
+    };
+    refs.forEach(_function);
+    final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
+      this._jvmTypesBuilder.setDocumentation(it, this._jvmTypesBuilder.getDocumentation(element));
+      final Function1<EndpointDeclaration, Boolean> _function_2 = (EndpointDeclaration it_1) -> {
+        SServiceOperation _name = it_1.getName();
+        return Boolean.valueOf((_name != null));
+      };
+      Iterable<EndpointDeclaration> _filter = IterableExtensions.<EndpointDeclaration>filter(element.getEndpoints(), _function_2);
+      for (final EndpointDeclaration endpoint : _filter) {
+        {
+          final SServiceOperation operation = endpoint.getName();
+          final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it_1) -> {
+            SDirection _direction = it_1.getDirection();
+            return Boolean.valueOf((_direction == SDirection.INBOUND));
+          };
+          final Iterable<SServiceParameter> arguments = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3);
+          JvmTypeReference operationReturnType = null;
+          final Function1<SServiceParameter, Boolean> _function_4 = (SServiceParameter it_1) -> {
+            SDirection _direction = it_1.getDirection();
+            return Boolean.valueOf((_direction == SDirection.OUTBOUND));
+          };
+          SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_4));
+          DType _type = null;
+          if (_head!=null) {
+            _type=_head.getType();
+          }
+          final DType outboundType = _type;
+          if ((outboundType != null)) {
+            operationReturnType = this.typesHelper.toType(this._typeReferenceBuilder, outboundType);
+          } else {
+            operationReturnType = this._typeReferenceBuilder.typeRef(Void.class);
+          }
+          EList<JvmMember> _members = it.getMembers();
+          final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
+            EList<SException> _raises = endpoint.getName().getRaises();
+            boolean _tripleNotEquals = (_raises != null);
+            if (_tripleNotEquals) {
+              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint, Model.class), endpoint.getName().getRaises());
+              EList<JvmTypeReference> _exceptions = it_1.getExceptions();
+              this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
+            }
+            for (final SServiceParameter arg : arguments) {
+              EList<JvmFormalParameter> _parameters = it_1.getParameters();
+              JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(arg, arg.getName(), this.typesHelper.toType(this._typeReferenceBuilder, arg.getType()));
+              this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            }
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("throw new UnsupportedOperationException(\"Not yet implemented\");");
+                _builder.newLine();
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(endpoint, operation.getName(), operationReturnType, _function_5);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+        }
+      }
+    };
+    acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, this.getQualifiedName(element)), _function_1);
+  }
+  
+  private Iterable<JvmTypeReference> getMappedExceptions(final IJvmDeclaredTypeAcceptor acceptor, final Model model, final List<SException> exceptions) {
+    final Function1<ExceptionMapping, Boolean> _function = (ExceptionMapping it) -> {
+      return Boolean.valueOf(exceptions.contains(it.getName()));
+    };
+    final List<ExceptionMapping> mappings = IterableExtensions.<ExceptionMapping>toList(IterableExtensions.<ExceptionMapping>filter(model.getExceptionMappings(), _function));
+    final Function1<ExceptionMapping, Set<EObject>> _function_1 = (ExceptionMapping it) -> {
+      return this.associations.getJvmElements(it);
+    };
+    final Function1<EObject, Boolean> _function_2 = (EObject it) -> {
+      return Boolean.valueOf((it instanceof JvmDeclaredType));
+    };
+    final Function1<EObject, JvmDeclaredType> _function_3 = (EObject it) -> {
+      return ((JvmDeclaredType) it);
+    };
+    final Function1<JvmDeclaredType, JvmTypeReference> _function_4 = (JvmDeclaredType it) -> {
+      return this._typeReferenceBuilder.typeRef(it);
+    };
+    final List<JvmTypeReference> typeRefsOfMappedExceptions = IterableExtensions.<JvmTypeReference>toList(IterableExtensions.<JvmDeclaredType, JvmTypeReference>map(IterableExtensions.<EObject, JvmDeclaredType>map(IterableExtensions.<EObject>filter(IterableExtensions.<ExceptionMapping, EObject>flatMap(mappings, _function_1), _function_2), _function_3), _function_4));
+    int _size = exceptions.size();
+    int _size_1 = typeRefsOfMappedExceptions.size();
+    boolean _tripleEquals = (_size == _size_1);
+    if (_tripleEquals) {
+      return typeRefsOfMappedExceptions;
+    }
+    final Function1<SException, Boolean> _function_5 = (SException it) -> {
+      final Function1<ExceptionMapping, Boolean> _function_6 = (ExceptionMapping e) -> {
+        SException _name = e.getName();
+        return Boolean.valueOf(Objects.equal(it, _name));
+      };
+      return Boolean.valueOf(IterableExtensions.<ExceptionMapping>exists(mappings, _function_6));
+    };
+    final List<SException> unmappedExceptions = IterableExtensions.<SException>toList(IterableExtensions.<SException>dropWhile(exceptions, _function_5));
+    final Function1<SException, JvmGenericType> _function_6 = (SException it) -> {
+      return this.toExceptionType(it, model);
+    };
+    final List<JvmGenericType> additionalExceptionTypes = ListExtensions.<SException, JvmGenericType>map(unmappedExceptions, _function_6);
+    final Consumer<JvmGenericType> _function_7 = (JvmGenericType it) -> {
+      acceptor.<JvmGenericType>accept(it);
+    };
+    additionalExceptionTypes.forEach(_function_7);
+    final Function1<JvmGenericType, JvmTypeReference> _function_8 = (JvmGenericType it) -> {
+      return this._typeReferenceBuilder.typeRef(it);
+    };
+    final List<JvmTypeReference> typeRefsOfUnmappedExceptions = ListExtensions.<JvmGenericType, JvmTypeReference>map(additionalExceptionTypes, _function_8);
+    return Iterables.<JvmTypeReference>concat(typeRefsOfMappedExceptions, typeRefsOfUnmappedExceptions);
+  }
   
   protected void _infer(final ExceptionMapping element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     final String qualifiedName = this.getQualifiedName(element);
@@ -87,6 +247,61 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     }
   }
   
+  private JvmGenericType toExceptionType(final SException exception, final Model model) {
+    final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+      EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(Exception.class);
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+    };
+    return this._jvmTypesBuilder.toClass(model, this.getQualifiedName(exception), _function);
+  }
+  
+  private String getPackageName(final EndpointDeclarationBlock block) {
+    String _xblockexpression = null;
+    {
+      final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(block);
+      Iterable<String> _drop = IterableExtensions.<String>drop(fqn.getSegments(), 1);
+      int _segmentCount = fqn.getSegmentCount();
+      int _minus = (_segmentCount - 2);
+      final Function1<String, String> _function = (String it) -> {
+        return it.toString().toLowerCase();
+      };
+      _xblockexpression = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_drop, _minus), _function), ".");
+    }
+    return _xblockexpression;
+  }
+  
+  private String _getQualifiedName(final SException exception) {
+    String _xblockexpression = null;
+    {
+      final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(exception);
+      String packageName = "";
+      int _segmentCount = fqn.getSegmentCount();
+      boolean _greaterThan = (_segmentCount > 1);
+      if (_greaterThan) {
+        List<String> _segments = fqn.getSegments();
+        int _segmentCount_1 = fqn.getSegmentCount();
+        int _minus = (_segmentCount_1 - 1);
+        final Function1<String, String> _function = (String it) -> {
+          return it.toLowerCase();
+        };
+        String _join = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_segments, _minus), _function), ".");
+        String _plus = (_join + ".");
+        packageName = _plus;
+      }
+      String _string = IterableExtensions.<String>last(fqn.getSegments()).toString();
+      _xblockexpression = (packageName + _string);
+    }
+    return _xblockexpression;
+  }
+  
+  private String _getQualifiedName(final EndpointDeclarationBlock block) {
+    String _packageName = this.getPackageName(block);
+    String _plus = (_packageName + ".");
+    String _string = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(block).getSegments()).toString();
+    return (_plus + _string);
+  }
+  
   private String _getQualifiedName(final ExceptionMapping mapping) {
     String _package = mapping.getPackage();
     boolean _tripleNotEquals = (_package != null);
@@ -102,7 +317,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     SException _name_1 = mapping.getName();
     QualifiedName _fullyQualifiedName = null;
     if (_name_1!=null) {
-      _fullyQualifiedName=this._dmxQualifiedNameProvider.getFullyQualifiedName(_name_1);
+      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_name_1);
     }
     final QualifiedName qualifiedName = _fullyQualifiedName;
     if ((qualifiedName != null)) {
@@ -124,7 +339,10 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    if (element instanceof ExceptionMapping) {
+    if (element instanceof EndpointDeclarationBlock) {
+      _infer((EndpointDeclarationBlock)element, acceptor, isPreIndexingPhase);
+      return;
+    } else if (element instanceof ExceptionMapping) {
       _infer((ExceptionMapping)element, acceptor, isPreIndexingPhase);
       return;
     } else if (element != null) {
@@ -136,7 +354,16 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     }
   }
   
-  private String getQualifiedName(final ExceptionMapping mapping) {
-    return _getQualifiedName(mapping);
+  private String getQualifiedName(final EObject exception) {
+    if (exception instanceof SException) {
+      return _getQualifiedName((SException)exception);
+    } else if (exception instanceof EndpointDeclarationBlock) {
+      return _getQualifiedName((EndpointDeclarationBlock)exception);
+    } else if (exception instanceof ExceptionMapping) {
+      return _getQualifiedName((ExceptionMapping)exception);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(exception).toString());
+    }
   }
 }

@@ -6,6 +6,7 @@ package com.mimacom.ddd.im.generator.generator.impl;
 import com.mimacom.ddd.im.generator.generator.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -67,10 +68,45 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
     {
       case GeneratorPackage.MODEL: return createModel();
       case GeneratorPackage.TYPE_MAPPING: return createTypeMapping();
-      case GeneratorPackage.DTO_MAPPING: return createDtoMapping();
       case GeneratorPackage.EXCEPTION_MAPPING: return createExceptionMapping();
+      case GeneratorPackage.ENDPOINT_DECLARATION_BLOCK: return createEndpointDeclarationBlock();
+      case GeneratorPackage.ENDPOINT_DECLARATION: return createEndpointDeclaration();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case GeneratorPackage.HTTP_VERB:
+        return createHttpVerbFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case GeneratorPackage.HTTP_VERB:
+        return convertHttpVerbToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -104,10 +140,10 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * @generated
    */
   @Override
-  public DtoMapping createDtoMapping()
+  public ExceptionMapping createExceptionMapping()
   {
-    DtoMappingImpl dtoMapping = new DtoMappingImpl();
-    return dtoMapping;
+    ExceptionMappingImpl exceptionMapping = new ExceptionMappingImpl();
+    return exceptionMapping;
   }
 
   /**
@@ -116,10 +152,44 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * @generated
    */
   @Override
-  public ExceptionMapping createExceptionMapping()
+  public EndpointDeclarationBlock createEndpointDeclarationBlock()
   {
-    ExceptionMappingImpl exceptionMapping = new ExceptionMappingImpl();
-    return exceptionMapping;
+    EndpointDeclarationBlockImpl endpointDeclarationBlock = new EndpointDeclarationBlockImpl();
+    return endpointDeclarationBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EndpointDeclaration createEndpointDeclaration()
+  {
+    EndpointDeclarationImpl endpointDeclaration = new EndpointDeclarationImpl();
+    return endpointDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HttpVerb createHttpVerbFromString(EDataType eDataType, String initialValue)
+  {
+    HttpVerb result = HttpVerb.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertHttpVerbToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**
