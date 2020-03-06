@@ -10,6 +10,8 @@ Bundle-SymbolicName: com.mimacom.ddd.dm.dem;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  com.mimacom.ddd.dm.dmx;visibility:=reexport,
+ com.mimacom.ddd.pub.pub,
+ com.mimacom.ddd.util;visibility:=reexport,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -23,11 +25,13 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  org.eclipse.emf.mwe2.launch;bundle-version="2.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dem,
+ com.mimacom.ddd.dm.dem.diagramProvider,
  com.mimacom.ddd.dm.dem.formatting2,
  com.mimacom.ddd.dm.dem.generator,
  com.mimacom.ddd.dm.dem.impl,
  com.mimacom.ddd.dm.dem.parser.antlr,
  com.mimacom.ddd.dm.dem.parser.antlr.internal,
+ com.mimacom.ddd.dm.dem.plantuml,
  com.mimacom.ddd.dm.dem.scoping,
  com.mimacom.ddd.dm.dem.serializer,
  com.mimacom.ddd.dm.dem.services,

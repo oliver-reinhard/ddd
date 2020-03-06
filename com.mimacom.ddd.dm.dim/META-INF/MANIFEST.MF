@@ -30,4 +30,5 @@ Export-Package: com.mimacom.ddd.dm.dim,
  com.mimacom.ddd.dm.dim.scoping,
  com.mimacom.ddd.dm.dim.serializer,
  com.mimacom.ddd.dm.dim.services,
+ com.mimacom.ddd.dm.dim.tableProvider,
  com.mimacom.ddd.dm.dim.validation

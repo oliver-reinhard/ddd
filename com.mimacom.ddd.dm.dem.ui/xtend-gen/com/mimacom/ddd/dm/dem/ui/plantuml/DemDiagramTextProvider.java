@@ -1,14 +1,13 @@
 package com.mimacom.ddd.dm.dem.ui.plantuml;
 
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamespace;
-import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
-import com.mimacom.ddd.dm.dem.DemNotification;
+import com.mimacom.ddd.dm.dem.plantuml.DemEventDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
@@ -19,18 +18,21 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
+  @Inject
+  private DemEventDiagramTextProviderImpl actualProvider;
+  
   public DemDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   
   @Override
   public boolean supportsEditor(final IEditorPart editorPart) {
-    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DemActivator.COM_MIMACOM_DDD_DM_DEM_DEM));
+    return (super.supportsEditor(editorPart) && 
+      ((XtextEditor) editorPart).getLanguageName().equals(DemActivator.COM_MIMACOM_DDD_DM_DEM_DEM));
   }
   
   @Override
@@ -63,72 +65,12 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
       _xifexpression = null;
     }
     final DemDomainEvent event = _xifexpression;
-    if ((event == null)) {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("note \"No domain event to show.\" as N1");
-      return _builder.toString();
+    boolean _canProvide = this.actualProvider.canProvide(event);
+    if (_canProvide) {
+      return this.actualProvider.diagramText(event);
     }
-    StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("@startuml");
-    _builder_1.newLine();
-    _builder_1.append("(");
-    String _name = event.getName();
-    _builder_1.append(_name);
-    _builder_1.append(") as (event)");
-    _builder_1.newLineIfNotEmpty();
-    {
-      EList<DemActor> _triggers = event.getTriggers();
-      for(final DemActor t : _triggers) {
-        _builder_1.append(" \t\t");
-        _builder_1.append("actor ");
-        String _name_1 = t.getName();
-        _builder_1.append(_name_1, " \t\t");
-        _builder_1.newLineIfNotEmpty();
-      }
-    }
-    {
-      final Function1<DemNotification, Boolean> _function_1 = (DemNotification it) -> {
-        DemActor _notified = it.getNotified();
-        return Boolean.valueOf((_notified != null));
-      };
-      Iterable<DemNotification> _filter = IterableExtensions.<DemNotification>filter(event.getNotifications(), _function_1);
-      for(final DemNotification n : _filter) {
-        _builder_1.append(" \t\t");
-        _builder_1.append("actor ");
-        String _name_2 = n.getNotified().getName();
-        _builder_1.append(_name_2, " \t\t");
-        _builder_1.newLineIfNotEmpty();
-      }
-    }
-    {
-      EList<DemActor> _triggers_1 = event.getTriggers();
-      for(final DemActor t_1 : _triggers_1) {
-        _builder_1.append(" \t\t");
-        String _name_3 = t_1.getName();
-        _builder_1.append(_name_3, " \t\t");
-        _builder_1.append(" --> (event) : triggers");
-        _builder_1.newLineIfNotEmpty();
-      }
-    }
-    {
-      final Function1<DemNotification, Boolean> _function_2 = (DemNotification it) -> {
-        DemActor _notified = it.getNotified();
-        return Boolean.valueOf((_notified != null));
-      };
-      Iterable<DemNotification> _filter_1 = IterableExtensions.<DemNotification>filter(event.getNotifications(), _function_2);
-      for(final DemNotification n_1 : _filter_1) {
-        _builder_1.append(" \t\t");
-        String _name_4 = n_1.getNotified().getName();
-        _builder_1.append(_name_4, " \t\t");
-        _builder_1.append(" <-- (event) : ");
-        String _name_5 = n_1.getName();
-        _builder_1.append(_name_5, " \t\t");
-        _builder_1.newLineIfNotEmpty();
-      }
-    }
-    _builder_1.append("@enduml");
-    _builder_1.newLine();
-    final String result = _builder_1.toString();
-    return result;
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("note \"No domain event to show.\" as N1");
+    return _builder.toString();
   }
 }

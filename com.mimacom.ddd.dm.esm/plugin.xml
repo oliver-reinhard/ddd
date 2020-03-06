@@ -8,5 +8,40 @@
             class="com.mimacom.ddd.dm.esm.EsmPackage"
             genModel="model/esm.genmodel"/>
    </extension>
+   
+   <extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="esm.entityStateDiagram.png"
+            diagramName="Domain Entity State Diagram (PNG)"
+            diagramType="esm.entityStateDiagram"
+            diagramRootClass="com.mimacom.ddd.dm.esm.EsmEntityStateModel"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.esm.diagramProvider.EsmStateDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.esm.diagramProvider.EsmStateDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="esm.entityStateDiagram.svg"
+            diagramName="Domain Entity State Diagram (SVG)"
+            diagramType="esm.entityStateDiagram"
+            diagramRootClass="com.mimacom.ddd.dm.esm.EsmEntityStateModel"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.esm.diagramProvider.EsmStateDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.esm.diagramProvider.EsmStateDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="esm.entityStateDiagram.eps"
+            diagramName="Domain Entity State Diagram (EPS)"
+            diagramType="esm.entityStateDiagram"
+            diagramRootClass="com.mimacom.ddd.dm.esm.EsmEntityStateModel"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.esm.diagramProvider.EsmStateDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.esm.diagramProvider.EsmStateDiagramRenderer">
+      </renderer>
+      
+      <diagramType
+            id="esm.entityStateDiagram"
+            name="Domain Entity State Diagram">
+      </diagramType>
+   </extension>
 
 </plugin>

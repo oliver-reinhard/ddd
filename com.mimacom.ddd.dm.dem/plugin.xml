@@ -5,13 +5,47 @@
 -->
 
 <plugin>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated dem -->
       <package
             uri="http://www.mimacom.com/ddd/dm/dem"
             class="com.mimacom.ddd.dm.dem.DemPackage"
             genModel="model/dem.genmodel"/>
+   </extension>
+   
+   <extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="dem.eventUseCase.png"
+            diagramName="Domain Event Use Case (PNG)"
+            diagramType="dem.eventUseCase"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.eventUseCase.svg"
+            diagramName="Domain Event Use Case (SVG)"
+            diagramType="dem.eventUseCase"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.eventUseCase.eps"
+            diagramName="Domain Event Use Case (EPS)"
+            diagramType="dem.eventUseCase"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRenderer">
+      </renderer>
+      
+      <diagramType
+            id="dem.eventUseCase"
+            name="Domain Event Use Case">
+      </diagramType>
    </extension>
 
 </plugin>

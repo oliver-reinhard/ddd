@@ -10,6 +10,8 @@ Bundle-SymbolicName: com.mimacom.ddd.dm.esm;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  com.mimacom.ddd.dm.dmx;visibility:=reexport,
+ com.mimacom.ddd.pub.pub,
+ com.mimacom.ddd.util;visibility:=reexport,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -22,15 +24,16 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.esm,
- com.mimacom.ddd.dm.esm.parser.antlr.internal,
- com.mimacom.ddd.dm.esm.validation,
- com.mimacom.ddd.dm.esm.services,
- com.mimacom.ddd.dm.esm.parser.antlr,
+ com.mimacom.ddd.dm.esm.diagramProvider,
+ com.mimacom.ddd.dm.esm.formatting2,
  com.mimacom.ddd.dm.esm.generator,
- com.mimacom.ddd.dm.esm,
  com.mimacom.ddd.dm.esm.impl,
- com.mimacom.ddd.dm.esm.util,
- com.mimacom.ddd.dm.esm.serializer,
+ com.mimacom.ddd.dm.esm.parser.antlr,
+ com.mimacom.ddd.dm.esm.parser.antlr.internal,
+ com.mimacom.ddd.dm.esm.plantuml,
  com.mimacom.ddd.dm.esm.scoping,
- com.mimacom.ddd.dm.esm.formatting2
+ com.mimacom.ddd.dm.esm.serializer,
+ com.mimacom.ddd.dm.esm.services,
+ com.mimacom.ddd.dm.esm.util,
+ com.mimacom.ddd.dm.esm.validation
 Import-Package: org.apache.log4j
