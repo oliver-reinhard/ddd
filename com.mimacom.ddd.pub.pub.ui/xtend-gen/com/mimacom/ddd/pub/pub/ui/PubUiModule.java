@@ -4,8 +4,10 @@
 package com.mimacom.ddd.pub.pub.ui;
 
 import com.mimacom.ddd.pub.pub.ui.AbstractPubUiModule;
+import com.mimacom.ddd.pub.pub.ui.autoedit.PubAutoEditStrategyProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
+import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -13,6 +15,11 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class PubUiModule extends AbstractPubUiModule {
+  @Override
+  public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
+    return PubAutoEditStrategyProvider.class;
+  }
+  
   public PubUiModule(final AbstractUIPlugin plugin) {
     super(plugin);
   }
