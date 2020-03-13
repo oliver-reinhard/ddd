@@ -155,6 +155,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    _builder.append("pre {tab-size: ");
+    _builder.append(PubGeneratorUtil.TAB_SIZE);
+    _builder.append(";}");
+    _builder.newLineIfNotEmpty();
     final String css = _builder.toString();
     String _fileSuffix = this.fileSuffix(doc);
     String _plus = (_fileSuffix + "/");
@@ -490,7 +494,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("<h5>");
     String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(b);
     _builder.append(_labelAndNumber);
-    _builder.append(" ");
+    _builder.append(": ");
     CharSequence _renderRichText = this.renderRichText(b.getTitle());
     _builder.append(_renderRichText);
     _builder.append("</h5>");

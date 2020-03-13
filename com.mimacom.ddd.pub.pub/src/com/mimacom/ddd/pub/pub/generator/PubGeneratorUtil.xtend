@@ -32,6 +32,7 @@ class PubGeneratorUtil {
 	@Inject extension PubNumberingUtil
 	@Inject DiagramProviderRegistry diagramProviderRegistry
 	
+	public static val TAB_SIZE = 2
 	static val PUB = PubFactory.eINSTANCE
 
 	def boolean empty(String s) {

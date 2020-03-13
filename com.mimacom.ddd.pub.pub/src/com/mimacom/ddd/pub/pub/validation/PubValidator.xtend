@@ -47,7 +47,6 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.resource.XtextResource
-import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME
@@ -67,7 +66,6 @@ class PubValidator extends AbstractPubValidator {
 	@Inject extension PubPlatformUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
-	@Inject ISerializer serializer
 	@Inject TableProviderRegistry tableProviderRegistry
 	@Inject DiagramProviderRegistry diagramProviderRegistry
 	@Inject PubHtmlDiagramFileFormatPreference htmlDiagramFileFormatPreference
@@ -254,21 +252,15 @@ class PubValidator extends AbstractPubValidator {
 //			if (cl.eIsProxy) {
 //				cl.eResource.resourceSet.getEObject(cl.include., true)
 //			}
-			var hasErrors = false
-			val res = cl.include.eResource
-			if (res instanceof XtextResource) {
-				hasErrors = res.parseResult.hasSyntaxErrors
-			}
-			if (! hasErrors) {
-				try {
-					serializer.serialize(cl.include) // throws RuntimeException
-				} catch (RuntimeException ex) {
-					// the syntax for the include is temporarily inconsistent and cannot be serialised
-					hasErrors = true
+			val resource = cl.include.eResource
+			if (resource instanceof XtextResource) {
+				if (resource.parseResult.hasSyntaxErrors) {
+					error("Code for the included expression has errors.", PUB.titledCodeListing_Include)
+				} else if (empty(cl.include.getSourceCodeFromXtextResource)) {
+					error("Code for the included expression is empty.", PUB.titledCodeListing_Include)
 				}
-			}
-			if (hasErrors) {
-				error("Code for the included expression has errors.", PUB.titledCodeListing_Include)
+			} else {
+				error("Included expression does not have a textual representation.", PUB.titledCodeListing_Include)
 			}
 		}
 	}
@@ -364,8 +356,9 @@ class PubValidator extends AbstractPubValidator {
 //			f.preferredFileFormatError(PubGeneratorTarget.AsciiDoc, asciiDocDiagramFileFormatPreference)
 //		}
 	}
-	
-	protected def preferredFileFormatError(ProvidedFigure f, PubGeneratorTarget target, IDiagramFileFormatPreference prefs) {
+
+	protected def preferredFileFormatError(ProvidedFigure f, PubGeneratorTarget target,
+		IDiagramFileFormatPreference prefs) {
 		var first = true
 		val b = new StringBuilder
 		for (p : prefs.vector) {
@@ -378,7 +371,9 @@ class PubValidator extends AbstractPubValidator {
 			b.append(r.name)
 			first = false
 		}
-		error("For " + target.name + ", there is no registered renderer to generate any of the preferred file formats: " + b, PUB.providedFigure_DiagramType)
+		error(
+			"For " + target.name + ", there is no registered renderer to generate any of the preferred file formats: " +
+				b, PUB.providedFigure_DiagramType)
 	}
 
 	//

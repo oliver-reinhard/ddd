@@ -87,6 +87,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				height: 10px
 				padding-left: 5px;
 			}
+			pre {tab-size: «PubGeneratorUtil::TAB_SIZE»;}
 		'''
 		fsa.generateFile(doc.fileSuffix + "/" + CSS_FILENAME, css)
 	}
@@ -240,7 +241,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	</div>'''
 
 	override CharSequence renderTitledBlockTitle(TitledBlock b) '''
-		<h5>«b.labelAndNumber» «b.title.renderRichText»</h5>
+		<h5>«b.labelAndNumber»: «b.title.renderRichText»</h5>
 	'''
 
 	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) '''

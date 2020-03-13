@@ -27,6 +27,7 @@ import com.mimacom.ddd.pub.pub.ProvidedFigure
 import com.mimacom.ddd.pub.pub.ProvidedTable
 import com.mimacom.ddd.pub.pub.PubModel
 import com.mimacom.ddd.pub.pub.PubPlatformUtil
+import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.Publication
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.RichTextParagraph
@@ -47,7 +48,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.xtext.serializer.ISerializer
 
 /**
  * Generates code from your model files on save.
@@ -57,10 +57,11 @@ import org.eclipse.xtext.serializer.ISerializer
 class PubGeneratorDelegate {
 
 	extension AbstractPubRenderer renderer
+	@Inject extension PubUtil
 	@Inject extension PubPlatformUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
-	@Inject ISerializer serializer
+	@Inject extension CodeListingFormatter
 	@Inject TableProviderRegistry tableProviderRegistry
 
 	static val Logger LOGGER = Logger.getLogger(PubGeneratorDelegate);
@@ -309,13 +310,8 @@ class PubGeneratorDelegate {
 
 	def dispatch CharSequence genTitledBlock(TitledCodeListing cl) {
 		if (cl.include !== null) {
-			try {
-				var formattedCode = serializer.serialize(cl.include) // throws RuntimeException
-				renderCodeListing(cl, Lists.newArrayList(formattedCode))
-			} catch (RuntimeException ex) {
-				// ignore – the syntax for the include is temporarily inconsistent and cannot be serialised
-				// A validation is in place and this exception should never be thrown.
-			}
+			var formattedCode = 	cl.include.sourceCodeFromXtextResource  // there is a validaton: formattedCode never null
+			renderCodeListing(cl, Lists.newArrayList(formattedCode.outdent(PubGeneratorUtil::TAB_SIZE)))
 		} else {
 			renderCodeListing(cl, cl.codeLines)
 		}

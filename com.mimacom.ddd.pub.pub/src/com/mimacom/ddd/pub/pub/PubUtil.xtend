@@ -29,6 +29,8 @@ import com.mimacom.ddd.pub.proto.ProtoSubsubsection
 import com.mimacom.ddd.pub.proto.ProtoTOC
 import org.eclipse.emf.common.util.Enumerator
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.nodemodel.ICompositeNode
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 
 class PubUtil {
 	
@@ -159,5 +161,17 @@ class PubUtil {
 			return ref.displayName
 		}
 		return ref.target.name + "." + ref.member.name
+	}
+	
+	
+
+	/**
+	 * Preconditions: xtextObject is part of an XtextResource and the syntax the resource's text is valid.<p>
+	 * 
+	 * @return {@code null} if no corresponding node was be found in the syntax tree.
+	 */
+	def String getSourceCodeFromXtextResource(EObject xtextObject) {
+		val ICompositeNode node = NodeModelUtils.findActualNodeFor(xtextObject)
+		return node !== null ? node.text : null;
 	}
 }

@@ -66,11 +66,9 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -104,9 +102,6 @@ public class PubValidator extends AbstractPubValidator {
   @Inject
   @Extension
   private PubGeneratorUtil _pubGeneratorUtil;
-  
-  @Inject
-  private ISerializer serializer;
   
   @Inject
   private TableProviderRegistry tableProviderRegistry;
@@ -370,24 +365,19 @@ public class PubValidator extends AbstractPubValidator {
     EObject _include = cl.getInclude();
     boolean _tripleNotEquals = (_include != null);
     if (_tripleNotEquals) {
-      boolean hasErrors = false;
-      final Resource res = cl.getInclude().eResource();
-      if ((res instanceof XtextResource)) {
-        hasErrors = ((XtextResource)res).getParseResult().hasSyntaxErrors();
-      }
-      if ((!hasErrors)) {
-        try {
-          this.serializer.serialize(cl.getInclude());
-        } catch (final Throwable _t) {
-          if (_t instanceof RuntimeException) {
-            hasErrors = true;
-          } else {
-            throw Exceptions.sneakyThrow(_t);
+      final Resource resource = cl.getInclude().eResource();
+      if ((resource instanceof XtextResource)) {
+        boolean _hasSyntaxErrors = ((XtextResource)resource).getParseResult().hasSyntaxErrors();
+        if (_hasSyntaxErrors) {
+          this.error("Code for the included expression has errors.", PubValidator.PUB.getTitledCodeListing_Include());
+        } else {
+          boolean _empty = this._pubGeneratorUtil.empty(this._pubUtil.getSourceCodeFromXtextResource(cl.getInclude()));
+          if (_empty) {
+            this.error("Code for the included expression is empty.", PubValidator.PUB.getTitledCodeListing_Include());
           }
         }
-      }
-      if (hasErrors) {
-        this.error("Code for the included expression has errors.", PubValidator.PUB.getTitledCodeListing_Include());
+      } else {
+        this.error("Included expression does not have a textual representation.", PubValidator.PUB.getTitledCodeListing_Include());
       }
     }
   }

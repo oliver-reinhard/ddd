@@ -32,6 +32,7 @@ import com.mimacom.ddd.pub.pub.ProvidedFigure;
 import com.mimacom.ddd.pub.pub.ProvidedTable;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPlatformUtil;
+import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.Publication;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.RichTextParagraph;
@@ -46,6 +47,7 @@ import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramRendererProxy;
 import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
+import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
@@ -65,7 +67,6 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -83,6 +84,10 @@ public class PubGeneratorDelegate {
   
   @Inject
   @Extension
+  private PubUtil _pubUtil;
+  
+  @Inject
+  @Extension
   private PubPlatformUtil _pubPlatformUtil;
   
   @Inject
@@ -94,7 +99,8 @@ public class PubGeneratorDelegate {
   private PubGeneratorUtil _pubGeneratorUtil;
   
   @Inject
-  private ISerializer serializer;
+  @Extension
+  private CodeListingFormatter _codeListingFormatter;
   
   @Inject
   private TableProviderRegistry tableProviderRegistry;
@@ -543,22 +549,12 @@ public class PubGeneratorDelegate {
     EObject _include = cl.getInclude();
     boolean _tripleNotEquals = (_include != null);
     if (_tripleNotEquals) {
-      CharSequence _xtrycatchfinallyexpression = null;
-      try {
-        CharSequence _xblockexpression = null;
-        {
-          String formattedCode = this.serializer.serialize(cl.getInclude());
-          _xblockexpression = this.renderer.renderCodeListing(cl, Lists.<String>newArrayList(formattedCode));
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } catch (final Throwable _t) {
-        if (_t instanceof RuntimeException) {
-          _xtrycatchfinallyexpression = null;
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
+      CharSequence _xblockexpression = null;
+      {
+        String formattedCode = this._pubUtil.getSourceCodeFromXtextResource(cl.getInclude());
+        _xblockexpression = this.renderer.renderCodeListing(cl, Lists.<String>newArrayList(this._codeListingFormatter.outdent(formattedCode, PubGeneratorUtil.TAB_SIZE)));
       }
-      _xifexpression = _xtrycatchfinallyexpression;
+      _xifexpression = _xblockexpression;
     } else {
       _xifexpression = this.renderer.renderCodeListing(cl, cl.getCodeLines());
     }

@@ -53,6 +53,8 @@ import com.mimacom.ddd.pub.pub.TitledBlock;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -295,6 +297,22 @@ public class PubUtil {
     String _plus = (_name + ".");
     String _name_1 = ref.getMember().getName();
     return (_plus + _name_1);
+  }
+  
+  /**
+   * Preconditions: xtextObject is part of an XtextResource and the syntax the resource's text is valid.<p>
+   * 
+   * @return {@code null} if no corresponding node was be found in the syntax tree.
+   */
+  public String getSourceCodeFromXtextResource(final EObject xtextObject) {
+    final ICompositeNode node = NodeModelUtils.findActualNodeFor(xtextObject);
+    String _xifexpression = null;
+    if ((node != null)) {
+      _xifexpression = node.getText();
+    } else {
+      _xifexpression = null;
+    }
+    return _xifexpression;
   }
   
   public String displayName(final Object obj) {

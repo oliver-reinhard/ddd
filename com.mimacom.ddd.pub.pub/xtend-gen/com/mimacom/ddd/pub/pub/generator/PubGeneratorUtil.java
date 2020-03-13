@@ -52,6 +52,8 @@ public class PubGeneratorUtil {
   @Inject
   private DiagramProviderRegistry diagramProviderRegistry;
   
+  public static final int TAB_SIZE = 2;
+  
   private static final PubFactory PUB = PubFactory.eINSTANCE;
   
   public boolean empty(final String s) {
