@@ -4,6 +4,10 @@
 package com.mimacom.ddd.im.generator.jvmmodel
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock
@@ -12,13 +16,15 @@ import com.mimacom.ddd.im.generator.generator.Model
 import com.mimacom.ddd.sm.asm.SDirection
 import com.mimacom.ddd.sm.asm.SException
 import com.mimacom.ddd.sm.asm.SServiceParameter
+import java.util.HashMap
 import java.util.List
+import java.util.Map
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
@@ -41,132 +47,68 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	
 	@Inject IJvmModelAssociations associations
 	
-//	@Inject ResourceDescriptionsProvider descriptionsProvider
-	
 	@Inject GeneratorTypesHelper typesHelper
 	
-//	private def Model getBaseModel(XtextResourceSet resourceSet) {
-////		val loadOptions = #{XtextResource.OPTION_RESOLVE_ALL -> Boolean.TRUE}
-////		
-////		val systemTypesRes = resourceSet.getResource(URI.createURI("platform:/plugin/com.mimacom.ddd.im.generator/model/SystemTypes.dmx", false), true)
-////		systemTypesRes.load(loadOptions)
-//////		resourceSet.resources.add(systemTypesRes)
-////		
-////		val baseGenRes = resourceSet.getResource(URI.createURI("platform:/plugin/com.mimacom.ddd.im.generator/model/base.gen", false), true)
-////		baseGenRes.load(loadOptions)
-////		val baseGenModel = baseGenRes.contents.head as Model
-//////		resourceSet.resources.add(baseGenRes)
-////		
-////		EcoreUtil2.resolveAll(baseGenModel)
-////		
-////		baseGenModel.typeMappings.forEach[System.out.println(name + ": " + name?.name)]
-//		
-////		baseModel = baseGenModel
-//		return null
-//	}
-//	
-//	def List<IContainer> getVisibleContainers(EObject context) {
-//		val index = descriptionsProvider.getResourceDescriptions(context.eResource)
-//		val rd = index.getResourceDescription(context.eResource.URI)
-//		if (rd === null) { // TODO revisit if this leads to
-//			return Collections.EMPTY_LIST
-//		}
-////		cm.getVisibleContainers(rd, index)
-//	}
-//	
-//	def Iterable<IEObjectDescription> getVisibleEObjectDescriptions(EObject context, EClass type) {
-//		context.getVisibleContainers.map [ container |
-//			container.getExportedObjectsByType(type)
-//		].flatten
-//	}
-//	
-//	def IResourceDescription getResourceDescription(EObject context) {
-//		
-//		val rs = context.eResource.resourceSet
-//		
-////		val options =  #{XtextResource.OPTION_RESOLVE_ALL -> Boolean.TRUE}
-////		val res = rs.getResource(URI.createURI("platform:/plugin/com.mimacom.ddd.system/src/com/mimacom/ddd/system/base.gen", false), true)
-//		val uri = URI.createURI("platform:/plugin/com.mimacom.ddd.system/src/com/mimacom/ddd/system/base.gen", false)
-//		val res = rs.getResource(uri, true);
-//		val head = res.contents.head
-////		val obj1 = rs.getEObject(uri, true);
-////		res.load(options)
-//		
-//		
-////		val index = descriptionsProvider.getResourceDescriptions(rs)
-//		
-////		val descs = index.getExportedObjects(GeneratorPackage.eINSTANCE.model, QualifiedName.create('Base'), false)
-////		if (!descs.empty) {
-////			val desc = descs.head
-////			val obj = desc.EObjectOrProxy
-////			if (obj.eIsProxy) {
-////				val model = rs.getEObject(desc.EObjectURI, true) // getEObject
-////				
-////				// TODO: can we load the base model from file and then use the rs to load refs?
-////				
-////				if (model instanceof Model) {
-////					val firstMapping = model.typeMappings.head
-////					val dtype = firstMapping.name
-////					return null;
-////				}
-////				return null;
-////			}
-////		}
-//		
-//		return null
-//	}
-
-
 	def Iterable<DType> getParameterTypeReferences(EndpointDeclarationBlock block) {
-		block.endpoints
-			.flatMap[name.parameters]
-			.map[type]
+		block.endpoints.flatMap[name.parameters].map[type]
+	}
+	
+	def dispatch generateForType(EObject container, DType element, IJvmDeclaredTypeAcceptor acceptor) {
+		throw new UnsupportedOperationException("cannot generate for " + element)
+	}
+	
+	def dispatch generateForType(EObject container, DComplexType element, IJvmDeclaredTypeAcceptor acceptor) {
+		val jvmType = container.toClass(element.qualifiedName)
+		acceptor.accept(jvmType) [
+			for (DFeature f : element.features) {
+				if (f.type !== null) {
+					val refFeatureType = typesHelper.toType(_typeReferenceBuilder, f.type)
+					val field = f.toField(f.name, refFeatureType)
+					members += field
+				}
+			}
+		]
+		jvmType
 	}
 
-
 	def dispatch void infer(EndpointDeclarationBlock element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		// TODO [gh-19] stop on parse error
-		
-		if (isPreIndexingPhase) {
-			return
-		}
-		if ((element.eResource instanceof XtextResource) && !(element.eResource as XtextResource).parseResult.syntaxErrors.empty) {
-			return
-		}
-		
+		if (isPreIndexingPhase) return
 		
 		// generate types for all operation parameter types
-		val refs = element.getParameterTypeReferences
-		refs.forEach[acceptor.accept(toClass(element.packageName + '.' + name))]
+		val Map<DType, JvmGenericType> paramTypeToJvmType = new HashMap
+		for (endpoint : element.endpoints) {
+			for (p : endpoint.name.parameters.filter[type !== null]) {
+				val jvmType = endpoint.generateForType(p.type, acceptor)
+				paramTypeToJvmType.put(p.type, jvmType)
+			}
+		}
 		
+		// TODO [gh-19] accept all required types first, i.e. DEnumeration, DEntityType/DComplexType
 		
-		acceptor.accept(element.toClass(element.qualifiedName)) [
-			documentation = element.documentation
-			
-			//getBaseModel(element.eResource.resourceSet as XtextResourceSet)
+		acceptor.accept(element.toClass(element.qualifiedName)) [p|
+			p.documentation = element.documentation
 			
 			// TODO [gh-19] annotations+=... in order to get these, the annotation types must be on the classpath :-/
 			
 			for (EndpointDeclaration endpoint: element.endpoints.filter[name !== null]) {
 				val operation = endpoint.name
 				
-				val arguments = operation.parameters.filter[direction === SDirection.INBOUND]
-				
 				var JvmTypeReference operationReturnType 
 				val outboundType = operation.parameters.filter[direction === SDirection.OUTBOUND].head?.type
-				if (outboundType !== null) {
-				 	operationReturnType = typesHelper.toType(_typeReferenceBuilder, outboundType)
+				if (outboundType !== null && paramTypeToJvmType.containsKey(outboundType)) {
+				 	operationReturnType = typeRef(paramTypeToJvmType.get(outboundType))
 				} else {
-				 	operationReturnType = typeRef(Void)
+				 	operationReturnType = typeRef(Void) // TODO [gh-19] generates 'return Void'
 				}
 				
-				members+=endpoint.toMethod(operation.name, operationReturnType)[
+				p.members+=endpoint.toMethod(operation.name, operationReturnType)[
 					if (endpoint.name.raises !== null) {
 						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model), endpoint.name.raises)
 						exceptions+=me
 					}
-					for (SServiceParameter arg: arguments) {
-						parameters+=arg.toParameter(arg.name, typesHelper.toType(_typeReferenceBuilder, arg.type))
+					for (SServiceParameter arg: operation.parameters.filter[direction === SDirection.INBOUND && paramTypeToJvmType.containsKey(type)]) {
+						val paramTypeRef = typeRef(paramTypeToJvmType.get(arg.type))
+						parameters+=endpoint.toParameter(arg.name, paramTypeRef)
 					}
 					body='''
 						throw new UnsupportedOperationException("Not yet implemented");
@@ -227,17 +169,27 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		]
 	}
 
+	private def getPackageName(DComplexType complexType) {
+		val namespace = EcoreUtil2.getContainerOfType(complexType, DNamespace)
+		namespace.name + '.dto'
+	}
+
 	private def getPackageName(EndpointDeclarationBlock block) {
 		val fqn = block.fullyQualifiedName
-		fqn.segments
+		val declaredPackageName = fqn.segments
 			.drop(1) // ignore gen model name
 			.take(fqn.segmentCount-2) // first and last ignored
 			.map[toString.toLowerCase]
 			.join('.')
+		declaredPackageName  + '.controller'
 	}
 	
-	private def dispatch getQualifiedName(SException exception) {
-		val fqn = exception.fullyQualifiedName
+	private def dispatch getQualifiedName(DComplexType complexType) {
+		complexType.packageName + '.' + complexType.name
+	}
+	
+	private def dispatch getQualifiedName(DNamedElement element) {
+		val fqn = element.fullyQualifiedName
 		var String packageName = ''
 		if (fqn.segmentCount > 1) {
 			packageName = fqn.segments.take(fqn.segmentCount-1).map[toLowerCase].join('.') + '.' 
@@ -246,7 +198,11 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	private def dispatch getQualifiedName(EndpointDeclarationBlock block) {
-		block.packageName + '.' + block.fullyQualifiedName.segments.last.toString
+		val declaredTypeName = block.fullyQualifiedName.segments.last
+		val controller = declaredTypeName.endsWith('Controller') || declaredTypeName.endsWith('RestResource')
+			? declaredTypeName 
+			: declaredTypeName + 'Controller'
+		block.packageName + '.' + controller
 	}
 	
 	private def dispatch getQualifiedName(ExceptionMapping mapping) {

@@ -13,7 +13,6 @@
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/Launch Runtime Eclipse"/>
 <booleanAttribute key="default" value="false"/>
 <setAttribute key="deselected_workspace_bundles">
-<setEntry value="com.mimacom.ddd.system"/>
 <setEntry value="com.mimacom.ddd.system.tests"/>
 </setAttribute>
 <booleanAttribute key="includeOptional" value="true"/>
@@ -542,6 +541,7 @@
 <setEntry value="com.mimacom.ddd.sm.sus.ui.tests@default:default"/>
 <setEntry value="com.mimacom.ddd.sm.sus.ui@default:default"/>
 <setEntry value="com.mimacom.ddd.sm.sus@default:default"/>
+<setEntry value="com.mimacom.ddd.system@default:default"/>
 <setEntry value="com.mimacom.ddd.util@default:default"/>
 <setEntry value="org.eclipse.xtext.example.domainmodel.ide@default:default"/>
 <setEntry value="org.eclipse.xtext.example.domainmodel.tests@default:default"/>

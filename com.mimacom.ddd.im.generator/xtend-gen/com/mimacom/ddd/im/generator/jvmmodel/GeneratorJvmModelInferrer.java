@@ -6,6 +6,10 @@ package com.mimacom.ddd.im.generator.jvmmodel;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
@@ -17,7 +21,9 @@ import com.mimacom.ddd.sm.asm.SException;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
 import com.mimacom.ddd.sm.asm.SServiceParameter;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
@@ -27,6 +33,7 @@ import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmConstructor;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
+import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmMember;
@@ -35,7 +42,6 @@ import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
-import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations;
@@ -81,66 +87,98 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return IterableExtensions.<SServiceParameter, DType>map(IterableExtensions.<EndpointDeclaration, SServiceParameter>flatMap(block.getEndpoints(), _function), _function_1);
   }
   
+  protected JvmGenericType _generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
+    throw new UnsupportedOperationException(("cannot generate for " + element));
+  }
+  
+  protected JvmGenericType _generateForType(final EObject container, final DComplexType element, final IJvmDeclaredTypeAcceptor acceptor) {
+    JvmGenericType _xblockexpression = null;
+    {
+      final JvmGenericType jvmType = this._jvmTypesBuilder.toClass(container, this.getQualifiedName(element));
+      final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+        EList<DFeature> _features = element.getFeatures();
+        for (final DFeature f : _features) {
+          DType _type = f.getType();
+          boolean _tripleNotEquals = (_type != null);
+          if (_tripleNotEquals) {
+            final JvmTypeReference refFeatureType = this.typesHelper.toType(this._typeReferenceBuilder, f.getType());
+            final JvmField field = this._jvmTypesBuilder.toField(f, f.getName(), refFeatureType);
+            EList<JvmMember> _members = it.getMembers();
+            this._jvmTypesBuilder.<JvmField>operator_add(_members, field);
+          }
+        }
+      };
+      acceptor.<JvmGenericType>accept(jvmType, _function);
+      _xblockexpression = jvmType;
+    }
+    return _xblockexpression;
+  }
+  
   protected void _infer(final EndpointDeclarationBlock element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (isPreIndexingPhase) {
       return;
     }
-    if (((element.eResource() instanceof XtextResource) && (!IterableExtensions.isEmpty(((XtextResource) element.eResource()).getParseResult().getSyntaxErrors())))) {
-      return;
+    final Map<DType, JvmGenericType> paramTypeToJvmType = new HashMap<DType, JvmGenericType>();
+    EList<EndpointDeclaration> _endpoints = element.getEndpoints();
+    for (final EndpointDeclaration endpoint : _endpoints) {
+      final Function1<SServiceParameter, Boolean> _function = (SServiceParameter it) -> {
+        DType _type = it.getType();
+        return Boolean.valueOf((_type != null));
+      };
+      Iterable<SServiceParameter> _filter = IterableExtensions.<SServiceParameter>filter(endpoint.getName().getParameters(), _function);
+      for (final SServiceParameter p : _filter) {
+        {
+          final JvmGenericType jvmType = this.generateForType(endpoint, p.getType(), acceptor);
+          paramTypeToJvmType.put(p.getType(), jvmType);
+        }
+      }
     }
-    final Iterable<DType> refs = this.getParameterTypeReferences(element);
-    final Consumer<DType> _function = (DType it) -> {
-      String _packageName = this.getPackageName(element);
-      String _plus = (_packageName + ".");
-      String _name = it.getName();
-      String _plus_1 = (_plus + _name);
-      acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(it, _plus_1));
-    };
-    refs.forEach(_function);
-    final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
-      this._jvmTypesBuilder.setDocumentation(it, this._jvmTypesBuilder.getDocumentation(element));
-      final Function1<EndpointDeclaration, Boolean> _function_2 = (EndpointDeclaration it_1) -> {
-        SServiceOperation _name = it_1.getName();
+    final Procedure1<JvmGenericType> _function_1 = (JvmGenericType p_1) -> {
+      this._jvmTypesBuilder.setDocumentation(p_1, this._jvmTypesBuilder.getDocumentation(element));
+      final Function1<EndpointDeclaration, Boolean> _function_2 = (EndpointDeclaration it) -> {
+        SServiceOperation _name = it.getName();
         return Boolean.valueOf((_name != null));
       };
-      Iterable<EndpointDeclaration> _filter = IterableExtensions.<EndpointDeclaration>filter(element.getEndpoints(), _function_2);
-      for (final EndpointDeclaration endpoint : _filter) {
+      Iterable<EndpointDeclaration> _filter_1 = IterableExtensions.<EndpointDeclaration>filter(element.getEndpoints(), _function_2);
+      for (final EndpointDeclaration endpoint_1 : _filter_1) {
         {
-          final SServiceOperation operation = endpoint.getName();
-          final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it_1) -> {
-            SDirection _direction = it_1.getDirection();
-            return Boolean.valueOf((_direction == SDirection.INBOUND));
-          };
-          final Iterable<SServiceParameter> arguments = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3);
+          final SServiceOperation operation = endpoint_1.getName();
           JvmTypeReference operationReturnType = null;
-          final Function1<SServiceParameter, Boolean> _function_4 = (SServiceParameter it_1) -> {
-            SDirection _direction = it_1.getDirection();
+          final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it) -> {
+            SDirection _direction = it.getDirection();
             return Boolean.valueOf((_direction == SDirection.OUTBOUND));
           };
-          SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_4));
+          SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3));
           DType _type = null;
           if (_head!=null) {
             _type=_head.getType();
           }
           final DType outboundType = _type;
-          if ((outboundType != null)) {
-            operationReturnType = this.typesHelper.toType(this._typeReferenceBuilder, outboundType);
+          if (((outboundType != null) && paramTypeToJvmType.containsKey(outboundType))) {
+            operationReturnType = this._typeReferenceBuilder.typeRef(paramTypeToJvmType.get(outboundType));
           } else {
             operationReturnType = this._typeReferenceBuilder.typeRef(Void.class);
           }
-          EList<JvmMember> _members = it.getMembers();
-          final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
-            EList<SException> _raises = endpoint.getName().getRaises();
+          EList<JvmMember> _members = p_1.getMembers();
+          final Procedure1<JvmOperation> _function_4 = (JvmOperation it) -> {
+            EList<SException> _raises = endpoint_1.getName().getRaises();
             boolean _tripleNotEquals = (_raises != null);
             if (_tripleNotEquals) {
-              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint, Model.class), endpoint.getName().getRaises());
-              EList<JvmTypeReference> _exceptions = it_1.getExceptions();
+              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint_1, Model.class), endpoint_1.getName().getRaises());
+              EList<JvmTypeReference> _exceptions = it.getExceptions();
               this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
             }
-            for (final SServiceParameter arg : arguments) {
-              EList<JvmFormalParameter> _parameters = it_1.getParameters();
-              JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(arg, arg.getName(), this.typesHelper.toType(this._typeReferenceBuilder, arg.getType()));
-              this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            final Function1<SServiceParameter, Boolean> _function_5 = (SServiceParameter it_1) -> {
+              return Boolean.valueOf(((it_1.getDirection() == SDirection.INBOUND) && paramTypeToJvmType.containsKey(it_1.getType())));
+            };
+            Iterable<SServiceParameter> _filter_2 = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_5);
+            for (final SServiceParameter arg : _filter_2) {
+              {
+                final JvmTypeReference paramTypeRef = this._typeReferenceBuilder.typeRef(paramTypeToJvmType.get(arg.getType()));
+                EList<JvmFormalParameter> _parameters = it.getParameters();
+                JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(endpoint_1, arg.getName(), paramTypeRef);
+                this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+              }
             }
             StringConcatenationClient _client = new StringConcatenationClient() {
               @Override
@@ -149,9 +187,9 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
                 _builder.newLine();
               }
             };
-            this._jvmTypesBuilder.setBody(it_1, _client);
+            this._jvmTypesBuilder.setBody(it, _client);
           };
-          JvmOperation _method = this._jvmTypesBuilder.toMethod(endpoint, operation.getName(), operationReturnType, _function_5);
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(endpoint_1, operation.getName(), operationReturnType, _function_4);
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
         }
       }
@@ -256,6 +294,16 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return this._jvmTypesBuilder.toClass(model, this.getQualifiedName(exception), _function);
   }
   
+  private String getPackageName(final DComplexType complexType) {
+    String _xblockexpression = null;
+    {
+      final DNamespace namespace = EcoreUtil2.<DNamespace>getContainerOfType(complexType, DNamespace.class);
+      String _name = namespace.getName();
+      _xblockexpression = (_name + ".dto");
+    }
+    return _xblockexpression;
+  }
+  
   private String getPackageName(final EndpointDeclarationBlock block) {
     String _xblockexpression = null;
     {
@@ -266,15 +314,23 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       final Function1<String, String> _function = (String it) -> {
         return it.toString().toLowerCase();
       };
-      _xblockexpression = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_drop, _minus), _function), ".");
+      final String declaredPackageName = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_drop, _minus), _function), ".");
+      _xblockexpression = (declaredPackageName + ".controller");
     }
     return _xblockexpression;
   }
   
-  private String _getQualifiedName(final SException exception) {
+  private String _getQualifiedName(final DComplexType complexType) {
+    String _packageName = this.getPackageName(complexType);
+    String _plus = (_packageName + ".");
+    String _name = complexType.getName();
+    return (_plus + _name);
+  }
+  
+  private String _getQualifiedName(final DNamedElement element) {
     String _xblockexpression = null;
     {
-      final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(exception);
+      final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(element);
       String packageName = "";
       int _segmentCount = fqn.getSegmentCount();
       boolean _greaterThan = (_segmentCount > 1);
@@ -296,10 +352,21 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   }
   
   private String _getQualifiedName(final EndpointDeclarationBlock block) {
-    String _packageName = this.getPackageName(block);
-    String _plus = (_packageName + ".");
-    String _string = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(block).getSegments()).toString();
-    return (_plus + _string);
+    String _xblockexpression = null;
+    {
+      final String declaredTypeName = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(block).getSegments());
+      String _xifexpression = null;
+      if ((declaredTypeName.endsWith("Controller") || declaredTypeName.endsWith("RestResource"))) {
+        _xifexpression = declaredTypeName;
+      } else {
+        _xifexpression = (declaredTypeName + "Controller");
+      }
+      final String controller = _xifexpression;
+      String _packageName = this.getPackageName(block);
+      String _plus = (_packageName + ".");
+      _xblockexpression = (_plus + controller);
+    }
+    return _xblockexpression;
   }
   
   private String _getQualifiedName(final ExceptionMapping mapping) {
@@ -338,6 +405,17 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return null;
   }
   
+  public JvmGenericType generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
+    if (element instanceof DComplexType) {
+      return _generateForType(container, (DComplexType)element, acceptor);
+    } else if (element != null) {
+      return _generateForType(container, element, acceptor);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(container, element, acceptor).toString());
+    }
+  }
+  
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (element instanceof EndpointDeclarationBlock) {
       _infer((EndpointDeclarationBlock)element, acceptor, isPreIndexingPhase);
@@ -354,16 +432,18 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     }
   }
   
-  private String getQualifiedName(final EObject exception) {
-    if (exception instanceof SException) {
-      return _getQualifiedName((SException)exception);
-    } else if (exception instanceof EndpointDeclarationBlock) {
-      return _getQualifiedName((EndpointDeclarationBlock)exception);
-    } else if (exception instanceof ExceptionMapping) {
-      return _getQualifiedName((ExceptionMapping)exception);
+  private String getQualifiedName(final EObject complexType) {
+    if (complexType instanceof DComplexType) {
+      return _getQualifiedName((DComplexType)complexType);
+    } else if (complexType instanceof DNamedElement) {
+      return _getQualifiedName((DNamedElement)complexType);
+    } else if (complexType instanceof EndpointDeclarationBlock) {
+      return _getQualifiedName((EndpointDeclarationBlock)complexType);
+    } else if (complexType instanceof ExceptionMapping) {
+      return _getQualifiedName((ExceptionMapping)complexType);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(exception).toString());
+        Arrays.<Object>asList(complexType).toString());
     }
   }
 }
