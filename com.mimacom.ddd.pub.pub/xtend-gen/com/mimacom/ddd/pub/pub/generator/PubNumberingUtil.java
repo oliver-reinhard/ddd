@@ -20,6 +20,7 @@ import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
 import com.mimacom.ddd.pub.pub.Section;
 import com.mimacom.ddd.pub.pub.TitledBlock;
+import com.mimacom.ddd.pub.pub.TitledCodeListing;
 import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.TitledTable;
 import com.mimacom.ddd.pub.pub.impl.PubConstants;
@@ -368,6 +369,12 @@ public class PubNumberingUtil {
     return acceptor;
   }
   
+  public List<TitledCodeListing> gatherAllCodeListingsInSequenceAndSetSequenceNumbers(final Component compo) {
+    final List<TitledCodeListing> acceptor = Lists.<TitledCodeListing>newArrayList();
+    this.<TitledCodeListing>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, TitledCodeListing.class, acceptor);
+    return acceptor;
+  }
+  
   public List<Footnote> gatherAllFootnotesInSequenceAndSetSequenceNumbers(final Component compo) {
     final List<Footnote> acceptor = Lists.<Footnote>newArrayList();
     this.<Footnote>gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Footnote.class, acceptor);
@@ -411,7 +418,7 @@ public class PubNumberingUtil {
             {
               final List<T> allInContents = EcoreUtil2.<T>eAllOfType(block, clazz);
               for (final T element : allInContents) {
-                {
+                if (((element instanceof TitledBlock) && (((TitledBlock) element).getTitle() != null))) {
                   element.setSequenceNumber(globalAcceptor.size());
                   globalAcceptor.add(element);
                   if ((localAcceptor != null)) {

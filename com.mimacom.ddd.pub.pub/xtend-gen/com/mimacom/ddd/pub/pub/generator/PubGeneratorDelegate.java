@@ -150,6 +150,7 @@ public class PubGeneratorDelegate {
     this.allDivisionsInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
     this.allTablesInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllTablesInSequenceAndSetSequenceNumbers(compo);
     this.allFiguresInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllFiguresInSequenceAndSetSequenceNumbers(compo);
+    this._pubNumberingUtil.gatherAllCodeListingsInSequenceAndSetSequenceNumbers(compo);
     this._pubNumberingUtil.gatherAllFootnotesInSequenceAndSetSequenceNumbers(compo);
   }
   

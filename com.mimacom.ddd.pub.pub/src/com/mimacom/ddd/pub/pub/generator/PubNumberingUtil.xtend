@@ -8,19 +8,20 @@ import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.ListItem
+import com.mimacom.ddd.pub.pub.Numbered
+import com.mimacom.ddd.pub.pub.NumberedByChapter
 import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.ReferenceTarget
 import com.mimacom.ddd.pub.pub.Section
 import com.mimacom.ddd.pub.pub.TitledBlock
+import com.mimacom.ddd.pub.pub.TitledCodeListing
 import com.mimacom.ddd.pub.pub.TitledFigure
 import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.impl.PubConstants
 import java.util.List
 import org.eclipse.xtext.EcoreUtil2
-import com.mimacom.ddd.pub.pub.NumberedByChapter
-import com.mimacom.ddd.pub.pub.Numbered
 
 class PubNumberingUtil {
 
@@ -260,6 +261,12 @@ class PubNumberingUtil {
 		return acceptor
 	}
 
+	def List<TitledCodeListing> gatherAllCodeListingsInSequenceAndSetSequenceNumbers(Component compo) {
+		val List<TitledCodeListing> acceptor = Lists.newArrayList
+		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, TitledCodeListing, acceptor)
+		return acceptor
+	}
+
 	def List<Footnote> gatherAllFootnotesInSequenceAndSetSequenceNumbers(Component compo) {
 		val List<Footnote> acceptor = Lists.newArrayList
 		gatherAllElementsInSequenceAndSetSequenceNumbers(compo, Footnote, acceptor)
@@ -291,12 +298,14 @@ class PubNumberingUtil {
 				for (block : div.contents) {
 					val allInContents = EcoreUtil2.eAllOfType(block, clazz)
 					for (element : allInContents) {
-						element.sequenceNumber = globalAcceptor.size
-						globalAcceptor.add(element)
-						if (localAcceptor !== null) {
-							element.sequenceNumberInChapter = localAcceptor.size
-							element.logicalContainer = chapter
-							localAcceptor.add(element)
+						if (element instanceof TitledBlock && (element as TitledBlock).title !== null) {
+							element.sequenceNumber = globalAcceptor.size
+							globalAcceptor.add(element)
+							if (localAcceptor !== null) {
+								element.sequenceNumberInChapter = localAcceptor.size
+								element.logicalContainer = chapter
+								localAcceptor.add(element)
+							}
 						}
 					}
 				}

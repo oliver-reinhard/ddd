@@ -103,6 +103,7 @@ class PubGeneratorDelegate {
 		allDivisionsInSequenceOfOccurrenceCache = compo.gatherAllDivisionsAndSetSequenceNumbers
 		allTablesInSequenceOfOccurrenceCache = compo.gatherAllTablesInSequenceAndSetSequenceNumbers
 		allFiguresInSequenceOfOccurrenceCache = compo.gatherAllFiguresInSequenceAndSetSequenceNumbers
+		compo.gatherAllCodeListingsInSequenceAndSetSequenceNumbers
 		compo.gatherAllFootnotesInSequenceAndSetSequenceNumbers
 	}
 
