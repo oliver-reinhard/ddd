@@ -30,6 +30,13 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import org.springframework.web.bind.annotation.RestController
+import com.mimacom.ddd.im.generator.generator.HttpVerb
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.PatchMapping
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -92,8 +99,10 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 			}
 		}
 		
-		acceptor.accept(element.toClass(element.qualifiedName)) [p|
-			p.documentation = element.documentation
+		acceptor.accept(element.toClass(element.qualifiedName)) [
+			documentation = element.documentation
+			
+			annotations+=annotationRef(RestController)
 			
 			// TODO [gh-19] annotations+=... in order to get these, the annotation types must be on the classpath :-/
 			
@@ -108,7 +117,8 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				 	operationReturnType = typeRef(Void) // TODO [gh-19] generates 'return Void'
 				}
 				
-				p.members+=endpoint.toMethod(operation.name, operationReturnType)[
+				members+=endpoint.toMethod(operation.name, operationReturnType)[
+					annotations+=annotationRef(endpoint.verb.toMethodAnnotationClass)
 					if (endpoint.name.raises !== null) {
 						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model), endpoint.name.raises)
 						exceptions+=me
@@ -123,6 +133,29 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				]
 			}
 		]
+	}
+	
+	private def Class<?> toMethodAnnotationClass(HttpVerb verb) {
+		switch (verb) {
+			case HttpVerb.GET: {
+				GetMapping
+			}
+			case HttpVerb.PUT: {
+				PutMapping
+			}
+			case HttpVerb.POST: {
+				PostMapping
+			}
+			case HttpVerb.DELETE: {
+				DeleteMapping
+			}
+			case HttpVerb.PATCH: {
+				PatchMapping
+			}
+			default: {
+				throw new IllegalArgumentException("invalid http verb: " + verb)
+			}
+		}
 	}
 	
 	private def Iterable<JvmTypeReference> getMappedExceptions(IJvmDeclaredTypeAcceptor acceptor, Model model, List<SException> exceptions) {

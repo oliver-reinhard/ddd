@@ -516,6 +516,7 @@
 <setEntry value="com.mimacom.ddd.im.generator.ui.tests@default:default"/>
 <setEntry value="com.mimacom.ddd.im.generator.ui@default:default"/>
 <setEntry value="com.mimacom.ddd.im.generator@default:default"/>
+<setEntry value="com.mimacom.ddd.libs@default:default"/>
 <setEntry value="com.mimacom.ddd.pub.proto.ide@default:default"/>
 <setEntry value="com.mimacom.ddd.pub.proto.tests@default:default"/>
 <setEntry value="com.mimacom.ddd.pub.proto.ui.tests@default:default"/>

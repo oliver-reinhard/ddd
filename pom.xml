@@ -23,6 +23,9 @@
     <module>com.mimacom.ddd.dm.base</module>
     <module>com.mimacom.ddd.dm.base.tests</module>
     <module>com.mimacom.ddd.dm.base.feature</module>
+    <!-- libs -->
+    <module>com.mimacom.ddd.libs</module>
+    <module>com.mimacom.ddd.libs.feature</module>
     <!-- util -->
     <module>com.mimacom.ddd.util</module>
     <module>com.mimacom.ddd.util.feature</module>

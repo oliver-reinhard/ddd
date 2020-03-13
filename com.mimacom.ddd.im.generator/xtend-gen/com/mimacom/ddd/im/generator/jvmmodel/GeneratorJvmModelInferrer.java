@@ -16,12 +16,14 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
+import com.mimacom.ddd.im.generator.generator.HttpVerb;
 import com.mimacom.ddd.im.generator.generator.Model;
 import com.mimacom.ddd.im.generator.jvmmodel.GeneratorTypesHelper;
 import com.mimacom.ddd.sm.asm.SDirection;
 import com.mimacom.ddd.sm.asm.SException;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
 import com.mimacom.ddd.sm.asm.SServiceParameter;
+import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmConstructor;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmEnumerationLiteral;
@@ -55,6 +58,12 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>Infers a JVM model from the source model.</p>
@@ -158,10 +167,13 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
         }
       }
     }
-    final Procedure1<JvmGenericType> _function_1 = (JvmGenericType p_1) -> {
-      this._jvmTypesBuilder.setDocumentation(p_1, this._jvmTypesBuilder.getDocumentation(element));
-      final Function1<EndpointDeclaration, Boolean> _function_2 = (EndpointDeclaration it) -> {
-        SServiceOperation _name = it.getName();
+    final Procedure1<JvmGenericType> _function_1 = (JvmGenericType it) -> {
+      this._jvmTypesBuilder.setDocumentation(it, this._jvmTypesBuilder.getDocumentation(element));
+      EList<JvmAnnotationReference> _annotations = it.getAnnotations();
+      JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(RestController.class);
+      this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+      final Function1<EndpointDeclaration, Boolean> _function_2 = (EndpointDeclaration it_1) -> {
+        SServiceOperation _name = it_1.getName();
         return Boolean.valueOf((_name != null));
       };
       Iterable<EndpointDeclaration> _filter_1 = IterableExtensions.<EndpointDeclaration>filter(element.getEndpoints(), _function_2);
@@ -169,8 +181,8 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
         {
           final SServiceOperation operation = endpoint_1.getName();
           JvmTypeReference operationReturnType = null;
-          final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it) -> {
-            SDirection _direction = it.getDirection();
+          final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it_1) -> {
+            SDirection _direction = it_1.getDirection();
             return Boolean.valueOf((_direction == SDirection.OUTBOUND));
           };
           SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3));
@@ -184,23 +196,26 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
           } else {
             operationReturnType = this._typeReferenceBuilder.typeRef(Void.class);
           }
-          EList<JvmMember> _members = p_1.getMembers();
-          final Procedure1<JvmOperation> _function_4 = (JvmOperation it) -> {
+          EList<JvmMember> _members = it.getMembers();
+          final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+            EList<JvmAnnotationReference> _annotations_1 = it_1.getAnnotations();
+            JvmAnnotationReference _annotationRef_1 = this._annotationTypesBuilder.annotationRef(this.toMethodAnnotationClass(endpoint_1.getVerb()));
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, _annotationRef_1);
             EList<SException> _raises = endpoint_1.getName().getRaises();
             boolean _tripleNotEquals = (_raises != null);
             if (_tripleNotEquals) {
               final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint_1, Model.class), endpoint_1.getName().getRaises());
-              EList<JvmTypeReference> _exceptions = it.getExceptions();
+              EList<JvmTypeReference> _exceptions = it_1.getExceptions();
               this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
             }
-            final Function1<SServiceParameter, Boolean> _function_5 = (SServiceParameter it_1) -> {
-              return Boolean.valueOf(((it_1.getDirection() == SDirection.INBOUND) && paramTypeToJvmType.containsKey(it_1.getType())));
+            final Function1<SServiceParameter, Boolean> _function_5 = (SServiceParameter it_2) -> {
+              return Boolean.valueOf(((it_2.getDirection() == SDirection.INBOUND) && paramTypeToJvmType.containsKey(it_2.getType())));
             };
             Iterable<SServiceParameter> _filter_2 = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_5);
             for (final SServiceParameter arg : _filter_2) {
               {
                 final JvmTypeReference paramTypeRef = paramTypeToJvmType.get(arg.getType());
-                EList<JvmFormalParameter> _parameters = it.getParameters();
+                EList<JvmFormalParameter> _parameters = it_1.getParameters();
                 JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(endpoint_1, arg.getName(), paramTypeRef);
                 this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
               }
@@ -212,7 +227,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
                 _builder.newLine();
               }
             };
-            this._jvmTypesBuilder.setBody(it, _client);
+            this._jvmTypesBuilder.setBody(it_1, _client);
           };
           JvmOperation _method = this._jvmTypesBuilder.toMethod(endpoint_1, operation.getName(), operationReturnType, _function_4);
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
@@ -220,6 +235,34 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       }
     };
     acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, this.getQualifiedName(element)), _function_1);
+  }
+  
+  private Class<?> toMethodAnnotationClass(final HttpVerb verb) {
+    Class<? extends Annotation> _switchResult = null;
+    if (verb != null) {
+      switch (verb) {
+        case GET:
+          _switchResult = GetMapping.class;
+          break;
+        case PUT:
+          _switchResult = PutMapping.class;
+          break;
+        case POST:
+          _switchResult = PostMapping.class;
+          break;
+        case DELETE:
+          _switchResult = DeleteMapping.class;
+          break;
+        case PATCH:
+          _switchResult = PatchMapping.class;
+          break;
+        default:
+          throw new IllegalArgumentException(("invalid http verb: " + verb));
+      }
+    } else {
+      throw new IllegalArgumentException(("invalid http verb: " + verb));
+    }
+    return _switchResult;
   }
   
   private Iterable<JvmTypeReference> getMappedExceptions(final IJvmDeclaredTypeAcceptor acceptor, final Model model, final List<SException> exceptions) {
