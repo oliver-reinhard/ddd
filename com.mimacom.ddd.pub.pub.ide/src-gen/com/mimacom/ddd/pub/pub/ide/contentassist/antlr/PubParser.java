@@ -59,7 +59,9 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubTableRowAccess().getAlternatives_1_1_0(), "rule__PubTableRow__Alternatives_1_1_0");
 			builder.put(grammarAccess.getPubTableCellAccess().getAlternatives_4(), "rule__PubTableCell__Alternatives_4");
 			builder.put(grammarAccess.getAbstractFigureAccess().getAlternatives(), "rule__AbstractFigure__Alternatives");
-			builder.put(grammarAccess.getPubCodeListingAccess().getAlternatives_2(), "rule__PubCodeListing__Alternatives_2");
+			builder.put(grammarAccess.getPubCodeListingAccess().getAlternatives_3(), "rule__PubCodeListing__Alternatives_3");
+			builder.put(grammarAccess.getPubCodeListingAccess().getAlternatives_5_1(), "rule__PubCodeListing__Alternatives_5_1");
+			builder.put(grammarAccess.getPubCodeListingAccess().getAlternatives_6(), "rule__PubCodeListing__Alternatives_6");
 			builder.put(grammarAccess.getPubRichTextParagraphAccess().getAlternatives_0(), "rule__PubRichTextParagraph__Alternatives_0");
 			builder.put(grammarAccess.getDmxPrimaryExpressionAccess().getAlternatives(), "rule__DmxPrimaryExpression__Alternatives");
 			builder.put(grammarAccess.getDmxTestContextAccess().getAlternatives_4_1(), "rule__DmxTestContext__Alternatives_4_1");
@@ -86,7 +88,6 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubListStyleAccess().getAlternatives(), "rule__PubListStyle__Alternatives");
 			builder.put(grammarAccess.getPubSequenceNumberStyleAccess().getAlternatives(), "rule__PubSequenceNumberStyle__Alternatives");
 			builder.put(grammarAccess.getGridLinesAccess().getAlternatives(), "rule__GridLines__Alternatives");
-			builder.put(grammarAccess.getPubCodeLanguageAccess().getAlternatives(), "rule__PubCodeLanguage__Alternatives");
 			builder.put(grammarAccess.getPubParagraphStyleAccess().getAlternatives(), "rule__PubParagraphStyle__Alternatives");
 			builder.put(grammarAccess.getPubReferenceScopeAccess().getAlternatives(), "rule__PubReferenceScope__Alternatives");
 			builder.put(grammarAccess.getDmxBaseTypeAccess().getAlternatives(), "rule__DmxBaseType__Alternatives");
@@ -195,9 +196,9 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProvidedFigureAccess().getGroup_0(), "rule__ProvidedFigure__Group_0__0");
 			builder.put(grammarAccess.getPubEquationAccess().getGroup(), "rule__PubEquation__Group__0");
 			builder.put(grammarAccess.getPubCodeListingAccess().getGroup(), "rule__PubCodeListing__Group__0");
-			builder.put(grammarAccess.getPubCodeListingAccess().getGroup_2_0(), "rule__PubCodeListing__Group_2_0__0");
-			builder.put(grammarAccess.getPubCodeListingAccess().getGroup_2_0_0(), "rule__PubCodeListing__Group_2_0_0__0");
-			builder.put(grammarAccess.getPubCodeListingAccess().getGroup_2_1(), "rule__PubCodeListing__Group_2_1__0");
+			builder.put(grammarAccess.getPubCodeListingAccess().getGroup_3_1(), "rule__PubCodeListing__Group_3_1__0");
+			builder.put(grammarAccess.getPubCodeListingAccess().getGroup_5(), "rule__PubCodeListing__Group_5__0");
+			builder.put(grammarAccess.getPubCodeListingAccess().getGroup_6_1(), "rule__PubCodeListing__Group_6_1__0");
 			builder.put(grammarAccess.getPubRichTextParagraphAccess().getGroup(), "rule__PubRichTextParagraph__Group__0");
 			builder.put(grammarAccess.getPubFootnoteAccess().getGroup(), "rule__PubFootnote__Group__0");
 			builder.put(grammarAccess.getPubReferenceAccess().getGroup(), "rule__PubReference__Group__0");
@@ -428,9 +429,10 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProvidedFigureAccess().getDiagramRootAssignment_2(), "rule__ProvidedFigure__DiagramRootAssignment_2");
 			builder.put(grammarAccess.getProvidedFigureAccess().getDiagramTypeAssignment_4(), "rule__ProvidedFigure__DiagramTypeAssignment_4");
 			builder.put(grammarAccess.getPubEquationAccess().getFileUriAssignment_4(), "rule__PubEquation__FileUriAssignment_4");
-			builder.put(grammarAccess.getPubCodeListingAccess().getFormatAssignment_2_0_0_1(), "rule__PubCodeListing__FormatAssignment_2_0_0_1");
-			builder.put(grammarAccess.getPubCodeListingAccess().getCodeLinesAssignment_2_0_2(), "rule__PubCodeListing__CodeLinesAssignment_2_0_2");
-			builder.put(grammarAccess.getPubCodeListingAccess().getIncludeAssignment_2_1_1(), "rule__PubCodeListing__IncludeAssignment_2_1_1");
+			builder.put(grammarAccess.getPubCodeListingAccess().getTitleAssignment_3_0(), "rule__PubCodeListing__TitleAssignment_3_0");
+			builder.put(grammarAccess.getPubCodeListingAccess().getNumberedAssignment_5_1_0(), "rule__PubCodeListing__NumberedAssignment_5_1_0");
+			builder.put(grammarAccess.getPubCodeListingAccess().getCodeLinesAssignment_6_0(), "rule__PubCodeListing__CodeLinesAssignment_6_0");
+			builder.put(grammarAccess.getPubCodeListingAccess().getIncludeAssignment_6_1_1(), "rule__PubCodeListing__IncludeAssignment_6_1_1");
 			builder.put(grammarAccess.getPubRichTextParagraphAccess().getStyleAssignment_1(), "rule__PubRichTextParagraph__StyleAssignment_1");
 			builder.put(grammarAccess.getPubRichTextParagraphAccess().getTextAssignment_2(), "rule__PubRichTextParagraph__TextAssignment_2");
 			builder.put(grammarAccess.getPubParagraphTextOnlyAccess().getTextAssignment(), "rule__PubParagraphTextOnly__TextAssignment");

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getFormat <em>Format</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.TitledCodeListing#isNumbered <em>Numbered</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getCodeLines <em>Code Lines</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getInclude <em>Include</em>}</li>
  * </ul>
@@ -26,29 +26,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TitledCodeListing extends TitledBlock {
 	/**
-	 * Returns the value of the '<em><b>Format</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.mimacom.ddd.pub.pub.CodeLanguage}.
+	 * Returns the value of the '<em><b>Numbered</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Format</em>' attribute.
-	 * @see com.mimacom.ddd.pub.pub.CodeLanguage
-	 * @see #setFormat(CodeLanguage)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTitledCodeListing_Format()
+	 * @return the value of the '<em>Numbered</em>' attribute.
+	 * @see #setNumbered(boolean)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTitledCodeListing_Numbered()
 	 * @model unique="false"
 	 * @generated
 	 */
-	CodeLanguage getFormat();
+	boolean isNumbered();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getFormat <em>Format</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#isNumbered <em>Numbered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Format</em>' attribute.
-	 * @see com.mimacom.ddd.pub.pub.CodeLanguage
-	 * @see #getFormat()
+	 * @param value the new value of the '<em>Numbered</em>' attribute.
+	 * @see #isNumbered()
 	 * @generated
 	 */
-	void setFormat(CodeLanguage value);
+	void setNumbered(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Code Lines</b></em>' attribute list.

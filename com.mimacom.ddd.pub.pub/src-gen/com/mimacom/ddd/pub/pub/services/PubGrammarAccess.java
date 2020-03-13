@@ -3083,87 +3083,119 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	public class PubCodeListingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubCodeListing");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCodeListingKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cPubTitledBlockHeaderParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Group cGroup_2_0_0 = (Group)cGroup_2_0.eContents().get(0);
-		private final Keyword cFormatKeyword_2_0_0_0 = (Keyword)cGroup_2_0_0.eContents().get(0);
-		private final Assignment cFormatAssignment_2_0_0_1 = (Assignment)cGroup_2_0_0.eContents().get(1);
-		private final RuleCall cFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0 = (RuleCall)cFormatAssignment_2_0_0_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
-		private final Assignment cCodeLinesAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
-		private final RuleCall cCodeLinesSTRINGTerminalRuleCall_2_0_2_0 = (RuleCall)cCodeLinesAssignment_2_0_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_0_3 = (Keyword)cGroup_2_0.eContents().get(3);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Keyword cIncludeKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cIncludeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final CrossReference cIncludeEObjectCrossReference_2_1_1_0 = (CrossReference)cIncludeAssignment_2_1_1.eContents().get(0);
-		private final RuleCall cIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1 = (RuleCall)cIncludeEObjectCrossReference_2_1_1_0.eContents().get(1);
+		private final Action cTitledCodeListingAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCodeListingKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cPubReferenceTargetNameParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cTitleAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cTitleDRichTextParserRuleCall_3_0_0 = (RuleCall)cTitleAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cTitleKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cFalseKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cNumberedKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final Assignment cNumberedAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
+		private final Keyword cNumberedTrueKeyword_5_1_0_0 = (Keyword)cNumberedAssignment_5_1_0.eContents().get(0);
+		private final Keyword cFalseKeyword_5_1_1 = (Keyword)cAlternatives_5_1.eContents().get(1);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cCodeLinesAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final RuleCall cCodeLinesSTRINGTerminalRuleCall_6_0_0 = (RuleCall)cCodeLinesAssignment_6_0.eContents().get(0);
+		private final Group cGroup_6_1 = (Group)cAlternatives_6.eContents().get(1);
+		private final Keyword cIncludeKeyword_6_1_0 = (Keyword)cGroup_6_1.eContents().get(0);
+		private final Assignment cIncludeAssignment_6_1_1 = (Assignment)cGroup_6_1.eContents().get(1);
+		private final CrossReference cIncludeEObjectCrossReference_6_1_1_0 = (CrossReference)cIncludeAssignment_6_1_1.eContents().get(0);
+		private final RuleCall cIncludeEObjectDQualifiedNameParserRuleCall_6_1_1_0_1 = (RuleCall)cIncludeEObjectCrossReference_6_1_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//PubCodeListing TitledCodeListing:
+		//	{TitledCodeListing}
 		//	'CodeListing'
-		//	PubTitledBlockHeader (('format:' format=PubCodeLanguage)?
-		//	'{'
-		//	codeLines+=STRING*
-		//	'}'
-		//	| 'include:' include=[ecore::EObject|DQualifiedName]);
+		//	PubReferenceTargetName? (title=DRichText | 'title:' 'false')
+		//	'{' ('numbered:' (numbered?='true' | 'false'))? (codeLines+=STRING*
+		//	| 'include:' include=[ecore::EObject|DQualifiedName])
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CodeListing' PubTitledBlockHeader (('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}' | 'include:'
-		//include=[ecore::EObject|DQualifiedName])
+		//{TitledCodeListing} 'CodeListing' PubReferenceTargetName? (title=DRichText | 'title:' 'false') '{' ('numbered:'
+		//(numbered?='true' | 'false'))? (codeLines+=STRING* | 'include:' include=[ecore::EObject|DQualifiedName]) '}'
 		public Group getGroup() { return cGroup; }
 		
+		//{TitledCodeListing}
+		public Action getTitledCodeListingAction_0() { return cTitledCodeListingAction_0; }
+		
 		//'CodeListing'
-		public Keyword getCodeListingKeyword_0() { return cCodeListingKeyword_0; }
+		public Keyword getCodeListingKeyword_1() { return cCodeListingKeyword_1; }
 		
-		//PubTitledBlockHeader
-		public RuleCall getPubTitledBlockHeaderParserRuleCall_1() { return cPubTitledBlockHeaderParserRuleCall_1; }
+		//PubReferenceTargetName?
+		public RuleCall getPubReferenceTargetNameParserRuleCall_2() { return cPubReferenceTargetNameParserRuleCall_2; }
 		
-		//(('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}' | 'include:' include=[ecore::EObject|DQualifiedName])
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		//(title=DRichText | 'title:' 'false')
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
-		//('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}'
-		public Group getGroup_2_0() { return cGroup_2_0; }
+		//title=DRichText
+		public Assignment getTitleAssignment_3_0() { return cTitleAssignment_3_0; }
 		
-		//('format:' format=PubCodeLanguage)?
-		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
+		//DRichText
+		public RuleCall getTitleDRichTextParserRuleCall_3_0_0() { return cTitleDRichTextParserRuleCall_3_0_0; }
 		
-		//'format:'
-		public Keyword getFormatKeyword_2_0_0_0() { return cFormatKeyword_2_0_0_0; }
+		//'title:' 'false'
+		public Group getGroup_3_1() { return cGroup_3_1; }
 		
-		//format=PubCodeLanguage
-		public Assignment getFormatAssignment_2_0_0_1() { return cFormatAssignment_2_0_0_1; }
+		//'title:'
+		public Keyword getTitleKeyword_3_1_0() { return cTitleKeyword_3_1_0; }
 		
-		//PubCodeLanguage
-		public RuleCall getFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0() { return cFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0; }
+		//'false'
+		public Keyword getFalseKeyword_3_1_1() { return cFalseKeyword_3_1_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2_0_1() { return cLeftCurlyBracketKeyword_2_0_1; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//('numbered:' (numbered?='true' | 'false'))?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'numbered:'
+		public Keyword getNumberedKeyword_5_0() { return cNumberedKeyword_5_0; }
+		
+		//(numbered?='true' | 'false')
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+		
+		//numbered?='true'
+		public Assignment getNumberedAssignment_5_1_0() { return cNumberedAssignment_5_1_0; }
+		
+		//'true'
+		public Keyword getNumberedTrueKeyword_5_1_0_0() { return cNumberedTrueKeyword_5_1_0_0; }
+		
+		//'false'
+		public Keyword getFalseKeyword_5_1_1() { return cFalseKeyword_5_1_1; }
+		
+		//(codeLines+=STRING* | 'include:' include=[ecore::EObject|DQualifiedName])
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
 		//codeLines+=STRING*
-		public Assignment getCodeLinesAssignment_2_0_2() { return cCodeLinesAssignment_2_0_2; }
+		public Assignment getCodeLinesAssignment_6_0() { return cCodeLinesAssignment_6_0; }
 		
 		//STRING
-		public RuleCall getCodeLinesSTRINGTerminalRuleCall_2_0_2_0() { return cCodeLinesSTRINGTerminalRuleCall_2_0_2_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_2_0_3() { return cRightCurlyBracketKeyword_2_0_3; }
+		public RuleCall getCodeLinesSTRINGTerminalRuleCall_6_0_0() { return cCodeLinesSTRINGTerminalRuleCall_6_0_0; }
 		
 		//'include:' include=[ecore::EObject|DQualifiedName]
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		public Group getGroup_6_1() { return cGroup_6_1; }
 		
 		//'include:'
-		public Keyword getIncludeKeyword_2_1_0() { return cIncludeKeyword_2_1_0; }
+		public Keyword getIncludeKeyword_6_1_0() { return cIncludeKeyword_6_1_0; }
 		
 		//include=[ecore::EObject|DQualifiedName]
-		public Assignment getIncludeAssignment_2_1_1() { return cIncludeAssignment_2_1_1; }
+		public Assignment getIncludeAssignment_6_1_1() { return cIncludeAssignment_6_1_1; }
 		
 		//[ecore::EObject|DQualifiedName]
-		public CrossReference getIncludeEObjectCrossReference_2_1_1_0() { return cIncludeEObjectCrossReference_2_1_1_0; }
+		public CrossReference getIncludeEObjectCrossReference_6_1_1_0() { return cIncludeEObjectCrossReference_6_1_1_0; }
 		
 		//DQualifiedName
-		public RuleCall getIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1() { return cIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1; }
+		public RuleCall getIncludeEObjectDQualifiedNameParserRuleCall_6_1_1_0_1() { return cIncludeEObjectDQualifiedNameParserRuleCall_6_1_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class PubRichTextParagraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubRichTextParagraph");
@@ -3523,49 +3555,6 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'none'
 		public Keyword getNONENoneKeyword_3_0() { return cNONENoneKeyword_3_0; }
 	}
-	public class PubCodeLanguageElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubCodeLanguage");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cJavaEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cJavaJavaKeyword_0_0 = (Keyword)cJavaEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cJavaScriptEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cJavaScriptJavaScriptKeyword_1_0 = (Keyword)cJavaScriptEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cHTMLEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cHTMLHTMLKeyword_2_0 = (Keyword)cHTMLEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cXMLEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cXMLXMLKeyword_3_0 = (Keyword)cXMLEnumLiteralDeclaration_3.eContents().get(0);
-		
-		//enum PubCodeLanguage returns CodeLanguage:
-		//	Java | JavaScript | HTML | XML;
-		public EnumRule getRule() { return rule; }
-		
-		//Java | JavaScript | HTML | XML
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Java
-		public EnumLiteralDeclaration getJavaEnumLiteralDeclaration_0() { return cJavaEnumLiteralDeclaration_0; }
-		
-		//'Java'
-		public Keyword getJavaJavaKeyword_0_0() { return cJavaJavaKeyword_0_0; }
-		
-		//JavaScript
-		public EnumLiteralDeclaration getJavaScriptEnumLiteralDeclaration_1() { return cJavaScriptEnumLiteralDeclaration_1; }
-		
-		//'JavaScript'
-		public Keyword getJavaScriptJavaScriptKeyword_1_0() { return cJavaScriptJavaScriptKeyword_1_0; }
-		
-		//HTML
-		public EnumLiteralDeclaration getHTMLEnumLiteralDeclaration_2() { return cHTMLEnumLiteralDeclaration_2; }
-		
-		//'HTML'
-		public Keyword getHTMLHTMLKeyword_2_0() { return cHTMLHTMLKeyword_2_0; }
-		
-		//XML
-		public EnumLiteralDeclaration getXMLEnumLiteralDeclaration_3() { return cXMLEnumLiteralDeclaration_3; }
-		
-		//'XML'
-		public Keyword getXMLXMLKeyword_3_0() { return cXMLXMLKeyword_3_0; }
-	}
 	public class PubParagraphStyleElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubParagraphStyle");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -3825,7 +3814,6 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	private final ProvidedFigureElements pProvidedFigure;
 	private final PubEquationElements pPubEquation;
 	private final PubCodeListingElements pPubCodeListing;
-	private final PubCodeLanguageElements ePubCodeLanguage;
 	private final PubRichTextParagraphElements pPubRichTextParagraph;
 	private final PubParagraphTextOnlyElements pPubParagraphTextOnly;
 	private final PubFootnoteElements pPubFootnote;
@@ -3899,7 +3887,6 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		this.pProvidedFigure = new ProvidedFigureElements();
 		this.pPubEquation = new PubEquationElements();
 		this.pPubCodeListing = new PubCodeListingElements();
-		this.ePubCodeLanguage = new PubCodeLanguageElements();
 		this.pPubRichTextParagraph = new PubRichTextParagraphElements();
 		this.pPubParagraphTextOnly = new PubParagraphTextOnlyElements();
 		this.pPubFootnote = new PubFootnoteElements();
@@ -4641,28 +4628,18 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PubCodeListing TitledCodeListing:
+	//	{TitledCodeListing}
 	//	'CodeListing'
-	//	PubTitledBlockHeader (('format:' format=PubCodeLanguage)?
-	//	'{'
-	//	codeLines+=STRING*
-	//	'}'
-	//	| 'include:' include=[ecore::EObject|DQualifiedName]);
+	//	PubReferenceTargetName? (title=DRichText | 'title:' 'false')
+	//	'{' ('numbered:' (numbered?='true' | 'false'))? (codeLines+=STRING*
+	//	| 'include:' include=[ecore::EObject|DQualifiedName])
+	//	'}';
 	public PubCodeListingElements getPubCodeListingAccess() {
 		return pPubCodeListing;
 	}
 	
 	public ParserRule getPubCodeListingRule() {
 		return getPubCodeListingAccess().getRule();
-	}
-	
-	//enum PubCodeLanguage returns CodeLanguage:
-	//	Java | JavaScript | HTML | XML;
-	public PubCodeLanguageElements getPubCodeLanguageAccess() {
-		return ePubCodeLanguage;
-	}
-	
-	public EnumRule getPubCodeLanguageRule() {
-		return getPubCodeLanguageAccess().getRule();
 	}
 	
 	//PubRichTextParagraph RichTextParagraph:

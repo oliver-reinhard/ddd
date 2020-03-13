@@ -250,7 +250,7 @@ class PubGeneratorDelegate {
 	def dispatch CharSequence genBlock(TitledBlock b) {
 		val blockBodyDispatcher = '''
 			«b.genTitledBlock»
-			«b.renderTitledBlockTitle»
+			«IF b.title !== null»«b.renderTitledBlockTitle»«ENDIF»
 		'''
 		b.renderTitledBlock([blockBodyDispatcher])
 	}
@@ -310,8 +310,12 @@ class PubGeneratorDelegate {
 
 	def dispatch CharSequence genTitledBlock(TitledCodeListing cl) {
 		if (cl.include !== null) {
-			var formattedCode = 	cl.include.sourceCodeFromXtextResource  // there is a validaton: formattedCode never null
-			renderCodeListing(cl, Lists.newArrayList(formattedCode.outdent(PubGeneratorUtil::TAB_SIZE)))
+			val sourceCode = 	cl.include.sourceCodeFromXtextResource  // there is a validaton: formattedCode never null
+			var formattedCode = sourceCode.trimBlankLines.outdent(PubGeneratorUtil::TAB_SIZE)
+			if (cl.numbered) {
+				formattedCode = formattedCode.numberLines
+			}
+			renderCodeListing(cl, Lists.newArrayList(formattedCode))
 		} else {
 			renderCodeListing(cl, cl.codeLines)
 		}

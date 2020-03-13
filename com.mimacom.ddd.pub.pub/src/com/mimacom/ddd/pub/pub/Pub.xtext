@@ -383,17 +383,16 @@ PubEquation returns Equation:
 	'}'; 
 
 PubCodeListing returns TitledCodeListing:
+	{TitledCodeListing} 
 	'CodeListing'
-	PubTitledBlockHeader
-	(	('format:' format=PubCodeLanguage)?
-		'{'
-			codeLines+=STRING*
-		'}'
+	PubReferenceTargetName?
+	(title=DRichText | 'title:' 'false')
+	'{'
+	('numbered:' ( numbered?='true' | 'false'))?
+	(	codeLines+=STRING*
 	|	'include:' include=[ecore::EObject|DQualifiedName]  // TODO: DQualifiedName is likely the cause of the ANTLR warning: Decision can match input such as "'.' RULE_ID" using multiple alternatives
-	);
-
-enum PubCodeLanguage returns CodeLanguage: 
-	Java='Java' | JavaScript='JavaScript' | HTML='HTML' | XML='XML';
+	)
+	'}';
 	
 PubRichTextParagraph returns RichTextParagraph:
 	('Paragraph' | 'P') 

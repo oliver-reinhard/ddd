@@ -431,16 +431,9 @@ class Equation extends TitledBlock {
 }
 
 class TitledCodeListing extends TitledBlock {
-	CodeLanguage format
+	boolean numbered
 	String[] codeLines
 	refers EObject include
-}
-
-enum CodeLanguage {
-	Java
-	, JavaScript
-	, HTML
-	, XML
 }
 
 abstract class Paragraph extends ContentBlock {

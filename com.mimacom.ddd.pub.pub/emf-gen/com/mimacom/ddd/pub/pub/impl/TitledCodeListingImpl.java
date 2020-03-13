@@ -2,7 +2,6 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.pub.pub.CodeLanguage;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.TitledCodeListing;
 
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#isNumbered <em>Numbered</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#getCodeLines <em>Code Lines</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TitledCodeListingImpl#getInclude <em>Include</em>}</li>
  * </ul>
@@ -37,24 +36,24 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  */
 public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCodeListing {
 	/**
-	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * The default value of the '{@link #isNumbered() <em>Numbered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFormat()
+	 * @see #isNumbered()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CodeLanguage FORMAT_EDEFAULT = CodeLanguage.JAVA;
+	protected static final boolean NUMBERED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * The cached value of the '{@link #isNumbered() <em>Numbered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFormat()
+	 * @see #isNumbered()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeLanguage format = FORMAT_EDEFAULT;
+	protected boolean numbered = NUMBERED_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCodeLines() <em>Code Lines</em>}' attribute list.
@@ -101,8 +100,8 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * @generated
 	 */
 	@Override
-	public CodeLanguage getFormat() {
-		return format;
+	public boolean isNumbered() {
+		return numbered;
 	}
 
 	/**
@@ -111,11 +110,11 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * @generated
 	 */
 	@Override
-	public void setFormat(CodeLanguage newFormat) {
-		CodeLanguage oldFormat = format;
-		format = newFormat == null ? FORMAT_EDEFAULT : newFormat;
+	public void setNumbered(boolean newNumbered) {
+		boolean oldNumbered = numbered;
+		numbered = newNumbered;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_CODE_LISTING__FORMAT, oldFormat, format));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TITLED_CODE_LISTING__NUMBERED, oldNumbered, numbered));
 	}
 
 	/**
@@ -179,8 +178,8 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.TITLED_CODE_LISTING__FORMAT:
-				return getFormat();
+			case PubPackage.TITLED_CODE_LISTING__NUMBERED:
+				return isNumbered();
 			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				return getCodeLines();
 			case PubPackage.TITLED_CODE_LISTING__INCLUDE:
@@ -199,8 +198,8 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.TITLED_CODE_LISTING__FORMAT:
-				setFormat((CodeLanguage)newValue);
+			case PubPackage.TITLED_CODE_LISTING__NUMBERED:
+				setNumbered((Boolean)newValue);
 				return;
 			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				getCodeLines().clear();
@@ -221,8 +220,8 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.TITLED_CODE_LISTING__FORMAT:
-				setFormat(FORMAT_EDEFAULT);
+			case PubPackage.TITLED_CODE_LISTING__NUMBERED:
+				setNumbered(NUMBERED_EDEFAULT);
 				return;
 			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				getCodeLines().clear();
@@ -242,8 +241,8 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.TITLED_CODE_LISTING__FORMAT:
-				return format != FORMAT_EDEFAULT;
+			case PubPackage.TITLED_CODE_LISTING__NUMBERED:
+				return numbered != NUMBERED_EDEFAULT;
 			case PubPackage.TITLED_CODE_LISTING__CODE_LINES:
 				return codeLines != null && !codeLines.isEmpty();
 			case PubPackage.TITLED_CODE_LISTING__INCLUDE:
@@ -262,8 +261,8 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (format: ");
-		result.append(format);
+		result.append(" (numbered: ");
+		result.append(numbered);
 		result.append(", codeLines: ");
 		result.append(codeLines);
 		result.append(')');

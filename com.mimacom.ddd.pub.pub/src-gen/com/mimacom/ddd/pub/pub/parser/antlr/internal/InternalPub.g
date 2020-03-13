@@ -4788,80 +4788,117 @@ rulePubCodeListing returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='CodeListing'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getPubCodeListingAccess().getCodeListingKeyword_0());
-		}
-		{
-			if ($current==null) {
-				$current = createModelElement(grammarAccess.getPubCodeListingRule());
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getPubCodeListingAccess().getTitledCodeListingAction_0(),
+					$current);
 			}
-			newCompositeNode(grammarAccess.getPubCodeListingAccess().getPubTitledBlockHeaderParserRuleCall_1());
-		}
-		this_PubTitledBlockHeader_1=rulePubTitledBlockHeader[$current]
+		)
+		otherlv_1='CodeListing'
 		{
-			$current = $this_PubTitledBlockHeader_1.current;
-			afterParserOrEnumRuleCall();
+			newLeafNode(otherlv_1, grammarAccess.getPubCodeListingAccess().getCodeListingKeyword_1());
 		}
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getPubCodeListingRule());
+				}
+				newCompositeNode(grammarAccess.getPubCodeListingAccess().getPubReferenceTargetNameParserRuleCall_2());
+			}
+			this_PubReferenceTargetName_2=rulePubReferenceTargetName[$current]
+			{
+				$current = $this_PubReferenceTargetName_2.current;
+				afterParserOrEnumRuleCall();
+			}
+		)?
 		(
 			(
 				(
-					otherlv_2='format:'
 					{
-						newLeafNode(otherlv_2, grammarAccess.getPubCodeListingAccess().getFormatKeyword_2_0_0_0());
+						newCompositeNode(grammarAccess.getPubCodeListingAccess().getTitleDRichTextParserRuleCall_3_0_0());
 					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getPubCodeListingAccess().getFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0());
-							}
-							lv_format_3_0=rulePubCodeLanguage
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getPubCodeListingRule());
-								}
-								set(
-									$current,
-									"format",
-									lv_format_3_0,
-									"com.mimacom.ddd.pub.pub.Pub.PubCodeLanguage");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)?
-				otherlv_4='{'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getPubCodeListingAccess().getLeftCurlyBracketKeyword_2_0_1());
-				}
-				(
-					(
-						lv_codeLines_5_0=RULE_STRING
-						{
-							newLeafNode(lv_codeLines_5_0, grammarAccess.getPubCodeListingAccess().getCodeLinesSTRINGTerminalRuleCall_2_0_2_0());
+					lv_title_3_0=ruleDRichText
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPubCodeListingRule());
 						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getPubCodeListingRule());
-							}
-							addWithLastConsumed(
-								$current,
-								"codeLines",
-								lv_codeLines_5_0,
-								"com.mimacom.ddd.dm.dmx.Dmx.STRING");
-						}
-					)
-				)*
-				otherlv_6='}'
-				{
-					newLeafNode(otherlv_6, grammarAccess.getPubCodeListingAccess().getRightCurlyBracketKeyword_2_0_3());
-				}
+						set(
+							$current,
+							"title",
+							lv_title_3_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 			    |
 			(
-				otherlv_7='include:'
+				otherlv_4='title:'
 				{
-					newLeafNode(otherlv_7, grammarAccess.getPubCodeListingAccess().getIncludeKeyword_2_1_0());
+					newLeafNode(otherlv_4, grammarAccess.getPubCodeListingAccess().getTitleKeyword_3_1_0());
+				}
+				otherlv_5='false'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getPubCodeListingAccess().getFalseKeyword_3_1_1());
+				}
+			)
+		)
+		otherlv_6='{'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getPubCodeListingAccess().getLeftCurlyBracketKeyword_4());
+		}
+		(
+			otherlv_7='numbered:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getPubCodeListingAccess().getNumberedKeyword_5_0());
+			}
+			(
+				(
+					(
+						lv_numbered_8_0='true'
+						{
+							newLeafNode(lv_numbered_8_0, grammarAccess.getPubCodeListingAccess().getNumberedTrueKeyword_5_1_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getPubCodeListingRule());
+							}
+							setWithLastConsumed($current, "numbered", true, "true");
+						}
+					)
+				)
+				    |
+				otherlv_9='false'
+				{
+					newLeafNode(otherlv_9, grammarAccess.getPubCodeListingAccess().getFalseKeyword_5_1_1());
+				}
+			)
+		)?
+		(
+			(
+				(
+					lv_codeLines_10_0=RULE_STRING
+					{
+						newLeafNode(lv_codeLines_10_0, grammarAccess.getPubCodeListingAccess().getCodeLinesSTRINGTerminalRuleCall_6_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPubCodeListingRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"codeLines",
+							lv_codeLines_10_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.STRING");
+					}
+				)
+			)*
+			    |
+			(
+				otherlv_11='include:'
+				{
+					newLeafNode(otherlv_11, grammarAccess.getPubCodeListingAccess().getIncludeKeyword_6_1_0());
 				}
 				(
 					(
@@ -4871,7 +4908,7 @@ rulePubCodeListing returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getPubCodeListingAccess().getIncludeEObjectCrossReference_2_1_1_0());
+							newCompositeNode(grammarAccess.getPubCodeListingAccess().getIncludeEObjectCrossReference_6_1_1_0());
 						}
 						ruleDQualifiedName
 						{
@@ -4881,6 +4918,10 @@ rulePubCodeListing returns [EObject current=null]
 				)
 			)
 		)
+		otherlv_13='}'
+		{
+			newLeafNode(otherlv_13, grammarAccess.getPubCodeListingAccess().getRightCurlyBracketKeyword_7());
+		}
 	)
 ;
 
@@ -9327,49 +9368,6 @@ ruleGridLines returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getGridLinesAccess().getNONEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_3, grammarAccess.getGridLinesAccess().getNONEEnumLiteralDeclaration_3());
-			}
-		)
-	)
-;
-
-// Rule PubCodeLanguage
-rulePubCodeLanguage returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='Java'
-			{
-				$current = grammarAccess.getPubCodeLanguageAccess().getJavaEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getPubCodeLanguageAccess().getJavaEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='JavaScript'
-			{
-				$current = grammarAccess.getPubCodeLanguageAccess().getJavaScriptEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getPubCodeLanguageAccess().getJavaScriptEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='HTML'
-			{
-				$current = grammarAccess.getPubCodeLanguageAccess().getHTMLEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getPubCodeLanguageAccess().getHTMLEnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='XML'
-			{
-				$current = grammarAccess.getPubCodeLanguageAccess().getXMLEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getPubCodeLanguageAccess().getXMLEnumLiteralDeclaration_3());
 			}
 		)
 	)

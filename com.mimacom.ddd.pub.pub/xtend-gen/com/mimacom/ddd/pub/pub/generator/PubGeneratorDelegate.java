@@ -445,8 +445,14 @@ public class PubGeneratorDelegate {
       CharSequence _genTitledBlock = this.genTitledBlock(b);
       _builder.append(_genTitledBlock);
       _builder.newLineIfNotEmpty();
-      CharSequence _renderTitledBlockTitle = this.renderer.renderTitledBlockTitle(b);
-      _builder.append(_renderTitledBlockTitle);
+      {
+        DRichText _title = b.getTitle();
+        boolean _tripleNotEquals = (_title != null);
+        if (_tripleNotEquals) {
+          CharSequence _renderTitledBlockTitle = this.renderer.renderTitledBlockTitle(b);
+          _builder.append(_renderTitledBlockTitle);
+        }
+      }
       _builder.newLineIfNotEmpty();
       final String blockBodyDispatcher = _builder.toString();
       final NestedElementsRenderer _function = () -> {
@@ -551,8 +557,13 @@ public class PubGeneratorDelegate {
     if (_tripleNotEquals) {
       CharSequence _xblockexpression = null;
       {
-        String formattedCode = this._pubUtil.getSourceCodeFromXtextResource(cl.getInclude());
-        _xblockexpression = this.renderer.renderCodeListing(cl, Lists.<String>newArrayList(this._codeListingFormatter.outdent(formattedCode, PubGeneratorUtil.TAB_SIZE)));
+        final String sourceCode = this._pubUtil.getSourceCodeFromXtextResource(cl.getInclude());
+        String formattedCode = this._codeListingFormatter.outdent(this._codeListingFormatter.trimBlankLines(sourceCode), PubGeneratorUtil.TAB_SIZE);
+        boolean _isNumbered = cl.isNumbered();
+        if (_isNumbered) {
+          formattedCode = this._codeListingFormatter.numberLines(formattedCode);
+        }
+        _xblockexpression = this.renderer.renderCodeListing(cl, Lists.<String>newArrayList(formattedCode));
       }
       _xifexpression = _xblockexpression;
     } else {

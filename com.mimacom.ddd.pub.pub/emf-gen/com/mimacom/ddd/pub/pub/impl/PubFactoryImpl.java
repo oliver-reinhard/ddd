@@ -130,8 +130,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 				return createListStyleFromString(eDataType, initialValue);
 			case PubPackage.GRID_LINES:
 				return createGridLinesFromString(eDataType, initialValue);
-			case PubPackage.CODE_LANGUAGE:
-				return createCodeLanguageFromString(eDataType, initialValue);
 			case PubPackage.PARAGRAPH_STYLE:
 				return createParagraphStyleFromString(eDataType, initialValue);
 			default:
@@ -157,8 +155,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 				return convertListStyleToString(eDataType, instanceValue);
 			case PubPackage.GRID_LINES:
 				return convertGridLinesToString(eDataType, instanceValue);
-			case PubPackage.CODE_LANGUAGE:
-				return convertCodeLanguageToString(eDataType, instanceValue);
 			case PubPackage.PARAGRAPH_STYLE:
 				return convertParagraphStyleToString(eDataType, instanceValue);
 			default:
@@ -813,26 +809,6 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * @generated
 	 */
 	public String convertGridLinesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeLanguage createCodeLanguageFromString(EDataType eDataType, String initialValue) {
-		CodeLanguage result = CodeLanguage.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCodeLanguageToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

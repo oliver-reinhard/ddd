@@ -20,7 +20,6 @@ import com.mimacom.ddd.pub.pub.BlockContainer;
 import com.mimacom.ddd.pub.pub.ChangeDescription;
 import com.mimacom.ddd.pub.pub.ChangeHistory;
 import com.mimacom.ddd.pub.pub.Chapter;
-import com.mimacom.ddd.pub.pub.CodeLanguage;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
@@ -570,13 +569,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	private EEnum gridLinesEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum codeLanguageEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2207,7 +2199,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTitledCodeListing_Format() {
+	public EAttribute getTitledCodeListing_Numbered() {
 		return (EAttribute)titledCodeListingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2379,16 +2371,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EEnum getGridLines() {
 		return gridLinesEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getCodeLanguage() {
-		return codeLanguageEEnum;
 	}
 
 	/**
@@ -2642,7 +2624,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEAttribute(equationEClass, EQUATION__FILE_URI);
 
 		titledCodeListingEClass = createEClass(TITLED_CODE_LISTING);
-		createEAttribute(titledCodeListingEClass, TITLED_CODE_LISTING__FORMAT);
+		createEAttribute(titledCodeListingEClass, TITLED_CODE_LISTING__NUMBERED);
 		createEAttribute(titledCodeListingEClass, TITLED_CODE_LISTING__CODE_LINES);
 		createEReference(titledCodeListingEClass, TITLED_CODE_LISTING__INCLUDE);
 
@@ -2667,7 +2649,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		admonitionKindEEnum = createEEnum(ADMONITION_KIND);
 		listStyleEEnum = createEEnum(LIST_STYLE);
 		gridLinesEEnum = createEEnum(GRID_LINES);
-		codeLanguageEEnum = createEEnum(CODE_LANGUAGE);
 		paragraphStyleEEnum = createEEnum(PARAGRAPH_STYLE);
 	}
 
@@ -2992,7 +2973,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEAttribute(getEquation_FileUri(), theEcorePackage.getEString(), "fileUri", null, 0, 1, Equation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(titledCodeListingEClass, TitledCodeListing.class, "TitledCodeListing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTitledCodeListing_Format(), this.getCodeLanguage(), "format", null, 0, 1, TitledCodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTitledCodeListing_Numbered(), theEcorePackage.getEBoolean(), "numbered", null, 0, 1, TitledCodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTitledCodeListing_CodeLines(), theEcorePackage.getEString(), "codeLines", null, 0, -1, TitledCodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTitledCodeListing_Include(), theEcorePackage.getEObject(), null, "include", null, 0, 1, TitledCodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3053,12 +3034,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		addEEnumLiteral(gridLinesEEnum, GridLines.VERTICAL);
 		addEEnumLiteral(gridLinesEEnum, GridLines.BOTH);
 		addEEnumLiteral(gridLinesEEnum, GridLines.NONE);
-
-		initEEnum(codeLanguageEEnum, CodeLanguage.class, "CodeLanguage");
-		addEEnumLiteral(codeLanguageEEnum, CodeLanguage.JAVA);
-		addEEnumLiteral(codeLanguageEEnum, CodeLanguage.JAVA_SCRIPT);
-		addEEnumLiteral(codeLanguageEEnum, CodeLanguage.HTML);
-		addEEnumLiteral(codeLanguageEEnum, CodeLanguage.XML);
 
 		initEEnum(paragraphStyleEEnum, ParagraphStyle.class, "ParagraphStyle");
 		addEEnumLiteral(paragraphStyleEEnum, ParagraphStyle.PLAIN);

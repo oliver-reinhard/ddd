@@ -87,7 +87,10 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				height: 10px
 				padding-left: 5px;
 			}
-			pre {tab-size: «PubGeneratorUtil::TAB_SIZE»;}
+			pre {
+				margin-left: 30px;
+				tab-size: «PubGeneratorUtil::TAB_SIZE»;
+			}
 		'''
 		fsa.generateFile(doc.fileSuffix + "/" + CSS_FILENAME, css)
 	}
@@ -302,8 +305,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
-		<pre>
-		«FOR line : codeLines»«encode(line)»«ENDFOR»</pre>
+		<pre>«FOR line : codeLines»«encode(line)»«ENDFOR»</pre>
 	'''
 
 	override CharSequence renderPlainParagraph(

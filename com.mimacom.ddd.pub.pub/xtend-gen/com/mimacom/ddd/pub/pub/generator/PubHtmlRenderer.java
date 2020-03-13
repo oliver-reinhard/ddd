@@ -155,10 +155,18 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    _builder.append("pre {tab-size: ");
-    _builder.append(PubGeneratorUtil.TAB_SIZE);
-    _builder.append(";}");
+    _builder.append("pre {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("margin-left: 30px;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("tab-size: ");
+    _builder.append(PubGeneratorUtil.TAB_SIZE, "\t");
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
     final String css = _builder.toString();
     String _fileSuffix = this.fileSuffix(doc);
     String _plus = (_fileSuffix + "/");
@@ -646,7 +654,6 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   public CharSequence renderCodeListing(final TitledCodeListing cl, final java.util.List<String> codeLines) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<pre>");
-    _builder.newLine();
     {
       for(final String line : codeLines) {
         CharSequence _encode = this.encode(line);

@@ -4862,13 +4862,13 @@ public interface PubPackage extends EPackage {
 	int TITLED_CODE_LISTING__TITLE = TITLED_BLOCK__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * The feature id for the '<em><b>Numbered</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TITLED_CODE_LISTING__FORMAT = TITLED_BLOCK_FEATURE_COUNT + 0;
+	int TITLED_CODE_LISTING__NUMBERED = TITLED_BLOCK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Code Lines</b></em>' attribute list.
@@ -5214,16 +5214,6 @@ public interface PubPackage extends EPackage {
 	int GRID_LINES = 67;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.CodeLanguage
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
-	 * @generated
-	 */
-	int CODE_LANGUAGE = 68;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5231,7 +5221,7 @@ public interface PubPackage extends EPackage {
 	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getParagraphStyle()
 	 * @generated
 	 */
-	int PARAGRAPH_STYLE = 69;
+	int PARAGRAPH_STYLE = 68;
 
 
 	/**
@@ -6872,15 +6862,15 @@ public interface PubPackage extends EPackage {
 	EClass getTitledCodeListing();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getFormat <em>Format</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#isNumbered <em>Numbered</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing#getFormat()
+	 * @return the meta object for the attribute '<em>Numbered</em>'.
+	 * @see com.mimacom.ddd.pub.pub.TitledCodeListing#isNumbered()
 	 * @see #getTitledCodeListing()
 	 * @generated
 	 */
-	EAttribute getTitledCodeListing_Format();
+	EAttribute getTitledCodeListing_Numbered();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.pub.pub.TitledCodeListing#getCodeLines <em>Code Lines</em>}'.
@@ -7058,16 +7048,6 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getGridLines();
-
-	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Code Language</em>'.
-	 * @see com.mimacom.ddd.pub.pub.CodeLanguage
-	 * @generated
-	 */
-	EEnum getCodeLanguage();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}'.
@@ -8459,12 +8439,12 @@ public interface PubPackage extends EPackage {
 		EClass TITLED_CODE_LISTING = eINSTANCE.getTitledCodeListing();
 
 		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Numbered</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TITLED_CODE_LISTING__FORMAT = eINSTANCE.getTitledCodeListing_Format();
+		EAttribute TITLED_CODE_LISTING__NUMBERED = eINSTANCE.getTitledCodeListing_Numbered();
 
 		/**
 		 * The meta object literal for the '<em><b>Code Lines</b></em>' attribute list feature.
@@ -8621,16 +8601,6 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum GRID_LINES = eINSTANCE.getGridLines();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.CodeLanguage <em>Code Language</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.CodeLanguage
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getCodeLanguage()
-		 * @generated
-		 */
-		EEnum CODE_LANGUAGE = eINSTANCE.getCodeLanguage();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.ParagraphStyle <em>Paragraph Style</em>}' enum.

@@ -451,7 +451,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 				sequence_PubTableRow(context, (TableRow) semanticObject); 
 				return; 
 			case PubPackage.TITLED_CODE_LISTING:
-				sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(context, (TitledCodeListing) semanticObject); 
+				sequence_PubCodeListing_PubReferenceTargetName(context, (TitledCodeListing) semanticObject); 
 				return; 
 			case PubPackage.TITLED_FIGURE:
 				sequence_PubFigure_PubReferenceTargetName_PubTitledBlockHeader(context, (TitledFigure) semanticObject); 
@@ -651,9 +651,9 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubCodeListing returns TitledCodeListing
 	 *
 	 * Constraint:
-	 *     (name=ID? title=DRichText ((format=PubCodeLanguage? codeLines+=STRING*) | include=[EObject|DQualifiedName])?)
+	 *     (name=ID? title=DRichText? numbered?='true'? (codeLines+=STRING+ | include=[EObject|DQualifiedName])?)
 	 */
-	protected void sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, TitledCodeListing semanticObject) {
+	protected void sequence_PubCodeListing_PubReferenceTargetName(ISerializationContext context, TitledCodeListing semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

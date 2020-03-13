@@ -26,6 +26,7 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
+	protected AbstractElementAlias match_PubCodeListing___NumberedKeyword_5_0_FalseKeyword_5_1_1__q;
 	protected AbstractElementAlias match_PubGenerate___DiagramsKeyword_2_0_VectorKeyword_2_1_1__q;
 	protected AbstractElementAlias match_PubListItem_HyphenMinusKeyword_1_1_0_or_ItemKeyword_1_0_0;
 	protected AbstractElementAlias match_PubListItem___LeftCurlyBracketKeyword_1_0_3_0_0_RightCurlyBracketKeyword_1_0_3_0_2__q;
@@ -46,6 +47,7 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
+		match_PubCodeListing___NumberedKeyword_5_0_FalseKeyword_5_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubCodeListingAccess().getNumberedKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getPubCodeListingAccess().getFalseKeyword_5_1_1()));
 		match_PubGenerate___DiagramsKeyword_2_0_VectorKeyword_2_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubGenerateAccess().getDiagramsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getPubGenerateAccess().getVectorKeyword_2_1_1()));
 		match_PubListItem_HyphenMinusKeyword_1_1_0_or_ItemKeyword_1_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getHyphenMinusKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getItemKeyword_1_0_0()));
 		match_PubListItem___LeftCurlyBracketKeyword_1_0_3_0_0_RightCurlyBracketKeyword_1_0_3_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getLeftCurlyBracketKeyword_1_0_3_0_0()), new TokenAlias(false, false, grammarAccess.getPubListItemAccess().getRightCurlyBracketKeyword_1_0_3_0_2()));
@@ -127,6 +129,8 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
 				emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PubCodeListing___NumberedKeyword_5_0_FalseKeyword_5_1_1__q.equals(syntax))
+				emit_PubCodeListing___NumberedKeyword_5_0_FalseKeyword_5_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubGenerate___DiagramsKeyword_2_0_VectorKeyword_2_1_1__q.equals(syntax))
 				emit_PubGenerate___DiagramsKeyword_2_0_VectorKeyword_2_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubListItem_HyphenMinusKeyword_1_1_0_or_ItemKeyword_1_0_0.equals(syntax))
@@ -254,6 +258,25 @@ public class PubSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 */
 	protected void emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('numbered:' 'false')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'CodeListing' 'title:' 'false' '{' (ambiguity) 'include:' include=[EObject|DQualifiedName]
+	 *     (rule start) 'CodeListing' 'title:' 'false' '{' (ambiguity) '}' (rule start)
+	 *     (rule start) 'CodeListing' 'title:' 'false' '{' (ambiguity) codeLines+=STRING
+	 *     name=ID ')' 'title:' 'false' '{' (ambiguity) 'include:' include=[EObject|DQualifiedName]
+	 *     name=ID ')' 'title:' 'false' '{' (ambiguity) '}' (rule end)
+	 *     name=ID ')' 'title:' 'false' '{' (ambiguity) codeLines+=STRING
+	 *     title=DRichText '{' (ambiguity) 'include:' include=[EObject|DQualifiedName]
+	 *     title=DRichText '{' (ambiguity) '}' (rule end)
+	 *     title=DRichText '{' (ambiguity) codeLines+=STRING
+	 */
+	protected void emit_PubCodeListing___NumberedKeyword_5_0_FalseKeyword_5_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
