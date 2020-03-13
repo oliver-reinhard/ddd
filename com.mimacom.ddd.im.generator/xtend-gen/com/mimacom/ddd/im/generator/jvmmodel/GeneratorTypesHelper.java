@@ -3,8 +3,6 @@ package com.mimacom.ddd.im.generator.jvmmodel;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
-import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
@@ -14,41 +12,39 @@ import java.math.BigInteger;
 import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypeReferenceBuilder;
 
 @SuppressWarnings("all")
 public class GeneratorTypesHelper {
-  protected Object _foo(final DType type) {
-    return null;
-  }
-  
-  protected Object _foo(final DEntityType type) {
-    return null;
-  }
-  
-  protected Object _foo(final DDetailType type) {
-    return null;
-  }
-  
   /**
    * Types
    */
-  protected JvmTypeReference _toType(final JvmTypeReferenceBuilder builder, final Object catchAll) {
+  protected JvmTypeReference _toType(final JvmTypeReferenceBuilder builder, final DType type) {
     JvmTypeReference _xblockexpression = null;
     {
-      System.err.println("catch all rule");
-      _xblockexpression = builder.typeRef(Object.class);
+      String _name = type.getName();
+      boolean _tripleEquals = (_name == null);
+      if (_tripleEquals) {
+        builder.typeRef(Object.class);
+      }
+      _xblockexpression = builder.typeRef(type.getName());
     }
     return _xblockexpression;
   }
   
-  protected JvmTypeReference _toType(final JvmTypeReferenceBuilder builder, final DType type) {
-    return builder.typeRef(type.getName());
-  }
-  
   protected JvmTypeReference _toType(final JvmTypeReferenceBuilder builder, final DComplexType complexType) {
-    return builder.typeRef(complexType.getName());
+    JvmTypeReference _xblockexpression = null;
+    {
+      String _name = complexType.getName();
+      boolean _tripleEquals = (_name == null);
+      if (_tripleEquals) {
+        builder.typeRef(Object.class);
+      }
+      _xblockexpression = builder.typeRef(complexType.getName());
+    }
+    return _xblockexpression;
   }
   
   protected JvmTypeReference _toType(final JvmTypeReferenceBuilder builder, final DAttribute attribute) {
@@ -66,7 +62,11 @@ public class GeneratorTypesHelper {
     if (_deducedFrom!=null) {
       _deductionRule=_deducedFrom.getDeductionRule();
     }
-    return this.toType(builder, _deductionRule);
+    boolean _tripleNotEquals_1 = (_deductionRule != null);
+    if (_tripleNotEquals_1) {
+      return this.toType(builder, primitive.getDeducedFrom().getDeductionRule());
+    }
+    return builder.typeRef(Object.class);
   }
   
   protected JvmTypeReference _toType(final JvmTypeReferenceBuilder builder, final DDeductionRule deductionRule) {
@@ -114,20 +114,7 @@ public class GeneratorTypesHelper {
     return _switchResult;
   }
   
-  public Object foo(final DType type) {
-    if (type instanceof DDetailType) {
-      return _foo((DDetailType)type);
-    } else if (type instanceof DEntityType) {
-      return _foo((DEntityType)type);
-    } else if (type != null) {
-      return _foo(type);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(type).toString());
-    }
-  }
-  
-  public JvmTypeReference toType(final JvmTypeReferenceBuilder builder, final Object archetype) {
+  public JvmTypeReference toType(final JvmTypeReferenceBuilder builder, final EObject archetype) {
     if (archetype instanceof DmxArchetype) {
       return _toType(builder, (DmxArchetype)archetype);
     } else if (archetype instanceof DPrimitive) {
@@ -140,8 +127,6 @@ public class GeneratorTypesHelper {
       return _toType(builder, (DType)archetype);
     } else if (archetype instanceof DDeductionRule) {
       return _toType(builder, (DDeductionRule)archetype);
-    } else if (archetype != null) {
-      return _toType(builder, archetype);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(builder, archetype).toString());

@@ -5,6 +5,7 @@ package com.mimacom.ddd.im.generator.jvmmodel
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNamespace
@@ -54,7 +55,15 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	}
 	
 	def dispatch generateForType(EObject container, DType element, IJvmDeclaredTypeAcceptor acceptor) {
-		throw new UnsupportedOperationException("cannot generate for " + element)
+		typesHelper.toType(_typeReferenceBuilder, element)
+	}
+	
+	def dispatch generateForType(EObject container, DEnumeration element, IJvmDeclaredTypeAcceptor acceptor) {
+		val jvmType = container.toEnumerationType(element.qualifiedName)
+		acceptor.accept(jvmType) [
+			members+=element.literals.map[name].map[container.toEnumerationLiteral(it)]
+		]
+		typeRef(jvmType)
 	}
 	
 	def dispatch generateForType(EObject container, DComplexType element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -68,22 +77,20 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				}
 			}
 		]
-		jvmType
+		typeRef(jvmType)
 	}
 
 	def dispatch void infer(EndpointDeclarationBlock element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		if (isPreIndexingPhase) return
 		
 		// generate types for all operation parameter types
-		val Map<DType, JvmGenericType> paramTypeToJvmType = new HashMap
+		val Map<DType, JvmTypeReference> paramTypeToJvmType = new HashMap
 		for (endpoint : element.endpoints) {
 			for (p : endpoint.name.parameters.filter[type !== null]) {
-				val jvmType = endpoint.generateForType(p.type, acceptor)
-				paramTypeToJvmType.put(p.type, jvmType)
+				val jvmTypeRef = endpoint.generateForType(p.type, acceptor)
+				paramTypeToJvmType.put(p.type, jvmTypeRef)
 			}
 		}
-		
-		// TODO [gh-19] accept all required types first, i.e. DEnumeration, DEntityType/DComplexType
 		
 		acceptor.accept(element.toClass(element.qualifiedName)) [p|
 			p.documentation = element.documentation
@@ -96,7 +103,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				var JvmTypeReference operationReturnType 
 				val outboundType = operation.parameters.filter[direction === SDirection.OUTBOUND].head?.type
 				if (outboundType !== null && paramTypeToJvmType.containsKey(outboundType)) {
-				 	operationReturnType = typeRef(paramTypeToJvmType.get(outboundType))
+				 	operationReturnType = paramTypeToJvmType.get(outboundType)
 				} else {
 				 	operationReturnType = typeRef(Void) // TODO [gh-19] generates 'return Void'
 				}
@@ -107,7 +114,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 						exceptions+=me
 					}
 					for (SServiceParameter arg: operation.parameters.filter[direction === SDirection.INBOUND && paramTypeToJvmType.containsKey(type)]) {
-						val paramTypeRef = typeRef(paramTypeToJvmType.get(arg.type))
+						val paramTypeRef = paramTypeToJvmType.get(arg.type)
 						parameters+=endpoint.toParameter(arg.name, paramTypeRef)
 					}
 					body='''

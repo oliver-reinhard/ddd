@@ -7,7 +7,9 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DType;
@@ -33,6 +35,8 @@ import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmConstructor;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
+import org.eclipse.xtext.common.types.JvmEnumerationLiteral;
+import org.eclipse.xtext.common.types.JvmEnumerationType;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
@@ -87,12 +91,33 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return IterableExtensions.<SServiceParameter, DType>map(IterableExtensions.<EndpointDeclaration, SServiceParameter>flatMap(block.getEndpoints(), _function), _function_1);
   }
   
-  protected JvmGenericType _generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
-    throw new UnsupportedOperationException(("cannot generate for " + element));
+  protected JvmTypeReference _generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
+    return this.typesHelper.toType(this._typeReferenceBuilder, element);
   }
   
-  protected JvmGenericType _generateForType(final EObject container, final DComplexType element, final IJvmDeclaredTypeAcceptor acceptor) {
-    JvmGenericType _xblockexpression = null;
+  protected JvmTypeReference _generateForType(final EObject container, final DEnumeration element, final IJvmDeclaredTypeAcceptor acceptor) {
+    JvmTypeReference _xblockexpression = null;
+    {
+      final JvmEnumerationType jvmType = this._jvmTypesBuilder.toEnumerationType(container, this.getQualifiedName(element));
+      final Procedure1<JvmEnumerationType> _function = (JvmEnumerationType it) -> {
+        EList<JvmMember> _members = it.getMembers();
+        final Function1<DLiteral, String> _function_1 = (DLiteral it_1) -> {
+          return it_1.getName();
+        };
+        final Function1<String, JvmEnumerationLiteral> _function_2 = (String it_1) -> {
+          return this._jvmTypesBuilder.toEnumerationLiteral(container, it_1);
+        };
+        List<JvmEnumerationLiteral> _map = ListExtensions.<String, JvmEnumerationLiteral>map(ListExtensions.<DLiteral, String>map(element.getLiterals(), _function_1), _function_2);
+        this._jvmTypesBuilder.<JvmMember>operator_add(_members, _map);
+      };
+      acceptor.<JvmEnumerationType>accept(jvmType, _function);
+      _xblockexpression = this._typeReferenceBuilder.typeRef(jvmType);
+    }
+    return _xblockexpression;
+  }
+  
+  protected JvmTypeReference _generateForType(final EObject container, final DComplexType element, final IJvmDeclaredTypeAcceptor acceptor) {
+    JvmTypeReference _xblockexpression = null;
     {
       final JvmGenericType jvmType = this._jvmTypesBuilder.toClass(container, this.getQualifiedName(element));
       final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
@@ -109,7 +134,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
         }
       };
       acceptor.<JvmGenericType>accept(jvmType, _function);
-      _xblockexpression = jvmType;
+      _xblockexpression = this._typeReferenceBuilder.typeRef(jvmType);
     }
     return _xblockexpression;
   }
@@ -118,7 +143,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     if (isPreIndexingPhase) {
       return;
     }
-    final Map<DType, JvmGenericType> paramTypeToJvmType = new HashMap<DType, JvmGenericType>();
+    final Map<DType, JvmTypeReference> paramTypeToJvmType = new HashMap<DType, JvmTypeReference>();
     EList<EndpointDeclaration> _endpoints = element.getEndpoints();
     for (final EndpointDeclaration endpoint : _endpoints) {
       final Function1<SServiceParameter, Boolean> _function = (SServiceParameter it) -> {
@@ -128,8 +153,8 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       Iterable<SServiceParameter> _filter = IterableExtensions.<SServiceParameter>filter(endpoint.getName().getParameters(), _function);
       for (final SServiceParameter p : _filter) {
         {
-          final JvmGenericType jvmType = this.generateForType(endpoint, p.getType(), acceptor);
-          paramTypeToJvmType.put(p.getType(), jvmType);
+          final JvmTypeReference jvmTypeRef = this.generateForType(endpoint, p.getType(), acceptor);
+          paramTypeToJvmType.put(p.getType(), jvmTypeRef);
         }
       }
     }
@@ -155,7 +180,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
           }
           final DType outboundType = _type;
           if (((outboundType != null) && paramTypeToJvmType.containsKey(outboundType))) {
-            operationReturnType = this._typeReferenceBuilder.typeRef(paramTypeToJvmType.get(outboundType));
+            operationReturnType = paramTypeToJvmType.get(outboundType);
           } else {
             operationReturnType = this._typeReferenceBuilder.typeRef(Void.class);
           }
@@ -174,7 +199,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
             Iterable<SServiceParameter> _filter_2 = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_5);
             for (final SServiceParameter arg : _filter_2) {
               {
-                final JvmTypeReference paramTypeRef = this._typeReferenceBuilder.typeRef(paramTypeToJvmType.get(arg.getType()));
+                final JvmTypeReference paramTypeRef = paramTypeToJvmType.get(arg.getType());
                 EList<JvmFormalParameter> _parameters = it.getParameters();
                 JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(endpoint_1, arg.getName(), paramTypeRef);
                 this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
@@ -405,8 +430,10 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return null;
   }
   
-  public JvmGenericType generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
-    if (element instanceof DComplexType) {
+  public JvmTypeReference generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
+    if (element instanceof DEnumeration) {
+      return _generateForType(container, (DEnumeration)element, acceptor);
+    } else if (element instanceof DComplexType) {
       return _generateForType(container, (DComplexType)element, acceptor);
     } else if (element != null) {
       return _generateForType(container, element, acceptor);
