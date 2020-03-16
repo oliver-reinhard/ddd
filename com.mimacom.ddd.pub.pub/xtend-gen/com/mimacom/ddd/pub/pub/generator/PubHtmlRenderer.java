@@ -46,6 +46,7 @@ import com.mimacom.ddd.pub.pub.TitledCodeListing;
 import com.mimacom.ddd.pub.pub.TitledFigure;
 import com.mimacom.ddd.pub.pub.UnformattedParagraph;
 import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
+import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import com.mimacom.ddd.pub.pub.generator.IDiagramFileFormatPreference;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
@@ -82,6 +83,10 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   @Inject
   @Extension
   private PubGeneratorUtil _pubGeneratorUtil;
+  
+  @Inject
+  @Extension
+  private CodeListingFormatter _codeListingFormatter;
   
   public static final String DOCUMENT_SUFFIX = "html";
   
@@ -499,13 +504,19 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   @Override
   public CharSequence renderTitledBlockTitle(final TitledBlock b) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<h5>");
-    String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(b);
-    _builder.append(_labelAndNumber);
-    _builder.append(": ");
-    CharSequence _renderRichText = this.renderRichText(b.getTitle());
-    _builder.append(_renderRichText);
-    _builder.append("</h5>");
+    {
+      DRichText _title = b.getTitle();
+      boolean _tripleNotEquals = (_title != null);
+      if (_tripleNotEquals) {
+        _builder.append("<h5>");
+        String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(b);
+        _builder.append(_labelAndNumber);
+        _builder.append(": ");
+        CharSequence _renderRichText = this.renderRichText(b.getTitle());
+        _builder.append(_renderRichText);
+        _builder.append("</h5>");
+      }
+    }
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -651,13 +662,17 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderCodeListing(final TitledCodeListing cl, final java.util.List<String> codeLines) {
+  public CharSequence renderCodeListing(final TitledCodeListing cl, final String outdentedListing) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<pre>");
     {
-      for(final String line : codeLines) {
-        CharSequence _encode = this.encode(line);
+      boolean _isNumbered = cl.isNumbered();
+      if (_isNumbered) {
+        CharSequence _encode = this.encode(this._codeListingFormatter.numberLines(outdentedListing));
         _builder.append(_encode);
+      } else {
+        CharSequence _encode_1 = this.encode(this._codeListingFormatter.numberLines(outdentedListing));
+        _builder.append(_encode_1);
       }
     }
     _builder.append("</pre>");

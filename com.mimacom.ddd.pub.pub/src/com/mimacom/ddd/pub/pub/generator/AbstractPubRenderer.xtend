@@ -92,7 +92,7 @@ abstract class AbstractPubRenderer {
 
 	abstract def CharSequence renderEquation(Equation e)
 
-	abstract def CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> lines)
+	abstract def CharSequence renderCodeListing(TitledCodeListing cl, String outdentedListing)
 
 	abstract def CharSequence renderPlainParagraph(RichTextParagraph para)
 

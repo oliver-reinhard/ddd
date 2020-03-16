@@ -83,14 +83,22 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		
 		\documentclass[a4paper]{«doc.laTeXClass»}
 		
-		\usepackage{fullpage} % use narrower page margins
-		\usepackage{ulem}     % strikethrough
-		\usepackage{etoolbox} % quotes
-		\usepackage{enumitem} % list numbering
-		\usepackage{multirow} % tables with column span and or rowspan
-		\usepackage{pbox}     % paragraphs or line breaks in table cell
-		\usepackage{graphicx} % include graphics files; supports .eps (but not .svg)
-		\usepackage{hyperref} % hyperlinks
+		\usepackage{fullpage}      % use narrower page margins
+		\usepackage{ulem}          % strikethrough
+		\usepackage{etoolbox}      % quotes
+		\usepackage{enumitem}      % list numbering
+		\usepackage{multirow}      % tables with column span and or rowspan
+		\usepackage{pbox}          % paragraphs or line breaks in table cell
+		\usepackage{graphicx}      % include graphics files; supports .eps (but not .svg)
+		\usepackage{listings}      % code listings, see https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+		\usepackage{lstautogobble} % listing-indent control
+		\usepackage{hyperref}      % hyperlinks
+		
+		\lstset{captionpos=b, basicstyle=\small, numberstyle=\tiny,
+			tabsize=«PubGeneratorUtil::TAB_SIZE», autogobble,
+			breaklines, breakatwhitespace,
+			extendedchars, literate={≤}{$\leq$}1 {≥}{$\geq$}1 {->}{{$\rightarrow$}}1 {=>}{{$\rightarrow$}}1 % DMX special symbols
+		}
 		
 		«doc.renderPreamble»
 		
@@ -141,7 +149,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 
 	def dispatch CharSequence renderSegmentWithText(Abstract seg, NestedElementsRenderer blocks) '''
 		\begin{abstract}
-			«renderAnchor(seg)»
+			«seg.renderAnchor»
 			«blocks.render»
 		\end{abstract}
 	'''
@@ -167,13 +175,13 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 
 	override CharSequence renderTitle(DocumentSegment seg) '''
 		\section*{«seg.nonEmptyTitle.encode»}
-		«renderAnchor(seg)»
+		«seg.renderAnchor»
 	'''
 
 	override CharSequence renderTitle(Division div) '''
 		«IF div instanceof Appendix»\appendix«ENDIF»
 		\«div.divisionName»{«div.title.renderRichText»}
-		«renderAnchor(div)»
+		«div.renderAnchor»
 	'''
 
 	protected def CharSequence divisionName(Division div) {
@@ -187,6 +195,14 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		val label = target.labelFor
 		if (! label.empty) {
 			return '''\label{«label»}'''
+		}
+		return ""
+	}
+
+	def CharSequence renderListingAnchor(ReferenceTarget target) {
+		val label = target.labelFor
+		if (! label.empty) {
+			return ''', label={«label»}'''
 		}
 		return ""
 	}
@@ -208,14 +224,14 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 
 	override CharSequence renderBulletList(List list, NestedElementsRenderer p) '''
 		\begin{itemize}
-			«renderAnchor(list)»
+			«list.renderAnchor»
 			«p.render»
 		\end{itemize} 
 	'''
 
 	override CharSequence renderNumberedList(List list, NestedElementsRenderer p) '''
 		\begin{enumerate}[label=\«list.numberingStyle.latexNumberingAttribute»"*]
-			«renderAnchor(list)»
+			«list.renderAnchor»
 			«p.render»
 		\end{enumerate}
 	'''
@@ -233,19 +249,19 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 
 	override CharSequence renderTitledList(List list, NestedElementsRenderer p) '''
 		\begin{description}
-			«renderAnchor(list)»
+			«list.renderAnchor»
 			«p.render»
 		\end{description}
 	'''
 
 	override CharSequence renderListItem(ListItem item, NestedElementsRenderer p) '''
 		\item «p.render»
-		«renderAnchor(item)»
+		«item.renderAnchor»
 	'''
 
 	override CharSequence renderTitledListItem(ListItem item, NestedElementsRenderer p) '''
 		\item[«item.title.renderRichText»] «p.render»
-		«renderAnchor(item)»
+		«item.renderAnchor»
 	'''
 
 	override CharSequence renderTitledBlock(TitledBlock b, NestedElementsRenderer p) {
@@ -259,15 +275,25 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\end{table}
 	'''
 	
+	protected def dispatch CharSequence renderTitledBlockImpl(TitledCodeListing cl, NestedElementsRenderer p) '''
+		\begin{lstlisting}[xleftmargin=12pt«IF cl.title !== null», caption={«cl.title.renderRichText»}«ENDIF»«IF cl.numbered», numbers=left«ENDIF»«cl.renderListingAnchor»]
+		«p.render»
+		\end{lstlisting}
+	'''
+	
 	protected def dispatch CharSequence renderTitledBlockImpl(TitledBlock b, NestedElementsRenderer p) '''
-		\begin{figure}[hpt]
-			\centering
-			«p.render»
-		\end{figure}
+		«IF b.title !== null»
+			\begin{figure}[ht]
+				\centering
+				«p.render»
+			\end{figure}
+		«ELSE»
+		«p.render»
+		«ENDIF»
 	'''
 
 	override CharSequence renderTitledBlockTitle(TitledBlock b) '''
-		\caption{«b.title.renderRichText»«renderAnchor(b)»}
+		«IF b.title !== null && ! (b instanceof TitledCodeListing)»\caption{«b.title.renderRichText»«b.renderAnchor»}«ENDIF»
 	'''
 
 	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) {
@@ -287,11 +313,9 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		-- equation (TODO)
 	'''
 
-	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
-		\begin{verbatim}
-			«FOR line : codeLines»«line.encode»«ENDFOR»
-		\end{verbatim}
-	'''
+	override CharSequence renderCodeListing(TitledCodeListing cl, String outdentedListing) {
+		outdentedListing
+	}
 
 	override CharSequence renderPlainParagraph(RichTextParagraph para) {
 		para.text.renderRichText + para.endParagraph

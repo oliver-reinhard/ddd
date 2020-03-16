@@ -51,6 +51,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	@Inject extension PubUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
+	@Inject extension CodeListingFormatter
 
 	static public val DOCUMENT_SUFFIX = "html"
 	static public val CSS_FILENAME = "pubstyles.css"
@@ -244,7 +245,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	</div>'''
 
 	override CharSequence renderTitledBlockTitle(TitledBlock b) '''
-		<h5>«b.labelAndNumber»: «b.title.renderRichText»</h5>
+		«IF b.title !== null»<h5>«b.labelAndNumber»: «b.title.renderRichText»</h5>«ENDIF»
 	'''
 
 	override CharSequence renderTable(Table t, NestedContentBlockGenerator g) '''
@@ -304,8 +305,8 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		-- equation (TODO)
 	'''
 
-	override CharSequence renderCodeListing(TitledCodeListing cl, java.util.List<String> codeLines) '''
-		<pre>«FOR line : codeLines»«encode(line)»«ENDFOR»</pre>
+	override CharSequence renderCodeListing(TitledCodeListing cl, String outdentedListing) '''
+		<pre>«IF cl.numbered»«outdentedListing.numberLines.encode»«ELSE»«outdentedListing.numberLines.encode»«ENDIF»</pre>
 	'''
 
 	override CharSequence renderPlainParagraph(

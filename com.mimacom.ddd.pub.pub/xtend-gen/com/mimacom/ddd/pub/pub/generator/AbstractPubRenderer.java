@@ -92,7 +92,7 @@ public abstract class AbstractPubRenderer {
   
   public abstract CharSequence renderEquation(final Equation e);
   
-  public abstract CharSequence renderCodeListing(final TitledCodeListing cl, final java.util.List<String> lines);
+  public abstract CharSequence renderCodeListing(final TitledCodeListing cl, final String outdentedListing);
   
   public abstract CharSequence renderPlainParagraph(final RichTextParagraph para);
   

@@ -10,7 +10,10 @@ public class CodeListingFormatter {
 	 * Remove blank lines at the beginning and the end of the listing.
 	 */
 	public String trimBlankLines(String listing) {
-		final String[] lines = listing.split("\n");
+		return trimBlankLines(listing.split("\n"));
+	}
+	
+	public String trimBlankLines(String[] lines) {
 		final Pattern blankLine = Pattern.compile("^\\s*$");
 		int start = 0;
 		int end = lines.length - 1;

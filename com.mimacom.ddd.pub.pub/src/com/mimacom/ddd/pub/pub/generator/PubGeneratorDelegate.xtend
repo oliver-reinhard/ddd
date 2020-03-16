@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.pub.pub.generator
 
-import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.ChangeHistory
@@ -251,7 +250,7 @@ class PubGeneratorDelegate {
 	def dispatch CharSequence genBlock(TitledBlock b) {
 		val blockBodyDispatcher = '''
 			«b.genTitledBlock»
-			«IF b.title !== null»«b.renderTitledBlockTitle»«ENDIF»
+			«b.renderTitledBlockTitle»
 		'''
 		b.renderTitledBlock([blockBodyDispatcher])
 	}
@@ -310,16 +309,14 @@ class PubGeneratorDelegate {
 	}
 
 	def dispatch CharSequence genTitledBlock(TitledCodeListing cl) {
-		if (cl.include !== null) {
-			val sourceCode = 	cl.include.sourceCodeFromXtextResource  // there is a validaton: formattedCode never null
-			var formattedCode = sourceCode.trimBlankLines.outdent(PubGeneratorUtil::TAB_SIZE)
-			if (cl.numbered) {
-				formattedCode = formattedCode.numberLines
-			}
-			renderCodeListing(cl, Lists.newArrayList(formattedCode))
-		} else {
-			renderCodeListing(cl, cl.codeLines)
+		var formattedCode = if (cl.include !== null) {
+			val sourceCode = cl.include.sourceCodeFromXtextResource  // there is a validation: sourceCode never null
+			sourceCode.trimBlankLines
+		}else {
+			cl.codeLines.trimBlankLines
 		}
+		formattedCode = formattedCode.outdent(PubGeneratorUtil::TAB_SIZE)
+		renderCodeListing(cl, formattedCode)
 	}
 
 	def dispatch CharSequence genBlock(RichTextParagraph para) {

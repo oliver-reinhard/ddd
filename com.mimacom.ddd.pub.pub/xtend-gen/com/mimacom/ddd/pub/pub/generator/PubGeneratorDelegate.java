@@ -5,7 +5,6 @@ package com.mimacom.ddd.pub.pub.generator;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.pub.pub.AbstractFigure;
@@ -446,14 +445,8 @@ public class PubGeneratorDelegate {
       CharSequence _genTitledBlock = this.genTitledBlock(b);
       _builder.append(_genTitledBlock);
       _builder.newLineIfNotEmpty();
-      {
-        DRichText _title = b.getTitle();
-        boolean _tripleNotEquals = (_title != null);
-        if (_tripleNotEquals) {
-          CharSequence _renderTitledBlockTitle = this.renderer.renderTitledBlockTitle(b);
-          _builder.append(_renderTitledBlockTitle);
-        }
-      }
+      CharSequence _renderTitledBlockTitle = this.renderer.renderTitledBlockTitle(b);
+      _builder.append(_renderTitledBlockTitle);
       _builder.newLineIfNotEmpty();
       final String blockBodyDispatcher = _builder.toString();
       final NestedElementsRenderer _function = () -> {
@@ -552,25 +545,26 @@ public class PubGeneratorDelegate {
   }
   
   protected CharSequence _genTitledBlock(final TitledCodeListing cl) {
-    CharSequence _xifexpression = null;
-    EObject _include = cl.getInclude();
-    boolean _tripleNotEquals = (_include != null);
-    if (_tripleNotEquals) {
-      CharSequence _xblockexpression = null;
-      {
-        final String sourceCode = this._pubUtil.getSourceCodeFromXtextResource(cl.getInclude());
-        String formattedCode = this._codeListingFormatter.outdent(this._codeListingFormatter.trimBlankLines(sourceCode), PubGeneratorUtil.TAB_SIZE);
-        boolean _isNumbered = cl.isNumbered();
-        if (_isNumbered) {
-          formattedCode = this._codeListingFormatter.numberLines(formattedCode);
+    CharSequence _xblockexpression = null;
+    {
+      String _xifexpression = null;
+      EObject _include = cl.getInclude();
+      boolean _tripleNotEquals = (_include != null);
+      if (_tripleNotEquals) {
+        String _xblockexpression_1 = null;
+        {
+          final String sourceCode = this._pubUtil.getSourceCodeFromXtextResource(cl.getInclude());
+          _xblockexpression_1 = this._codeListingFormatter.trimBlankLines(sourceCode);
         }
-        _xblockexpression = this.renderer.renderCodeListing(cl, Lists.<String>newArrayList(formattedCode));
+        _xifexpression = _xblockexpression_1;
+      } else {
+        _xifexpression = this._codeListingFormatter.trimBlankLines(((String[])Conversions.unwrapArray(cl.getCodeLines(), String.class)));
       }
-      _xifexpression = _xblockexpression;
-    } else {
-      _xifexpression = this.renderer.renderCodeListing(cl, cl.getCodeLines());
+      String formattedCode = _xifexpression;
+      formattedCode = this._codeListingFormatter.outdent(formattedCode, PubGeneratorUtil.TAB_SIZE);
+      _xblockexpression = this.renderer.renderCodeListing(cl, formattedCode);
     }
-    return _xifexpression;
+    return _xblockexpression;
   }
   
   protected CharSequence _genBlock(final RichTextParagraph para) {

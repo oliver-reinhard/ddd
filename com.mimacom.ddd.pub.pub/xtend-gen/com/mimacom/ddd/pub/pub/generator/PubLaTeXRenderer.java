@@ -127,21 +127,41 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.append("}");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\\usepackage{fullpage} % use narrower page margins");
+    _builder.append("\\usepackage{fullpage}      % use narrower page margins");
     _builder.newLine();
-    _builder.append("\\usepackage{ulem}     % strikethrough");
+    _builder.append("\\usepackage{ulem}          % strikethrough");
     _builder.newLine();
-    _builder.append("\\usepackage{etoolbox} % quotes");
+    _builder.append("\\usepackage{etoolbox}      % quotes");
     _builder.newLine();
-    _builder.append("\\usepackage{enumitem} % list numbering");
+    _builder.append("\\usepackage{enumitem}      % list numbering");
     _builder.newLine();
-    _builder.append("\\usepackage{multirow} % tables with column span and or rowspan");
+    _builder.append("\\usepackage{multirow}      % tables with column span and or rowspan");
     _builder.newLine();
-    _builder.append("\\usepackage{pbox}     % paragraphs or line breaks in table cell");
+    _builder.append("\\usepackage{pbox}          % paragraphs or line breaks in table cell");
     _builder.newLine();
-    _builder.append("\\usepackage{graphicx} % include graphics files; supports .eps (but not .svg)");
+    _builder.append("\\usepackage{graphicx}      % include graphics files; supports .eps (but not .svg)");
     _builder.newLine();
-    _builder.append("\\usepackage{hyperref} % hyperlinks");
+    _builder.append("\\usepackage{listings}      % code listings, see https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings");
+    _builder.newLine();
+    _builder.append("\\usepackage{lstautogobble} % listing-indent control");
+    _builder.newLine();
+    _builder.append("\\usepackage{hyperref}      % hyperlinks");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\\lstset{captionpos=b, basicstyle=\\small, numberstyle=\\tiny,");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("tabsize=");
+    _builder.append(PubGeneratorUtil.TAB_SIZE, "\t");
+    _builder.append(", autogobble,");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("breaklines, breakatwhitespace,");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("extendedchars, literate={≤}{$\\leq$}1 {≥}{$\\geq$}1 {->}{{$\\rightarrow$}}1 {=>}{{$\\rightarrow$}}1 % DMX special symbols");
+    _builder.newLine();
+    _builder.append("}");
     _builder.newLine();
     _builder.newLine();
     CharSequence _renderPreamble = this.renderPreamble(doc);
@@ -331,6 +351,20 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     return "";
   }
   
+  public CharSequence renderListingAnchor(final ReferenceTarget target) {
+    final String label = this.labelFor(target);
+    boolean _isEmpty = label.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(", label={");
+      _builder.append(label);
+      _builder.append("}");
+      return _builder;
+    }
+    return "";
+  }
+  
   protected String labelFor(final ReferenceTarget target) {
     final String id = target.getId();
     if (((id != null) && (!target.getId().isEmpty()))) {
@@ -485,31 +519,76 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     return _builder;
   }
   
+  protected CharSequence _renderTitledBlockImpl(final TitledCodeListing cl, final NestedElementsRenderer p) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\\begin{lstlisting}[xleftmargin=12pt");
+    {
+      DRichText _title = cl.getTitle();
+      boolean _tripleNotEquals = (_title != null);
+      if (_tripleNotEquals) {
+        _builder.append(", caption={");
+        CharSequence _renderRichText = this.renderRichText(cl.getTitle());
+        _builder.append(_renderRichText);
+        _builder.append("}");
+      }
+    }
+    {
+      boolean _isNumbered = cl.isNumbered();
+      if (_isNumbered) {
+        _builder.append(", numbers=left");
+      }
+    }
+    CharSequence _renderListingAnchor = this.renderListingAnchor(cl);
+    _builder.append(_renderListingAnchor);
+    _builder.append("]");
+    _builder.newLineIfNotEmpty();
+    CharSequence _render = p.render();
+    _builder.append(_render);
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\end{lstlisting}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   protected CharSequence _renderTitledBlockImpl(final TitledBlock b, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{figure}[hpt]");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("\\centering");
-    _builder.newLine();
-    _builder.append("\t");
-    CharSequence _render = p.render();
-    _builder.append(_render, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\\end{figure}");
-    _builder.newLine();
+    {
+      DRichText _title = b.getTitle();
+      boolean _tripleNotEquals = (_title != null);
+      if (_tripleNotEquals) {
+        _builder.append("\\begin{figure}[ht]");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\\centering");
+        _builder.newLine();
+        _builder.append("\t");
+        CharSequence _render = p.render();
+        _builder.append(_render, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\\end{figure}");
+        _builder.newLine();
+      } else {
+        CharSequence _render_1 = p.render();
+        _builder.append(_render_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   @Override
   public CharSequence renderTitledBlockTitle(final TitledBlock b) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\caption{");
-    CharSequence _renderRichText = this.renderRichText(b.getTitle());
-    _builder.append(_renderRichText);
-    CharSequence _renderAnchor = this.renderAnchor(b);
-    _builder.append(_renderAnchor);
-    _builder.append("}");
+    {
+      if (((b.getTitle() != null) && (!(b instanceof TitledCodeListing)))) {
+        _builder.append("\\caption{");
+        CharSequence _renderRichText = this.renderRichText(b.getTitle());
+        _builder.append(_renderRichText);
+        CharSequence _renderAnchor = this.renderAnchor(b);
+        _builder.append(_renderAnchor);
+        _builder.append("}");
+      }
+    }
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -553,21 +632,8 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderCodeListing(final TitledCodeListing cl, final java.util.List<String> codeLines) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{verbatim}");
-    _builder.newLine();
-    _builder.append("\t");
-    {
-      for(final String line : codeLines) {
-        CharSequence _encode = this.encode(line);
-        _builder.append(_encode, "\t");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("\\end{verbatim}");
-    _builder.newLine();
-    return _builder;
+  public CharSequence renderCodeListing(final TitledCodeListing cl, final String outdentedListing) {
+    return outdentedListing;
   }
   
   @Override
@@ -795,14 +861,16 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     }
   }
   
-  protected CharSequence renderTitledBlockImpl(final TitledBlock b, final NestedElementsRenderer p) {
-    if (b instanceof TitledTable) {
-      return _renderTitledBlockImpl((TitledTable)b, p);
-    } else if (b != null) {
-      return _renderTitledBlockImpl(b, p);
+  protected CharSequence renderTitledBlockImpl(final TitledBlock cl, final NestedElementsRenderer p) {
+    if (cl instanceof TitledCodeListing) {
+      return _renderTitledBlockImpl((TitledCodeListing)cl, p);
+    } else if (cl instanceof TitledTable) {
+      return _renderTitledBlockImpl((TitledTable)cl, p);
+    } else if (cl != null) {
+      return _renderTitledBlockImpl(cl, p);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(b, p).toString());
+        Arrays.<Object>asList(cl, p).toString());
     }
   }
 }
