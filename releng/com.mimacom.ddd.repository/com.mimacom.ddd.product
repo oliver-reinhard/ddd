@@ -36,6 +36,7 @@
       <feature id="com.mimacom.ddd.sm.asm.feature" installMode="root"/>
       <feature id="com.mimacom.ddd.sm.sim.feature" installMode="root"/>
       <feature id="com.mimacom.ddd.sm.sus.feature" installMode="root"/>
+      <feature id="com.mimacom.ddd.system.feature" installMode="root"/>
       <feature id="com.mimacom.ddd.util.feature" installMode="root"/>
       <feature id="org.eclipse.platform" installMode="root"/>
       <feature id="org.eclipse.emf.common" installMode="root"/>

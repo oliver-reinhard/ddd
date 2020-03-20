@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.esm
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-Vendor: %providerName
+Bundle-Name: com.mimacom.ddd.dm.esm
+Bundle-Vendor: mimacom ag
 Bundle-Localization: plugin
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
