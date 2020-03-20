@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-Vendor: %providerName
+Bundle-Name: com.mimacom.ddd.libs
+Bundle-Vendor: mimacom ag
 Bundle-SymbolicName: com.mimacom.ddd.libs
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: spring-web-5.2.4.RELEASE-javadoc.jar,
