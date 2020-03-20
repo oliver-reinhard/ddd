@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: System
+Bundle-Name: com.mimacom.ddd.system
 Bundle-SymbolicName: com.mimacom.ddd.system
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: mimacom
+Bundle-Vendor: mimacom ag
 Automatic-Module-Name: com.mimacom.ddd.system
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.system
