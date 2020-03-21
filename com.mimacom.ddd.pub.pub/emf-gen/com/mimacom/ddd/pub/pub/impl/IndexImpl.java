@@ -66,7 +66,6 @@ public class IndexImpl extends DocumentSegmentImpl implements Index {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<IndexEntry> getEntries() {
 		if (entries == null) {
 			entries = new EObjectContainmentEList<IndexEntry>(IndexEntry.class, this, PubPackage.INDEX__ENTRIES);

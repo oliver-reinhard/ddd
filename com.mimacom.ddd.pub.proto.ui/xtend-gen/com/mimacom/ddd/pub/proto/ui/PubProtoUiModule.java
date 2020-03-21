@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class PubProtoUiModule extends AbstractPubProtoUiModule {
-  public PubProtoUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public PubProtoUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

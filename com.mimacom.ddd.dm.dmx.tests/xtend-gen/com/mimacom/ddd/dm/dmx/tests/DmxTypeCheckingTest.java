@@ -7,13 +7,18 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxTestContext;
 import com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
@@ -43,6 +48,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class DmxTypeCheckingTest {
   protected static final BasePackage BASE = BasePackage.eINSTANCE;
   
+  protected static final DmxPackage DMX = DmxPackage.eINSTANCE;
+  
   @Inject
   @Extension
   private DmxTypeComputer _dmxTypeComputer;
@@ -60,7 +67,7 @@ public class DmxTypeCheckingTest {
     this.dimParseHelper = dimInjector.<ParseHelper>getInstance(ParseHelper.class);
   }
   
-  public EList<DmxTest> parse(final CharSequence input) {
+  public EList<DmxTest> parse(final CharSequence dmxSourceText) {
     try {
       final ResourceSet resourceSet = this.resourceSetProvider.get();
       StringConcatenation _builder = new StringConcatenation();
@@ -174,8 +181,14 @@ public class DmxTypeCheckingTest {
       Assertions.assertNotNull(dimModel);
       Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDPrimitive(), dimModel.getTypes().get(0).eClass());
       Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDEnumeration(), dimModel.getTypes().get(1).eClass());
-      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDDetailType(), dimModel.getTypes().get(2).eClass());
-      final DNamespace result = this.dmxParseHelper.parse(input, resourceSet);
+      final DType detailA = dimModel.getTypes().get(2);
+      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDDetailType(), detailA.eClass());
+      final DFeature a0 = ((DDetailType) detailA).getFeatures().get(0);
+      Assertions.assertNotNull(a0.getType());
+      Assertions.assertEquals("Text", a0.getType().getName());
+      Assertions.assertFalse(a0.getType().eIsProxy());
+      Assertions.assertEquals(DmxTypeCheckingTest.DMX.getDmxArchetype(), a0.getType().eClass());
+      final DNamespace result = this.dmxParseHelper.parse(dmxSourceText, resourceSet);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty_2 = errors.isEmpty();
@@ -312,6 +325,12 @@ public class DmxTypeCheckingTest {
     _builder.append("test T04 context a : A+ := { detail A { a2 = 1 }}  { true }  // List");
     _builder.newLine();
     final EList<DmxTest> tests = this.parse(_builder);
+    final DmxTest t00 = tests.get(0);
+    final DmxTestContext a = t00.getContext().get(0);
+    Assertions.assertNotNull(a.getType());
+    Assertions.assertEquals("Natural", a.getType().getName());
+    Assertions.assertFalse(a.getType().eIsProxy());
+    Assertions.assertEquals(DmxTypeCheckingTest.DMX.getDmxArchetype(), a.getType().eClass());
     final DExpression e00 = tests.get(0).getExpr();
     this.assertNumber(e00);
     this.assertNoValidationErrors(e00.eContainer());

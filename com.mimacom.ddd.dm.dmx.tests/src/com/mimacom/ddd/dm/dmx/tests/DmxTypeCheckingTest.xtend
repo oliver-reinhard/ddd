@@ -6,11 +6,13 @@ package com.mimacom.ddd.dm.dmx.tests
 import com.google.inject.Inject
 import com.google.inject.Provider
 import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxModel
+import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.DmxTest
 import com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor
@@ -33,6 +35,7 @@ import static org.junit.jupiter.api.Assertions.*
 class DmxTypeCheckingTest {
 	
 	protected static val BASE = BasePackage.eINSTANCE
+	protected static val DMX = DmxPackage.eINSTANCE
 	
 	@Inject extension DmxTypeComputer
 	@Inject Provider<ResourceSet> resourceSetProvider
@@ -44,7 +47,7 @@ class DmxTypeCheckingTest {
 		dimParseHelper = dimInjector.getInstance(ParseHelper)
 	}
 	
-	def EList<DmxTest> parse(CharSequence input) {
+	def EList<DmxTest> parse(CharSequence dmxSourceText) {
 		val resourceSet = resourceSetProvider.get
 		
 		// Provide SystemTypes:
@@ -95,12 +98,19 @@ class DmxTypeCheckingTest {
 		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
 		val dimModel = customTypes.model as DInformationModel
 		assertNotNull(dimModel)
+		// Test resolution of SystemTypes:
 		assertEquals(BASE.DPrimitive, dimModel.types.get(0).eClass)
 		assertEquals(BASE.DEnumeration, dimModel.types.get(1).eClass)
-		assertEquals(BASE.DDetailType, dimModel.types.get(2).eClass)
+		val detailA = dimModel.types.get(2)
+		assertEquals(BASE.DDetailType, detailA.eClass)
+		val a0 = (detailA as DDetailType).features.get(0)
+		assertNotNull(a0.type)
+		assertEquals("Text", a0.type.name)
+		assertFalse(a0.type.eIsProxy)
+		assertEquals(DMX.dmxArchetype, a0.type.eClass)
 		
 		// Parse actual expression
-		val result = dmxParseHelper.parse(input, resourceSet)
+		val result = dmxParseHelper.parse(dmxSourceText, resourceSet)
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		assertTrue(errors.isEmpty, '''Parse errors: «errors.join("; ")»''')
@@ -220,6 +230,14 @@ class DmxTypeCheckingTest {
 		test T03 context a : A := detail A { a2 = "a" }  { a.a2 = 1 } // ERROR
 		test T04 context a : A+ := { detail A { a2 = 1 }}  { true }  // List
 		''')
+		
+		// Test resolution of SystemType "Natural"
+		val t00 = tests.get(0)
+		val a = t00.context.get(0)
+		assertNotNull(a.type)
+		assertEquals("Natural", a.type.name)
+		assertFalse(a.type.eIsProxy)
+		assertEquals(DMX.dmxArchetype, a.type.eClass)
 		
 		val e00 = tests.get(0).expr
 		assertNumber(e00)

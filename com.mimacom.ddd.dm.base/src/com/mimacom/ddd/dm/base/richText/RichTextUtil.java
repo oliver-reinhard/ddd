@@ -1,5 +1,6 @@
 package com.mimacom.ddd.dm.base.richText;
 
+import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
@@ -11,6 +12,16 @@ import com.mimacom.ddd.dm.base.IRichTextSegment;
  *
  */
 public class RichTextUtil {
+
+	protected static BaseFactory BASE = BaseFactory.eINSTANCE;
+	
+	public DRichText toRichText(String text) {
+		final DRichText t = BASE.createDRichText();
+		final DTextSegment s = BASE.createDTextSegment();
+		s.setValue(text);
+		t.getSegments().add(s);
+		return t;
+	}
 
 	public boolean isEmpty(DRichText rt) {
 		if (rt != null) {

@@ -91,7 +91,6 @@ public class ProvidedDiagramTypeImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -101,7 +100,6 @@ public class ProvidedDiagramTypeImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -114,7 +112,6 @@ public class ProvidedDiagramTypeImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getDiagramTypeName() {
 		return diagramTypeName;
 	}
@@ -124,7 +121,6 @@ public class ProvidedDiagramTypeImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDiagramTypeName(String newDiagramTypeName) {
 		String oldDiagramTypeName = diagramTypeName;
 		diagramTypeName = newDiagramTypeName;

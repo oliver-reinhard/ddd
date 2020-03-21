@@ -63,7 +63,6 @@ public class ProtoSymbolReferenceImpl extends DExpressionImpl implements ProtoSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ProtoSymbol getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -90,7 +89,6 @@ public class ProtoSymbolReferenceImpl extends DExpressionImpl implements ProtoSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTarget(ProtoSymbol newTarget) {
 		ProtoSymbol oldTarget = target;
 		target = newTarget;

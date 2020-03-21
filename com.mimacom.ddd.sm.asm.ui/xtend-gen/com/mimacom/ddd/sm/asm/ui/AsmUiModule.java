@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class AsmUiModule extends AbstractAsmUiModule {
-  public AsmUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public AsmUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

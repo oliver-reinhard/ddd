@@ -62,7 +62,6 @@ public class TitledFigureImpl extends TitledBlockImpl implements TitledFigure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public AbstractFigure getFigure() {
 		return figure;
 	}
@@ -87,7 +86,6 @@ public class TitledFigureImpl extends TitledBlockImpl implements TitledFigure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setFigure(AbstractFigure newFigure) {
 		if (newFigure != figure) {
 			NotificationChain msgs = null;

@@ -1,9 +1,11 @@
 package com.mimacom.ddd.pub.pub.tests
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.pub.proto.ProtoFactory
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.PubFactory
+import com.mimacom.ddd.pub.pub.TitledTable
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
@@ -16,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*
 @InjectWith(PubInjectorProvider)
 package class PubNumberingUtilTest {
 
+	@Inject extension RichTextUtil
 	@Inject extension PubNumberingUtil
 
 	static val PROTO = ProtoFactory.eINSTANCE
@@ -578,7 +581,7 @@ package class PubNumberingUtilTest {
 
 		val d00 = PUB.createPart
 		body.divisions.add(d00)
-		val t00 = PUB.createTitledTable
+		val t00 = createTitledTable("t00")
 		t00.sequenceNumber = 0
 		d00.contents.add(t00)
 
@@ -586,7 +589,7 @@ package class PubNumberingUtilTest {
 		d00.divisions.add(d10)
 		val d11 = PUB.createChapter
 		d00.divisions.add(d11)
-		val t11 = PUB.createTitledTable
+		val t11 = createTitledTable("t11")
 		t11.sequenceNumber = 1
 		d11.contents.add(t11)
 
@@ -594,13 +597,13 @@ package class PubNumberingUtilTest {
 		d10.divisions.add(d20)
 		val d21 = PUB.createSection
 		d10.divisions.add(d21)
-		val t21 = PUB.createTitledTable
+		val t21 = createTitledTable("t21")
 		t21.sequenceNumber = 2
 		d21.contents.add(t21)
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTitledTable
+		val t30 = createTitledTable("t30")
 		t30.sequenceNumber = 3
 		d30.contents.add(t30)
 
@@ -608,7 +611,7 @@ package class PubNumberingUtilTest {
 		d30.divisions.add(d40)
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTitledTable
+		val t41 = createTitledTable("t41")
 		t41.sequenceNumber = 4
 		d41.contents.add(t41)
 
@@ -635,7 +638,7 @@ package class PubNumberingUtilTest {
 		body.divisions.add(d10)
 		val d11 = PUB.createChapter
 		body.divisions.add(d11)
-		val t11 = PUB.createTitledTable
+		val t11 = createTitledTable("t11")
 		t11.sequenceNumber = 1
 		d11.contents.add(t11)
 
@@ -643,13 +646,13 @@ package class PubNumberingUtilTest {
 		d10.divisions.add(d20)
 		val d21 = PUB.createSection
 		d10.divisions.add(d21)
-		val t21 = PUB.createTitledTable
+		val t21 = createTitledTable("t21")
 		t21.sequenceNumber = 2
 		d21.contents.add(t21)
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTitledTable
+		val t30 = createTitledTable("t30")
 		t30.sequenceNumber = 3
 		d30.contents.add(t30)
 
@@ -657,7 +660,7 @@ package class PubNumberingUtilTest {
 		d30.divisions.add(d40)
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTitledTable
+		val t41 = createTitledTable("t41")
 		t41.sequenceNumber = 4
 		d41.contents.add(t41)
 
@@ -683,13 +686,13 @@ package class PubNumberingUtilTest {
 		body.divisions.add(d20)
 		val d21 = PUB.createSection
 		body.divisions.add(d21)
-		val t21 = PUB.createTitledTable
+		val t21 = createTitledTable("t21")
 		t21.sequenceNumber = 2
 		d21.contents.add(t21)
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTitledTable
+		val t30 = createTitledTable("t30")
 		t30.sequenceNumber = 3
 		d30.contents.add(t30)
 
@@ -697,7 +700,7 @@ package class PubNumberingUtilTest {
 		d30.divisions.add(d40)
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTitledTable
+		val t41 = createTitledTable("t41")
 		t41.sequenceNumber = 4
 		d41.contents.add(t41)
 
@@ -720,17 +723,17 @@ package class PubNumberingUtilTest {
 
 		val d00 = PUB.createPart
 		body.divisions.add(d00)
-		val t00 = PUB.createTitledTable
+		val t00 = createTitledTable("t00")
 		d00.contents.add(t00)
 
 		val d10 = PUB.createChapter // CHAPTER
 		d00.divisions.add(d10)
-		val t10 = PUB.createTitledTable
+		val t10 = createTitledTable("t10")
 		d10.contents.add(t10)
 
 		val d11 = PUB.createChapter // CHAPTER
 		d00.divisions.add(d11)
-		val t11 = PUB.createTitledTable
+		val t11 = createTitledTable("t11")
 		d11.contents.add(t11)
 
 		val d20 = PUB.createSection
@@ -738,7 +741,7 @@ package class PubNumberingUtilTest {
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTitledTable
+		val t30 = createTitledTable("t30")
 		d30.contents.add(t30)
 
 		val d40 = PUB.createSubsubsection
@@ -746,12 +749,12 @@ package class PubNumberingUtilTest {
 
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTitledTable
+		val t41 = createTitledTable("t41")
 		d41.contents.add(t41)
 
 		val d21 = PUB.createSection
 		d11.divisions.add(d21)
-		val t21 = PUB.createTitledTable
+		val t21 = createTitledTable("t21")
 		d21.contents.add(t21)
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
@@ -788,12 +791,12 @@ package class PubNumberingUtilTest {
 
 		val d10 = PUB.createChapter // CHAPTER
 		body.divisions.add(d10)
-		val t10 = PUB.createTitledTable
+		val t10 = createTitledTable("t10")
 		d10.contents.add(t10)
 
 		val d11 = PUB.createChapter // CHAPTER
 		body.divisions.add(d11)
-		val t11 = PUB.createTitledTable
+		val t11 = createTitledTable("t11")
 		d11.contents.add(t11)
 
 		val d20 = PUB.createSection
@@ -801,7 +804,7 @@ package class PubNumberingUtilTest {
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTitledTable
+		val t30 = createTitledTable("t30")
 		d30.contents.add(t30)
 
 		val d40 = PUB.createSubsubsection
@@ -809,12 +812,12 @@ package class PubNumberingUtilTest {
 
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTitledTable
+		val t41 = createTitledTable("t41")
 		d41.contents.add(t41)
 
 		val d21 = PUB.createSection
 		d11.divisions.add(d21)
-		val t21 = PUB.createTitledTable
+		val t21 = createTitledTable("t21")
 		d21.contents.add(t21)
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
@@ -851,7 +854,7 @@ package class PubNumberingUtilTest {
 
 		val d30 = PUB.createSubsection
 		d20.divisions.add(d30)
-		val t30 = PUB.createTitledTable
+		val t30 = createTitledTable("t30")
 		d30.contents.add(t30)
 
 		val d40 = PUB.createSubsubsection
@@ -859,12 +862,12 @@ package class PubNumberingUtilTest {
 
 		val d41 = PUB.createSubsubsection
 		d30.divisions.add(d41)
-		val t41 = PUB.createTitledTable
+		val t41 = createTitledTable("t41")
 		d41.contents.add(t41)
 
 		val d21 = PUB.createSection
 		body.divisions.add(d21)
-		val t21 = PUB.createTitledTable
+		val t21 = createTitledTable("t21")
 		d21.contents.add(t21)
 
 		compo.gatherAllDivisionsAndSetSequenceNumbers
@@ -893,12 +896,12 @@ package class PubNumberingUtilTest {
 		// No parts!
 		val a00 = PUB.createChapter // -> level 0
 		abody.divisions.add(a00)
-		val ta00 = PUB.createTitledTable
+		val ta00 = createTitledTable("ta00")
 		a00.contents.add(ta00)
 
 		val a000 = PUB.createSection
 		a00.divisions.add(a000)
-		val ta000 = PUB.createTitledTable
+		val ta000 = createTitledTable("ta000")
 		a000.contents.add(ta000)
 
 		val Component b = PUB.createComponent
@@ -907,22 +910,22 @@ package class PubNumberingUtilTest {
 
 		val b00 = PUB.createPart
 		bbody.divisions.add(b00)
-		val tb00 = PUB.createTitledTable
+		val tb00 = createTitledTable("tb00")
 		b00.contents.add(tb00)
 
 		val b10 = PUB.createChapter // CHAPTER -> level 1
 		b00.divisions.add(b10)
-		val tb10 = PUB.createTitledTable
+		val tb10 = createTitledTable("tb10")
 		b10.contents.add(tb10)
 
 		val b20 = PUB.createSection
 		b10.divisions.add(b20)
-		val tb20 = PUB.createTitledTable
+		val tb20 = createTitledTable("tb20")
 		b10.contents.add(tb20)
 
 		val b11 = PUB.createChapter // CHAPTER
 		b00.divisions.add(b11)
-		val tb11 = PUB.createTitledTable
+		val tb11 = createTitledTable("tb11")
 		b11.contents.add(tb11)
 
 		val b21 = PUB.createSection
@@ -953,5 +956,11 @@ package class PubNumberingUtilTest {
 		assertEquals("1.2", tb20.tieredNumber)
 		assertEquals("2.1", tb11.tieredNumber)
 		assertEquals("2.2", ta000.tieredNumber)
+	}
+	
+	protected def TitledTable createTitledTable(String title) {
+		val t = PUB.createTitledTable
+		t.title = title.toRichText
+		return t
 	}
 }

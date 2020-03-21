@@ -70,7 +70,6 @@ public abstract class AbstractTableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getWidthPercent() {
 		return widthPercent;
 	}
@@ -80,7 +79,6 @@ public abstract class AbstractTableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setWidthPercent(int newWidthPercent) {
 		int oldWidthPercent = widthPercent;
 		widthPercent = newWidthPercent;
