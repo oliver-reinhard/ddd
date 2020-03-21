@@ -99,6 +99,7 @@
     <!-- system -->
     <module>com.mimacom.ddd.system</module>
     <module>com.mimacom.ddd.system.tests</module>
+    <module>com.mimacom.ddd.system.feature</module>
   </modules>
 
   <build>
