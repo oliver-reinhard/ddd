@@ -94,7 +94,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\usepackage{lstautogobble} % listing-indent control
 		\usepackage{hyperref}      % hyperlinks
 		
-		\lstset{captionpos=b, basicstyle=\small, numberstyle=\tiny,
+		\lstset{captionpos=b, basicstyle=\footnotesize, numberstyle=\tiny,
 			tabsize=«PubGeneratorUtil::TAB_SIZE», autogobble,
 			breaklines, breakatwhitespace,
 			extendedchars, literate={≤}{$\leq$}1 {≥}{$\geq$}1 {->}{{$\rightarrow$}}1 {=>}{{$\rightarrow$}}1 % DMX special symbols
@@ -219,7 +219,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	// Content
 	//
 	override CharSequence renderAdmonition(Admonition a) '''
-		-- admonition
+		-- admonition TODO
 	'''
 
 	override CharSequence renderBulletList(List list, NestedElementsRenderer p) '''
@@ -310,7 +310,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	}
 	
 	override CharSequence renderEquation(Equation e) '''
-		-- equation (TODO)
+		-- equation TODO
 	'''
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, String outdentedListing) {

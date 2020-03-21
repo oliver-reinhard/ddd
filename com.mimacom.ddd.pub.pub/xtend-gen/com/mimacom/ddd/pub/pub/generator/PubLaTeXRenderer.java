@@ -148,7 +148,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.append("\\usepackage{hyperref}      % hyperlinks");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("\\lstset{captionpos=b, basicstyle=\\small, numberstyle=\\tiny,");
+    _builder.append("\\lstset{captionpos=b, basicstyle=\\footnotesize, numberstyle=\\tiny,");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("tabsize=");
@@ -378,7 +378,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   @Override
   public CharSequence renderAdmonition(final Admonition a) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("-- admonition");
+    _builder.append("-- admonition TODO");
     _builder.newLine();
     return _builder;
   }
@@ -626,7 +626,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   @Override
   public CharSequence renderEquation(final Equation e) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("-- equation (TODO)");
+    _builder.append("-- equation TODO");
     _builder.newLine();
     return _builder;
   }
