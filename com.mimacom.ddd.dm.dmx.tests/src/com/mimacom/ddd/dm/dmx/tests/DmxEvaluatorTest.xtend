@@ -166,8 +166,11 @@ class DmxEvaluatorTest {
 			test T04 { 8 % 3 }
 			test T05 { 2**4 }
 			test T06 { "A" + "B" }
-			test T08 context t : Timepoint { t + 155 } 				// add a number value
-			test T09 context t : Timepoint { t - 155 } 				// subtract a number value
+			test T08 context t : Timepoint { t + 155 } 						// add a number value
+			test T09 { "2019-05-15" + 155 } 								// add a number value
+			test T11 context t : Timepoint { t - 155 } 						// subtract a number value
+			test T12  { "2019-05-15" - 155 } 								// subtract a number value
+			test T13 context t1 : Timepoint, t2 : Timepoint { t1 - t2 } 	// Subtract two timepoints => number
 		''')
 		assertNoValidationErrors(tests.head.eContainer)
 		

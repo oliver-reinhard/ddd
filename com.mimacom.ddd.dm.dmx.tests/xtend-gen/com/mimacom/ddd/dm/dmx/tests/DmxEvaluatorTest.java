@@ -267,9 +267,15 @@ public class DmxEvaluatorTest {
     _builder.newLine();
     _builder.append("test T06 { \"A\" + \"B\" }");
     _builder.newLine();
-    _builder.append("test T08 context t : Timepoint { t + 155 } \t\t\t\t// add a number value");
+    _builder.append("test T08 context t : Timepoint { t + 155 } \t\t\t\t\t\t// add a number value");
     _builder.newLine();
-    _builder.append("test T09 context t : Timepoint { t - 155 } \t\t\t\t// subtract a number value");
+    _builder.append("test T09 { \"2019-05-15\" + 155 } \t\t\t\t\t\t\t\t// add a number value");
+    _builder.newLine();
+    _builder.append("test T11 context t : Timepoint { t - 155 } \t\t\t\t\t\t// subtract a number value");
+    _builder.newLine();
+    _builder.append("test T12  { \"2019-05-15\" - 155 } \t\t\t\t\t\t\t\t// subtract a number value");
+    _builder.newLine();
+    _builder.append("test T13 context t1 : Timepoint, t2 : Timepoint { t1 - t2 } \t// Subtract two timepoints => number");
     _builder.newLine();
     final EList<DmxTest> tests = this.parse(_builder);
     this.assertNoValidationErrors(IterableExtensions.<DmxTest>head(tests).eContainer());

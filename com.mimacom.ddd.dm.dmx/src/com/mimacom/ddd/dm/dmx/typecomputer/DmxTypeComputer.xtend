@@ -175,12 +175,23 @@ class DmxTypeComputer {
 			case GREATER_OR_EQUAL: BOOLEAN
 			case GREATER: BOOLEAN
 			//
-			case ADD,
+			case ADD:{
+				// left type determines the type of the expression and the expected type(s) of the right operand:
+				val leftType = typeForAndCheckNotNull(expr.leftOperand)
+				return switch leftType.baseType {
+					// TIMEPOINT + NUMBER => TIMEPOINT (TIMEPOINT + TIMEPOINT => not supported, caught by validation)
+					case isTimepointValue(expr.leftOperand, leftType) : TIMEPOINT
+					case TEXT : TEXT
+					default:  NUMBER
+				} 
+			}
 			case SUBTRACT: {
 				// left type determines the type of the expression and the expected type(s) of the right operand:
 				val leftType = typeForAndCheckNotNull(expr.leftOperand)
 				return switch leftType.baseType {
-					case TIMEPOINT : TIMEPOINT
+					// TIMEPOINT - NUMBER => TIMEPOINT 
+					// TIMEPOINT - TIMEPOINT => NUMBER
+					case isTimepointValue(expr.leftOperand, leftType) : isTimepointValue(expr.rightOperand, typeForAndCheckNotNull(expr.rightOperand)) ?  NUMBER: TIMEPOINT 
 					case TEXT : TEXT
 					default:  NUMBER
 				} 
@@ -305,5 +316,13 @@ class DmxTypeComputer {
 			return UNDEFINED_TYPE
 		}
 		return type
+	}
+
+	def boolean isTimepointValue(DExpression actualExpression, AbstractDmxTypeDescriptor<?> actualType) {
+		if (actualType.isCompatibleWith(TIMEPOINT)) return true
+		if (actualExpression instanceof DmxStringLiteral) {
+			return parseTimepoint(actualExpression.value) !== null
+		}
+		return false
 	}
 }

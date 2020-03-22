@@ -173,8 +173,12 @@ class DmxTypeCheckingTest {
 			test T05 { 2**4 }
 			test T06 { "A" + "B" }
 			test T07 { 1 + "A" }												// ERROR: Type mismatch
-			test T08 context t : Timepoint { t + 155 } 				// add a number value
-			test T09 context t : Timepoint { t - 155 } 				// subtract a number value
+			test T08 context t : Timepoint { t + 155 } 						// add a number value
+			test T09 { "2019-05-15" + 155 } 								// add a number value
+			test T10 context t1 : Timepoint, t2 : Timepoint { t1 + t2 } 	// ERROR: cannot add timepoints
+			test T11 context t : Timepoint { t - 155 } 						// subtract a number value
+			test T12  { "2019-05-15" - 155 } 								// subtract a number value
+			test T13 context t1 : Timepoint, t2 : Timepoint { t1 - t2 } 	// Subtract two timepoints => number
 		''')
 		
 		val e00 = tests.get(0).expr
@@ -216,6 +220,22 @@ class DmxTypeCheckingTest {
 		val e09 = tests.get(9).expr
 		assertType(e09, DmxTypeDescriptorProvider::TIMEPOINT)
 		assertNoValidationErrors(e09)
+		
+		val e10 = tests.get(10).expr
+		assertType(e10, DmxTypeDescriptorProvider::TIMEPOINT)
+		assertHasValidationERRORS(e10)
+		
+		val e11 = tests.get(11).expr
+		assertType(e11, DmxTypeDescriptorProvider::TIMEPOINT)
+		assertNoValidationErrors(e11)
+		
+		val e12 = tests.get(12).expr
+		assertType(e12, DmxTypeDescriptorProvider::TIMEPOINT)
+		assertNoValidationErrors(e12)
+		
+		val e13 = tests.get(13).expr
+		assertType(e13, DmxTypeDescriptorProvider::NUMBER)
+		assertNoValidationErrors(e13)
 		
 		}
 	
@@ -661,11 +681,11 @@ class DmxTypeCheckingTest {
 	def assertNoValidationErrors(EObject obj) {
 //		val result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(obj)).children
 		val result = Diagnostician.INSTANCE.validate(obj).children
-		assertTrue(result.isEmpty, '''Validation errors: «result.join("; ")»''')
+		assertTrue(result.isEmpty, '''No validation errors expected: «result.join("; ")»''')
 	}
 	
 	def assertHasValidationERRORS(EObject obj) {
 		val result = Diagnostician.INSTANCE.validate(obj).children
-		assertTrue(result.size >= 1, "No validation errors")
+		assertTrue(result.size >= 1, "Has validation errors")
 	}
 }

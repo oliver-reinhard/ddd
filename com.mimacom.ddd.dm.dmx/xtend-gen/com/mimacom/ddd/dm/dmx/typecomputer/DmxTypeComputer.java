@@ -1,5 +1,6 @@
 package com.mimacom.ddd.dm.dmx.typecomputer;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -44,6 +45,7 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxBaseTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxUndefinedDescriptor;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -219,26 +221,52 @@ public class DmxTypeComputer {
           _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case ADD:
-        case SUBTRACT:
           final AbstractDmxTypeDescriptor<?> leftType = this.typeForAndCheckNotNull(expr.getLeftOperand());
           DmxBaseTypeDescriptor _switchResult_1 = null;
           final DmxBaseType _switchValue = leftType.baseType;
-          if (_switchValue != null) {
-            switch (_switchValue) {
-              case TIMEPOINT:
-                _switchResult_1 = DmxTypeDescriptorProvider.TIMEPOINT;
-                break;
-              case TEXT:
-                _switchResult_1 = DmxTypeDescriptorProvider.TEXT;
-                break;
-              default:
-                _switchResult_1 = DmxTypeDescriptorProvider.NUMBER;
-                break;
+          boolean _matched = false;
+          boolean _isTimepointValue = this.isTimepointValue(expr.getLeftOperand(), leftType);
+          if (_isTimepointValue) {
+            _matched=true;
+            _switchResult_1 = DmxTypeDescriptorProvider.TIMEPOINT;
+          }
+          if (!_matched) {
+            if (Objects.equal(_switchValue, DmxBaseType.TEXT)) {
+              _matched=true;
+              _switchResult_1 = DmxTypeDescriptorProvider.TEXT;
             }
-          } else {
+          }
+          if (!_matched) {
             _switchResult_1 = DmxTypeDescriptorProvider.NUMBER;
           }
           return _switchResult_1;
+        case SUBTRACT:
+          final AbstractDmxTypeDescriptor<?> leftType_1 = this.typeForAndCheckNotNull(expr.getLeftOperand());
+          DmxBaseTypeDescriptor _switchResult_2 = null;
+          final DmxBaseType _switchValue_1 = leftType_1.baseType;
+          boolean _matched_1 = false;
+          boolean _isTimepointValue_1 = this.isTimepointValue(expr.getLeftOperand(), leftType_1);
+          if (_isTimepointValue_1) {
+            _matched_1=true;
+            DmxBaseTypeDescriptor _xifexpression = null;
+            boolean _isTimepointValue_2 = this.isTimepointValue(expr.getRightOperand(), this.typeForAndCheckNotNull(expr.getRightOperand()));
+            if (_isTimepointValue_2) {
+              _xifexpression = DmxTypeDescriptorProvider.NUMBER;
+            } else {
+              _xifexpression = DmxTypeDescriptorProvider.TIMEPOINT;
+            }
+            _switchResult_2 = _xifexpression;
+          }
+          if (!_matched_1) {
+            if (Objects.equal(_switchValue_1, DmxBaseType.TEXT)) {
+              _matched_1=true;
+              _switchResult_2 = DmxTypeDescriptorProvider.TEXT;
+            }
+          }
+          if (!_matched_1) {
+            _switchResult_2 = DmxTypeDescriptorProvider.NUMBER;
+          }
+          return _switchResult_2;
         case MULTIPLY:
           _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
@@ -419,6 +447,18 @@ public class DmxTypeComputer {
       return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
     return type;
+  }
+  
+  public boolean isTimepointValue(final DExpression actualExpression, final AbstractDmxTypeDescriptor<?> actualType) {
+    boolean _isCompatibleWith = actualType.isCompatibleWith(DmxTypeDescriptorProvider.TIMEPOINT);
+    if (_isCompatibleWith) {
+      return true;
+    }
+    if ((actualExpression instanceof DmxStringLiteral)) {
+      Date _parseTimepoint = this.util.parseTimepoint(((DmxStringLiteral)actualExpression).getValue());
+      return (_parseTimepoint != null);
+    }
+    return false;
   }
   
   public AbstractDmxTypeDescriptor<?> typeFor(final EObject expr) {

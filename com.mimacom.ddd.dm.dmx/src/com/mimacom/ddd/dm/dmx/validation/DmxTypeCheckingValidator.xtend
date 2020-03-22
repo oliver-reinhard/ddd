@@ -49,6 +49,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	protected static val DMX = DmxPackage.eINSTANCE
 
 	protected static val TYPE_MISMATCH = "Type Mismatch"
+	protected static val NO_EXPRESSION = "No Expression"
 	protected static val COMPARABLE_TYPES = (Lists.newArrayList(NUMBER, TEXT,
 		TIMEPOINT) as Object) as List<AbstractDmxTypeDescriptor<?>>
 	protected static val NO_INDEX = -1
@@ -206,10 +207,10 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 				}
 			}
 			case ADD: {
-				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
-				if (expectedType == TIMEPOINT) {
+				if (isTimepointValue(expr.leftOperand, leftType)) {
+					// TIMEPOINT + NUMBER => TIMEPOINT
 					expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
-				} else if (expectedType == TEXT) {
+				} else if (leftType == TEXT) {
 					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
 				} else {
 					expectNumber(leftType, DMX.dmxBinaryOperation_LeftOperand)
@@ -217,11 +218,16 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 				}
 			}
 			case SUBTRACT: {
-				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
-				if (expectedType != TIMEPOINT) {
+				if (isTimepointValue(expr.leftOperand, leftType)) {
+					// TIMEPOINT - TIMEPOINT => NUMBER
+					if (! isTimepointValue(expr.rightOperand, rightType)) {
+						// TIMEPOINT - NUMBER => TIMEPOINT
+						expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
+					}
+				} else {
 					expectNumber(leftType, DMX.dmxBinaryOperation_LeftOperand)
+					expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
 				}
-				expectNumber(rightType, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case MULTIPLY,
 			case DIVIDE,
@@ -329,20 +335,25 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	// Check type conformance:
 	//
 	protected def AbstractDmxTypeDescriptor<?> getTypeDescAndCheckNotNull(DExpression expr, EReference ref, int index) {
-		val typeDesc = expr?.typeFor
+		if (expr === null) {
+			error("Expression is null", expr, ref, NO_EXPRESSION)
+			return UNDEFINED_TYPE
+		}
+		val typeDesc = expr.typeFor
 		if (typeDesc === null) {
-			val errorText = "Undefined type"
+			val errorText = "Type is null"
 			if (index == NO_INDEX) {
-				error(errorText, ref, TYPE_MISMATCH)
+				error(errorText, expr, ref, TYPE_MISMATCH)
 			} else {
-				error(errorText, ref, index, TYPE_MISMATCH)
+				error(errorText, expr, ref, index, TYPE_MISMATCH)
 			}
 			return UNDEFINED_TYPE
 		}
 		return typeDesc
 	}
 
-	protected def AbstractDmxTypeDescriptor<?> getTypeDescAndCheckNotNull(DType type, boolean collection, EReference ref) {
+	protected def AbstractDmxTypeDescriptor<?> getTypeDescAndCheckNotNull(DType type, boolean collection,
+		EReference ref) {
 		if (type === null || type.eIsProxy) {
 			error("Unresolved type reference", ref, TYPE_MISMATCH)
 			return UNDEFINED_TYPE

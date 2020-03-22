@@ -270,9 +270,17 @@ public class DmxTypeCheckingTest {
     _builder.newLine();
     _builder.append("test T07 { 1 + \"A\" }\t\t\t\t\t\t\t\t\t\t\t\t// ERROR: Type mismatch");
     _builder.newLine();
-    _builder.append("test T08 context t : Timepoint { t + 155 } \t\t\t\t// add a number value");
+    _builder.append("test T08 context t : Timepoint { t + 155 } \t\t\t\t\t\t// add a number value");
     _builder.newLine();
-    _builder.append("test T09 context t : Timepoint { t - 155 } \t\t\t\t// subtract a number value");
+    _builder.append("test T09 { \"2019-05-15\" + 155 } \t\t\t\t\t\t\t\t// add a number value");
+    _builder.newLine();
+    _builder.append("test T10 context t1 : Timepoint, t2 : Timepoint { t1 + t2 } \t// ERROR: cannot add timepoints");
+    _builder.newLine();
+    _builder.append("test T11 context t : Timepoint { t - 155 } \t\t\t\t\t\t// subtract a number value");
+    _builder.newLine();
+    _builder.append("test T12  { \"2019-05-15\" - 155 } \t\t\t\t\t\t\t\t// subtract a number value");
+    _builder.newLine();
+    _builder.append("test T13 context t1 : Timepoint, t2 : Timepoint { t1 - t2 } \t// Subtract two timepoints => number");
     _builder.newLine();
     final EList<DmxTest> tests = this.parse(_builder);
     final DExpression e00 = tests.get(0).getExpr();
@@ -305,6 +313,18 @@ public class DmxTypeCheckingTest {
     final DExpression e09 = tests.get(9).getExpr();
     this.assertType(e09, DmxTypeDescriptorProvider.TIMEPOINT);
     this.assertNoValidationErrors(e09);
+    final DExpression e10 = tests.get(10).getExpr();
+    this.assertType(e10, DmxTypeDescriptorProvider.TIMEPOINT);
+    this.assertHasValidationERRORS(e10);
+    final DExpression e11 = tests.get(11).getExpr();
+    this.assertType(e11, DmxTypeDescriptorProvider.TIMEPOINT);
+    this.assertNoValidationErrors(e11);
+    final DExpression e12 = tests.get(12).getExpr();
+    this.assertType(e12, DmxTypeDescriptorProvider.TIMEPOINT);
+    this.assertNoValidationErrors(e12);
+    final DExpression e13 = tests.get(13).getExpr();
+    this.assertType(e13, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNoValidationErrors(e13);
   }
   
   @Test
@@ -767,7 +787,7 @@ public class DmxTypeCheckingTest {
     final List<Diagnostic> result = Diagnostician.INSTANCE.validate(obj).getChildren();
     boolean _isEmpty = result.isEmpty();
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Validation errors: ");
+    _builder.append("No validation errors expected: ");
     String _join = IterableExtensions.join(result, "; ");
     _builder.append(_join);
     Assertions.assertTrue(_isEmpty, _builder.toString());
@@ -777,6 +797,6 @@ public class DmxTypeCheckingTest {
     final List<Diagnostic> result = Diagnostician.INSTANCE.validate(obj).getChildren();
     int _size = result.size();
     boolean _greaterEqualsThan = (_size >= 1);
-    Assertions.assertTrue(_greaterEqualsThan, "No validation errors");
+    Assertions.assertTrue(_greaterEqualsThan, "Has validation errors");
   }
 }
