@@ -5,6 +5,7 @@ package com.mimacom.ddd.dm.dem
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
+import com.mimacom.ddd.dm.dem.scoping.DemQualifiedNameProvider
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeComputer
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeDescriptorProvider
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
@@ -12,6 +13,7 @@ import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvide
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
 import org.eclipse.xtext.conversion.IValueConverterService
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
@@ -19,6 +21,10 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class DemRuntimeModule extends AbstractDemRuntimeModule {
+	
+	override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider()  {
+		return DemQualifiedNameProvider
+	}
 	
 	override Class<? extends IValueConverterService> bindIValueConverterService() {
 		return DmxValueConverters

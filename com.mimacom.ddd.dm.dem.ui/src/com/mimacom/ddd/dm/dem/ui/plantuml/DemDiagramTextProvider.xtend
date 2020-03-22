@@ -2,8 +2,12 @@ package com.mimacom.ddd.dm.dem.ui.plantuml
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.dem.DemActorModel
 import com.mimacom.ddd.dm.dem.DemDomainEvent
+import com.mimacom.ddd.dm.dem.DemEventsOverviewModel
+import com.mimacom.ddd.dm.dem.plantuml.DemActorsOverviewDiagramTextProviderImpl
 import com.mimacom.ddd.dm.dem.plantuml.DemEventDiagramTextProviderImpl
+import com.mimacom.ddd.dm.dem.plantuml.DemEventsOverviewDiagramTextProviderImpl
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
@@ -15,7 +19,9 @@ import org.eclipse.xtext.ui.editor.model.XtextDocument
 
 class DemDiagramTextProvider extends AbstractDiagramTextProvider {
 
-	@Inject DemEventDiagramTextProviderImpl actualProvider
+	@Inject DemEventDiagramTextProviderImpl eventDiagramProvider
+	@Inject DemActorsOverviewDiagramTextProviderImpl actorsOverviewDiagramProvider
+	@Inject DemEventsOverviewDiagramTextProviderImpl eventsOverviewDiagramProvider
 
 	new() {
 		editorType = typeof(XtextEditor)
@@ -37,12 +43,32 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
 		val namespace = document.readOnly [
 			return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
 		]
-		val event = namespace.model instanceof DemDomainEvent ? namespace.model as DemDomainEvent : null
+		if (namespace.model !== null) {
+			namespace.model.diagram
+		} else {
+			'''note "Nothing show." as N1'''
+		}
 
-		if (actualProvider.canProvide(event)) {
-			return actualProvider.diagramText(event)
+	}
+	
+	def dispatch String diagram(DemDomainEvent model) {
+		if (eventDiagramProvider.canProvide(model)) {
+			return eventDiagramProvider.diagramText(model)
 		}
 		return '''note "No domain event to show." as N1'''
-
+	}
+	
+	def dispatch String diagram(DemActorModel model) {
+		if (actorsOverviewDiagramProvider.canProvide(model)) {
+			return actorsOverviewDiagramProvider.diagramText(model)
+		}
+		return '''note "No actors to show." as N1'''
+	}
+	
+	def dispatch String diagram(DemEventsOverviewModel model) {
+		if (eventsOverviewDiagramProvider.canProvide(model)) {
+			return eventsOverviewDiagramProvider.diagramText(model)
+		}
+		return '''note "No events to show." as N1'''
 	}
 }

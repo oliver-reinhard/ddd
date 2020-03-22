@@ -38,4 +38,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="DemActor" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemHumanActorRole" eSuperTypes="#//DemActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemService" eSuperTypes="#//DemActor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DemEventsOverviewModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="include" upperBound="-1"
+        eType="#//DemDomainEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" upperBound="-1"
+        eType="#//DemDomainEvent"/>
+  </eClassifiers>
 </ecore:EPackage>

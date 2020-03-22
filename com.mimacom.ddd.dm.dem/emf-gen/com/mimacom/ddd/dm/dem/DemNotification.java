@@ -27,10 +27,6 @@ public interface DemNotification extends DNavigableMember, INavigableMemberConta
 	/**
 	 * Returns the value of the '<em><b>Message</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Message</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Message</em>' containment reference.
 	 * @see #setMessage(DemMessage)
@@ -53,10 +49,6 @@ public interface DemNotification extends DNavigableMember, INavigableMemberConta
 	/**
 	 * Returns the value of the '<em><b>Notified</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Notified</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Notified</em>' reference.
 	 * @see #setNotified(DemActor)

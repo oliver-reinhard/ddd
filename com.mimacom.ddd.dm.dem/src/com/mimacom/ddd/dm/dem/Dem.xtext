@@ -4,18 +4,17 @@ grammar com.mimacom.ddd.dm.dem.Dem with  com.mimacom.ddd.dm.dmx.Dmx
 import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dem"
-import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-/*
- * BEHAVIOUR
- */
 @Override 
 DNamespace:
 	'domain'
 	name=DQualifiedName
 	(imports+=DImport)*
-	model=(DemDomainEvent | DemActorModel);
+	model=(DemDomainEvent | DemActorModel | DemEventsOverviewModel);
 
+/*
+ * DOMAIN EVENT
+ */
 DemDomainEvent:
 	'event'
 	name=ID
@@ -37,15 +36,16 @@ DNamedPredicate:
 	name=ID
 	('alias' aliases+=ID)*
 	':'
-	predicate=DExpression
-	(description=DRichText)?;
+	(description=DRichText)?
+	predicate=DmxOrExpression;
 
 DemCaseConjunction:
 	'case'
 	name=ID
 	('alias' aliases+=ID)*
+	(description=DRichText)?
 	(	'when'
-		selector=DExpression
+		selector=DmxOrExpression
 	|	otherwise?='otherwise'
 	)
 	':'
@@ -72,10 +72,16 @@ DContext:
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
+/*
+ * ACTOR MODEL
+ */
 DemActorModel:
-	{DemActorModel}
-	actors+=DemActor*;
-
+	'actor' 'model'
+	name=ID
+	'{'
+	actors+=DemActor*
+	'}';
+	
 DemActor:
 	DemHumanActorRole | DemService;
 
@@ -90,3 +96,18 @@ DemService:
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?;
+
+/*
+ * EVENTS OVERVIEW
+ */
+DemEventsOverviewModel:
+	'event' 'overview'
+	name=ID
+	'{'
+	(	'include' all?='all'
+	|	'include'
+		(include+=[DemDomainEvent|DQualifiedName])+	
+	|	'exclude'
+		(exclude+=[DemDomainEvent|DQualifiedName])+	
+	)
+	'}';

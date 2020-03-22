@@ -88,6 +88,7 @@ public class DemNotificationImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -102,6 +103,7 @@ public class DemNotificationImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DemMessage getMessage()
 	{
 		return message;
@@ -129,6 +131,7 @@ public class DemNotificationImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMessage(DemMessage newMessage)
 	{
 		if (newMessage != message)
@@ -150,6 +153,7 @@ public class DemNotificationImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DemActor getNotified()
 	{
 		if (notified != null && notified.eIsProxy())
@@ -180,6 +184,7 @@ public class DemNotificationImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNotified(DemActor newNotified)
 	{
 		DemActor oldNotified = notified;

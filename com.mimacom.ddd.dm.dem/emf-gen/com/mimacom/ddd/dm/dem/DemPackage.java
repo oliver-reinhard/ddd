@@ -796,6 +796,88 @@ public interface DemPackage extends EPackage
 	 */
 	int DEM_SERVICE_OPERATION_COUNT = DEM_ACTOR_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl <em>Events Overview Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl
+	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemEventsOverviewModel()
+	 * @generated
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__NAME = BasePackage.DMODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>All</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__ALL = BasePackage.DMODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__INCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Exclude</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Events Overview Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Events Overview Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dem.DemDomainEvent <em>Domain Event</em>}'.
@@ -999,6 +1081,49 @@ public interface DemPackage extends EPackage
 	EClass getDemService();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dem.DemEventsOverviewModel <em>Events Overview Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Events Overview Model</em>'.
+	 * @see com.mimacom.ddd.dm.dem.DemEventsOverviewModel
+	 * @generated
+	 */
+	EClass getDemEventsOverviewModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dem.DemEventsOverviewModel#isAll <em>All</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>All</em>'.
+	 * @see com.mimacom.ddd.dm.dem.DemEventsOverviewModel#isAll()
+	 * @see #getDemEventsOverviewModel()
+	 * @generated
+	 */
+	EAttribute getDemEventsOverviewModel_All();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.dem.DemEventsOverviewModel#getInclude <em>Include</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Include</em>'.
+	 * @see com.mimacom.ddd.dm.dem.DemEventsOverviewModel#getInclude()
+	 * @see #getDemEventsOverviewModel()
+	 * @generated
+	 */
+	EReference getDemEventsOverviewModel_Include();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.dem.DemEventsOverviewModel#getExclude <em>Exclude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Exclude</em>'.
+	 * @see com.mimacom.ddd.dm.dem.DemEventsOverviewModel#getExclude()
+	 * @see #getDemEventsOverviewModel()
+	 * @generated
+	 */
+	EReference getDemEventsOverviewModel_Exclude();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1189,6 +1314,40 @@ public interface DemPackage extends EPackage
 		 * @generated
 		 */
 		EClass DEM_SERVICE = eINSTANCE.getDemService();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl <em>Events Overview Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl
+		 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemEventsOverviewModel()
+		 * @generated
+		 */
+		EClass DEM_EVENTS_OVERVIEW_MODEL = eINSTANCE.getDemEventsOverviewModel();
+
+		/**
+		 * The meta object literal for the '<em><b>All</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEM_EVENTS_OVERVIEW_MODEL__ALL = eINSTANCE.getDemEventsOverviewModel_All();
+
+		/**
+		 * The meta object literal for the '<em><b>Include</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEM_EVENTS_OVERVIEW_MODEL__INCLUDE = eINSTANCE.getDemEventsOverviewModel_Include();
+
+		/**
+		 * The meta object literal for the '<em><b>Exclude</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE = eINSTANCE.getDemEventsOverviewModel_Exclude();
 
 	}
 

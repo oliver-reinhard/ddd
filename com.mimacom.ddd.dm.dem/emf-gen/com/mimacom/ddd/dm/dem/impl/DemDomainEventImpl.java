@@ -127,6 +127,7 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -141,6 +142,7 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DContext> getContext()
 	{
 		if (context == null)
@@ -155,6 +157,7 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DemActor> getTriggers()
 	{
 		if (triggers == null)
@@ -169,6 +172,7 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedPredicate> getPreconditionsCNF()
 	{
 		if (preconditionsCNF == null)
@@ -183,6 +187,7 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedElement> getPostconditionsDNF()
 	{
 		if (postconditionsDNF == null)
@@ -197,6 +202,7 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DemNotification> getNotifications()
 	{
 		if (notifications == null)

@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dem.DemActorModel;
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
+import com.mimacom.ddd.dm.dem.DemEventsOverviewModel;
 import com.mimacom.ddd.dm.dem.DemHumanActorRole;
 import com.mimacom.ddd.dm.dem.DemMessage;
 import com.mimacom.ddd.dm.dem.DemNotification;
@@ -123,6 +124,9 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DemPackage.DEM_DOMAIN_EVENT:
 				sequence_DemDomainEvent(context, (DemDomainEvent) semanticObject); 
+				return; 
+			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL:
+				sequence_DemEventsOverviewModel(context, (DemEventsOverviewModel) semanticObject); 
 				return; 
 			case DemPackage.DEM_HUMAN_ACTOR_ROLE:
 				sequence_DemHumanActorRole(context, (DemHumanActorRole) semanticObject); 
@@ -324,7 +328,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DNamedPredicate returns DNamedPredicate
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* predicate=DExpression description=DRichText?)
+	 *     (name=ID aliases+=ID* description=DRichText? predicate=DmxOrExpression)
 	 */
 	protected void sequence_DNamedPredicate(ISerializationContext context, DNamedPredicate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -336,7 +340,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=DImport* (model=DemDomainEvent | model=DemActorModel))
+	 *     (name=DQualifiedName imports+=DImport* (model=DemDomainEvent | model=DemActorModel | model=DemEventsOverviewModel))
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -348,7 +352,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DemActorModel returns DemActorModel
 	 *
 	 * Constraint:
-	 *     actors+=DemActor*
+	 *     (name=ID actors+=DemActor*)
 	 */
 	protected void sequence_DemActorModel(ISerializationContext context, DemActorModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -360,7 +364,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DemCaseConjunction returns DemCaseConjunction
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* (selector=DExpression | otherwise?='otherwise') predicates+=DNamedPredicate+)
+	 *     (name=ID aliases+=ID* description=DRichText? (selector=DmxOrExpression | otherwise?='otherwise') predicates+=DNamedPredicate+)
 	 */
 	protected void sequence_DemCaseConjunction(ISerializationContext context, DemCaseConjunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -384,6 +388,18 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_DemDomainEvent(ISerializationContext context, DemDomainEvent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DemEventsOverviewModel returns DemEventsOverviewModel
+	 *
+	 * Constraint:
+	 *     (name=ID (all?='all' | include+=[DemDomainEvent|DQualifiedName]+ | exclude+=[DemDomainEvent|DQualifiedName]+))
+	 */
+	protected void sequence_DemEventsOverviewModel(ISerializationContext context, DemEventsOverviewModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

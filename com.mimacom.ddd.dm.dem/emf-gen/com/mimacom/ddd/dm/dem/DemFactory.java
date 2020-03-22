@@ -86,6 +86,15 @@ public interface DemFactory extends EFactory
 	DemService createDemService();
 
 	/**
+	 * Returns a new object of class '<em>Events Overview Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Events Overview Model</em>'.
+	 * @generated
+	 */
+	DemEventsOverviewModel createDemEventsOverviewModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

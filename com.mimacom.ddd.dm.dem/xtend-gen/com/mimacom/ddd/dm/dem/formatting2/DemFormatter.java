@@ -170,37 +170,59 @@ public class DemFormatter extends DmxFormatter {
       it.newLine();
     };
     document.append(colon, _function_1);
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+    DRichText _description = p.getDescription();
+    boolean _tripleNotEquals = (_description != null);
+    if (_tripleNotEquals) {
+      final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+        it.indent();
+      };
+      final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      document.<DRichText>append(document.<DRichText>surround(p.getDescription(), _function_2), _function_3);
+    }
+    final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
-    document.<DExpression>surround(p.getPredicate(), _function_2);
+    document.<DExpression>surround(p.getPredicate(), _function_4);
   }
   
   protected void _format(final DemCaseConjunction c, @Extension final IFormattableDocument document) {
-    boolean _isOtherwise = c.isOtherwise();
-    boolean _not = (!_isOtherwise);
-    if (_not) {
-      final ISemanticRegion when = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDemCaseConjunctionAccess().getWhenKeyword_3_0_0());
+    DRichText _description = c.getDescription();
+    boolean _tripleNotEquals = (_description != null);
+    if (_tripleNotEquals) {
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-        it.newLine();
+        it.indent();
       };
-      document.prepend(when, _function);
-    } else {
-      final ISemanticRegion otherwise = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDemCaseConjunctionAccess().getOtherwiseOtherwiseKeyword_3_1_0());
       final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.prepend(otherwise, _function_1);
+      document.<DRichText>append(document.<DRichText>surround(c.getDescription(), _function), _function_1);
     }
-    final ISemanticRegion colon = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDemCaseConjunctionAccess().getColonKeyword_4());
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+    boolean _isOtherwise = c.isOtherwise();
+    boolean _not = (!_isOtherwise);
+    if (_not) {
+      final ISemanticRegion when = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDemCaseConjunctionAccess().getWhenKeyword_4_0_0());
+      final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      document.prepend(when, _function_2);
+    } else {
+      final ISemanticRegion otherwise = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDemCaseConjunctionAccess().getOtherwiseOtherwiseKeyword_4_1_0());
+      final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      document.prepend(otherwise, _function_3);
+    }
+    final ISemanticRegion colon = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDemCaseConjunctionAccess().getColonKeyword_5());
+    final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
       it.noSpace();
     };
-    document.prepend(colon, _function_2);
-    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+    document.prepend(colon, _function_4);
+    final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(colon, _function_3);
+    document.append(colon, _function_5);
     this.format(c.getPredicates(), document);
   }
   

@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemActorModel;
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
+import com.mimacom.ddd.dm.dem.DemEventsOverviewModel;
 import com.mimacom.ddd.dm.dem.DemFactory;
 import com.mimacom.ddd.dm.dem.DemHumanActorRole;
 import com.mimacom.ddd.dm.dem.DemMessage;
@@ -87,6 +88,13 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	private EClass demServiceEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass demEventsOverviewModelEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -115,7 +123,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DemPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -130,7 +138,8 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		if (isInited) return (DemPackage)EPackage.Registry.INSTANCE.getEPackage(DemPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DemPackageImpl theDemPackage = (DemPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DemPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DemPackageImpl());
+		Object registeredDemPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DemPackageImpl theDemPackage = registeredDemPackage instanceof DemPackageImpl ? (DemPackageImpl)registeredDemPackage : new DemPackageImpl();
 
 		isInited = true;
 
@@ -146,7 +155,6 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		// Mark meta-data to indicate it can't be changed
 		theDemPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DemPackage.eNS_URI, theDemPackage);
 		return theDemPackage;
@@ -157,6 +165,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemDomainEvent()
 	{
 		return demDomainEventEClass;
@@ -167,6 +176,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemDomainEvent_Context()
 	{
 		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(0);
@@ -177,6 +187,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemDomainEvent_Triggers()
 	{
 		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(1);
@@ -187,6 +198,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemDomainEvent_PreconditionsCNF()
 	{
 		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(2);
@@ -197,6 +209,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemDomainEvent_PostconditionsDNF()
 	{
 		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(3);
@@ -207,6 +220,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemDomainEvent_Notifications()
 	{
 		return (EReference)demDomainEventEClass.getEStructuralFeatures().get(4);
@@ -217,6 +231,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemCaseConjunction()
 	{
 		return demCaseConjunctionEClass;
@@ -227,6 +242,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemCaseConjunction_Selector()
 	{
 		return (EReference)demCaseConjunctionEClass.getEStructuralFeatures().get(0);
@@ -237,6 +253,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDemCaseConjunction_Otherwise()
 	{
 		return (EAttribute)demCaseConjunctionEClass.getEStructuralFeatures().get(1);
@@ -247,6 +264,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemCaseConjunction_Predicates()
 	{
 		return (EReference)demCaseConjunctionEClass.getEStructuralFeatures().get(2);
@@ -257,6 +275,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemNotification()
 	{
 		return demNotificationEClass;
@@ -267,6 +286,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemNotification_Message()
 	{
 		return (EReference)demNotificationEClass.getEStructuralFeatures().get(0);
@@ -277,6 +297,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemNotification_Notified()
 	{
 		return (EReference)demNotificationEClass.getEStructuralFeatures().get(1);
@@ -287,6 +308,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemMessage()
 	{
 		return demMessageEClass;
@@ -297,6 +319,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemActorModel()
 	{
 		return demActorModelEClass;
@@ -307,6 +330,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDemActorModel_Actors()
 	{
 		return (EReference)demActorModelEClass.getEStructuralFeatures().get(0);
@@ -317,6 +341,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemActor()
 	{
 		return demActorEClass;
@@ -327,6 +352,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemHumanActorRole()
 	{
 		return demHumanActorRoleEClass;
@@ -337,6 +363,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDemService()
 	{
 		return demServiceEClass;
@@ -347,6 +374,51 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EClass getDemEventsOverviewModel()
+	{
+		return demEventsOverviewModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDemEventsOverviewModel_All()
+	{
+		return (EAttribute)demEventsOverviewModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDemEventsOverviewModel_Include()
+	{
+		return (EReference)demEventsOverviewModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDemEventsOverviewModel_Exclude()
+	{
+		return (EReference)demEventsOverviewModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DemFactory getDemFactory()
 	{
 		return (DemFactory)getEFactoryInstance();
@@ -398,6 +470,11 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		demHumanActorRoleEClass = createEClass(DEM_HUMAN_ACTOR_ROLE);
 
 		demServiceEClass = createEClass(DEM_SERVICE);
+
+		demEventsOverviewModelEClass = createEClass(DEM_EVENTS_OVERVIEW_MODEL);
+		createEAttribute(demEventsOverviewModelEClass, DEM_EVENTS_OVERVIEW_MODEL__ALL);
+		createEReference(demEventsOverviewModelEClass, DEM_EVENTS_OVERVIEW_MODEL__INCLUDE);
+		createEReference(demEventsOverviewModelEClass, DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE);
 	}
 
 	/**
@@ -445,6 +522,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		demActorEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
 		demHumanActorRoleEClass.getESuperTypes().add(this.getDemActor());
 		demServiceEClass.getESuperTypes().add(this.getDemActor());
+		demEventsOverviewModelEClass.getESuperTypes().add(theBasePackage.getDModel());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(demDomainEventEClass, DemDomainEvent.class, "DemDomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -473,6 +551,11 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		initEClass(demHumanActorRoleEClass, DemHumanActorRole.class, "DemHumanActorRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(demServiceEClass, DemService.class, "DemService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(demEventsOverviewModelEClass, DemEventsOverviewModel.class, "DemEventsOverviewModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDemEventsOverviewModel_All(), ecorePackage.getEBoolean(), "all", null, 0, 1, DemEventsOverviewModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemEventsOverviewModel_Include(), this.getDemDomainEvent(), null, "include", null, 0, -1, DemEventsOverviewModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDemEventsOverviewModel_Exclude(), this.getDemDomainEvent(), null, "exclude", null, 0, -1, DemEventsOverviewModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
