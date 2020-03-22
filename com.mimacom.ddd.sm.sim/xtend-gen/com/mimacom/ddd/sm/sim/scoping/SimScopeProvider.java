@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
@@ -22,13 +23,13 @@ import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
-import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.scoping.AbstractSimScopeProvider;
+import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -36,17 +37,7 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
-/**
- * Timport com.mimacom.ddd.sm.sim.SFeatureDeduction
- * 
- * is class contains custom scoping description.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.
- */
 @SuppressWarnings("all")
 public class SimScopeProvider extends AbstractSimScopeProvider {
   @Inject
@@ -62,20 +53,27 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
       EReference _dDeductionRule_Source = SimScopeProvider.BASE.getDDeductionRule_Source();
       boolean _equals = Objects.equal(reference, _dDeductionRule_Source);
       if (_equals) {
-        final EObject container = context.eContainer();
-        if ((context instanceof SAggregateDeduction)) {
-          return this.getDefaultScopeOfType(context, SimScopeProvider.BASE.getDAggregate());
+        EObject _xifexpression = null;
+        if ((context instanceof DDeductionRule)) {
+          _xifexpression = ((DDeductionRule)context).eContainer();
         } else {
-          if ((context instanceof SPrimitiveDeduction)) {
-            return this.getDefaultScopeOfType(context, SimScopeProvider.BASE.getDPrimitive());
+          _xifexpression = context;
+        }
+        final EObject decduction = _xifexpression;
+        final EObject container = decduction.eContainer();
+        if ((decduction instanceof SAggregateDeduction)) {
+          return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDAggregate());
+        } else {
+          if ((decduction instanceof SPrimitiveDeduction)) {
+            return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDPrimitive());
           } else {
-            if ((context instanceof SEntityTypeDeduction)) {
-              return this.getDefaultScopeOfType(context, SimScopeProvider.BASE.getDEntityType());
+            if ((decduction instanceof SEntityTypeDeduction)) {
+              return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDEntityType());
             } else {
-              if ((context instanceof SDetailTypeDeduction)) {
-                return this.getDefaultScopeOfType(context, SimScopeProvider.BASE.getDDetailType());
+              if ((decduction instanceof SDetailTypeDeduction)) {
+                return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDDetailType());
               } else {
-                if ((context instanceof SLiteralDeduction)) {
+                if ((decduction instanceof SLiteralDeduction)) {
                   if ((container instanceof SEnumerationDeduction)) {
                     DDeductionRule _deductionRule = ((SEnumerationDeduction)container).getDeductionRule();
                     IDeducibleElement _source = null;
@@ -87,9 +85,9 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
                       return Scopes.scopeFor(((DEnumeration)sourceType).getLiterals());
                     }
                   }
-                  return this.getDefaultScopeOfType(context, SimScopeProvider.BASE.getDLiteral());
+                  return IScope.NULLSCOPE;
                 } else {
-                  if ((context instanceof SFeatureDeduction)) {
+                  if ((decduction instanceof SFeatureDeduction)) {
                     if ((container instanceof SComplexTypeDeduction)) {
                       DDeductionRule _deductionRule_1 = ((SComplexTypeDeduction)container).getDeductionRule();
                       IDeducibleElement _source_1 = null;
@@ -98,26 +96,37 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
                       }
                       final IDeducibleElement sourceType_1 = _source_1;
                       if ((sourceType_1 instanceof DComplexType)) {
-                        final Class<? extends DFeature> requiredFeatureType = this._simUtil.baseClass(((SFeatureDeduction)context));
+                        final Class<? extends DFeature> requiredFeatureType = this._simUtil.baseClass(((SFeatureDeduction)decduction));
                         return this.getInheritedFeaturesScope(((DComplexType)sourceType_1), requiredFeatureType, IScope.NULLSCOPE);
                       }
-                    }
-                    final EClass requiredFeatureType_1 = this._simUtil.baseEClass(((SFeatureDeduction)context));
-                    return this.getDefaultScopeOfType(context, requiredFeatureType_1);
-                  } else {
-                    if ((context instanceof SQueryParameterDeduction)) {
-                      if ((container instanceof SQueryDeduction)) {
-                        DDeductionRule _deductionRule_2 = ((SQueryDeduction)container).getDeductionRule();
+                    } else {
+                      if ((container instanceof SAggregateDeduction)) {
+                        DDeductionRule _deductionRule_2 = ((SAggregateDeduction)container).getDeductionRule();
                         IDeducibleElement _source_2 = null;
                         if (_deductionRule_2!=null) {
                           _source_2=_deductionRule_2.getSource();
                         }
-                        final IDeducibleElement sourceType_2 = _source_2;
-                        if ((sourceType_2 instanceof DQuery)) {
-                          return Scopes.scopeFor(((DQuery)sourceType_2).getParameters());
+                        final IDeducibleElement source = _source_2;
+                        if ((source instanceof DAggregate)) {
+                          return Scopes.scopeFor(Iterables.<DQuery>filter(((DAggregate)source).getFeatures(), DQuery.class));
                         }
                       }
-                      return this.getDefaultScopeOfType(context, SimScopeProvider.BASE.getDQueryParameter());
+                    }
+                    return IScope.NULLSCOPE;
+                  } else {
+                    if ((decduction instanceof SQueryParameterDeduction)) {
+                      if ((container instanceof SQueryDeduction)) {
+                        DDeductionRule _deductionRule_3 = ((SQueryDeduction)container).getDeductionRule();
+                        IDeducibleElement _source_3 = null;
+                        if (_deductionRule_3!=null) {
+                          _source_3=_deductionRule_3.getSource();
+                        }
+                        final IDeducibleElement source_1 = _source_3;
+                        if ((source_1 instanceof DQuery)) {
+                          return Scopes.scopeFor(((DQuery)source_1).getParameters());
+                        }
+                      }
+                      return IScope.NULLSCOPE;
                     }
                   }
                 }
@@ -137,16 +146,11 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
       final ITypeContainer container = EcoreUtil2.<ITypeContainer>getContainerOfType(context, ITypeContainer.class);
       if ((container instanceof SAggregateDeduction)) {
         final IScope outerScope = this.getDefaultScopeOfType(container, SimScopeProvider.BASE.getIValueType());
-        EObject _eContainer = ((SAggregateDeduction)container).eContainer();
-        final SInformationModel model = ((SInformationModel) _eContainer);
-        final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
-          return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getDeducedFrom(), container)));
-        };
-        final Iterable<DAggregate> syntheticAggregate = IterableExtensions.<DAggregate>filter(model.getAggregates(), _function);
-        int _size = IterableExtensions.size(syntheticAggregate);
-        boolean _equals = (_size == 1);
-        if (_equals) {
-          return Scopes.scopeFor(IterableExtensions.<DAggregate>head(syntheticAggregate).getTypes(), outerScope);
+        final List<DType> syntheticTypes = this._simUtil.syntheticTypes(((SAggregateDeduction)container));
+        boolean _isEmpty = syntheticTypes.isEmpty();
+        boolean _not = (!_isEmpty);
+        if (_not) {
+          return Scopes.scopeFor(syntheticTypes, outerScope);
         }
         return outerScope;
       }

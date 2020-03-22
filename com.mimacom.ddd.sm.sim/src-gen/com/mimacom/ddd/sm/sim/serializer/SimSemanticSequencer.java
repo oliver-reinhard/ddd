@@ -375,9 +375,13 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 					sequence_SDitchPrimitiveRule(context, (SDitchRule) semanticObject); 
 					return; 
 				}
+				else if (rule == grammarAccess.getSDitchQueryParameterRuleRule()) {
+					sequence_SDitchQueryParameterRule(context, (SDitchRule) semanticObject); 
+					return; 
+				}
 				else break;
 			case SimPackage.SDOMAIN_DEDUCTION:
-				sequence_Domain(context, (SDomainDeduction) semanticObject); 
+				sequence_SDomain(context, (SDomainDeduction) semanticObject); 
 				return; 
 			case SimPackage.SENTITY_TYPE_DEDUCTION:
 				sequence_SComplexTypeFeatures_SEntityTypeDeduction(context, (SEntityTypeDeduction) semanticObject); 
@@ -415,6 +419,10 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 					sequence_SGrabPrimitiveRule(context, (SGrabRule) semanticObject); 
 					return; 
 				}
+				else if (rule == grammarAccess.getSGrabQueryParameterRuleRule()) {
+					sequence_SGrabQueryParameterRule(context, (SGrabRule) semanticObject); 
+					return; 
+				}
 				else break;
 			case SimPackage.SINFORMATION_MODEL:
 				sequence_SInformationModel(context, (SInformationModel) semanticObject); 
@@ -429,6 +437,10 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				}
 				else if (rule == grammarAccess.getSMorphFeatureRuleRule()) {
 					sequence_SMorphFeatureRule(context, (SMorphRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSMorphQueryParameterRuleRule()) {
+					sequence_SMorphQueryParameterRule(context, (SMorphRule) semanticObject); 
 					return; 
 				}
 				else break;
@@ -485,78 +497,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Aggregate returns DAggregate
-	 *     DAggregate returns DAggregate
-	 *
-	 * Constraint:
-	 *     (name=ID description=DRichText? (features+=SQueryDeduction | features+=DQuery)* types+=Type*)
-	 */
-	protected void sequence_DAggregate(ISerializationContext context, DAggregate semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns DDetailType
-	 *     DType returns DDetailType
-	 *     DDetailType returns DDetailType
-	 *
-	 * Constraint:
-	 *     (
-	 *         abstract?='abstract'? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         superType=[DComplexType|ID]? 
-	 *         description=DRichText? 
-	 *         features+=Feature? 
-	 *         (constraints+=DConstraint? features+=Feature?)* 
-	 *         (features+=DFeature | constraints+=DConstraint)*
-	 *     )
-	 */
-	protected void sequence_DComplexType_DDetailType(ISerializationContext context, DDetailType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns DEntityType
-	 *     DEntityType returns DEntityType
-	 *     DType returns DEntityType
-	 *
-	 * Constraint:
-	 *     (
-	 *         abstract?='abstract'? 
-	 *         root?='root'? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         superType=[DComplexType|ID]? 
-	 *         description=DRichText? 
-	 *         (features+=Feature | constraints+=DConstraint)*
-	 *     )
-	 */
-	protected void sequence_DComplexType_DEntityType(ISerializationContext context, DEntityType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns DEnumeration
-	 *     DEnumeration returns DEnumeration
-	 *     DType returns DEnumeration
-	 *
-	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? (literals+=Literal literals+=Literal*)? constraints+=DConstraint*)
-	 */
-	protected void sequence_DEnumeration(ISerializationContext context, DEnumeration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
@@ -569,51 +509,11 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Feature returns DQuery
-	 *     DQuery returns DQuery
-	 *     DFeature returns DQuery
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         (parameters+=QueryParameter parameters+=QueryParameter*)? 
-	 *         type=[DType|ID] 
-	 *         multiplicity=DMultiplicity? 
-	 *         returns=DExpression? 
-	 *         description=DRichText?
-	 *     )
-	 */
-	protected void sequence_DQuery(ISerializationContext context, DQuery semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Domain returns SDomainDeduction
-	 *
-	 * Constraint:
-	 *     deductionRule=SGrabModelRule
-	 */
-	protected void sequence_Domain(ISerializationContext context, SDomainDeduction semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0(), semanticObject.getDeductionRule());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Aggregate returns SAggregateDeduction
+	 *     SAggregate returns SAggregateDeduction
 	 *     SAggregateDeduction returns SAggregateDeduction
 	 *
 	 * Constraint:
-	 *     (deductionRule=SGrabAggregateRule description=DRichText? (features+=SQueryDeduction | features+=DQuery)* types+=Type*)
+	 *     (deductionRule=SGrabAggregateRule description=DRichText? (features+=SQueryDeduction | features+=DQuery)* types+=SType*)
 	 */
 	protected void sequence_SAggregateDeduction(ISerializationContext context, SAggregateDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -622,7 +522,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Feature returns SAssociationDeduction
+	 *     SFeature returns SAssociationDeduction
 	 *     SAssociationDeduction returns SAssociationDeduction
 	 *
 	 * Constraint:
@@ -635,7 +535,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Feature returns SAttributeDeduction
+	 *     SFeature returns SAttributeDeduction
 	 *     SAttributeDeduction returns SAttributeDeduction
 	 *
 	 * Constraint:
@@ -655,15 +555,16 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Type returns SDetailTypeDeduction
+	 *     DType returns SDetailTypeDeduction
+	 *     SType returns SDetailTypeDeduction
 	 *     SDetailTypeDeduction returns SDetailTypeDeduction
 	 *
 	 * Constraint:
 	 *     (
 	 *         (deductionRule=SGrabComplexTypeRule | deductionRule=SDitchComplexTypeRule | deductionRule=SMorphComplexTypeRule | deductionRule=SFuseComplexTypeRule) 
 	 *         description=DRichText? 
-	 *         features+=Feature? 
-	 *         (constraints+=DConstraint? features+=Feature?)*
+	 *         features+=SFeature? 
+	 *         (constraints+=DConstraint? features+=SFeature?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SDetailTypeDeduction(ISerializationContext context, SDetailTypeDeduction semanticObject) {
@@ -673,7 +574,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Type returns SEntityTypeDeduction
+	 *     DType returns SEntityTypeDeduction
+	 *     SType returns SEntityTypeDeduction
 	 *     SEntityTypeDeduction returns SEntityTypeDeduction
 	 *
 	 * Constraint:
@@ -685,7 +587,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *             (root?='root'? deductionRule=SFuseComplexTypeRule)
 	 *         ) 
 	 *         description=DRichText? 
-	 *         (features+=Feature | constraints+=DConstraint)*
+	 *         (features+=SFeature | constraints+=DConstraint)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SEntityTypeDeduction(ISerializationContext context, SEntityTypeDeduction semanticObject) {
@@ -785,14 +687,51 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Type returns SEnumerationDeduction
+	 *     SDitchQueryParameterRule returns SDitchRule
+	 *
+	 * Constraint:
+	 *     source=[DQueryParameter|ID]
+	 */
+	protected void sequence_SDitchQueryParameterRule(ISerializationContext context, SDitchRule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSDitchQueryParameterRuleAccess().getSourceDQueryParameterIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SDomain returns SDomainDeduction
+	 *
+	 * Constraint:
+	 *     deductionRule=SGrabModelRule
+	 */
+	protected void sequence_SDomain(ISerializationContext context, SDomainDeduction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0(), semanticObject.getDeductionRule());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DType returns SEnumerationDeduction
+	 *     SType returns SEnumerationDeduction
 	 *     SEnumerationDeduction returns SEnumerationDeduction
 	 *
 	 * Constraint:
 	 *     (
 	 *         (deductionRule=SGrabEnumerationRule | deductionRule=SDitchEnumerationRule) 
 	 *         description=DRichText? 
-	 *         (literals+=Literal literals+=Literal*)? 
+	 *         (literals+=SLiteral literals+=SLiteral*)? 
 	 *         constraints+=DConstraint*
 	 *     )
 	 */
@@ -893,10 +832,28 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SGrabQueryParameterRule returns SGrabRule
+	 *
+	 * Constraint:
+	 *     (source=[DQueryParameter|ID] renameTo=ID?)
+	 */
+	protected void sequence_SGrabQueryParameterRule(ISerializationContext context, SGrabRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SInformationModel returns SInformationModel
 	 *
 	 * Constraint:
-	 *     (kind=SInformationModelKind name=ID generate?='generate'? description=DRichText? (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*)
+	 *     (
+	 *         kind=SInformationModelKind 
+	 *         name=ID 
+	 *         generate?='generate'? 
+	 *         description=DRichText? 
+	 *         (types+=SType | aggregates+=SAggregate | domainProxies+=SDomain)*
+	 *     )
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -905,7 +862,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Literal returns SLiteralDeduction
+	 *     SLiteral returns SLiteralDeduction
 	 *     SLiteralDeduction returns SLiteralDeduction
 	 *
 	 * Constraint:
@@ -930,7 +887,20 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Type returns SPrimitiveDeduction
+	 *     SMorphQueryParameterRule returns SMorphRule
+	 *
+	 * Constraint:
+	 *     (source=[DQueryParameter|ID] renameTo=ID? retypeTo=[DType|ID] remultiplyTo=DMultiplicity?)
+	 */
+	protected void sequence_SMorphQueryParameterRule(ISerializationContext context, SMorphRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DType returns SPrimitiveDeduction
+	 *     SType returns SPrimitiveDeduction
 	 *     SPrimitiveDeduction returns SPrimitiveDeduction
 	 *
 	 * Constraint:
@@ -943,13 +913,13 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Feature returns SQueryDeduction
+	 *     SFeature returns SQueryDeduction
 	 *     SQueryDeduction returns SQueryDeduction
 	 *
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule) (parameters+=QueryParameter parameters+=QueryParameter*)?) | 
+	 *             ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule) (parameters+=SQueryParameter parameters+=SQueryParameter*)?) | 
 	 *             deductionRule=SDitchFeatureRule
 	 *         ) 
 	 *         description=DRichText?
@@ -962,11 +932,14 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     QueryParameter returns SQueryParameterDeduction
+	 *     SQueryParameter returns SQueryParameterDeduction
 	 *     SQueryParameterDeduction returns SQueryParameterDeduction
 	 *
 	 * Constraint:
-	 *     ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule | deductionRule=SDitchFeatureRule) description=DRichText?)
+	 *     (
+	 *         (deductionRule=SGrabQueryParameterRule | deductionRule=SMorphQueryParameterRule | deductionRule=SDitchQueryParameterRule) 
+	 *         description=DRichText?
+	 *     )
 	 */
 	protected void sequence_SQueryParameterDeduction(ISerializationContext context, SQueryParameterDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

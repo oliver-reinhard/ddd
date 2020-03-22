@@ -27,7 +27,7 @@ DInformationModel:
 	
 DAggregate:
 	{DAggregate}
-	'component'
+	DAggregateKeyword
 	name=ID
 	(description=DRichText)?
 	'{'
@@ -35,6 +35,8 @@ DAggregate:
 		( types+=DType)*
 	'}';
 
+DAggregateKeyword:
+	'component';
 /*
  * TYPES
  */
@@ -78,14 +80,11 @@ DLiteral:
 
 DEntityType:
 	(abstract?='abstract')?
-	(	(root?='root')?
-		origin=DEntityOriginGeneric
-	|	(root?='main')?
-		(	'physical' origin=DEntityOriginObject // validation: cannot be abstract
-		|	'virtual' origin=DEntityOriginConcept
-		|	origin=DEntityOriginRelationship
-		) 
-	)
+	(root?='main')?
+	(	'entity'
+	|	nature=DEntityNatureAutonomous 'entity'	// validation: cannot be abstract
+	|	nature=DEntityNatureRelationship
+	) 
 	DComplexType
 	'{'
 	(	'states' 
@@ -101,13 +100,9 @@ DEntityType:
 	(features+=DFeature | constraints+=DConstraint)*
 	'}';
 	
-enum DEntityOriginGeneric returns DEntityOrigin:
-	GENERIC_ENTITY='entity';	
-enum DEntityOriginObject returns DEntityOrigin:
-	PHYSICAL_OBJECT='object';	
-enum DEntityOriginConcept returns DEntityOrigin:
-	VIRTUAL_CONCEPT='concept';	
-enum DEntityOriginRelationship returns DEntityOrigin:
+enum DEntityNatureAutonomous returns DEntityNature:
+	AUTONOMOUS_ENTITY='autonomous';	
+enum DEntityNatureRelationship returns DEntityNature:
 	RELATIONSHIP='relationship';	
 
 DState:
@@ -138,7 +133,8 @@ DAssociation:
 	name=ID
 	('alias' aliases+=ID)*
 	(kind=DAssociationKind | (kind=DAssociationKindInverse "contains"))
-	type=[DEntityType|ID]  (multiplicity=DMultiplicity)?
+	(type=[DEntityType|ID])?  // optional: allows parser to continue parsing potential targets, caught by validation
+	(multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
 enum DAssociationKind:
@@ -149,10 +145,10 @@ enum DAssociationKindInverse returns DAssociationKind:
 	
 DAttribute:
 	(detail?='detail')?
-	(name=ID
+	name=ID
 	('alias' aliases+=ID)*
 	':'
-	type=[DType|ID] )
+	(type=[DType|ID])? // optional: allows parser to continue parsing potential targets, caught by validation
 	(multiplicity=DMultiplicity)?
 	(key?='key')?
 	(description=DRichText)?;
@@ -162,13 +158,15 @@ DQuery:
 	('alias' aliases+=ID)*
 	'(' (parameters+=DQueryParameter ( "," parameters+=DQueryParameter)*)? ')'
 	':' 
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	(type=[DType|ID])?  // optional: allows parser to continue parsing potential targets, caught by validation
+	(multiplicity=DMultiplicity)?
 	('returns' ^returns=DExpression)?
 	(description=DRichText)?;
 
 DQueryParameter:
 	name=ID 
 	':' 
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	(type=[DType|ID])? // optional: allows parser to continue parsing potential targets, caught by validation
+	(multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 

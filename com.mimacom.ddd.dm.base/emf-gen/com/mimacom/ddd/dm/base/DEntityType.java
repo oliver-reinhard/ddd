@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#isRoot <em>Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getNature <em>Nature</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getStates <em>States</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getEvents <em>Events</em>}</li>
  * </ul>
@@ -48,29 +48,29 @@ public interface DEntityType extends DComplexType, IIdentityType
 	void setRoot(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Origin</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DEntityOrigin}.
+	 * Returns the value of the '<em><b>Nature</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DEntityNature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Origin</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
-	 * @see #setOrigin(DEntityOrigin)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType_Origin()
+	 * @return the value of the '<em>Nature</em>' attribute.
+	 * @see com.mimacom.ddd.dm.base.DEntityNature
+	 * @see #setNature(DEntityNature)
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType_Nature()
 	 * @model
 	 * @generated
 	 */
-	DEntityOrigin getOrigin();
+	DEntityNature getNature();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DEntityType#getOrigin <em>Origin</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DEntityType#getNature <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Origin</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
-	 * @see #getOrigin()
+	 * @param value the new value of the '<em>Nature</em>' attribute.
+	 * @see com.mimacom.ddd.dm.base.DEntityNature
+	 * @see #getNature()
 	 * @generated
 	 */
-	void setOrigin(DEntityOrigin value);
+	void setNature(DEntityNature value);
 
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.

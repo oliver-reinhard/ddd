@@ -18,7 +18,7 @@ SInformationModel:
 	 (^generate?='generate')?
 	(description=DRichText)?
 	'{'
-	(types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*
+	(types+=SType | aggregates+=SAggregate | domainProxies+=SDomain)*
 	'}';
 
 enum SInformationModelKind:
@@ -93,6 +93,19 @@ SMorphFeatureRule returns SMorphRule:
 
 SDitchFeatureRule returns SDitchRule:
 	source=[DFeature|ID];
+	
+SGrabQueryParameterRule returns SGrabRule:
+	source=[DQueryParameter|ID]
+	('as' renameTo=ID)?;
+	
+SMorphQueryParameterRule returns SMorphRule:
+	source=[DQueryParameter|ID]
+	'to'
+	(renameTo=ID ':')? 
+	retypeTo=[DType|ID] (remultiplyTo=DMultiplicity)?;	
+
+SDitchQueryParameterRule returns SDitchRule:
+	source=[DQueryParameter|ID];
 
 enum SAbstractType returns STristate:
 	FALSE='nonabstract' | TRUE='abstract';
@@ -106,11 +119,11 @@ enum SDetailType returns STristate:
 enum SEntityType returns STristate:
 	FALSE='entity';
 	
-Domain returns SDomainDeduction:
+SDomain returns SDomainDeduction:
 	{SDomainDeduction}
 	'grab' 'domain' deductionRule=SGrabModelRule;
 
-Aggregate returns DAggregate:
+SAggregate returns DAggregate:
 	SAggregateDeduction | DAggregate;
 
 SAggregateDeduction:
@@ -118,30 +131,31 @@ SAggregateDeduction:
 	'grab' 'aggregate' deductionRule=SGrabAggregateRule
 	(description=DRichText)?
 	(	'{'
-			(features+=SQueryDeduction | 'query' features+=DQuery)*
-			( types+=Type)*
+			(features+=SQueryDeduction | 'add' 'query' features+=DQuery)*
+			( types+=SType)*
 		'}'
 	)?;
 		
 @Override 
-DAggregate:
-	{DAggregate}
-	'aggregate'
-	name=ID
-	(description=DRichText)?
-	'{'
-		(features+=SQueryDeduction | 'query' features+=DQuery)*
-		( types+=Type)*
-	'}';
+DAggregateKeyword:
+	'aggregate';  // replace DIM keyword 'component'
 
 /*
  * TYPES
  */
-Type returns DType:
+
+@Override
+DType:
 	SPrimitiveDeduction | DPrimitive
 	| SEnumerationDeduction | DEnumeration
 	| SEntityTypeDeduction | DEntityType
 	| SDetailTypeDeduction | DDetailType;
+	
+SType returns DType:
+	SPrimitiveDeduction | 'add' DPrimitive
+	| SEnumerationDeduction | 'add' DEnumeration
+	| SEntityTypeDeduction | 'add' DEntityType
+	| SDetailTypeDeduction | 'add' DDetailType;
 
 SPrimitiveDeduction:
 	{SPrimitiveDeduction}
@@ -150,7 +164,7 @@ SPrimitiveDeduction:
 	)
 	(description=DRichText)?
 	(	'{'
-		(constraints+=DConstraint)*
+		('add' constraints+=DConstraint)*
 		'}'
 	)?;
 	
@@ -161,25 +175,13 @@ SEnumerationDeduction:
 	)
 	(description=DRichText)?
 	(	'{'
-		 	(literals+=Literal (',' literals+=Literal)*)?
-			(constraints+=DConstraint)*
+		 	(literals+=SLiteral (',' literals+=SLiteral)*)?
+			('add' constraints+=DConstraint)*
 		 '}'
 	)?;
 	 
-@Override 
-DEnumeration:
-	'enumeration'
-	name=ID
-	('alias' aliases+=ID)*
-	(description=DRichText)?
-	(	'{'
-		 	(literals+=Literal (',' literals+=Literal)*)?
-			(constraints+=DConstraint)*
-		 '}'
-	)?;
-	 
-Literal returns DLiteral:
-	SLiteralDeduction | DLiteral;
+SLiteral returns DLiteral:
+	SLiteralDeduction | 'add' DLiteral;
 	
 SLiteralDeduction:
 	{SLiteralDeduction}
@@ -209,37 +211,18 @@ SDetailTypeDeduction:
 	SComplexTypeFeatures?;
 
 fragment SComplexTypeFeatures returns DComplexType:
-	(	'add'
-		'{'
-			(features+=Feature | constraints+=DConstraint)*
-		'}'
-	|	'{' '}'
-	);
-
-@Override 
-DEntityType:
-	(abstract?='abstract')?
-	(root?='root')?
-	'entity'
-	DComplexType;
-		
-@Override 
-fragment DComplexType:
-	name=ID
-	('alias' aliases+=ID)*
-	('extends' superType=[DComplexType|ID])?
-	(description=DRichText)?
 	'{'
-		(features+=Feature | constraints+=DConstraint)*
+			(features+=SFeature | 'add' constraints+=DConstraint)*
 	'}';
 	
 /*
  * FEATURES
  */	
-Feature returns DFeature:
-	SAssociationDeduction | DAssociation
-	| SAttributeDeduction | DAttribute
-	| SQueryDeduction | DQuery;
+	
+SFeature returns DFeature:
+	SAssociationDeduction | 'add' DAssociation
+	| SAttributeDeduction | 'add' DAttribute
+	| SQueryDeduction | 'add' DQuery;
 
 SAssociationDeduction:
 	{SAssociationDeduction} 
@@ -264,30 +247,20 @@ SQueryDeduction:
 		)
 		'('
 		(	'*'
-		|	(parameters+=QueryParameter ( ',' parameters+=QueryParameter)*)?
+		|	parameters+=SQueryParameter ( ',' parameters+=SQueryParameter)*
 		)
 		')'
 	|	'ditch' 'query' deductionRule=SDitchFeatureRule
 	)
 	(description=DRichText)?;
-	
-@Override 
-DQuery:
-	name=ID
-	('alias' aliases+=ID)*
-	'(' (parameters+=QueryParameter ( "," parameters+=QueryParameter)*)? ')'
-	':' 
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
-	('returns' ^returns=DExpression)?
-	(description=DRichText)?;
-	
-QueryParameter returns DQueryParameter:
-	SQueryParameterDeduction | DQueryParameter;
+		
+SQueryParameter returns DQueryParameter:
+	SQueryParameterDeduction | 'add' DQueryParameter;
 	
 SQueryParameterDeduction:
 	{SQueryParameterDeduction} 
-	(	'grab' deductionRule=SGrabFeatureRule
-	|	'morph' deductionRule=SMorphFeatureRule
-	|	'ditch' deductionRule=SDitchFeatureRule
+	(	'grab' deductionRule=SGrabQueryParameterRule
+	|	'morph' deductionRule=SMorphQueryParameterRule
+	|	'ditch' deductionRule=SDitchQueryParameterRule
 	)
 	(description=DRichText)?;

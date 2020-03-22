@@ -158,8 +158,8 @@ public class DimFormatter extends DmxFormatter {
   }
   
   protected void _format(final DComplexType type, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_3());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_6());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_4());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_7());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };

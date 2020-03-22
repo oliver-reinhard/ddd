@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.sm.sim.validation
 
+import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DAggregate
@@ -40,6 +41,7 @@ import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
+import com.mimacom.ddd.dm.base.DFeature
 
 /**
  * This class contains custom validation rules. 
@@ -145,8 +147,9 @@ class SimValidator extends AbstractSimValidator {
 	@Check
 	def void checkHasDeducedContainer(SFeatureDeduction f) {
 		val container = f.eContainer
-		if (!(container instanceof SComplexTypeDeduction)) {
-			error("Features can only have a deduction rule if the containing type also has a deduction rule.",
+		if (!(container instanceof SComplexTypeDeduction || container instanceof SAggregateDeduction)) {
+			error(
+				"Features can only have a deduction rule if the containing type or aggregate also has a deduction rule.",
 				f.deductionRule, BasePackage.Literals.DDEDUCTION_RULE__SOURCE)
 		}
 	}
@@ -162,7 +165,7 @@ class SimValidator extends AbstractSimValidator {
 	@Check
 	def checkCorrespondingDQueryType(SQueryDeduction q) {
 		if (q.deductionRule.source !== null && ! (q.deductionRule.source instanceof DQuery)) {
-			error("Deduced query rule must have a domain-model attribute as its source", q.deductionRule,
+			error("Deduced query rule must have a domain-model query as its source", q.deductionRule,
 				BasePackage.Literals.DDEDUCTION_RULE__SOURCE)
 		}
 	}
@@ -170,7 +173,7 @@ class SimValidator extends AbstractSimValidator {
 	@Check
 	def checkCorrespondingDAssociationType(SAssociationDeduction a) {
 		if (a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAssociation)) {
-			error("Deduced association rule must have a domain-model association as its source",
+			error("Deduced association rule must have a domain-model association as its source", a.deductionRule,
 				BasePackage.Literals.DDEDUCTION_RULE__SOURCE)
 		}
 	}
@@ -191,7 +194,23 @@ class SimValidator extends AbstractSimValidator {
 		}
 		super.checkEnumerationHasLiterals(e)
 	}
+	
+	override protected allTypes(DAggregate a) {
+		if (a instanceof SAggregateDeduction) {
+			val types = Lists.newArrayList
+			types.addAll(a.types.filter[! (it instanceof IDeductionDefinition)])
+			types.addAll(a.syntheticTypes)
+			return types
+		}
+		return super.allTypes(a)
+	}
 
+	override checkFeatureTypeIsSet(DFeature f) {
+		if (! (f instanceof IDeductionDefinition || f.synthetic)) {
+			super.checkFeatureTypeIsSet(f)
+		}
+	}
+	
 	@Check
 	override checkAttributeIsValueType(DAttribute a) {
 		if (a instanceof IDeductionDefinition) {
@@ -218,7 +237,8 @@ class SimValidator extends AbstractSimValidator {
 //		} else
 		if (a.synthetic) {
 			if (a.getType === null) {
-				errorOnStructuralElement(a, getDescription(a) + ": no type mapping for target of association '" + a.name + "'")
+				errorOnStructuralElement(a,
+					getDescription(a) + ": no type mapping for target of association '" + a.name + "'")
 			} else if (! (a.getType instanceof IIdentityType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": association target must be an IdentityType")
 			}

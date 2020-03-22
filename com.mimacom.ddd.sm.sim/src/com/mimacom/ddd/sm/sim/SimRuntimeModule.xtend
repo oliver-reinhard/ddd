@@ -10,7 +10,6 @@ import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
-import com.mimacom.ddd.sm.sim.scoping.SimCrossReferenceSerializer
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.DerivedStateAwareResource
@@ -20,7 +19,6 @@ import org.eclipse.xtext.resource.IDerivedStateComputer
 import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
-import org.eclipse.xtext.serializer.tokens.ICrossReferenceSerializer
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -59,7 +57,7 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 		return SimResourceDescriptionStrategy;
 	}
 
-	def Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
-		SimCrossReferenceSerializer // TODO remove if bug has been fixed
-	}
+//	def Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
+//		SimCrossReferenceSerializer // TODO remove if bug has been fixed
+//	}
 }

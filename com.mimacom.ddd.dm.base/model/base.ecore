@@ -119,16 +119,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="DDetailType" eSuperTypes="#//DComplexType #//IValueType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DEntityType" eSuperTypes="#//DComplexType #//IIdentityType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//DEntityOrigin"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nature" eType="#//DEntityNature"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="#//DState" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//DStateEvent" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DEntityOrigin">
-    <eLiterals name="GENERIC_ENTITY"/>
-    <eLiterals name="PHYSICAL_OBJECT" value="1"/>
-    <eLiterals name="VIRTUAL_CONCEPT" value="2"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="DEntityNature">
+    <eLiterals name="CONTROLLED_ENTITY"/>
+    <eLiterals name="AUTONOMOUS_ENTITY" value="1"/>
     <eLiterals name="RELATIONSHIP" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DFeature" abstract="true" eSuperTypes="#//DNavigableMember #//IDeducibleElement"/>

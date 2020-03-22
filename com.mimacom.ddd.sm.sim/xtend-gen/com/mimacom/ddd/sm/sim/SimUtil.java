@@ -1,5 +1,6 @@
 package com.mimacom.ddd.sm.sim;
 
+import com.google.common.base.Objects;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
@@ -15,6 +16,7 @@ import com.mimacom.ddd.dm.base.impl.DEnumerationImpl;
 import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl;
 import com.mimacom.ddd.dm.base.impl.DTypeImpl;
 import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
 import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
@@ -25,12 +27,18 @@ import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
+import java.util.Collections;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class SimUtil extends DimUtil {
@@ -82,6 +90,21 @@ public class SimUtil extends DimUtil {
       }
     }
     return _switchResult;
+  }
+  
+  public List<DType> syntheticTypes(final SAggregateDeduction a) {
+    EObject _eContainer = a.eContainer();
+    final SInformationModel model = ((SInformationModel) _eContainer);
+    final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
+      return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getDeducedFrom(), a)));
+    };
+    final Iterable<DAggregate> syntheticAggregates = IterableExtensions.<DAggregate>filter(model.getAggregates(), _function);
+    int _size = IterableExtensions.size(syntheticAggregates);
+    boolean _equals = (_size == 1);
+    if (_equals) {
+      return IterableExtensions.<DAggregate>head(syntheticAggregates).getTypes();
+    }
+    return Collections.EMPTY_LIST;
   }
   
   public EClass baseEClass(final SFeatureDeduction feature) {

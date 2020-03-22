@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DEntityOrigin
+import com.mimacom.ddd.dm.base.DEntityNature
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DInformationModel
@@ -135,7 +135,7 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
 		return switch t {
-		DEntityType : if (t.root) "<< (R,#FB3333) >>" else if (t.origin == DEntityOrigin.RELATIONSHIP) "<< (R,#FA78C8) >>" else "<< (E,#F78100) >>"
+		DEntityType : if (t.root) "<< (R,#FB3333) >>" else if (t.nature == DEntityNature.RELATIONSHIP) "<< (R,#FA78C8) >>" else "<< (E,#F78100) >>"
 		DDetailType : "<< (D,#FAE55F) >>"
 		DEnumeration: "<< (e,#66B371) >>"
 		DPrimitive:  "<< (p,#9AF78F) >>"

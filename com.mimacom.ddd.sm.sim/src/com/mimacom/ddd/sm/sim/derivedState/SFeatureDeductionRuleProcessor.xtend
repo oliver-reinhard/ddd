@@ -49,6 +49,7 @@ class SFeatureDeductionRuleProcessor  {
 			if (deductionDefinition instanceof SQueryDeduction) {
 				val syntheticQuery = syntheticFeature as DQuery
 				val parameterDeductionDefinitions = deductionDefinition.parameters.filter(SQueryParameterDeduction)
+				var explicitParameters = deductionDefinition.parameters.filter[! (it instanceof SQueryParameterDeduction || it.synthetic)]
 				if (! parameterDeductionDefinitions.exists[deductionDefinition instanceof SGrabRule]) {
 					// there are not explicit grabs, so implicitly grab all features without a rule:
 					val implicitlyGrabbedSourceParameters = Lists.newArrayList((source as DQuery).parameters)
@@ -64,6 +65,11 @@ class SFeatureDeductionRuleProcessor  {
 				for (definition : parameterDeductionDefinitionsList) {
 					syntheticQuery.processQueryParameterDeduction(definition, definition.deductionRule, context)
 				}
+		
+				// add explicit parameters (= parameters added without rule):
+				for (param : explicitParameters) {
+					syntheticQuery.addSyntheticQueryParameterAsCopy(param, context)
+				}
 			}
 			return syntheticFeature
 		}
@@ -72,12 +78,12 @@ class SFeatureDeductionRuleProcessor  {
 	
 	def void addSyntheticFeatures(SyntheticFeatureContainerDescriptor desc, TransformationContext context) {
 		var Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.newArrayList
-		var Iterable<DFeature> genuineFeatures = Lists.newArrayList
+		var Iterable<DFeature> explicitFeatures = Lists.newArrayList
 		
 		if (desc.deductionDefinition !== null) {
 			val featureContainer =  desc.deductionDefinition as IFeatureContainer
 			featureDeductionDefinitions =featureContainer.features.filter(SFeatureDeduction)
-			genuineFeatures = featureContainer.features.filter[! (it instanceof SFeatureDeduction || it.synthetic)]
+			explicitFeatures = featureContainer.features.filter[! (it instanceof SFeatureDeduction || it.synthetic)]
 		}
 		if (! featureDeductionDefinitions.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab all features without a rule:
@@ -97,7 +103,7 @@ class SFeatureDeductionRuleProcessor  {
 		}
 		
 		// add explicit features (= features added without rule):
-		for (feature : genuineFeatures) {
+		for (feature : explicitFeatures) {
 				desc.syntheticType.addSyntheticFeatureAsCopy(feature, context)
 		}
 	}

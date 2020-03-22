@@ -70,8 +70,8 @@ class SimFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(SComplexTypeDeduction type, extension IFormattableDocument document) {
-		val open = type.regionFor.keyword(SComplexTypeFeaturesAccess.leftCurlyBracketKeyword_0_1)
-		val close = type.regionFor.keyword(SComplexTypeFeaturesAccess.rightCurlyBracketKeyword_0_3)
+		val open = type.regionFor.keyword(SComplexTypeFeaturesAccess.leftCurlyBracketKeyword_0)
+		val close = type.regionFor.keyword(SComplexTypeFeaturesAccess.rightCurlyBracketKeyword_2)
 		open.append[newLine]
 		interior(open, close)[indent]
 		close.append[newLines = 2]

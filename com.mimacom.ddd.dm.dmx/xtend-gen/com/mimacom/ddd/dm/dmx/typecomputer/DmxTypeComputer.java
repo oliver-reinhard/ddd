@@ -64,6 +64,10 @@ public class DmxTypeComputer {
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxMemberNavigation expr) {
     final DNavigableMember member = expr.getMember();
+    boolean _eIsProxy = member.eIsProxy();
+    if (_eIsProxy) {
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+    }
     if ((member instanceof DmxFilter)) {
       final DmxFilterTypeDescriptor returnType = ((DmxFilter)member).getTypeDesc();
       if ((returnType.isCompatible(DmxBaseType.COMPLEX) || ((DmxFilter)member).getTypeDesc().isMultiTyped())) {

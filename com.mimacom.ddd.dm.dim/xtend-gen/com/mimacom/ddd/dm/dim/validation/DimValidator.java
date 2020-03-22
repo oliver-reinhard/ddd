@@ -12,7 +12,7 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DEntityOrigin;
+import com.mimacom.ddd.dm.base.DEntityNature;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -32,6 +32,7 @@ import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.validation.AbstractDimValidator;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -149,8 +150,8 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkRelationshipHasTwoAssociations(final DEntityType r) {
-    DEntityOrigin _origin = r.getOrigin();
-    boolean _equals = Objects.equal(_origin, DEntityOrigin.RELATIONSHIP);
+    DEntityNature _nature = r.getNature();
+    boolean _equals = Objects.equal(_nature, DEntityNature.RELATIONSHIP);
     if (_equals) {
       int count = 0;
       int _size = r.getFeatures().size();
@@ -187,6 +188,15 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
+  public void checkFeatureTypeIsSet(final DFeature f) {
+    DType _type = f.getType();
+    boolean _tripleEquals = (_type == null);
+    if (_tripleEquals) {
+      this.error("Feature must have a type", f, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+    }
+  }
+  
+  @Check
   public void checkAttributeIsValueType(final DAttribute a) {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof IValueType));
@@ -197,8 +207,8 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkRealWorldEntityType(final DEntityType e) {
-    if ((Objects.equal(e.getOrigin(), DEntityOrigin.PHYSICAL_OBJECT) && e.isAbstract())) {
-      this.error("Entity Types representing real-world objects cannot be abstract", e, 
+    if ((Objects.equal(e.getNature(), DEntityNature.AUTONOMOUS_ENTITY) && e.isAbstract())) {
+      this.error("Autonomous entities cannot be abstract", e, 
         BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT);
     }
   }
@@ -246,7 +256,11 @@ public class DimValidator extends AbstractDimValidator {
     final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(member, DAggregate.class);
     final DType type = member.getType();
     return (((type instanceof IValueType) || Objects.equal(type, containingType)) || 
-      (((type instanceof DEntityType) && ((DEntityType) type).isRoot()) && aggregate.getTypes().contains(type)));
+      (((type instanceof DEntityType) && ((DEntityType) type).isRoot()) && this.allTypes(aggregate).contains(type)));
+  }
+  
+  protected List<DType> allTypes(final DAggregate a) {
+    return a.getTypes();
   }
   
   protected void checkNameStartsWithCapitalImpl(final String name, final DNamedElement ne) {

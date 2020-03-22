@@ -3,7 +3,7 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DEntityOrigin;
+import com.mimacom.ddd.dm.base.DEntityNature;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl#isRoot <em>Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl#getNature <em>Nature</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl#getStates <em>States</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl#getEvents <em>Events</em>}</li>
  * </ul>
@@ -62,24 +62,24 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	protected boolean root = ROOT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getOrigin() <em>Origin</em>}' attribute.
+	 * The default value of the '{@link #getNature() <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrigin()
+	 * @see #getNature()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DEntityOrigin ORIGIN_EDEFAULT = DEntityOrigin.GENERIC_ENTITY;
+	protected static final DEntityNature NATURE_EDEFAULT = DEntityNature.CONTROLLED_ENTITY;
 
 	/**
-	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' attribute.
+	 * The cached value of the '{@link #getNature() <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrigin()
+	 * @see #getNature()
 	 * @generated
 	 * @ordered
 	 */
-	protected DEntityOrigin origin = ORIGIN_EDEFAULT;
+	protected DEntityNature nature = NATURE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
@@ -153,9 +153,9 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * @generated
 	 */
 	@Override
-	public DEntityOrigin getOrigin()
+	public DEntityNature getNature()
 	{
-		return origin;
+		return nature;
 	}
 
 	/**
@@ -164,12 +164,12 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * @generated
 	 */
 	@Override
-	public void setOrigin(DEntityOrigin newOrigin)
+	public void setNature(DEntityNature newNature)
 	{
-		DEntityOrigin oldOrigin = origin;
-		origin = newOrigin == null ? ORIGIN_EDEFAULT : newOrigin;
+		DEntityNature oldNature = nature;
+		nature = newNature == null ? NATURE_EDEFAULT : newNature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DENTITY_TYPE__ORIGIN, oldOrigin, origin));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DENTITY_TYPE__NATURE, oldNature, nature));
 	}
 
 	/**
@@ -232,8 +232,8 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 		{
 			case BasePackage.DENTITY_TYPE__ROOT:
 				return isRoot();
-			case BasePackage.DENTITY_TYPE__ORIGIN:
-				return getOrigin();
+			case BasePackage.DENTITY_TYPE__NATURE:
+				return getNature();
 			case BasePackage.DENTITY_TYPE__STATES:
 				return getStates();
 			case BasePackage.DENTITY_TYPE__EVENTS:
@@ -256,8 +256,8 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 			case BasePackage.DENTITY_TYPE__ROOT:
 				setRoot((Boolean)newValue);
 				return;
-			case BasePackage.DENTITY_TYPE__ORIGIN:
-				setOrigin((DEntityOrigin)newValue);
+			case BasePackage.DENTITY_TYPE__NATURE:
+				setNature((DEntityNature)newValue);
 				return;
 			case BasePackage.DENTITY_TYPE__STATES:
 				getStates().clear();
@@ -284,8 +284,8 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 			case BasePackage.DENTITY_TYPE__ROOT:
 				setRoot(ROOT_EDEFAULT);
 				return;
-			case BasePackage.DENTITY_TYPE__ORIGIN:
-				setOrigin(ORIGIN_EDEFAULT);
+			case BasePackage.DENTITY_TYPE__NATURE:
+				setNature(NATURE_EDEFAULT);
 				return;
 			case BasePackage.DENTITY_TYPE__STATES:
 				getStates().clear();
@@ -309,8 +309,8 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 		{
 			case BasePackage.DENTITY_TYPE__ROOT:
 				return root != ROOT_EDEFAULT;
-			case BasePackage.DENTITY_TYPE__ORIGIN:
-				return origin != ORIGIN_EDEFAULT;
+			case BasePackage.DENTITY_TYPE__NATURE:
+				return nature != NATURE_EDEFAULT;
 			case BasePackage.DENTITY_TYPE__STATES:
 				return states != null && !states.isEmpty();
 			case BasePackage.DENTITY_TYPE__EVENTS:
@@ -332,8 +332,8 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (root: ");
 		result.append(root);
-		result.append(", origin: ");
-		result.append(origin);
+		result.append(", nature: ");
+		result.append(nature);
 		result.append(')');
 		return result.toString();
 	}

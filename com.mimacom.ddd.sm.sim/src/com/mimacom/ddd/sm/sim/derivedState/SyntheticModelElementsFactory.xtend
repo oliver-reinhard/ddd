@@ -161,7 +161,7 @@ class SyntheticModelElementsFactory {
 		syntheticParameter.type = source.getType
 		syntheticParameter.multiplicity = source.getMultiplicity
 		syntheticParameter.synthetic = true
-		syntheticParameter.deducedFrom = null /* NOTE null */
+		syntheticParameter.deducedFrom = null /* NOTE: null */
 		container.parameters.add(syntheticParameter)
 		return syntheticParameter
 	}

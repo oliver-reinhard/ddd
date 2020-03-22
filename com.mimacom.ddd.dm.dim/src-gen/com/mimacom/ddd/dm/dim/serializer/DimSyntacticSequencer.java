@@ -37,7 +37,9 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
+		if (ruleCall.getRule() == grammarAccess.getDAggregateKeywordRule())
+			return getDAggregateKeywordToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
 			return getDmxOpCastToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpInstanceOfRule())
 			return getDmxOpInstanceOfToken(semanticObject, ruleCall, node);
@@ -46,6 +48,16 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 		else if (ruleCall.getRule() == grammarAccess.getDomFieldListStartSymbolRule())
 			return getDomFieldListStartSymbolToken(semanticObject, ruleCall, node);
 		return "";
+	}
+	
+	/**
+	 * DAggregateKeyword:
+	 * 	'component';
+	 */
+	protected String getDAggregateKeywordToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "component";
 	}
 	
 	/**

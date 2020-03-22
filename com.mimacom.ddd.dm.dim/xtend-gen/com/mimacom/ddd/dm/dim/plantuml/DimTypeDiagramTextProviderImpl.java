@@ -8,7 +8,7 @@ import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DEntityOrigin;
+import com.mimacom.ddd.dm.base.DEntityNature;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -359,8 +359,8 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         _xifexpression = "<< (R,#FB3333) >>";
       } else {
         String _xifexpression_1 = null;
-        DEntityOrigin _origin = ((DEntityType)t).getOrigin();
-        boolean _equals = Objects.equal(_origin, DEntityOrigin.RELATIONSHIP);
+        DEntityNature _nature = ((DEntityType)t).getNature();
+        boolean _equals = Objects.equal(_nature, DEntityNature.RELATIONSHIP);
         if (_equals) {
           _xifexpression_1 = "<< (R,#FA78C8) >>";
         } else {

@@ -13,7 +13,9 @@ import com.mimacom.ddd.dm.base.impl.DEntityTypeImpl
 import com.mimacom.ddd.dm.base.impl.DEnumerationImpl
 import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl
 import com.mimacom.ddd.dm.dim.DimUtil
+import java.util.List
 import org.eclipse.emf.ecore.EClass
+import java.util.Collections
 
 class SimUtil extends DimUtil {
 	
@@ -31,6 +33,16 @@ class SimUtil extends DimUtil {
 			SAssociationDeduction : DAssociation
 			SQueryDeduction : DQuery
 		}
+	}
+	
+	def List<DType> syntheticTypes(SAggregateDeduction a) {
+		// get synthetic aggregate that was created for 'aggregate' rule:
+		val model = a.eContainer as SInformationModel
+		val syntheticAggregates = model.aggregates.filter[synthetic && deducedFrom == a]
+		if (syntheticAggregates.size == 1) {
+			return syntheticAggregates.head.types
+		}
+		return Collections.EMPTY_LIST
 	}
 	
 	def EClass baseEClass(SFeatureDeduction feature) {

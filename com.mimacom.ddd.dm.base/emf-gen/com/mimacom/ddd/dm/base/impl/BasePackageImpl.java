@@ -12,7 +12,7 @@ import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DEntityOrigin;
+import com.mimacom.ddd.dm.base.DEntityNature;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
@@ -357,7 +357,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dEntityOriginEEnum = null;
+	private EEnum dEntityNatureEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1161,7 +1161,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDEntityType_Origin()
+	public EAttribute getDEntityType_Nature()
 	{
 		return (EAttribute)dEntityTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -1370,9 +1370,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getDEntityOrigin()
+	public EEnum getDEntityNature()
 	{
-		return dEntityOriginEEnum;
+		return dEntityNatureEEnum;
 	}
 
 	/**
@@ -1515,7 +1515,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dEntityTypeEClass = createEClass(DENTITY_TYPE);
 		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__ROOT);
-		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__ORIGIN);
+		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__NATURE);
 		createEReference(dEntityTypeEClass, DENTITY_TYPE__STATES);
 		createEReference(dEntityTypeEClass, DENTITY_TYPE__EVENTS);
 
@@ -1543,7 +1543,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		// Create enums
 		dMultiplicityShorthandEEnum = createEEnum(DMULTIPLICITY_SHORTHAND);
-		dEntityOriginEEnum = createEEnum(DENTITY_ORIGIN);
+		dEntityNatureEEnum = createEEnum(DENTITY_NATURE);
 		dAssociationKindEEnum = createEEnum(DASSOCIATION_KIND);
 	}
 
@@ -1725,7 +1725,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDEntityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDEntityType_Origin(), this.getDEntityOrigin(), "origin", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDEntityType_Nature(), this.getDEntityNature(), "nature", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDEntityType_States(), this.getDState(), null, "states", null, 0, -1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDEntityType_Events(), this.getDStateEvent(), null, "events", null, 0, -1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1759,11 +1759,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ONE_OR_MORE);
 		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_MORE);
 
-		initEEnum(dEntityOriginEEnum, DEntityOrigin.class, "DEntityOrigin");
-		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.GENERIC_ENTITY);
-		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.PHYSICAL_OBJECT);
-		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.VIRTUAL_CONCEPT);
-		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.RELATIONSHIP);
+		initEEnum(dEntityNatureEEnum, DEntityNature.class, "DEntityNature");
+		addEEnumLiteral(dEntityNatureEEnum, DEntityNature.CONTROLLED_ENTITY);
+		addEEnumLiteral(dEntityNatureEEnum, DEntityNature.AUTONOMOUS_ENTITY);
+		addEEnumLiteral(dEntityNatureEEnum, DEntityNature.RELATIONSHIP);
 
 		initEEnum(dAssociationKindEEnum, DAssociationKind.class, "DAssociationKind");
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.REFERENCE);

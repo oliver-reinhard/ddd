@@ -348,7 +348,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         name=ID 
 	 *         aliases+=ID* 
 	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
-	 *         type=[DEntityType|ID] 
+	 *         type=[DEntityType|ID]? 
 	 *         multiplicity=DMultiplicity? 
 	 *         description=DRichText?
 	 *     )
@@ -368,7 +368,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         detail?='detail'? 
 	 *         name=ID 
 	 *         aliases+=ID* 
-	 *         type=[DType|ID] 
+	 *         type=[DType|ID]? 
 	 *         multiplicity=DMultiplicity? 
 	 *         key?='key'? 
 	 *         description=DRichText?
@@ -407,10 +407,8 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         abstract?='abstract'? 
-	 *         (
-	 *             (root?='root'? origin=DEntityOriginGeneric) | 
-	 *             (root?='main'? (origin=DEntityOriginObject | origin=DEntityOriginConcept | origin=DEntityOriginRelationship))
-	 *         ) 
+	 *         root?='main'? 
+	 *         (nature=DEntityNatureAutonomous | nature=DEntityNatureRelationship)? 
 	 *         name=ID 
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
@@ -503,7 +501,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DQueryParameter returns DQueryParameter
 	 *
 	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
+	 *     (name=ID type=[DType|ID]? multiplicity=DMultiplicity? description=DRichText?)
 	 */
 	protected void sequence_DQueryParameter(ISerializationContext context, DQueryParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -520,7 +518,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         name=ID 
 	 *         aliases+=ID* 
 	 *         (parameters+=DQueryParameter parameters+=DQueryParameter*)? 
-	 *         type=[DType|ID] 
+	 *         type=[DType|ID]? 
 	 *         multiplicity=DMultiplicity? 
 	 *         returns=DExpression? 
 	 *         description=DRichText?

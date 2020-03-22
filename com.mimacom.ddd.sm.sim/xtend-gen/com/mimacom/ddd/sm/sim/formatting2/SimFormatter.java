@@ -121,8 +121,8 @@ public class SimFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final SComplexTypeDeduction type, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0_1());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_0_3());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };

@@ -5,6 +5,7 @@ package com.mimacom.ddd.sm.sim.validation;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
@@ -15,6 +16,7 @@ import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
@@ -44,6 +46,8 @@ import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.SimPackage;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.validation.AbstractSimValidator;
+import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
@@ -188,8 +192,9 @@ public class SimValidator extends AbstractSimValidator {
   @Check
   public void checkHasDeducedContainer(final SFeatureDeduction f) {
     final EObject container = f.eContainer();
-    if ((!(container instanceof SComplexTypeDeduction))) {
-      this.error("Features can only have a deduction rule if the containing type also has a deduction rule.", 
+    if ((!((container instanceof SComplexTypeDeduction) || (container instanceof SAggregateDeduction)))) {
+      this.error(
+        "Features can only have a deduction rule if the containing type or aggregate also has a deduction rule.", 
         f.getDeductionRule(), BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
     }
   }
@@ -205,7 +210,7 @@ public class SimValidator extends AbstractSimValidator {
   @Check
   public void checkCorrespondingDQueryType(final SQueryDeduction q) {
     if (((q.getDeductionRule().getSource() != null) && (!(q.getDeductionRule().getSource() instanceof DQuery)))) {
-      this.error("Deduced query rule must have a domain-model attribute as its source", q.getDeductionRule(), 
+      this.error("Deduced query rule must have a domain-model query as its source", q.getDeductionRule(), 
         BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
     }
   }
@@ -213,7 +218,7 @@ public class SimValidator extends AbstractSimValidator {
   @Check
   public void checkCorrespondingDAssociationType(final SAssociationDeduction a) {
     if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAssociation)))) {
-      this.error("Deduced association rule must have a domain-model association as its source", 
+      this.error("Deduced association rule must have a domain-model association as its source", a.getDeductionRule(), 
         BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
     }
   }
@@ -234,6 +239,28 @@ public class SimValidator extends AbstractSimValidator {
       return;
     }
     super.checkEnumerationHasLiterals(e);
+  }
+  
+  @Override
+  protected List<DType> allTypes(final DAggregate a) {
+    if ((a instanceof SAggregateDeduction)) {
+      final ArrayList<DType> types = Lists.<DType>newArrayList();
+      final Function1<DType, Boolean> _function = (DType it) -> {
+        return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+      };
+      Iterables.<DType>addAll(types, IterableExtensions.<DType>filter(((SAggregateDeduction)a).getTypes(), _function));
+      types.addAll(this._simUtil.syntheticTypes(((SAggregateDeduction)a)));
+      return types;
+    }
+    return super.allTypes(a);
+  }
+  
+  @Override
+  public void checkFeatureTypeIsSet(final DFeature f) {
+    boolean _not = (!((f instanceof IDeductionDefinition) || f.isSynthetic()));
+    if (_not) {
+      super.checkFeatureTypeIsSet(f);
+    }
   }
   
   @Check

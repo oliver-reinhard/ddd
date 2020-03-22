@@ -45,6 +45,10 @@ class DmxTypeComputer {
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxMemberNavigation expr) {
 		val member = expr.member
+		if (member.eIsProxy) {
+			// the member reference cannot be resolved or has not been resolved yet.
+			return UNDEFINED_TYPE
+		}
 
 		if (member instanceof DmxFilter) {
 			val returnType = member.typeDesc

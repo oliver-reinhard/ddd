@@ -301,9 +301,12 @@ ruleDAggregate returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='component'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDAggregateAccess().getComponentKeyword_1());
+			newCompositeNode(grammarAccess.getDAggregateAccess().getDAggregateKeywordParserRuleCall_1());
+		}
+		ruleDAggregateKeyword
+		{
+			afterParserOrEnumRuleCall();
 		}
 		(
 			(
@@ -395,6 +398,28 @@ ruleDAggregate returns [EObject current=null]
 			newLeafNode(otherlv_8, grammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
+;
+
+// Entry rule entryRuleDAggregateKeyword
+entryRuleDAggregateKeyword returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDAggregateKeywordRule()); }
+	iv_ruleDAggregateKeyword=ruleDAggregateKeyword
+	{ $current=$iv_ruleDAggregateKeyword.current.getText(); }
+	EOF;
+
+// Rule DAggregateKeyword
+ruleDAggregateKeyword returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	kw='component'
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getDAggregateKeywordAccess().getComponentKeyword());
+	}
 ;
 
 // Entry rule entryRuleDType
@@ -957,128 +982,67 @@ ruleDEntityType returns [EObject current=null]
 		)?
 		(
 			(
+				lv_root_1_0='main'
+				{
+					newLeafNode(lv_root_1_0, grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDEntityTypeRule());
+					}
+					setWithLastConsumed($current, "root", true, "main");
+				}
+			)
+		)?
+		(
+			otherlv_2='entity'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getDEntityTypeAccess().getEntityKeyword_2_0());
+			}
+			    |
+			(
 				(
 					(
-						lv_root_1_0='root'
 						{
-							newLeafNode(lv_root_1_0, grammarAccess.getDEntityTypeAccess().getRootRootKeyword_1_0_0_0());
+							newCompositeNode(grammarAccess.getDEntityTypeAccess().getNatureDEntityNatureAutonomousEnumRuleCall_2_1_0_0());
 						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDEntityTypeRule());
-							}
-							setWithLastConsumed($current, "root", true, "root");
-						}
-					)
-				)?
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginGenericEnumRuleCall_1_0_1_0());
-						}
-						lv_origin_2_0=ruleDEntityOriginGeneric
+						lv_nature_3_0=ruleDEntityNatureAutonomous
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
 							}
 							set(
 								$current,
-								"origin",
-								lv_origin_2_0,
-								"com.mimacom.ddd.dm.dim.Dim.DEntityOriginGeneric");
+								"nature",
+								lv_nature_3_0,
+								"com.mimacom.ddd.dm.dim.Dim.DEntityNatureAutonomous");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
+				otherlv_4='entity'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getDEntityTypeAccess().getEntityKeyword_2_1_1());
+				}
 			)
 			    |
 			(
 				(
-					(
-						lv_root_3_0='main'
-						{
-							newLeafNode(lv_root_3_0, grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_1_0_0());
+					{
+						newCompositeNode(grammarAccess.getDEntityTypeAccess().getNatureDEntityNatureRelationshipEnumRuleCall_2_2_0());
+					}
+					lv_nature_5_0=ruleDEntityNatureRelationship
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
 						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDEntityTypeRule());
-							}
-							setWithLastConsumed($current, "root", true, "main");
-						}
-					)
-				)?
-				(
-					(
-						otherlv_4='physical'
-						{
-							newLeafNode(otherlv_4, grammarAccess.getDEntityTypeAccess().getPhysicalKeyword_1_1_1_0_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginObjectEnumRuleCall_1_1_1_0_1_0());
-								}
-								lv_origin_5_0=ruleDEntityOriginObject
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
-									}
-									set(
-										$current,
-										"origin",
-										lv_origin_5_0,
-										"com.mimacom.ddd.dm.dim.Dim.DEntityOriginObject");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)
-					    |
-					(
-						otherlv_6='virtual'
-						{
-							newLeafNode(otherlv_6, grammarAccess.getDEntityTypeAccess().getVirtualKeyword_1_1_1_1_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginConceptEnumRuleCall_1_1_1_1_1_0());
-								}
-								lv_origin_7_0=ruleDEntityOriginConcept
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
-									}
-									set(
-										$current,
-										"origin",
-										lv_origin_7_0,
-										"com.mimacom.ddd.dm.dim.Dim.DEntityOriginConcept");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)
-					    |
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginRelationshipEnumRuleCall_1_1_1_2_0());
-							}
-							lv_origin_8_0=ruleDEntityOriginRelationship
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
-								}
-								set(
-									$current,
-									"origin",
-									lv_origin_8_0,
-									"com.mimacom.ddd.dm.dim.Dim.DEntityOriginRelationship");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
+						set(
+							$current,
+							"nature",
+							lv_nature_5_0,
+							"com.mimacom.ddd.dm.dim.Dim.DEntityNatureRelationship");
+						afterParserOrEnumRuleCall();
+					}
 				)
 			)
 		)
@@ -1086,32 +1050,32 @@ ruleDEntityType returns [EObject current=null]
 			if ($current==null) {
 				$current = createModelElement(grammarAccess.getDEntityTypeRule());
 			}
-			newCompositeNode(grammarAccess.getDEntityTypeAccess().getDComplexTypeParserRuleCall_2());
+			newCompositeNode(grammarAccess.getDEntityTypeAccess().getDComplexTypeParserRuleCall_3());
 		}
-		this_DComplexType_9=ruleDComplexType[$current]
+		this_DComplexType_6=ruleDComplexType[$current]
 		{
-			$current = $this_DComplexType_9.current;
+			$current = $this_DComplexType_6.current;
 			afterParserOrEnumRuleCall();
 		}
-		otherlv_10='{'
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_7, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
-			otherlv_11='states'
+			otherlv_8='states'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getDEntityTypeAccess().getStatesKeyword_4_0());
+				newLeafNode(otherlv_8, grammarAccess.getDEntityTypeAccess().getStatesKeyword_5_0());
 			}
-			otherlv_12='{'
+			otherlv_9='{'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_4_1());
+				newLeafNode(otherlv_9, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_5_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDEntityTypeAccess().getStatesDStateParserRuleCall_4_2_0());
+						newCompositeNode(grammarAccess.getDEntityTypeAccess().getStatesDStateParserRuleCall_5_2_0());
 					}
-					lv_states_13_0=ruleDState
+					lv_states_10_0=ruleDState
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
@@ -1119,23 +1083,23 @@ ruleDEntityType returns [EObject current=null]
 						add(
 							$current,
 							"states",
-							lv_states_13_0,
+							lv_states_10_0,
 							"com.mimacom.ddd.dm.dim.Dim.DState");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_14=','
+				otherlv_11=','
 				{
-					newLeafNode(otherlv_14, grammarAccess.getDEntityTypeAccess().getCommaKeyword_4_3_0());
+					newLeafNode(otherlv_11, grammarAccess.getDEntityTypeAccess().getCommaKeyword_5_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDEntityTypeAccess().getStatesDStateParserRuleCall_4_3_1_0());
+							newCompositeNode(grammarAccess.getDEntityTypeAccess().getStatesDStateParserRuleCall_5_3_1_0());
 						}
-						lv_states_15_0=ruleDState
+						lv_states_12_0=ruleDState
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
@@ -1143,32 +1107,32 @@ ruleDEntityType returns [EObject current=null]
 							add(
 								$current,
 								"states",
-								lv_states_15_0,
+								lv_states_12_0,
 								"com.mimacom.ddd.dm.dim.Dim.DState");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_16='}'
+			otherlv_13='}'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_4_4());
+				newLeafNode(otherlv_13, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_5_4());
 			}
 			(
-				otherlv_17='events'
+				otherlv_14='events'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getDEntityTypeAccess().getEventsKeyword_4_5_0());
+					newLeafNode(otherlv_14, grammarAccess.getDEntityTypeAccess().getEventsKeyword_5_5_0());
 				}
-				otherlv_18='{'
+				otherlv_15='{'
 				{
-					newLeafNode(otherlv_18, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_4_5_1());
+					newLeafNode(otherlv_15, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_5_5_1());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDEntityTypeAccess().getEventsDStateEventParserRuleCall_4_5_2_0());
+							newCompositeNode(grammarAccess.getDEntityTypeAccess().getEventsDStateEventParserRuleCall_5_5_2_0());
 						}
-						lv_events_19_0=ruleDStateEvent
+						lv_events_16_0=ruleDStateEvent
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
@@ -1176,23 +1140,23 @@ ruleDEntityType returns [EObject current=null]
 							add(
 								$current,
 								"events",
-								lv_events_19_0,
+								lv_events_16_0,
 								"com.mimacom.ddd.dm.dim.Dim.DStateEvent");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 				(
-					otherlv_20=','
+					otherlv_17=','
 					{
-						newLeafNode(otherlv_20, grammarAccess.getDEntityTypeAccess().getCommaKeyword_4_5_3_0());
+						newLeafNode(otherlv_17, grammarAccess.getDEntityTypeAccess().getCommaKeyword_5_5_3_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getDEntityTypeAccess().getEventsDStateEventParserRuleCall_4_5_3_1_0());
+								newCompositeNode(grammarAccess.getDEntityTypeAccess().getEventsDStateEventParserRuleCall_5_5_3_1_0());
 							}
-							lv_events_21_0=ruleDStateEvent
+							lv_events_18_0=ruleDStateEvent
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
@@ -1200,16 +1164,16 @@ ruleDEntityType returns [EObject current=null]
 								add(
 									$current,
 									"events",
-									lv_events_21_0,
+									lv_events_18_0,
 									"com.mimacom.ddd.dm.dim.Dim.DStateEvent");
 								afterParserOrEnumRuleCall();
 							}
 						)
 					)
 				)*
-				otherlv_22='}'
+				otherlv_19='}'
 				{
-					newLeafNode(otherlv_22, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_4_5_4());
+					newLeafNode(otherlv_19, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_5_5_4());
 				}
 			)?
 		)?
@@ -1217,9 +1181,9 @@ ruleDEntityType returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDEntityTypeAccess().getFeaturesDFeatureParserRuleCall_5_0_0());
+						newCompositeNode(grammarAccess.getDEntityTypeAccess().getFeaturesDFeatureParserRuleCall_6_0_0());
 					}
-					lv_features_23_0=ruleDFeature
+					lv_features_20_0=ruleDFeature
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
@@ -1227,7 +1191,7 @@ ruleDEntityType returns [EObject current=null]
 						add(
 							$current,
 							"features",
-							lv_features_23_0,
+							lv_features_20_0,
 							"com.mimacom.ddd.dm.dim.Dim.DFeature");
 						afterParserOrEnumRuleCall();
 					}
@@ -1237,9 +1201,9 @@ ruleDEntityType returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDEntityTypeAccess().getConstraintsDConstraintParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDEntityTypeAccess().getConstraintsDConstraintParserRuleCall_6_1_0());
 					}
-					lv_constraints_24_0=ruleDConstraint
+					lv_constraints_21_0=ruleDConstraint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
@@ -1247,16 +1211,16 @@ ruleDEntityType returns [EObject current=null]
 						add(
 							$current,
 							"constraints",
-							lv_constraints_24_0,
+							lv_constraints_21_0,
 							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_25='}'
+		otherlv_22='}'
 		{
-			newLeafNode(otherlv_25, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_22, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1697,7 +1661,7 @@ ruleDAssociation returns [EObject current=null]
 					newLeafNode(otherlv_7, grammarAccess.getDAssociationAccess().getTypeDEntityTypeCrossReference_4_0());
 				}
 			)
-		)
+		)?
 		(
 			(
 				{
@@ -1771,69 +1735,67 @@ ruleDAttribute returns [EObject current=null]
 		)?
 		(
 			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDAttributeAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDAttributeRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		(
+			otherlv_2='alias'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getDAttributeAccess().getAliasKeyword_2_0());
+			}
+			(
 				(
-					lv_name_1_0=RULE_ID
+					lv_aliases_3_0=RULE_ID
 					{
-						newLeafNode(lv_name_1_0, grammarAccess.getDAttributeAccess().getNameIDTerminalRuleCall_1_0_0());
+						newLeafNode(lv_aliases_3_0, grammarAccess.getDAttributeAccess().getAliasesIDTerminalRuleCall_2_1_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getDAttributeRule());
 						}
-						setWithLastConsumed(
+						addWithLastConsumed(
 							$current,
-							"name",
-							lv_name_1_0,
+							"aliases",
+							lv_aliases_3_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.ID");
 					}
 				)
 			)
-			(
-				otherlv_2='alias'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getDAttributeAccess().getAliasKeyword_1_1_0());
-				}
-				(
-					(
-						lv_aliases_3_0=RULE_ID
-						{
-							newLeafNode(lv_aliases_3_0, grammarAccess.getDAttributeAccess().getAliasesIDTerminalRuleCall_1_1_1_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDAttributeRule());
-							}
-							addWithLastConsumed(
-								$current,
-								"aliases",
-								lv_aliases_3_0,
-								"com.mimacom.ddd.dm.dmx.Dmx.ID");
-						}
-					)
-				)
-			)*
-			otherlv_4=':'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getDAttributeAccess().getColonKeyword_1_2());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDAttributeRule());
-						}
-					}
-					otherlv_5=RULE_ID
-					{
-						newLeafNode(otherlv_5, grammarAccess.getDAttributeAccess().getTypeDTypeCrossReference_1_3_0());
-					}
-				)
-			)
-		)
+		)*
+		otherlv_4=':'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getDAttributeAccess().getColonKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDAttributeAccess().getMultiplicityDMultiplicityParserRuleCall_2_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDAttributeRule());
+					}
+				}
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getDAttributeAccess().getTypeDTypeCrossReference_4_0());
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDAttributeAccess().getMultiplicityDMultiplicityParserRuleCall_5_0());
 				}
 				lv_multiplicity_6_0=ruleDMultiplicity
 				{
@@ -1853,7 +1815,7 @@ ruleDAttribute returns [EObject current=null]
 			(
 				lv_key_7_0='key'
 				{
-					newLeafNode(lv_key_7_0, grammarAccess.getDAttributeAccess().getKeyKeyKeyword_3_0());
+					newLeafNode(lv_key_7_0, grammarAccess.getDAttributeAccess().getKeyKeyKeyword_6_0());
 				}
 				{
 					if ($current==null) {
@@ -1866,7 +1828,7 @@ ruleDAttribute returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDAttributeAccess().getDescriptionDRichTextParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDAttributeAccess().getDescriptionDRichTextParserRuleCall_7_0());
 				}
 				lv_description_8_0=ruleDRichText
 				{
@@ -2013,7 +1975,7 @@ ruleDQuery returns [EObject current=null]
 					newLeafNode(otherlv_9, grammarAccess.getDQueryAccess().getTypeDTypeCrossReference_6_0());
 				}
 			)
-		)
+		)?
 		(
 			(
 				{
@@ -2130,7 +2092,7 @@ ruleDQueryParameter returns [EObject current=null]
 					newLeafNode(otherlv_2, grammarAccess.getDQueryParameterAccess().getTypeDTypeCrossReference_2_0());
 				}
 			)
-		)
+		)?
 		(
 			(
 				{
@@ -6045,8 +6007,8 @@ ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 	)
 ;
 
-// Rule DEntityOriginGeneric
-ruleDEntityOriginGeneric returns [Enumerator current=null]
+// Rule DEntityNatureAutonomous
+ruleDEntityNatureAutonomous returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -6054,50 +6016,16 @@ ruleDEntityOriginGeneric returns [Enumerator current=null]
 	leaveRule();
 }:
 	(
-		enumLiteral_0='entity'
+		enumLiteral_0='autonomous'
 		{
-			$current = grammarAccess.getDEntityOriginGenericAccess().getGENERIC_ENTITYEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getDEntityOriginGenericAccess().getGENERIC_ENTITYEnumLiteralDeclaration());
+			$current = grammarAccess.getDEntityNatureAutonomousAccess().getAUTONOMOUS_ENTITYEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getDEntityNatureAutonomousAccess().getAUTONOMOUS_ENTITYEnumLiteralDeclaration());
 		}
 	)
 ;
 
-// Rule DEntityOriginObject
-ruleDEntityOriginObject returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		enumLiteral_0='object'
-		{
-			$current = grammarAccess.getDEntityOriginObjectAccess().getPHYSICAL_OBJECTEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getDEntityOriginObjectAccess().getPHYSICAL_OBJECTEnumLiteralDeclaration());
-		}
-	)
-;
-
-// Rule DEntityOriginConcept
-ruleDEntityOriginConcept returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		enumLiteral_0='concept'
-		{
-			$current = grammarAccess.getDEntityOriginConceptAccess().getVIRTUAL_CONCEPTEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getDEntityOriginConceptAccess().getVIRTUAL_CONCEPTEnumLiteralDeclaration());
-		}
-	)
-;
-
-// Rule DEntityOriginRelationship
-ruleDEntityOriginRelationship returns [Enumerator current=null]
+// Rule DEntityNatureRelationship
+ruleDEntityNatureRelationship returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -6107,8 +6035,8 @@ ruleDEntityOriginRelationship returns [Enumerator current=null]
 	(
 		enumLiteral_0='relationship'
 		{
-			$current = grammarAccess.getDEntityOriginRelationshipAccess().getRELATIONSHIPEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getDEntityOriginRelationshipAccess().getRELATIONSHIPEnumLiteralDeclaration());
+			$current = grammarAccess.getDEntityNatureRelationshipAccess().getRELATIONSHIPEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getDEntityNatureRelationshipAccess().getRELATIONSHIPEnumLiteralDeclaration());
 		}
 	)
 ;

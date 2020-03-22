@@ -10,44 +10,34 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>DEntity Origin</b></em>',
+ * A representation of the literals of the enumeration '<em><b>DEntity Nature</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityOrigin()
+ * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityNature()
  * @model
  * @generated
  */
-public enum DEntityOrigin implements Enumerator
+public enum DEntityNature implements Enumerator
 {
 	/**
-	 * The '<em><b>GENERIC ENTITY</b></em>' literal object.
+	 * The '<em><b>CONTROLLED ENTITY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #GENERIC_ENTITY_VALUE
+	 * @see #CONTROLLED_ENTITY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	GENERIC_ENTITY(0, "GENERIC_ENTITY", "GENERIC_ENTITY"),
+	CONTROLLED_ENTITY(0, "CONTROLLED_ENTITY", "CONTROLLED_ENTITY"),
 
 	/**
-	 * The '<em><b>PHYSICAL OBJECT</b></em>' literal object.
+	 * The '<em><b>AUTONOMOUS ENTITY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PHYSICAL_OBJECT_VALUE
+	 * @see #AUTONOMOUS_ENTITY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PHYSICAL_OBJECT(1, "PHYSICAL_OBJECT", "PHYSICAL_OBJECT"),
-
-	/**
-	 * The '<em><b>VIRTUAL CONCEPT</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #VIRTUAL_CONCEPT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	VIRTUAL_CONCEPT(2, "VIRTUAL_CONCEPT", "VIRTUAL_CONCEPT"),
+	AUTONOMOUS_ENTITY(1, "AUTONOMOUS_ENTITY", "AUTONOMOUS_ENTITY"),
 
 	/**
 	 * The '<em><b>RELATIONSHIP</b></em>' literal object.
@@ -60,37 +50,26 @@ public enum DEntityOrigin implements Enumerator
 	RELATIONSHIP(3, "RELATIONSHIP", "RELATIONSHIP");
 
 	/**
-	 * The '<em><b>GENERIC ENTITY</b></em>' literal value.
+	 * The '<em><b>CONTROLLED ENTITY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #GENERIC_ENTITY
+	 * @see #CONTROLLED_ENTITY
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GENERIC_ENTITY_VALUE = 0;
+	public static final int CONTROLLED_ENTITY_VALUE = 0;
 
 	/**
-	 * The '<em><b>PHYSICAL OBJECT</b></em>' literal value.
+	 * The '<em><b>AUTONOMOUS ENTITY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PHYSICAL_OBJECT
+	 * @see #AUTONOMOUS_ENTITY
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHYSICAL_OBJECT_VALUE = 1;
-
-	/**
-	 * The '<em><b>VIRTUAL CONCEPT</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #VIRTUAL_CONCEPT
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int VIRTUAL_CONCEPT_VALUE = 2;
+	public static final int AUTONOMOUS_ENTITY_VALUE = 1;
 
 	/**
 	 * The '<em><b>RELATIONSHIP</b></em>' literal value.
@@ -104,41 +83,40 @@ public enum DEntityOrigin implements Enumerator
 	public static final int RELATIONSHIP_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>DEntity Origin</b></em>' enumerators.
+	 * An array of all the '<em><b>DEntity Nature</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final DEntityOrigin[] VALUES_ARRAY =
-		new DEntityOrigin[]
+	private static final DEntityNature[] VALUES_ARRAY =
+		new DEntityNature[]
 		{
-			GENERIC_ENTITY,
-			PHYSICAL_OBJECT,
-			VIRTUAL_CONCEPT,
+			CONTROLLED_ENTITY,
+			AUTONOMOUS_ENTITY,
 			RELATIONSHIP,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>DEntity Origin</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>DEntity Nature</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DEntityOrigin> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DEntityNature> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>DEntity Origin</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>DEntity Nature</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DEntityOrigin get(String literal)
+	public static DEntityNature get(String literal)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			DEntityOrigin result = VALUES_ARRAY[i];
+			DEntityNature result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal))
 			{
 				return result;
@@ -148,18 +126,18 @@ public enum DEntityOrigin implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>DEntity Origin</b></em>' literal with the specified name.
+	 * Returns the '<em><b>DEntity Nature</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DEntityOrigin getByName(String name)
+	public static DEntityNature getByName(String name)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			DEntityOrigin result = VALUES_ARRAY[i];
+			DEntityNature result = VALUES_ARRAY[i];
 			if (result.getName().equals(name))
 			{
 				return result;
@@ -169,20 +147,19 @@ public enum DEntityOrigin implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>DEntity Origin</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>DEntity Nature</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DEntityOrigin get(int value)
+	public static DEntityNature get(int value)
 	{
 		switch (value)
 		{
-			case GENERIC_ENTITY_VALUE: return GENERIC_ENTITY;
-			case PHYSICAL_OBJECT_VALUE: return PHYSICAL_OBJECT;
-			case VIRTUAL_CONCEPT_VALUE: return VIRTUAL_CONCEPT;
+			case CONTROLLED_ENTITY_VALUE: return CONTROLLED_ENTITY;
+			case AUTONOMOUS_ENTITY_VALUE: return AUTONOMOUS_ENTITY;
 			case RELATIONSHIP_VALUE: return RELATIONSHIP;
 		}
 		return null;
@@ -215,7 +192,7 @@ public enum DEntityOrigin implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DEntityOrigin(int value, String name, String literal)
+	private DEntityNature(int value, String name, String literal)
 	{
 		this.value = value;
 		this.name = name;
@@ -267,4 +244,4 @@ public enum DEntityOrigin implements Enumerator
 		return literal;
 	}
 	
-} //DEntityOrigin
+} //DEntityNature

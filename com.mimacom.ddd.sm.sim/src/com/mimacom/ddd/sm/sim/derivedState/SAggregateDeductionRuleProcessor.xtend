@@ -16,7 +16,7 @@ class SAggregateDeductionRuleProcessor {
 	@Inject extension STypeDeductionRuleProcessor
 	@Inject extension SFeatureDeductionRuleProcessor
 
-	def void processAggregateTypes(DAggregate dAggregate,SInformationModel model, 
+	def void processAggregateTypes(DAggregate dAggregate, SInformationModel model, 
 		List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor, TransformationContext context) {
 		var ITypeContainer syntheticTypesContainer = if (model.kind == SInformationModelKind.CORE) dAggregate else model
 

@@ -10,7 +10,7 @@ import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
-import com.mimacom.ddd.dm.base.DEntityOrigin
+import com.mimacom.ddd.dm.base.DEntityNature
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
@@ -28,6 +28,7 @@ import com.mimacom.ddd.dm.base.DStateEvent
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IValueType
 import com.mimacom.ddd.dm.dim.DimUtil
+import java.util.List
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
 
@@ -117,7 +118,7 @@ class DimValidator extends AbstractDimValidator {
 
 	@Check
 	def checkRelationshipHasTwoAssociations(DEntityType r) {
-		if (r.origin == DEntityOrigin.RELATIONSHIP) {
+		if (r.nature == DEntityNature.RELATIONSHIP) {
 			var count = 0;
 			for (i : 0 ..< r.features.size) {
 				if (r.features.get(i) instanceof DAssociation) count++
@@ -142,18 +143,25 @@ class DimValidator extends AbstractDimValidator {
 			warning('Enumeration does not declare literals', e, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 		}
 	}
+	
+	@Check
+	def checkFeatureTypeIsSet(DFeature f) {
+		if (f.type === null) {
+			error('Feature must have a type', f, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+		}
+	}
 
 	@Check
 	def checkAttributeIsValueType(DAttribute a) {
-		if (! (a.getType instanceof IValueType)) {
+		if (! (a.type instanceof IValueType)) {
 			error('Referenced type must be a ValueType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 
 	@Check
 	def checkRealWorldEntityType(DEntityType e) {
-		if (e.origin == DEntityOrigin.PHYSICAL_OBJECT && e.abstract) {
-			error('Entity Types representing real-world objects cannot be abstract', e,
+		if (e.nature == DEntityNature.AUTONOMOUS_ENTITY && e.abstract) {
+			error('Autonomous entities cannot be abstract', e,
 				BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT)
 		}
 	}
@@ -197,7 +205,12 @@ class DimValidator extends AbstractDimValidator {
 		val aggregate = EcoreUtil2.getContainerOfType(member, DAggregate)
 		val type = member.type
 		return type instanceof IValueType || type == containingType ||
-			type instanceof DEntityType && (type as DEntityType).root && aggregate.types.contains(type)
+			type instanceof DEntityType && (type as DEntityType).root && aggregate.allTypes.contains(type)
+	}
+	
+	// use to override
+	protected def List<DType> allTypes(DAggregate a) {
+		a.types
 	}
 
 	// // Naming: Elements whose names should start with a CAPITAL

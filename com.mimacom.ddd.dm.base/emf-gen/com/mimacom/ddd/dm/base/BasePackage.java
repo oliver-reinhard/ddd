@@ -2199,13 +2199,13 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Origin</b></em>' attribute.
+	 * The feature id for the '<em><b>Nature</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__ORIGIN = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
+	int DENTITY_TYPE__NATURE = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -3026,14 +3026,14 @@ public interface BasePackage extends EPackage
 	int DMULTIPLICITY_SHORTHAND = 40;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DEntityOrigin <em>DEntity Origin</em>}' enum.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DEntityNature <em>DEntity Nature</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityOrigin()
+	 * @see com.mimacom.ddd.dm.base.DEntityNature
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityNature()
 	 * @generated
 	 */
-	int DENTITY_ORIGIN = 41;
+	int DENTITY_NATURE = 41;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -3740,15 +3740,15 @@ public interface BasePackage extends EPackage
 	EAttribute getDEntityType_Root();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DEntityType#getOrigin <em>Origin</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DEntityType#getNature <em>Nature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Origin</em>'.
-	 * @see com.mimacom.ddd.dm.base.DEntityType#getOrigin()
+	 * @return the meta object for the attribute '<em>Nature</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityType#getNature()
 	 * @see #getDEntityType()
 	 * @generated
 	 */
-	EAttribute getDEntityType_Origin();
+	EAttribute getDEntityType_Nature();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DEntityType#getStates <em>States</em>}'.
@@ -3940,14 +3940,14 @@ public interface BasePackage extends EPackage
 	EEnum getDMultiplicityShorthand();
 
 	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DEntityOrigin <em>DEntity Origin</em>}'.
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DEntityNature <em>DEntity Nature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>DEntity Origin</em>'.
-	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
+	 * @return the meta object for enum '<em>DEntity Nature</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityNature
 	 * @generated
 	 */
-	EEnum getDEntityOrigin();
+	EEnum getDEntityNature();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}'.
@@ -4578,12 +4578,12 @@ public interface BasePackage extends EPackage
 		EAttribute DENTITY_TYPE__ROOT = eINSTANCE.getDEntityType_Root();
 
 		/**
-		 * The meta object literal for the '<em><b>Origin</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Nature</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DENTITY_TYPE__ORIGIN = eINSTANCE.getDEntityType_Origin();
+		EAttribute DENTITY_TYPE__NATURE = eINSTANCE.getDEntityType_Nature();
 
 		/**
 		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
@@ -4746,14 +4746,14 @@ public interface BasePackage extends EPackage
 		EEnum DMULTIPLICITY_SHORTHAND = eINSTANCE.getDMultiplicityShorthand();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DEntityOrigin <em>DEntity Origin</em>}' enum.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DEntityNature <em>DEntity Nature</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.DEntityOrigin
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityOrigin()
+		 * @see com.mimacom.ddd.dm.base.DEntityNature
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityNature()
 		 * @generated
 		 */
-		EEnum DENTITY_ORIGIN = eINSTANCE.getDEntityOrigin();
+		EEnum DENTITY_NATURE = eINSTANCE.getDEntityNature();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.

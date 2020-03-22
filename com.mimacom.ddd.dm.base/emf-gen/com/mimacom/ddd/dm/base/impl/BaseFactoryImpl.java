@@ -102,8 +102,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 		{
 			case BasePackage.DMULTIPLICITY_SHORTHAND:
 				return createDMultiplicityShorthandFromString(eDataType, initialValue);
-			case BasePackage.DENTITY_ORIGIN:
-				return createDEntityOriginFromString(eDataType, initialValue);
+			case BasePackage.DENTITY_NATURE:
+				return createDEntityNatureFromString(eDataType, initialValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return createDAssociationKindFromString(eDataType, initialValue);
 			default:
@@ -123,8 +123,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 		{
 			case BasePackage.DMULTIPLICITY_SHORTHAND:
 				return convertDMultiplicityShorthandToString(eDataType, instanceValue);
-			case BasePackage.DENTITY_ORIGIN:
-				return convertDEntityOriginToString(eDataType, instanceValue);
+			case BasePackage.DENTITY_NATURE:
+				return convertDEntityNatureToString(eDataType, instanceValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return convertDAssociationKindToString(eDataType, instanceValue);
 			default:
@@ -399,9 +399,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DEntityOrigin createDEntityOriginFromString(EDataType eDataType, String initialValue)
+	public DEntityNature createDEntityNatureFromString(EDataType eDataType, String initialValue)
 	{
-		DEntityOrigin result = DEntityOrigin.get(initialValue);
+		DEntityNature result = DEntityNature.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -411,7 +411,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDEntityOriginToString(EDataType eDataType, Object instanceValue)
+	public String convertDEntityNatureToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

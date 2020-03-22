@@ -1090,13 +1090,13 @@ public interface SimPackage extends EPackage
 	int SENTITY_TYPE_DEDUCTION__ROOT = BasePackage.DENTITY_TYPE__ROOT;
 
 	/**
-	 * The feature id for the '<em><b>Origin</b></em>' attribute.
+	 * The feature id for the '<em><b>Nature</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE_DEDUCTION__ORIGIN = BasePackage.DENTITY_TYPE__ORIGIN;
+	int SENTITY_TYPE_DEDUCTION__NATURE = BasePackage.DENTITY_TYPE__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
