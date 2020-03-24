@@ -47,5 +47,107 @@
             name="Domain Event Use Case">
       </diagramType>
    </extension>
+   
+   <extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="dem.eventUseCaseOverview.png"
+            diagramName="Domain Event Use Case Overview (PNG)"
+            diagramType="dem.eventUseCaseOverview"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemEventsOverviewModel"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemEventsOverviewDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemEventsOverviewDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.eventUseCaseOverview.svg"
+            diagramName="Domain Event Use Case Overview (SVG)"
+            diagramType="dem.eventUseCaseOverview"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemEventsOverviewModel"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemEventsOverviewDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemEventsOverviewDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.eventUseCaseOverview.eps"
+            diagramName="Domain Event Use Case Overview (EPS)"
+            diagramType="dem.eventUseCaseOverview"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemEventsOverviewModel"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemEventsOverviewDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemEventsOverviewDiagramRenderer">
+      </renderer>
+      
+      <diagramType
+            id="dem.eventUseCaseOverview"
+            name="Domain Event Use Case Overview">
+      </diagramType>
+   </extension>
+   
+   <extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="dem.actorsOverview.png"
+            diagramName="Domain Actors Overview (PNG)"
+            diagramType="dem.actorsOverview"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemActorModel"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemActorsOverviewDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemActorsOverviewDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.actorsOverview.svg"
+            diagramName="Domain Actors Overview (SVG)"
+            diagramType="dem.actorsOverview"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemActorModel"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemActorsOverviewDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemActorsOverviewDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.actorsOverview.eps"
+            diagramName="Domain Actors Overview (EPS)"
+            diagramType="dem.actorsOverview"
+            diagramRootClass="com.mimacom.ddd.dm.dem.DemActorModel"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.dem.diagramProvider.DemActorsOverviewDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dem.diagramProvider.DemActorsOverviewDiagramRenderer">
+      </renderer>
+      
+      <diagramType
+            id="dem.actorsOverview"
+            name="Domain Actors Overview">
+      </diagramType>
+   </extension>
 
+   <extension
+         point="com.mimacom.ddd.pub.pub.tableProvider">
+      <renderer
+            id="dem.eventHeaderTable"
+            tableName="Domain Event Header"
+            tableType="dem.eventOverview"
+            tableRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
+            rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventHeaderTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventHeaderTableRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.eventPreconditionsTable"
+            tableName="Domain Event Preconditions"
+            tableType="dem.eventOverview"
+            tableRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
+            rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventPreconditionsTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventPreconditionsTableRenderer">
+      </renderer>
+      
+      <renderer
+            id="dem.eventPostconditionsTable"
+            tableName="Domain Event Postconditions"
+            tableType="dem.eventOverview"
+            tableRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
+            rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventPostconditionsTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventPostconditionsTableRenderer">
+      </renderer>
+      
+      <tableType
+            id="dem.eventOverview"
+            name="Domain Event Overview">
+      </tableType>
+   </extension>
+   
 </plugin>

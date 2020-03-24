@@ -1,11 +1,9 @@
 package com.mimacom.ddd.dm.dmx;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.IFeatureContainer;
+import com.mimacom.ddd.dm.base.TypesUtil;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxField;
@@ -13,18 +11,14 @@ import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
-public class DmxUtil {
+public class DmxUtil extends TypesUtil {
   public static final String ENTITY_TYPE_STATE_FILTER_NAME = "state";
   
   public static final String TIMEPOINT_SYNTAX = "yyyy-MM-dd [HH:mm]";
@@ -32,40 +26,6 @@ public class DmxUtil {
   public static final SimpleDateFormat TIMEPOINT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
   
   public static final SimpleDateFormat TIMEPOINT_DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-  
-  /**
-   * Returns all the supertypes of the given type.
-   */
-  public Set<DComplexType> typeHierarchy(final DComplexType type) {
-    final LinkedHashSet<DComplexType> hierarchy = new LinkedHashSet<DComplexType>();
-    DComplexType current = type.getSuperType();
-    while (((current != null) && (!hierarchy.contains(current)))) {
-      {
-        hierarchy.add(current);
-        current = current.getSuperType();
-      }
-    }
-    return hierarchy;
-  }
-  
-  /**
-   * Returns the names of all the features of the given type: its own as well as the inherited ones.
-   */
-  protected List<DFeature> _allFeatures(final DComplexType type) {
-    if ((type == null)) {
-      return Collections.EMPTY_LIST;
-    }
-    final ArrayList<DFeature> features = Lists.<DFeature>newArrayList(type.getFeatures());
-    Set<DComplexType> _typeHierarchy = this.typeHierarchy(type);
-    for (final DComplexType t : _typeHierarchy) {
-      features.addAll(t.getFeatures());
-    }
-    return features;
-  }
-  
-  protected List<DFeature> _allFeatures(final IFeatureContainer container) {
-    return container.getFeatures();
-  }
   
   public List<DExpression> nullSafeCallArguments(final DmxMemberNavigation nav) {
     DmxCallArguments _callArguments = nav.getCallArguments();
@@ -125,16 +85,5 @@ public class DmxUtil {
       }
     }
     return null;
-  }
-  
-  public List<DFeature> allFeatures(final IFeatureContainer type) {
-    if (type instanceof DComplexType) {
-      return _allFeatures((DComplexType)type);
-    } else if (type != null) {
-      return _allFeatures(type);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(type).toString());
-    }
   }
 }

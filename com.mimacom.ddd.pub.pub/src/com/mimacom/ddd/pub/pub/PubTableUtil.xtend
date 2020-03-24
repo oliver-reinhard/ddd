@@ -12,6 +12,8 @@ class PubTableUtil {
 	static val BASE = BaseFactory.eINSTANCE
 	static val PUB = PubFactory.eINSTANCE
 
+	public static val IGNORE_TABLE_CELL = "**IGNORE**"
+
 	def Table createTableWithHeader(String... columnTitles) {
 		if (columnTitles.length == 0) {
 			throw new IllegalArgumentException("lables.length = 0")
@@ -35,7 +37,9 @@ class PubTableUtil {
 		val row = PUB.createTableRow
 		t.rows.add(row)
 		for (text : cellTexts) {
-			row.addSimpleCell(text)
+			if (! IGNORE_TABLE_CELL.equals(text)) {
+				row.addSimpleCell(text)
+			}
 		}
 		return row
 	}
@@ -52,7 +56,9 @@ class PubTableUtil {
 		val row = PUB.createTableRow
 		t.rows.add(row)
 		for (text : cellTexts) {
-			row.addSimpleCell(text)
+			if (! IGNORE_TABLE_CELL.equals(text)) {
+				row.addSimpleCell(text)
+			}
 		}
 		// Reference:
 		addReference(row, lastColumn)
@@ -69,7 +75,9 @@ class PubTableUtil {
 		val row = PUB.createTableRow
 		t.rows.add(row)
 		for (text : cellTexts) {
-			row.addSimpleCell(text)
+			if (! IGNORE_TABLE_CELL.equals(text)) {
+				row.addSimpleCell(text)
+			}
 		}
 		row.addRichTextCell(description)
 		for (text : moreCells) {

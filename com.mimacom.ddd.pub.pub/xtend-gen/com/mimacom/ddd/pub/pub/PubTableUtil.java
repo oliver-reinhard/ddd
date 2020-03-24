@@ -25,6 +25,8 @@ public class PubTableUtil {
   
   private static final PubFactory PUB = PubFactory.eINSTANCE;
   
+  public static final String IGNORE_TABLE_CELL = "**IGNORE**";
+  
   public Table createTableWithHeader(final String... columnTitles) {
     int _length = columnTitles.length;
     boolean _equals = (_length == 0);
@@ -60,7 +62,11 @@ public class PubTableUtil {
     final TableRow row = PubTableUtil.PUB.createTableRow();
     t.getRows().add(row);
     for (final String text : cellTexts) {
-      this.addSimpleCell(row, text);
+      boolean _equals_1 = PubTableUtil.IGNORE_TABLE_CELL.equals(text);
+      boolean _not = (!_equals_1);
+      if (_not) {
+        this.addSimpleCell(row, text);
+      }
     }
     return row;
   }
@@ -88,7 +94,11 @@ public class PubTableUtil {
     final TableRow row = PubTableUtil.PUB.createTableRow();
     t.getRows().add(row);
     for (final String text : cellTexts) {
-      this.addSimpleCell(row, text);
+      boolean _equals_1 = PubTableUtil.IGNORE_TABLE_CELL.equals(text);
+      boolean _not = (!_equals_1);
+      if (_not) {
+        this.addSimpleCell(row, text);
+      }
     }
     this.addReference(row, lastColumn);
     return row;
@@ -110,7 +120,11 @@ public class PubTableUtil {
     final TableRow row = PubTableUtil.PUB.createTableRow();
     t.getRows().add(row);
     for (final String text : cellTexts) {
-      this.addSimpleCell(row, text);
+      boolean _equals = PubTableUtil.IGNORE_TABLE_CELL.equals(text);
+      boolean _not = (!_equals);
+      if (_not) {
+        this.addSimpleCell(row, text);
+      }
     }
     this.addRichTextCell(row, description);
     for (final String text_1 : moreCells) {
