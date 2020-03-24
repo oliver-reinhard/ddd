@@ -8,6 +8,7 @@ import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import java.util.Map
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.resource.DerivedStateAwareResource
+import org.eclipse.xtext.resource.IEObjectDescription
 
 class TransformationContext {
 
@@ -27,12 +28,14 @@ class TransformationContext {
 	
 	def void initializeImportedMappedDomainTypesFromIndex() {
 		val model = resource.contents.head
-		val deducedSTypeDescriptions = index.getVisibleExternalDeducedSystemModelTypes(model)
-		val dTypeDescriptionsMap = index.getVisibleDomainTypeDescriptionsMap(model)
-		for (sTypeDesc : deducedSTypeDescriptions) {
+		val Iterable<IEObjectDescription> deducedTypeDescriptions = index.getVisibleExternalDeducedDTypes(model) // expensive operation
+		val Map<QualifiedName, IEObjectDescription> allTypeDescriptionsMap = index.getVisibleDTypeDescriptionsMap(model)
+		
+		for (sTypeDesc : deducedTypeDescriptions) {
 			val sourceNameStr = sTypeDesc.getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM)
 			val sourceQN = QualifiedName.create(sourceNameStr.split("\\."))
-			val dTypeDesc = dTypeDescriptionsMap.get(sourceQN)
+			
+			val dTypeDesc = allTypeDescriptionsMap.get(sourceQN)
 			if (dTypeDesc !== null) {
 				var dType = dTypeDesc.EObjectOrProxy
 				var sType = sTypeDesc.EObjectOrProxy

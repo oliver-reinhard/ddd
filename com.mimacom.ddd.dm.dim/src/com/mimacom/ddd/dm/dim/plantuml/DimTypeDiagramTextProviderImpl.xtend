@@ -150,7 +150,7 @@ class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DIn
 	 '''
 	
 	def dispatch generateFeature(DAttribute a) '''
-		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name» «a.multiplicityText»«ENDIF»
+		«IF ! (a.getType === null || a.getType instanceof DDetailType)»«a.name» : «a.getType.name» «a.multiplicityText»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''

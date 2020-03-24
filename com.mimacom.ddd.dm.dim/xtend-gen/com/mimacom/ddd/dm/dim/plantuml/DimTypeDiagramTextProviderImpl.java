@@ -421,11 +421,7 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   protected CharSequence _generateFeature(final DAttribute a) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      DType _type = null;
-      if (a!=null) {
-        _type=a.getType();
-      }
-      boolean _not = (!(_type instanceof DDetailType));
+      boolean _not = (!((a.getType() == null) || (a.getType() instanceof DDetailType)));
       if (_not) {
         String _name = a.getName();
         _builder.append(_name);

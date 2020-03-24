@@ -135,13 +135,13 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 	 '''
 	
 	def dispatch generateFeature(DAttribute a) '''
-		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name» «a.multiplicityText»«ENDIF»
+		«IF ! (a.getType === null || a.getType instanceof DDetailType)»«a.name» : «a.getType.name» «a.multiplicityText»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
 		«IF q.getType !== null»
 			«q.name»(«q.generateQueryParameters») : «q.getType.name» 
-			«ENDIF»
+		«ENDIF»
 	'''
 	
 	def dispatch generateFeature(DAssociation a)  '''

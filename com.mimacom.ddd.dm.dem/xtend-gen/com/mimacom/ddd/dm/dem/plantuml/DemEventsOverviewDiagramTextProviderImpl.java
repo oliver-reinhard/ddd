@@ -1,18 +1,25 @@
 package com.mimacom.ddd.dm.dem.plantuml;
 
 import com.google.common.collect.Maps;
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.DemEventsOverviewModel;
+import com.mimacom.ddd.dm.dem.index.DemIndex;
 import com.mimacom.ddd.dm.dem.plantuml.AbstractDemDiagramTextProviderImpl;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
 import java.util.HashMap;
 import java.util.List;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public class DemEventsOverviewDiagramTextProviderImpl extends AbstractDemDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DemEventsOverviewModel> {
+  @Inject
+  @Extension
+  private DemIndex _demIndex;
+  
   @Override
   public boolean canProvide(final DemEventsOverviewModel model) {
     boolean _xblockexpression = false;
@@ -24,7 +31,8 @@ public class DemEventsOverviewDiagramTextProviderImpl extends AbstractDemDiagram
   }
   
   public List<DemDomainEvent> computeEvents(final DemEventsOverviewModel model) {
-    return model.getInclude();
+    final List<DemDomainEvent> events = this._demIndex.eventsOfDomain(model);
+    return events;
   }
   
   @Override

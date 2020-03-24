@@ -32,13 +32,13 @@ public class TransformationContext {
   
   public void initializeImportedMappedDomainTypesFromIndex() {
     final EObject model = IterableExtensions.<EObject>head(this.resource.getContents());
-    final Iterable<IEObjectDescription> deducedSTypeDescriptions = this.index.getVisibleExternalDeducedSystemModelTypes(model);
-    final Map<QualifiedName, IEObjectDescription> dTypeDescriptionsMap = this.index.getVisibleDomainTypeDescriptionsMap(model);
-    for (final IEObjectDescription sTypeDesc : deducedSTypeDescriptions) {
+    final Iterable<IEObjectDescription> deducedTypeDescriptions = this.index.getVisibleExternalDeducedDTypes(model);
+    final Map<QualifiedName, IEObjectDescription> allTypeDescriptionsMap = this.index.getVisibleDTypeDescriptionsMap(model);
+    for (final IEObjectDescription sTypeDesc : deducedTypeDescriptions) {
       {
         final String sourceNameStr = sTypeDesc.getUserData(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM);
         final QualifiedName sourceQN = QualifiedName.create(sourceNameStr.split("\\."));
-        final IEObjectDescription dTypeDesc = dTypeDescriptionsMap.get(sourceQN);
+        final IEObjectDescription dTypeDesc = allTypeDescriptionsMap.get(sourceQN);
         if ((dTypeDesc != null)) {
           EObject dType = dTypeDesc.getEObjectOrProxy();
           EObject sType = sTypeDesc.getEObjectOrProxy();
