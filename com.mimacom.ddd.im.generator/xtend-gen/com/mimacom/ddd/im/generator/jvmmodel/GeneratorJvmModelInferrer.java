@@ -3,13 +3,13 @@
  */
 package com.mimacom.ddd.im.generator.jvmmodel;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DType;
@@ -18,16 +18,21 @@ import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.HttpVerb;
 import com.mimacom.ddd.im.generator.generator.Model;
+import com.mimacom.ddd.im.generator.generator.Path;
+import com.mimacom.ddd.im.generator.generator.PathSegment;
+import com.mimacom.ddd.im.generator.generator.TypeMapping;
 import com.mimacom.ddd.im.generator.jvmmodel.GeneratorTypesHelper;
 import com.mimacom.ddd.sm.asm.SDirection;
 import com.mimacom.ddd.sm.asm.SException;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
 import com.mimacom.ddd.sm.asm.SServiceParameter;
 import java.lang.annotation.Annotation;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
@@ -46,22 +51,28 @@ import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.common.types.util.TypeReferences;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -89,6 +100,9 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   @Inject
   private GeneratorTypesHelper typesHelper;
   
+  @Inject
+  private TypeReferences references;
+  
   public Iterable<DType> getParameterTypeReferences(final EndpointDeclarationBlock block) {
     final Function1<EndpointDeclaration, EList<SServiceParameter>> _function = (EndpointDeclaration it) -> {
       return it.getType().getParameters();
@@ -100,7 +114,12 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   }
   
   protected JvmTypeReference _generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {
-    return this.typesHelper.toType(this._typeReferenceBuilder, element);
+    JvmTypeReference _xblockexpression = null;
+    {
+      final EList<TypeMapping> mappings = EcoreUtil2.<Model>getContainerOfType(container, Model.class).getTypeMappings();
+      _xblockexpression = this.typesHelper.toType(this._typeReferenceBuilder, mappings, element);
+    }
+    return _xblockexpression;
   }
   
   protected JvmTypeReference _generateForType(final EObject container, final DEnumeration element, final IJvmDeclaredTypeAcceptor acceptor) {
@@ -128,18 +147,134 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     JvmTypeReference _xblockexpression = null;
     {
       final JvmGenericType jvmType = this._jvmTypesBuilder.toClass(container, this.getQualifiedName(element));
+      final EList<TypeMapping> mappings = EcoreUtil2.<Model>getContainerOfType(container, Model.class).getTypeMappings();
       final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
         EList<DFeature> _features = element.getFeatures();
         for (final DFeature f : _features) {
           DType _type = f.getType();
           boolean _tripleNotEquals = (_type != null);
           if (_tripleNotEquals) {
-            final JvmTypeReference refFeatureType = this.typesHelper.toType(this._typeReferenceBuilder, f.getType());
+            final JvmTypeReference refFeatureType = this.typesHelper.toType(this._typeReferenceBuilder, mappings, f.getType());
             final JvmField field = this._jvmTypesBuilder.toField(f, f.getName(), refFeatureType);
             EList<JvmMember> _members = it.getMembers();
             this._jvmTypesBuilder.<JvmField>operator_add(_members, field);
           }
         }
+        final ArrayList<JvmOperation> getters = CollectionLiterals.<JvmOperation>newArrayList();
+        EList<DFeature> _features_1 = element.getFeatures();
+        for (final DFeature f_1 : _features_1) {
+          DType _type_1 = f_1.getType();
+          boolean _tripleNotEquals_1 = (_type_1 != null);
+          if (_tripleNotEquals_1) {
+            final JvmTypeReference refFeatureType_1 = this.typesHelper.toType(this._typeReferenceBuilder, mappings, f_1.getType());
+            final JvmOperation getter = this._jvmTypesBuilder.toGetter(f_1, f_1.getName(), refFeatureType_1);
+            getters.add(getter);
+            EList<JvmMember> _members_1 = it.getMembers();
+            this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, getter);
+            EList<JvmMember> _members_2 = it.getMembers();
+            JvmOperation _setter = this._jvmTypesBuilder.toSetter(f_1, f_1.getName(), refFeatureType_1);
+            this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _setter);
+          }
+        }
+        EList<JvmMember> _members_3 = it.getMembers();
+        JvmOperation _toStringMethod = this._jvmTypesBuilder.toToStringMethod(container, it);
+        this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _toStringMethod);
+        boolean _isEmpty = getters.isEmpty();
+        boolean _not = (!_isEmpty);
+        if (_not) {
+          EList<JvmMember> _members_4 = it.getMembers();
+          final Procedure1<JvmOperation> _function_1 = (JvmOperation it_1) -> {
+            EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+            JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+            this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+            EList<JvmFormalParameter> _parameters = it_1.getParameters();
+            JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(container, "o", this.references.getTypeForName(Object.class, container));
+            this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("if (this == o) return true;");
+                _builder.newLine();
+                _builder.append("if (o == null || getClass() != o.getClass()) return false;");
+                _builder.newLine();
+                String _simpleName = GeneratorJvmModelInferrer.this._typeReferenceBuilder.typeRef(jvmType).getSimpleName();
+                _builder.append(_simpleName);
+                _builder.append(" that = (");
+                String _simpleName_1 = GeneratorJvmModelInferrer.this._typeReferenceBuilder.typeRef(jvmType).getSimpleName();
+                _builder.append(_simpleName_1);
+                _builder.append(") o;");
+                _builder.newLineIfNotEmpty();
+                _builder.append("return");
+                _builder.newLine();
+                {
+                  boolean _hasElements = false;
+                  for(final JvmOperation f : getters) {
+                    if (!_hasElements) {
+                      _hasElements = true;
+                    } else {
+                      _builder.appendImmediate("&&", "\t");
+                    }
+                    _builder.append("\t");
+                    String _qualifiedName = GeneratorJvmModelInferrer.this.references.getTypeForName(Objects.class, container).getQualifiedName();
+                    _builder.append(_qualifiedName, "\t");
+                    _builder.append(".equals(");
+                    String _simpleName_2 = f.getSimpleName();
+                    _builder.append(_simpleName_2, "\t");
+                    _builder.append("(), that.");
+                    String _simpleName_3 = f.getSimpleName();
+                    _builder.append(_simpleName_3, "\t");
+                    _builder.append("())");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                  }
+                }
+                _builder.append(";");
+                _builder.newLineIfNotEmpty();
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          };
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(container, "equals", this.references.getTypeForName(boolean.class, container), _function_1);
+          this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _method);
+        }
+        EList<JvmMember> _members_5 = it.getMembers();
+        final Procedure1<JvmOperation> _function_2 = (JvmOperation it_1) -> {
+          EList<JvmAnnotationReference> _annotations = it_1.getAnnotations();
+          JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(Override.class);
+          this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+          StringConcatenationClient _client = new StringConcatenationClient() {
+            @Override
+            protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+              _builder.append("return ");
+              String _qualifiedName = GeneratorJvmModelInferrer.this.references.getTypeForName(Objects.class, container).getQualifiedName();
+              _builder.append(_qualifiedName);
+              _builder.append(".hash(");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t");
+              {
+                boolean _hasElements = false;
+                for(final JvmOperation f : getters) {
+                  if (!_hasElements) {
+                    _hasElements = true;
+                  } else {
+                    String _property = System.getProperty("line.separator");
+                    String _plus = ("," + _property);
+                    _builder.appendImmediate(_plus, "\t");
+                  }
+                  String _simpleName = f.getSimpleName();
+                  _builder.append(_simpleName, "\t");
+                  _builder.append("()");
+                }
+              }
+              _builder.newLineIfNotEmpty();
+              _builder.append(");");
+              _builder.newLine();
+            }
+          };
+          this._jvmTypesBuilder.setBody(it_1, _client);
+        };
+        JvmOperation _method_1 = this._jvmTypesBuilder.toMethod(container, "hashCode", this.references.getTypeForName(int.class, container), _function_2);
+        this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _method_1);
       };
       acceptor.<JvmGenericType>accept(jvmType, _function);
       _xblockexpression = this._typeReferenceBuilder.typeRef(jvmType);
@@ -188,6 +323,19 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     }
   }
   
+  private boolean isAlreadyAssociatedWith(final EObject context, final String qualifiedName) {
+    boolean _xblockexpression = false;
+    {
+      final Set<EObject> associations = this.associations.getJvmElements(context);
+      final Function1<EObject, Boolean> _function = (EObject it) -> {
+        String _string = this._iQualifiedNameProvider.getFullyQualifiedName(it).toString();
+        return Boolean.valueOf(com.google.common.base.Objects.equal(_string, qualifiedName));
+      };
+      _xblockexpression = IterableExtensions.<EObject>exists(associations, _function);
+    }
+    return _xblockexpression;
+  }
+  
   protected void _infer(final EndpointDeclarationBlock element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (isPreIndexingPhase) {
       return;
@@ -201,8 +349,10 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       };
       Iterable<SServiceParameter> _filter = IterableExtensions.<SServiceParameter>filter(endpoint.getType().getParameters(), _function);
       for (final SServiceParameter p : _filter) {
-        {
-          final JvmTypeReference jvmTypeRef = this.generateForType(endpoint, p.getType(), acceptor);
+        boolean _isAlreadyAssociatedWith = this.isAlreadyAssociatedWith(element, this.getQualifiedName(p.getType()));
+        boolean _not = (!_isAlreadyAssociatedWith);
+        if (_not) {
+          final JvmTypeReference jvmTypeRef = this.generateForType(element, p.getType(), acceptor);
           paramTypeToJvmType.put(p.getType(), jvmTypeRef);
         }
       }
@@ -224,56 +374,99 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
             SDirection _direction = it_1.getDirection();
             return Boolean.valueOf((_direction == SDirection.OUTBOUND));
           };
-          SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3));
+          final SServiceParameter resultParameter = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3));
+          final Function1<SServiceParameter, Boolean> _function_4 = (SServiceParameter it_1) -> {
+            SDirection _direction = it_1.getDirection();
+            return Boolean.valueOf((_direction == SDirection.OUTBOUND));
+          };
+          SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_4));
           DType _type = null;
           if (_head!=null) {
             _type=_head.getType();
           }
           final DType outboundType = _type;
           if (((outboundType != null) && paramTypeToJvmType.containsKey(outboundType))) {
-            operationReturnType = paramTypeToJvmType.get(outboundType);
+            DMultiplicity _multiplicity = resultParameter.getMultiplicity();
+            boolean _tripleNotEquals = (_multiplicity != null);
+            if (_tripleNotEquals) {
+              operationReturnType = this._typeReferenceBuilder.typeRef(List.class, paramTypeToJvmType.get(outboundType));
+            } else {
+              operationReturnType = paramTypeToJvmType.get(outboundType);
+            }
           } else {
-            operationReturnType = this._typeReferenceBuilder.typeRef(Void.class);
+            operationReturnType = this._typeReferenceBuilder.typeRef(ResponseEntity.class);
           }
           EList<JvmMember> _members = it.getMembers();
-          final Procedure1<JvmOperation> _function_4 = (JvmOperation it_1) -> {
+          final Procedure1<JvmOperation> _function_5 = (JvmOperation it_1) -> {
+            this._jvmTypesBuilder.setDocumentation(it_1, this._jvmTypesBuilder.getDocumentation(endpoint_1));
             EList<JvmAnnotationReference> _annotations_1 = it_1.getAnnotations();
-            JvmAnnotationReference _annotationRef_1 = this._annotationTypesBuilder.annotationRef(this.toMethodAnnotationClass(endpoint_1.getVerb()));
+            JvmAnnotationReference _annotationRef_1 = this._annotationTypesBuilder.annotationRef(this.toMethodAnnotationClass(endpoint_1.getVerb()), this.getEndpointPathAsString(endpoint_1.getPath()));
             this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, _annotationRef_1);
             EList<SException> _raises = endpoint_1.getType().getRaises();
-            boolean _tripleNotEquals = (_raises != null);
-            if (_tripleNotEquals) {
+            boolean _tripleNotEquals_1 = (_raises != null);
+            if (_tripleNotEquals_1) {
               final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint_1, Model.class), endpoint_1.getType().getRaises());
               EList<JvmTypeReference> _exceptions = it_1.getExceptions();
               this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
             }
-            final Function1<SServiceParameter, Boolean> _function_5 = (SServiceParameter it_2) -> {
+            final Function1<SServiceParameter, Boolean> _function_6 = (SServiceParameter it_2) -> {
               return Boolean.valueOf(((it_2.getDirection() == SDirection.INBOUND) && paramTypeToJvmType.containsKey(it_2.getType())));
             };
-            Iterable<SServiceParameter> _filter_2 = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_5);
-            for (final SServiceParameter arg : _filter_2) {
+            Iterable<SServiceParameter> _filter_2 = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_6);
+            for (final SServiceParameter param : _filter_2) {
               {
-                final JvmTypeReference paramTypeRef = paramTypeToJvmType.get(arg.getType());
+                final JvmTypeReference paramTypeRef = paramTypeToJvmType.get(param.getType());
+                final JvmFormalParameter parameter = this._jvmTypesBuilder.toParameter(endpoint_1, param.getName(), paramTypeRef);
+                EList<JvmAnnotationReference> _annotations_2 = parameter.getAnnotations();
+                ArrayList<JvmAnnotationReference> _parameterAnnotations = this.getParameterAnnotations(endpoint_1, param);
+                this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_2, _parameterAnnotations);
                 EList<JvmFormalParameter> _parameters = it_1.getParameters();
-                JvmFormalParameter _parameter = this._jvmTypesBuilder.toParameter(endpoint_1, arg.getName(), paramTypeRef);
-                this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, parameter);
               }
             }
             StringConcatenationClient _client = new StringConcatenationClient() {
               @Override
               protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
                 _builder.append("throw new UnsupportedOperationException(\"Not yet implemented\");");
-                _builder.newLine();
               }
             };
             this._jvmTypesBuilder.setBody(it_1, _client);
           };
-          JvmOperation _method = this._jvmTypesBuilder.toMethod(endpoint_1, operation.getName(), operationReturnType, _function_4);
+          JvmOperation _method = this._jvmTypesBuilder.toMethod(endpoint_1, operation.getName(), operationReturnType, _function_5);
           this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
         }
       }
     };
     acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, this.getQualifiedName(element)), _function_1);
+  }
+  
+  private ArrayList<JvmAnnotationReference> getParameterAnnotations(final EndpointDeclaration endpoint, final SServiceParameter param) {
+    ArrayList<JvmAnnotationReference> _xblockexpression = null;
+    {
+      final ArrayList<JvmAnnotationReference> annotations = CollectionLiterals.<JvmAnnotationReference>newArrayList();
+      boolean _isPathParameter = this.isPathParameter(param, endpoint.getPath());
+      if (_isPathParameter) {
+        JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(PathVariable.class);
+        annotations.add(_annotationRef);
+      } else {
+        if ((com.google.common.base.Objects.equal(endpoint.getVerb(), HttpVerb.POST) || com.google.common.base.Objects.equal(endpoint.getVerb(), HttpVerb.PUT))) {
+          JvmAnnotationReference _annotationRef_1 = this._annotationTypesBuilder.annotationRef(RequestBody.class);
+          annotations.add(_annotationRef_1);
+        } else {
+          JvmAnnotationReference _annotationRef_2 = this._annotationTypesBuilder.annotationRef(RequestParam.class);
+          annotations.add(_annotationRef_2);
+        }
+      }
+      _xblockexpression = annotations;
+    }
+    return _xblockexpression;
+  }
+  
+  private boolean isPathParameter(final SServiceParameter param, final Path path) {
+    final Function1<PathSegment, Boolean> _function = (PathSegment it) -> {
+      return Boolean.valueOf((com.google.common.base.Objects.equal(it.getName(), param.getName()) && it.isVariable()));
+    };
+    return IterableExtensions.<PathSegment>exists(path.getSegments(), _function);
   }
   
   private Class<?> toMethodAnnotationClass(final HttpVerb verb) {
@@ -296,10 +489,10 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
           _switchResult = PatchMapping.class;
           break;
         default:
-          throw new IllegalArgumentException(("invalid http verb: " + verb));
+          throw new IllegalArgumentException(("invalid HTTP verb: " + verb));
       }
     } else {
-      throw new IllegalArgumentException(("invalid http verb: " + verb));
+      throw new IllegalArgumentException(("invalid HTTP verb: " + verb));
     }
     return _switchResult;
   }
@@ -331,7 +524,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     final Function1<SException, Boolean> _function_5 = (SException it) -> {
       final Function1<ExceptionMapping, Boolean> _function_6 = (ExceptionMapping e) -> {
         String _name = e.getName();
-        return Boolean.valueOf(Objects.equal(it, _name));
+        return Boolean.valueOf(com.google.common.base.Objects.equal(it, _name));
       };
       return Boolean.valueOf(IterableExtensions.<ExceptionMapping>exists(mappings, _function_6));
     };
@@ -358,6 +551,38 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
     };
     return this._jvmTypesBuilder.toClass(model, this.getQualifiedName(exception), _function);
+  }
+  
+  private String getEndpointPathAsString(final Path path) {
+    String _xblockexpression = null;
+    {
+      if ((path == null)) {
+        return null;
+      }
+      String _xifexpression = null;
+      boolean _isLeadingSlash = path.isLeadingSlash();
+      if (_isLeadingSlash) {
+        _xifexpression = "/";
+      } else {
+        _xifexpression = "";
+      }
+      final String prefix = _xifexpression;
+      final Function1<PathSegment, String> _function = (PathSegment it) -> {
+        String _xifexpression_1 = null;
+        boolean _isVariable = it.isVariable();
+        if (_isVariable) {
+          String _name = it.getName();
+          String _plus = ("{" + _name);
+          _xifexpression_1 = (_plus + "}");
+        } else {
+          _xifexpression_1 = it.getName();
+        }
+        return _xifexpression_1;
+      };
+      String _join = IterableExtensions.join(ListExtensions.<PathSegment, String>map(path.getSegments(), _function), "/");
+      _xblockexpression = (prefix + _join);
+    }
+    return _xblockexpression;
   }
   
   private String getPackageName(final DComplexType complexType) {

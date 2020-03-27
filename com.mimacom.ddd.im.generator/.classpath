@@ -9,6 +9,7 @@
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/xbase/scoping/**"/>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/xbase/compiler/**"/>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/generator/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/common/**"/>
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>

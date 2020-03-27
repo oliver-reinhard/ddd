@@ -101,6 +101,16 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
         return createEndpointDeclarationAdapter();
       }
       @Override
+      public Adapter casePath(Path object)
+      {
+        return createPathAdapter();
+      }
+      @Override
+      public Adapter casePathSegment(PathSegment object)
+      {
+        return createPathSegmentAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -193,6 +203,36 @@ public class GeneratorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEndpointDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.Path <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.mimacom.ddd.im.generator.generator.Path
+   * @generated
+   */
+  public Adapter createPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.mimacom.ddd.im.generator.generator.PathSegment <em>Path Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.mimacom.ddd.im.generator.generator.PathSegment
+   * @generated
+   */
+  public Adapter createPathSegmentAdapter()
   {
     return null;
   }

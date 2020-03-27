@@ -505,9 +505,9 @@ ruleEndpointDeclarationBlock returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEndpointDeclarationBlockAccess().getPathPathIDParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getEndpointDeclarationBlockAccess().getPathPathParserRuleCall_3_1_0());
 					}
-					lv_path_4_0=rulePathID
+					lv_path_4_0=rulePath
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEndpointDeclarationBlockRule());
@@ -516,7 +516,7 @@ ruleEndpointDeclarationBlock returns [EObject current=null]
 							$current,
 							"path",
 							lv_path_4_0,
-							"com.mimacom.ddd.im.generator.Generator.PathID");
+							"com.mimacom.ddd.im.generator.Generator.Path");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -639,9 +639,9 @@ ruleEndpointDeclaration returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getEndpointDeclarationAccess().getPathPathIDParserRuleCall_4_1_1_0());
+							newCompositeNode(grammarAccess.getEndpointDeclarationAccess().getPathPathParserRuleCall_4_1_1_0());
 						}
-						lv_path_6_0=rulePathID
+						lv_path_6_0=rulePath
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getEndpointDeclarationRule());
@@ -650,7 +650,7 @@ ruleEndpointDeclaration returns [EObject current=null]
 								$current,
 								"path",
 								lv_path_6_0,
-								"com.mimacom.ddd.im.generator.Generator.PathID");
+								"com.mimacom.ddd.im.generator.Generator.Path");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -664,15 +664,15 @@ ruleEndpointDeclaration returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRulePathID
-entryRulePathID returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getPathIDRule()); }
-	iv_rulePathID=rulePathID
-	{ $current=$iv_rulePathID.current.getText(); }
+// Entry rule entryRulePath
+entryRulePath returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPathRule()); }
+	iv_rulePath=rulePath
+	{ $current=$iv_rulePath.current; }
 	EOF;
 
-// Rule PathID
-rulePathID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule Path
+rulePath returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -680,30 +680,143 @@ rulePathID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	leaveRule();
 }:
 	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getPathIDAccess().getIDTerminalRuleCall_0());
-		}
+		(
+			(
+				lv_leadingSlash_0_0='/'
+				{
+					newLeafNode(lv_leadingSlash_0_0, grammarAccess.getPathAccess().getLeadingSlashSolidusKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPathRule());
+					}
+					setWithLastConsumed($current, "leadingSlash", true, "/");
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPathAccess().getSegmentsPathSegmentParserRuleCall_1_0());
+				}
+				lv_segments_1_0=rulePathSegment
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPathRule());
+					}
+					add(
+						$current,
+						"segments",
+						lv_segments_1_0,
+						"com.mimacom.ddd.im.generator.Generator.PathSegment");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				('/')=>
-				kw='/'
+				otherlv_2='/'
 				{
-					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getPathIDAccess().getSolidusKeyword_1_0());
+					newLeafNode(otherlv_2, grammarAccess.getPathAccess().getSolidusKeyword_2_0());
 				}
 			)
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getPathIDAccess().getIDTerminalRuleCall_1_1());
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPathAccess().getSegmentsPathSegmentParserRuleCall_2_1_0());
+					}
+					lv_segments_3_0=rulePathSegment
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPathRule());
+						}
+						add(
+							$current,
+							"segments",
+							lv_segments_3_0,
+							"com.mimacom.ddd.im.generator.Generator.PathSegment");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)*
+	)
+;
+
+// Entry rule entryRulePathSegment
+entryRulePathSegment returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPathSegmentRule()); }
+	iv_rulePathSegment=rulePathSegment
+	{ $current=$iv_rulePathSegment.current; }
+	EOF;
+
+// Rule PathSegment
+rulePathSegment returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getPathSegmentAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPathSegmentRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.xbase.Xtype.ID");
+				}
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_variable_1_0='{'
+					{
+						newLeafNode(lv_variable_1_0, grammarAccess.getPathSegmentAccess().getVariableLeftCurlyBracketKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPathSegmentRule());
+						}
+						setWithLastConsumed($current, "variable", true, "{");
+					}
+				)
+			)
+			(
+				(
+					lv_name_2_0=RULE_ID
+					{
+						newLeafNode(lv_name_2_0, grammarAccess.getPathSegmentAccess().getNameIDTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPathSegmentRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_2_0,
+							"org.eclipse.xtext.xbase.Xtype.ID");
+					}
+				)
+			)
+			otherlv_3='}'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getPathSegmentAccess().getRightCurlyBracketKeyword_1_2());
+			}
+		)
 	)
 ;
 

@@ -69,6 +69,24 @@ public interface GeneratorFactory extends EFactory
   EndpointDeclaration createEndpointDeclaration();
 
   /**
+   * Returns a new object of class '<em>Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Path</em>'.
+   * @generated
+   */
+  Path createPath();
+
+  /**
+   * Returns a new object of class '<em>Path Segment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Path Segment</em>'.
+   * @generated
+   */
+  PathSegment createPathSegment();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

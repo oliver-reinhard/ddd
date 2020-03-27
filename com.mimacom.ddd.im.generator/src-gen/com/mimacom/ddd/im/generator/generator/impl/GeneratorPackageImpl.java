@@ -12,6 +12,8 @@ import com.mimacom.ddd.im.generator.generator.GeneratorFactory;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.HttpVerb;
 import com.mimacom.ddd.im.generator.generator.Model;
+import com.mimacom.ddd.im.generator.generator.Path;
+import com.mimacom.ddd.im.generator.generator.PathSegment;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
@@ -72,6 +74,20 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   private EClass endpointDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pathSegmentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -343,9 +359,9 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EAttribute getEndpointDeclarationBlock_Path()
+  public EReference getEndpointDeclarationBlock_Path()
   {
-    return (EAttribute)endpointDeclarationBlockEClass.getEStructuralFeatures().get(1);
+    return (EReference)endpointDeclarationBlockEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -409,9 +425,75 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EAttribute getEndpointDeclaration_Path()
+  public EReference getEndpointDeclaration_Path()
   {
-    return (EAttribute)endpointDeclarationEClass.getEStructuralFeatures().get(3);
+    return (EReference)endpointDeclarationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPath()
+  {
+    return pathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPath_LeadingSlash()
+  {
+    return (EAttribute)pathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPath_Segments()
+  {
+    return (EReference)pathEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPathSegment()
+  {
+    return pathSegmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPathSegment_Name()
+  {
+    return (EAttribute)pathSegmentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPathSegment_Variable()
+  {
+    return (EAttribute)pathSegmentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -476,14 +558,22 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     endpointDeclarationBlockEClass = createEClass(ENDPOINT_DECLARATION_BLOCK);
     createEAttribute(endpointDeclarationBlockEClass, ENDPOINT_DECLARATION_BLOCK__NAME);
-    createEAttribute(endpointDeclarationBlockEClass, ENDPOINT_DECLARATION_BLOCK__PATH);
+    createEReference(endpointDeclarationBlockEClass, ENDPOINT_DECLARATION_BLOCK__PATH);
     createEReference(endpointDeclarationBlockEClass, ENDPOINT_DECLARATION_BLOCK__ENDPOINTS);
 
     endpointDeclarationEClass = createEClass(ENDPOINT_DECLARATION);
     createEAttribute(endpointDeclarationEClass, ENDPOINT_DECLARATION__VERB);
     createEAttribute(endpointDeclarationEClass, ENDPOINT_DECLARATION__NAME);
     createEReference(endpointDeclarationEClass, ENDPOINT_DECLARATION__TYPE);
-    createEAttribute(endpointDeclarationEClass, ENDPOINT_DECLARATION__PATH);
+    createEReference(endpointDeclarationEClass, ENDPOINT_DECLARATION__PATH);
+
+    pathEClass = createEClass(PATH);
+    createEAttribute(pathEClass, PATH__LEADING_SLASH);
+    createEReference(pathEClass, PATH__SEGMENTS);
+
+    pathSegmentEClass = createEClass(PATH_SEGMENT);
+    createEAttribute(pathSegmentEClass, PATH_SEGMENT__NAME);
+    createEAttribute(pathSegmentEClass, PATH_SEGMENT__VARIABLE);
 
     // Create enums
     httpVerbEEnum = createEEnum(HTTP_VERB);
@@ -546,14 +636,22 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     initEClass(endpointDeclarationBlockEClass, EndpointDeclarationBlock.class, "EndpointDeclarationBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEndpointDeclarationBlock_Name(), ecorePackage.getEString(), "name", null, 0, 1, EndpointDeclarationBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEndpointDeclarationBlock_Path(), ecorePackage.getEString(), "path", null, 0, 1, EndpointDeclarationBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEndpointDeclarationBlock_Path(), this.getPath(), null, "path", null, 0, 1, EndpointDeclarationBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEndpointDeclarationBlock_Endpoints(), this.getEndpointDeclaration(), null, "endpoints", null, 0, -1, EndpointDeclarationBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(endpointDeclarationEClass, EndpointDeclaration.class, "EndpointDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEndpointDeclaration_Verb(), this.getHttpVerb(), "verb", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEndpointDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEndpointDeclaration_Type(), theAsmPackage.getSServiceOperation(), null, "type", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEndpointDeclaration_Path(), ecorePackage.getEString(), "path", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEndpointDeclaration_Path(), this.getPath(), null, "path", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPath_LeadingSlash(), ecorePackage.getEBoolean(), "leadingSlash", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPath_Segments(), this.getPathSegment(), null, "segments", null, 0, -1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pathSegmentEClass, PathSegment.class, "PathSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPathSegment_Name(), ecorePackage.getEString(), "name", null, 0, 1, PathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPathSegment_Variable(), ecorePackage.getEBoolean(), "variable", null, 0, 1, PathSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(httpVerbEEnum, HttpVerb.class, "HttpVerb");

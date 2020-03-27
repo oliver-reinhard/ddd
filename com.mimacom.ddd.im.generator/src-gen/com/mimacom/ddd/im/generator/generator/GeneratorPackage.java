@@ -243,7 +243,7 @@ public interface GeneratorPackage extends EPackage
   int ENDPOINT_DECLARATION_BLOCK__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -307,7 +307,7 @@ public interface GeneratorPackage extends EPackage
   int ENDPOINT_DECLARATION__TYPE = 2;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -325,6 +325,80 @@ public interface GeneratorPackage extends EPackage
   int ENDPOINT_DECLARATION_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.PathImpl <em>Path</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.mimacom.ddd.im.generator.generator.impl.PathImpl
+   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getPath()
+   * @generated
+   */
+  int PATH = 5;
+
+  /**
+   * The feature id for the '<em><b>Leading Slash</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH__LEADING_SLASH = 0;
+
+  /**
+   * The feature id for the '<em><b>Segments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH__SEGMENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Path</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.PathSegmentImpl <em>Path Segment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.mimacom.ddd.im.generator.generator.impl.PathSegmentImpl
+   * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getPathSegment()
+   * @generated
+   */
+  int PATH_SEGMENT = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_SEGMENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_SEGMENT__VARIABLE = 1;
+
+  /**
+   * The number of structural features of the '<em>Path Segment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_SEGMENT_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -332,7 +406,7 @@ public interface GeneratorPackage extends EPackage
    * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getHttpVerb()
    * @generated
    */
-  int HTTP_VERB = 5;
+  int HTTP_VERB = 7;
 
 
   /**
@@ -519,15 +593,15 @@ public interface GeneratorPackage extends EPackage
   EAttribute getEndpointDeclarationBlock_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getPath <em>Path</em>}'.
+   * Returns the meta object for the containment reference '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path</em>'.
+   * @return the meta object for the containment reference '<em>Path</em>'.
    * @see com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getPath()
    * @see #getEndpointDeclarationBlock()
    * @generated
    */
-  EAttribute getEndpointDeclarationBlock_Path();
+  EReference getEndpointDeclarationBlock_Path();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock#getEndpoints <em>Endpoints</em>}'.
@@ -584,15 +658,79 @@ public interface GeneratorPackage extends EPackage
   EReference getEndpointDeclaration_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}'.
+   * Returns the meta object for the containment reference '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path</em>'.
+   * @return the meta object for the containment reference '<em>Path</em>'.
    * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath()
    * @see #getEndpointDeclaration()
    * @generated
    */
-  EAttribute getEndpointDeclaration_Path();
+  EReference getEndpointDeclaration_Path();
+
+  /**
+   * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.Path <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Path</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Path
+   * @generated
+   */
+  EClass getPath();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.Path#isLeadingSlash <em>Leading Slash</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Leading Slash</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Path#isLeadingSlash()
+   * @see #getPath()
+   * @generated
+   */
+  EAttribute getPath_LeadingSlash();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.im.generator.generator.Path#getSegments <em>Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Segments</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.Path#getSegments()
+   * @see #getPath()
+   * @generated
+   */
+  EReference getPath_Segments();
+
+  /**
+   * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.PathSegment <em>Path Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Path Segment</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.PathSegment
+   * @generated
+   */
+  EClass getPathSegment();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.PathSegment#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.PathSegment#getName()
+   * @see #getPathSegment()
+   * @generated
+   */
+  EAttribute getPathSegment_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.PathSegment#isVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.PathSegment#isVariable()
+   * @see #getPathSegment()
+   * @generated
+   */
+  EAttribute getPathSegment_Variable();
 
   /**
    * Returns the meta object for enum '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}'.
@@ -772,12 +910,12 @@ public interface GeneratorPackage extends EPackage
     EAttribute ENDPOINT_DECLARATION_BLOCK__NAME = eINSTANCE.getEndpointDeclarationBlock_Name();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENDPOINT_DECLARATION_BLOCK__PATH = eINSTANCE.getEndpointDeclarationBlock_Path();
+    EReference ENDPOINT_DECLARATION_BLOCK__PATH = eINSTANCE.getEndpointDeclarationBlock_Path();
 
     /**
      * The meta object literal for the '<em><b>Endpoints</b></em>' containment reference list feature.
@@ -822,12 +960,64 @@ public interface GeneratorPackage extends EPackage
     EReference ENDPOINT_DECLARATION__TYPE = eINSTANCE.getEndpointDeclaration_Type();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENDPOINT_DECLARATION__PATH = eINSTANCE.getEndpointDeclaration_Path();
+    EReference ENDPOINT_DECLARATION__PATH = eINSTANCE.getEndpointDeclaration_Path();
+
+    /**
+     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.PathImpl <em>Path</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.mimacom.ddd.im.generator.generator.impl.PathImpl
+     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getPath()
+     * @generated
+     */
+    EClass PATH = eINSTANCE.getPath();
+
+    /**
+     * The meta object literal for the '<em><b>Leading Slash</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATH__LEADING_SLASH = eINSTANCE.getPath_LeadingSlash();
+
+    /**
+     * The meta object literal for the '<em><b>Segments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PATH__SEGMENTS = eINSTANCE.getPath_Segments();
+
+    /**
+     * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.PathSegmentImpl <em>Path Segment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.mimacom.ddd.im.generator.generator.impl.PathSegmentImpl
+     * @see com.mimacom.ddd.im.generator.generator.impl.GeneratorPackageImpl#getPathSegment()
+     * @generated
+     */
+    EClass PATH_SEGMENT = eINSTANCE.getPathSegment();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATH_SEGMENT__NAME = eINSTANCE.getPathSegment_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATH_SEGMENT__VARIABLE = eINSTANCE.getPathSegment_Variable();
 
     /**
      * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}' enum.

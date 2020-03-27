@@ -31,6 +31,7 @@ public class GeneratorParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GeneratorGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getPathSegmentAccess().getAlternatives(), "rule__PathSegment__Alternatives");
 			builder.put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 			builder.put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 			builder.put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
@@ -83,8 +84,9 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEndpointDeclarationAccess().getGroup(), "rule__EndpointDeclaration__Group__0");
 			builder.put(grammarAccess.getEndpointDeclarationAccess().getGroup_4(), "rule__EndpointDeclaration__Group_4__0");
 			builder.put(grammarAccess.getEndpointDeclarationAccess().getGroup_4_1(), "rule__EndpointDeclaration__Group_4_1__0");
-			builder.put(grammarAccess.getPathIDAccess().getGroup(), "rule__PathID__Group__0");
-			builder.put(grammarAccess.getPathIDAccess().getGroup_1(), "rule__PathID__Group_1__0");
+			builder.put(grammarAccess.getPathAccess().getGroup(), "rule__Path__Group__0");
+			builder.put(grammarAccess.getPathAccess().getGroup_2(), "rule__Path__Group_2__0");
+			builder.put(grammarAccess.getPathSegmentAccess().getGroup_1(), "rule__PathSegment__Group_1__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 			builder.put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -283,6 +285,12 @@ public class GeneratorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEndpointDeclarationAccess().getNameAssignment_1(), "rule__EndpointDeclaration__NameAssignment_1");
 			builder.put(grammarAccess.getEndpointDeclarationAccess().getTypeAssignment_3(), "rule__EndpointDeclaration__TypeAssignment_3");
 			builder.put(grammarAccess.getEndpointDeclarationAccess().getPathAssignment_4_1_1(), "rule__EndpointDeclaration__PathAssignment_4_1_1");
+			builder.put(grammarAccess.getPathAccess().getLeadingSlashAssignment_0(), "rule__Path__LeadingSlashAssignment_0");
+			builder.put(grammarAccess.getPathAccess().getSegmentsAssignment_1(), "rule__Path__SegmentsAssignment_1");
+			builder.put(grammarAccess.getPathAccess().getSegmentsAssignment_2_1(), "rule__Path__SegmentsAssignment_2_1");
+			builder.put(grammarAccess.getPathSegmentAccess().getNameAssignment_0(), "rule__PathSegment__NameAssignment_0");
+			builder.put(grammarAccess.getPathSegmentAccess().getVariableAssignment_1_0(), "rule__PathSegment__VariableAssignment_1_0");
+			builder.put(grammarAccess.getPathSegmentAccess().getNameAssignment_1_1(), "rule__PathSegment__NameAssignment_1_1");
 			builder.put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 			builder.put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 			builder.put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

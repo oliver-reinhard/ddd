@@ -29,7 +29,7 @@ ExceptionMapping:
 ;
 
 EndpointDeclarationBlock:
-	'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{'
+	'endpoints' 'for' name=QualifiedName ('path' path=Path)? '{'
 		endpoints+=EndpointDeclaration+
 	'}'
 ;
@@ -37,13 +37,18 @@ EndpointDeclarationBlock:
 EndpointDeclaration:
 	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName]
 	('{'
-		('path' path=PathID)?
+		('path' path=Path)?
 	'}')?
 ;
 
-PathID:
-	ID (=>'/' ID)*
+Path:
+	leadingSlash?='/'? segments+=PathSegment (=>'/' segments+=PathSegment)*
 ;
+
+PathSegment:
+	name=ID | (variable?='{' name=ID '}')
+;
+
 
 enum HttpVerb:
 	PUT='PUT' | POST='POST' | GET='GET' | DELETE='DELETE' | PATCH='PATCH'

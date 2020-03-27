@@ -6,10 +6,12 @@ package com.mimacom.ddd.im.generator.generator.impl;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.HttpVerb;
+import com.mimacom.ddd.im.generator.generator.Path;
 
 import com.mimacom.ddd.sm.asm.SServiceOperation;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -86,24 +88,14 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
   protected SServiceOperation type;
 
   /**
-   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPath()
    * @generated
    * @ordered
    */
-  protected static final String PATH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPath()
-   * @generated
-   * @ordered
-   */
-  protected String path = PATH_EDEFAULT;
+  protected Path path;
 
   /**
    * <!-- begin-user-doc -->
@@ -227,7 +219,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public String getPath()
+  public Path getPath()
   {
     return path;
   }
@@ -237,13 +229,54 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setPath(String newPath)
+  public NotificationChain basicSetPath(Path newPath, NotificationChain msgs)
   {
-    String oldPath = path;
+    Path oldPath = path;
     path = newPath;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.ENDPOINT_DECLARATION__PATH, oldPath, path));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GeneratorPackage.ENDPOINT_DECLARATION__PATH, oldPath, newPath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPath(Path newPath)
+  {
+    if (newPath != path)
+    {
+      NotificationChain msgs = null;
+      if (path != null)
+        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GeneratorPackage.ENDPOINT_DECLARATION__PATH, null, msgs);
+      if (newPath != null)
+        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GeneratorPackage.ENDPOINT_DECLARATION__PATH, null, msgs);
+      msgs = basicSetPath(newPath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.ENDPOINT_DECLARATION__PATH, newPath, newPath));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
+        return basicSetPath(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -289,7 +322,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
         setType((SServiceOperation)newValue);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
-        setPath((String)newValue);
+        setPath((Path)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -315,7 +348,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
         setType((SServiceOperation)null);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
-        setPath(PATH_EDEFAULT);
+        setPath((Path)null);
         return;
     }
     super.eUnset(featureID);
@@ -338,7 +371,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
       case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
         return type != null;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
-        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+        return path != null;
     }
     return super.eIsSet(featureID);
   }
@@ -358,8 +391,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
     result.append(verb);
     result.append(", name: ");
     result.append(name);
-    result.append(", path: ");
-    result.append(path);
     result.append(')');
     return result.toString();
   }

@@ -284,19 +284,19 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cPathKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cPathAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPathPathIDParserRuleCall_3_1_0 = (RuleCall)cPathAssignment_3_1.eContents().get(0);
+		private final RuleCall cPathPathParserRuleCall_3_1_0 = (RuleCall)cPathAssignment_3_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cEndpointsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEndpointsEndpointDeclarationParserRuleCall_5_0 = (RuleCall)cEndpointsAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//EndpointDeclarationBlock:
-		//	'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{'
+		//	'endpoints' 'for' name=QualifiedName ('path' path=Path)? '{'
 		//	endpoints+=EndpointDeclaration+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{' endpoints+=EndpointDeclaration+ '}'
+		//'endpoints' 'for' name=QualifiedName ('path' path=Path)? '{' endpoints+=EndpointDeclaration+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'endpoints'
@@ -311,17 +311,17 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
 		
-		//('path' path=PathID)?
+		//('path' path=Path)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'path'
 		public Keyword getPathKeyword_3_0() { return cPathKeyword_3_0; }
 		
-		//path=PathID
+		//path=Path
 		public Assignment getPathAssignment_3_1() { return cPathAssignment_3_1; }
 		
-		//PathID
-		public RuleCall getPathPathIDParserRuleCall_3_1_0() { return cPathPathIDParserRuleCall_3_1_0; }
+		//Path
+		public RuleCall getPathPathParserRuleCall_3_1_0() { return cPathPathParserRuleCall_3_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
@@ -351,15 +351,15 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
 		private final Keyword cPathKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
 		private final Assignment cPathAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cPathPathIDParserRuleCall_4_1_1_0 = (RuleCall)cPathAssignment_4_1_1.eContents().get(0);
+		private final RuleCall cPathPathParserRuleCall_4_1_1_0 = (RuleCall)cPathAssignment_4_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//EndpointDeclaration:
-		//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
+		//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=Path)?
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)? '}')?
+		//verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=Path)? '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//verb=HttpVerb
@@ -386,53 +386,112 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1() { return cTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1; }
 		
-		//('{' ('path' path=PathID)? '}')?
+		//('{' ('path' path=Path)? '}')?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 		
-		//('path' path=PathID)?
+		//('path' path=Path)?
 		public Group getGroup_4_1() { return cGroup_4_1; }
 		
 		//'path'
 		public Keyword getPathKeyword_4_1_0() { return cPathKeyword_4_1_0; }
 		
-		//path=PathID
+		//path=Path
 		public Assignment getPathAssignment_4_1_1() { return cPathAssignment_4_1_1; }
 		
-		//PathID
-		public RuleCall getPathPathIDParserRuleCall_4_1_1_0() { return cPathPathIDParserRuleCall_4_1_1_0; }
+		//Path
+		public RuleCall getPathPathParserRuleCall_4_1_1_0() { return cPathPathParserRuleCall_4_1_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
 	}
-	public class PathIDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.PathID");
+	public class PathElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.Path");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cLeadingSlashAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cLeadingSlashSolidusKeyword_0_0 = (Keyword)cLeadingSlashAssignment_0.eContents().get(0);
+		private final Assignment cSegmentsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSegmentsPathSegmentParserRuleCall_1_0 = (RuleCall)cSegmentsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cSolidusKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSegmentsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cSegmentsPathSegmentParserRuleCall_2_1_0 = (RuleCall)cSegmentsAssignment_2_1.eContents().get(0);
 		
-		//PathID:
-		//	ID (=> '/' ID)*;
+		//Path:
+		//	leadingSlash?='/'? segments+=PathSegment (=> '/' segments+=PathSegment)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID (=> '/' ID)*
+		//leadingSlash?='/'? segments+=PathSegment (=> '/' segments+=PathSegment)*
 		public Group getGroup() { return cGroup; }
 		
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		//leadingSlash?='/'?
+		public Assignment getLeadingSlashAssignment_0() { return cLeadingSlashAssignment_0; }
 		
-		//(=> '/' ID)*
-		public Group getGroup_1() { return cGroup_1; }
+		//'/'
+		public Keyword getLeadingSlashSolidusKeyword_0_0() { return cLeadingSlashSolidusKeyword_0_0; }
+		
+		//segments+=PathSegment
+		public Assignment getSegmentsAssignment_1() { return cSegmentsAssignment_1; }
+		
+		//PathSegment
+		public RuleCall getSegmentsPathSegmentParserRuleCall_1_0() { return cSegmentsPathSegmentParserRuleCall_1_0; }
+		
+		//(=> '/' segments+=PathSegment)*
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//=> '/'
-		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
+		public Keyword getSolidusKeyword_2_0() { return cSolidusKeyword_2_0; }
+		
+		//segments+=PathSegment
+		public Assignment getSegmentsAssignment_2_1() { return cSegmentsAssignment_2_1; }
+		
+		//PathSegment
+		public RuleCall getSegmentsPathSegmentParserRuleCall_2_1_0() { return cSegmentsPathSegmentParserRuleCall_2_1_0; }
+	}
+	public class PathSegmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.PathSegment");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cVariableAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cVariableLeftCurlyBracketKeyword_1_0_0 = (Keyword)cVariableAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		
+		//PathSegment:
+		//	name=ID | variable?='{' name=ID '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID | variable?='{' name=ID '}'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
 		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//variable?='{' name=ID '}'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//variable?='{'
+		public Assignment getVariableAssignment_1_0() { return cVariableAssignment_1_0; }
+		
+		//'{'
+		public Keyword getVariableLeftCurlyBracketKeyword_1_0_0() { return cVariableLeftCurlyBracketKeyword_1_0_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_2() { return cRightCurlyBracketKeyword_1_2; }
 	}
 	
 	public class HttpVerbElements extends AbstractEnumRuleElementFinder {
@@ -492,7 +551,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	private final ExceptionMappingElements pExceptionMapping;
 	private final EndpointDeclarationBlockElements pEndpointDeclarationBlock;
 	private final EndpointDeclarationElements pEndpointDeclaration;
-	private final PathIDElements pPathID;
+	private final PathElements pPath;
+	private final PathSegmentElements pPathSegment;
 	private final HttpVerbElements eHttpVerb;
 	
 	private final Grammar grammar;
@@ -513,7 +573,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExceptionMapping = new ExceptionMappingElements();
 		this.pEndpointDeclarationBlock = new EndpointDeclarationBlockElements();
 		this.pEndpointDeclaration = new EndpointDeclarationElements();
-		this.pPathID = new PathIDElements();
+		this.pPath = new PathElements();
+		this.pPathSegment = new PathSegmentElements();
 		this.eHttpVerb = new HttpVerbElements();
 	}
 	
@@ -583,7 +644,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EndpointDeclarationBlock:
-	//	'endpoints' 'for' name=QualifiedName ('path' path=PathID)? '{'
+	//	'endpoints' 'for' name=QualifiedName ('path' path=Path)? '{'
 	//	endpoints+=EndpointDeclaration+
 	//	'}';
 	public EndpointDeclarationBlockElements getEndpointDeclarationBlockAccess() {
@@ -595,7 +656,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EndpointDeclaration:
-	//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
+	//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=Path)?
 	//	'}')?;
 	public EndpointDeclarationElements getEndpointDeclarationAccess() {
 		return pEndpointDeclaration;
@@ -605,14 +666,24 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		return getEndpointDeclarationAccess().getRule();
 	}
 	
-	//PathID:
-	//	ID (=> '/' ID)*;
-	public PathIDElements getPathIDAccess() {
-		return pPathID;
+	//Path:
+	//	leadingSlash?='/'? segments+=PathSegment (=> '/' segments+=PathSegment)*;
+	public PathElements getPathAccess() {
+		return pPath;
 	}
 	
-	public ParserRule getPathIDRule() {
-		return getPathIDAccess().getRule();
+	public ParserRule getPathRule() {
+		return getPathAccess().getRule();
+	}
+	
+	//PathSegment:
+	//	name=ID | variable?='{' name=ID '}';
+	public PathSegmentElements getPathSegmentAccess() {
+		return pPathSegment;
+	}
+	
+	public ParserRule getPathSegmentRule() {
+		return getPathSegmentAccess().getRule();
 	}
 	
 	//enum HttpVerb:

@@ -98,25 +98,25 @@ public interface EndpointDeclaration extends EObject
   void setType(SServiceOperation value);
 
   /**
-   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * Returns the value of the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' attribute.
-   * @see #setPath(String)
+   * @return the value of the '<em>Path</em>' containment reference.
+   * @see #setPath(Path)
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getEndpointDeclaration_Path()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPath();
+  Path getPath();
 
   /**
-   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}' attribute.
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' attribute.
+   * @param value the new value of the '<em>Path</em>' containment reference.
    * @see #getPath()
    * @generated
    */
-  void setPath(String value);
+  void setPath(Path value);
 
 } // EndpointDeclaration

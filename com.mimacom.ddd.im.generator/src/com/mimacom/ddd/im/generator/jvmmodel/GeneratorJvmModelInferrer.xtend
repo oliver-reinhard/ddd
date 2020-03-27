@@ -13,30 +13,37 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping
+import com.mimacom.ddd.im.generator.generator.HttpVerb
 import com.mimacom.ddd.im.generator.generator.Model
+import com.mimacom.ddd.im.generator.generator.Path
 import com.mimacom.ddd.sm.asm.SDirection
 import com.mimacom.ddd.sm.asm.SException
 import com.mimacom.ddd.sm.asm.SServiceParameter
 import java.util.HashMap
 import java.util.List
 import java.util.Map
+import java.util.Objects
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmTypeReference
+import org.eclipse.xtext.common.types.util.TypeReferences 
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.springframework.web.bind.annotation.RestController
-import com.mimacom.ddd.im.generator.generator.HttpVerb
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -57,12 +64,15 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	
 	@Inject GeneratorTypesHelper typesHelper
 	
+	@Inject TypeReferences references
+	
 	def Iterable<DType> getParameterTypeReferences(EndpointDeclarationBlock block) {
 		block.endpoints.flatMap[type.parameters].map[type]
 	}
 	
 	def dispatch generateForType(EObject container, DType element, IJvmDeclaredTypeAcceptor acceptor) {
-		typesHelper.toType(_typeReferenceBuilder, element)
+		val mappings = EcoreUtil2.getContainerOfType(container, Model).typeMappings
+		typesHelper.toType(_typeReferenceBuilder, mappings, element)
 	}
 	
 	def dispatch generateForType(EObject container, DEnumeration element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -75,14 +85,49 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	
 	def dispatch generateForType(EObject container, DComplexType element, IJvmDeclaredTypeAcceptor acceptor) {
 		val jvmType = container.toClass(element.qualifiedName)
+		val mappings = EcoreUtil2.getContainerOfType(container, Model).typeMappings
 		acceptor.accept(jvmType) [
 			for (DFeature f : element.features) {
 				if (f.type !== null) {
-					val refFeatureType = typesHelper.toType(_typeReferenceBuilder, f.type)
+					val refFeatureType = typesHelper.toType(_typeReferenceBuilder, mappings, f.type)
 					val field = f.toField(f.name, refFeatureType)
 					members += field
 				}
 			}
+			val getters = newArrayList
+			for (DFeature f : element.features) {
+				if (f.type !== null) {
+					val refFeatureType = typesHelper.toType(_typeReferenceBuilder, mappings, f.type)
+					val getter = f.toGetter(f.name, refFeatureType)
+					getters.add(getter)
+					members += getter
+					members += f.toSetter(f.name, refFeatureType)
+				}
+			}
+			members += container.toToStringMethod(it)
+			
+			if (!getters.empty)
+				members += container.toMethod('equals', references.getTypeForName(boolean, container))[
+					annotations += annotationRef(Override)
+					parameters += container.toParameter('o', references.getTypeForName(Object, container))
+					body = '''
+						if (this == o) return true;
+						if (o == null || getClass() != o.getClass()) return false;
+						«jvmType.typeRef.simpleName» that = («jvmType.typeRef.simpleName») o;
+						return
+							«FOR f : getters SEPARATOR '&&'»
+							«references.getTypeForName(Objects, container).qualifiedName».equals(«f.simpleName»(), that.«f.simpleName»())
+							«ENDFOR»;
+					'''
+				]
+				members += container.toMethod('hashCode', references.getTypeForName(int, container))[
+					annotations += annotationRef(Override)
+					body = '''
+						return «references.getTypeForName(Objects, container).qualifiedName».hash(
+							«FOR f : getters SEPARATOR ',' + System.getProperty('line.separator')»«f.simpleName»()«ENDFOR»
+						);
+					'''
+				]
 		]
 		typeRef(jvmType)
 	}
@@ -109,6 +154,11 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 	}
+	
+	private def isAlreadyAssociatedWith(EObject context, String qualifiedName) {
+		val associations = associations.getJvmElements(context)
+		associations.exists[fullyQualifiedName.toString == qualifiedName]
+	}
 
 	def dispatch void infer(EndpointDeclarationBlock element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		if (isPreIndexingPhase) return
@@ -117,8 +167,10 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		val Map<DType, JvmTypeReference> paramTypeToJvmType = new HashMap
 		for (endpoint : element.endpoints) {
 			for (p : endpoint.type.parameters.filter[type !== null]) {
-				val jvmTypeRef = endpoint.generateForType(p.type, acceptor)
-				paramTypeToJvmType.put(p.type, jvmTypeRef)
+				if (!element.isAlreadyAssociatedWith(p.type.qualifiedName)) {
+					val jvmTypeRef = element.generateForType(p.type, acceptor)
+					paramTypeToJvmType.put(p.type, jvmTypeRef)
+				}
 			}
 		}
 		
@@ -131,29 +183,46 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				val operation = endpoint.type
 				
 				var JvmTypeReference operationReturnType 
+				val resultParameter = operation.parameters.filter[direction === SDirection.OUTBOUND].head
 				val outboundType = operation.parameters.filter[direction === SDirection.OUTBOUND].head?.type
 				if (outboundType !== null && paramTypeToJvmType.containsKey(outboundType)) {
-				 	operationReturnType = paramTypeToJvmType.get(outboundType)
+					if (resultParameter.multiplicity !== null)
+						operationReturnType = typeRef(List, paramTypeToJvmType.get(outboundType))
+				 	else
+				 		operationReturnType = paramTypeToJvmType.get(outboundType)
 				} else {
-				 	operationReturnType = typeRef(Void) // TODO [gh-19] generates 'return Void'
+				 	operationReturnType = typeRef(ResponseEntity)
 				}
 				
 				members+=endpoint.toMethod(operation.name, operationReturnType)[
-					annotations+=annotationRef(endpoint.verb.toMethodAnnotationClass)
+					documentation = endpoint.documentation
+					annotations+=annotationRef(endpoint.verb.toMethodAnnotationClass, endpoint.path.getEndpointPathAsString)
 					if (endpoint.type.raises !== null) {
 						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model), endpoint.type.raises)
 						exceptions+=me
 					}
-					for (SServiceParameter arg: operation.parameters.filter[direction === SDirection.INBOUND && paramTypeToJvmType.containsKey(type)]) {
-						val paramTypeRef = paramTypeToJvmType.get(arg.type)
-						parameters+=endpoint.toParameter(arg.name, paramTypeRef)
+					for (SServiceParameter param: operation.parameters.filter[direction === SDirection.INBOUND && paramTypeToJvmType.containsKey(type)]) {
+						val paramTypeRef = paramTypeToJvmType.get(param.type)
+						val parameter = endpoint.toParameter(param.name, paramTypeRef)
+						parameter.annotations += endpoint.getParameterAnnotations(param)
+						parameters += parameter
 					}
-					body='''
-						throw new UnsupportedOperationException("Not yet implemented");
-					'''
+					body='''throw new UnsupportedOperationException("Not yet implemented");'''
 				]
 			}
 		]
+	}
+	
+	private def getParameterAnnotations(EndpointDeclaration endpoint, SServiceParameter param) {
+		val annotations = newArrayList
+		if (param.isPathParameter(endpoint.path)) annotations += annotationRef(PathVariable)
+		else if (endpoint.verb == HttpVerb.POST || endpoint.verb == HttpVerb.PUT) annotations += annotationRef(RequestBody)
+		else annotations += annotationRef(RequestParam)
+		annotations
+	}
+	
+	private def isPathParameter(SServiceParameter param, Path path) {
+		path.segments.exists[name == param.name && variable]
 	}
 	
 	private def Class<?> toMethodAnnotationClass(HttpVerb verb) {
@@ -174,7 +243,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				PatchMapping
 			}
 			default: {
-				throw new IllegalArgumentException("invalid http verb: " + verb)
+				throw new IllegalArgumentException("invalid HTTP verb: " + verb)
 			}
 		}
 	}
@@ -205,6 +274,12 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		model.toClass(exception.getQualifiedName) [
 			superTypes += typeRef(Exception)
 		]
+	}
+	
+	private def getEndpointPathAsString(Path path) {
+		if (path === null) return null
+		val prefix = path.leadingSlash ? '/' : ''
+		prefix + path.segments.map[isVariable ? '{' + it.name + '}' : it.name].join('/')
 	}
 
 	private def getPackageName(DComplexType complexType) {

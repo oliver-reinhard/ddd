@@ -33,14 +33,22 @@
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//EndpointDeclarationBlock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclarationBlock/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclarationBlock/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//EndpointDeclarationBlock/path"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//EndpointDeclarationBlock/endpoints"/>
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//EndpointDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclaration/verb"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclaration/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//EndpointDeclaration/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclaration/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//EndpointDeclaration/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Generator.ecore#//Path">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//Path/leadingSlash"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//Path/segments"/>
+    </genClasses>
+    <genClasses ecoreClass="Generator.ecore#//PathSegment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//PathSegment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//PathSegment/variable"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

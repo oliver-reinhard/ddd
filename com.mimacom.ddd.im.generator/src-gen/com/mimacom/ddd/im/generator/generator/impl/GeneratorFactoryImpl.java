@@ -71,6 +71,8 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
       case GeneratorPackage.EXCEPTION_MAPPING: return createExceptionMapping();
       case GeneratorPackage.ENDPOINT_DECLARATION_BLOCK: return createEndpointDeclarationBlock();
       case GeneratorPackage.ENDPOINT_DECLARATION: return createEndpointDeclaration();
+      case GeneratorPackage.PATH: return createPath();
+      case GeneratorPackage.PATH_SEGMENT: return createPathSegment();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -168,6 +170,30 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
   {
     EndpointDeclarationImpl endpointDeclaration = new EndpointDeclarationImpl();
     return endpointDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Path createPath()
+  {
+    PathImpl path = new PathImpl();
+    return path;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PathSegment createPathSegment()
+  {
+    PathSegmentImpl pathSegment = new PathSegmentImpl();
+    return pathSegment;
   }
 
   /**

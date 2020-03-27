@@ -9,6 +9,8 @@ import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.Model;
+import com.mimacom.ddd.im.generator.generator.Path;
+import com.mimacom.ddd.im.generator.generator.PathSegment;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;
 import com.mimacom.ddd.im.generator.services.GeneratorGrammarAccess;
 import java.util.Set;
@@ -92,6 +94,12 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 				return; 
 			case GeneratorPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case GeneratorPackage.PATH:
+				sequence_Path(context, (Path) semanticObject); 
+				return; 
+			case GeneratorPackage.PATH_SEGMENT:
+				sequence_PathSegment(context, (PathSegment) semanticObject); 
 				return; 
 			case GeneratorPackage.TYPE_MAPPING:
 				sequence_TypeMapping(context, (TypeMapping) semanticObject); 
@@ -345,7 +353,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     EndpointDeclarationBlock returns EndpointDeclarationBlock
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName path=PathID? endpoints+=EndpointDeclaration+)
+	 *     (name=QualifiedName path=Path? endpoints+=EndpointDeclaration+)
 	 */
 	protected void sequence_EndpointDeclarationBlock(ISerializationContext context, EndpointDeclarationBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -357,7 +365,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     EndpointDeclaration returns EndpointDeclaration
 	 *
 	 * Constraint:
-	 *     (verb=HttpVerb name=QualifiedName type=[SServiceOperation|QualifiedName] path=PathID?)
+	 *     (verb=HttpVerb name=QualifiedName type=[SServiceOperation|QualifiedName] path=Path?)
 	 */
 	protected void sequence_EndpointDeclaration(ISerializationContext context, EndpointDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -388,6 +396,30 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PathSegment returns PathSegment
+	 *
+	 * Constraint:
+	 *     (name=ID | (variable?='{' name=ID))
+	 */
+	protected void sequence_PathSegment(ISerializationContext context, PathSegment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Path returns Path
+	 *
+	 * Constraint:
+	 *     (leadingSlash?='/'? segments+=PathSegment segments+=PathSegment*)
+	 */
+	protected void sequence_Path(ISerializationContext context, Path semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
