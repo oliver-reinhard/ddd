@@ -21,7 +21,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GeneratorGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q;
+	protected AbstractElementAlias match_EndpointDeclaration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
 	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q;
 	protected AbstractElementAlias match_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
@@ -34,7 +34,7 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GeneratorGrammarAccess) access;
-		match_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEndpointDeclarationAccess().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getEndpointDeclarationAccess().getRightCurlyBracketKeyword_2_2()));
+		match_EndpointDeclaration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEndpointDeclarationAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getEndpointDeclarationAccess().getRightCurlyBracketKeyword_4_2()));
 		match_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_4_0_4()), new TokenAlias(false, false, grammarAccess.getModelAccess().getTypeKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getMappingsKeyword_4_0_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_4_0_2()));
 		match_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_4_1_4()), new TokenAlias(false, false, grammarAccess.getModelAccess().getExceptionKeyword_4_1_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getMappingsKeyword_4_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_4_1_2()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
@@ -82,8 +82,8 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q.equals(syntax))
-				emit_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_EndpointDeclaration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_EndpointDeclaration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q.equals(syntax))
 				emit_Model___RightCurlyBracketKeyword_4_0_4_TypeKeyword_4_0_0_MappingsKeyword_4_0_1_LeftCurlyBracketKeyword_4_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Model___RightCurlyBracketKeyword_4_1_4_ExceptionKeyword_4_1_0_MappingsKeyword_4_1_1_LeftCurlyBracketKeyword_4_1_2__q.equals(syntax))
@@ -109,9 +109,9 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=[SServiceOperation|QualifiedName] (ambiguity) (rule end)
+	 *     type=[SServiceOperation|QualifiedName] (ambiguity) (rule end)
 	 */
-	protected void emit_EndpointDeclaration___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EndpointDeclaration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

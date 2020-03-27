@@ -357,7 +357,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     EndpointDeclaration returns EndpointDeclaration
 	 *
 	 * Constraint:
-	 *     (verb=HttpVerb name=[SServiceOperation|QualifiedName] path=PathID?)
+	 *     (verb=HttpVerb name=QualifiedName type=[SServiceOperation|QualifiedName] path=PathID?)
 	 */
 	protected void sequence_EndpointDeclaration(ISerializationContext context, EndpointDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -369,7 +369,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     ExceptionMapping returns ExceptionMapping
 	 *
 	 * Constraint:
-	 *     (name=[SException|QualifiedName] extends=[JvmType|QualifiedName]? (message=STRING | package=QualifiedName)*)
+	 *     (name=QualifiedName type=[SException|QualifiedName] extends=[JvmType|QualifiedName]? message=STRING?)
 	 */
 	protected void sequence_ExceptionMapping(ISerializationContext context, ExceptionMapping semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -382,7 +382,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=ID 
+	 *         name=QualifiedName 
 	 *         importSection=XImportSection? 
 	 *         (typeMappings+=TypeMapping | exceptionMappings+=ExceptionMapping | endpointDeclarations+=EndpointDeclarationBlock)*
 	 *     )
@@ -397,18 +397,21 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     TypeMapping returns TypeMapping
 	 *
 	 * Constraint:
-	 *     (name=[DType|QualifiedName] javaType=[JvmType|QualifiedName])
+	 *     (name=QualifiedName type=[DType|QualifiedName] javaType=[JvmType|QualifiedName])
 	 */
 	protected void sequence_TypeMapping(ISerializationContext context, TypeMapping semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__NAME));
+			if (transientValues.isValueTransient(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__TYPE));
 			if (transientValues.isValueTransient(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeMappingAccess().getNameDTypeQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__NAME, false));
-		feeder.accept(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE, false));
+		feeder.accept(grammarAccess.getTypeMappingAccess().getNameQualifiedNameParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTypeMappingAccess().getTypeDTypeQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__TYPE, false));
+		feeder.accept(grammarAccess.getTypeMappingAccess().getJavaTypeJvmTypeQualifiedNameParserRuleCall_6_0_1(), semanticObject.eGet(GeneratorPackage.Literals.TYPE_MAPPING__JAVA_TYPE, false));
 		feeder.finish();
 	}
 	

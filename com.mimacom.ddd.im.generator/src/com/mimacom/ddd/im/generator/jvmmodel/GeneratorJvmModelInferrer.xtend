@@ -58,7 +58,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	@Inject GeneratorTypesHelper typesHelper
 	
 	def Iterable<DType> getParameterTypeReferences(EndpointDeclarationBlock block) {
-		block.endpoints.flatMap[name.parameters].map[type]
+		block.endpoints.flatMap[type.parameters].map[type]
 	}
 	
 	def dispatch generateForType(EObject container, DType element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -87,13 +87,36 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		typeRef(jvmType)
 	}
 
+	def dispatch void infer(ExceptionMapping element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		val qualifiedName = element.qualifiedName
+		if (qualifiedName !== null)
+			acceptor.accept(element.toClass(qualifiedName)) [
+				documentation = element.documentation
+
+				// extends
+				var JvmTypeReference parentException
+				if (element.extends !== null)
+					parentException = element.extends.typeRef
+				else
+					parentException = typeRef(RuntimeException)
+				if (parentException !== null)
+					superTypes += parentException
+
+				// message
+				members += element.toConstructor [
+					if (element.message !== null)
+						body = '''super("«element.message»");'''
+				]
+			]
+	}
+
 	def dispatch void infer(EndpointDeclarationBlock element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		if (isPreIndexingPhase) return
 		
 		// generate types for all operation parameter types
 		val Map<DType, JvmTypeReference> paramTypeToJvmType = new HashMap
 		for (endpoint : element.endpoints) {
-			for (p : endpoint.name.parameters.filter[type !== null]) {
+			for (p : endpoint.type.parameters.filter[type !== null]) {
 				val jvmTypeRef = endpoint.generateForType(p.type, acceptor)
 				paramTypeToJvmType.put(p.type, jvmTypeRef)
 			}
@@ -104,10 +127,8 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 			
 			annotations+=annotationRef(RestController)
 			
-			// TODO [gh-19] annotations+=... in order to get these, the annotation types must be on the classpath :-/
-			
-			for (EndpointDeclaration endpoint: element.endpoints.filter[name !== null]) {
-				val operation = endpoint.name
+			for (EndpointDeclaration endpoint: element.endpoints.filter[name !== null && type !== null]) {
+				val operation = endpoint.type
 				
 				var JvmTypeReference operationReturnType 
 				val outboundType = operation.parameters.filter[direction === SDirection.OUTBOUND].head?.type
@@ -119,8 +140,8 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				
 				members+=endpoint.toMethod(operation.name, operationReturnType)[
 					annotations+=annotationRef(endpoint.verb.toMethodAnnotationClass)
-					if (endpoint.name.raises !== null) {
-						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model), endpoint.name.raises)
+					if (endpoint.type.raises !== null) {
+						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model), endpoint.type.raises)
 						exceptions+=me
 					}
 					for (SServiceParameter arg: operation.parameters.filter[direction === SDirection.INBOUND && paramTypeToJvmType.containsKey(type)]) {
@@ -159,7 +180,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	}
 	
 	private def Iterable<JvmTypeReference> getMappedExceptions(IJvmDeclaredTypeAcceptor acceptor, Model model, List<SException> exceptions) {
-		val mappings = model.exceptionMappings.filter[exceptions.contains(it.name)].toList
+		val mappings = model.exceptionMappings.filter[exceptions.contains(it.type)].toList
 		
 		val typeRefsOfMappedExceptions = mappings
 			.flatMap[associations.getJvmElements(it)]
@@ -178,29 +199,6 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		val typeRefsOfUnmappedExceptions = (additionalExceptionTypes).map[typeRef]
 		
 		return typeRefsOfMappedExceptions + typeRefsOfUnmappedExceptions
-	} 
-
-	def dispatch void infer(ExceptionMapping element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		val qualifiedName = element.getQualifiedName
-		if (qualifiedName !== null)
-			acceptor.accept(element.toClass(qualifiedName)) [
-				documentation = element.documentation
-
-				// extends
-				var JvmTypeReference parentException
-				if (element.extends !== null)
-					parentException = element.extends.typeRef
-				else
-					parentException = typeRef(RuntimeException)
-				if (parentException !== null)
-					superTypes += parentException
-
-				// message
-				members += element.toConstructor [
-					if (element.message !== null)
-						body = '''super("«element.message»");'''
-				]
-			]
 	}
 	
 	private def JvmGenericType toExceptionType(SException exception, Model model) {
@@ -214,14 +212,20 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		namespace.name + '.dto'
 	}
 
-	private def getPackageName(EndpointDeclarationBlock block) {
-		val fqn = block.fullyQualifiedName
-		val declaredPackageName = fqn.segments
-			.drop(1) // ignore gen model name
-			.take(fqn.segmentCount-2) // first and last ignored
-			.map[toString.toLowerCase]
-			.join('.')
-		declaredPackageName  + '.controller'
+	private def dispatch getQualifiedName(ExceptionMapping exceptionMapping) {
+		val declaredTypeName = exceptionMapping.fullyQualifiedName.segments.last
+		val exception = declaredTypeName.endsWith('Exception')
+			? declaredTypeName 
+			: declaredTypeName + 'Exception'
+		exceptionMapping.packageName + '.' + exception
+	}
+
+	private def dispatch getQualifiedName(EndpointDeclarationBlock block) {
+		val declaredTypeName = block.fullyQualifiedName.segments.last
+		val controller = declaredTypeName.endsWith('Controller') || declaredTypeName.endsWith('RestResource')
+			? declaredTypeName 
+			: declaredTypeName + 'Controller'
+		block.packageName + '.' + controller
 	}
 	
 	private def dispatch getQualifiedName(DComplexType complexType) {
@@ -236,23 +240,20 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		} 
 		packageName + fqn.segments.last.toString
 	}
+	
+	private def getPackageName(ExceptionMapping exceptionMapping) {
+		exceptionMapping.getRootPackageName + '.exception'
+	}
 
-	private def dispatch getQualifiedName(EndpointDeclarationBlock block) {
-		val declaredTypeName = block.fullyQualifiedName.segments.last
-		val controller = declaredTypeName.endsWith('Controller') || declaredTypeName.endsWith('RestResource')
-			? declaredTypeName 
-			: declaredTypeName + 'Controller'
-		block.packageName + '.' + controller
+	private def getPackageName(EndpointDeclarationBlock block) {
+		block.getRootPackageName + '.controller'
 	}
 	
-	private def dispatch getQualifiedName(ExceptionMapping mapping) {
-		if (mapping.package !== null)
-			return '''«mapping.package.toLowerCase».«mapping.name.name»'''
-		val qualifiedName = mapping.name?.fullyQualifiedName
-		if (qualifiedName !== null) {
-			val packageName = qualifiedName.segments.take(qualifiedName.segmentCount - 1).map[toLowerCase].join('.')
-			return '''«packageName».«qualifiedName.lastSegment.toString»'''
-		}
-		return null
+	private def getRootPackageName(EObject child) {
+		val fqn = EcoreUtil2.getContainerOfType(child, Model).fullyQualifiedName
+		return fqn.segments
+			.take(fqn.segmentCount-1) // last ignored
+			.map[toString.toLowerCase]
+			.join('.')
 	}
 }

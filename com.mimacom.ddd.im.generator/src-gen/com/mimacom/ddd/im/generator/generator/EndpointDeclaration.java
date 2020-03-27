@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getVerb <em>Verb</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}</li>
  * </ul>
  *
@@ -53,26 +54,48 @@ public interface EndpointDeclaration extends EObject
   void setVerb(HttpVerb value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(SServiceOperation)
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getEndpointDeclaration_Name()
    * @model
    * @generated
    */
-  SServiceOperation getName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
+   * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(SServiceOperation value);
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(SServiceOperation)
+   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getEndpointDeclaration_Type()
+   * @model
+   * @generated
+   */
+  SServiceOperation getType();
+
+  /**
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getType <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(SServiceOperation value);
 
   /**
    * Returns the value of the '<em><b>Path</b></em>' attribute.

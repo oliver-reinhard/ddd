@@ -8,7 +8,7 @@ import "http://www.mimacom.com/ddd/dm/dmx"
 import "http://www.mimacom.com/ddd/sm/asm" as asm
 
 Model:
-	'generator' 'model' name=ID
+	'generator' 'model' name=QualifiedName
 	importSection=XImportSection?
 	(
 		('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? &
@@ -17,20 +17,15 @@ Model:
 	)
 ;
 
-// TODO [gh-19] use 'name' only for non-reference attributes, use 'type' for
-// ref types
-
 TypeMapping:
-	'datatype' name=[base::DType|QualifiedName]
+	'datatype' name=QualifiedName 'is' type=[base::DType|QualifiedName]
   	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName]
 ;
 
 ExceptionMapping:
-	'exception' name=[asm::SException|QualifiedName]
+	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName]
 	('extends' extends=[jvmTypes::JvmType|QualifiedName])?
-	(
-		('message' message=STRING)? & ('package' package=QualifiedName)?
-	)
+	('message' message=STRING)?
 ;
 
 EndpointDeclarationBlock:
@@ -40,7 +35,7 @@ EndpointDeclarationBlock:
 ;
 
 EndpointDeclaration:
-	verb=HttpVerb name=[asm::SServiceOperation|QualifiedName]
+	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName]
 	('{'
 		('path' path=PathID)?
 	'}')?

@@ -24,7 +24,7 @@ class GeneratorDocumentationProvider implements IEObjectDocumentationProvider {
 	}
 	
 	def dispatch doGetDocumentation(ExceptionMapping o) {
-		var description = o?.name?.description
+		var description = o?.type?.description
 		if (description !== null) {
 			return description.segments.stream
 				.filter([it instanceof DTextSegment])

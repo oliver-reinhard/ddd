@@ -33,13 +33,13 @@ public class GeneratorDocumentationProvider implements IEObjectDocumentationProv
   }
   
   protected String _doGetDocumentation(final ExceptionMapping o) {
-    SException _name = null;
+    SException _type = null;
     if (o!=null) {
-      _name=o.getName();
+      _type=o.getType();
     }
     DRichText _description = null;
-    if (_name!=null) {
-      _description=_name.getDescription();
+    if (_type!=null) {
+      _description=_type.getDescription();
     }
     DRichText description = _description;
     if ((description != null)) {

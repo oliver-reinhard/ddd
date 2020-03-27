@@ -14,14 +14,15 @@
         eType="#//EndpointDeclarationBlock" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMapping">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="javaType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExceptionMapping">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SException"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndpointDeclarationBlock">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -31,7 +32,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndpointDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//HttpVerb"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SServiceOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SServiceOperation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HttpVerb">

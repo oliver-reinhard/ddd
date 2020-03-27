@@ -27,9 +27,9 @@ import org.eclipse.xtext.common.types.JvmType;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl#getMessage <em>Message</em>}</li>
- *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl#getPackage <em>Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,34 @@ import org.eclipse.xtext.common.types.JvmType;
 public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implements ExceptionMapping
 {
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected SException name;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected SException type;
 
   /**
    * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
@@ -77,26 +97,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
   protected String message = MESSAGE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getPackage() <em>Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPackage()
-   * @generated
-   * @ordered
-   */
-  protected static final String PACKAGE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPackage() <em>Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPackage()
-   * @generated
-   * @ordered
-   */
-  protected String package_ = PACKAGE_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -123,27 +123,7 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public SException getName()
-  {
-    if (name != null && name.eIsProxy())
-    {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (SException)eResolveProxy(oldName);
-      if (name != oldName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GeneratorPackage.EXCEPTION_MAPPING__NAME, oldName, name));
-      }
-    }
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SException basicGetName()
+  public String getName()
   {
     return name;
   }
@@ -154,12 +134,57 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public void setName(SException newName)
+  public void setName(String newName)
   {
-    SException oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.EXCEPTION_MAPPING__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SException getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (SException)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GeneratorPackage.EXCEPTION_MAPPING__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SException basicGetType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(SException newType)
+  {
+    SException oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.EXCEPTION_MAPPING__TYPE, oldType, type));
   }
 
   /**
@@ -238,45 +263,20 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public String getPackage()
-  {
-    return package_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setPackage(String newPackage)
-  {
-    String oldPackage = package_;
-    package_ = newPackage;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.EXCEPTION_MAPPING__PACKAGE, oldPackage, package_));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case GeneratorPackage.EXCEPTION_MAPPING__NAME:
-        if (resolve) return getName();
-        return basicGetName();
+        return getName();
+      case GeneratorPackage.EXCEPTION_MAPPING__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
       case GeneratorPackage.EXCEPTION_MAPPING__EXTENDS:
         if (resolve) return getExtends();
         return basicGetExtends();
       case GeneratorPackage.EXCEPTION_MAPPING__MESSAGE:
         return getMessage();
-      case GeneratorPackage.EXCEPTION_MAPPING__PACKAGE:
-        return getPackage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -292,16 +292,16 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case GeneratorPackage.EXCEPTION_MAPPING__NAME:
-        setName((SException)newValue);
+        setName((String)newValue);
+        return;
+      case GeneratorPackage.EXCEPTION_MAPPING__TYPE:
+        setType((SException)newValue);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__EXTENDS:
         setExtends((JvmType)newValue);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__MESSAGE:
         setMessage((String)newValue);
-        return;
-      case GeneratorPackage.EXCEPTION_MAPPING__PACKAGE:
-        setPackage((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -318,16 +318,16 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case GeneratorPackage.EXCEPTION_MAPPING__NAME:
-        setName((SException)null);
+        setName(NAME_EDEFAULT);
+        return;
+      case GeneratorPackage.EXCEPTION_MAPPING__TYPE:
+        setType((SException)null);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__EXTENDS:
         setExtends((JvmType)null);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__MESSAGE:
         setMessage(MESSAGE_EDEFAULT);
-        return;
-      case GeneratorPackage.EXCEPTION_MAPPING__PACKAGE:
-        setPackage(PACKAGE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -344,13 +344,13 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case GeneratorPackage.EXCEPTION_MAPPING__NAME:
-        return name != null;
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GeneratorPackage.EXCEPTION_MAPPING__TYPE:
+        return type != null;
       case GeneratorPackage.EXCEPTION_MAPPING__EXTENDS:
         return extends_ != null;
       case GeneratorPackage.EXCEPTION_MAPPING__MESSAGE:
         return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
-      case GeneratorPackage.EXCEPTION_MAPPING__PACKAGE:
-        return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
     }
     return super.eIsSet(featureID);
   }
@@ -366,10 +366,10 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (message: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", message: ");
     result.append(message);
-    result.append(", package: ");
-    result.append(package_);
     result.append(')');
     return result.toString();
   }

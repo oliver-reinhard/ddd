@@ -32,7 +32,6 @@ import java.util.Set;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtend2.lib.StringConcatenationClient;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
@@ -92,7 +91,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   
   public Iterable<DType> getParameterTypeReferences(final EndpointDeclarationBlock block) {
     final Function1<EndpointDeclaration, EList<SServiceParameter>> _function = (EndpointDeclaration it) -> {
-      return it.getName().getParameters();
+      return it.getType().getParameters();
     };
     final Function1<SServiceParameter, DType> _function_1 = (SServiceParameter it) -> {
       return it.getType();
@@ -148,6 +147,47 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return _xblockexpression;
   }
   
+  protected void _infer(final ExceptionMapping element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    final String qualifiedName = this.getQualifiedName(element);
+    if ((qualifiedName != null)) {
+      final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
+        this._jvmTypesBuilder.setDocumentation(it, this._jvmTypesBuilder.getDocumentation(element));
+        JvmTypeReference parentException = null;
+        JvmType _extends = element.getExtends();
+        boolean _tripleNotEquals = (_extends != null);
+        if (_tripleNotEquals) {
+          parentException = this._typeReferenceBuilder.typeRef(element.getExtends());
+        } else {
+          parentException = this._typeReferenceBuilder.typeRef(RuntimeException.class);
+        }
+        if ((parentException != null)) {
+          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+          this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, parentException);
+        }
+        EList<JvmMember> _members = it.getMembers();
+        final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
+          String _message = element.getMessage();
+          boolean _tripleNotEquals_1 = (_message != null);
+          if (_tripleNotEquals_1) {
+            StringConcatenationClient _client = new StringConcatenationClient() {
+              @Override
+              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
+                _builder.append("super(\"");
+                String _message = element.getMessage();
+                _builder.append(_message);
+                _builder.append("\");");
+              }
+            };
+            this._jvmTypesBuilder.setBody(it_1, _client);
+          }
+        };
+        JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(element, _function_1);
+        this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+      };
+      acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, qualifiedName), _function);
+    }
+  }
+  
   protected void _infer(final EndpointDeclarationBlock element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (isPreIndexingPhase) {
       return;
@@ -159,7 +199,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
         DType _type = it.getType();
         return Boolean.valueOf((_type != null));
       };
-      Iterable<SServiceParameter> _filter = IterableExtensions.<SServiceParameter>filter(endpoint.getName().getParameters(), _function);
+      Iterable<SServiceParameter> _filter = IterableExtensions.<SServiceParameter>filter(endpoint.getType().getParameters(), _function);
       for (final SServiceParameter p : _filter) {
         {
           final JvmTypeReference jvmTypeRef = this.generateForType(endpoint, p.getType(), acceptor);
@@ -173,13 +213,12 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       JvmAnnotationReference _annotationRef = this._annotationTypesBuilder.annotationRef(RestController.class);
       this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
       final Function1<EndpointDeclaration, Boolean> _function_2 = (EndpointDeclaration it_1) -> {
-        SServiceOperation _name = it_1.getName();
-        return Boolean.valueOf((_name != null));
+        return Boolean.valueOf(((it_1.getName() != null) && (it_1.getType() != null)));
       };
       Iterable<EndpointDeclaration> _filter_1 = IterableExtensions.<EndpointDeclaration>filter(element.getEndpoints(), _function_2);
       for (final EndpointDeclaration endpoint_1 : _filter_1) {
         {
-          final SServiceOperation operation = endpoint_1.getName();
+          final SServiceOperation operation = endpoint_1.getType();
           JvmTypeReference operationReturnType = null;
           final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it_1) -> {
             SDirection _direction = it_1.getDirection();
@@ -201,10 +240,10 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
             EList<JvmAnnotationReference> _annotations_1 = it_1.getAnnotations();
             JvmAnnotationReference _annotationRef_1 = this._annotationTypesBuilder.annotationRef(this.toMethodAnnotationClass(endpoint_1.getVerb()));
             this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, _annotationRef_1);
-            EList<SException> _raises = endpoint_1.getName().getRaises();
+            EList<SException> _raises = endpoint_1.getType().getRaises();
             boolean _tripleNotEquals = (_raises != null);
             if (_tripleNotEquals) {
-              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint_1, Model.class), endpoint_1.getName().getRaises());
+              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint_1, Model.class), endpoint_1.getType().getRaises());
               EList<JvmTypeReference> _exceptions = it_1.getExceptions();
               this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
             }
@@ -267,7 +306,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
   
   private Iterable<JvmTypeReference> getMappedExceptions(final IJvmDeclaredTypeAcceptor acceptor, final Model model, final List<SException> exceptions) {
     final Function1<ExceptionMapping, Boolean> _function = (ExceptionMapping it) -> {
-      return Boolean.valueOf(exceptions.contains(it.getName()));
+      return Boolean.valueOf(exceptions.contains(it.getType()));
     };
     final List<ExceptionMapping> mappings = IterableExtensions.<ExceptionMapping>toList(IterableExtensions.<ExceptionMapping>filter(model.getExceptionMappings(), _function));
     final Function1<ExceptionMapping, Set<EObject>> _function_1 = (ExceptionMapping it) -> {
@@ -291,7 +330,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     }
     final Function1<SException, Boolean> _function_5 = (SException it) -> {
       final Function1<ExceptionMapping, Boolean> _function_6 = (ExceptionMapping e) -> {
-        SException _name = e.getName();
+        String _name = e.getName();
         return Boolean.valueOf(Objects.equal(it, _name));
       };
       return Boolean.valueOf(IterableExtensions.<ExceptionMapping>exists(mappings, _function_6));
@@ -310,47 +349,6 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     };
     final List<JvmTypeReference> typeRefsOfUnmappedExceptions = ListExtensions.<JvmGenericType, JvmTypeReference>map(additionalExceptionTypes, _function_8);
     return Iterables.<JvmTypeReference>concat(typeRefsOfMappedExceptions, typeRefsOfUnmappedExceptions);
-  }
-  
-  protected void _infer(final ExceptionMapping element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    final String qualifiedName = this.getQualifiedName(element);
-    if ((qualifiedName != null)) {
-      final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
-        this._jvmTypesBuilder.setDocumentation(it, this._jvmTypesBuilder.getDocumentation(element));
-        JvmTypeReference parentException = null;
-        JvmType _extends = element.getExtends();
-        boolean _tripleNotEquals = (_extends != null);
-        if (_tripleNotEquals) {
-          parentException = this._typeReferenceBuilder.typeRef(element.getExtends());
-        } else {
-          parentException = this._typeReferenceBuilder.typeRef(RuntimeException.class);
-        }
-        if ((parentException != null)) {
-          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-          this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, parentException);
-        }
-        EList<JvmMember> _members = it.getMembers();
-        final Procedure1<JvmConstructor> _function_1 = (JvmConstructor it_1) -> {
-          String _message = element.getMessage();
-          boolean _tripleNotEquals_1 = (_message != null);
-          if (_tripleNotEquals_1) {
-            StringConcatenationClient _client = new StringConcatenationClient() {
-              @Override
-              protected void appendTo(StringConcatenationClient.TargetStringConcatenation _builder) {
-                _builder.append("super(\"");
-                String _message = element.getMessage();
-                _builder.append(_message);
-                _builder.append("\");");
-              }
-            };
-            this._jvmTypesBuilder.setBody(it_1, _client);
-          }
-        };
-        JvmConstructor _constructor = this._jvmTypesBuilder.toConstructor(element, _function_1);
-        this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
-      };
-      acceptor.<JvmGenericType>accept(this._jvmTypesBuilder.toClass(element, qualifiedName), _function);
-    }
   }
   
   private JvmGenericType toExceptionType(final SException exception, final Model model) {
@@ -372,18 +370,39 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return _xblockexpression;
   }
   
-  private String getPackageName(final EndpointDeclarationBlock block) {
+  private String _getQualifiedName(final ExceptionMapping exceptionMapping) {
     String _xblockexpression = null;
     {
-      final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(block);
-      Iterable<String> _drop = IterableExtensions.<String>drop(fqn.getSegments(), 1);
-      int _segmentCount = fqn.getSegmentCount();
-      int _minus = (_segmentCount - 2);
-      final Function1<String, String> _function = (String it) -> {
-        return it.toString().toLowerCase();
-      };
-      final String declaredPackageName = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_drop, _minus), _function), ".");
-      _xblockexpression = (declaredPackageName + ".controller");
+      final String declaredTypeName = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(exceptionMapping).getSegments());
+      String _xifexpression = null;
+      boolean _endsWith = declaredTypeName.endsWith("Exception");
+      if (_endsWith) {
+        _xifexpression = declaredTypeName;
+      } else {
+        _xifexpression = (declaredTypeName + "Exception");
+      }
+      final String exception = _xifexpression;
+      String _packageName = this.getPackageName(exceptionMapping);
+      String _plus = (_packageName + ".");
+      _xblockexpression = (_plus + exception);
+    }
+    return _xblockexpression;
+  }
+  
+  private String _getQualifiedName(final EndpointDeclarationBlock block) {
+    String _xblockexpression = null;
+    {
+      final String declaredTypeName = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(block).getSegments());
+      String _xifexpression = null;
+      if ((declaredTypeName.endsWith("Controller") || declaredTypeName.endsWith("RestResource"))) {
+        _xifexpression = declaredTypeName;
+      } else {
+        _xifexpression = (declaredTypeName + "Controller");
+      }
+      final String controller = _xifexpression;
+      String _packageName = this.getPackageName(block);
+      String _plus = (_packageName + ".");
+      _xblockexpression = (_plus + controller);
     }
     return _xblockexpression;
   }
@@ -419,58 +438,25 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return _xblockexpression;
   }
   
-  private String _getQualifiedName(final EndpointDeclarationBlock block) {
-    String _xblockexpression = null;
-    {
-      final String declaredTypeName = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(block).getSegments());
-      String _xifexpression = null;
-      if ((declaredTypeName.endsWith("Controller") || declaredTypeName.endsWith("RestResource"))) {
-        _xifexpression = declaredTypeName;
-      } else {
-        _xifexpression = (declaredTypeName + "Controller");
-      }
-      final String controller = _xifexpression;
-      String _packageName = this.getPackageName(block);
-      String _plus = (_packageName + ".");
-      _xblockexpression = (_plus + controller);
-    }
-    return _xblockexpression;
+  private String getPackageName(final ExceptionMapping exceptionMapping) {
+    String _rootPackageName = this.getRootPackageName(exceptionMapping);
+    return (_rootPackageName + ".exception");
   }
   
-  private String _getQualifiedName(final ExceptionMapping mapping) {
-    String _package = mapping.getPackage();
-    boolean _tripleNotEquals = (_package != null);
-    if (_tripleNotEquals) {
-      StringConcatenation _builder = new StringConcatenation();
-      String _lowerCase = mapping.getPackage().toLowerCase();
-      _builder.append(_lowerCase);
-      _builder.append(".");
-      String _name = mapping.getName().getName();
-      _builder.append(_name);
-      return _builder.toString();
-    }
-    SException _name_1 = mapping.getName();
-    QualifiedName _fullyQualifiedName = null;
-    if (_name_1!=null) {
-      _fullyQualifiedName=this._iQualifiedNameProvider.getFullyQualifiedName(_name_1);
-    }
-    final QualifiedName qualifiedName = _fullyQualifiedName;
-    if ((qualifiedName != null)) {
-      List<String> _segments = qualifiedName.getSegments();
-      int _segmentCount = qualifiedName.getSegmentCount();
-      int _minus = (_segmentCount - 1);
-      final Function1<String, String> _function = (String it) -> {
-        return it.toLowerCase();
-      };
-      final String packageName = IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_segments, _minus), _function), ".");
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append(packageName);
-      _builder_1.append(".");
-      String _string = qualifiedName.getLastSegment().toString();
-      _builder_1.append(_string);
-      return _builder_1.toString();
-    }
-    return null;
+  private String getPackageName(final EndpointDeclarationBlock block) {
+    String _rootPackageName = this.getRootPackageName(block);
+    return (_rootPackageName + ".controller");
+  }
+  
+  private String getRootPackageName(final EObject child) {
+    final QualifiedName fqn = this._iQualifiedNameProvider.getFullyQualifiedName(EcoreUtil2.<Model>getContainerOfType(child, Model.class));
+    List<String> _segments = fqn.getSegments();
+    int _segmentCount = fqn.getSegmentCount();
+    int _minus = (_segmentCount - 1);
+    final Function1<String, String> _function = (String it) -> {
+      return it.toString().toLowerCase();
+    };
+    return IterableExtensions.join(IterableExtensions.<String, String>map(IterableExtensions.<String>take(_segments, _minus), _function), ".");
   }
   
   public JvmTypeReference generateForType(final EObject container, final DType element, final IJvmDeclaredTypeAcceptor acceptor) {

@@ -34,7 +34,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGeneratorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Assignment cImportSectionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cImportSectionXImportSectionParserRuleCall_3_0 = (RuleCall)cImportSectionAssignment_3.eContents().get(0);
 		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
@@ -56,13 +56,13 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEndpointDeclarationsEndpointDeclarationBlockParserRuleCall_4_2_0 = (RuleCall)cEndpointDeclarationsAssignment_4_2.eContents().get(0);
 		
 		//Model:
-		//	'generator' 'model' name=ID
+		//	'generator' 'model' name=QualifiedName
 		//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('exception' 'mappings' '{'
 		//	exceptionMappings+=ExceptionMapping+ '}')? & endpointDeclarations+=EndpointDeclarationBlock?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'generator' 'model' name=ID importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? &
-		//('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')? &
+		//'generator' 'model' name=QualifiedName importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+
+		//'}')? & ('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')? &
 		//endpointDeclarations+=EndpointDeclarationBlock?)
 		public Group getGroup() { return cGroup; }
 		
@@ -72,11 +72,11 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//'model'
 		public Keyword getModelKeyword_1() { return cModelKeyword_1; }
 		
-		//name=ID
+		//name=QualifiedName
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
 		
 		//importSection=XImportSection?
 		public Assignment getImportSectionAssignment_3() { return cImportSectionAssignment_3; }
@@ -141,133 +141,138 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDatatypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameDTypeCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameDTypeQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameDTypeCrossReference_1_0.eContents().get(1);
-		private final Keyword cMapsKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cJavaTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cJavaTypeJvmTypeCrossReference_4_0 = (CrossReference)cJavaTypeAssignment_4.eContents().get(0);
-		private final RuleCall cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cJavaTypeJvmTypeCrossReference_4_0.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTypeDTypeCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeDTypeQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeDTypeCrossReference_3_0.eContents().get(1);
+		private final Keyword cMapsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cToKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cJavaTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cJavaTypeJvmTypeCrossReference_6_0 = (CrossReference)cJavaTypeAssignment_6.eContents().get(0);
+		private final RuleCall cJavaTypeJvmTypeQualifiedNameParserRuleCall_6_0_1 = (RuleCall)cJavaTypeJvmTypeCrossReference_6_0.eContents().get(1);
 		
 		//TypeMapping:
-		//	'datatype' name=[base::DType|QualifiedName]
+		//	'datatype' name=QualifiedName 'is' type=[base::DType|QualifiedName]
 		//	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'datatype' name=[base::DType|QualifiedName] 'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName]
+		//'datatype' name=QualifiedName 'is' type=[base::DType|QualifiedName] 'maps' 'to'
+		//javaType=[jvmTypes::JvmType|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//'datatype'
 		public Keyword getDatatypeKeyword_0() { return cDatatypeKeyword_0; }
 		
-		//name=[base::DType|QualifiedName]
+		//name=QualifiedName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+		
+		//'is'
+		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
+		
+		//type=[base::DType|QualifiedName]
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
 		//[base::DType|QualifiedName]
-		public CrossReference getNameDTypeCrossReference_1_0() { return cNameDTypeCrossReference_1_0; }
+		public CrossReference getTypeDTypeCrossReference_3_0() { return cTypeDTypeCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getNameDTypeQualifiedNameParserRuleCall_1_0_1() { return cNameDTypeQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getTypeDTypeQualifiedNameParserRuleCall_3_0_1() { return cTypeDTypeQualifiedNameParserRuleCall_3_0_1; }
 		
 		//'maps'
-		public Keyword getMapsKeyword_2() { return cMapsKeyword_2; }
+		public Keyword getMapsKeyword_4() { return cMapsKeyword_4; }
 		
 		//'to'
-		public Keyword getToKeyword_3() { return cToKeyword_3; }
+		public Keyword getToKeyword_5() { return cToKeyword_5; }
 		
 		//javaType=[jvmTypes::JvmType|QualifiedName]
-		public Assignment getJavaTypeAssignment_4() { return cJavaTypeAssignment_4; }
+		public Assignment getJavaTypeAssignment_6() { return cJavaTypeAssignment_6; }
 		
 		//[jvmTypes::JvmType|QualifiedName]
-		public CrossReference getJavaTypeJvmTypeCrossReference_4_0() { return cJavaTypeJvmTypeCrossReference_4_0; }
+		public CrossReference getJavaTypeJvmTypeCrossReference_6_0() { return cJavaTypeJvmTypeCrossReference_6_0; }
 		
 		//QualifiedName
-		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_4_0_1; }
+		public RuleCall getJavaTypeJvmTypeQualifiedNameParserRuleCall_6_0_1() { return cJavaTypeJvmTypeQualifiedNameParserRuleCall_6_0_1; }
 	}
 	public class ExceptionMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.ExceptionMapping");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExceptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameSExceptionCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameSExceptionQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameSExceptionCrossReference_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cExtendsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cExtendsJvmTypeCrossReference_2_1_0 = (CrossReference)cExtendsAssignment_2_1.eContents().get(0);
-		private final RuleCall cExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1 = (RuleCall)cExtendsJvmTypeCrossReference_2_1_0.eContents().get(1);
-		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
-		private final Keyword cMessageKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cMessageAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final RuleCall cMessageSTRINGTerminalRuleCall_3_0_1_0 = (RuleCall)cMessageAssignment_3_0_1.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
-		private final Keyword cPackageKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cPackageAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cPackageQualifiedNameParserRuleCall_3_1_1_0 = (RuleCall)cPackageAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTypeSExceptionCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeSExceptionQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeSExceptionCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cExtendsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cExtendsJvmTypeCrossReference_4_1_0 = (CrossReference)cExtendsAssignment_4_1.eContents().get(0);
+		private final RuleCall cExtendsJvmTypeQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cExtendsJvmTypeCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cMessageKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cMessageAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMessageSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cMessageAssignment_5_1.eContents().get(0);
 		
 		//ExceptionMapping:
-		//	'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
-		//	message=STRING)? & ('package' package=QualifiedName)?);
+		//	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName] ('extends'
+		//	extends=[jvmTypes::JvmType|QualifiedName])? ('message' message=STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
-		//message=STRING)? & ('package' package=QualifiedName)?)
+		//'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName] ('extends'
+		//extends=[jvmTypes::JvmType|QualifiedName])? ('message' message=STRING)?
 		public Group getGroup() { return cGroup; }
 		
 		//'exception'
 		public Keyword getExceptionKeyword_0() { return cExceptionKeyword_0; }
 		
-		//name=[asm::SException|QualifiedName]
+		//name=QualifiedName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+		
+		//'is'
+		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
+		
+		//type=[asm::SException|QualifiedName]
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
 		//[asm::SException|QualifiedName]
-		public CrossReference getNameSExceptionCrossReference_1_0() { return cNameSExceptionCrossReference_1_0; }
+		public CrossReference getTypeSExceptionCrossReference_3_0() { return cTypeSExceptionCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getNameSExceptionQualifiedNameParserRuleCall_1_0_1() { return cNameSExceptionQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getTypeSExceptionQualifiedNameParserRuleCall_3_0_1() { return cTypeSExceptionQualifiedNameParserRuleCall_3_0_1; }
 		
 		//('extends' extends=[jvmTypes::JvmType|QualifiedName])?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'extends'
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
 		
 		//extends=[jvmTypes::JvmType|QualifiedName]
-		public Assignment getExtendsAssignment_2_1() { return cExtendsAssignment_2_1; }
+		public Assignment getExtendsAssignment_4_1() { return cExtendsAssignment_4_1; }
 		
 		//[jvmTypes::JvmType|QualifiedName]
-		public CrossReference getExtendsJvmTypeCrossReference_2_1_0() { return cExtendsJvmTypeCrossReference_2_1_0; }
+		public CrossReference getExtendsJvmTypeCrossReference_4_1_0() { return cExtendsJvmTypeCrossReference_4_1_0; }
 		
 		//QualifiedName
-		public RuleCall getExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1() { return cExtendsJvmTypeQualifiedNameParserRuleCall_2_1_0_1; }
-		
-		//(('message' message=STRING)? & ('package' package=QualifiedName)?)
-		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+		public RuleCall getExtendsJvmTypeQualifiedNameParserRuleCall_4_1_0_1() { return cExtendsJvmTypeQualifiedNameParserRuleCall_4_1_0_1; }
 		
 		//('message' message=STRING)?
-		public Group getGroup_3_0() { return cGroup_3_0; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'message'
-		public Keyword getMessageKeyword_3_0_0() { return cMessageKeyword_3_0_0; }
+		public Keyword getMessageKeyword_5_0() { return cMessageKeyword_5_0; }
 		
 		//message=STRING
-		public Assignment getMessageAssignment_3_0_1() { return cMessageAssignment_3_0_1; }
+		public Assignment getMessageAssignment_5_1() { return cMessageAssignment_5_1; }
 		
 		//STRING
-		public RuleCall getMessageSTRINGTerminalRuleCall_3_0_1_0() { return cMessageSTRINGTerminalRuleCall_3_0_1_0; }
-		
-		//('package' package=QualifiedName)?
-		public Group getGroup_3_1() { return cGroup_3_1; }
-		
-		//'package'
-		public Keyword getPackageKeyword_3_1_0() { return cPackageKeyword_3_1_0; }
-		
-		//package=QualifiedName
-		public Assignment getPackageAssignment_3_1_1() { return cPackageAssignment_3_1_1; }
-		
-		//QualifiedName
-		public RuleCall getPackageQualifiedNameParserRuleCall_3_1_1_0() { return cPackageQualifiedNameParserRuleCall_3_1_1_0; }
+		public RuleCall getMessageSTRINGTerminalRuleCall_5_1_0() { return cMessageSTRINGTerminalRuleCall_5_1_0; }
 	}
 	public class EndpointDeclarationBlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.EndpointDeclarationBlock");
@@ -336,22 +341,25 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVerbAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cVerbHttpVerbEnumRuleCall_0_0 = (RuleCall)cVerbAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameSServiceOperationCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameSServiceOperationQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameSServiceOperationCrossReference_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Keyword cPathKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cPathAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cPathPathIDParserRuleCall_2_1_1_0 = (RuleCall)cPathAssignment_2_1_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTypeSServiceOperationCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeSServiceOperationCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cPathKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cPathAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cPathPathIDParserRuleCall_4_1_1_0 = (RuleCall)cPathAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//EndpointDeclaration:
-		//	verb=HttpVerb name=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
+		//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//verb=HttpVerb name=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)? '}')?
+		//verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)? '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//verb=HttpVerb
@@ -360,35 +368,44 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//HttpVerb
 		public RuleCall getVerbHttpVerbEnumRuleCall_0_0() { return cVerbHttpVerbEnumRuleCall_0_0; }
 		
-		//name=[asm::SServiceOperation|QualifiedName]
+		//name=QualifiedName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+		
+		//'for'
+		public Keyword getForKeyword_2() { return cForKeyword_2; }
+		
+		//type=[asm::SServiceOperation|QualifiedName]
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
 		//[asm::SServiceOperation|QualifiedName]
-		public CrossReference getNameSServiceOperationCrossReference_1_0() { return cNameSServiceOperationCrossReference_1_0; }
+		public CrossReference getTypeSServiceOperationCrossReference_3_0() { return cTypeSServiceOperationCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getNameSServiceOperationQualifiedNameParserRuleCall_1_0_1() { return cNameSServiceOperationQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1() { return cTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1; }
 		
 		//('{' ('path' path=PathID)? '}')?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 		
 		//('path' path=PathID)?
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		public Group getGroup_4_1() { return cGroup_4_1; }
 		
 		//'path'
-		public Keyword getPathKeyword_2_1_0() { return cPathKeyword_2_1_0; }
+		public Keyword getPathKeyword_4_1_0() { return cPathKeyword_4_1_0; }
 		
 		//path=PathID
-		public Assignment getPathAssignment_2_1_1() { return cPathAssignment_2_1_1; }
+		public Assignment getPathAssignment_4_1_1() { return cPathAssignment_4_1_1; }
 		
 		//PathID
-		public RuleCall getPathPathIDParserRuleCall_2_1_1_0() { return cPathPathIDParserRuleCall_2_1_1_0; }
+		public RuleCall getPathPathIDParserRuleCall_4_1_1_0() { return cPathPathIDParserRuleCall_4_1_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_2_2() { return cRightCurlyBracketKeyword_2_2; }
+		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
 	}
 	public class PathIDElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.im.generator.Generator.PathID");
@@ -532,7 +549,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	'generator' 'model' name=ID
+	//	'generator' 'model' name=QualifiedName
 	//	importSection=XImportSection? (('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? & ('exception' 'mappings' '{'
 	//	exceptionMappings+=ExceptionMapping+ '}')? & endpointDeclarations+=EndpointDeclarationBlock?);
 	public ModelElements getModelAccess() {
@@ -544,7 +561,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TypeMapping:
-	//	'datatype' name=[base::DType|QualifiedName]
+	//	'datatype' name=QualifiedName 'is' type=[base::DType|QualifiedName]
 	//	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName];
 	public TypeMappingElements getTypeMappingAccess() {
 		return pTypeMapping;
@@ -555,8 +572,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExceptionMapping:
-	//	'exception' name=[asm::SException|QualifiedName] ('extends' extends=[jvmTypes::JvmType|QualifiedName])? (('message'
-	//	message=STRING)? & ('package' package=QualifiedName)?);
+	//	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName] ('extends'
+	//	extends=[jvmTypes::JvmType|QualifiedName])? ('message' message=STRING)?;
 	public ExceptionMappingElements getExceptionMappingAccess() {
 		return pExceptionMapping;
 	}
@@ -578,7 +595,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EndpointDeclaration:
-	//	verb=HttpVerb name=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
+	//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=PathID)?
 	//	'}')?;
 	public EndpointDeclarationElements getEndpointDeclarationAccess() {
 		return pEndpointDeclaration;

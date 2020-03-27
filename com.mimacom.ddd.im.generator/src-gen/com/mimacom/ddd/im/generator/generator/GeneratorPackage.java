@@ -133,7 +133,7 @@ public interface GeneratorPackage extends EPackage
   int TYPE_MAPPING = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -142,13 +142,22 @@ public interface GeneratorPackage extends EPackage
   int TYPE_MAPPING__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_MAPPING__TYPE = 1;
+
+  /**
    * The feature id for the '<em><b>Java Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_MAPPING__JAVA_TYPE = 1;
+  int TYPE_MAPPING__JAVA_TYPE = 2;
 
   /**
    * The number of structural features of the '<em>Type Mapping</em>' class.
@@ -157,7 +166,7 @@ public interface GeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_MAPPING_FEATURE_COUNT = 2;
+  int TYPE_MAPPING_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.impl.ExceptionMappingImpl <em>Exception Mapping</em>}' class.
@@ -170,7 +179,7 @@ public interface GeneratorPackage extends EPackage
   int EXCEPTION_MAPPING = 2;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -179,13 +188,22 @@ public interface GeneratorPackage extends EPackage
   int EXCEPTION_MAPPING__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCEPTION_MAPPING__TYPE = 1;
+
+  /**
    * The feature id for the '<em><b>Extends</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXCEPTION_MAPPING__EXTENDS = 1;
+  int EXCEPTION_MAPPING__EXTENDS = 2;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -194,16 +212,7 @@ public interface GeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXCEPTION_MAPPING__MESSAGE = 2;
-
-  /**
-   * The feature id for the '<em><b>Package</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXCEPTION_MAPPING__PACKAGE = 3;
+  int EXCEPTION_MAPPING__MESSAGE = 3;
 
   /**
    * The number of structural features of the '<em>Exception Mapping</em>' class.
@@ -280,7 +289,7 @@ public interface GeneratorPackage extends EPackage
   int ENDPOINT_DECLARATION__VERB = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -289,13 +298,22 @@ public interface GeneratorPackage extends EPackage
   int ENDPOINT_DECLARATION__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDPOINT_DECLARATION__TYPE = 2;
+
+  /**
    * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENDPOINT_DECLARATION__PATH = 2;
+  int ENDPOINT_DECLARATION__PATH = 3;
 
   /**
    * The number of structural features of the '<em>Endpoint Declaration</em>' class.
@@ -304,7 +322,7 @@ public interface GeneratorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENDPOINT_DECLARATION_FEATURE_COUNT = 3;
+  int ENDPOINT_DECLARATION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.mimacom.ddd.im.generator.generator.HttpVerb <em>Http Verb</em>}' enum.
@@ -393,15 +411,26 @@ public interface GeneratorPackage extends EPackage
   EClass getTypeMapping();
 
   /**
-   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see com.mimacom.ddd.im.generator.generator.TypeMapping#getName()
    * @see #getTypeMapping()
    * @generated
    */
-  EReference getTypeMapping_Name();
+  EAttribute getTypeMapping_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.TypeMapping#getType()
+   * @see #getTypeMapping()
+   * @generated
+   */
+  EReference getTypeMapping_Type();
 
   /**
    * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getJavaType <em>Java Type</em>}'.
@@ -425,15 +454,26 @@ public interface GeneratorPackage extends EPackage
   EClass getExceptionMapping();
 
   /**
-   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see com.mimacom.ddd.im.generator.generator.ExceptionMapping#getName()
    * @see #getExceptionMapping()
    * @generated
    */
-  EReference getExceptionMapping_Name();
+  EAttribute getExceptionMapping_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.ExceptionMapping#getType()
+   * @see #getExceptionMapping()
+   * @generated
+   */
+  EReference getExceptionMapping_Type();
 
   /**
    * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getExtends <em>Extends</em>}'.
@@ -456,17 +496,6 @@ public interface GeneratorPackage extends EPackage
    * @generated
    */
   EAttribute getExceptionMapping_Message();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getPackage <em>Package</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Package</em>'.
-   * @see com.mimacom.ddd.im.generator.generator.ExceptionMapping#getPackage()
-   * @see #getExceptionMapping()
-   * @generated
-   */
-  EAttribute getExceptionMapping_Package();
 
   /**
    * Returns the meta object for class '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock <em>Endpoint Declaration Block</em>}'.
@@ -533,15 +562,26 @@ public interface GeneratorPackage extends EPackage
   EAttribute getEndpointDeclaration_Verb();
 
   /**
-   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getName()
    * @see #getEndpointDeclaration()
    * @generated
    */
-  EReference getEndpointDeclaration_Name();
+  EAttribute getEndpointDeclaration_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getType()
+   * @see #getEndpointDeclaration()
+   * @generated
+   */
+  EReference getEndpointDeclaration_Type();
 
   /**
    * Returns the meta object for the attribute '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getPath <em>Path</em>}'.
@@ -648,12 +688,20 @@ public interface GeneratorPackage extends EPackage
     EClass TYPE_MAPPING = eINSTANCE.getTypeMapping();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE_MAPPING__NAME = eINSTANCE.getTypeMapping_Name();
+    EAttribute TYPE_MAPPING__NAME = eINSTANCE.getTypeMapping_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_MAPPING__TYPE = eINSTANCE.getTypeMapping_Type();
 
     /**
      * The meta object literal for the '<em><b>Java Type</b></em>' reference feature.
@@ -674,12 +722,20 @@ public interface GeneratorPackage extends EPackage
     EClass EXCEPTION_MAPPING = eINSTANCE.getExceptionMapping();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXCEPTION_MAPPING__NAME = eINSTANCE.getExceptionMapping_Name();
+    EAttribute EXCEPTION_MAPPING__NAME = eINSTANCE.getExceptionMapping_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXCEPTION_MAPPING__TYPE = eINSTANCE.getExceptionMapping_Type();
 
     /**
      * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
@@ -696,14 +752,6 @@ public interface GeneratorPackage extends EPackage
      * @generated
      */
     EAttribute EXCEPTION_MAPPING__MESSAGE = eINSTANCE.getExceptionMapping_Message();
-
-    /**
-     * The meta object literal for the '<em><b>Package</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXCEPTION_MAPPING__PACKAGE = eINSTANCE.getExceptionMapping_Package();
 
     /**
      * The meta object literal for the '{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationBlockImpl <em>Endpoint Declaration Block</em>}' class.
@@ -758,12 +806,20 @@ public interface GeneratorPackage extends EPackage
     EAttribute ENDPOINT_DECLARATION__VERB = eINSTANCE.getEndpointDeclaration_Verb();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENDPOINT_DECLARATION__NAME = eINSTANCE.getEndpointDeclaration_Name();
+    EAttribute ENDPOINT_DECLARATION__NAME = eINSTANCE.getEndpointDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENDPOINT_DECLARATION__TYPE = eINSTANCE.getEndpointDeclaration_Type();
 
     /**
      * The meta object literal for the '<em><b>Path</b></em>' attribute feature.

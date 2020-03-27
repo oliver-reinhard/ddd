@@ -21,14 +21,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Generator.ecore#//Model/endpointDeclarations"/>
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//TypeMapping">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//TypeMapping/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//TypeMapping/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//TypeMapping/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//TypeMapping/javaType"/>
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//ExceptionMapping">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//ExceptionMapping/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//ExceptionMapping/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//ExceptionMapping/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//ExceptionMapping/extends"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//ExceptionMapping/message"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//ExceptionMapping/package"/>
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//EndpointDeclarationBlock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclarationBlock/name"/>
@@ -37,7 +38,8 @@
     </genClasses>
     <genClasses ecoreClass="Generator.ecore#//EndpointDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclaration/verb"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//EndpointDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclaration/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Generator.ecore#//EndpointDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Generator.ecore#//EndpointDeclaration/path"/>
     </genClasses>
   </genPackages>

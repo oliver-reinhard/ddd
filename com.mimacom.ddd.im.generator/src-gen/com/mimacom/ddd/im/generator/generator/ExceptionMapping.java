@@ -19,9 +19,9 @@ import org.eclipse.xtext.common.types.JvmType;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getExtends <em>Extends</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getMessage <em>Message</em>}</li>
- *   <li>{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getPackage <em>Package</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getExceptionMapping()
@@ -31,26 +31,48 @@ import org.eclipse.xtext.common.types.JvmType;
 public interface ExceptionMapping extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(SException)
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getExceptionMapping_Name()
    * @model
    * @generated
    */
-  SException getName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
+   * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(SException value);
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(SException)
+   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getExceptionMapping_Type()
+   * @model
+   * @generated
+   */
+  SException getType();
+
+  /**
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getType <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(SException value);
 
   /**
    * Returns the value of the '<em><b>Extends</b></em>' reference.
@@ -95,27 +117,5 @@ public interface ExceptionMapping extends EObject
    * @generated
    */
   void setMessage(String value);
-
-  /**
-   * Returns the value of the '<em><b>Package</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Package</em>' attribute.
-   * @see #setPackage(String)
-   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getExceptionMapping_Package()
-   * @model
-   * @generated
-   */
-  String getPackage();
-
-  /**
-   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getPackage <em>Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Package</em>' attribute.
-   * @see #getPackage()
-   * @generated
-   */
-  void setPackage(String value);
 
 } // ExceptionMapping

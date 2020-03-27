@@ -27,6 +27,7 @@ import org.eclipse.xtext.common.types.JvmType;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.TypeMappingImpl#getJavaType <em>Java Type</em>}</li>
  * </ul>
  *
@@ -35,14 +36,34 @@ import org.eclipse.xtext.common.types.JvmType;
 public class TypeMappingImpl extends MinimalEObjectImpl.Container implements TypeMapping
 {
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected DType name;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected DType type;
 
   /**
    * The cached value of the '{@link #getJavaType() <em>Java Type</em>}' reference.
@@ -81,27 +102,7 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * @generated
    */
   @Override
-  public DType getName()
-  {
-    if (name != null && name.eIsProxy())
-    {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (DType)eResolveProxy(oldName);
-      if (name != oldName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GeneratorPackage.TYPE_MAPPING__NAME, oldName, name));
-      }
-    }
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DType basicGetName()
+  public String getName()
   {
     return name;
   }
@@ -112,12 +113,57 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * @generated
    */
   @Override
-  public void setName(DType newName)
+  public void setName(String newName)
   {
-    DType oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.TYPE_MAPPING__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DType getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (DType)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GeneratorPackage.TYPE_MAPPING__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DType basicGetType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(DType newType)
+  {
+    DType oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.TYPE_MAPPING__TYPE, oldType, type));
   }
 
   /**
@@ -176,8 +222,10 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
     switch (featureID)
     {
       case GeneratorPackage.TYPE_MAPPING__NAME:
-        if (resolve) return getName();
-        return basicGetName();
+        return getName();
+      case GeneratorPackage.TYPE_MAPPING__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
       case GeneratorPackage.TYPE_MAPPING__JAVA_TYPE:
         if (resolve) return getJavaType();
         return basicGetJavaType();
@@ -196,7 +244,10 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
     switch (featureID)
     {
       case GeneratorPackage.TYPE_MAPPING__NAME:
-        setName((DType)newValue);
+        setName((String)newValue);
+        return;
+      case GeneratorPackage.TYPE_MAPPING__TYPE:
+        setType((DType)newValue);
         return;
       case GeneratorPackage.TYPE_MAPPING__JAVA_TYPE:
         setJavaType((JvmType)newValue);
@@ -216,7 +267,10 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
     switch (featureID)
     {
       case GeneratorPackage.TYPE_MAPPING__NAME:
-        setName((DType)null);
+        setName(NAME_EDEFAULT);
+        return;
+      case GeneratorPackage.TYPE_MAPPING__TYPE:
+        setType((DType)null);
         return;
       case GeneratorPackage.TYPE_MAPPING__JAVA_TYPE:
         setJavaType((JvmType)null);
@@ -236,11 +290,30 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
     switch (featureID)
     {
       case GeneratorPackage.TYPE_MAPPING__NAME:
-        return name != null;
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GeneratorPackage.TYPE_MAPPING__TYPE:
+        return type != null;
       case GeneratorPackage.TYPE_MAPPING__JAVA_TYPE:
         return javaType != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypeMappingImpl

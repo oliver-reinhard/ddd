@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.impl.EndpointDeclarationImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
@@ -55,14 +56,34 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
   protected HttpVerb verb = VERB_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected SServiceOperation name;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected SServiceOperation type;
 
   /**
    * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -136,27 +157,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public SServiceOperation getName()
-  {
-    if (name != null && name.eIsProxy())
-    {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (SServiceOperation)eResolveProxy(oldName);
-      if (name != oldName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GeneratorPackage.ENDPOINT_DECLARATION__NAME, oldName, name));
-      }
-    }
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SServiceOperation basicGetName()
+  public String getName()
   {
     return name;
   }
@@ -167,12 +168,57 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public void setName(SServiceOperation newName)
+  public void setName(String newName)
   {
-    SServiceOperation oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.ENDPOINT_DECLARATION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SServiceOperation getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (SServiceOperation)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GeneratorPackage.ENDPOINT_DECLARATION__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SServiceOperation basicGetType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(SServiceOperation newType)
+  {
+    SServiceOperation oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.ENDPOINT_DECLARATION__TYPE, oldType, type));
   }
 
   /**
@@ -213,8 +259,10 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
       case GeneratorPackage.ENDPOINT_DECLARATION__VERB:
         return getVerb();
       case GeneratorPackage.ENDPOINT_DECLARATION__NAME:
-        if (resolve) return getName();
-        return basicGetName();
+        return getName();
+      case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
         return getPath();
     }
@@ -235,7 +283,10 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
         setVerb((HttpVerb)newValue);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__NAME:
-        setName((SServiceOperation)newValue);
+        setName((String)newValue);
+        return;
+      case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
+        setType((SServiceOperation)newValue);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
         setPath((String)newValue);
@@ -258,7 +309,10 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
         setVerb(VERB_EDEFAULT);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__NAME:
-        setName((SServiceOperation)null);
+        setName(NAME_EDEFAULT);
+        return;
+      case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
+        setType((SServiceOperation)null);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
         setPath(PATH_EDEFAULT);
@@ -280,7 +334,9 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
       case GeneratorPackage.ENDPOINT_DECLARATION__VERB:
         return verb != VERB_EDEFAULT;
       case GeneratorPackage.ENDPOINT_DECLARATION__NAME:
-        return name != null;
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
+        return type != null;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
         return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
     }
@@ -300,6 +356,8 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (verb: ");
     result.append(verb);
+    result.append(", name: ");
+    result.append(name);
     result.append(", path: ");
     result.append(path);
     result.append(')');

@@ -19,6 +19,7 @@ import org.eclipse.xtext.common.types.JvmType;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getJavaType <em>Java Type</em>}</li>
  * </ul>
  *
@@ -29,26 +30,48 @@ import org.eclipse.xtext.common.types.JvmType;
 public interface TypeMapping extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(DType)
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getTypeMapping_Name()
    * @model
    * @generated
    */
-  DType getName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
+   * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(DType value);
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(DType)
+   * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getTypeMapping_Type()
+   * @model
+   * @generated
+   */
+  DType getType();
+
+  /**
+   * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.TypeMapping#getType <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(DType value);
 
   /**
    * Returns the value of the '<em><b>Java Type</b></em>' reference.

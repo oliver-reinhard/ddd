@@ -233,9 +233,20 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EReference getTypeMapping_Name()
+  public EAttribute getTypeMapping_Name()
   {
-    return (EReference)typeMappingEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)typeMappingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTypeMapping_Type()
+  {
+    return (EReference)typeMappingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -246,7 +257,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
   @Override
   public EReference getTypeMapping_JavaType()
   {
-    return (EReference)typeMappingEClass.getEStructuralFeatures().get(1);
+    return (EReference)typeMappingEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -266,9 +277,9 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EReference getExceptionMapping_Name()
+  public EAttribute getExceptionMapping_Name()
   {
-    return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -277,7 +288,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EReference getExceptionMapping_Extends()
+  public EReference getExceptionMapping_Type()
   {
     return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(1);
   }
@@ -288,9 +299,9 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EAttribute getExceptionMapping_Message()
+  public EReference getExceptionMapping_Extends()
   {
-    return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(2);
+    return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -299,7 +310,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EAttribute getExceptionMapping_Package()
+  public EAttribute getExceptionMapping_Message()
   {
     return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(3);
   }
@@ -376,9 +387,20 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * @generated
    */
   @Override
-  public EReference getEndpointDeclaration_Name()
+  public EAttribute getEndpointDeclaration_Name()
   {
-    return (EReference)endpointDeclarationEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)endpointDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEndpointDeclaration_Type()
+  {
+    return (EReference)endpointDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -389,7 +411,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
   @Override
   public EAttribute getEndpointDeclaration_Path()
   {
-    return (EAttribute)endpointDeclarationEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)endpointDeclarationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -442,14 +464,15 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     createEReference(modelEClass, MODEL__ENDPOINT_DECLARATIONS);
 
     typeMappingEClass = createEClass(TYPE_MAPPING);
-    createEReference(typeMappingEClass, TYPE_MAPPING__NAME);
+    createEAttribute(typeMappingEClass, TYPE_MAPPING__NAME);
+    createEReference(typeMappingEClass, TYPE_MAPPING__TYPE);
     createEReference(typeMappingEClass, TYPE_MAPPING__JAVA_TYPE);
 
     exceptionMappingEClass = createEClass(EXCEPTION_MAPPING);
-    createEReference(exceptionMappingEClass, EXCEPTION_MAPPING__NAME);
+    createEAttribute(exceptionMappingEClass, EXCEPTION_MAPPING__NAME);
+    createEReference(exceptionMappingEClass, EXCEPTION_MAPPING__TYPE);
     createEReference(exceptionMappingEClass, EXCEPTION_MAPPING__EXTENDS);
     createEAttribute(exceptionMappingEClass, EXCEPTION_MAPPING__MESSAGE);
-    createEAttribute(exceptionMappingEClass, EXCEPTION_MAPPING__PACKAGE);
 
     endpointDeclarationBlockEClass = createEClass(ENDPOINT_DECLARATION_BLOCK);
     createEAttribute(endpointDeclarationBlockEClass, ENDPOINT_DECLARATION_BLOCK__NAME);
@@ -458,7 +481,8 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     endpointDeclarationEClass = createEClass(ENDPOINT_DECLARATION);
     createEAttribute(endpointDeclarationEClass, ENDPOINT_DECLARATION__VERB);
-    createEReference(endpointDeclarationEClass, ENDPOINT_DECLARATION__NAME);
+    createEAttribute(endpointDeclarationEClass, ENDPOINT_DECLARATION__NAME);
+    createEReference(endpointDeclarationEClass, ENDPOINT_DECLARATION__TYPE);
     createEAttribute(endpointDeclarationEClass, ENDPOINT_DECLARATION__PATH);
 
     // Create enums
@@ -510,14 +534,15 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     initEReference(getModel_EndpointDeclarations(), this.getEndpointDeclarationBlock(), null, "endpointDeclarations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeMappingEClass, TypeMapping.class, "TypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypeMapping_Name(), theBasePackage.getDType(), null, "name", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeMapping_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeMapping_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeMapping_JavaType(), theTypesPackage.getJvmType(), null, "javaType", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exceptionMappingEClass, ExceptionMapping.class, "ExceptionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExceptionMapping_Name(), theAsmPackage.getSException(), null, "name", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExceptionMapping_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExceptionMapping_Type(), theAsmPackage.getSException(), null, "type", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExceptionMapping_Extends(), theTypesPackage.getJvmType(), null, "extends", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExceptionMapping_Message(), ecorePackage.getEString(), "message", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExceptionMapping_Package(), ecorePackage.getEString(), "package", null, 0, 1, ExceptionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(endpointDeclarationBlockEClass, EndpointDeclarationBlock.class, "EndpointDeclarationBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEndpointDeclarationBlock_Name(), ecorePackage.getEString(), "name", null, 0, 1, EndpointDeclarationBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -526,7 +551,8 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
     initEClass(endpointDeclarationEClass, EndpointDeclaration.class, "EndpointDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEndpointDeclaration_Verb(), this.getHttpVerb(), "verb", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEndpointDeclaration_Name(), theAsmPackage.getSServiceOperation(), null, "name", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEndpointDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEndpointDeclaration_Type(), theAsmPackage.getSServiceOperation(), null, "type", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEndpointDeclaration_Path(), ecorePackage.getEString(), "path", null, 0, 1, EndpointDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
