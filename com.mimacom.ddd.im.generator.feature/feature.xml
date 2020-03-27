@@ -2,7 +2,7 @@
 <feature id="com.mimacom.ddd.im.generator.feature"
 	label="Generator Model Feature "
 	version="0.1.0.qualifier"
-	provider-name="www.mimacom.com">
+	provider-name="mimacom ag">
 	<plugin
 			id="com.mimacom.ddd.im.generator"
 			download-size="0"

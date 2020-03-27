@@ -3,7 +3,7 @@
       id="com.mimacom.ddd.libs.feature"
       label="Libs Feature"
       version="0.1.0.qualifier"
-      provider-name="www.mimacom.com">
+      provider-name="mimacom ag">
 
    <plugin
          id="com.mimacom.ddd.libs"
