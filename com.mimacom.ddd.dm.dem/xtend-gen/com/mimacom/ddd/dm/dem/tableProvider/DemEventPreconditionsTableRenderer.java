@@ -3,10 +3,12 @@ package com.mimacom.ddd.dm.dem.tableProvider;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.styledText.StyledTextUtil;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.tableProvider.AbstractDemEventTableRenderer;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
+import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -17,18 +19,30 @@ public class DemEventPreconditionsTableRenderer extends AbstractDemEventTableRen
   
   @Inject
   @Extension
+  private StyledTextUtil _styledTextUtil;
+  
+  @Inject
+  @Extension
   private PubTableUtil _pubTableUtil;
+  
+  @Inject
+  @Extension
+  private CodeListingFormatter _codeListingFormatter;
   
   @Override
   public Table render(final IDiagramRoot root) {
     DemEventPreconditionsTableRenderer.LOGGER.info((" for " + root));
     final DemDomainEvent e = ((DemDomainEvent) root);
-    final Table t = this._pubTableUtil.createTableWithHeader("Name", "Predicate", "Description");
+    final Table t = this._pubTableUtil.createTableWithHeader("Precondition", "Predicate");
     EList<DNamedPredicate> _preconditionsCNF = e.getPreconditionsCNF();
     for (final DNamedPredicate pre : _preconditionsCNF) {
-      String _name = pre.getName();
-      String _serialize = this.serialize(pre.getPredicate());
-      this._pubTableUtil.addDescriptionRow(t, new String[] { _name, _serialize }, pre.getDescription());
+      {
+        String sourceCode = this.sourceCode(pre.getPredicate());
+        sourceCode = this._codeListingFormatter.outdent(this._codeListingFormatter.trimBlankLines(sourceCode), 2);
+        String _name = pre.getName();
+        String _monospace = this._styledTextUtil.monospace(sourceCode);
+        this._pubTableUtil.addStyledTextRow(t, new String[] { _name, _monospace });
+      }
     }
     return t;
   }

@@ -365,12 +365,12 @@ class TitledTable extends TitledBlock {
 
 abstract class AbstractTable {
 	int widthPercent = "100"
+	GridLines gridlines = "HORIZONTAL"
 }
 
 class Table extends AbstractTable {
 	int columns
 	contains TableRow[] rows opposite table
-	GridLines gridlines = "HORIZONTAL"
 }
 
 enum GridLines { HORIZONTAL, VERTICAL, BOTH, NONE }

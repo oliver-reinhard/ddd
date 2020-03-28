@@ -68,12 +68,20 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 
 	override prepare(Document doc, IFileSystemAccess2 fsa) {
 		val css = ''' 
+			body {
+				font-size: normal;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				font-family: sans-serif;
+			}
 			table, th {
 				border-top: 1px solid black;
 				border-bottom: 1px solid black;
 				border-left: 0.5px solid black;
 				border-right: 0.5px solid black;
 				border-collapse: collapse;
+				font-family: sans-serif;
+				font-size: small;
 			}
 			td {
 				border-bottom: 0.5px solid black;
@@ -87,10 +95,11 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 			th, td {
 				height: 10px
 				padding-left: 5px;
+				padding-right: 10px;
 			}
 			pre {
 				margin-left: 30px;
-				tab-size: «PubGeneratorUtil::TAB_SIZE»;
+				tab-size: 2;
 			}
 		'''
 		fsa.generateFile(doc.fileSuffix + "/" + CSS_FILENAME, css)
@@ -254,7 +263,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 				<tr>	
 					«FOR cell : row.cells»
 						«cell.startTag»«FOR block : cell.contents»«g.generate(block)»«ENDFOR»«row.isHeading?"</th>":"</td>"»
-			«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try HTML directly.
+			«««						Note: HTML cannot handle multiple (vertically parallel) colspans that start and end in different rows -> try in HTML directly to believe.
 					«ENDFOR»
 			</tr>
 			«ENDFOR»
@@ -306,7 +315,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 	'''
 
 	override CharSequence renderCodeListing(TitledCodeListing cl, String outdentedListing) '''
-		<pre>«IF cl.numbered»«outdentedListing.numberLines.encode»«ELSE»«outdentedListing.numberLines.encode»«ENDIF»</pre>
+		<pre>«IF cl.numbered»«outdentedListing.numberLines.encode»«ELSE»«outdentedListing.encode»«ENDIF»</pre>
 	'''
 
 	override CharSequence renderPlainParagraph(

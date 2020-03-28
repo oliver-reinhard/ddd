@@ -121,17 +121,17 @@
    <extension
          point="com.mimacom.ddd.pub.pub.tableProvider">
       <renderer
-            id="dem.eventHeaderTable"
-            tableName="Domain Event Header"
-            tableType="dem.eventOverview"
+            id="dem.eventTable"
+            tableName="Domain Event"
+            tableType="dem.event"
             tableRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
-            rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventHeaderTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventHeaderTableRenderer">
+            rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventTableRenderer">
       </renderer>
       
       <renderer
             id="dem.eventPreconditionsTable"
             tableName="Domain Event Preconditions"
-            tableType="dem.eventOverview"
+            tableType="dem.event"
             tableRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
             rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventPreconditionsTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventPreconditionsTableRenderer">
       </renderer>
@@ -139,14 +139,14 @@
       <renderer
             id="dem.eventPostconditionsTable"
             tableName="Domain Event Postconditions"
-            tableType="dem.eventOverview"
+            tableType="dem.event"
             tableRootClass="com.mimacom.ddd.dm.dem.DemDomainEvent"
             rendererClass="com.mimacom.ddd.dm.dem.tableProvider.DemEventPostconditionsTableRendererExtensionFactory:com.mimacom.ddd.dm.dem.tableProvider.DemEventPostconditionsTableRenderer">
       </renderer>
       
       <tableType
-            id="dem.eventOverview"
-            name="Domain Event Overview">
+            id="dem.event"
+            name="Domain Event">
       </tableType>
    </extension>
    

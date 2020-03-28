@@ -2,7 +2,6 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.pub.pub.GridLines;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableRow;
@@ -32,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#getRows <em>Rows</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.TableImpl#getGridlines <em>Gridlines</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,26 +65,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 	 * @ordered
 	 */
 	protected EList<TableRow> rows;
-
-	/**
-	 * The default value of the '{@link #getGridlines() <em>Gridlines</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGridlines()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final GridLines GRIDLINES_EDEFAULT = GridLines.HORIZONTAL;
-
-	/**
-	 * The cached value of the '{@link #getGridlines() <em>Gridlines</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGridlines()
-	 * @generated
-	 * @ordered
-	 */
-	protected GridLines gridlines = GRIDLINES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,27 +123,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GridLines getGridlines() {
-		return gridlines;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGridlines(GridLines newGridlines) {
-		GridLines oldGridlines = gridlines;
-		gridlines = newGridlines == null ? GRIDLINES_EDEFAULT : newGridlines;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.TABLE__GRIDLINES, oldGridlines, gridlines));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -202,8 +159,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				return getColumns();
 			case PubPackage.TABLE__ROWS:
 				return getRows();
-			case PubPackage.TABLE__GRIDLINES:
-				return getGridlines();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,9 +179,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				getRows().clear();
 				getRows().addAll((Collection<? extends TableRow>)newValue);
 				return;
-			case PubPackage.TABLE__GRIDLINES:
-				setGridlines((GridLines)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -245,9 +197,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 			case PubPackage.TABLE__ROWS:
 				getRows().clear();
 				return;
-			case PubPackage.TABLE__GRIDLINES:
-				setGridlines(GRIDLINES_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -264,8 +213,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				return columns != COLUMNS_EDEFAULT;
 			case PubPackage.TABLE__ROWS:
 				return rows != null && !rows.isEmpty();
-			case PubPackage.TABLE__GRIDLINES:
-				return gridlines != GRIDLINES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -282,8 +229,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (columns: ");
 		result.append(columns);
-		result.append(", gridlines: ");
-		result.append(gridlines);
 		result.append(')');
 		return result.toString();
 	}

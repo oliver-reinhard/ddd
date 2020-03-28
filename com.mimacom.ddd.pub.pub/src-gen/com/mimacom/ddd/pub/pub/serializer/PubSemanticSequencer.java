@@ -496,7 +496,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     ProvidedTable returns ProvidedTable
 	 *
 	 * Constraint:
-	 *     (widthPercent=NATURAL? diagramRoot=[IDiagramRoot|DQualifiedName] tableType=[ProvidedTableType|DQualifiedName])
+	 *     (widthPercent=NATURAL? gridlines=GridLines? diagramRoot=[IDiagramRoot|DQualifiedName] tableType=[ProvidedTableType|DQualifiedName])
 	 */
 	protected void sequence_ProvidedTable(ISerializationContext context, ProvidedTable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

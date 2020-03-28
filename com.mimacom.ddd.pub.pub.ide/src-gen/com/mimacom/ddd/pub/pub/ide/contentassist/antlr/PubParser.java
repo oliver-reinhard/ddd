@@ -189,6 +189,7 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubTableSimpleCellAccess().getGroup(), "rule__PubTableSimpleCell__Group__0");
 			builder.put(grammarAccess.getProvidedTableAccess().getGroup(), "rule__ProvidedTable__Group__0");
 			builder.put(grammarAccess.getProvidedTableAccess().getGroup_0(), "rule__ProvidedTable__Group_0__0");
+			builder.put(grammarAccess.getProvidedTableAccess().getGroup_1(), "rule__ProvidedTable__Group_1__0");
 			builder.put(grammarAccess.getPubFigureAccess().getGroup(), "rule__PubFigure__Group__0");
 			builder.put(grammarAccess.getIncludedFigureAccess().getGroup(), "rule__IncludedFigure__Group__0");
 			builder.put(grammarAccess.getIncludedFigureAccess().getGroup_0(), "rule__IncludedFigure__Group_0__0");
@@ -420,8 +421,9 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubTableCellAccess().getContentsAssignment_4_1(), "rule__PubTableCell__ContentsAssignment_4_1");
 			builder.put(grammarAccess.getPubTableSimpleCellAccess().getContentsAssignment_1(), "rule__PubTableSimpleCell__ContentsAssignment_1");
 			builder.put(grammarAccess.getProvidedTableAccess().getWidthPercentAssignment_0_1(), "rule__ProvidedTable__WidthPercentAssignment_0_1");
-			builder.put(grammarAccess.getProvidedTableAccess().getDiagramRootAssignment_2(), "rule__ProvidedTable__DiagramRootAssignment_2");
-			builder.put(grammarAccess.getProvidedTableAccess().getTableTypeAssignment_4(), "rule__ProvidedTable__TableTypeAssignment_4");
+			builder.put(grammarAccess.getProvidedTableAccess().getGridlinesAssignment_1_1(), "rule__ProvidedTable__GridlinesAssignment_1_1");
+			builder.put(grammarAccess.getProvidedTableAccess().getDiagramRootAssignment_3(), "rule__ProvidedTable__DiagramRootAssignment_3");
+			builder.put(grammarAccess.getProvidedTableAccess().getTableTypeAssignment_5(), "rule__ProvidedTable__TableTypeAssignment_5");
 			builder.put(grammarAccess.getPubFigureAccess().getFigureAssignment_3(), "rule__PubFigure__FigureAssignment_3");
 			builder.put(grammarAccess.getIncludedFigureAccess().getWidthPercentAssignment_0_1(), "rule__IncludedFigure__WidthPercentAssignment_0_1");
 			builder.put(grammarAccess.getIncludedFigureAccess().getFileUriAssignment_2(), "rule__IncludedFigure__FileUriAssignment_2");

@@ -14,6 +14,10 @@ class PubTableUtil {
 
 	public static val IGNORE_TABLE_CELL = "**IGNORE**"
 
+	interface AddCell {
+		def void addCell(TableRow row, Object text)
+	}
+
 	def Table createTableWithHeader(String... columnTitles) {
 		if (columnTitles.length == 0) {
 			throw new IllegalArgumentException("lables.length = 0")
@@ -25,7 +29,7 @@ class PubTableUtil {
 		return t
 	}
 
-	def TableRow addSimpleRow(Table t, String... cellTexts) {
+	protected def TableRow addRowImpl(Table t, AddCell lambda, Object... cellTexts) {
 		if (cellTexts.length == 0) {
 			throw new IllegalArgumentException("cellTexts.length = 0")
 		}
@@ -38,10 +42,22 @@ class PubTableUtil {
 		t.rows.add(row)
 		for (text : cellTexts) {
 			if (! IGNORE_TABLE_CELL.equals(text)) {
-				row.addSimpleCell(text)
+				lambda.addCell(row, text)
 			}
 		}
 		return row
+	}
+
+	def TableRow addSimpleRow(Table t, String... cellTexts) {
+		t.addRowImpl([row, text|row.addSimpleCell(text as String)], cellTexts)
+	}
+
+	def TableRow addStyledTextRow(Table t, String... styledCells) {
+		t.addRowImpl([row, text|row.addStyledTextCell(text as String)], styledCells)
+	}
+
+	def TableRow addRichTextRow(Table t, DRichText[] cellTexts) {
+		t.addRowImpl([row, text|row.addRichTextCell(text as DRichText)], cellTexts)
 	}
 
 	def TableRow addRowWithReference(Table t, String[] cellTexts, Reference lastColumn) {
@@ -65,7 +81,8 @@ class PubTableUtil {
 		return row
 	}
 
-	def TableRow addDescriptionRow(Table t, String[] cellTexts, DRichText description, String... moreCells) {
+	protected def TableRow addRowWithDescriptionImpl(Table t, AddCell lambda, String[] cellTexts, DRichText description,
+		String... moreCells) {
 		val len = cellTexts.length + moreCells.length
 		if (len != t.columns - 1) {
 			throw new IllegalArgumentException(
@@ -76,14 +93,23 @@ class PubTableUtil {
 		t.rows.add(row)
 		for (text : cellTexts) {
 			if (! IGNORE_TABLE_CELL.equals(text)) {
-				row.addSimpleCell(text)
+				lambda.addCell(row, text)
 			}
 		}
 		row.addRichTextCell(description)
 		for (text : moreCells) {
-			row.addSimpleCell(text)
+			lambda.addCell(row, text)
 		}
 		return row
+	}
+
+	def TableRow addRowWithDescription(Table t, String[] cellTexts, DRichText description, String... moreCells) {
+		t.addRowWithDescriptionImpl([row, text|row.addSimpleCell(text as String)], cellTexts, description, moreCells)
+	}
+
+	def TableRow addStyledTextRowWithDescription(Table t, String[] styledCells, DRichText description,
+		String... moreFormattedCells) {
+		t.addRowWithDescriptionImpl([row, text|row.addStyledTextCell(text as String)], styledCells, description, moreFormattedCells)
 	}
 
 	def TableCell addSimpleCell(TableRow row, String text) {
@@ -92,6 +118,18 @@ class PubTableUtil {
 		val para = PUB.createUnformattedParagraph
 		cell.contents.add(para)
 		para.text = if (text !== null) text else ""
+		return cell
+	}
+
+	def TableCell addStyledTextCell(TableRow row, String styledText) {
+		val cell = PUB.createTableCell
+		row.cells.add(cell)
+		val para = PUB.createRichTextParagraph
+		cell.contents.add(para)
+		para.text = BASE.createDRichText
+		val textSegment = BASE.createDTextSegment
+		textSegment.value = if (styledText !== null) styledText else ""
+		para.text.segments.add(textSegment)
 		return cell
 	}
 

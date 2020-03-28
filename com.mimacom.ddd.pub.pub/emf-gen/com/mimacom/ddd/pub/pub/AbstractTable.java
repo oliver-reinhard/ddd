@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.AbstractTable#getWidthPercent <em>Width Percent</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.AbstractTable#getGridlines <em>Gridlines</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getAbstractTable()
@@ -43,5 +44,31 @@ public interface AbstractTable extends EObject {
 	 * @generated
 	 */
 	void setWidthPercent(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Gridlines</b></em>' attribute.
+	 * The default value is <code>"HORIZONTAL"</code>.
+	 * The literals are from the enumeration {@link com.mimacom.ddd.pub.pub.GridLines}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gridlines</em>' attribute.
+	 * @see com.mimacom.ddd.pub.pub.GridLines
+	 * @see #setGridlines(GridLines)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getAbstractTable_Gridlines()
+	 * @model default="HORIZONTAL" unique="false"
+	 * @generated
+	 */
+	GridLines getGridlines();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.AbstractTable#getGridlines <em>Gridlines</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gridlines</em>' attribute.
+	 * @see com.mimacom.ddd.pub.pub.GridLines
+	 * @see #getGridlines()
+	 * @generated
+	 */
+	void setGridlines(GridLines value);
 
 } // AbstractTable

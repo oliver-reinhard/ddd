@@ -5,11 +5,11 @@ import org.eclipse.core.runtime.IExecutableExtensionFactory;
 
 import com.mimacom.ddd.dm.dem.DemStandaloneSetup;
 
-public class DemEventHeaderTableRendererExtensionFactory implements IExecutableExtensionFactory {
+public class DemEventTableRendererExtensionFactory implements IExecutableExtensionFactory {
 
 	@Override
 	public Object create() throws CoreException {;
-		return new DemStandaloneSetup().createInjector().getInstance(DemEventHeaderTableRenderer.class);
+		return new DemStandaloneSetup().createInjector().getInstance(DemEventTableRenderer.class);
 	}
 
 }

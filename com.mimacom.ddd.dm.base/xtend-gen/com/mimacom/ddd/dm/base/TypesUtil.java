@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DEntityNature;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -176,18 +177,21 @@ public class TypesUtil {
   }
   
   public String describeType(final DNavigableMember m) {
-    String _xifexpression = null;
+    final StringBuilder b = new StringBuilder();
     DType _type = m.getType();
     boolean _tripleNotEquals = (_type != null);
     if (_tripleNotEquals) {
-      String _label = this.label(m.getType());
-      String _plus = (_label + " ");
-      String _multiplicityText = this.multiplicityText(m);
-      _xifexpression = (_plus + _multiplicityText);
-    } else {
-      _xifexpression = "";
+      String _name = m.getType().getName();
+      boolean _tripleNotEquals_1 = (_name != null);
+      if (_tripleNotEquals_1) {
+        b.append(m.getType().getName());
+        b.append(this.multiplicityText(m));
+      }
+      b.append(" (");
+      b.append(this.metatypeName(m.getType()));
+      b.append(")");
     }
-    return _xifexpression;
+    return b.toString();
   }
   
   public String label(final DAggregate a) {
@@ -195,73 +199,99 @@ public class TypesUtil {
     return ("Component " + _name);
   }
   
-  public String label(final DType type) {
+  public String metatypeName(final DType type) {
     String _switchResult = null;
     boolean _matched = false;
     if (type instanceof DPrimitive) {
       _matched=true;
-      _switchResult = "Primitive ";
+      _switchResult = "Primitive";
     }
     if (!_matched) {
       if (type instanceof DEnumeration) {
         _matched=true;
-        _switchResult = "Enumeration ";
+        _switchResult = "Enumeration";
       }
     }
     if (!_matched) {
       if (type instanceof DEntityType) {
         _matched=true;
-        String _xifexpression = null;
-        boolean _isRoot = ((DEntityType)type).isRoot();
-        if (_isRoot) {
-          _xifexpression = "Root Entity ";
-        } else {
-          _xifexpression = "Entity ";
+        String _xblockexpression = null;
+        {
+          String _switchResult_1 = null;
+          DEntityNature _nature = ((DEntityType)type).getNature();
+          if (_nature != null) {
+            switch (_nature) {
+              case AUTONOMOUS_ENTITY:
+              case CONTROLLED_ENTITY:
+                _switchResult_1 = "Entity";
+                break;
+              case RELATIONSHIP:
+                _switchResult_1 = "Relationship";
+                break;
+              default:
+                _switchResult_1 = ((DEntityType)type).getNature().getName();
+                break;
+            }
+          } else {
+            _switchResult_1 = ((DEntityType)type).getNature().getName();
+          }
+          final String name = _switchResult_1;
+          String _xifexpression = null;
+          boolean _isRoot = ((DEntityType)type).isRoot();
+          if (_isRoot) {
+            _xifexpression = ("main " + name);
+          } else {
+            _xifexpression = name;
+          }
+          _xblockexpression = _xifexpression;
         }
-        _switchResult = _xifexpression;
+        _switchResult = _xblockexpression;
       }
     }
     if (!_matched) {
       if (type instanceof DDetailType) {
         _matched=true;
-        _switchResult = "Detail ";
-      }
-    }
-    if (!_matched) {
-      if (type instanceof DAssociation) {
-        _matched=true;
-        String _switchResult_1 = null;
-        DAssociationKind _kind = ((DAssociation)type).getKind();
-        if (_kind != null) {
-          switch (_kind) {
-            case REFERENCE:
-              _switchResult_1 = "Reference to ";
-              break;
-            case COMPOSITE:
-              _switchResult_1 = "Composite to ";
-              break;
-            case INVERSE_COMPOSITE:
-              _switchResult_1 = "Inverse Composite to ";
-              break;
-            default:
-              _switchResult_1 = ((DAssociation)type).getKind().toString();
-              break;
-          }
-        } else {
-          _switchResult_1 = ((DAssociation)type).getKind().toString();
-        }
-        _switchResult = _switchResult_1;
+        _switchResult = "Detail";
       }
     }
     if (!_matched) {
       _switchResult = type.getClass().getSimpleName();
     }
-    final String typeLabel = _switchResult;
+    return _switchResult;
+  }
+  
+  public String label(final DType type) {
+    String _metatypeName = this.metatypeName(type);
+    String _plus = (_metatypeName + " ");
     String _name = null;
     if (type!=null) {
       _name=type.getName();
     }
-    return (typeLabel + _name);
+    return (_plus + _name);
+  }
+  
+  public String label(final DAssociation a) {
+    String _switchResult = null;
+    DAssociationKind _kind = a.getKind();
+    if (_kind != null) {
+      switch (_kind) {
+        case REFERENCE:
+          _switchResult = "Reference to ";
+          break;
+        case COMPOSITE:
+          _switchResult = "Composite to ";
+          break;
+        case INVERSE_COMPOSITE:
+          _switchResult = "Inverse Composite to ";
+          break;
+        default:
+          _switchResult = a.getKind().toString();
+          break;
+      }
+    } else {
+      _switchResult = a.getKind().toString();
+    }
+    return _switchResult;
   }
   
   public String label(final DFeature f) {

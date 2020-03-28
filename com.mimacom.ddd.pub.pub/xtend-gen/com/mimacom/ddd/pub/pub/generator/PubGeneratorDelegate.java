@@ -474,6 +474,8 @@ public class PubGeneratorDelegate {
         CharSequence _xblockexpression_1 = null;
         {
           final Table table = provider.render(t.getDiagramRoot());
+          table.setWidthPercent(t.getWidthPercent());
+          table.setGridlines(t.getGridlines());
           _xblockexpression_1 = this.renderer.renderTable(table, this.nestedContentBlockGenerator);
         }
         _xifexpression = _xblockexpression_1;

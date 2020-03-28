@@ -103,7 +103,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isAll()
 	{
 		return all;
@@ -114,7 +113,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setAll(boolean newAll)
 	{
 		boolean oldAll = all;
@@ -128,7 +126,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DemDomainEvent> getInclude()
 	{
 		if (include == null)
@@ -143,7 +140,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DemDomainEvent> getExclude()
 	{
 		if (exclude == null)
@@ -252,7 +248,7 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (all: ");
 		result.append(all);
 		result.append(')');

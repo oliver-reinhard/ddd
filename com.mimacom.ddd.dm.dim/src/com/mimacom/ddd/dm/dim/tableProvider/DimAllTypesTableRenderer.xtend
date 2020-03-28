@@ -41,10 +41,10 @@ class DimAllTypesTableRenderer implements ITableRenderer {
 	}
 
 	protected def dispatch void describe(Table t, DPrimitive p) {
-		t.addDescriptionRow(#[p.label + " redefines " + p.redefines.name], p.description)
+		t.addRowWithDescription(#[p.label + " redefines " + p.redefines.name], p.description)
 	}
 
 	protected def dispatch void describe(Table t, DType type) {
-		t.addDescriptionRow(#[type.label], type.description)
+		t.addRowWithDescription(#[type.label], type.description)
 	}
 }

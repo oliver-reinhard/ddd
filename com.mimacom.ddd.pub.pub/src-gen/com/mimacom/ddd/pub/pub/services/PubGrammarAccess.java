@@ -2819,23 +2819,27 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cWidthPercentKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Assignment cWidthPercentAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cWidthPercentNATURALTerminalRuleCall_0_1_0 = (RuleCall)cWidthPercentAssignment_0_1.eContents().get(0);
-		private final Keyword cRootKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDiagramRootAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cDiagramRootIDiagramRootCrossReference_2_0 = (CrossReference)cDiagramRootAssignment_2.eContents().get(0);
-		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_2_0.eContents().get(1);
-		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTableTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cTableTypeProvidedTableTypeCrossReference_4_0 = (CrossReference)cTableTypeAssignment_4.eContents().get(0);
-		private final RuleCall cTableTypeProvidedTableTypeDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cTableTypeProvidedTableTypeCrossReference_4_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cGridlinesKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cGridlinesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cGridlinesGridLinesEnumRuleCall_1_1_0 = (RuleCall)cGridlinesAssignment_1_1.eContents().get(0);
+		private final Keyword cRootKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDiagramRootAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cDiagramRootIDiagramRootCrossReference_3_0 = (CrossReference)cDiagramRootAssignment_3.eContents().get(0);
+		private final RuleCall cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cDiagramRootIDiagramRootCrossReference_3_0.eContents().get(1);
+		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTableTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cTableTypeProvidedTableTypeCrossReference_5_0 = (CrossReference)cTableTypeAssignment_5.eContents().get(0);
+		private final RuleCall cTableTypeProvidedTableTypeDQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cTableTypeProvidedTableTypeCrossReference_5_0.eContents().get(1);
 		
 		//ProvidedTable:
-		//	('widthPercent:' widthPercent=NATURAL)?
+		//	('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
 		//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 		//	'type:' tableType=[ProvidedTableType|DQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('widthPercent:' widthPercent=NATURAL)? 'root:' diagramRoot=[IDiagramRoot|DQualifiedName] 'type:'
-		//tableType=[ProvidedTableType|DQualifiedName]
+		//('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)? 'root:'
+		//diagramRoot=[IDiagramRoot|DQualifiedName] 'type:' tableType=[ProvidedTableType|DQualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//('widthPercent:' widthPercent=NATURAL)?
@@ -2850,29 +2854,41 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//NATURAL
 		public RuleCall getWidthPercentNATURALTerminalRuleCall_0_1_0() { return cWidthPercentNATURALTerminalRuleCall_0_1_0; }
 		
+		//('gridlines:' gridlines=GridLines)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'gridlines:'
+		public Keyword getGridlinesKeyword_1_0() { return cGridlinesKeyword_1_0; }
+		
+		//gridlines=GridLines
+		public Assignment getGridlinesAssignment_1_1() { return cGridlinesAssignment_1_1; }
+		
+		//GridLines
+		public RuleCall getGridlinesGridLinesEnumRuleCall_1_1_0() { return cGridlinesGridLinesEnumRuleCall_1_1_0; }
+		
 		//'root:'
-		public Keyword getRootKeyword_1() { return cRootKeyword_1; }
+		public Keyword getRootKeyword_2() { return cRootKeyword_2; }
 		
 		//diagramRoot=[IDiagramRoot|DQualifiedName]
-		public Assignment getDiagramRootAssignment_2() { return cDiagramRootAssignment_2; }
+		public Assignment getDiagramRootAssignment_3() { return cDiagramRootAssignment_3; }
 		
 		//[IDiagramRoot|DQualifiedName]
-		public CrossReference getDiagramRootIDiagramRootCrossReference_2_0() { return cDiagramRootIDiagramRootCrossReference_2_0; }
+		public CrossReference getDiagramRootIDiagramRootCrossReference_3_0() { return cDiagramRootIDiagramRootCrossReference_3_0; }
 		
 		//DQualifiedName
-		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getDiagramRootIDiagramRootDQualifiedNameParserRuleCall_3_0_1() { return cDiagramRootIDiagramRootDQualifiedNameParserRuleCall_3_0_1; }
 		
 		//'type:'
-		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
 		
 		//tableType=[ProvidedTableType|DQualifiedName]
-		public Assignment getTableTypeAssignment_4() { return cTableTypeAssignment_4; }
+		public Assignment getTableTypeAssignment_5() { return cTableTypeAssignment_5; }
 		
 		//[ProvidedTableType|DQualifiedName]
-		public CrossReference getTableTypeProvidedTableTypeCrossReference_4_0() { return cTableTypeProvidedTableTypeCrossReference_4_0; }
+		public CrossReference getTableTypeProvidedTableTypeCrossReference_5_0() { return cTableTypeProvidedTableTypeCrossReference_5_0; }
 		
 		//DQualifiedName
-		public RuleCall getTableTypeProvidedTableTypeDQualifiedNameParserRuleCall_4_0_1() { return cTableTypeProvidedTableTypeDQualifiedNameParserRuleCall_4_0_1; }
+		public RuleCall getTableTypeProvidedTableTypeDQualifiedNameParserRuleCall_5_0_1() { return cTableTypeProvidedTableTypeDQualifiedNameParserRuleCall_5_0_1; }
 	}
 	public class PubFigureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubFigure");
@@ -4554,7 +4570,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ProvidedTable:
-	//	('widthPercent:' widthPercent=NATURAL)?
+	//	('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
 	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	//	'type:' tableType=[ProvidedTableType|DQualifiedName];
 	public ProvidedTableElements getProvidedTableAccess() {

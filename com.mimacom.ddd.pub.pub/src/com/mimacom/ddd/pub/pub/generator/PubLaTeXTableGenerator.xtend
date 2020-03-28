@@ -13,6 +13,7 @@ import static com.mimacom.ddd.pub.pub.GridLines.*
 class PubLaTeXTableGenerator {
 
 	static val SENTINEL_STRING = "SENTINEL"
+	static val H_ALIGN = 'l' // left
 
 	val Table table
 	val NestedContentBlockGenerator nestedContentBlockGenereator
@@ -31,7 +32,7 @@ class PubLaTeXTableGenerator {
 	}
 
 	protected def void buildGeneratorModel() {
-
+		val BAR = table.verticalGridline
 		for (var r = 0; r < rows; r++) {
 			val row = table.rows.get(r)
 
@@ -54,7 +55,7 @@ class PubLaTeXTableGenerator {
 
 				} else {
 					// first row, first cell:
-					val multirowFirst = '''\multicolumn{«cell.width»} {|l|} {\multirow{«cell.height»}{*}{«cell.renderCell(nestedContentBlockGenereator)»}}'''
+					val multirowFirst = '''\multicolumn{«cell.width»} {«BAR»«H_ALIGN»«BAR»} {\multirow{«cell.height»}{*}{«cell.renderCell(nestedContentBlockGenereator)»}}'''
 					cellsByRow.get(r).set(columnIndex, multirowFirst)
 					// "occupy" other cells in row with a SENTINEL marker:
 					for (var i = columnIndex + 1; i < columnIndex + cell.width; i++) {
@@ -63,7 +64,7 @@ class PubLaTeXTableGenerator {
 
 					// other rows, first cell in row with a SENTINEL marker:
 					for (var j = r + 1; j < r + cell.height; j++) {
-						val multirowOther = '''\multicolumn{«cell.width»} {|l|} {}'''
+						val multirowOther = '''\multicolumn{«cell.width»} {«BAR»«H_ALIGN»«BAR»} {}'''
 						cellsByRow.get(j).set(columnIndex, multirowOther)
 						// "occupy" other cells:
 						for (var i = columnIndex + 1; i < columnIndex + cell.width; i++) {
@@ -114,11 +115,12 @@ class PubLaTeXTableGenerator {
 	}
 
 	protected def String columnFormat(Table t) {
+		val BAR = table.verticalGridline
 		val StringBuilder b = new StringBuilder()
-		b.append(t.verticalGridline)
+		b.append(BAR)
 		for (var i = 0; i < t.columns; i++) {
-			b.append("l") // align left
-			b.append(t.verticalGridline)
+			b.append(H_ALIGN) // align left
+			b.append(BAR)
 		}
 		b.toString
 	}

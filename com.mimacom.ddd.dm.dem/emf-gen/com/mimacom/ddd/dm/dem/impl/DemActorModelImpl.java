@@ -71,7 +71,6 @@ public class DemActorModelImpl extends DModelImpl implements DemActorModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DemActor> getActors()
 	{
 		if (actors == null)

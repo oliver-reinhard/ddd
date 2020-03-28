@@ -10,16 +10,27 @@ import org.eclipse.xtext.ui.editor.utils.TextStyle;
 public class DemHighlightingConfiguration extends DefaultHighlightingConfiguration {
   public static final String NAME_ID = "Name";
   
+  public static final String RICH_TEXT_ID = "RichText";
+  
   @Override
   public void configure(final IHighlightingConfigurationAcceptor acceptor) {
     super.configure(acceptor);
     acceptor.acceptDefaultHighlighting(DemHighlightingConfiguration.NAME_ID, "Names", this.nameTextStyle());
+    acceptor.acceptDefaultHighlighting(DemHighlightingConfiguration.RICH_TEXT_ID, "Rich Text", this.richtTextTextStyle());
   }
   
   public TextStyle nameTextStyle() {
     final TextStyle textStyle = new TextStyle();
     textStyle.setStyle(SWT.BOLD);
     RGB _rGB = new RGB(29, 32, 136);
+    textStyle.setColor(_rGB);
+    return textStyle;
+  }
+  
+  public TextStyle richtTextTextStyle() {
+    final TextStyle textStyle = new TextStyle();
+    textStyle.setStyle(SWT.ITALIC);
+    RGB _rGB = new RGB(52, 100, 100);
     textStyle.setColor(_rGB);
     return textStyle;
   }

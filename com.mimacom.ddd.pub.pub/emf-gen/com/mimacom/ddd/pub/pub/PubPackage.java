@@ -4058,13 +4058,22 @@ public interface PubPackage extends EPackage {
 	int ABSTRACT_TABLE__WIDTH_PERCENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Gridlines</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TABLE__GRIDLINES = 1;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_TABLE_FEATURE_COUNT = 1;
+	int ABSTRACT_TABLE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Abstract Table</em>' class.
@@ -4095,6 +4104,15 @@ public interface PubPackage extends EPackage {
 	int TABLE__WIDTH_PERCENT = ABSTRACT_TABLE__WIDTH_PERCENT;
 
 	/**
+	 * The feature id for the '<em><b>Gridlines</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__GRIDLINES = ABSTRACT_TABLE__GRIDLINES;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4113,22 +4131,13 @@ public interface PubPackage extends EPackage {
 	int TABLE__ROWS = ABSTRACT_TABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Gridlines</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__GRIDLINES = ABSTRACT_TABLE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 3;
+	int TABLE_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -4276,6 +4285,15 @@ public interface PubPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROVIDED_TABLE__WIDTH_PERCENT = ABSTRACT_TABLE__WIDTH_PERCENT;
+
+	/**
+	 * The feature id for the '<em><b>Gridlines</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_TABLE__GRIDLINES = ABSTRACT_TABLE__GRIDLINES;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Root</b></em>' reference.
@@ -6500,6 +6518,17 @@ public interface PubPackage extends EPackage {
 	EAttribute getAbstractTable_WidthPercent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.AbstractTable#getGridlines <em>Gridlines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Gridlines</em>'.
+	 * @see com.mimacom.ddd.pub.pub.AbstractTable#getGridlines()
+	 * @see #getAbstractTable()
+	 * @generated
+	 */
+	EAttribute getAbstractTable_Gridlines();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6530,17 +6559,6 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_Rows();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.Table#getGridlines <em>Gridlines</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gridlines</em>'.
-	 * @see com.mimacom.ddd.pub.pub.Table#getGridlines()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Gridlines();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.TableRow <em>Table Row</em>}'.
@@ -8143,6 +8161,14 @@ public interface PubPackage extends EPackage {
 		EAttribute ABSTRACT_TABLE__WIDTH_PERCENT = eINSTANCE.getAbstractTable_WidthPercent();
 
 		/**
+		 * The meta object literal for the '<em><b>Gridlines</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_TABLE__GRIDLINES = eINSTANCE.getAbstractTable_Gridlines();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8167,14 +8193,6 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__ROWS = eINSTANCE.getTable_Rows();
-
-		/**
-		 * The meta object literal for the '<em><b>Gridlines</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__GRIDLINES = eINSTANCE.getTable_Gridlines();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.TableRowImpl <em>Table Row</em>}' class.

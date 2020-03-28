@@ -25,7 +25,7 @@ public class DemUiModule extends AbstractDemUiModule {
     return DemHighlightingConfiguration.class;
   }
   
-  public DemUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public DemUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

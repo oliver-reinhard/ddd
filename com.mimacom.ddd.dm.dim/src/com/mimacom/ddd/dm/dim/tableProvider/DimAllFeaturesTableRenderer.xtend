@@ -37,7 +37,7 @@ class DimAllFeaturesTableRenderer implements ITableRenderer {
 				val typeLabel = type.label
 				var first = true
 				for (f : type.features) {
-					t.addDescriptionRow(#[first ? typeLabel : "", f.name, f.type.name + " " + f.multiplicityText],
+					t.addRowWithDescription(#[first ? typeLabel : "", f.name, f.type.name + " " + f.multiplicityText],
 						f.description)
 					first = false
 				}

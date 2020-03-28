@@ -4420,9 +4420,34 @@ ruleProvidedTable returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_2='root:'
+		(
+			otherlv_2='gridlines:'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getProvidedTableAccess().getGridlinesKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProvidedTableAccess().getGridlinesGridLinesEnumRuleCall_1_1_0());
+					}
+					lv_gridlines_3_0=ruleGridLines
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProvidedTableRule());
+						}
+						set(
+							$current,
+							"gridlines",
+							lv_gridlines_3_0,
+							"com.mimacom.ddd.pub.pub.Pub.GridLines");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_4='root:'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getProvidedTableAccess().getRootKeyword_1());
+			newLeafNode(otherlv_4, grammarAccess.getProvidedTableAccess().getRootKeyword_2());
 		}
 		(
 			(
@@ -4432,7 +4457,7 @@ ruleProvidedTable returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getProvidedTableAccess().getDiagramRootIDiagramRootCrossReference_2_0());
+					newCompositeNode(grammarAccess.getProvidedTableAccess().getDiagramRootIDiagramRootCrossReference_3_0());
 				}
 				ruleDQualifiedName
 				{
@@ -4440,9 +4465,9 @@ ruleProvidedTable returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='type:'
+		otherlv_6='type:'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getProvidedTableAccess().getTypeKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getProvidedTableAccess().getTypeKeyword_4());
 		}
 		(
 			(
@@ -4452,7 +4477,7 @@ ruleProvidedTable returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getProvidedTableAccess().getTableTypeProvidedTableTypeCrossReference_4_0());
+					newCompositeNode(grammarAccess.getProvidedTableAccess().getTableTypeProvidedTableTypeCrossReference_5_0());
 				}
 				ruleDQualifiedName
 				{

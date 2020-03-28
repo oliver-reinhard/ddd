@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.styledText.StyledTextUtil;
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.tableProvider.AbstractDemEventTableRenderer;
@@ -11,6 +12,7 @@ import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
+import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import java.util.Arrays;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -24,13 +26,21 @@ public class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRe
   
   @Inject
   @Extension
+  private StyledTextUtil _styledTextUtil;
+  
+  @Inject
+  @Extension
   private PubTableUtil _pubTableUtil;
+  
+  @Inject
+  @Extension
+  private CodeListingFormatter _codeListingFormatter;
   
   @Override
   public Table render(final IDiagramRoot root) {
     DemEventPostconditionsTableRenderer.LOGGER.info((" for " + root));
     final DemDomainEvent e = ((DemDomainEvent) root);
-    final Table t = this._pubTableUtil.createTableWithHeader("Outcome", "", "Selector/Predicate", "Description");
+    final Table t = this._pubTableUtil.createTableWithHeader("Outcome", "Postcondition", "Selector/Predicate");
     EList<DNamedElement> _postconditionsDNF = e.getPostconditionsDNF();
     for (final DNamedElement post : _postconditionsDNF) {
       this.postcondition(t, post);
@@ -40,34 +50,44 @@ public class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRe
   
   protected void _postcondition(final Table t, final DNamedPredicate pred) {
     String _name = pred.getName();
-    String _serialize = this.serialize(pred.getPredicate());
-    this._pubTableUtil.addDescriptionRow(t, new String[] { _name, "", _serialize }, pred.getDescription());
+    String _sourceCode = this.sourceCode(pred.getPredicate());
+    this._pubTableUtil.addRowWithDescription(t, new String[] { _name, "", _sourceCode }, pred.getDescription());
   }
   
   protected void _postcondition(final Table t, final DemCaseConjunction conj) {
+    String selectorSourceCode = this.sourceCode(conj.getSelector());
+    selectorSourceCode = this._codeListingFormatter.trimBlankLines(selectorSourceCode);
     String _name = conj.getName();
     String _xifexpression = null;
     boolean _isOtherwise = conj.isOtherwise();
     if (_isOtherwise) {
       _xifexpression = "OTHERWISE";
     } else {
-      _xifexpression = this.serialize(conj.getSelector());
+      _xifexpression = "WHEN";
     }
-    this._pubTableUtil.addDescriptionRow(t, new String[] { _name, "WHEN", _xifexpression }, conj.getDescription());
-    boolean first = true;
+    String _monospace = this._styledTextUtil.monospace(selectorSourceCode);
+    this._pubTableUtil.addStyledTextRow(t, new String[] { _name, _xifexpression, _monospace });
+    boolean firstPredicate = true;
     EList<DNamedPredicate> _predicates = conj.getPredicates();
     for (final DNamedPredicate pred : _predicates) {
-      if (first) {
+      {
+        String _xifexpression_1 = null;
+        if (firstPredicate) {
+          _xifexpression_1 = "";
+        } else {
+          _xifexpression_1 = PubTableUtil.IGNORE_TABLE_CELL;
+        }
+        final String firstColValue = _xifexpression_1;
+        String predSourceCode = this.sourceCode(pred.getPredicate());
+        predSourceCode = this._codeListingFormatter.trimBlankLines(predSourceCode);
         String _name_1 = pred.getName();
-        String _serialize = this.serialize(pred.getPredicate());
-        final TableRow row = this._pubTableUtil.addDescriptionRow(t, new String[] { "", _name_1, _serialize }, pred.getDescription());
-        TableCell _head = IterableExtensions.<TableCell>head(row.getCells());
-        _head.setHeight(((Object[])Conversions.unwrapArray(conj.getPredicates(), Object.class)).length);
-        first = false;
-      } else {
-        String _name_2 = pred.getName();
-        String _serialize_1 = this.serialize(pred.getPredicate());
-        this._pubTableUtil.addDescriptionRow(t, new String[] { PubTableUtil.IGNORE_TABLE_CELL, _name_2, _serialize_1 }, pred.getDescription());
+        String _monospace_1 = this._styledTextUtil.monospace(predSourceCode);
+        final TableRow predRow = this._pubTableUtil.addStyledTextRow(t, new String[] { firstColValue, _name_1, _monospace_1 });
+        if (firstPredicate) {
+          TableCell _head = IterableExtensions.<TableCell>head(predRow.getCells());
+          _head.setHeight(((Object[])Conversions.unwrapArray(conj.getPredicates(), Object.class)).length);
+          firstPredicate = false;
+        }
       }
     }
   }

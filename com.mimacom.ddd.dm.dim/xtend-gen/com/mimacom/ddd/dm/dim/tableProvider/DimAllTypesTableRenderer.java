@@ -56,12 +56,12 @@ public class DimAllTypesTableRenderer implements ITableRenderer {
     String _plus = (_label + " redefines ");
     String _name = p.getRedefines().getName();
     String _plus_1 = (_plus + _name);
-    this._pubTableUtil.addDescriptionRow(t, new String[] { _plus_1 }, p.getDescription());
+    this._pubTableUtil.addRowWithDescription(t, new String[] { _plus_1 }, p.getDescription());
   }
   
   protected void _describe(final Table t, final DType type) {
     String _label = this._dimUtil.label(type);
-    this._pubTableUtil.addDescriptionRow(t, new String[] { _label }, type.getDescription());
+    this._pubTableUtil.addRowWithDescription(t, new String[] { _label }, type.getDescription());
   }
   
   protected void describe(final Table t, final DType p) {

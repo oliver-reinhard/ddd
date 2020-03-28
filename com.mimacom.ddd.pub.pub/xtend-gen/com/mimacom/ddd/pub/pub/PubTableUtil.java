@@ -3,6 +3,7 @@ package com.mimacom.ddd.pub.pub;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.Reference;
@@ -17,6 +18,10 @@ import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public class PubTableUtil {
+  public interface AddCell {
+    public abstract void addCell(final TableRow row, final Object text);
+  }
+  
   @Inject
   @Extension
   private RichTextUtil _richTextUtil;
@@ -40,7 +45,7 @@ public class PubTableUtil {
     return t;
   }
   
-  public TableRow addSimpleRow(final Table t, final String... cellTexts) {
+  protected TableRow addRowImpl(final Table t, final PubTableUtil.AddCell lambda, final Object... cellTexts) {
     int _length = cellTexts.length;
     boolean _equals = (_length == 0);
     if (_equals) {
@@ -61,14 +66,35 @@ public class PubTableUtil {
     }
     final TableRow row = PubTableUtil.PUB.createTableRow();
     t.getRows().add(row);
-    for (final String text : cellTexts) {
+    for (final Object text : cellTexts) {
       boolean _equals_1 = PubTableUtil.IGNORE_TABLE_CELL.equals(text);
       boolean _not = (!_equals_1);
       if (_not) {
-        this.addSimpleCell(row, text);
+        lambda.addCell(row, text);
       }
     }
     return row;
+  }
+  
+  public TableRow addSimpleRow(final Table t, final String... cellTexts) {
+    final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
+      this.addSimpleCell(row, ((String) text));
+    };
+    return this.addRowImpl(t, _function, cellTexts);
+  }
+  
+  public TableRow addStyledTextRow(final Table t, final String... styledCells) {
+    final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
+      this.addStyledTextCell(row, ((String) text));
+    };
+    return this.addRowImpl(t, _function, styledCells);
+  }
+  
+  public TableRow addRichTextRow(final Table t, final DRichText[] cellTexts) {
+    final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
+      this.addRichTextCell(row, ((DRichText) text));
+    };
+    return this.addRowImpl(t, _function, cellTexts);
   }
   
   public TableRow addRowWithReference(final Table t, final String[] cellTexts, final Reference lastColumn) {
@@ -104,7 +130,7 @@ public class PubTableUtil {
     return row;
   }
   
-  public TableRow addDescriptionRow(final Table t, final String[] cellTexts, final DRichText description, final String... moreCells) {
+  protected TableRow addRowWithDescriptionImpl(final Table t, final PubTableUtil.AddCell lambda, final String[] cellTexts, final DRichText description, final String... moreCells) {
     int _length = cellTexts.length;
     int _length_1 = moreCells.length;
     final int len = (_length + _length_1);
@@ -123,14 +149,28 @@ public class PubTableUtil {
       boolean _equals = PubTableUtil.IGNORE_TABLE_CELL.equals(text);
       boolean _not = (!_equals);
       if (_not) {
-        this.addSimpleCell(row, text);
+        lambda.addCell(row, text);
       }
     }
     this.addRichTextCell(row, description);
     for (final String text_1 : moreCells) {
-      this.addSimpleCell(row, text_1);
+      lambda.addCell(row, text_1);
     }
     return row;
+  }
+  
+  public TableRow addRowWithDescription(final Table t, final String[] cellTexts, final DRichText description, final String... moreCells) {
+    final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
+      this.addSimpleCell(row, ((String) text));
+    };
+    return this.addRowWithDescriptionImpl(t, _function, cellTexts, description, moreCells);
+  }
+  
+  public TableRow addStyledTextRowWithDescription(final Table t, final String[] styledCells, final DRichText description, final String... moreFormattedCells) {
+    final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
+      this.addStyledTextCell(row, ((String) text));
+    };
+    return this.addRowWithDescriptionImpl(t, _function, styledCells, description, moreFormattedCells);
   }
   
   public TableCell addSimpleCell(final TableRow row, final String text) {
@@ -145,6 +185,24 @@ public class PubTableUtil {
       _xifexpression = "";
     }
     para.setText(_xifexpression);
+    return cell;
+  }
+  
+  public TableCell addStyledTextCell(final TableRow row, final String styledText) {
+    final TableCell cell = PubTableUtil.PUB.createTableCell();
+    row.getCells().add(cell);
+    final RichTextParagraph para = PubTableUtil.PUB.createRichTextParagraph();
+    cell.getContents().add(para);
+    para.setText(PubTableUtil.BASE.createDRichText());
+    final DTextSegment textSegment = PubTableUtil.BASE.createDTextSegment();
+    String _xifexpression = null;
+    if ((styledText != null)) {
+      _xifexpression = styledText;
+    } else {
+      _xifexpression = "";
+    }
+    textSegment.setValue(_xifexpression);
+    para.getText().getSegments().add(textSegment);
     return cell;
   }
   

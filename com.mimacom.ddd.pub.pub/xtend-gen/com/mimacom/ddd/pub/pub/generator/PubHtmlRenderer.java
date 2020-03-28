@@ -108,6 +108,20 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   @Override
   public void prepare(final Document doc, final IFileSystemAccess2 fsa) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("body {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("font-size: normal;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("h1, h2, h3, h4, h5, h6 {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("font-family: sans-serif;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     _builder.append("table, th {");
     _builder.newLine();
     _builder.append("\t");
@@ -124,6 +138,12 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("border-collapse: collapse;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("font-family: sans-serif;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("font-size: small;");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
@@ -158,6 +178,9 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("\t");
     _builder.append("padding-left: 5px;");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("padding-right: 10px;");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     _builder.append("pre {");
@@ -166,10 +189,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("margin-left: 30px;");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("tab-size: ");
-    _builder.append(PubGeneratorUtil.TAB_SIZE, "\t");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    _builder.append("tab-size: 2;");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     final String css = _builder.toString();
@@ -671,7 +692,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
         CharSequence _encode = this.encode(this._codeListingFormatter.numberLines(outdentedListing));
         _builder.append(_encode);
       } else {
-        CharSequence _encode_1 = this.encode(this._codeListingFormatter.numberLines(outdentedListing));
+        CharSequence _encode_1 = this.encode(outdentedListing);
         _builder.append(_encode_1);
       }
     }

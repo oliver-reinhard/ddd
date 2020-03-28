@@ -70,9 +70,12 @@ public class StyledTextParser {
 		try {
 			parseImpl(root, Token.EOF);
 		} catch (PrematureEOFException e) {
-			// Diagnostic message already issued
+			// Diagnostic message already issued/accepted.
 		}
 		root.setEndPos(tokenizer.getIndex() - 1);
+		if (root.getSubspans().isEmpty()) {
+			root.setText("");
+		}
 		return root;
 	}
 

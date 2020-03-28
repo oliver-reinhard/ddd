@@ -1,21 +1,14 @@
 package com.mimacom.ddd.dm.dem.tableProvider;
 
-import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.IDiagramRoot;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.eclipse.xtext.serializer.ISerializer;
 
 @SuppressWarnings("all")
 public abstract class AbstractDemEventTableRenderer implements ITableRenderer {
-  @Inject
-  private ISerializer serializer;
-  
-  private static final int MAX_EXPR_LENGTH = 100;
-  
   @Override
   public boolean canRender(final IDiagramRoot root) {
     if ((root instanceof DemDomainEvent)) {
@@ -24,7 +17,7 @@ public abstract class AbstractDemEventTableRenderer implements ITableRenderer {
     return false;
   }
   
-  protected String serialize(final DExpression expr) {
+  protected String sourceCode(final DExpression expr) {
     final ICompositeNode node = NodeModelUtils.findActualNodeFor(expr);
     String _xifexpression = null;
     if ((node != null)) {

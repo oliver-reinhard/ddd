@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 
 class TypesUtil {
-	
+
 	/*
 	 * Returns all the supertypes of the given type.
 	 */
@@ -36,7 +36,7 @@ class TypesUtil {
 		}
 		return features
 	}
-	
+
 	def dispatch List<DFeature> allFeatures(IFeatureContainer container) {
 		return container.features
 	}
@@ -113,36 +113,57 @@ class TypesUtil {
 	}
 
 	// // Labels
-
 	def String describeType(DNavigableMember m) {
-		m.type !== null ? m.type.label + " " + m.multiplicityText : ""
+		val b = new StringBuilder
+		if (m.type !== null) {
+			if (m.type.name !== null) {
+				b.append(m.type.name)
+				b.append(m.multiplicityText)
+			}
+			b.append(" (")
+			b.append(m.type.metatypeName)
+			b.append(")")
+		}
+		return b.toString
 	}
-	
+
 	def String label(DAggregate a) {
 		return "Component " + a.name
 	}
 
-	def String label(DType type) {
-		val typeLabel = switch type {
+	def String metatypeName(DType type) {
+		switch type {
 			DPrimitive:
-				"Primitive "
+				"Primitive"
 			DEnumeration:
-				"Enumeration "
-			DEntityType:
-				if (type.root) "Root Entity " else "Entity "
-			DDetailType:
-				"Detail "
-			DAssociation:
-				switch type.kind {
-					case REFERENCE: "Reference to "
-					case COMPOSITE: "Composite to "
-					case INVERSE_COMPOSITE: "Inverse Composite to "
-					default: type.kind.toString
+				"Enumeration"
+			DEntityType: {
+				val name = switch type.nature {
+					case AUTONOMOUS_ENTITY,
+					case CONTROLLED_ENTITY: "Entity"
+					case RELATIONSHIP: "Relationship"
+					default: type.nature.getName
 				}
+				if (type.root) "main " + name else name
+			}
+			DDetailType:
+				"Detail"
 			default:
 				type.class.simpleName
 		}
-		return typeLabel + type?.name
+	}
+
+	def String label(DType type) {
+		return type.metatypeName + " " + type?.name
+	}
+
+	def String label(DAssociation a) {
+		switch a.kind {
+			case REFERENCE: "Reference to "
+			case COMPOSITE: "Composite to "
+			case INVERSE_COMPOSITE: "Inverse Composite to "
+			default: a.kind.toString
+		}
 	}
 
 	def String label(DFeature f) {

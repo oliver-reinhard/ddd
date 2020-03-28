@@ -5,6 +5,9 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
+import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
+import com.mimacom.ddd.dm.styledText.parser.FirstErrorMessageAcceptor;
+import com.mimacom.ddd.dm.styledText.parser.StyledTextParser;
 
 /**
  * This module has been written in Java because Xtend has problems with
@@ -14,7 +17,14 @@ import com.mimacom.ddd.dm.base.IRichTextSegment;
 public class RichTextUtil {
 
 	protected static BaseFactory BASE = BaseFactory.eINSTANCE;
-	
+
+	public static final DRichText EMPTY_TEXT = BASE.createDRichText();
+	{
+		final DTextSegment s = BASE.createDTextSegment();
+		s.setValue("");
+		EMPTY_TEXT.getSegments().add(s);
+	}
+
 	public DRichText toRichText(String text) {
 		final DRichText t = BASE.createDRichText();
 		final DTextSegment s = BASE.createDTextSegment();
@@ -23,13 +33,29 @@ public class RichTextUtil {
 		return t;
 	}
 
+	/**
+	 * Parses a formatted string and throws an exception if the parsing has errors.
+	 * @param formattedString cannot be {@code null}.
+	 * @return
+	 * @throws IllegalArgumentException
+	 */
+	public DStyledTextSpan parse(String formattedString) throws IllegalArgumentException {
+		final FirstErrorMessageAcceptor acceptor = new FirstErrorMessageAcceptor();
+		final StyledTextParser parser = new StyledTextParser(formattedString, acceptor);
+		final DStyledTextSpan span = parser.parse();
+		if (acceptor.hasError()) {
+			throw new IllegalArgumentException(acceptor.getFirstError());
+		}
+		return span;
+	}
+
 	public boolean isEmpty(DRichText rt) {
 		if (rt != null) {
 			for (IRichTextSegment seg : rt.getSegments()) {
 				if (seg instanceof DExpression) {
 					return false;
 				} else if (seg instanceof DTextSegment) {
-					if (! ((DTextSegment) seg).getValue().trim().isEmpty()) {
+					if (!((DTextSegment) seg).getValue().trim().isEmpty()) {
 						return false;
 					}
 				}
@@ -50,7 +76,8 @@ public class RichTextUtil {
 //	}
 
 	/**
-	 * Replace characters reserved by LaTeX language by their "escaped" counterparts.
+	 * Replace characters reserved by LaTeX language by their "escaped"
+	 * counterparts.
 	 * 
 	 * @param plainText can be {@code null}.
 	 * @return {@code null} if input is {@code null}
@@ -73,6 +100,12 @@ public class RichTextUtil {
 			case '$':
 				b.append("\\$");
 				break;
+			case '£':
+				b.append("\\pounds");
+				break;
+			case '€':
+				b.append("\\euro");
+				break;
 			case '%':
 				b.append("\\%");
 				break;
@@ -85,6 +118,12 @@ public class RichTextUtil {
 			case '}':
 				b.append("\\}");
 				break;
+			case '«':
+				b.append("\\guillemotleft");
+				break;
+			case '»':
+				b.append("\\guillemotright");
+				break;
 			case '_':
 				b.append("\\_");
 				break;
@@ -96,7 +135,6 @@ public class RichTextUtil {
 				break;
 			case '^':
 				b.append("\\^{}");
-				break;
 			case '|':
 				b.append("\\textbar");
 				break;
@@ -124,7 +162,7 @@ public class RichTextUtil {
 		final StringBuilder b = new StringBuilder();
 		for (int i = 0; i < source.length; i++) {
 			final char c = source[i];
-			switch (c) {	
+			switch (c) {
 			case '<':
 				b.append("&lt;");
 				break;

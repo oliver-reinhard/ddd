@@ -62,7 +62,7 @@ public class DimAllFeaturesTableRenderer implements ITableRenderer {
               String _plus = (_name_1 + " ");
               String _multiplicityText = this._dimUtil.multiplicityText(f);
               String _plus_1 = (_plus + _multiplicityText);
-              this._pubTableUtil.addDescriptionRow(t, new String[] { _xifexpression, _name, _plus_1 }, 
+              this._pubTableUtil.addRowWithDescription(t, new String[] { _xifexpression, _name, _plus_1 }, 
                 f.getDescription());
               first = false;
             }

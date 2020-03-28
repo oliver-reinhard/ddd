@@ -1737,6 +1737,15 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractTable_Gridlines() {
+		return (EAttribute)abstractTableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -1757,15 +1766,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 */
 	public EReference getTable_Rows() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_Gridlines() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2403,11 +2403,11 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		abstractTableEClass = createEClass(ABSTRACT_TABLE);
 		createEAttribute(abstractTableEClass, ABSTRACT_TABLE__WIDTH_PERCENT);
+		createEAttribute(abstractTableEClass, ABSTRACT_TABLE__GRIDLINES);
 
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__COLUMNS);
 		createEReference(tableEClass, TABLE__ROWS);
-		createEAttribute(tableEClass, TABLE__GRIDLINES);
 
 		tableRowEClass = createEClass(TABLE_ROW);
 		createEAttribute(tableRowEClass, TABLE_ROW__IS_HEADING);
@@ -2752,11 +2752,11 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 
 		initEClass(abstractTableEClass, AbstractTable.class, "AbstractTable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractTable_WidthPercent(), theEcorePackage.getEInt(), "widthPercent", "100", 0, 1, AbstractTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractTable_Gridlines(), this.getGridLines(), "gridlines", "HORIZONTAL", 0, 1, AbstractTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Columns(), theEcorePackage.getEInt(), "columns", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Rows(), this.getTableRow(), this.getTableRow_Table(), "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Gridlines(), this.getGridLines(), "gridlines", "HORIZONTAL", 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableRow_IsHeading(), theEcorePackage.getEBoolean(), "isHeading", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

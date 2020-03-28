@@ -92,6 +92,10 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   
   private static final PubPackage PUB = PubPackage.eINSTANCE;
   
+  private static final String GUILLEMOT_LEFT = "«";
+  
+  private static final String GUILLEMOT_RIGHT = "»";
+  
   @Inject
   private PubLaTeXDiagramFileFormatPreference diagramFileFormatPreference;
   
@@ -147,6 +151,8 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.newLine();
     _builder.append("\\usepackage{hyperref}      % hyperlinks");
     _builder.newLine();
+    _builder.append("\\usepackage[T1]{fontenc}   % enables use of \\guillemotleft & -right, see http://detexify.kirelabs.org/symbols.html");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\\lstset{captionpos=b, basicstyle=\\footnotesize, numberstyle=\\tiny,");
     _builder.newLine();
@@ -159,8 +165,15 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
     _builder.append("breaklines, breakatwhitespace,");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("extendedchars, literate={≤}{$\\leq$}1 {≥}{$\\geq$}1 {->}{{$\\rightarrow$}}1 {=>}{{$\\rightarrow$}}1 % DMX special symbols");
+    _builder.append("extendedchars, literate={≤}{$\\leq$}1 {≥}{$\\geq$}1 {->}{{$\\rightarrow$}}1 {=>}{{$\\rightarrow$}}1 ");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("{");
+    _builder.append(PubLaTeXRenderer.GUILLEMOT_LEFT, "\t");
+    _builder.append("}{{\\guillemotleft}}1 {");
+    _builder.append(PubLaTeXRenderer.GUILLEMOT_RIGHT, "\t");
+    _builder.append("}{{\\guillemotright}}1 % DMX special symbols");
+    _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();

@@ -29,6 +29,10 @@ public interface DemEventsOverviewModel extends DModel
 	/**
 	 * Returns the value of the '<em><b>All</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>All</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>All</em>' attribute.
 	 * @see #setAll(boolean)
@@ -52,6 +56,10 @@ public interface DemEventsOverviewModel extends DModel
 	 * Returns the value of the '<em><b>Include</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dem.DemDomainEvent}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Include</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Include</em>' reference list.
 	 * @see com.mimacom.ddd.dm.dem.DemPackage#getDemEventsOverviewModel_Include()
@@ -64,6 +72,10 @@ public interface DemEventsOverviewModel extends DModel
 	 * Returns the value of the '<em><b>Exclude</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dem.DemDomainEvent}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exclude</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exclude</em>' reference list.
 	 * @see com.mimacom.ddd.dm.dem.DemPackage#getDemEventsOverviewModel_Exclude()

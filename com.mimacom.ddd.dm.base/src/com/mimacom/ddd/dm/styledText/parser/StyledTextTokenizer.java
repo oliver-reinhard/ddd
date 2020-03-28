@@ -20,7 +20,7 @@ public class StyledTextTokenizer {
 
 		Token(String literal) {
 			if (literal == null)
-				throw new NullPointerException("text");
+				throw new NullPointerException("literal");
 			this.literal = literal;
 			this.length = literal.length();
 		}

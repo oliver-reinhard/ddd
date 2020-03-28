@@ -267,6 +267,8 @@ class PubGeneratorDelegate {
 		val provider = tableProviderRegistry.getTableRenderer(t.tableType.name)
 		if (provider !== null) {
 			val table = provider.render(t.diagramRoot)
+			table.widthPercent = t.widthPercent
+			table.gridlines = t.gridlines
 			renderTable(table, nestedContentBlockGenerator)
 		} else {
 			val msg = "Table renderer '" + t.tableType.name + "' not found."

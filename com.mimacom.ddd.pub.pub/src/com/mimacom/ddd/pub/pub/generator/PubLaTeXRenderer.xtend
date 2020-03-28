@@ -58,6 +58,8 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 	static public val DOCUMENT_SUFFIX = "tex"
 	static public val CSS_FILENAME = "pubstyles.css"
 	static val PUB = PubPackage.eINSTANCE
+	static val GUILLEMOT_LEFT = "«"
+	static val GUILLEMOT_RIGHT = "»"
 
 	@Inject PubLaTeXDiagramFileFormatPreference diagramFileFormatPreference
 
@@ -93,11 +95,13 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		\usepackage{listings}      % code listings, see https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
 		\usepackage{lstautogobble} % listing-indent control
 		\usepackage{hyperref}      % hyperlinks
+		\usepackage[T1]{fontenc}   % enables use of \guillemotleft & -right, see http://detexify.kirelabs.org/symbols.html
 		
 		\lstset{captionpos=b, basicstyle=\footnotesize, numberstyle=\tiny,
 			tabsize=«PubGeneratorUtil::TAB_SIZE», autogobble,
 			breaklines, breakatwhitespace,
-			extendedchars, literate={≤}{$\leq$}1 {≥}{$\geq$}1 {->}{{$\rightarrow$}}1 {=>}{{$\rightarrow$}}1 % DMX special symbols
+			extendedchars, literate={≤}{$\leq$}1 {≥}{$\geq$}1 {->}{{$\rightarrow$}}1 {=>}{{$\rightarrow$}}1 
+			{«GUILLEMOT_LEFT»}{{\guillemotleft}}1 {«GUILLEMOT_RIGHT»}{{\guillemotright}}1 % DMX special symbols
 		}
 		
 		«doc.renderPreamble»

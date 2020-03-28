@@ -3,10 +3,13 @@ package com.mimacom.ddd.dm.dem.ui.highlighting
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.base.DRichText
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator
 import org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor
+import org.eclipse.xtext.nodemodel.ICompositeNode
 import org.eclipse.xtext.nodemodel.INode
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.service.OperationCanceledManager
 import org.eclipse.xtext.util.CancelIndicator
 
@@ -14,16 +17,20 @@ class DemSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalcu
 
 //	@Inject
 //	DemGrammarAccess ga;
-
 	@Inject
 	OperationCanceledManager operationCanceledManager;
 
-	override boolean highlightElement(EObject object, IHighlightedPositionAcceptor acceptor, CancelIndicator cancelIndicator) {
+	override boolean highlightElement(EObject object, IHighlightedPositionAcceptor acceptor,
+		CancelIndicator cancelIndicator) {
 		operationCanceledManager.checkCanceled(cancelIndicator);
 		if (object instanceof DNamedElement) {
 //			val ICompositeNode node = NodeModelUtils.findActualNodeFor(object);
 //			handleCaseNode(node, acceptor, cancelIndicator);
-			highlightFeature(acceptor, object, BasePackage.eINSTANCE.DNamedElement_Name, DemHighlightingConfiguration.NAME_ID)
+			highlightFeature(acceptor, object, BasePackage.eINSTANCE.DNamedElement_Name,
+				DemHighlightingConfiguration.NAME_ID)
+		} else if (object instanceof DRichText) {
+			val ICompositeNode node = NodeModelUtils.findActualNodeFor(object);
+			highlightNode(acceptor, node, DemHighlightingConfiguration.RICH_TEXT_ID)
 		}
 		return super.highlightElement(object, acceptor, cancelIndicator);
 	}

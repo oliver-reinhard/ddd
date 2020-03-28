@@ -21,6 +21,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class PubLaTeXTableGenerator {
   private static final String SENTINEL_STRING = "SENTINEL";
   
+  private static final String H_ALIGN = "l";
+  
   private final Table table;
   
   private final NestedContentBlockGenerator nestedContentBlockGenereator;
@@ -49,6 +51,7 @@ public class PubLaTeXTableGenerator {
   }
   
   protected void buildGeneratorModel() {
+    final String BAR = this.verticalGridline(this.table);
     for (int r = 0; (r < this.rows); r++) {
       {
         final TableRow row = this.table.getRows().get(r);
@@ -70,7 +73,11 @@ public class PubLaTeXTableGenerator {
               _builder.append("\\multicolumn{");
               int _width = cell.getWidth();
               _builder.append(_width);
-              _builder.append("} {|l|} {\\multirow{");
+              _builder.append("} {");
+              _builder.append(BAR);
+              _builder.append(PubLaTeXTableGenerator.H_ALIGN);
+              _builder.append(BAR);
+              _builder.append("} {\\multirow{");
               int _height = cell.getHeight();
               _builder.append(_height);
               _builder.append("}{*}{");
@@ -88,7 +95,11 @@ public class PubLaTeXTableGenerator {
                   _builder_1.append("\\multicolumn{");
                   int _width_1 = cell.getWidth();
                   _builder_1.append(_width_1);
-                  _builder_1.append("} {|l|} {}");
+                  _builder_1.append("} {");
+                  _builder_1.append(BAR);
+                  _builder_1.append(PubLaTeXTableGenerator.H_ALIGN);
+                  _builder_1.append(BAR);
+                  _builder_1.append("} {}");
                   final String multirowOther = _builder_1.toString();
                   (this.cellsByRow[j])[columnIndex] = multirowOther;
                   for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
@@ -204,12 +215,13 @@ public class PubLaTeXTableGenerator {
   protected String columnFormat(final Table t) {
     String _xblockexpression = null;
     {
+      final String BAR = this.verticalGridline(this.table);
       final StringBuilder b = new StringBuilder();
-      b.append(this.verticalGridline(t));
+      b.append(BAR);
       for (int i = 0; (i < t.getColumns()); i++) {
         {
-          b.append("l");
-          b.append(this.verticalGridline(t));
+          b.append(PubLaTeXTableGenerator.H_ALIGN);
+          b.append(BAR);
         }
       }
       _xblockexpression = b.toString();

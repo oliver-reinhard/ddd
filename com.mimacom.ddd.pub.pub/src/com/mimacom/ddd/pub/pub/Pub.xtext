@@ -353,6 +353,7 @@ PubTableSimpleCell returns TableCell:
 
 ProvidedTable:
 	('widthPercent:' widthPercent=NATURAL)?
+	('gridlines:' gridlines=GridLines)?
 	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
 	'type:' tableType=[ProvidedTableType|DQualifiedName];
 

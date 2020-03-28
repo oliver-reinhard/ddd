@@ -111,7 +111,7 @@ public class CodeListingFormatter {
 	public String numberLines(String listing) {
 		final String[] lines = listing.split("\n");
 		final int numLines = lines.length;
-		final int digits = (int) Math.log10(numLines) + 1;
+		final int digits = (int) Math.min(Math.log10(numLines) + 1, 2); // min 2 digits
 		final StringBuilder decimalPattern = new StringBuilder();
 		for (int d=0; d<digits; d++) {
 			decimalPattern.append('0');
