@@ -4,11 +4,13 @@
 package com.mimacom.ddd.dm.dem.ui;
 
 import com.mimacom.ddd.dm.dem.ui.AbstractDemUiModule;
-import com.mimacom.ddd.dm.dem.ui.highlighting.DemHighlightingConfiguration;
-import com.mimacom.ddd.dm.dem.ui.highlighting.DemSemanticHighlightingCalculator;
+import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider;
+import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration;
+import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
 /**
@@ -18,14 +20,19 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 @SuppressWarnings("all")
 public class DemUiModule extends AbstractDemUiModule {
   public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
-    return DemSemanticHighlightingCalculator.class;
+    return DmxSemanticHighlightingCalculator.class;
   }
   
   public Class<? extends IHighlightingConfiguration> bindHighlightingConfiguration() {
-    return DemHighlightingConfiguration.class;
+    return DmxHighlightingConfiguration.class;
   }
   
-  public DemUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  @Override
+  public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
+    return DmxAutoEditStrategyProvider.class;
+  }
+  
+  public DemUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

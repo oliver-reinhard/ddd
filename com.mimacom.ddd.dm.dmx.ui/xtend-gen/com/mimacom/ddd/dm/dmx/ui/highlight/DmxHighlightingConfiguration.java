@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dem.ui.highlighting;
+package com.mimacom.ddd.dm.dmx.ui.highlight;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
@@ -7,7 +7,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcce
 import org.eclipse.xtext.ui.editor.utils.TextStyle;
 
 @SuppressWarnings("all")
-public class DemHighlightingConfiguration extends DefaultHighlightingConfiguration {
+public class DmxHighlightingConfiguration extends DefaultHighlightingConfiguration {
   public static final String NAME_ID = "Name";
   
   public static final String RICH_TEXT_ID = "RichText";
@@ -15,8 +15,8 @@ public class DemHighlightingConfiguration extends DefaultHighlightingConfigurati
   @Override
   public void configure(final IHighlightingConfigurationAcceptor acceptor) {
     super.configure(acceptor);
-    acceptor.acceptDefaultHighlighting(DemHighlightingConfiguration.NAME_ID, "Names", this.nameTextStyle());
-    acceptor.acceptDefaultHighlighting(DemHighlightingConfiguration.RICH_TEXT_ID, "Rich Text", this.richtTextTextStyle());
+    acceptor.acceptDefaultHighlighting(DmxHighlightingConfiguration.NAME_ID, "Names", this.nameTextStyle());
+    acceptor.acceptDefaultHighlighting(DmxHighlightingConfiguration.RICH_TEXT_ID, "Rich Text", this.richtTextTextStyle());
   }
   
   public TextStyle nameTextStyle() {

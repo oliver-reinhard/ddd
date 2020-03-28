@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dem.ui.highlighting
+package com.mimacom.ddd.dm.dmx.ui.highlight
 
 import org.eclipse.swt.SWT
 import org.eclipse.swt.graphics.RGB
@@ -6,7 +6,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfigurati
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcceptor
 import org.eclipse.xtext.ui.editor.utils.TextStyle
 
-class DemHighlightingConfiguration extends DefaultHighlightingConfiguration {
+class DmxHighlightingConfiguration extends DefaultHighlightingConfiguration {
 	
 	public static val NAME_ID = "Name";
 	public static val RICH_TEXT_ID = "RichText";

@@ -29,7 +29,6 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dem.ui,
  com.mimacom.ddd.dm.dem.ui.contentassist,
- com.mimacom.ddd.dm.dem.ui.highlighting,
  com.mimacom.ddd.dm.dem.ui.internal,
  com.mimacom.ddd.dm.dem.ui.labeling,
  com.mimacom.ddd.dm.dem.ui.outline,

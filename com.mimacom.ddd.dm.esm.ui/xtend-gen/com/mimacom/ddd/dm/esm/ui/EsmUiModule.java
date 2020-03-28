@@ -3,9 +3,15 @@
  */
 package com.mimacom.ddd.dm.esm.ui;
 
+import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider;
+import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration;
+import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator;
 import com.mimacom.ddd.dm.esm.ui.AbstractEsmUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
+import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -13,7 +19,20 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class EsmUiModule extends AbstractEsmUiModule {
-  public EsmUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
+    return DmxSemanticHighlightingCalculator.class;
+  }
+  
+  public Class<? extends IHighlightingConfiguration> bindHighlightingConfiguration() {
+    return DmxHighlightingConfiguration.class;
+  }
+  
+  @Override
+  public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
+    return DmxAutoEditStrategyProvider.class;
+  }
+  
+  public EsmUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

@@ -22,7 +22,9 @@ Require-Bundle: com.mimacom.ddd.dm.base,
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dmx.ui,
+ com.mimacom.ddd.dm.dmx.ui.autoedit,
  com.mimacom.ddd.dm.dmx.ui.contentassist,
+ com.mimacom.ddd.dm.dmx.ui.highlight,
  com.mimacom.ddd.dm.dmx.ui.internal,
  com.mimacom.ddd.dm.dmx.ui.labeling,
  com.mimacom.ddd.dm.dmx.ui.outline,

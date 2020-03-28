@@ -3,17 +3,30 @@
  */
 package com.mimacom.ddd.pub.pub.ui
 
-import com.mimacom.ddd.pub.pub.ui.autoedit.PubAutoEditStrategyProvider
+import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider
+import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration
+import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class PubUiModule extends AbstractPubUiModule {
-	
-	override Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
-		return PubAutoEditStrategyProvider
+
+	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
+		return DmxSemanticHighlightingCalculator
 	}
+
+	def Class<? extends IHighlightingConfiguration> bindHighlightingConfiguration() {
+		return DmxHighlightingConfiguration
+	}
+
+	override Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
+		return DmxAutoEditStrategyProvider
+	}
+	
 }

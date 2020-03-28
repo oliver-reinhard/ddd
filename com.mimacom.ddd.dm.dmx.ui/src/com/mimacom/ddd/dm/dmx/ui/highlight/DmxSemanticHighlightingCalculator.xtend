@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dem.ui.highlighting
+package com.mimacom.ddd.dm.dmx.ui.highlight
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
@@ -13,7 +13,7 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.service.OperationCanceledManager
 import org.eclipse.xtext.util.CancelIndicator
 
-class DemSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalculator {
+class DmxSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalculator {
 
 //	@Inject
 //	DemGrammarAccess ga;
@@ -27,16 +27,16 @@ class DemSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalcu
 //			val ICompositeNode node = NodeModelUtils.findActualNodeFor(object);
 //			handleCaseNode(node, acceptor, cancelIndicator);
 			highlightFeature(acceptor, object, BasePackage.eINSTANCE.DNamedElement_Name,
-				DemHighlightingConfiguration.NAME_ID)
+				DmxHighlightingConfiguration.NAME_ID)
 		} else if (object instanceof DRichText) {
 			val ICompositeNode node = NodeModelUtils.findActualNodeFor(object);
-			highlightNode(acceptor, node, DemHighlightingConfiguration.RICH_TEXT_ID)
+			highlightNode(acceptor, node, DmxHighlightingConfiguration.RICH_TEXT_ID)
 		}
 		return super.highlightElement(object, acceptor, cancelIndicator);
 	}
 
 	def handleCaseNode(INode n, IHighlightedPositionAcceptor acceptor, CancelIndicator cancelIndicator) {
-		acceptor.addPosition(n.getOffset(), n.getLength(), DemHighlightingConfiguration.NAME_ID);
+		acceptor.addPosition(n.getOffset(), n.getLength(), DmxHighlightingConfiguration.NAME_ID);
 //		val BidiTreeIterable<INode> iterable = n.getAsTreeIterable();
 //		for (INode nx : iterable) {
 //			operationCanceledManager.checkCanceled(cancelIndicator);
