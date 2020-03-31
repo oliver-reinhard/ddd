@@ -4,6 +4,7 @@
 package com.mimacom.ddd.sm.sus.ui;
 
 import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider;
+import com.mimacom.ddd.dm.dmx.ui.doubleClicking.DmxDoubleClickStrategyProvider;
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration;
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator;
 import com.mimacom.ddd.sm.sus.ui.AbstractSusUiModule;
@@ -11,6 +12,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
+import org.eclipse.xtext.ui.editor.doubleClicking.DoubleClickStrategyProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
 /**
@@ -30,6 +32,10 @@ public class SusUiModule extends AbstractSusUiModule {
   @Override
   public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
     return DmxAutoEditStrategyProvider.class;
+  }
+  
+  public Class<? extends DoubleClickStrategyProvider> bindDoubleClickStrategyProvider() {
+    return DmxDoubleClickStrategyProvider.class;
   }
   
   public SusUiModule(final AbstractUIPlugin plugin) {

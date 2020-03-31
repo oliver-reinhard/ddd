@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dom.ui;
 
 import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider;
+import com.mimacom.ddd.dm.dmx.ui.doubleClicking.DmxDoubleClickStrategyProvider;
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration;
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator;
 import com.mimacom.ddd.dm.dom.ui.AbstractDomUiModule;
@@ -12,6 +13,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
+import org.eclipse.xtext.ui.editor.doubleClicking.DoubleClickStrategyProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
@@ -36,6 +38,10 @@ public class DomUiModule extends AbstractDomUiModule {
   @Override
   public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
     return DmxAutoEditStrategyProvider.class;
+  }
+  
+  public Class<? extends DoubleClickStrategyProvider> bindDoubleClickStrategyProvider() {
+    return DmxDoubleClickStrategyProvider.class;
   }
   
   public DomUiModule(final AbstractUIPlugin plugin) {
