@@ -30,7 +30,7 @@ abstract class AbstractRichTextRenderer {
 	
 	synchronized def CharSequence render(DRichText text, boolean encode) throws IllegalStateException {
 		val source = text.sourceText
-		if (source !== null) {
+		if (source !== null && ! source.empty) {
 			expressions = text.segments.filter(DExpression).toList
 			currentExpressionIndex = -1
 			val parser = new StyledTextParser(source, new RendererErrorMessageAcceptor)

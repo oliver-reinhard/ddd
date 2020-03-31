@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.dm.styledText.parser.StyledTextParser;
 import java.util.List;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -44,17 +45,7 @@ public class DmxRichTextUtil {
    * Preconditions: expr is part of an XtextResource and the syntax the resource's text is valid
    */
   public String getSourceTextFromXtextResource(final DExpression expr) {
-    final List<INode> nodes = NodeModelUtils.findNodesForFeature(expr, DmxRichTextUtil.BASE.getDRichText_Segments());
-    boolean _isEmpty = nodes.isEmpty();
-    boolean _not = (!_isEmpty);
-    if (_not) {
-      final INode root = IterableExtensions.<INode>head(nodes).getRootNode();
-      final int startIndex = IterableExtensions.<INode>head(nodes).getOffset();
-      int _endOffset = IterableExtensions.<INode>last(nodes).getEndOffset();
-      final int endIndex = (_endOffset - 1);
-      char[] _charArray = root.getText().toCharArray();
-      return new String(_charArray, startIndex, (endIndex - startIndex));
-    }
-    return null;
+    final ICompositeNode node = NodeModelUtils.findActualNodeFor(expr);
+    return node.getText();
   }
 }

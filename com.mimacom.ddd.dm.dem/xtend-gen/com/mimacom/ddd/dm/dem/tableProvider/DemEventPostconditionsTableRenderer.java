@@ -12,7 +12,6 @@ import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
-import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import java.util.Arrays;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -32,10 +31,6 @@ public class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRe
   @Extension
   private PubTableUtil _pubTableUtil;
   
-  @Inject
-  @Extension
-  private CodeListingFormatter _codeListingFormatter;
-  
   @Override
   public Table render(final IDiagramRoot root) {
     DemEventPostconditionsTableRenderer.LOGGER.info((" for " + root));
@@ -49,14 +44,13 @@ public class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRe
   }
   
   protected void _postcondition(final Table t, final DNamedPredicate pred) {
+    final String predSourceCode = this.sourceCode(pred.getPredicate());
     String _name = pred.getName();
-    String _sourceCode = this.sourceCode(pred.getPredicate());
-    this._pubTableUtil.addRowWithDescription(t, new String[] { _name, "", _sourceCode }, pred.getDescription());
+    this._pubTableUtil.addRowWithDescription(t, new String[] { _name, "", predSourceCode }, pred.getDescription());
   }
   
   protected void _postcondition(final Table t, final DemCaseConjunction conj) {
-    String selectorSourceCode = this.sourceCode(conj.getSelector());
-    selectorSourceCode = this._codeListingFormatter.trimBlankLines(selectorSourceCode);
+    final String selectorSourceCode = this.sourceCode(conj.getSelector());
     String _name = conj.getName();
     String _xifexpression = null;
     boolean _isOtherwise = conj.isOtherwise();
@@ -78,8 +72,7 @@ public class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRe
           _xifexpression_1 = PubTableUtil.IGNORE_TABLE_CELL;
         }
         final String firstColValue = _xifexpression_1;
-        String predSourceCode = this.sourceCode(pred.getPredicate());
-        predSourceCode = this._codeListingFormatter.trimBlankLines(predSourceCode);
+        final String predSourceCode = this.sourceCode(pred.getPredicate());
         String _name_1 = pred.getName();
         String _monospace_1 = this._styledTextUtil.monospace(predSourceCode);
         final TableRow predRow = this._pubTableUtil.addStyledTextRow(t, new String[] { firstColValue, _name_1, _monospace_1 });

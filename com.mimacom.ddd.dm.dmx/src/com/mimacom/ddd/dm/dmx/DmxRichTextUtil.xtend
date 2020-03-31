@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.styledText.DStyledTextSpan
 import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.dm.styledText.parser.StyledTextParser
 import java.util.List
+import org.eclipse.xtext.nodemodel.ICompositeNode
 import org.eclipse.xtext.nodemodel.INode
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 
@@ -41,13 +42,7 @@ class DmxRichTextUtil {
 	 * Preconditions: expr is part of an XtextResource and the syntax the resource's text is valid
 	 */
 	def String getSourceTextFromXtextResource(DExpression expr) {
-		val List<INode> nodes = NodeModelUtils.findNodesForFeature(expr, BASE.DRichText_Segments)
-		if (!nodes.empty) {
-			val INode root = nodes.head.rootNode
-			val startIndex = nodes.head.offset
-			val endIndex = nodes.last.endOffset - 1 // last.endOffset points to character *after* the actual text
-			return new String(root.text.toCharArray, startIndex, endIndex - startIndex);
-		}
-		return null
+		val ICompositeNode node = NodeModelUtils.findActualNodeFor(expr)
+		return node.text // may be null
 	}
 }

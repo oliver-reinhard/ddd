@@ -101,10 +101,10 @@ public class RichTextUtil {
 				b.append("\\$");
 				break;
 			case '£':
-				b.append("\\pounds");
+				b.append("$\\pounds$");
 				break;
 			case '€':
-				b.append("\\euro");
+				b.append("$\\euro$");
 				break;
 			case '%':
 				b.append("\\%");
@@ -118,17 +118,23 @@ public class RichTextUtil {
 			case '}':
 				b.append("\\}");
 				break;
+			case '≤':
+				b.append("$\\leq$");
+				break;
+			case '≥':
+				b.append("$\\geq$");
+				break;
 			case '«':
-				b.append("\\guillemotleft");
+				b.append("$\\guillemotleft$");
 				break;
 			case '»':
-				b.append("\\guillemotright");
+				b.append("$\\guillemotright$");
 				break;
 			case '_':
-				b.append("\\_");
+				b.append("$\\_$");
 				break;
 			case '§':
-				b.append("\\S");
+				b.append("$\\S$");
 				break;
 			case '~':
 				b.append("\\~{}");
@@ -136,7 +142,7 @@ public class RichTextUtil {
 			case '^':
 				b.append("\\^{}");
 			case '|':
-				b.append("\\textbar");
+				b.append("$\\textbar$");
 				break;
 			case '\n':
 				b.append(" \\\\ ");

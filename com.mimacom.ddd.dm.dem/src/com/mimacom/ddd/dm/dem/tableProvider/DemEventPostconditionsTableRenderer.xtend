@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.dem.DemCaseConjunction
 import com.mimacom.ddd.dm.dem.DemDomainEvent
 import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.Table
-import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter
 import org.apache.log4j.Logger
 
 import static com.mimacom.ddd.pub.pub.PubTableUtil.IGNORE_TABLE_CELL
@@ -19,7 +18,6 @@ class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRenderer 
 
 	@Inject extension StyledTextUtil
 	@Inject extension PubTableUtil
-	@Inject extension CodeListingFormatter
 
 	override Table render(IDiagramRoot root) {
 		LOGGER.info(" for " + root)
@@ -32,18 +30,17 @@ class DemEventPostconditionsTableRenderer extends AbstractDemEventTableRenderer 
 	}
 
 	protected def dispatch void postcondition(Table t, DNamedPredicate pred) {
-		t.addRowWithDescription(#[pred.name, "", pred.predicate.sourceCode], pred.description)
+		val predSourceCode = pred.predicate.sourceCode
+		t.addRowWithDescription(#[pred.name, "", predSourceCode], pred.description)
 	}
 
 	protected def dispatch void postcondition(Table t, DemCaseConjunction conj) {
-		var selectorSourceCode = conj.selector.sourceCode
-		selectorSourceCode = selectorSourceCode.trimBlankLines
+		val selectorSourceCode = conj.selector.sourceCode
 		t.addStyledTextRow(#[conj.name, conj.otherwise ? "OTHERWISE" : "WHEN", selectorSourceCode.monospace])
 		var firstPredicate = true
 		for (pred : conj.predicates) {
 			val firstColValue = firstPredicate ? "" : IGNORE_TABLE_CELL
-			var predSourceCode = pred.predicate.sourceCode
-			predSourceCode = predSourceCode.trimBlankLines
+			val predSourceCode = pred.predicate.sourceCode
 			val predRow = t.addStyledTextRow(#[firstColValue, pred.name, predSourceCode.monospace])
 			if (firstPredicate) {
 				predRow.cells.head.height = conj.predicates.length

@@ -16,29 +16,44 @@ class PubLaTeXTableGenerator {
 	static val H_ALIGN = 'l' // left
 
 	val Table table
+	val String BAR
 	val NestedContentBlockGenerator nestedContentBlockGenereator
 	val int rows
-	val String[][] cellsByRow
+	val String[][] cellContentsByRow
 	val boolean drawHorizontalGridlines
 	var boolean[][] horizontalGridlines
 
 	new(Table t, NestedContentBlockGenerator g) {
 		table = t
-		nestedContentBlockGenereator = g
 		rows = table.rows.size
-		cellsByRow = newArrayOfSize(rows, table.columns)
+		BAR = table.verticalGridline
+		nestedContentBlockGenereator = g
+		cellContentsByRow = newArrayOfSize(rows, table.columns)
 		drawHorizontalGridlines = t.gridlines == HORIZONTAL || t.gridlines == BOTH
 		horizontalGridlines = drawHorizontalGridlines ? newBooleanArrayOfSize(rows, t.columns) : null
 	}
 
+	def CharSequence render() {
+		buildGeneratorModel()
+		var rowIndex = 0
+		'''
+			\begin{tabular} { «table.columnFormat» }««« % width: «t.widthPercent»%"
+			
+			«IF drawHorizontalGridlines»\hline«ENDIF»
+			«FOR row : cellContentsByRow»
+				«FOR cell : row»«IF cell !== SENTINEL_STRING»«IF cell !== row.head» & «ENDIF»«cell»«ENDIF»«ENDFOR» \\«IF drawHorizontalGridlines» «horizontalGridlines.get(rowIndex++).horizontalGridline()»«ENDIF»
+				«ENDFOR»
+			\end{tabular}
+		'''
+	}
+
 	protected def void buildGeneratorModel() {
-		val BAR = table.verticalGridline
 		for (var r = 0; r < rows; r++) {
 			val row = table.rows.get(r)
 
-			// find first output cell that has not content yet:
+			// find first output cell that has no content yet:
 			var columnIndex = 0
-			while (cellsByRow.get(r).get(columnIndex) !== null) {
+			while (cellContentsByRow.get(r).get(columnIndex) !== null) {
 				columnIndex++
 			}
 
@@ -47,7 +62,7 @@ class PubLaTeXTableGenerator {
 
 				if (cell.width == 1 && cell.height == 1) {
 					// now row span or column span
-					cellsByRow.get(r).set(columnIndex, cell.renderCell(nestedContentBlockGenereator))
+					cellContentsByRow.get(r).set(columnIndex, cell.renderCell)
 					if (drawHorizontalGridlines) {
 						horizontalGridlines.get(r).set(columnIndex, true)
 					}
@@ -55,20 +70,20 @@ class PubLaTeXTableGenerator {
 
 				} else {
 					// first row, first cell:
-					val multirowFirst = '''\multicolumn{«cell.width»} {«BAR»«H_ALIGN»«BAR»} {\multirow{«cell.height»}{*}{«cell.renderCell(nestedContentBlockGenereator)»}}'''
-					cellsByRow.get(r).set(columnIndex, multirowFirst)
+					val multirowFirst = '''\multicolumn{«cell.width»} {«BAR»«H_ALIGN»«BAR»} {\multirow{«cell.height»}{*}{«cell.renderCell»}}'''
+					cellContentsByRow.get(r).set(columnIndex, multirowFirst)
 					// "occupy" other cells in row with a SENTINEL marker:
 					for (var i = columnIndex + 1; i < columnIndex + cell.width; i++) {
-						cellsByRow.get(r).set(i, SENTINEL_STRING)
+						cellContentsByRow.get(r).set(i, SENTINEL_STRING)
 					}
 
 					// other rows, first cell in row with a SENTINEL marker:
 					for (var j = r + 1; j < r + cell.height; j++) {
 						val multirowOther = '''\multicolumn{«cell.width»} {«BAR»«H_ALIGN»«BAR»} {}'''
-						cellsByRow.get(j).set(columnIndex, multirowOther)
+						cellContentsByRow.get(j).set(columnIndex, multirowOther)
 						// "occupy" other cells:
 						for (var i = columnIndex + 1; i < columnIndex + cell.width; i++) {
-							cellsByRow.get(j).set(i, SENTINEL_STRING)
+							cellContentsByRow.get(j).set(i, SENTINEL_STRING)
 						}
 					}
 					if (drawHorizontalGridlines) {
@@ -82,31 +97,18 @@ class PubLaTeXTableGenerator {
 		}
 	}
 
-	def CharSequence render() {
-		buildGeneratorModel()
-		var rowIndex = 0
-		'''
-			\begin{tabular} { «table.columnFormat» }««« % width: «t.widthPercent»%"
-			
-			«IF drawHorizontalGridlines»\hline«ENDIF»
-			«FOR row : cellsByRow»
-				«FOR cell : row»«IF cell !== SENTINEL_STRING»«IF cell !== row.head» & «ENDIF»«cell»«ENDIF»«ENDFOR» \\«IF drawHorizontalGridlines» «horizontalGridlines.get(rowIndex++).horizontalGridline()»«ENDIF»
-				«ENDFOR»
-			\end{tabular}
-		'''
-	}
-
-	protected def String renderCell(TableCell cell, NestedContentBlockGenerator g) {
+	protected def String renderCell(TableCell cell) {
 		val StringBuilder b = new StringBuilder()
 		var hasLineBreaks = cell.contents.size > 1
 		for(block : cell.contents) {
-			val renderedBlock = (g.generate(block) as String).replaceAll("[ \t\n\f\r]+", " ")
+			val renderedBlock = (nestedContentBlockGenereator.generate(block) as String).replaceAll("[ \t\n\f\r]+", " ")
 			hasLineBreaks = hasLineBreaks || renderedBlock.contains("\\\\")
 			b.append(renderedBlock)
 		}
 		var result = b.toString
 		if(hasLineBreaks) {
-			result = '''\pbox{\textwidth}{\smallskip{}«result»\smallskip}'''
+			// TODO: apparently, parbox can only contain a single LaTeX paragraph, minipage could help (see https://en.wikibooks.org/wiki/LaTeX/Boxes)
+			result = '''\parbox{\textwidth}{\smallskip{}«result»\smallskip{}}'''
 		}
 		if(cell.row.isIsHeading) {
 			result = '''\textbf{«result»}'''
@@ -115,7 +117,7 @@ class PubLaTeXTableGenerator {
 	}
 
 	protected def String columnFormat(Table t) {
-		val BAR = table.verticalGridline
+		val BAR = table.verticalGridline // can be an empty String
 		val StringBuilder b = new StringBuilder()
 		b.append(BAR)
 		for (var i = 0; i < t.columns; i++) {

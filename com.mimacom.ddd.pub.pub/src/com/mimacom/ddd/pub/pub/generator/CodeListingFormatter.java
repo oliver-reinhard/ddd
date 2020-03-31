@@ -8,39 +8,48 @@ public class CodeListingFormatter {
 
 	/**
 	 * Remove blank lines at the beginning and the end of the listing.
+	 * 
+	 * Do not append '\n' to last line.
 	 */
 	public String trimBlankLines(String listing) {
 		return trimBlankLines(listing.split("\n"));
 	}
-	
+
+	/**
+	 * Do not append '\n' to last line.
+	 */
 	public String trimBlankLines(String[] lines) {
 		final Pattern blankLine = Pattern.compile("^\\s*$");
 		int start = 0;
 		int end = lines.length - 1;
 		while (start <= end) {
 			final Matcher matcher = blankLine.matcher(lines[start]);
-			if (! matcher.matches()) {
+			if (!matcher.matches()) {
 				break;
 			}
 			start++;
 		}
 		while (start < end) {
 			final Matcher matcher = blankLine.matcher(lines[end]);
-			if (! matcher.matches()) {
+			if (!matcher.matches()) {
 				break;
 			}
 			end--;
 		}
 		final StringBuilder b = new StringBuilder();
-		for (int i=start; i<=end; i++) {
+		for (int i = start; i <= end; i++) {
+			if (i > start) {
+				b.append("\n");
+			}
 			b.append(lines[i]);
-			b.append("\n");
 		}
 		return b.toString();
 	}
 
 	/**
 	 * Outdent the listing's lines by the leading indentation common to each line.
+	 * 
+	 * Do not append '\n' to last line.
 	 */
 	public String outdent(String listing, int tabSize) {
 		final String[] lines = listing.split("\n");
@@ -54,8 +63,11 @@ public class CodeListingFormatter {
 			return listing;
 		}
 		final StringBuilder b = new StringBuilder();
-		for (String line : lines) {
-			appendOutdentedLine(b, line, tabSize, minIndent);
+		for (int i = 0; i < lines.length; i++) {
+			if (i > 0) {
+				b.append("\n");
+			}
+			appendOutdentedLine(b, lines[i], tabSize, minIndent);
 		}
 		return b.toString();
 	}
@@ -75,10 +87,14 @@ public class CodeListingFormatter {
 			}
 			i++;
 		}
-		// line is empty or contains whitespace only => ignore this line's indentation size:
+		// line is empty or contains whitespace only => ignore this line's indentation
+		// size:
 		return Integer.MAX_VALUE;
 	}
 
+	/**
+	 * Do not append to line.
+	 */
 	protected void appendOutdentedLine(StringBuilder b, String line, int tabSize, int outdentSize) {
 		final char[] chars = line.toCharArray();
 		int outdentedSize = 0;
@@ -86,15 +102,15 @@ public class CodeListingFormatter {
 		while (i < chars.length) {
 			final char c = chars[i];
 			if (c == '\t') {
-				 if (outdentedSize < outdentSize) {
+				if (outdentedSize < outdentSize) {
 					outdentedSize += tabSize;
 				} else {
-					for(int j=0; j<tabSize; j++) {
+					for (int j = 0; j < tabSize; j++) {
 						b.append(' ');
 					}
 				}
 			} else if (c == ' ') {
-				 if (outdentedSize < outdentSize) {
+				if (outdentedSize < outdentSize) {
 					outdentedSize++;
 				} else {
 					b.append(' ');
@@ -105,25 +121,29 @@ public class CodeListingFormatter {
 			}
 			i++;
 		}
-		b.append('\n');
 	}
-	
+
+	/**
+	 * Do not append '\n' to last line.
+	 */
 	public String numberLines(String listing) {
 		final String[] lines = listing.split("\n");
 		final int numLines = lines.length;
 		final int digits = (int) Math.min(Math.log10(numLines) + 1, 2); // min 2 digits
 		final StringBuilder decimalPattern = new StringBuilder();
-		for (int d=0; d<digits; d++) {
+		for (int d = 0; d < digits; d++) {
 			decimalPattern.append('0');
 		}
-		final DecimalFormat format = new DecimalFormat(decimalPattern.toString());	
-		
+		final DecimalFormat format = new DecimalFormat(decimalPattern.toString());
+
 		final StringBuilder b = new StringBuilder();
-		for (int i=0; i<lines.length; i++) {
-			b.append(format.format(i+1));
+		for (int i = 0; i < lines.length; i++) {
+			if (i > 0) {
+				b.append("\n");
+			}
+			b.append(format.format(i + 1));
 			b.append("\t");
 			b.append(lines[i]);
-			b.append("\n");
 		}
 		return b.toString();
 	}

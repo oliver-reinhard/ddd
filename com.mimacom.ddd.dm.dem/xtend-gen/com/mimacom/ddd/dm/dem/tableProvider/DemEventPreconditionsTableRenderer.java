@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.tableProvider.AbstractDemEventTableRenderer;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
-import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -25,10 +24,6 @@ public class DemEventPreconditionsTableRenderer extends AbstractDemEventTableRen
   @Extension
   private PubTableUtil _pubTableUtil;
   
-  @Inject
-  @Extension
-  private CodeListingFormatter _codeListingFormatter;
-  
   @Override
   public Table render(final IDiagramRoot root) {
     DemEventPreconditionsTableRenderer.LOGGER.info((" for " + root));
@@ -38,7 +33,6 @@ public class DemEventPreconditionsTableRenderer extends AbstractDemEventTableRen
     for (final DNamedPredicate pre : _preconditionsCNF) {
       {
         String sourceCode = this.sourceCode(pre.getPredicate());
-        sourceCode = this._codeListingFormatter.outdent(this._codeListingFormatter.trimBlankLines(sourceCode), 2);
         String _name = pre.getName();
         String _monospace = this._styledTextUtil.monospace(sourceCode);
         this._pubTableUtil.addStyledTextRow(t, new String[] { _name, _monospace });

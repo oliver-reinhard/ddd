@@ -25,11 +25,13 @@ public class PubLaTeXTableGenerator {
   
   private final Table table;
   
+  private final String BAR;
+  
   private final NestedContentBlockGenerator nestedContentBlockGenereator;
   
   private final int rows;
   
-  private final String[][] cellsByRow;
+  private final String[][] cellContentsByRow;
   
   private final boolean drawHorizontalGridlines;
   
@@ -37,9 +39,10 @@ public class PubLaTeXTableGenerator {
   
   public PubLaTeXTableGenerator(final Table t, final NestedContentBlockGenerator g) {
     this.table = t;
-    this.nestedContentBlockGenereator = g;
     this.rows = this.table.getRows().size();
-    this.cellsByRow = new String[this.rows][this.table.getColumns()];
+    this.BAR = this.verticalGridline(this.table);
+    this.nestedContentBlockGenereator = g;
+    this.cellContentsByRow = new String[this.rows][this.table.getColumns()];
     this.drawHorizontalGridlines = (Objects.equal(t.getGridlines(), GridLines.HORIZONTAL) || Objects.equal(t.getGridlines(), GridLines.BOTH));
     boolean[][] _xifexpression = null;
     if (this.drawHorizontalGridlines) {
@@ -48,81 +51,6 @@ public class PubLaTeXTableGenerator {
       _xifexpression = null;
     }
     this.horizontalGridlines = _xifexpression;
-  }
-  
-  protected void buildGeneratorModel() {
-    final String BAR = this.verticalGridline(this.table);
-    for (int r = 0; (r < this.rows); r++) {
-      {
-        final TableRow row = this.table.getRows().get(r);
-        int columnIndex = 0;
-        while (((this.cellsByRow[r])[columnIndex] != null)) {
-          columnIndex++;
-        }
-        for (int c = 0; (c < row.getCells().size()); c++) {
-          {
-            final TableCell cell = row.getCells().get(c);
-            if (((cell.getWidth() == 1) && (cell.getHeight() == 1))) {
-              (this.cellsByRow[r])[columnIndex] = this.renderCell(cell, this.nestedContentBlockGenereator);
-              if (this.drawHorizontalGridlines) {
-                (this.horizontalGridlines[r])[columnIndex] = true;
-              }
-              columnIndex++;
-            } else {
-              StringConcatenation _builder = new StringConcatenation();
-              _builder.append("\\multicolumn{");
-              int _width = cell.getWidth();
-              _builder.append(_width);
-              _builder.append("} {");
-              _builder.append(BAR);
-              _builder.append(PubLaTeXTableGenerator.H_ALIGN);
-              _builder.append(BAR);
-              _builder.append("} {\\multirow{");
-              int _height = cell.getHeight();
-              _builder.append(_height);
-              _builder.append("}{*}{");
-              String _renderCell = this.renderCell(cell, this.nestedContentBlockGenereator);
-              _builder.append(_renderCell);
-              _builder.append("}}");
-              final String multirowFirst = _builder.toString();
-              (this.cellsByRow[r])[columnIndex] = multirowFirst;
-              for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
-                (this.cellsByRow[r])[i] = PubLaTeXTableGenerator.SENTINEL_STRING;
-              }
-              for (int j = (r + 1); (j < (r + cell.getHeight())); j++) {
-                {
-                  StringConcatenation _builder_1 = new StringConcatenation();
-                  _builder_1.append("\\multicolumn{");
-                  int _width_1 = cell.getWidth();
-                  _builder_1.append(_width_1);
-                  _builder_1.append("} {");
-                  _builder_1.append(BAR);
-                  _builder_1.append(PubLaTeXTableGenerator.H_ALIGN);
-                  _builder_1.append(BAR);
-                  _builder_1.append("} {}");
-                  final String multirowOther = _builder_1.toString();
-                  (this.cellsByRow[j])[columnIndex] = multirowOther;
-                  for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
-                    (this.cellsByRow[j])[i] = PubLaTeXTableGenerator.SENTINEL_STRING;
-                  }
-                }
-              }
-              if (this.drawHorizontalGridlines) {
-                for (int i = columnIndex; (i < (columnIndex + cell.getWidth())); i++) {
-                  int _height_1 = cell.getHeight();
-                  int _plus = (r + _height_1);
-                  int _minus = (_plus - 1);
-                  (this.horizontalGridlines[_minus])[i] = true;
-                }
-              }
-              int _columnIndex = columnIndex;
-              int _width_1 = cell.getWidth();
-              columnIndex = (_columnIndex + _width_1);
-            }
-          }
-        }
-      }
-    }
   }
   
   public CharSequence render() {
@@ -144,7 +72,7 @@ public class PubLaTeXTableGenerator {
       }
       _builder.newLineIfNotEmpty();
       {
-        for(final String[] row : this.cellsByRow) {
+        for(final String[] row : this.cellContentsByRow) {
           {
             for(final String cell : row) {
               {
@@ -180,14 +108,88 @@ public class PubLaTeXTableGenerator {
     return _xblockexpression;
   }
   
-  protected String renderCell(final TableCell cell, final NestedContentBlockGenerator g) {
+  protected void buildGeneratorModel() {
+    for (int r = 0; (r < this.rows); r++) {
+      {
+        final TableRow row = this.table.getRows().get(r);
+        int columnIndex = 0;
+        while (((this.cellContentsByRow[r])[columnIndex] != null)) {
+          columnIndex++;
+        }
+        for (int c = 0; (c < row.getCells().size()); c++) {
+          {
+            final TableCell cell = row.getCells().get(c);
+            if (((cell.getWidth() == 1) && (cell.getHeight() == 1))) {
+              (this.cellContentsByRow[r])[columnIndex] = this.renderCell(cell);
+              if (this.drawHorizontalGridlines) {
+                (this.horizontalGridlines[r])[columnIndex] = true;
+              }
+              columnIndex++;
+            } else {
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("\\multicolumn{");
+              int _width = cell.getWidth();
+              _builder.append(_width);
+              _builder.append("} {");
+              _builder.append(this.BAR);
+              _builder.append(PubLaTeXTableGenerator.H_ALIGN);
+              _builder.append(this.BAR);
+              _builder.append("} {\\multirow{");
+              int _height = cell.getHeight();
+              _builder.append(_height);
+              _builder.append("}{*}{");
+              String _renderCell = this.renderCell(cell);
+              _builder.append(_renderCell);
+              _builder.append("}}");
+              final String multirowFirst = _builder.toString();
+              (this.cellContentsByRow[r])[columnIndex] = multirowFirst;
+              for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
+                (this.cellContentsByRow[r])[i] = PubLaTeXTableGenerator.SENTINEL_STRING;
+              }
+              for (int j = (r + 1); (j < (r + cell.getHeight())); j++) {
+                {
+                  StringConcatenation _builder_1 = new StringConcatenation();
+                  _builder_1.append("\\multicolumn{");
+                  int _width_1 = cell.getWidth();
+                  _builder_1.append(_width_1);
+                  _builder_1.append("} {");
+                  _builder_1.append(this.BAR);
+                  _builder_1.append(PubLaTeXTableGenerator.H_ALIGN);
+                  _builder_1.append(this.BAR);
+                  _builder_1.append("} {}");
+                  final String multirowOther = _builder_1.toString();
+                  (this.cellContentsByRow[j])[columnIndex] = multirowOther;
+                  for (int i = (columnIndex + 1); (i < (columnIndex + cell.getWidth())); i++) {
+                    (this.cellContentsByRow[j])[i] = PubLaTeXTableGenerator.SENTINEL_STRING;
+                  }
+                }
+              }
+              if (this.drawHorizontalGridlines) {
+                for (int i = columnIndex; (i < (columnIndex + cell.getWidth())); i++) {
+                  int _height_1 = cell.getHeight();
+                  int _plus = (r + _height_1);
+                  int _minus = (_plus - 1);
+                  (this.horizontalGridlines[_minus])[i] = true;
+                }
+              }
+              int _columnIndex = columnIndex;
+              int _width_1 = cell.getWidth();
+              columnIndex = (_columnIndex + _width_1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  protected String renderCell(final TableCell cell) {
     final StringBuilder b = new StringBuilder();
     int _size = cell.getContents().size();
     boolean hasLineBreaks = (_size > 1);
     EList<ContentBlock> _contents = cell.getContents();
     for (final ContentBlock block : _contents) {
       {
-        CharSequence _generate = g.generate(block);
+        CharSequence _generate = this.nestedContentBlockGenereator.generate(block);
         final String renderedBlock = ((String) _generate).replaceAll("[ \t\n\f\r]+", " ");
         hasLineBreaks = (hasLineBreaks || renderedBlock.contains("\\\\"));
         b.append(renderedBlock);
@@ -196,9 +198,9 @@ public class PubLaTeXTableGenerator {
     String result = b.toString();
     if (hasLineBreaks) {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("\\pbox{\\textwidth}{\\smallskip{}");
+      _builder.append("\\parbox{\\textwidth}{\\smallskip{}");
       _builder.append(result);
-      _builder.append("\\smallskip}");
+      _builder.append("\\smallskip{}}");
       result = _builder.toString();
     }
     boolean _isIsHeading = cell.getRow().isIsHeading();

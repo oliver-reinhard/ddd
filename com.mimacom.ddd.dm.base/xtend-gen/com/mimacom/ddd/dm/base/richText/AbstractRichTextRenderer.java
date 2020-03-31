@@ -38,7 +38,7 @@ public abstract class AbstractRichTextRenderer {
   
   public synchronized CharSequence render(final DRichText text, final boolean encode) throws IllegalStateException {
     final String source = this.getSourceText(text);
-    if ((source != null)) {
+    if (((source != null) && (!source.isEmpty()))) {
       this.expressions = IterableExtensions.<DExpression>toList(Iterables.<DExpression>filter(text.getSegments(), DExpression.class));
       this.currentExpressionIndex = (-1);
       AbstractRichTextRenderer.RendererErrorMessageAcceptor _rendererErrorMessageAcceptor = new AbstractRichTextRenderer.RendererErrorMessageAcceptor();
