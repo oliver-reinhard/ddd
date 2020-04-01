@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.sus.scoping;
 
-import com.mimacom.ddd.dm.dmx.scoping.DmxScopeProvider;
+import com.mimacom.ddd.pub.pub.scoping.PubScopeProvider;
 
-public abstract class AbstractSusScopeProvider extends DmxScopeProvider {
+public abstract class AbstractSusScopeProvider extends PubScopeProvider {
 }

@@ -1,16 +1,15 @@
-grammar com.mimacom.ddd.sm.sus.Sus with com.mimacom.ddd.dm.dmx.Dmx
+grammar com.mimacom.ddd.sm.sus.Sus with com.mimacom.ddd.pub.pub.Pub
 
 import "http://www.mimacom.com/ddd/sm/sus"
 import "http://www.mimacom.com/ddd/dm/base" 
 import "http://www.mimacom.com/ddd/dm/dem" 
-import "http://www.mimacom.com/ddd/sm/sim"
 
 @Override 
 DNamespace:
 	'system'
 	name=DQualifiedName
 	(imports+=DImport)*
-	model=UserStory;
+	model=UserStory; 
 	
 UserStory:
 	'user' 'story'
@@ -19,14 +18,6 @@ UserStory:
 		event=[DemDomainEvent|DQualifiedName]
 	)?
 	(description=DRichText)?
-	(sections+=Section)*;
-	
-Section:
-	'section' name=ID
-	(paragraphs+=Paragraph)*;
-
-Paragraph:
-	text=DRichText;
-	
-	
-	
+	'goal' 
+	goal=DRichText
+	(sections+=PubSection)*;

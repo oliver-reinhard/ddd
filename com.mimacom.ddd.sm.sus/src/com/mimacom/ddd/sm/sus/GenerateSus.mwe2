@@ -5,7 +5,6 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 var project="com.mimacom.ddd.sm.sus"
-var genModel="platform:/resource/${project}/model/sus.genmodel"
 
 Workflow {
 
@@ -34,12 +33,18 @@ Workflow {
 		language = StandardLanguage {
 			name = "${project}.Sus"
 			fileExtensions = "sus"
+			referencedResource = "platform:/resource/${project}/model/sus.xcore"
+			referencedResource = "platform:/resource/com.mimacom.ddd.pub.pub/model/pub.xcore"
+			referencedResource = "platform:/resource/com.mimacom.ddd.pub.proto/model/pubproto.xcore"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dem/model/dem.genmodel"
-			referencedResource = "platform:/resource/com.mimacom.ddd.sm.sim/model/sim.genmodel"
-			referencedResource = "platform:/resource/${project}/model/sus.genmodel"
+			
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
+			formatter = {
+				generateStub = true
+			}
 			serializer = {
 				generateStub = false
 			}
@@ -55,10 +60,5 @@ Workflow {
 				junitVersion = "5"
 			}
 		}
-	}
-	
-	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-		genModel = "${genModel}"
-       srcPath = "${rootPath}/${project}/src"
 	}
 }

@@ -6,6 +6,7 @@ package com.mimacom.ddd.sm.sus.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess;
+import com.mimacom.ddd.pub.pub.services.PubGrammarAccess;
 import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
@@ -83,18 +84,23 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cEventDemDomainEventCrossReference_3_1_0.eContents().get(1);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
-		private final Assignment cSectionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cSectionsSectionParserRuleCall_5_0 = (RuleCall)cSectionsAssignment_5.eContents().get(0);
+		private final Keyword cGoalKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cGoalAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cGoalDRichTextParserRuleCall_6_0 = (RuleCall)cGoalAssignment_6.eContents().get(0);
+		private final Assignment cSectionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cSectionsPubSectionParserRuleCall_7_0 = (RuleCall)cSectionsAssignment_7.eContents().get(0);
 		
 		//UserStory:
 		//	'user' 'story'
 		//	name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 		//	description=DRichText?
-		//	sections+=Section*;
+		//	'goal'
+		//	goal=DRichText
+		//	sections+=PubSection*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'user' 'story' name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
-		//description=DRichText? sections+=Section*
+		//description=DRichText? 'goal' goal=DRichText sections+=PubSection*
 		public Group getGroup() { return cGroup; }
 		
 		//'user'
@@ -136,79 +142,41 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
 		
-		//sections+=Section*
-		public Assignment getSectionsAssignment_5() { return cSectionsAssignment_5; }
+		//'goal'
+		public Keyword getGoalKeyword_5() { return cGoalKeyword_5; }
 		
-		//Section
-		public RuleCall getSectionsSectionParserRuleCall_5_0() { return cSectionsSectionParserRuleCall_5_0; }
-	}
-	public class SectionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.Section");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSectionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cParagraphsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParagraphsParagraphParserRuleCall_2_0 = (RuleCall)cParagraphsAssignment_2.eContents().get(0);
-		
-		//Section:
-		//	'section' name=ID
-		//	paragraphs+=Paragraph*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'section' name=ID paragraphs+=Paragraph*
-		public Group getGroup() { return cGroup; }
-		
-		//'section'
-		public Keyword getSectionKeyword_0() { return cSectionKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//paragraphs+=Paragraph*
-		public Assignment getParagraphsAssignment_2() { return cParagraphsAssignment_2; }
-		
-		//Paragraph
-		public RuleCall getParagraphsParagraphParserRuleCall_2_0() { return cParagraphsParagraphParserRuleCall_2_0; }
-	}
-	public class ParagraphElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.Paragraph");
-		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTextDRichTextParserRuleCall_0 = (RuleCall)cTextAssignment.eContents().get(0);
-		
-		//Paragraph:
-		//	text=DRichText;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//text=DRichText
-		public Assignment getTextAssignment() { return cTextAssignment; }
+		//goal=DRichText
+		public Assignment getGoalAssignment_6() { return cGoalAssignment_6; }
 		
 		//DRichText
-		public RuleCall getTextDRichTextParserRuleCall_0() { return cTextDRichTextParserRuleCall_0; }
+		public RuleCall getGoalDRichTextParserRuleCall_6_0() { return cGoalDRichTextParserRuleCall_6_0; }
+		
+		//sections+=PubSection*
+		public Assignment getSectionsAssignment_7() { return cSectionsAssignment_7; }
+		
+		//PubSection
+		public RuleCall getSectionsPubSectionParserRuleCall_7_0() { return cSectionsPubSectionParserRuleCall_7_0; }
 	}
 	
 	
 	private final DNamespaceElements pDNamespace;
 	private final UserStoryElements pUserStory;
-	private final SectionElements pSection;
-	private final ParagraphElements pParagraph;
 	
 	private final Grammar grammar;
+	
+	private final PubGrammarAccess gaPub;
 	
 	private final DmxGrammarAccess gaDmx;
 
 	@Inject
 	public SusGrammarAccess(GrammarProvider grammarProvider,
+			PubGrammarAccess gaPub,
 			DmxGrammarAccess gaDmx) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.gaPub = gaPub;
 		this.gaDmx = gaDmx;
 		this.pDNamespace = new DNamespaceElements();
 		this.pUserStory = new UserStoryElements();
-		this.pSection = new SectionElements();
-		this.pParagraph = new ParagraphElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -233,6 +201,10 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	public PubGrammarAccess getPubGrammarAccess() {
+		return gaPub;
+	}
+	
 	public DmxGrammarAccess getDmxGrammarAccess() {
 		return gaDmx;
 	}
@@ -256,7 +228,9 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	//	'user' 'story'
 	//	name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 	//	description=DRichText?
-	//	sections+=Section*;
+	//	'goal'
+	//	goal=DRichText
+	//	sections+=PubSection*;
 	public UserStoryElements getUserStoryAccess() {
 		return pUserStory;
 	}
@@ -265,25 +239,817 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getUserStoryAccess().getRule();
 	}
 	
-	//Section:
-	//	'section' name=ID
-	//	paragraphs+=Paragraph*;
-	public SectionElements getSectionAccess() {
-		return pSection;
+	//PubModel:
+	//	{PubModel} imports+=DImport*
+	//	document=PubDocument;
+	public PubGrammarAccess.PubModelElements getPubModelAccess() {
+		return gaPub.getPubModelAccess();
 	}
 	
-	public ParserRule getSectionRule() {
-		return getSectionAccess().getRule();
+	public ParserRule getPubModelRule() {
+		return getPubModelAccess().getRule();
 	}
 	
-	//Paragraph:
+	//PubDocument Document:
+	//	PubPublication | PubComponent;
+	public PubGrammarAccess.PubDocumentElements getPubDocumentAccess() {
+		return gaPub.getPubDocumentAccess();
+	}
+	
+	public ParserRule getPubDocumentRule() {
+		return getPubDocumentAccess().getRule();
+	}
+	
+	//PubPublication Publication:
+	//	{Publication}
+	//	'Publication'
+	//	PubReferenceTargetName
+	//	title=STRING
+	//	'class:' publicationClass=[proto::PublicationClass] PubGenerate
+	//	symbols+=PubSymbol* ('include:' includes+=[Component])*;
+	public PubGrammarAccess.PubPublicationElements getPubPublicationAccess() {
+		return gaPub.getPubPublicationAccess();
+	}
+	
+	public ParserRule getPubPublicationRule() {
+		return getPubPublicationAccess().getRule();
+	}
+	
+	//PubComponent Component:
+	//	{Component}
+	//	'Component'
+	//	PubReferenceTargetName
+	//	title=STRING
+	//	'class:' publicationClass=[proto::PublicationClass] PubGenerate
+	//	symbols+=PubSymbol*
+	//	segments+=PubDocumentSegment*;
+	public PubGrammarAccess.PubComponentElements getPubComponentAccess() {
+		return gaPub.getPubComponentAccess();
+	}
+	
+	public ParserRule getPubComponentRule() {
+		return getPubComponentAccess().getRule();
+	}
+	
+	//fragment PubGenerate returns Document:
+	//	'generate' (generateHtml?='html'? & generateLaTeX?='latex'?
+	//	/* & generateMarkdown?='markdown'? & generateAsciiDoc?='asciidoc'? */) ('diagrams:' (preferRasterDiagrams?='raster' |
+	//	'vector'))?;
+	public PubGrammarAccess.PubGenerateElements getPubGenerateAccess() {
+		return gaPub.getPubGenerateAccess();
+	}
+	
+	public ParserRule getPubGenerateRule() {
+		return getPubGenerateAccess().getRule();
+	}
+	
+	//PubSymbol Symbol:
+	//	'symbol:'
+	//	name=ID '=' value=DRichText;
+	public PubGrammarAccess.PubSymbolElements getPubSymbolAccess() {
+		return gaPub.getPubSymbolAccess();
+	}
+	
+	public ParserRule getPubSymbolRule() {
+		return getPubSymbolAccess().getRule();
+	}
+	
+	//fragment PubReferenceTargetName returns ReferenceTarget:
+	//	'(' '#'? name=ID ')';
+	public PubGrammarAccess.PubReferenceTargetNameElements getPubReferenceTargetNameAccess() {
+		return gaPub.getPubReferenceTargetNameAccess();
+	}
+	
+	public ParserRule getPubReferenceTargetNameRule() {
+		return getPubReferenceTargetNameAccess().getRule();
+	}
+	
+	////
+	//// SEGMENTS
+	////
+	//PubDocumentSegment DocumentSegment:
+	//	PubAbstract | PubPreface | PubPublicationBody | PubEpilogue | PubChangeHistory | PubTOC | PubAbbreviations |
+	//	PubListOfTables | PubListOfFigures | PubBibliography | PubGlossary | PubIndex | PubSegmentInclude;
+	public PubGrammarAccess.PubDocumentSegmentElements getPubDocumentSegmentAccess() {
+		return gaPub.getPubDocumentSegmentAccess();
+	}
+	
+	public ParserRule getPubDocumentSegmentRule() {
+		return getPubDocumentSegmentAccess().getRule();
+	}
+	
+	//PubAbstract Abstract:
+	//	{Abstract}
+	//	'Abstract'
+	//	'{'
+	//	contents+=PubContentBlock*
+	//	'}';
+	public PubGrammarAccess.PubAbstractElements getPubAbstractAccess() {
+		return gaPub.getPubAbstractAccess();
+	}
+	
+	public ParserRule getPubAbstractRule() {
+		return getPubAbstractAccess().getRule();
+	}
+	
+	//PubPreface Preface:
+	//	{Preface}
+	//	'Preface'
+	//	'{'
+	//	contents+=PubContentBlock*
+	//	'}';
+	public PubGrammarAccess.PubPrefaceElements getPubPrefaceAccess() {
+		return gaPub.getPubPrefaceAccess();
+	}
+	
+	public ParserRule getPubPrefaceRule() {
+		return getPubPrefaceAccess().getRule();
+	}
+	
+	//PubEpilogue Epilogue:
+	//	{Epilogue}
+	//	'Epilogue'
+	//	'{'
+	//	contents+=PubContentBlock*
+	//	'}';
+	public PubGrammarAccess.PubEpilogueElements getPubEpilogueAccess() {
+		return gaPub.getPubEpilogueAccess();
+	}
+	
+	public ParserRule getPubEpilogueRule() {
+		return getPubEpilogueAccess().getRule();
+	}
+	
+	//PubChangeHistory ChangeHistory:
+	//	{ChangeHistory}
+	//	'ChangeHistory'
+	//	'{'
+	//	entries+=PubChangeDescription*
+	//	'}';
+	public PubGrammarAccess.PubChangeHistoryElements getPubChangeHistoryAccess() {
+		return gaPub.getPubChangeHistoryAccess();
+	}
+	
+	public ParserRule getPubChangeHistoryRule() {
+		return getPubChangeHistoryAccess().getRule();
+	}
+	
+	//PubChangeDescription ChangeDescription:
+	//	'Entry'
+	//	'version:' version=STRING
+	//	'date:' date=STRING
+	//	'author:' author=STRING
+	//	'description:' description=STRING
+	//	| '-' version=STRING ':' date=STRING ',' author=STRING ',' description=STRING;
+	public PubGrammarAccess.PubChangeDescriptionElements getPubChangeDescriptionAccess() {
+		return gaPub.getPubChangeDescriptionAccess();
+	}
+	
+	public ParserRule getPubChangeDescriptionRule() {
+		return getPubChangeDescriptionAccess().getRule();
+	}
+	
+	//PubTOC TOC:
+	//	{TOC}
+	//	'TableOfContents'
+	//	'{' '}';
+	public PubGrammarAccess.PubTOCElements getPubTOCAccess() {
+		return gaPub.getPubTOCAccess();
+	}
+	
+	public ParserRule getPubTOCRule() {
+		return getPubTOCAccess().getRule();
+	}
+	
+	//PubAbbreviations Abbreviations:
+	//	{Abbreviations}
+	//	'Abbreviations'
+	//	'{'
+	//	entries+=PubAbbreviation*
+	//	'}';
+	public PubGrammarAccess.PubAbbreviationsElements getPubAbbreviationsAccess() {
+		return gaPub.getPubAbbreviationsAccess();
+	}
+	
+	public ParserRule getPubAbbreviationsRule() {
+		return getPubAbbreviationsAccess().getRule();
+	}
+	
+	//PubAbbreviation Abbreviation:
+	//	'Entry'
+	//	'id:' name=ID
+	//	'text:' longForm=STRING
+	//	| '-' name=ID ':' longForm=STRING;
+	public PubGrammarAccess.PubAbbreviationElements getPubAbbreviationAccess() {
+		return gaPub.getPubAbbreviationAccess();
+	}
+	
+	public ParserRule getPubAbbreviationRule() {
+		return getPubAbbreviationAccess().getRule();
+	}
+	
+	//PubListOfTables ListOfTables:
+	//	{ListOfTables}
+	//	'ListOfTables'
+	//	'{' '}';
+	public PubGrammarAccess.PubListOfTablesElements getPubListOfTablesAccess() {
+		return gaPub.getPubListOfTablesAccess();
+	}
+	
+	public ParserRule getPubListOfTablesRule() {
+		return getPubListOfTablesAccess().getRule();
+	}
+	
+	//PubListOfFigures ListOfFigures:
+	//	{ListOfFigures}
+	//	'ListOfFigures'
+	//	'{' '}';
+	public PubGrammarAccess.PubListOfFiguresElements getPubListOfFiguresAccess() {
+		return gaPub.getPubListOfFiguresAccess();
+	}
+	
+	public ParserRule getPubListOfFiguresRule() {
+		return getPubListOfFiguresAccess().getRule();
+	}
+	
+	//PubBibliography Bibliography:
+	//	{Bibliography}
+	//	'Bibliography'
+	//	'{'
+	//	entries+=PubBibliographyEntry*
+	//	'}';
+	public PubGrammarAccess.PubBibliographyElements getPubBibliographyAccess() {
+		return gaPub.getPubBibliographyAccess();
+	}
+	
+	public ParserRule getPubBibliographyRule() {
+		return getPubBibliographyAccess().getRule();
+	}
+	
+	//PubBibliographyEntry BibliographyEntry:
+	//	'Entry'
+	//	'id:' name=ID
+	//	'title:' title=STRING
+	//	'authors:' authors=STRING
+	//	'publisher:' publisher=STRING
+	//	'date:' date=STRING
+	//	'comment:' comment=STRING
+	//	| '-' name=ID ':' title=STRING ',' authors=STRING ',' publisher=STRING ',' date=STRING ',' comment=STRING;
+	public PubGrammarAccess.PubBibliographyEntryElements getPubBibliographyEntryAccess() {
+		return gaPub.getPubBibliographyEntryAccess();
+	}
+	
+	public ParserRule getPubBibliographyEntryRule() {
+		return getPubBibliographyEntryAccess().getRule();
+	}
+	
+	//PubGlossary Glossary:
+	//	{Glossary}
+	//	'Glossary'
+	//	'{'
+	//	entries+=PubGlossaryEntry*
+	//	'}';
+	public PubGrammarAccess.PubGlossaryElements getPubGlossaryAccess() {
+		return gaPub.getPubGlossaryAccess();
+	}
+	
+	public ParserRule getPubGlossaryRule() {
+		return getPubGlossaryAccess().getRule();
+	}
+	
+	//PubGlossaryEntry GlossaryEntry:
+	//	'Entry'
+	//	'id:' name=ID
+	//	'text' text=STRING
+	//	'comment:' comment=STRING
+	//	| '-' name=ID ':' text=STRING ',' comment=STRING;
+	public PubGrammarAccess.PubGlossaryEntryElements getPubGlossaryEntryAccess() {
+		return gaPub.getPubGlossaryEntryAccess();
+	}
+	
+	public ParserRule getPubGlossaryEntryRule() {
+		return getPubGlossaryEntryAccess().getRule();
+	}
+	
+	//PubIndex Index:
+	//	{Index}
+	//	'Index'
+	//	'{'
+	//	entries+=PubIndexEntry*
+	//	'}';
+	public PubGrammarAccess.PubIndexElements getPubIndexAccess() {
+		return gaPub.getPubIndexAccess();
+	}
+	
+	public ParserRule getPubIndexRule() {
+		return getPubIndexAccess().getRule();
+	}
+	
+	//PubIndexEntry IndexEntry:
+	//	'Entry'
+	//	'text' text=STRING
+	//	'references:' references+=[Division] (',' references+=[Division])* // VALIDATION -> WARNING if none
+	//	| '-' text=STRING ':' references+=[Division] (',' references+=[Division])* // VALIDATION -> WARNING if none
+	//;
+	public PubGrammarAccess.PubIndexEntryElements getPubIndexEntryAccess() {
+		return gaPub.getPubIndexEntryAccess();
+	}
+	
+	public ParserRule getPubIndexEntryRule() {
+		return getPubIndexEntryAccess().getRule();
+	}
+	
+	//PubSegmentInclude SegmentInclude:
+	//	{SegmentInclude}
+	//	'Segment'
+	//	'include:' include=[DocumentSegment];
+	public PubGrammarAccess.PubSegmentIncludeElements getPubSegmentIncludeAccess() {
+		return gaPub.getPubSegmentIncludeAccess();
+	}
+	
+	public ParserRule getPubSegmentIncludeRule() {
+		return getPubSegmentIncludeAccess().getRule();
+	}
+	
+	//PubPublicationBody PublicationBody:
+	//	{PublicationBody}
+	//	'Body'
+	//	'{'
+	//	divisions+=(PubPart | PubAppendix | PubChapter | PubSection)*
+	//	'}';
+	public PubGrammarAccess.PubPublicationBodyElements getPubPublicationBodyAccess() {
+		return gaPub.getPubPublicationBodyAccess();
+	}
+	
+	public ParserRule getPubPublicationBodyRule() {
+		return getPubPublicationBodyAccess().getRule();
+	}
+	
+	////
+	//// DIVISIONS
+	////
+	//fragment PubDivisionHeader returns Division:
+	//	PubReferenceTargetName?
+	//	title=DRichText;
+	public PubGrammarAccess.PubDivisionHeaderElements getPubDivisionHeaderAccess() {
+		return gaPub.getPubDivisionHeaderAccess();
+	}
+	
+	public ParserRule getPubDivisionHeaderRule() {
+		return getPubDivisionHeaderAccess().getRule();
+	}
+	
+	//fragment PubDivisionIncludeHeader returns Division:
+	//	PubReferenceTargetName?
+	//	'include:';
+	public PubGrammarAccess.PubDivisionIncludeHeaderElements getPubDivisionIncludeHeaderAccess() {
+		return gaPub.getPubDivisionIncludeHeaderAccess();
+	}
+	
+	public ParserRule getPubDivisionIncludeHeaderRule() {
+		return getPubDivisionIncludeHeaderAccess().getRule();
+	}
+	
+	//PubPart Part:
+	//	{Part}
+	//	'Part' (PubDivisionHeader
+	//	contents+=PubContentBlock*
+	//	-> divisions+=PubChapter*
+	//	| PubDivisionIncludeHeader
+	//	include=[Part|DQualifiedName] ('as' title=DRichText)?);
+	public PubGrammarAccess.PubPartElements getPubPartAccess() {
+		return gaPub.getPubPartAccess();
+	}
+	
+	public ParserRule getPubPartRule() {
+		return getPubPartAccess().getRule();
+	}
+	
+	//PubAppendix Appendix:
+	//	'Appendix' (PubDivisionHeader
+	//	contents+=PubContentBlock*
+	//	-> divisions+=PubChapter*
+	//	| PubDivisionIncludeHeader
+	//	include=[Appendix|DQualifiedName] ('as' title=DRichText)?);
+	public PubGrammarAccess.PubAppendixElements getPubAppendixAccess() {
+		return gaPub.getPubAppendixAccess();
+	}
+	
+	public ParserRule getPubAppendixRule() {
+		return getPubAppendixAccess().getRule();
+	}
+	
+	//PubChapter Chapter:
+	//	'Chapter' (PubDivisionHeader
+	//	contents+=PubContentBlock*
+	//	-> divisions+=PubSection*
+	//	| PubDivisionIncludeHeader
+	//	include=[Chapter|DQualifiedName] ('as' title=DRichText)?);
+	public PubGrammarAccess.PubChapterElements getPubChapterAccess() {
+		return gaPub.getPubChapterAccess();
+	}
+	
+	public ParserRule getPubChapterRule() {
+		return getPubChapterAccess().getRule();
+	}
+	
+	//PubSection Section:
+	//	'Section' (PubDivisionHeader
+	//	contents+=PubContentBlock*
+	//	divisions+=PubSubsection*
+	//	| PubDivisionIncludeHeader
+	//	include=[Section|DQualifiedName] ('as' title=DRichText)?);
+	public PubGrammarAccess.PubSectionElements getPubSectionAccess() {
+		return gaPub.getPubSectionAccess();
+	}
+	
+	public ParserRule getPubSectionRule() {
+		return getPubSectionAccess().getRule();
+	}
+	
+	//PubSubsection Subsection:
+	//	('Sub' | 'Subsection') (PubDivisionHeader
+	//	contents+=PubContentBlock*
+	//	divisions+=PubSubsubsection*
+	//	| PubDivisionIncludeHeader
+	//	include=[Subsection|DQualifiedName] ('as' title=DRichText)?);
+	public PubGrammarAccess.PubSubsectionElements getPubSubsectionAccess() {
+		return gaPub.getPubSubsectionAccess();
+	}
+	
+	public ParserRule getPubSubsectionRule() {
+		return getPubSubsectionAccess().getRule();
+	}
+	
+	//PubSubsubsection Subsubsection:
+	//	('Subsub' | 'Subsubsection') (PubDivisionHeader
+	//	contents+=PubContentBlock*
+	//	| PubDivisionIncludeHeader
+	//	include=[Subsubsection|DQualifiedName] ('as' title=DRichText)?);
+	public PubGrammarAccess.PubSubsubsectionElements getPubSubsubsectionAccess() {
+		return gaPub.getPubSubsubsectionAccess();
+	}
+	
+	public ParserRule getPubSubsubsectionRule() {
+		return getPubSubsubsectionAccess().getRule();
+	}
+	
+	////
+	//// ACTUAL CONTENT
+	////
+	//PubContentBlock ContentBlock:
+	//	PubAdmonition | PubList | PubTable | PubFigure | PubEquation | PubCodeListing | PubRichTextParagraph | PubFootnote;
+	public PubGrammarAccess.PubContentBlockElements getPubContentBlockAccess() {
+		return gaPub.getPubContentBlockAccess();
+	}
+	
+	public ParserRule getPubContentBlockRule() {
+		return getPubContentBlockAccess().getRule();
+	}
+	
+	//PubAdmonition Admonition:
+	//	'Admonition'
+	//	PubReferenceTargetName?
+	//	'kind:' kind=PubAdmonitionKind ('title:' title=DRichText)?
+	//	'{'
+	//	contents+=PubContentBlock*
+	//	'}';
+	public PubGrammarAccess.PubAdmonitionElements getPubAdmonitionAccess() {
+		return gaPub.getPubAdmonitionAccess();
+	}
+	
+	public ParserRule getPubAdmonitionRule() {
+		return getPubAdmonitionAccess().getRule();
+	}
+	
+	//enum PubAdmonitionKind returns AdmonitionKind:
+	//	Note='note' | Tip='tip' | Caution='caution' | Important='important';
+	public PubGrammarAccess.PubAdmonitionKindElements getPubAdmonitionKindAccess() {
+		return gaPub.getPubAdmonitionKindAccess();
+	}
+	
+	public EnumRule getPubAdmonitionKindRule() {
+		return getPubAdmonitionKindAccess().getRule();
+	}
+	
+	//PubList List:
+	//	{List}
+	//	'List' ('(' '#'? name=ID ')')? ('style:' style=PubListStyle)? ('numbering:' numberingStyle=PubSequenceNumberStyle)? // TODO VALIDATION: mandatory for 'sequence'
+	//	'{'
+	//	items+=PubListItem*
+	//	'}';
+	public PubGrammarAccess.PubListElements getPubListAccess() {
+		return gaPub.getPubListAccess();
+	}
+	
+	public ParserRule getPubListRule() {
+		return getPubListAccess().getRule();
+	}
+	
+	//enum PubListStyle returns ListStyle:
+	//	Bullet='bullet' | Sequence='sequence' | Title='title';
+	public PubGrammarAccess.PubListStyleElements getPubListStyleAccess() {
+		return gaPub.getPubListStyleAccess();
+	}
+	
+	public EnumRule getPubListStyleRule() {
+		return getPubListStyleAccess().getRule();
+	}
+	
+	//enum PubSequenceNumberStyle returns proto::ProtoSequenceNumberStyle:
+	//	Arabic='arabic' | CapitalLetter='capitalLetter' | SmallLetter='smallLetter' | CapitalRoman='capitalRoman' |
+	//	SmallRoman='smallRoman' | None='none';
+	public PubGrammarAccess.PubSequenceNumberStyleElements getPubSequenceNumberStyleAccess() {
+		return gaPub.getPubSequenceNumberStyleAccess();
+	}
+	
+	public EnumRule getPubSequenceNumberStyleRule() {
+		return getPubSequenceNumberStyleAccess().getRule();
+	}
+	
+	//PubListItem ListItem:
+	//	{ListItem} ('Item'
+	//	PubReferenceTargetName? ('title:' title=DRichText)? ('{' contents+=PubContentBlock* '}'
+	//	| -> contents+=PubContentBlock*) | '-' PubReferenceTargetName? contents+=PubParagraphTextOnly);
+	public PubGrammarAccess.PubListItemElements getPubListItemAccess() {
+		return gaPub.getPubListItemAccess();
+	}
+	
+	public ParserRule getPubListItemRule() {
+		return getPubListItemAccess().getRule();
+	}
+	
+	//fragment PubTitledBlockHeader returns TitledBlock:
+	//	PubReferenceTargetName?
+	//	title=DRichText;
+	public PubGrammarAccess.PubTitledBlockHeaderElements getPubTitledBlockHeaderAccess() {
+		return gaPub.getPubTitledBlockHeaderAccess();
+	}
+	
+	public ParserRule getPubTitledBlockHeaderRule() {
+		return getPubTitledBlockHeaderAccess().getRule();
+	}
+	
+	//PubTable TitledTable:
+	//	'Table'
+	//	PubTitledBlockHeader
+	//	'{'
+	//	table=AbstractTable
+	//	'}';
+	public PubGrammarAccess.PubTableElements getPubTableAccess() {
+		return gaPub.getPubTableAccess();
+	}
+	
+	public ParserRule getPubTableRule() {
+		return getPubTableAccess().getRule();
+	}
+	
+	//AbstractTable:
+	//	Table | ProvidedTable;
+	public PubGrammarAccess.AbstractTableElements getAbstractTableAccess() {
+		return gaPub.getAbstractTableAccess();
+	}
+	
+	public ParserRule getAbstractTableRule() {
+		return getAbstractTableAccess().getRule();
+	}
+	
+	//Table:
+	//	'columns:' columns=NATURAL ('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
+	//	rows+=PubTableRow*;
+	public PubGrammarAccess.TableElements getTableAccess() {
+		return gaPub.getTableAccess();
+	}
+	
+	public ParserRule getTableRule() {
+		return getTableAccess().getRule();
+	}
+	
+	//enum GridLines:
+	//	HORIZONTAL='horizontal' | VERTICAL='vertical' | BOTH='all' | NONE='none';
+	public PubGrammarAccess.GridLinesElements getGridLinesAccess() {
+		return gaPub.getGridLinesAccess();
+	}
+	
+	public EnumRule getGridLinesRule() {
+		return getGridLinesAccess().getRule();
+	}
+	
+	//PubTableRow TableRow:
+	//	{TableRow} (('Row' ('heading:' isHeading?='true' | 'false')?
+	//	| isHeading?='Header' 'Row') ('{' cells+=PubTableCell* '}'
+	//	| cells+=PubTableCell*) | (isHeading?='|||' | '||') cells+=PubTableSimpleCell*);
+	public PubGrammarAccess.PubTableRowElements getPubTableRowAccess() {
+		return gaPub.getPubTableRowAccess();
+	}
+	
+	public ParserRule getPubTableRowRule() {
+		return getPubTableRowAccess().getRule();
+	}
+	
+	//PubTableCell TableCell:
+	//	{TableCell}
+	//	'Cell' ('width:' width=NATURAL)? ('height:' height=NATURAL)? ('{' contents+=PubContentBlock* '}'
+	//	| -> contents+=PubContentBlock*);
+	public PubGrammarAccess.PubTableCellElements getPubTableCellAccess() {
+		return gaPub.getPubTableCellAccess();
+	}
+	
+	public ParserRule getPubTableCellRule() {
+		return getPubTableCellAccess().getRule();
+	}
+	
+	//PubTableSimpleCell TableCell:
+	//	{TableCell} contents+=PubParagraphTextOnly '|';
+	public PubGrammarAccess.PubTableSimpleCellElements getPubTableSimpleCellAccess() {
+		return gaPub.getPubTableSimpleCellAccess();
+	}
+	
+	public ParserRule getPubTableSimpleCellRule() {
+		return getPubTableSimpleCellAccess().getRule();
+	}
+	
+	//ProvidedTable:
+	//	('widthPercent:' widthPercent=NATURAL)? ('gridlines:' gridlines=GridLines)?
+	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	//	'type:' tableType=[ProvidedTableType|DQualifiedName];
+	public PubGrammarAccess.ProvidedTableElements getProvidedTableAccess() {
+		return gaPub.getProvidedTableAccess();
+	}
+	
+	public ParserRule getProvidedTableRule() {
+		return getProvidedTableAccess().getRule();
+	}
+	
+	//PubFigure TitledFigure:
+	//	'Figure'
+	//	PubTitledBlockHeader
+	//	'{'
+	//	figure=AbstractFigure
+	//	'}';
+	public PubGrammarAccess.PubFigureElements getPubFigureAccess() {
+		return gaPub.getPubFigureAccess();
+	}
+	
+	public ParserRule getPubFigureRule() {
+		return getPubFigureAccess().getRule();
+	}
+	
+	//AbstractFigure:
+	//	IncludedFigure | ProvidedFigure;
+	public PubGrammarAccess.AbstractFigureElements getAbstractFigureAccess() {
+		return gaPub.getAbstractFigureAccess();
+	}
+	
+	public ParserRule getAbstractFigureRule() {
+		return getAbstractFigureAccess().getRule();
+	}
+	
+	//IncludedFigure:
+	//	('widthPercent:' widthPercent=NATURAL)?
+	//	'uri:' fileUri=STRING;
+	public PubGrammarAccess.IncludedFigureElements getIncludedFigureAccess() {
+		return gaPub.getIncludedFigureAccess();
+	}
+	
+	public ParserRule getIncludedFigureRule() {
+		return getIncludedFigureAccess().getRule();
+	}
+	
+	//// TODO Validation
+	//ProvidedFigure:
+	//	('widthPercent:' widthPercent=NATURAL)?
+	//	'root:' diagramRoot=[IDiagramRoot|DQualifiedName]
+	//	'type:' diagramType=[ProvidedDiagramType|DQualifiedName];
+	public PubGrammarAccess.ProvidedFigureElements getProvidedFigureAccess() {
+		return gaPub.getProvidedFigureAccess();
+	}
+	
+	public ParserRule getProvidedFigureRule() {
+		return getProvidedFigureAccess().getRule();
+	}
+	
+	//PubEquation Equation:
+	//	'Equation'
+	//	PubTitledBlockHeader
+	//	'{'
+	//	'uri:' fileUri=STRING // TODO Validation
+	//	'}';
+	public PubGrammarAccess.PubEquationElements getPubEquationAccess() {
+		return gaPub.getPubEquationAccess();
+	}
+	
+	public ParserRule getPubEquationRule() {
+		return getPubEquationAccess().getRule();
+	}
+	
+	//PubCodeListing TitledCodeListing:
+	//	{TitledCodeListing}
+	//	'CodeListing'
+	//	PubReferenceTargetName? (title=DRichText | 'title:' 'false')
+	//	'{' ('numbered:' (numbered?='true' | 'false'))? (codeLines+=STRING*
+	//	| 'include:' include=[ecore::EObject|DQualifiedName])
+	//	'}';
+	public PubGrammarAccess.PubCodeListingElements getPubCodeListingAccess() {
+		return gaPub.getPubCodeListingAccess();
+	}
+	
+	public ParserRule getPubCodeListingRule() {
+		return getPubCodeListingAccess().getRule();
+	}
+	
+	//PubRichTextParagraph RichTextParagraph:
+	//	('Paragraph' | 'P') style=PubParagraphStyle?
 	//	text=DRichText;
-	public ParagraphElements getParagraphAccess() {
-		return pParagraph;
+	public PubGrammarAccess.PubRichTextParagraphElements getPubRichTextParagraphAccess() {
+		return gaPub.getPubRichTextParagraphAccess();
 	}
 	
-	public ParserRule getParagraphRule() {
-		return getParagraphAccess().getRule();
+	public ParserRule getPubRichTextParagraphRule() {
+		return getPubRichTextParagraphAccess().getRule();
+	}
+	
+	//PubParagraphTextOnly RichTextParagraph:
+	//	text=DRichText;
+	public PubGrammarAccess.PubParagraphTextOnlyElements getPubParagraphTextOnlyAccess() {
+		return gaPub.getPubParagraphTextOnlyAccess();
+	}
+	
+	public ParserRule getPubParagraphTextOnlyRule() {
+		return getPubParagraphTextOnlyAccess().getRule();
+	}
+	
+	//PubFootnote Footnote:
+	//	'Footnote'
+	//	name=ID
+	//	text=DRichText;
+	public PubGrammarAccess.PubFootnoteElements getPubFootnoteAccess() {
+		return gaPub.getPubFootnoteAccess();
+	}
+	
+	public ParserRule getPubFootnoteRule() {
+		return getPubFootnoteAccess().getRule();
+	}
+	
+	//enum PubParagraphStyle returns ParagraphStyle:
+	//	Plain='plain' | Quote='quote';
+	public PubGrammarAccess.PubParagraphStyleElements getPubParagraphStyleAccess() {
+		return gaPub.getPubParagraphStyleAccess();
+	}
+	
+	public EnumRule getPubParagraphStyleRule() {
+		return getPubParagraphStyleAccess().getRule();
+	}
+	
+	//@Override
+	//DmxPrimaryExpression DExpression:
+	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxListExpression | DmxFunctionCall | DmxIfExpression |
+	//	DmxStaticReference | DmxContextReference | PubReference | DmxUrlLiteral;
+	public PubGrammarAccess.DmxPrimaryExpressionElements getDmxPrimaryExpressionAccess() {
+		return gaPub.getDmxPrimaryExpressionAccess();
+	}
+	
+	public ParserRule getDmxPrimaryExpressionRule() {
+		return getDmxPrimaryExpressionAccess().getRule();
+	}
+	
+	//PubReference Reference:
+	//	'#'
+	//	scope=PubReferenceScope?
+	//	target=[ReferenceTarget|DQualifiedName];
+	public PubGrammarAccess.PubReferenceElements getPubReferenceAccess() {
+		return gaPub.getPubReferenceAccess();
+	}
+	
+	public ParserRule getPubReferenceRule() {
+		return getPubReferenceAccess().getRule();
+	}
+	
+	//enum PubReferenceScope returns ReferenceScope:
+	//	DocumentSegment='seg' |
+	//	Division='div' |
+	//	Part='part' |
+	//	Appendix='appendix' |
+	//	Chapter='chapter' |
+	//	Section='section' |
+	//	Subsection='sub' |
+	//	Subsubsection='subsub' |
+	//	Footnote='footnote' |
+	//	ListItem='item' |
+	//	Table='table' |
+	//	Figure='figure' |
+	//	Equation='equation' |
+	//	CodeListing='code' |
+	//	Admonition='admonition' |
+	//	Abbreviation='abbrev' |
+	//	Glossary='glossary' |
+	//	Bibliography='bilio';
+	public PubGrammarAccess.PubReferenceScopeElements getPubReferenceScopeAccess() {
+		return gaPub.getPubReferenceScopeAccess();
+	}
+	
+	public EnumRule getPubReferenceScopeRule() {
+		return getPubReferenceScopeAccess().getRule();
 	}
 	
 	//DmxModel:
@@ -478,7 +1244,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxNavigableMemberReference DExpression:
-	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
+	//	super::DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
 	//	assignToMember=[DNavigableMember] DmxOpSingleAssign) value=DmxOrExpression
 	//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
@@ -742,17 +1508,6 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxOpCastRule() {
 		return getDmxOpCastAccess().getRule();
-	}
-	
-	//DmxPrimaryExpression DExpression:
-	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxListExpression | DmxFunctionCall | DmxStaticReference |
-	//	DmxContextReference | DmxIfExpression;
-	public DmxGrammarAccess.DmxPrimaryExpressionElements getDmxPrimaryExpressionAccess() {
-		return gaDmx.getDmxPrimaryExpressionAccess();
-	}
-	
-	public ParserRule getDmxPrimaryExpressionRule() {
-		return getDmxPrimaryExpressionAccess().getRule();
 	}
 	
 	//DmxLiteralExpression DExpression:

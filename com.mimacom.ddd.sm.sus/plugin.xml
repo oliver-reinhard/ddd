@@ -6,7 +6,7 @@
       <package
             uri="http://www.mimacom.com/ddd/sm/sus"
             class="com.mimacom.ddd.sm.sus.SusPackage"
-            genModel="model/sus.genmodel"/>
+            genModel="model/sus.xcore"/>
    </extension>
 
 
