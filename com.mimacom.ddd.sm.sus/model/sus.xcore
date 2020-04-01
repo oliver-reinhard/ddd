@@ -1,0 +1,15 @@
+@Ecore(nsURI="http://www.mimacom.com/ddd/sm/sus")
+@GenModel(modelDirectory="/com.mimacom.ddd.sm.sus/emf-gen")
+package com.mimacom.ddd.sm.sus
+
+import com.mimacom.ddd.dm.base.DModel
+import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.dem.DemDomainEvent
+import com.mimacom.ddd.pub.pub.Section
+
+class UserStory extends DModel {
+	refers DemDomainEvent event 
+	contains DRichText goal
+	contains Section[] sections
+	String jiraKey
+}

@@ -8,7 +8,7 @@ Bundle-SymbolicName: com.mimacom.ddd.pub.pub.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.pub.pub,
  com.mimacom.ddd.pub.pub.ide,
- com.mimacom.ddd.dm.dmx.ui,
+ com.mimacom.ddd.dm.dmx.ui;visibility:=reexport,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
