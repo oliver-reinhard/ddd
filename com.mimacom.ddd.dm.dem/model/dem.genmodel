@@ -10,31 +10,33 @@
   <foreignModel>dem.ecore</foreignModel>
   <genPackages prefix="Dem" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
       ecorePackage="dem.ecore#/">
-    <genClasses image="false" ecoreClass="dem.ecore#//DemModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dem.ecore#//DemModel/domain"/>
+    <genClasses ecoreClass="dem.ecore#//DemDomainEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemDomainEvent/context"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dem.ecore#//DemDomainEvent/triggers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemDomainEvent/preconditionsCNF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemDomainEvent/postconditionsDNF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemDomainEvent/notifications"/>
     </genClasses>
-    <genClasses ecoreClass="dem.ecore#//DDomainEvent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DDomainEvent/context"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dem.ecore#//DDomainEvent/trigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DDomainEvent/preconditionsCNF"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DDomainEvent/postconditionsDNF"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DDomainEvent/notifications"/>
+    <genClasses ecoreClass="dem.ecore#//DemCaseConjunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemCaseConjunction/selector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dem.ecore#//DemCaseConjunction/otherwise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemCaseConjunction/predicates"/>
     </genClasses>
-    <genClasses ecoreClass="dem.ecore#//DCaseConjunction">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DCaseConjunction/selector"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dem.ecore#//DCaseConjunction/otherwise"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DCaseConjunction/predicates"/>
+    <genClasses ecoreClass="dem.ecore#//DemNotification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemNotification/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dem.ecore#//DemNotification/notified"/>
     </genClasses>
-    <genClasses ecoreClass="dem.ecore#//DNotification">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DNotification/message"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dem.ecore#//DNotification/notified"/>
-    </genClasses>
-    <genClasses ecoreClass="dem.ecore#//DMessage"/>
+    <genClasses ecoreClass="dem.ecore#//DemMessage"/>
     <genClasses image="false" ecoreClass="dem.ecore#//DemActorModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dem.ecore#//DemActorModel/actors"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="dem.ecore#//DActor"/>
-    <genClasses ecoreClass="dem.ecore#//DHumanActorRole"/>
-    <genClasses ecoreClass="dem.ecore#//DService"/>
+    <genClasses image="false" ecoreClass="dem.ecore#//DemActor"/>
+    <genClasses ecoreClass="dem.ecore#//DemHumanActorRole"/>
+    <genClasses ecoreClass="dem.ecore#//DemService"/>
+    <genClasses ecoreClass="dem.ecore#//DemEventsOverviewModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dem.ecore#//DemEventsOverviewModel/all"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dem.ecore#//DemEventsOverviewModel/include"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dem.ecore#//DemEventsOverviewModel/exclude"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
