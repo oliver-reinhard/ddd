@@ -5,7 +5,7 @@ package com.mimacom.ddd.sm.sus;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup;
+import com.mimacom.ddd.pub.pub.PubStandaloneSetup;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;
 import org.eclipse.xtext.resource.IResourceFactory;
@@ -16,7 +16,7 @@ public class SusStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
-		DmxStandaloneSetup.doSetup();
+		PubStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

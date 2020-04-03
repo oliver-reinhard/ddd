@@ -15,11 +15,10 @@
       <genEnumLiterals ecoreEnumLiteral="base.ecore#//DMultiplicityShorthand/ONE_OR_MORE"/>
       <genEnumLiterals ecoreEnumLiteral="base.ecore#//DMultiplicityShorthand/ZERO_OR_MORE"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DEntityOrigin">
-      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityOrigin/GENERIC_ENTITY"/>
-      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityOrigin/PHYSICAL_OBJECT"/>
-      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityOrigin/VIRTUAL_CONCEPT"/>
-      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityOrigin/RELATIONSHIP"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DEntityNature">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityNature/CONTROLLED_ENTITY"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityNature/AUTONOMOUS_ENTITY"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DEntityNature/RELATIONSHIP"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DAssociationKind">
       <genEnumLiterals ecoreEnumLiteral="base.ecore#//DAssociationKind/REFERENCE"/>
@@ -36,21 +35,19 @@
     </genClasses>
     <genClasses image="false" ecoreClass="base.ecore#//DNamespace">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DNamespace/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DNamespace/model"/>
     </genClasses>
-    <genClasses ecoreClass="base.ecore#//DInformationModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DInformationModel/domain"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DModel"/>
     <genClasses image="false" ecoreClass="base.ecore#//IDiagramRoot"/>
-    <genClasses image="false" ecoreClass="base.ecore#//IAggregateContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//IAggregateContainer/aggregates"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//ITypeContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//ITypeContainer/types"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//IFeatureContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//IFeatureContainer/features"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="base.ecore#//IStaticReferenceTarget"/>
+    <genClasses image="false" ecoreClass="base.ecore#//IRichTextSegment"/>
+    <genClasses ecoreClass="base.ecore#//DTextSegment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DTextSegment/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DExpression"/>
+    <genClasses ecoreClass="base.ecore#//DRichText">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DRichText/segments"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="base.ecore#//IDeductionDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//IDeductionDefinition/deductionRule"/>
     </genClasses>
@@ -62,7 +59,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DDeductionRule/source"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference base.ecore#//DDeductionRule/namedSource"/>
     </genClasses>
-    <genClasses ecoreClass="base.ecore#//DContext"/>
+    <genClasses ecoreClass="base.ecore#//DInformationModel"/>
+    <genClasses image="false" ecoreClass="base.ecore#//IAggregateContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//IAggregateContainer/aggregates"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//ITypeContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//ITypeContainer/types"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//IFeatureContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//IFeatureContainer/features"/>
+    </genClasses>
     <genClasses ecoreClass="base.ecore#//DAggregate">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference base.ecore#//DAggregate/roots"/>
     </genClasses>
@@ -75,18 +81,11 @@
     <genClasses image="false" ecoreClass="base.ecore#//INavigableMemberContainer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//INavigableMemberContainer/navigableMembers"/>
     </genClasses>
+    <genClasses ecoreClass="base.ecore#//DContext"/>
     <genClasses ecoreClass="base.ecore#//DMultiplicity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DMultiplicity/minOccurs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DMultiplicity/maxOccurs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DMultiplicity/shorthand"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//IRichTextSegment"/>
-    <genClasses ecoreClass="base.ecore#//DTextSegment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DTextSegment/value"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//DExpression"/>
-    <genClasses ecoreClass="base.ecore#//DRichText">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DRichText/segments"/>
     </genClasses>
     <genClasses image="false" ecoreClass="base.ecore#//IIdentityType"/>
     <genClasses image="false" ecoreClass="base.ecore#//IValueType"/>
@@ -112,7 +111,7 @@
     <genClasses ecoreClass="base.ecore#//DDetailType"/>
     <genClasses ecoreClass="base.ecore#//DEntityType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DEntityType/root"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DEntityType/origin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DEntityType/nature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DEntityType/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DEntityType/events"/>
     </genClasses>

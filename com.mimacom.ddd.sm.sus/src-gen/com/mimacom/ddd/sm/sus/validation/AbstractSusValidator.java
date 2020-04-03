@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.sus.validation;
 
-import com.mimacom.ddd.dm.dmx.validation.DmxValidator;
+import com.mimacom.ddd.pub.pub.validation.PubValidator;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
@@ -11,13 +11,14 @@ import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.NamesAreUniqueValidator;
 
 @ComposedChecks(validators = {NamesAreUniqueValidator.class})
-public abstract class AbstractSusValidator extends DmxValidator {
+public abstract class AbstractSusValidator extends PubValidator {
 	
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/sm/sus"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/pub/pub"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
 		return result;
 	}

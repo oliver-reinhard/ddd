@@ -6,7 +6,7 @@ Bundle-Vendor: mimacom ag
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.sm.sus.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.dmx.ui;visibility:=reexport,
+Require-Bundle: com.mimacom.ddd.pub.pub.ui,
  com.mimacom.ddd.sm.sus,
  com.mimacom.ddd.sm.sus.ide,
  org.eclipse.xtext.ui,

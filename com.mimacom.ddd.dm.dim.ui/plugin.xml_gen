@@ -431,4 +431,32 @@
 			type="text">
 		</fileTypes>
 	</extension>
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<category id="com.mimacom.ddd.dm.dim.ui.category" name="Dim">
+		</category>
+		<wizard
+			category="com.mimacom.ddd.dm.dim.ui.category"
+			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.wizard.template.TemplateNewFileWizard"
+			id="com.mimacom.ddd.dm.dim.ui.wizard.DimNewFileWizard"
+			name="Dim File"
+			icon="icons/new_Dim_file.png">
+		</wizard>
+	</extension>
+	<extension
+		point="org.eclipse.xtext.ui.fileTemplate">
+		<fileTemplateProvider
+			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:com.mimacom.ddd.dm.dim.ui.wizard.DimFileTemplateProvider"
+			grammarName="com.mimacom.ddd.dm.dim.Dim">
+		</fileTemplateProvider>
+	</extension>
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+			<newWizardShortcut id="com.mimacom.ddd.dm.dim.ui.wizard.DimNewFileWizard"/>
+		</perspectiveExtension>
+		<perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<newWizardShortcut id="com.mimacom.ddd.dm.dim.ui.wizard.DimNewFileWizard"/>
+		</perspectiveExtension>
+	</extension>
 </plugin>
