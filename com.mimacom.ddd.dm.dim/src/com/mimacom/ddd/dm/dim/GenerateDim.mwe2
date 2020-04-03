@@ -40,7 +40,6 @@ Workflow {
 			formatter = {
 				generateStub = true
 			}
-
 			serializer = {
 				generateStub = false
 			}
@@ -48,6 +47,9 @@ Workflow {
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 				// Generates checks for @Deprecated grammar annotations, an IssueProvider and a corresponding PropertyPage
 				generateDeprecationValidation = true
+			}
+			fileWizard = {
+				generate = true
 			}
 			junitSupport = {
 				junitVersion = "5"
