@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="com.mimacom.ddd.im.generator.feature"
+	label="Generator Model Feature "
+	version="0.1.0.qualifier"
+	provider-name="mimacom ag">
+	<plugin
+			id="com.mimacom.ddd.im.generator"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="com.mimacom.ddd.im.generator.ide"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="com.mimacom.ddd.im.generator.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

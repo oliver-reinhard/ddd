@@ -21,3 +21,4 @@ archetype Timepoint is TIMEPOINT	«Point in time with arbitrary precision»
 archetype Duration  is NUMBER		«Time period with arbitrary precision and length»
 
 archetype ID		is IDENTIFIER 	«Unique identifier, format is opaque»
+  

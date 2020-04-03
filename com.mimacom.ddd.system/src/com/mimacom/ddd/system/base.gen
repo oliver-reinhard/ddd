@@ -1,0 +1,25 @@
+generator model Base
+
+type mappings {
+	datatype dm.types.Boolean maps to Boolean
+	
+	datatype Natural maps to java.math.BigDecimal
+	
+	datatype Natural0 maps to java.math.BigDecimal
+	
+	datatype Integer maps to Integer
+	 
+	datatype Real maps to Double
+	
+	datatype Name maps to String
+	
+	datatype ShortText maps to String
+	
+	datatype Text maps to String
+	
+	datatype Timepoint maps to java.time.ZonedDateTime
+	
+	datatype Duration maps to java.time.Duration
+	
+	datatype ID maps to String
+} 

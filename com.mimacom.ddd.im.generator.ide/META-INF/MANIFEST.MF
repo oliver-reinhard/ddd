@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mimacom.ddd.im.generator.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mimacom.ddd.im.generator.ide
+Bundle-Vendor: mimacom ag
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: com.mimacom.ddd.im.generator.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.mimacom.ddd.im.generator,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.im.generator.ide.contentassist.antlr,
+ com.mimacom.ddd.im.generator.ide.contentassist.antlr.internal

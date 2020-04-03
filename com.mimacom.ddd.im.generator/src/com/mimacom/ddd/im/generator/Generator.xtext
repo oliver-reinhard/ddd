@@ -1,0 +1,55 @@
+grammar com.mimacom.ddd.im.generator.Generator with org.eclipse.xtext.xbase.Xbase
+
+generate generator "http://www.mimacom.com/ddd/im/generator/Generator"
+
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+import "http://www.mimacom.com/ddd/dm/base" as base
+import "http://www.mimacom.com/ddd/dm/dmx"
+import "http://www.mimacom.com/ddd/sm/asm" as asm
+
+Model:
+	'generator' 'model' name=QualifiedName
+	importSection=XImportSection?
+	(
+		('type' 'mappings' '{' typeMappings+=TypeMapping+ '}')? &
+		('exception' 'mappings' '{' exceptionMappings+=ExceptionMapping+ '}')? &
+		(endpointDeclarations+=EndpointDeclarationBlock)?
+	)
+;
+
+TypeMapping:
+	'datatype' name=QualifiedName 'is' type=[base::DType|QualifiedName]
+  	'maps' 'to' javaType=[jvmTypes::JvmType|QualifiedName]
+;
+
+ExceptionMapping:
+	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName]
+	('extends' extends=[jvmTypes::JvmType|QualifiedName])?
+	('message' message=STRING)?
+;
+
+EndpointDeclarationBlock:
+	'endpoints' 'for' name=QualifiedName ('path' path=Path)? '{'
+		endpoints+=EndpointDeclaration+
+	'}'
+;
+
+EndpointDeclaration:
+	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName]
+	('{'
+		('path' path=Path)?
+	'}')?
+;
+
+Path:
+	leadingSlash?='/'? segments+=PathSegment (=>'/' segments+=PathSegment)*
+;
+
+PathSegment:
+	name=ID | (variable?='{' name=ID '}')
+;
+
+
+enum HttpVerb:
+	PUT='PUT' | POST='POST' | GET='GET' | DELETE='DELETE' | PATCH='PATCH'
+;

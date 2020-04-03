@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mimacom.ddd.im.generator.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mimacom.ddd.im.generator.tests
+Bundle-Vendor: mimacom ag
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: com.mimacom.ddd.im.generator.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.mimacom.ddd.im.generator,
+ org.junit.jupiter.api;bundle-version="[5.0.0,6.0.0)",
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.objectweb.asm;bundle-version="[7.1.0,7.2.0)";resolution:=optional
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.im.generator.tests;x-internal=true
