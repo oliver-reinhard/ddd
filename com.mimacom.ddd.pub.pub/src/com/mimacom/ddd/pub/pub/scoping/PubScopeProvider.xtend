@@ -90,8 +90,9 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 					return IScope.NULLSCOPE
 					
 				} else if (figure.diagramRoot !== null) {
-					// limit diagram renderers to the diagram types supported for the class of the given diagram-root: 
-					val diagramProviderIds = diagramProviderRegistry.getDiagramRenderers(figure.diagramRoot.class).map[it.diagramTypeID].toList
+					// do NOT limit diagram renderers to the diagram types supported for the class of the given diagram-root;
+					// this is later enforced by a validation with an explicit error message. 
+					val diagramProviderIds = diagramProviderRegistry.getAllDiagramRenderers().map[it.diagramTypeID].toList
 					// Scopes.scopeFor does not use an IQualifiedNameProvider to compute the qualified name of the objects
 					return createScopeWithQualifiedNames(model.providedDiagramTypes.filter[diagramProviderIds.contains(it.name)])
 				}

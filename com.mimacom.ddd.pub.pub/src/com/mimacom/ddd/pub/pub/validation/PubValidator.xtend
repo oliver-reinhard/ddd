@@ -317,6 +317,19 @@ class PubValidator extends AbstractPubValidator {
 	//
 	// Figure / Diagram Renderers
 	//
+	@Check
+	def diagramRenderIsAvailableForDiagramRoot(ProvidedFigure f) {
+		if (f.diagramRoot !== null && f.diagramType !== null) {
+			val renderers = diagramProviderRegistry.getAllDiagramRenderers().filter [
+				it.diagramRootClass.isAssignableFrom(f.diagramRoot.class)
+			]
+			if (renderers.empty) {
+				error("A diagram of this type is not available for the given type of diagram root",
+					PUB.providedFigure_DiagramType)
+			}
+		}
+	}
+	
 	@Check(NORMAL)
 	def includedFigureFileExists(IncludedFigure f) {
 		if (f.fileUri === null || f.fileUri.empty) {

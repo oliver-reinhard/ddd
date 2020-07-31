@@ -93,22 +93,19 @@ class DiagramProviderRegistry {
 		return cachedRenderers
 	}
 
+	def Iterable<DiagramRendererProxy> getDiagramRenderers(Class<? extends IDiagramRoot> diagramRootClass) {
+		val candidates = allDiagramRenderers.filter [
+			it.diagramRootClass.isAssignableFrom(diagramRootClass)
+		]
+		return candidates
+	}
+
 	def DiagramRendererProxy getDiagramRenderer(String id) {
 		val candidates = allDiagramRenderers.filter[it.id == id]
 		if (candidates.empty) {
 			return null
 		}
 		return candidates.head
-	}
-
-	def Iterable<DiagramRendererProxy> getDiagramRenderers(Class<? extends IDiagramRoot> diagramRootClass) {
-		val candidates = allDiagramRenderers.filter [
-			it.diagramRootClass.isAssignableFrom(diagramRootClass)
-		]
-		if (candidates.empty) {
-			return null
-		}
-		return candidates
 	}
 
 //	def DiagramRendererProxy getDiagramRenderer(Class<? extends IDiagramRoot> diagramRootClass,

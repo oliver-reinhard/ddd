@@ -70,6 +70,7 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
@@ -440,6 +441,21 @@ public class PubValidator extends AbstractPubValidator {
   @Check
   public void table(final Table t) {
     this.tableValidator.validate(t);
+  }
+  
+  @Check
+  public void diagramRenderIsAvailableForDiagramRoot(final ProvidedFigure f) {
+    if (((f.getDiagramRoot() != null) && (f.getDiagramType() != null))) {
+      final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
+        return Boolean.valueOf(it.diagramRootClass.isAssignableFrom(f.getDiagramRoot().getClass()));
+      };
+      final Iterable<DiagramRendererProxy> renderers = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.diagramProviderRegistry.getAllDiagramRenderers())), _function);
+      boolean _isEmpty = IterableExtensions.isEmpty(renderers);
+      if (_isEmpty) {
+        this.error("A diagram of this type is not available for the given type of diagram root", 
+          PubValidator.PUB.getProvidedFigure_DiagramType());
+      }
+    }
   }
   
   @Check(CheckType.NORMAL)

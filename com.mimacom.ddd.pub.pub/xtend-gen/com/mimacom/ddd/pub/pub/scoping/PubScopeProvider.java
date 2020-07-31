@@ -33,8 +33,10 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * This class contains custom scoping description.
@@ -163,7 +165,7 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
                 final Function1<DiagramRendererProxy, String> _function_2 = (DiagramRendererProxy it) -> {
                   return it.diagramTypeID;
                 };
-                final List<String> diagramProviderIds = IterableExtensions.<String>toList(IterableExtensions.<DiagramRendererProxy, String>map(this.diagramProviderRegistry.getDiagramRenderers(figure.getDiagramRoot().getClass()), _function_2));
+                final List<String> diagramProviderIds = IterableExtensions.<String>toList(ListExtensions.<DiagramRendererProxy, String>map(((List<DiagramRendererProxy>)Conversions.doWrapArray(this.diagramProviderRegistry.getAllDiagramRenderers())), _function_2));
                 final Function1<ProvidedDiagramType, Boolean> _function_3 = (ProvidedDiagramType it) -> {
                   return Boolean.valueOf(diagramProviderIds.contains(it.getName()));
                 };

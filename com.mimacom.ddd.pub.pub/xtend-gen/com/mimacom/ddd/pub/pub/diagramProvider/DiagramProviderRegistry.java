@@ -121,6 +121,14 @@ public class DiagramProviderRegistry {
     return ((DiagramRendererProxy[])Conversions.unwrapArray(this.cachedRenderers, DiagramRendererProxy.class));
   }
   
+  public Iterable<DiagramRendererProxy> getDiagramRenderers(final Class<? extends IDiagramRoot> diagramRootClass) {
+    final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
+      return Boolean.valueOf(it.diagramRootClass.isAssignableFrom(diagramRootClass));
+    };
+    final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getAllDiagramRenderers())), _function);
+    return candidates;
+  }
+  
   public DiagramRendererProxy getDiagramRenderer(final String id) {
     final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
       return Boolean.valueOf(Objects.equal(it.id, id));
@@ -131,18 +139,6 @@ public class DiagramProviderRegistry {
       return null;
     }
     return IterableExtensions.<DiagramRendererProxy>head(candidates);
-  }
-  
-  public Iterable<DiagramRendererProxy> getDiagramRenderers(final Class<? extends IDiagramRoot> diagramRootClass) {
-    final Function1<DiagramRendererProxy, Boolean> _function = (DiagramRendererProxy it) -> {
-      return Boolean.valueOf(it.diagramRootClass.isAssignableFrom(diagramRootClass));
-    };
-    final Iterable<DiagramRendererProxy> candidates = IterableExtensions.<DiagramRendererProxy>filter(((Iterable<DiagramRendererProxy>)Conversions.doWrapArray(this.getAllDiagramRenderers())), _function);
-    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
-    if (_isEmpty) {
-      return null;
-    }
-    return candidates;
   }
   
   public DiagramRendererProxy getDiagramRenderer(final Class<? extends IDiagramRoot> diagramRootClass, final String diagramTypeID, final DiagramFileFormat format) {
