@@ -3,22 +3,10 @@ package com.mimacom.ddd.dm.dmx.scoping
 import com.mimacom.ddd.dm.base.DNamespace
 import java.util.List
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.impl.ImportNormalizer
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
 
 class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
-	
-	public static val PREFIX = "dm"
-	static val TYPES = "types"
-	
-	public static val DEFAULT_IMPORT_TYPES = PREFIX + "." + TYPES
-	
-	override List<ImportNormalizer> getImplicitImports(boolean ignoreCase) {
-		newArrayList(
-			new ImportNormalizer(QualifiedName.create(PREFIX, TYPES), true /* wildcard*/, ignoreCase)
-		)
-	}
 	
 	override protected List<ImportNormalizer> internalGetImportedNamespaceResolvers(EObject context, boolean ignoreCase) {
 		val resolvers = super.internalGetImportedNamespaceResolvers(context, ignoreCase)

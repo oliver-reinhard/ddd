@@ -8,7 +8,7 @@ import com.google.inject.name.Names;
 import com.mimacom.ddd.dm.dim.AbstractDimRuntimeModule;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
@@ -33,7 +33,7 @@ public class DimRuntimeModule extends AbstractDimRuntimeModule {
   
   @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
-    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProvider.class);
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.class);
   }
   
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {

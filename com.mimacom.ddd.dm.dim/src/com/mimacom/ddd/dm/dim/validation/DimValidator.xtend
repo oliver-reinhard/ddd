@@ -32,7 +32,7 @@ import java.util.List
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
 
-import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider.*
+import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.*
 
 /**
  * This class contains custom validation rules. 

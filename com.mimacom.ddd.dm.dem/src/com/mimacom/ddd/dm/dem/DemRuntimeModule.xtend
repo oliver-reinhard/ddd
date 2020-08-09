@@ -9,13 +9,13 @@ import com.mimacom.ddd.dm.dem.scoping.DemQualifiedNameProvider
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeComputer
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeDescriptorProvider
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -33,7 +33,7 @@ class DemRuntimeModule extends AbstractDemRuntimeModule {
 	override void configureIScopeProviderDelegate(Binder binder) {
 		binder.bind(IScopeProvider)
 		.annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
-		.to(DmxImportedNamespaceAwareLocalScopeProvider);
+		.to(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes);
 	}
 	
 	def Class<? extends DmxTypeComputer> bindDmxTypeComputer() {

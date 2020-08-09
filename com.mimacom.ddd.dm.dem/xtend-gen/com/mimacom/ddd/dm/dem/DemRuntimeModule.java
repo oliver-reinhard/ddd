@@ -10,7 +10,7 @@ import com.mimacom.ddd.dm.dem.scoping.DemQualifiedNameProvider;
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeComputer;
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeDescriptorProvider;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
@@ -35,7 +35,7 @@ public class DemRuntimeModule extends AbstractDemRuntimeModule {
   
   @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
-    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProvider.class);
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.class);
   }
   
   public Class<? extends DmxTypeComputer> bindDmxTypeComputer() {

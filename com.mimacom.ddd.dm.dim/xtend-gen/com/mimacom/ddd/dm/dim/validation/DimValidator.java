@@ -31,7 +31,7 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.validation.AbstractDimValidator;
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
@@ -276,11 +276,11 @@ public class DimValidator extends AbstractDimValidator {
   @Check
   public void checkTypeNameStartsWithCapital(final DInformationModel d) {
     String _name = d.getName();
-    boolean _equals = Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, _name);
+    boolean _equals = Objects.equal(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.DEFAULT_IMPORT_TYPES, _name);
     if (_equals) {
       return;
     } else {
-      boolean _startsWith = d.getName().startsWith((DmxImportedNamespaceAwareLocalScopeProvider.PREFIX + "."));
+      boolean _startsWith = d.getName().startsWith((DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.PREFIX + "."));
       if (_startsWith) {
         this.checkNameStartsWithCapitalImpl(d.getName().substring(3), d);
         return;
