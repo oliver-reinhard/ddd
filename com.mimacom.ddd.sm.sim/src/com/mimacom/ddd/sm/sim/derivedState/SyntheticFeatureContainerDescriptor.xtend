@@ -14,8 +14,4 @@ class SyntheticFeatureContainerDescriptor {
 			this.deductionDefinition = deductionDefinition
 			this.source = source
 		}
-		
-		new(IFeatureContainer syntheticType, IFeatureContainer source) {
-			this(syntheticType, null, source)
-		}
 	}

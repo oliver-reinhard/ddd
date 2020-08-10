@@ -6,83 +6,84 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.indexing.SimIndex
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import java.util.Map
+import org.apache.log4j.Level
+import org.apache.log4j.Logger
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.naming.QualifiedName
-import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IEObjectDescription
 
 class TransformationContext {
 
+	static final Logger LOGGER = Logger.getLogger(TransformationContext);
+
 	@Inject SimIndex index
-	
+
+	@Inject
+	IQualifiedNameProvider qualifiedNameProvider;
+
 	var Map<DType, DType> localDomainToSystemModelTypeMap
-	var Map<DType, DType> importedDomainToSystemModelTypeMap
-	var DerivedStateAwareResource resource
+	var Map<QualifiedName, DType> importedDomainQNToSystemModelTypeMap
+	var EObject context // used to determine visibility in index
 	
-	def void init(DerivedStateAwareResource resource) {
-		this.resource = resource
-		localDomainToSystemModelTypeMap = Maps.newHashMap()
-		importedDomainToSystemModelTypeMap = Maps.newHashMap()
-//		initializeLocallyMappedDTypes()
-		initializeImportedMappedDomainTypesFromIndex() 
+	new() {
+//		LOGGER.level = Level.DEBUG
 	}
-	
+
+	def void init(EObject context) {
+		this.context = context
+		localDomainToSystemModelTypeMap = Maps.newHashMap()
+		importedDomainQNToSystemModelTypeMap = Maps.newHashMap()
+		initializeImportedMappedDomainTypesFromIndex()
+	}
+
 	def void initializeImportedMappedDomainTypesFromIndex() {
-		val model = resource.contents.head
-		val Iterable<IEObjectDescription> deducedTypeDescriptions = index.getVisibleExternalDeducedDTypes(model) // expensive operation
-		val Map<QualifiedName, IEObjectDescription> allTypeDescriptionsMap = index.getVisibleDTypeDescriptionsMap(model)
-		
+		val Iterable<IEObjectDescription> deducedTypeDescriptions = index.getVisibleExternalDeducedDTypes(context) // expensive operation
+		val Map<QualifiedName, IEObjectDescription> allTypeDescriptionsMap = index.getVisibleDTypeDescriptionsMap(context)
+
 		for (sTypeDesc : deducedTypeDescriptions) {
 			val sourceNameStr = sTypeDesc.getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM)
 			val sourceQN = QualifiedName.create(sourceNameStr.split("\\."))
-			
+
 			val dTypeDesc = allTypeDescriptionsMap.get(sourceQN)
 			if (dTypeDesc !== null) {
 				var dType = dTypeDesc.EObjectOrProxy
 				var sType = sTypeDesc.EObjectOrProxy
 				if (dType instanceof DType && sType instanceof DType) {
-					if (dType.eIsProxy) {
-						dType = resource.resourceSet.getEObject(dTypeDesc.EObjectURI, true)
+//					if (dType.eIsProxy) {
+//						dType = resource.resourceSet.getEObject(dTypeDesc.EObjectURI, true)
+//					}
+//					if (sType.eIsProxy) {
+//						sType = resource.resourceSet.getEObject(sTypeDesc.EObjectURI, true)
+//					}
+					importedDomainQNToSystemModelTypeMap.put(sourceQN, sType as DType)
+					if (LOGGER.level == Level.DEBUG) {
+						LOGGER.debug("putSystemType for " + sourceQN + " -> " + sTypeDesc.EObjectURI)
 					}
-					if (sType.eIsProxy) {
-						sType = resource.resourceSet.getEObject(sTypeDesc.EObjectURI, true)
-					}
-					importedDomainToSystemModelTypeMap.put(dType as DType, sType as DType)
 				}
 			}
 		}
 	}
-	
-	/*
-	 * Crates a new map and adds those primitives of the resource to the map that realize DPrimitives.
-	 */
-	def void initializeLocallyMappedDTypes() {
-//		val contibutors = resource.allContents.filter(SPrimitive).filter[deductionRule?.source !== null]
-//		while(contibutors.hasNext) {
-//			val sPrimitive = contibutors.next
-//			if (sPrimitive.archetype && sPrimitive.deductionRule.source instanceof DPrimitive) {
-//				putSType(sPrimitive.deductionRule.source as DPrimitive, sPrimitive)
-//			}
-//		}
-	}
-	
+
 	def putSystemType(DType domainType, DType systemType) {
 		val previousS = localDomainToSystemModelTypeMap.put(domainType, systemType)
 		if (previousS !== null) {
-			// TODO remove => log  or create error marker
-			throw new IllegalStateException("There are two STypes realizing DType \"" + domainType.name + "\": as \"" + systemType.name + "\" and as \"" + previousS + "\"") 
+			LOGGER.error("There are two system types realizing domain type \"" + domainType.name + "\": as \"" + systemType.name +
+					"\" and as \"" + previousS + "\"")
 		}
 	}
-	
+
 	/*
 	 * @return  null if no system type is found for the given domain type.
 	 */
-	def DType getSystemType(DType domainType)  {
+	def DType getSystemType(DType domainType) {
 		var systemType = localDomainToSystemModelTypeMap.get(domainType)
 		if (systemType === null) {
-			systemType = importedDomainToSystemModelTypeMap.get(domainType)
-//			if (sPrimitive === null) {
-//				sPrimitive = UNKNOWN_TYPE
-//			}
+			val domainTypeQN = qualifiedNameProvider.getFullyQualifiedName(domainType)
+			systemType = importedDomainQNToSystemModelTypeMap.get(domainTypeQN)
+			if (systemType === null && LOGGER.level == Level.DEBUG) {
+				LOGGER.debug("getSystemType for " + domainTypeQN + " -> null")
+			}
 		}
 		return systemType
 	}

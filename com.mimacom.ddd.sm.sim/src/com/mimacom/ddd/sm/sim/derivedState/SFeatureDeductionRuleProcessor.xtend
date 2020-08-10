@@ -5,7 +5,6 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.dm.base.IFeatureContainer
 import com.mimacom.ddd.sm.sim.SDitchRule
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
@@ -56,8 +55,8 @@ class SFeatureDeductionRuleProcessor  {
 					val sourceParametersAffectedByRule = parameterDeductionDefinitions.filter[deductionRule.source instanceof DQueryParameter].map[deductionRule.source as DQueryParameter]
 					implicitlyGrabbedSourceParameters.removeAll(sourceParametersAffectedByRule)
 					// create synthetic SFeatures for implicit features:
-					for (dParameter : implicitlyGrabbedSourceParameters) {
-						syntheticQuery.addSyntheticQueryParameter(dParameter.name, dParameter, null, context)
+					for (sourceParameter : implicitlyGrabbedSourceParameters) {
+						syntheticQuery.addSyntheticQueryParameter(sourceParameter.name, sourceParameter, createImplicitElementCopyDeduction(deductionDefinition, sourceParameter), context)
 					}
 				}
 				
@@ -80,7 +79,7 @@ class SFeatureDeductionRuleProcessor  {
 		var Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.newArrayList
 		var Iterable<DFeature> explicitFeatures = Lists.newArrayList
 		
-		if (desc.deductionDefinition !== null) {
+		if (desc.deductionDefinition instanceof IFeatureContainer) {
 			val featureContainer =  desc.deductionDefinition as IFeatureContainer
 			featureDeductionDefinitions =featureContainer.features.filter(SFeatureDeduction)
 			explicitFeatures = featureContainer.features.filter[! (it instanceof SFeatureDeduction || it.synthetic)]
@@ -92,7 +91,7 @@ class SFeatureDeductionRuleProcessor  {
 			implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesAffectedByRule)
 			// create synthetic DFeatures for implicit features:
 			for (sourceFeature : implicitlyGrabbedSourceFeatures) {
-				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, desc.source as IDeducibleElement), context)
+				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, sourceFeature), context)
 			}
 		}
 		

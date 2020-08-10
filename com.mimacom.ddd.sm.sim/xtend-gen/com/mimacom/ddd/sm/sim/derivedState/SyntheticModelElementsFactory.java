@@ -39,7 +39,7 @@ import org.eclipse.xtext.EcoreUtil2;
 public class SyntheticModelElementsFactory {
   private static final BaseFactory BASE = BaseFactory.eINSTANCE;
   
-  private static final SimFactory simFactory = SimFactory.eINSTANCE;
+  private static final SimFactory SIM = SimFactory.eINSTANCE;
   
   public DAggregate addSyntheticAggregate(final SInformationModel container, final String name, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     final DAggregate syntheticAggregate = SyntheticModelElementsFactory.BASE.createDAggregate();
@@ -197,11 +197,16 @@ public class SyntheticModelElementsFactory {
     return syntheticParameter;
   }
   
-  public void addSyntheticLiteral(final DEnumeration container, final String name) {
+  public void addSyntheticLiteral(final DEnumeration container, final String name, final IDeductionDefinition deductionDefinition) {
     final DLiteral syntheticLiteral = SyntheticModelElementsFactory.BASE.createDLiteral();
     syntheticLiteral.setName(name);
     syntheticLiteral.setSynthetic(true);
+    syntheticLiteral.setDeducedFrom(deductionDefinition);
     container.getLiterals().add(syntheticLiteral);
+  }
+  
+  public void addSyntheticLiteralAsCopy(final DEnumeration container, final String name) {
+    this.addSyntheticLiteral(container, name, null);
   }
   
   protected DMultiplicity grabMultiplicity(final DMultiplicity source) {
@@ -257,9 +262,9 @@ public class SyntheticModelElementsFactory {
   }
   
   public SImplicitElementDeduction createImplicitElementCopyDeduction(final IDeductionDefinition originalDeductionDefinition, final IDeducibleElement source) {
-    final SGrabRule grabRule = SyntheticModelElementsFactory.simFactory.createSGrabRule();
+    final SGrabRule grabRule = SyntheticModelElementsFactory.SIM.createSGrabRule();
     grabRule.setSource(source);
-    final SImplicitElementDeduction implicitDeduction = SyntheticModelElementsFactory.simFactory.createSImplicitElementDeduction();
+    final SImplicitElementDeduction implicitDeduction = SyntheticModelElementsFactory.SIM.createSImplicitElementDeduction();
     implicitDeduction.setOriginalDeductionDefinition(originalDeductionDefinition);
     implicitDeduction.setDeductionRule(grabRule);
     return implicitDeduction;

@@ -99,8 +99,8 @@ public class SFeatureDeductionRuleProcessor {
           };
           final Iterable<DQueryParameter> sourceParametersAffectedByRule = IterableExtensions.<SQueryParameterDeduction, DQueryParameter>map(IterableExtensions.<SQueryParameterDeduction>filter(parameterDeductionDefinitions, _function_2), _function_3);
           CollectionExtensions.<DQueryParameter>removeAll(implicitlyGrabbedSourceParameters, sourceParametersAffectedByRule);
-          for (final DQueryParameter dParameter : implicitlyGrabbedSourceParameters) {
-            this._syntheticModelElementsFactory.addSyntheticQueryParameter(syntheticQuery, dParameter.getName(), dParameter, null, context);
+          for (final DQueryParameter sourceParameter : implicitlyGrabbedSourceParameters) {
+            this._syntheticModelElementsFactory.addSyntheticQueryParameter(syntheticQuery, sourceParameter.getName(), sourceParameter, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceParameter), context);
           }
         }
         final List<SQueryParameterDeduction> parameterDeductionDefinitionsList = IterableExtensions.<SQueryParameterDeduction>toList(parameterDeductionDefinitions);
@@ -119,7 +119,7 @@ public class SFeatureDeductionRuleProcessor {
   public void addSyntheticFeatures(final SyntheticFeatureContainerDescriptor desc, final TransformationContext context) {
     Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.<SFeatureDeduction>newArrayList();
     Iterable<DFeature> explicitFeatures = Lists.<DFeature>newArrayList();
-    if ((desc.deductionDefinition != null)) {
+    if ((desc.deductionDefinition instanceof IFeatureContainer)) {
       final IFeatureContainer featureContainer = ((IFeatureContainer) desc.deductionDefinition);
       featureDeductionDefinitions = Iterables.<SFeatureDeduction>filter(featureContainer.getFeatures(), SFeatureDeduction.class);
       final Function1<DFeature, Boolean> _function = (DFeature it) -> {
@@ -146,7 +146,7 @@ public class SFeatureDeductionRuleProcessor {
       final Iterable<DFeature> sourceFeaturesAffectedByRule = IterableExtensions.<SFeatureDeduction, DFeature>map(IterableExtensions.<SFeatureDeduction>filter(featureDeductionDefinitions, _function_2), _function_3);
       CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedSourceFeatures, sourceFeaturesAffectedByRule);
       for (final DFeature sourceFeature : implicitlyGrabbedSourceFeatures) {
-        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, ((IDeducibleElement) desc.source)), context);
+        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, sourceFeature), context);
       }
     }
     final List<SFeatureDeduction> featureDeductionDefinitionsList = IterableExtensions.<SFeatureDeduction>toList(featureDeductionDefinitions);

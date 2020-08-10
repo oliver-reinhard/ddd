@@ -43,11 +43,12 @@ class STypeDeductionRuleProcessor  {
 			
 			// create synthetic STypes for implicit types (but not their features yet because they may depend on the mappings of those types ):
 			for (sourceType : implicitlyGrabbedSourceTypes) {
-				val syntheticType = container.addSyntheticType(sourceType.name, sourceType, createImplicitElementCopyDeduction(deductionDefinition, sourceType), context)
+				val implicitTypeDeduction = createImplicitElementCopyDeduction(deductionDefinition, sourceType)
+				val syntheticType = container.addSyntheticType(sourceType.name, sourceType, implicitTypeDeduction, context)
 				if (syntheticType instanceof DEnumeration) {
-					syntheticType.addImplicitSyntheticLiterals(sourceType as DEnumeration, null)
+					syntheticType.addImplicitSyntheticLiterals(sourceType as DEnumeration, implicitTypeDeduction)
 				} else if (syntheticType instanceof DComplexType) {
-					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, sourceType as DComplexType))
+					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, implicitTypeDeduction, sourceType as DComplexType))
 				}
 			}
 		}
@@ -133,9 +134,9 @@ class STypeDeductionRuleProcessor  {
 		}
 	}
 	
-	def void addImplicitSyntheticLiterals(DEnumeration syntheticEnum, DEnumeration source, SEnumerationDeduction deductionDefinition) {
+	def void addImplicitSyntheticLiterals(DEnumeration syntheticEnum, DEnumeration source, IDeductionDefinition deductionDefinition) {
 		var Iterable<SLiteralDeduction> literalDeductionDefinitions = Lists.newArrayList
-		if (deductionDefinition !== null) {
+		if (deductionDefinition instanceof SEnumerationDeduction) {
 			literalDeductionDefinitions = deductionDefinition.literals.filter(SLiteralDeduction)
 		}
 
@@ -146,7 +147,7 @@ class STypeDeductionRuleProcessor  {
 			implicitlyGrabbedSourceLiterals.removeAll(sourceLiteralsAffectedByRule)
 			// create synthetic SLiterals for implicit literals:
 			for (sourceLiteral : implicitlyGrabbedSourceLiterals) {
-				syntheticEnum.addSyntheticLiteral(sourceLiteral.name)
+				syntheticEnum.addSyntheticLiteral(sourceLiteral.name, createImplicitElementCopyDeduction(deductionDefinition, sourceLiteral))
 			}
 		}
 	}
@@ -160,14 +161,14 @@ class STypeDeductionRuleProcessor  {
 					else if (rule.namedSource !== null) rule.namedSource.name
 					else UNDEFINED
 				// add explicit grab:
-				syntheticEnum.addSyntheticLiteral(literalName)
+				syntheticEnum.addSyntheticLiteral(literalName, definition)
 			}
 		}
 		
 		// add explicit literals (without rule):
 		val genuineLiterals = deductionDefinition.literals.filter[! (it instanceof SLiteralDeduction || it.synthetic)]
 		for (literal : genuineLiterals) {
-				syntheticEnum.addSyntheticLiteral(literal.name)
+				syntheticEnum.addSyntheticLiteralAsCopy(literal.name)
 		}
 	}
 }

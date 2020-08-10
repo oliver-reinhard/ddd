@@ -32,7 +32,7 @@ import org.eclipse.xtext.EcoreUtil2
 class SyntheticModelElementsFactory {
 
 	static val BASE = BaseFactory.eINSTANCE
-	static val simFactory = SimFactory.eINSTANCE
+	static val SIM = SimFactory.eINSTANCE
 
 	def DAggregate addSyntheticAggregate(SInformationModel container, String name,
 		IDeductionDefinition deductionDefinition, TransformationContext context) {
@@ -166,11 +166,17 @@ class SyntheticModelElementsFactory {
 		return syntheticParameter
 	}
 
-	def void addSyntheticLiteral(DEnumeration container, String name) {
+	def void addSyntheticLiteral(DEnumeration container, String name, IDeductionDefinition deductionDefinition) {
 		val syntheticLiteral = BASE.createDLiteral
 		syntheticLiteral.name = name
 		syntheticLiteral.synthetic = true
+		syntheticLiteral.deducedFrom = deductionDefinition
 		container.literals.add(syntheticLiteral)
+	}
+	
+
+	def void addSyntheticLiteralAsCopy(DEnumeration container, String name) {
+		addSyntheticLiteral(container, name, null) /* NOTE: null */
 	}
 
 	protected def DMultiplicity grabMultiplicity(DMultiplicity source) {
@@ -214,9 +220,9 @@ class SyntheticModelElementsFactory {
 
 	def SImplicitElementDeduction createImplicitElementCopyDeduction(IDeductionDefinition originalDeductionDefinition,
 		IDeducibleElement source) {
-		val grabRule = simFactory.createSGrabRule
+		val grabRule = SyntheticModelElementsFactory.SIM.createSGrabRule
 		grabRule.source = source
-		val implicitDeduction = simFactory.createSImplicitElementDeduction
+		val implicitDeduction = SyntheticModelElementsFactory.SIM.createSImplicitElementDeduction
 		implicitDeduction.originalDeductionDefinition = originalDeductionDefinition
 		implicitDeduction.deductionRule = grabRule
 		return implicitDeduction

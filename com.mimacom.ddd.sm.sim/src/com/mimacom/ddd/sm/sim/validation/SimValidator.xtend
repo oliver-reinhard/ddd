@@ -220,7 +220,10 @@ class SimValidator extends AbstractSimValidator {
 			super.checkAttributeIsValueType(a)
 		} else if (a.synthetic) {
 			if (a.getType === null) {
-				errorOnStructuralElement(a, getDescription(a) + ": no type mapping for attribute '" + a.name + "'")
+				val deductionDefinition = a.deducedFrom
+				val source = deductionDefinition?.deductionRule?.source as DAttribute
+				val sourceType = source?.type
+				errorOnStructuralElement(a, getDescription(a) + ": no system-type mapping for domain type '" + sourceType?.name + "'")
 			} else if (! (a.getType instanceof IValueType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": attribute type must be a ValueType")
 			}
@@ -237,8 +240,11 @@ class SimValidator extends AbstractSimValidator {
 //		} else
 		if (a.synthetic) {
 			if (a.getType === null) {
+				val deductionDefinition = a.deducedFrom
+				val source = deductionDefinition?.deductionRule?.source as DAssociation
+				val sourceType = source?.type
 				errorOnStructuralElement(a,
-					getDescription(a) + ": no type mapping for target of association '" + a.name + "'")
+					getDescription(a) + ": no system-type mapping for association-target type '" + sourceType?.name + "'")
 			} else if (! (a.getType instanceof IIdentityType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": association target must be an IdentityType")
 			}
@@ -283,9 +289,12 @@ class SimValidator extends AbstractSimValidator {
 	protected def void warningOnStructuralElement(EObject e, String warningMsg) {
 		if (e instanceof IDeducibleElement) {
 			if (e.synthetic) {
-				val definition = e.deducedFrom
+				var definition = e.deducedFrom
 				if (definition instanceof SImplicitElementDeduction) {
-					warningOnStructuralElementImpl(definition.originalDeductionDefinition, warningMsg)
+					while (definition instanceof SImplicitElementDeduction) {
+						definition = definition.originalDeductionDefinition
+					}
+					warningOnStructuralElementImpl(definition, warningMsg)
 				} else {
 					val container = e.eContainer
 					if (container instanceof IDeducibleElement) {
@@ -317,9 +326,12 @@ class SimValidator extends AbstractSimValidator {
 	protected def void errorOnStructuralElement(EObject e, String errorMsg) {
 		if (e instanceof IDeducibleElement) {
 			if (e.synthetic) {
-				val definition = e.deducedFrom
+				var definition = e.deducedFrom
 				if (definition instanceof SImplicitElementDeduction) {
-					errorOnStructuralElementImpl(definition.originalDeductionDefinition, errorMsg)
+					while (definition instanceof SImplicitElementDeduction) {
+						definition = definition.originalDeductionDefinition
+					}
+					errorOnStructuralElementImpl(definition, errorMsg)
 				} else {
 					val container = e.eContainer
 					if (container instanceof IDeducibleElement) {

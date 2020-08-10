@@ -22,6 +22,7 @@ import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
@@ -72,12 +73,13 @@ public class STypeDeductionRuleProcessor {
       CollectionExtensions.<DType>removeAll(implicitlyGrabbedSourceTypes, sourceTypesAffectedByRule);
       for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
-          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType), context);
+          final SImplicitElementDeduction implicitTypeDeduction = this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType);
+          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeDeduction, context);
           if ((syntheticType instanceof DEnumeration)) {
-            this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), null);
+            this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), implicitTypeDeduction);
           } else {
             if ((syntheticType instanceof DComplexType)) {
-              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((DComplexType) sourceType));
+              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), implicitTypeDeduction, ((DComplexType) sourceType));
               acceptor.add(_syntheticFeatureContainerDescriptor);
             }
           }
@@ -195,10 +197,10 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  public void addImplicitSyntheticLiterals(final DEnumeration syntheticEnum, final DEnumeration source, final SEnumerationDeduction deductionDefinition) {
+  public void addImplicitSyntheticLiterals(final DEnumeration syntheticEnum, final DEnumeration source, final IDeductionDefinition deductionDefinition) {
     Iterable<SLiteralDeduction> literalDeductionDefinitions = Lists.<SLiteralDeduction>newArrayList();
-    if ((deductionDefinition != null)) {
-      literalDeductionDefinitions = Iterables.<SLiteralDeduction>filter(deductionDefinition.getLiterals(), SLiteralDeduction.class);
+    if ((deductionDefinition instanceof SEnumerationDeduction)) {
+      literalDeductionDefinitions = Iterables.<SLiteralDeduction>filter(((SEnumerationDeduction)deductionDefinition).getLiterals(), SLiteralDeduction.class);
     }
     final Function1<SLiteralDeduction, Boolean> _function = (SLiteralDeduction it) -> {
       DDeductionRule _deductionRule = it.getDeductionRule();
@@ -219,7 +221,7 @@ public class STypeDeductionRuleProcessor {
       final Iterable<DLiteral> sourceLiteralsAffectedByRule = IterableExtensions.<SLiteralDeduction, DLiteral>map(IterableExtensions.<SLiteralDeduction>filter(literalDeductionDefinitions, _function_1), _function_2);
       CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedSourceLiterals, sourceLiteralsAffectedByRule);
       for (final DLiteral sourceLiteral : implicitlyGrabbedSourceLiterals) {
-        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName());
+        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceLiteral));
       }
     }
   }
@@ -247,7 +249,7 @@ public class STypeDeductionRuleProcessor {
             _xifexpression = _xifexpression_1;
           }
           final String literalName = _xifexpression;
-          this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literalName);
+          this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literalName, definition);
         }
       }
     }
@@ -256,7 +258,7 @@ public class STypeDeductionRuleProcessor {
     };
     final Iterable<DLiteral> genuineLiterals = IterableExtensions.<DLiteral>filter(deductionDefinition.getLiterals(), _function);
     for (final DLiteral literal : genuineLiterals) {
-      this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literal.getName());
+      this._syntheticModelElementsFactory.addSyntheticLiteralAsCopy(syntheticEnum, literal.getName());
     }
   }
   

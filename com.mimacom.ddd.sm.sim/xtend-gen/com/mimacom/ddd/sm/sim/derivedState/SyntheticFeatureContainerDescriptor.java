@@ -16,8 +16,4 @@ public class SyntheticFeatureContainerDescriptor {
     this.deductionDefinition = deductionDefinition;
     this.source = source;
   }
-  
-  public SyntheticFeatureContainerDescriptor(final IFeatureContainer syntheticType, final IFeatureContainer source) {
-    this(syntheticType, null, source);
-  }
 }

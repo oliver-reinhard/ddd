@@ -10,6 +10,7 @@ import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.STypeDeduction
 import java.util.Collections
+import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
@@ -19,19 +20,29 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	@Inject extension SAggregateDeductionRuleProcessor
 	@Inject extension STypeDeductionRuleProcessor
 	@Inject extension SFeatureDeductionRuleProcessor
+	
+	static final Logger LOGGER = Logger.getLogger(SimDerivedStateComputer);
 
 	@Inject TransformationContext context
 
 	var derivedStateInstalled = false
-
+	
+	new() {
+//		LOGGER.level = Level.DEBUG
+		LOGGER.debug("Created")
+	}
+	
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
 		if (!preLinkingPhase && ! resource.parseResult.hasSyntaxErrors) {
-			derivedStateInstalled = true
-			context.init(resource)
 			val namespace = resource.allContents.head as DNamespace
 			val model = namespace.model as SInformationModel
 			if (model !== null) {
-				processInformationModel(model, context)
+				LOGGER.debug("Init context for " + resource.URI + " (set: " + resource.resourceSet.hashCode + ")")
+				context.init(model)
+				LOGGER.debug("Derive model for " + resource.URI)
+				derivedStateInstalled = true
+				model.process
+				LOGGER.debug("Derive model END for " + resource.URI)
 			}
 		}
 	}
@@ -39,6 +50,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	override discardDerivedState(DerivedStateAwareResource resource) {
 		if (derivedStateInstalled) {
 			try {
+				LOGGER.debug("Discard context")
 				// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
 				val syntheticElements = resource.allContents.filter(IDeducibleElement).filter[synthetic]
 				val list = Lists.newArrayList
@@ -54,9 +66,9 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 
-	def void processInformationModel(SInformationModel model, TransformationContext context) {
+	def void process(SInformationModel model) {
 		// First: process the types defined by the model:
-		val typeDeductionDefinitions = model.types.filter(STypeDeduction)?.toList // cannot sort iterable 
+		val typeDeductionDefinitions = model.types.filter(STypeDeduction)?.toList // cannot sort Iterable 
 		if (! typeDeductionDefinitions.empty) {
 			Collections.sort(typeDeductionDefinitions, new TypeSorter)
 			val complexSyntheticTypes = Lists.newArrayList

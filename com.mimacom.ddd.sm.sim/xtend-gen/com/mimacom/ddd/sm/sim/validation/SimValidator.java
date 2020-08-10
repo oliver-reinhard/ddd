@@ -277,15 +277,33 @@ public class SimValidator extends AbstractSimValidator {
         DType _type = a.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
+          final IDeductionDefinition deductionDefinition = a.getDeducedFrom();
+          DDeductionRule _deductionRule = null;
+          if (deductionDefinition!=null) {
+            _deductionRule=deductionDefinition.getDeductionRule();
+          }
+          IDeducibleElement _source = null;
+          if (_deductionRule!=null) {
+            _source=_deductionRule.getSource();
+          }
+          final DAttribute source = ((DAttribute) _source);
+          DType _type_1 = null;
+          if (source!=null) {
+            _type_1=source.getType();
+          }
+          final DType sourceType = _type_1;
           String _description = this.getDescription(a);
-          String _plus = (_description + ": no type mapping for attribute \'");
-          String _name = a.getName();
+          String _plus = (_description + ": no system-type mapping for domain type \'");
+          String _name = null;
+          if (sourceType!=null) {
+            _name=sourceType.getName();
+          }
           String _plus_1 = (_plus + _name);
           String _plus_2 = (_plus_1 + "\'");
           this.errorOnStructuralElement(a, _plus_2);
         } else {
-          DType _type_1 = a.getType();
-          boolean _not = (!(_type_1 instanceof IValueType));
+          DType _type_2 = a.getType();
+          boolean _not = (!(_type_2 instanceof IValueType));
           if (_not) {
             String _description_1 = this.getDescription(a);
             String _plus_3 = (_description_1 + ": attribute type must be a ValueType");
@@ -307,15 +325,33 @@ public class SimValidator extends AbstractSimValidator {
       DType _type = a.getType();
       boolean _tripleEquals = (_type == null);
       if (_tripleEquals) {
+        final IDeductionDefinition deductionDefinition = a.getDeducedFrom();
+        DDeductionRule _deductionRule = null;
+        if (deductionDefinition!=null) {
+          _deductionRule=deductionDefinition.getDeductionRule();
+        }
+        IDeducibleElement _source = null;
+        if (_deductionRule!=null) {
+          _source=_deductionRule.getSource();
+        }
+        final DAssociation source = ((DAssociation) _source);
+        DType _type_1 = null;
+        if (source!=null) {
+          _type_1=source.getType();
+        }
+        final DType sourceType = _type_1;
         String _description = this.getDescription(a);
-        String _plus = (_description + ": no type mapping for target of association \'");
-        String _name = a.getName();
+        String _plus = (_description + ": no system-type mapping for association-target type \'");
+        String _name = null;
+        if (sourceType!=null) {
+          _name=sourceType.getName();
+        }
         String _plus_1 = (_plus + _name);
         String _plus_2 = (_plus_1 + "\'");
         this.errorOnStructuralElement(a, _plus_2);
       } else {
-        DType _type_1 = a.getType();
-        boolean _not = (!(_type_1 instanceof IIdentityType));
+        DType _type_2 = a.getType();
+        boolean _not = (!(_type_2 instanceof IIdentityType));
         if (_not) {
           String _description_1 = this.getDescription(a);
           String _plus_3 = (_description_1 + ": association target must be an IdentityType");
@@ -382,9 +418,12 @@ public class SimValidator extends AbstractSimValidator {
     if ((e instanceof IDeducibleElement)) {
       boolean _isSynthetic = ((IDeducibleElement)e).isSynthetic();
       if (_isSynthetic) {
-        final IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
+        IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
         if ((definition instanceof SImplicitElementDeduction)) {
-          this.warningOnStructuralElementImpl(((SImplicitElementDeduction)definition).getOriginalDeductionDefinition(), warningMsg);
+          while ((definition instanceof SImplicitElementDeduction)) {
+            definition = ((SImplicitElementDeduction)definition).getOriginalDeductionDefinition();
+          }
+          this.warningOnStructuralElementImpl(definition, warningMsg);
         } else {
           final EObject container = ((IDeducibleElement)e).eContainer();
           if ((container instanceof IDeducibleElement)) {
@@ -421,9 +460,12 @@ public class SimValidator extends AbstractSimValidator {
     if ((e instanceof IDeducibleElement)) {
       boolean _isSynthetic = ((IDeducibleElement)e).isSynthetic();
       if (_isSynthetic) {
-        final IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
+        IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
         if ((definition instanceof SImplicitElementDeduction)) {
-          this.errorOnStructuralElementImpl(((SImplicitElementDeduction)definition).getOriginalDeductionDefinition(), errorMsg);
+          while ((definition instanceof SImplicitElementDeduction)) {
+            definition = ((SImplicitElementDeduction)definition).getOriginalDeductionDefinition();
+          }
+          this.errorOnStructuralElementImpl(definition, errorMsg);
         } else {
           final EObject container = ((IDeducibleElement)e).eContainer();
           if ((container instanceof IDeducibleElement)) {
