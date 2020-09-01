@@ -17,6 +17,7 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
@@ -37,7 +38,6 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
@@ -419,9 +419,9 @@ public class SimValidator extends AbstractSimValidator {
       boolean _isSynthetic = ((IDeducibleElement)e).isSynthetic();
       if (_isSynthetic) {
         IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
-        if ((definition instanceof SImplicitElementDeduction)) {
-          while ((definition instanceof SImplicitElementDeduction)) {
-            definition = ((SImplicitElementDeduction)definition).getOriginalDeductionDefinition();
+        if ((definition instanceof DImplicitDeduction)) {
+          while ((definition instanceof DImplicitDeduction)) {
+            definition = ((DImplicitDeduction)definition).getOriginalDeductionDefinition();
           }
           this.warningOnStructuralElementImpl(definition, warningMsg);
         } else {
@@ -461,9 +461,9 @@ public class SimValidator extends AbstractSimValidator {
       boolean _isSynthetic = ((IDeducibleElement)e).isSynthetic();
       if (_isSynthetic) {
         IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
-        if ((definition instanceof SImplicitElementDeduction)) {
-          while ((definition instanceof SImplicitElementDeduction)) {
-            definition = ((SImplicitElementDeduction)definition).getOriginalDeductionDefinition();
+        if ((definition instanceof DImplicitDeduction)) {
+          while ((definition instanceof DImplicitDeduction)) {
+            definition = ((DImplicitDeduction)definition).getOriginalDeductionDefinition();
           }
           this.errorOnStructuralElementImpl(definition, errorMsg);
         } else {

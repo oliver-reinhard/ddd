@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
@@ -104,19 +105,19 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 		new SimSwitch<Adapter>()
 		{
 			@Override
+			public Adapter caseSImport(SImport object)
+			{
+				return createSImportAdapter();
+			}
+			@Override
 			public Adapter caseSInformationModel(SInformationModel object)
 			{
 				return createSInformationModelAdapter();
 			}
 			@Override
-			public Adapter caseSImplicitElementDeduction(SImplicitElementDeduction object)
+			public Adapter caseSTypeMapping(STypeMapping object)
 			{
-				return createSImplicitElementDeductionAdapter();
-			}
-			@Override
-			public Adapter caseSDomainDeduction(SDomainDeduction object)
-			{
-				return createSDomainDeductionAdapter();
+				return createSTypeMappingAdapter();
 			}
 			@Override
 			public Adapter caseSAggregateDeduction(SAggregateDeduction object)
@@ -219,9 +220,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabAggregateRuleAdapter();
 			}
 			@Override
-			public Adapter caseSGrabModelRule(SGrabModelRule object)
+			public Adapter caseDImport(DImport object)
 			{
-				return createSGrabModelRuleAdapter();
+				return createDImportAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -254,11 +255,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
-			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
-			{
-				return createIDeductionDefinitionAdapter();
-			}
-			@Override
 			public Adapter caseIFeatureContainer(IFeatureContainer object)
 			{
 				return createIFeatureContainerAdapter();
@@ -277,6 +273,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDAggregate(DAggregate object)
 			{
 				return createDAggregateAdapter();
+			}
+			@Override
+			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
+			{
+				return createIDeductionDefinitionAdapter();
 			}
 			@Override
 			public Adapter caseDType(DType object)
@@ -386,6 +387,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SImport
+	 * @generated
+	 */
+	public Adapter createSImportAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -401,31 +417,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction <em>SImplicit Element Deduction</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.STypeMapping <em>SType Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SImplicitElementDeduction
+	 * @see com.mimacom.ddd.sm.sim.STypeMapping
 	 * @generated
 	 */
-	public Adapter createSImplicitElementDeductionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDomainDeduction <em>SDomain Deduction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SDomainDeduction
-	 * @generated
-	 */
-	public Adapter createSDomainDeductionAdapter()
+	public Adapter createSTypeMappingAdapter()
 	{
 		return null;
 	}
@@ -731,16 +732,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SGrabModelRule <em>SGrab Model Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SGrabModelRule
+	 * @see com.mimacom.ddd.dm.base.DImport
 	 * @generated
 	 */
-	public Adapter createSGrabModelRuleAdapter()
+	public Adapter createDImportAdapter()
 	{
 		return null;
 	}
@@ -836,21 +837,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IDeductionDefinition
-	 * @generated
-	 */
-	public Adapter createIDeductionDefinitionAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IFeatureContainer <em>IFeature Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -906,6 +892,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAggregateAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDeductionDefinition
+	 * @generated
+	 */
+	public Adapter createIDeductionDefinitionAdapter()
 	{
 		return null;
 	}

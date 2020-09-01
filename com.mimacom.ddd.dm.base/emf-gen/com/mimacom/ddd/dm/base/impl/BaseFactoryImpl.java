@@ -69,6 +69,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DNAMESPACE: return createDNamespace();
 			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
 			case BasePackage.DRICH_TEXT: return createDRichText();
+			case BasePackage.DIMPLICIT_DEDUCTION: return createDImplicitDeduction();
 			case BasePackage.DINFORMATION_MODEL: return createDInformationModel();
 			case BasePackage.DAGGREGATE: return createDAggregate();
 			case BasePackage.DCONTEXT: return createDContext();
@@ -178,6 +179,18 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DRichTextImpl dRichText = new DRichTextImpl();
 		return dRichText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DImplicitDeduction createDImplicitDeduction()
+	{
+		DImplicitDeductionImpl dImplicitDeduction = new DImplicitDeductionImpl();
+		return dImplicitDeduction;
 	}
 
 	/**

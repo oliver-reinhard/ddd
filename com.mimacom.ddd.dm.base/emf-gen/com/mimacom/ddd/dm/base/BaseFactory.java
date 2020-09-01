@@ -59,6 +59,15 @@ public interface BaseFactory extends EFactory
 	DRichText createDRichText();
 
 	/**
+	 * Returns a new object of class '<em>DImplicit Deduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DImplicit Deduction</em>'.
+	 * @generated
+	 */
+	DImplicitDeduction createDImplicitDeduction();
+
+	/**
 	 * Returns a new object of class '<em>DInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

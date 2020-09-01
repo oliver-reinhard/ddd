@@ -103,9 +103,9 @@ ruleDNamespace returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsSImportParserRuleCall_2_0());
 				}
-				lv_imports_2_0=ruleDImport
+				lv_imports_2_0=ruleSImport
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
@@ -114,7 +114,7 @@ ruleDNamespace returns [EObject current=null]
 						$current,
 						"imports",
 						lv_imports_2_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
+						"com.mimacom.ddd.sm.sim.Sim.SImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -141,6 +141,73 @@ ruleDNamespace returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleSImport
+entryRuleSImport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSImportRule()); }
+	iv_ruleSImport=ruleSImport
+	{ $current=$iv_ruleSImport.current; }
+	EOF;
+
+// Rule SImport
+ruleSImport returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='import'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSImportAccess().getImportKeyword_0());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0_0());
+					}
+					lv_importedNamespace_1_0=ruleDQualifiedNameWithWildcard
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSImportRule());
+						}
+						set(
+							$current,
+							"importedNamespace",
+							lv_importedNamespace_1_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				otherlv_2='model'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getSImportAccess().getModelKeyword_1_1_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSImportRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getSImportAccess().getModelSInformationModelCrossReference_1_1_1_0());
+						}
+						ruleDQualifiedName
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleSInformationModel
 entryRuleSInformationModel returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSInformationModelRule()); }
@@ -159,36 +226,70 @@ ruleSInformationModel returns [EObject current=null]
 	(
 		(
 			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSTypeModelKindEnumRuleCall_0_0_0_0());
+						}
+						lv_kind_0_0=ruleSTypeModelKind
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
+							}
+							set(
+								$current,
+								"kind",
+								lv_kind_0_0,
+								"com.mimacom.ddd.sm.sim.Sim.STypeModelKind");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_1='type'
 				{
-					newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0());
+					newLeafNode(otherlv_1, grammarAccess.getSInformationModelAccess().getTypeKeyword_0_0_1());
 				}
-				lv_kind_0_0=ruleSInformationModelKind
+				otherlv_2='model'
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
-					}
-					set(
-						$current,
-						"kind",
-						lv_kind_0_0,
-						"com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getModelKeyword_0_0_2());
+				}
+			)
+			    |
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_1_0_0());
+						}
+						lv_kind_3_0=ruleSInformationModelKind
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
+							}
+							set(
+								$current,
+								"kind",
+								lv_kind_3_0,
+								"com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_4='information'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getSInformationModelAccess().getInformationKeyword_0_1_1());
+				}
+				otherlv_5='model'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getSInformationModelAccess().getModelKeyword_0_1_2());
 				}
 			)
 		)
-		otherlv_1='information'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSInformationModelAccess().getInformationKeyword_1());
-		}
-		otherlv_2='model'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getModelKeyword_2());
-		}
 		(
 			(
-				lv_name_3_0=RULE_ID
+				lv_name_6_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getSInformationModelAccess().getNameIDTerminalRuleCall_3_0());
+					newLeafNode(lv_name_6_0, grammarAccess.getSInformationModelAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -197,16 +298,16 @@ ruleSInformationModel returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_3_0,
+						lv_name_6_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.ID");
 				}
 			)
 		)
 		(
 			(
-				lv_generate_4_0='generate'
+				lv_generate_7_0='generate'
 				{
-					newLeafNode(lv_generate_4_0, grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0());
+					newLeafNode(lv_generate_7_0, grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_2_0());
 				}
 				{
 					if ($current==null) {
@@ -219,9 +320,9 @@ ruleSInformationModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSInformationModelAccess().getDescriptionDRichTextParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getSInformationModelAccess().getDescriptionDRichTextParserRuleCall_3_0());
 				}
-				lv_description_5_0=ruleDRichText
+				lv_description_8_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
@@ -229,23 +330,23 @@ ruleSInformationModel returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_5_0,
+						lv_description_8_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_6='{'
+		otherlv_9='{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getSInformationModelAccess().getLeftCurlyBracketKeyword_6());
+			newLeafNode(otherlv_9, grammarAccess.getSInformationModelAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSInformationModelAccess().getTypesSTypeParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getSInformationModelAccess().getTypesSTypeParserRuleCall_5_0_0());
 					}
-					lv_types_7_0=ruleSType
+					lv_types_10_0=ruleSType
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
@@ -253,7 +354,7 @@ ruleSInformationModel returns [EObject current=null]
 						add(
 							$current,
 							"types",
-							lv_types_7_0,
+							lv_types_10_0,
 							"com.mimacom.ddd.sm.sim.Sim.SType");
 						afterParserOrEnumRuleCall();
 					}
@@ -263,9 +364,9 @@ ruleSInformationModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSInformationModelAccess().getAggregatesSAggregateParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getSInformationModelAccess().getAggregatesSAggregateParserRuleCall_5_1_0());
 					}
-					lv_aggregates_8_0=ruleSAggregate
+					lv_aggregates_11_0=ruleSAggregate
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
@@ -273,70 +374,17 @@ ruleSInformationModel returns [EObject current=null]
 						add(
 							$current,
 							"aggregates",
-							lv_aggregates_8_0,
+							lv_aggregates_11_0,
 							"com.mimacom.ddd.sm.sim.Sim.SAggregate");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSInformationModelAccess().getDomainProxiesSDomainParserRuleCall_7_2_0());
-					}
-					lv_domainProxies_9_0=ruleSDomain
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
-						}
-						add(
-							$current,
-							"domainProxies",
-							lv_domainProxies_9_0,
-							"com.mimacom.ddd.sm.sim.Sim.SDomain");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
 		)*
-		otherlv_10='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getSInformationModelAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_12, grammarAccess.getSInformationModelAccess().getRightCurlyBracketKeyword_6());
 		}
-	)
-;
-
-// Entry rule entryRuleSGrabModelRule
-entryRuleSGrabModelRule returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSGrabModelRuleRule()); }
-	iv_ruleSGrabModelRule=ruleSGrabModelRule
-	{ $current=$iv_ruleSGrabModelRule.current; }
-	EOF;
-
-// Rule SGrabModelRule
-ruleSGrabModelRule returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getSGrabModelRuleRule());
-				}
-			}
-			{
-				newCompositeNode(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelCrossReference_0());
-			}
-			ruleDQualifiedName
-			{
-				afterParserOrEnumRuleCall();
-			}
-		)
 	)
 ;
 
@@ -1362,59 +1410,6 @@ ruleSDitchQueryParameterRule returns [EObject current=null]
 			{
 				newLeafNode(otherlv_0, grammarAccess.getSDitchQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0());
 			}
-		)
-	)
-;
-
-// Entry rule entryRuleSDomain
-entryRuleSDomain returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSDomainRule()); }
-	iv_ruleSDomain=ruleSDomain
-	{ $current=$iv_ruleSDomain.current; }
-	EOF;
-
-// Rule SDomain
-ruleSDomain returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getSDomainAccess().getSDomainDeductionAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='grab'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSDomainAccess().getGrabKeyword_1());
-		}
-		otherlv_2='domain'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getSDomainAccess().getDomainKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0());
-				}
-				lv_deductionRule_3_0=ruleSGrabModelRule
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSDomainRule());
-					}
-					set(
-						$current,
-						"deductionRule",
-						lv_deductionRule_3_0,
-						"com.mimacom.ddd.sm.sim.Sim.SGrabModelRule");
-					afterParserOrEnumRuleCall();
-				}
-			)
 		)
 	)
 ;
@@ -5364,48 +5359,6 @@ ruleDQueryParameter returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleDImport
-entryRuleDImport returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDImportRule()); }
-	iv_ruleDImport=ruleDImport
-	{ $current=$iv_ruleDImport.current; }
-	EOF;
-
-// Rule DImport
-ruleDImport returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='import'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0());
-				}
-				lv_importedNamespace_1_0=ruleDQualifiedNameWithWildcard
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDImportRule());
-					}
-					set(
-						$current,
-						"importedNamespace",
-						lv_importedNamespace_1_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-	)
-;
-
 // Entry rule entryRuleDmxTest
 entryRuleDmxTest returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDmxTestRule()); }
@@ -9237,6 +9190,23 @@ ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 	)
 ;
 
+// Rule STypeModelKind
+ruleSTypeModelKind returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='base'
+		{
+			$current = grammarAccess.getSTypeModelKindAccess().getBASEEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getSTypeModelKindAccess().getBASEEnumLiteralDeclaration());
+		}
+	)
+;
+
 // Rule SInformationModelKind
 ruleSInformationModelKind returns [Enumerator current=null]
 @init {
@@ -9247,26 +9217,18 @@ ruleSInformationModelKind returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='base'
+			enumLiteral_0='interface'
 			{
-				$current = grammarAccess.getSInformationModelKindAccess().getBASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getSInformationModelKindAccess().getBASEEnumLiteralDeclaration_0());
+				$current = grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='interface'
+			enumLiteral_1='core'
 			{
-				$current = grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='core'
-			{
-				$current = grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_2());
+				$current = grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_1());
 			}
 		)
 	)

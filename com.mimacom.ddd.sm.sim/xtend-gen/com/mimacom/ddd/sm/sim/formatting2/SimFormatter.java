@@ -42,7 +42,7 @@ public class SimFormatter extends AbstractFormatter2 {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_3()), _function);
+    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_1()), _function);
     EList<DType> _types = model.getTypes();
     for (final DType type : _types) {
       document.<DType>format(type);

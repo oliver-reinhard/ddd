@@ -130,14 +130,19 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createIDeductionDefinitionAdapter();
 			}
 			@Override
+			public Adapter caseDDeductionRule(DDeductionRule object)
+			{
+				return createDDeductionRuleAdapter();
+			}
+			@Override
 			public Adapter caseIDeducibleElement(IDeducibleElement object)
 			{
 				return createIDeducibleElementAdapter();
 			}
 			@Override
-			public Adapter caseDDeductionRule(DDeductionRule object)
+			public Adapter caseDImplicitDeduction(DImplicitDeduction object)
 			{
-				return createDDeductionRuleAdapter();
+				return createDImplicitDeductionAdapter();
 			}
 			@Override
 			public Adapter caseDInformationModel(DInformationModel object)
@@ -462,6 +467,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDeductionRule <em>DDeduction Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DDeductionRule
+	 * @generated
+	 */
+	public Adapter createDDeductionRuleAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeducibleElement <em>IDeducible Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -477,16 +497,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDeductionRule <em>DDeduction Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DImplicitDeduction <em>DImplicit Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DDeductionRule
+	 * @see com.mimacom.ddd.dm.base.DImplicitDeduction
 	 * @generated
 	 */
-	public Adapter createDDeductionRuleAdapter()
+	public Adapter createDImplicitDeductionAdapter()
 	{
 		return null;
 	}

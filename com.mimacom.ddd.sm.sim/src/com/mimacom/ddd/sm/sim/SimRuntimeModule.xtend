@@ -5,20 +5,20 @@ package com.mimacom.ddd.sm.sim
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
+import com.mimacom.ddd.dm.base.modelDeduction.TrueDerivedStateAwareResourceDescriptionManager
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
+import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.eclipse.xtext.resource.DerivedStateAwareResource
-import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
 import org.eclipse.xtext.resource.IDerivedStateComputer
 import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -36,13 +36,13 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	override void configureIScopeProviderDelegate(Binder binder) {
 		binder.bind(IScopeProvider)
 		.annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
-		.to(DmxImportedNamespaceAwareLocalScopeProvider);
+		.to(ImportedNamespaceAwareLocalScopeProvider); //DmxImportedNamespaceAwareLocalScopeProvider);
 	}
 
 	// derived state:
 	
 	override bindXtextResource() {
-		DerivedStateAwareResource
+		DeductionAwareResource
 	}
 
 	def Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
@@ -50,7 +50,7 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	}
 
 	def Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
-		DerivedStateAwareResourceDescriptionManager
+		TrueDerivedStateAwareResourceDescriptionManager
 	}
 
 	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {

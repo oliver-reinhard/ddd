@@ -12,9 +12,9 @@ import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import com.mimacom.ddd.dm.base.impl.DModelImpl;
 
-import com.mimacom.ddd.sm.sim.SDomainDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
+import com.mimacom.ddd.sm.sim.STypeMapping;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import java.util.Collection;
@@ -44,7 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#isGenerate <em>Generate</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getKind <em>Kind</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getDomainProxies <em>Domain Proxies</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getIndexingHelper <em>Indexing Helper</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,14 +112,14 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	protected SInformationModelKind kind = KIND_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDomainProxies() <em>Domain Proxies</em>}' containment reference list.
+	 * The cached value of the '{@link #getIndexingHelper() <em>Indexing Helper</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDomainProxies()
+	 * @see #getIndexingHelper()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SDomainDeduction> domainProxies;
+	protected STypeMapping indexingHelper;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +147,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -161,6 +162,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -175,6 +177,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerate()
 	{
 		return generate;
@@ -185,6 +188,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerate(boolean newGenerate)
 	{
 		boolean oldGenerate = generate;
@@ -198,6 +202,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SInformationModelKind getKind()
 	{
 		return kind;
@@ -208,6 +213,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(SInformationModelKind newKind)
 	{
 		SInformationModelKind oldKind = kind;
@@ -221,13 +227,49 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SDomainDeduction> getDomainProxies()
+	@Override
+	public STypeMapping getIndexingHelper()
 	{
-		if (domainProxies == null)
+		return indexingHelper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIndexingHelper(STypeMapping newIndexingHelper, NotificationChain msgs)
+	{
+		STypeMapping oldIndexingHelper = indexingHelper;
+		indexingHelper = newIndexingHelper;
+		if (eNotificationRequired())
 		{
-			domainProxies = new EObjectContainmentEList<SDomainDeduction>(SDomainDeduction.class, this, SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__INDEXING_HELPER, oldIndexingHelper, newIndexingHelper);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return domainProxies;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIndexingHelper(STypeMapping newIndexingHelper)
+	{
+		if (newIndexingHelper != indexingHelper)
+		{
+			NotificationChain msgs = null;
+			if (indexingHelper != null)
+				msgs = ((InternalEObject)indexingHelper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimPackage.SINFORMATION_MODEL__INDEXING_HELPER, null, msgs);
+			if (newIndexingHelper != null)
+				msgs = ((InternalEObject)newIndexingHelper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimPackage.SINFORMATION_MODEL__INDEXING_HELPER, null, msgs);
+			msgs = basicSetIndexingHelper(newIndexingHelper, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__INDEXING_HELPER, newIndexingHelper, newIndexingHelper));
 	}
 
 	/**
@@ -244,8 +286,8 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
-				return ((InternalEList<?>)getDomainProxies()).basicRemove(otherEnd, msgs);
+			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
+				return basicSetIndexingHelper(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -268,8 +310,8 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 				return isGenerate();
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				return getKind();
-			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
-				return getDomainProxies();
+			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
+				return getIndexingHelper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,9 +341,8 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				setKind((SInformationModelKind)newValue);
 				return;
-			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
-				getDomainProxies().clear();
-				getDomainProxies().addAll((Collection<? extends SDomainDeduction>)newValue);
+			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
+				setIndexingHelper((STypeMapping)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -329,8 +370,8 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
-			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
-				getDomainProxies().clear();
+			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
+				setIndexingHelper((STypeMapping)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -354,8 +395,8 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 				return generate != GENERATE_EDEFAULT;
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				return kind != KIND_EDEFAULT;
-			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
-				return domainProxies != null && !domainProxies.isEmpty();
+			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
+				return indexingHelper != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -452,7 +493,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (generate: ");
 		result.append(generate);
 		result.append(", kind: ");

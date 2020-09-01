@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DPrimitive;
@@ -20,10 +21,8 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
-import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SMorphRule;
@@ -87,7 +86,6 @@ public class SyntheticModelElementsFactory {
     syntheticType.setSynthetic(true);
     syntheticType.setDeducedFrom(deductionDefinition);
     container.getTypes().add(syntheticType);
-    context.putSystemType(source, syntheticType);
   }
   
   public DFeature addSyntheticFeature(final IFeatureContainer container, final String name, final DFeature source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
@@ -95,19 +93,18 @@ public class SyntheticModelElementsFactory {
     if ((sourceFeatureType == null)) {
       return null;
     }
-    final DType featureType = context.getSystemType(sourceFeatureType);
+    final DType featureType = context.getSystemTypeProxy(deductionDefinition, sourceFeatureType);
     DFeature _switchResult = null;
     boolean _matched = false;
-    if (source instanceof DAttribute || source instanceof DAssociation) {
+    if (source instanceof DAssociation) {
       _matched=true;
-      DFeature _xifexpression = null;
-      if (((featureType instanceof IIdentityType) || 
-        ((featureType == null) && (source instanceof DAssociation)))) {
-        _xifexpression = SyntheticModelElementsFactory.BASE.createDAssociation();
-      } else {
-        _xifexpression = SyntheticModelElementsFactory.BASE.createDAttribute();
+      _switchResult = SyntheticModelElementsFactory.BASE.createDAssociation();
+    }
+    if (!_matched) {
+      if (source instanceof DAttribute) {
+        _matched=true;
+        _switchResult = SyntheticModelElementsFactory.BASE.createDAttribute();
       }
-      _switchResult = _xifexpression;
     }
     if (!_matched) {
       if (source instanceof DQuery) {
@@ -178,7 +175,7 @@ public class SyntheticModelElementsFactory {
     }
     final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.BASE.createDQueryParameter();
     syntheticParameter.setName(name);
-    syntheticParameter.setType(context.getSystemType(sourceParameterType));
+    syntheticParameter.setType(context.getSystemTypeProxy(deductionDefinition, sourceParameterType));
     syntheticParameter.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     syntheticParameter.setSynthetic(true);
     syntheticParameter.setDeducedFrom(deductionDefinition);
@@ -261,11 +258,12 @@ public class SyntheticModelElementsFactory {
     return (source instanceof DDetailType);
   }
   
-  public SImplicitElementDeduction createImplicitElementCopyDeduction(final IDeductionDefinition originalDeductionDefinition, final IDeducibleElement source) {
+  public DImplicitDeduction createImplicitElementCopyDeduction(final IDeductionDefinition originalDeductionDefinition, final IDeducibleElement source) {
+    final DImplicitDeduction implicitDeduction = SyntheticModelElementsFactory.BASE.createDImplicitDeduction();
+    originalDeductionDefinition.getImpliedDeductions().add(implicitDeduction);
+    implicitDeduction.setOriginalDeductionDefinition(originalDeductionDefinition);
     final SGrabRule grabRule = SyntheticModelElementsFactory.SIM.createSGrabRule();
     grabRule.setSource(source);
-    final SImplicitElementDeduction implicitDeduction = SyntheticModelElementsFactory.SIM.createSImplicitElementDeduction();
-    implicitDeduction.setOriginalDeductionDefinition(originalDeductionDefinition);
     implicitDeduction.setDeductionRule(grabRule);
     return implicitDeduction;
   }

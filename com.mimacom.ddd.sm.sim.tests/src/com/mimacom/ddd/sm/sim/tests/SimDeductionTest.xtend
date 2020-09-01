@@ -9,11 +9,13 @@ import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DImplicitDeduction
 import com.mimacom.ddd.dm.base.DInformationModel
 import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxModel
@@ -24,13 +26,14 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule
 import com.mimacom.ddd.sm.sim.SGrabRule
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
+import com.mimacom.ddd.sm.sim.indexing.SimIndex
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -42,6 +45,14 @@ import static org.junit.jupiter.api.Assertions.*
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
 class SimDeductionTest {
+	
+	static val DM_TYPES_AT = QualifiedName.create("dm", "types", "AT")
+	
+	static val DM_DT = QualifiedName.create("DM", "DT")
+	static val DM_EN = QualifiedName.create("DM", "En")
+	
+	static val SM_SM1_ST = QualifiedName.create("SM", "SM1", "ST")
+	
 	@Inject
 	ParseHelper<DNamespace> simParseHelper
 
@@ -50,6 +61,7 @@ class SimDeductionTest {
 
 	@Inject
 	Provider<ResourceSet> resourceSetProvider
+	@Inject SimIndex index
 
 	new() {
 		val dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration()
@@ -67,7 +79,16 @@ class SimDeductionTest {
 		val dmx = dmxNS.model as DmxModel
 		assertNotNull(dmx)
 		assertEquals(1, dmx.types.size)
-		assertTrue(dmx.types.get(0) instanceof DmxArchetype)
+		val at = dmx.types.head
+		assertTrue(at instanceof DmxArchetype)
+		
+		// Check the index:
+		val descs = index.getExportedDTypeDescriptions(at).toList
+		assertEquals(1, descs.size)
+		assertEquals(SimDeductionTest.DM_TYPES_AT, descs.head.qualifiedName)
+		val visibleDescs = index.getVisibleDTypeDescriptions(at).toList
+		assertEquals(1, visibleDescs.size)
+		assertEquals(SimDeductionTest.DM_TYPES_AT, visibleDescs.head.qualifiedName)
 		return dmx
 	}
 
@@ -95,7 +116,17 @@ class SimDeductionTest {
 		assertEquals(2, en.literals.size)
 		assertEquals("L1", en.literals.get(0).name)
 		assertEquals("L2", en.literals.get(1).name)
-
+		
+		// Check the index:
+		val descs = index.getExportedDTypeDescriptions(dt).toList
+		assertEquals(2, descs.size)
+		assertEquals(DM_DT, descs.get(0).qualifiedName)
+		assertEquals(DM_EN, descs.get(1).qualifiedName)
+		val visibleDescs = index.getVisibleDTypeDescriptions(dt).toList
+		assertEquals(3, visibleDescs.size)
+		assertEquals(DM_TYPES_AT, visibleDescs.get(0).qualifiedName)
+		assertEquals(DM_DT, visibleDescs.get(1).qualifiedName)
+		assertEquals(DM_EN, visibleDescs.get(2).qualifiedName)
 		return dim
 	}
 
@@ -178,6 +209,17 @@ class SimDeductionTest {
 		assertTrue(st.synthetic)
 		assertEquals(stDeduction, st.deducedFrom)
 		assertEquals(dt, st.deducedFrom.deductionRule.source)
+		
+		// Check the index:
+		val descs = index.getExportedDTypeDescriptions(st).toList
+		assertEquals(1, descs.size)
+		assertEquals(SM_SM1_ST, descs.get(0).qualifiedName)
+		val visibleDescs = index.getVisibleDTypeDescriptions(st).toList
+		assertEquals(4, visibleDescs.size)
+		assertEquals(SM_SM1_ST, visibleDescs.get(3).qualifiedName)
+		val visibleMapings = index.getVisibleSTypeMappingDescriptions(st, DeductionHelper.getDeductionSourceQNForIndex(DM_DT)).toList
+		assertEquals(1, visibleMapings.size)
+		assertEquals(SM_SM1_ST, DeductionHelper.getDeductionTargetQN(visibleMapings.get(0)))
 	}
 
 	@Test
@@ -222,7 +264,7 @@ class SimDeductionTest {
 			assertEquals(3, sen1.literals.size)
 			val sl1 = sen1.literals.get(0)
 			assertEquals("L1", sl1.name)
-			val sl1Deduction = sl1.deducedFrom as SImplicitElementDeduction
+			val sl1Deduction = sl1.deducedFrom as DImplicitDeduction
 			assertTrue(sl1Deduction.deductionRule instanceof SGrabRule)
 			assertEquals(l1, sl1Deduction.deductionRule.source)
 			//
@@ -278,6 +320,17 @@ class SimDeductionTest {
 		val stDeduction = sm.types.get(0) as SPrimitiveDeduction
 		assertFalse(stDeduction.synthetic)
 		assertTrue(stDeduction.deductionRule instanceof SGrabRule)
+		
+		// Check the index:
+		val descs2 = index.getExportedDTypeDescriptions(stDeduction).toList
+//		assertEquals(1, descs2.size)
+//		assertEquals("dm.types.AT", descs2.head.qualifiedName.toString)
+		val visibleDTypeDescs2 = index.getVisibleDTypeDescriptions(stDeduction).toList
+//		assertEquals(1, visibleDescs2.size)
+//		assertEquals("dm.types.AT", visibleDescs2.head.qualifiedName.toString)
+		val visibleDeductionDescs2 = index.getVisibleSTypeMappingDescriptions(stDeduction, DM_TYPES_AT).toList
+//		assertEquals(1, visibleDTDeductionDescs2.size)
+//		assertEquals("dm.types.AT", visibleDescs2.head.qualifiedName.toString)
 		//
 		val sma1Deduction = sm.types.get(1) as SEntityTypeDeduction
 		assertFalse(sma1Deduction.synthetic)
@@ -304,7 +357,7 @@ class SimDeductionTest {
 			assertTrue(smx.synthetic)
 			assertEquals("x", smx.name)
 			assertEquals(st, smx.type)
-			val smxDeduction = smx.deducedFrom as SImplicitElementDeduction
+			val smxDeduction = smx.deducedFrom as DImplicitDeduction
 			assertTrue(smxDeduction.deductionRule instanceof SGrabRule)
 			assertEquals(x, smx.deducedFrom.deductionRule.source)
 			//
@@ -394,7 +447,7 @@ class SimDeductionTest {
 			assertTrue(sp1.synthetic)
 			assertEquals("p1", sp1.name)
 			assertEquals(st, sp1.type)
-			val sp1Deduction = sp1.deducedFrom as SImplicitElementDeduction
+			val sp1Deduction = sp1.deducedFrom as DImplicitDeduction
 			assertTrue(sp1Deduction.deductionRule instanceof SGrabRule)
 			assertEquals(p1, sp1.deducedFrom.deductionRule.source)
 			//
@@ -470,7 +523,7 @@ class SimDeductionTest {
 		val sma = sAggr.types.get(0) as DEntityType
 		assertEquals("A", sma.name)
 		assertTrue(sma.synthetic)
-		val smaDeduction = sma.deducedFrom as SImplicitElementDeduction
+		val smaDeduction = sma.deducedFrom as DImplicitDeduction
 		assertTrue(smaDeduction.deductionRule instanceof SGrabRule)
 		assertEquals(a, sma.deducedFrom.deductionRule.source)
 		//
@@ -479,7 +532,7 @@ class SimDeductionTest {
 		assertTrue(smx.synthetic)
 		assertEquals("x", smx.name)
 		assertEquals(st, smx.type)
-		val smxDeduction = smx.deducedFrom as SImplicitElementDeduction
+		val smxDeduction = smx.deducedFrom as DImplicitDeduction
 		assertTrue(smxDeduction.deductionRule instanceof SGrabRule)
 		assertEquals(x, smx.deducedFrom.deductionRule.source)
 	}

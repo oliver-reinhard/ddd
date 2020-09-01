@@ -1,15 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.mimacom.ddd.dm.base
+Bundle-Name: %pluginName
 Bundle-SymbolicName: com.mimacom.ddd.dm.base;singleton:=true
 Automatic-Module-Name: com.mimacom.ddd.dm.base
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: mimacom ag
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.base,
  com.mimacom.ddd.dm.base.impl,
+ com.mimacom.ddd.dm.base.modelDeduction,
  com.mimacom.ddd.dm.base.richText,
  com.mimacom.ddd.dm.base.styledText,
  com.mimacom.ddd.dm.base.util,

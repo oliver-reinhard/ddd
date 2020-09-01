@@ -5,6 +5,7 @@ import java.util.Collections
 import java.util.List
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.resource.IContainer
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.IResourceDescription
@@ -53,6 +54,18 @@ abstract class AbstractXtextIndex {
 		context.getVisibleContainers.map [ container |
 			container.getExportedObjectsByType(type)
 		].flatten
+	}
+
+	/**
+	 * Returns also the visible objects of the resource containing the 'context' object.
+	 *
+	 * @param context used to derive the relevant eResource.
+	 */
+	def Iterable<IEObjectDescription> getVisibleEObjectDescriptions(EObject context, EClass type, QualifiedName name) {
+		val result = context.getVisibleContainers.map [ container |
+			container.getExportedObjects(type, name, false)
+		].flatten
+		return result
 	}
 	
 	/**

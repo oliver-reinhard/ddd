@@ -17,6 +17,7 @@ import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
@@ -147,6 +148,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dDeductionRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass iDeducibleElementEClass = null;
 
 	/**
@@ -154,7 +162,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dDeductionRuleEClass = null;
+	private EClass dImplicitDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -655,31 +663,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getIDeducibleElement()
+	public EReference getIDeductionDefinition_ImpliedDeductions()
 	{
-		return iDeducibleElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIDeducibleElement_DeducedFrom()
-	{
-		return (EReference)iDeducibleElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIDeducibleElement_Synthetic()
-	{
-		return (EAttribute)iDeducibleElementEClass.getEStructuralFeatures().get(1);
+		return (EReference)iDeductionDefinitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -713,6 +699,61 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDDeductionRule_NamedSource()
 	{
 		return (EReference)dDeductionRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIDeducibleElement()
+	{
+		return iDeducibleElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIDeducibleElement_DeducedFrom()
+	{
+		return (EReference)iDeducibleElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIDeducibleElement_Synthetic()
+	{
+		return (EAttribute)iDeducibleElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDImplicitDeduction()
+	{
+		return dImplicitDeductionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDImplicitDeduction_OriginalDeductionDefinition()
+	{
+		return (EReference)dImplicitDeductionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1447,14 +1488,18 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		iDeductionDefinitionEClass = createEClass(IDEDUCTION_DEFINITION);
 		createEReference(iDeductionDefinitionEClass, IDEDUCTION_DEFINITION__DEDUCTION_RULE);
+		createEReference(iDeductionDefinitionEClass, IDEDUCTION_DEFINITION__IMPLIED_DEDUCTIONS);
+
+		dDeductionRuleEClass = createEClass(DDEDUCTION_RULE);
+		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__SOURCE);
+		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__NAMED_SOURCE);
 
 		iDeducibleElementEClass = createEClass(IDEDUCIBLE_ELEMENT);
 		createEReference(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__DEDUCED_FROM);
 		createEAttribute(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__SYNTHETIC);
 
-		dDeductionRuleEClass = createEClass(DDEDUCTION_RULE);
-		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__SOURCE);
-		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__NAMED_SOURCE);
+		dImplicitDeductionEClass = createEClass(DIMPLICIT_DEDUCTION);
+		createEReference(dImplicitDeductionEClass, DIMPLICIT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION);
 
 		dInformationModelEClass = createEClass(DINFORMATION_MODEL);
 
@@ -1582,6 +1627,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dRichTextEClass.getESuperTypes().add(this.getDExpression());
+		dImplicitDeductionEClass.getESuperTypes().add(this.getIDeductionDefinition());
 		dInformationModelEClass.getESuperTypes().add(this.getDModel());
 		dInformationModelEClass.getESuperTypes().add(this.getIAggregateContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getITypeContainer());
@@ -1657,14 +1703,18 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(iDeductionDefinitionEClass, IDeductionDefinition.class, "IDeductionDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIDeductionDefinition_DeductionRule(), this.getDDeductionRule(), null, "deductionRule", null, 0, 1, IDeductionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIDeductionDefinition_ImpliedDeductions(), this.getDImplicitDeduction(), null, "impliedDeductions", null, 0, -1, IDeductionDefinition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dDeductionRuleEClass, DDeductionRule.class, "DDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDDeductionRule_Source(), this.getIDeducibleElement(), null, "source", null, 0, 1, DDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDDeductionRule_NamedSource(), this.getDNamedElement(), null, "namedSource", null, 0, 1, DDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(iDeducibleElementEClass, IDeducibleElement.class, "IDeducibleElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIDeducibleElement_DeducedFrom(), this.getIDeductionDefinition(), null, "deducedFrom", null, 0, 1, IDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIDeducibleElement_Synthetic(), ecorePackage.getEBoolean(), "synthetic", null, 0, 1, IDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dDeductionRuleEClass, DDeductionRule.class, "DDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDDeductionRule_Source(), this.getIDeducibleElement(), null, "source", null, 0, 1, DDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDeductionRule_NamedSource(), this.getDNamedElement(), null, "namedSource", null, 0, 1, DDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(dImplicitDeductionEClass, DImplicitDeduction.class, "DImplicitDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDImplicitDeduction_OriginalDeductionDefinition(), this.getIDeductionDefinition(), null, "originalDeductionDefinition", null, 0, 1, DImplicitDeduction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dInformationModelEClass, DInformationModel.class, "DInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

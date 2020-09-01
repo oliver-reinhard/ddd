@@ -10,6 +10,7 @@ import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DImplicitDeduction
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
@@ -18,9 +19,7 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.dm.base.IDeductionDefinition
 import com.mimacom.ddd.dm.base.IFeatureContainer
-import com.mimacom.ddd.dm.base.IIdentityType
 import com.mimacom.ddd.dm.base.ITypeContainer
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SInformationModelKind
 import com.mimacom.ddd.sm.sim.SMorphRule
@@ -82,20 +81,26 @@ class SyntheticModelElementsFactory {
 		syntheticType.synthetic = true
 		syntheticType.deducedFrom = deductionDefinition
 		container.types.add(syntheticType)
-		context.putSystemType(source, syntheticType)
+//		context.putSystemType(source, syntheticType)
 	}
 
 	def DFeature addSyntheticFeature(IFeatureContainer container, String name, DFeature source,
 		IDeductionDefinition deductionDefinition, TransformationContext context) {
 		val sourceFeatureType = source.getType
-		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add sFeature now
+		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add synthetic feature now
 			return null
 		}
-		val featureType = context.getSystemType(sourceFeatureType) // may be null
+//		val featureType = context.getSystemType(sourceFeatureType) // may be null
+//		val syntheticFeature = switch source {
+//			DAttribute | DAssociation: if (featureType instanceof IIdentityType ||
+//				featureType === null && source instanceof DAssociation) BASE.createDAssociation else BASE.
+//				createDAttribute
+//			DQuery: BASE.createDQuery
+//		}
+		val featureType = context.getSystemTypeProxy(deductionDefinition, sourceFeatureType) // may be null ??
 		val syntheticFeature = switch source {
-			DAttribute | DAssociation: if (featureType instanceof IIdentityType ||
-				featureType === null && source instanceof DAssociation) BASE.createDAssociation else BASE.
-				createDAttribute
+			DAssociation:BASE.createDAssociation  // TODO this fails when IdentityType is changed to DetailType as part of the transformation
+			DAttribute: BASE.createDAttribute
 			DQuery: BASE.createDQuery
 		}
 		syntheticFeature.name = name
@@ -146,7 +151,7 @@ class SyntheticModelElementsFactory {
 		}
 		val syntheticParameter = BASE.createDQueryParameter
 		syntheticParameter.name = name
-		syntheticParameter.type = context.getSystemType(sourceParameterType)
+		syntheticParameter.type = context.getSystemTypeProxy(deductionDefinition, sourceParameterType)
 		syntheticParameter.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticParameter.synthetic = true
 		syntheticParameter.deducedFrom = deductionDefinition
@@ -218,13 +223,14 @@ class SyntheticModelElementsFactory {
 		return source instanceof DDetailType
 	}
 
-	def SImplicitElementDeduction createImplicitElementCopyDeduction(IDeductionDefinition originalDeductionDefinition,
+	def DImplicitDeduction createImplicitElementCopyDeduction(IDeductionDefinition originalDeductionDefinition,
 		IDeducibleElement source) {
-		val grabRule = SyntheticModelElementsFactory.SIM.createSGrabRule
-		grabRule.source = source
-		val implicitDeduction = SyntheticModelElementsFactory.SIM.createSImplicitElementDeduction
+		val implicitDeduction = BASE.createDImplicitDeduction
+		originalDeductionDefinition.impliedDeductions.add(implicitDeduction)
 		implicitDeduction.originalDeductionDefinition = originalDeductionDefinition
-		implicitDeduction.deductionRule = grabRule
+		val grabRule = SIM.createSGrabRule  
+		grabRule.source = source
+		implicitDeduction.deductionRule = grabRule // add to container
 		return implicitDeduction
 	}
 }

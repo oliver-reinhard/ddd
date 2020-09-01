@@ -12,6 +12,7 @@ import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.DInformationModel;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
@@ -21,6 +22,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxModel;
@@ -31,17 +33,20 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
+import com.mimacom.ddd.sm.sim.indexing.SimIndex;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
@@ -55,6 +60,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @InjectWith(SimInjectorProvider.class)
 @SuppressWarnings("all")
 public class SimDeductionTest {
+  private static final QualifiedName DM_TYPES_AT = QualifiedName.create("dm", "types", "AT");
+  
+  private static final QualifiedName DM_DT = QualifiedName.create("DM", "DT");
+  
+  private static final QualifiedName DM_EN = QualifiedName.create("DM", "En");
+  
+  private static final QualifiedName SM_SM1_ST = QualifiedName.create("SM", "SM1", "ST");
+  
   @Inject
   private ParseHelper<DNamespace> simParseHelper;
   
@@ -64,6 +77,9 @@ public class SimDeductionTest {
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
+  
+  @Inject
+  private SimIndex index;
   
   public SimDeductionTest() {
     final Injector dimInjector = new DimStandaloneSetup().createInjectorAndDoEMFRegistration();
@@ -85,8 +101,14 @@ public class SimDeductionTest {
       final DmxModel dmx = ((DmxModel) _model);
       Assertions.assertNotNull(dmx);
       Assertions.assertEquals(1, dmx.getTypes().size());
-      DType _get = dmx.getTypes().get(0);
-      Assertions.assertTrue((_get instanceof DmxArchetype));
+      final DType at = IterableExtensions.<DType>head(dmx.getTypes());
+      Assertions.assertTrue((at instanceof DmxArchetype));
+      final List<IEObjectDescription> descs = IterableExtensions.<IEObjectDescription>toList(this.index.getExportedDTypeDescriptions(at));
+      Assertions.assertEquals(1, descs.size());
+      Assertions.assertEquals(SimDeductionTest.DM_TYPES_AT, IterableExtensions.<IEObjectDescription>head(descs).getQualifiedName());
+      final List<IEObjectDescription> visibleDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(at));
+      Assertions.assertEquals(1, visibleDescs.size());
+      Assertions.assertEquals(SimDeductionTest.DM_TYPES_AT, IterableExtensions.<IEObjectDescription>head(visibleDescs).getQualifiedName());
       return dmx;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -126,6 +148,15 @@ public class SimDeductionTest {
       Assertions.assertEquals(2, en.getLiterals().size());
       Assertions.assertEquals("L1", en.getLiterals().get(0).getName());
       Assertions.assertEquals("L2", en.getLiterals().get(1).getName());
+      final List<IEObjectDescription> descs = IterableExtensions.<IEObjectDescription>toList(this.index.getExportedDTypeDescriptions(dt));
+      Assertions.assertEquals(2, descs.size());
+      Assertions.assertEquals(SimDeductionTest.DM_DT, descs.get(0).getQualifiedName());
+      Assertions.assertEquals(SimDeductionTest.DM_EN, descs.get(1).getQualifiedName());
+      final List<IEObjectDescription> visibleDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(dt));
+      Assertions.assertEquals(3, visibleDescs.size());
+      Assertions.assertEquals(SimDeductionTest.DM_TYPES_AT, visibleDescs.get(0).getQualifiedName());
+      Assertions.assertEquals(SimDeductionTest.DM_DT, visibleDescs.get(1).getQualifiedName());
+      Assertions.assertEquals(SimDeductionTest.DM_EN, visibleDescs.get(2).getQualifiedName());
       return dim;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -238,6 +269,15 @@ public class SimDeductionTest {
       Assertions.assertTrue(st.isSynthetic());
       Assertions.assertEquals(stDeduction, st.getDeducedFrom());
       Assertions.assertEquals(dt, st.getDeducedFrom().getDeductionRule().getSource());
+      final List<IEObjectDescription> descs = IterableExtensions.<IEObjectDescription>toList(this.index.getExportedDTypeDescriptions(st));
+      Assertions.assertEquals(1, descs.size());
+      Assertions.assertEquals(SimDeductionTest.SM_SM1_ST, descs.get(0).getQualifiedName());
+      final List<IEObjectDescription> visibleDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(st));
+      Assertions.assertEquals(4, visibleDescs.size());
+      Assertions.assertEquals(SimDeductionTest.SM_SM1_ST, visibleDescs.get(3).getQualifiedName());
+      final List<IEObjectDescription> visibleMapings = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleSTypeMappingDescriptions(st, DeductionHelper.getDeductionSourceQNForIndex(SimDeductionTest.DM_DT)));
+      Assertions.assertEquals(1, visibleMapings.size());
+      Assertions.assertEquals(SimDeductionTest.SM_SM1_ST, DeductionHelper.getDeductionTargetQN(visibleMapings.get(0)));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -295,7 +335,7 @@ public class SimDeductionTest {
         final DLiteral sl1 = sen1.getLiterals().get(0);
         Assertions.assertEquals("L1", sl1.getName());
         IDeductionDefinition _deducedFrom = sl1.getDeducedFrom();
-        final SImplicitElementDeduction sl1Deduction = ((SImplicitElementDeduction) _deducedFrom);
+        final DImplicitDeduction sl1Deduction = ((DImplicitDeduction) _deducedFrom);
         DDeductionRule _deductionRule_2 = sl1Deduction.getDeductionRule();
         Assertions.assertTrue((_deductionRule_2 instanceof SGrabRule));
         Assertions.assertEquals(l1, sl1Deduction.getDeductionRule().getSource());
@@ -365,6 +405,9 @@ public class SimDeductionTest {
       Assertions.assertFalse(stDeduction.isSynthetic());
       DDeductionRule _deductionRule = stDeduction.getDeductionRule();
       Assertions.assertTrue((_deductionRule instanceof SGrabRule));
+      final List<IEObjectDescription> descs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getExportedDTypeDescriptions(stDeduction));
+      final List<IEObjectDescription> visibleDTypeDescs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(stDeduction));
+      final List<IEObjectDescription> visibleDeductionDescs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleSTypeMappingDescriptions(stDeduction, SimDeductionTest.DM_TYPES_AT));
       DType _get_4 = sm.getTypes().get(1);
       final SEntityTypeDeduction sma1Deduction = ((SEntityTypeDeduction) _get_4);
       Assertions.assertFalse(sma1Deduction.isSynthetic());
@@ -395,7 +438,7 @@ public class SimDeductionTest {
         Assertions.assertEquals("x", smx.getName());
         Assertions.assertEquals(st, smx.getType());
         IDeductionDefinition _deducedFrom = smx.getDeducedFrom();
-        final SImplicitElementDeduction smxDeduction = ((SImplicitElementDeduction) _deducedFrom);
+        final DImplicitDeduction smxDeduction = ((DImplicitDeduction) _deducedFrom);
         DDeductionRule _deductionRule_3 = smxDeduction.getDeductionRule();
         Assertions.assertTrue((_deductionRule_3 instanceof SGrabRule));
         Assertions.assertEquals(x, smx.getDeducedFrom().getDeductionRule().getSource());
@@ -513,7 +556,7 @@ public class SimDeductionTest {
         Assertions.assertEquals("p1", sp1.getName());
         Assertions.assertEquals(st, sp1.getType());
         IDeductionDefinition _deducedFrom = sp1.getDeducedFrom();
-        final SImplicitElementDeduction sp1Deduction = ((SImplicitElementDeduction) _deducedFrom);
+        final DImplicitDeduction sp1Deduction = ((DImplicitDeduction) _deducedFrom);
         DDeductionRule _deductionRule_2 = sp1Deduction.getDeductionRule();
         Assertions.assertTrue((_deductionRule_2 instanceof SGrabRule));
         Assertions.assertEquals(p1, sp1.getDeducedFrom().getDeductionRule().getSource());
@@ -608,7 +651,7 @@ public class SimDeductionTest {
       Assertions.assertEquals("A", sma.getName());
       Assertions.assertTrue(sma.isSynthetic());
       IDeductionDefinition _deducedFrom = sma.getDeducedFrom();
-      final SImplicitElementDeduction smaDeduction = ((SImplicitElementDeduction) _deducedFrom);
+      final DImplicitDeduction smaDeduction = ((DImplicitDeduction) _deducedFrom);
       DDeductionRule _deductionRule_2 = smaDeduction.getDeductionRule();
       Assertions.assertTrue((_deductionRule_2 instanceof SGrabRule));
       Assertions.assertEquals(a, sma.getDeducedFrom().getDeductionRule().getSource());
@@ -619,7 +662,7 @@ public class SimDeductionTest {
       Assertions.assertEquals("x", smx.getName());
       Assertions.assertEquals(st, smx.getType());
       IDeductionDefinition _deducedFrom_1 = smx.getDeducedFrom();
-      final SImplicitElementDeduction smxDeduction = ((SImplicitElementDeduction) _deducedFrom_1);
+      final DImplicitDeduction smxDeduction = ((DImplicitDeduction) _deducedFrom_1);
       DDeductionRule _deductionRule_3 = smxDeduction.getDeductionRule();
       Assertions.assertTrue((_deductionRule_3 instanceof SGrabRule));
       Assertions.assertEquals(x, smx.getDeducedFrom().getDeductionRule().getSource());

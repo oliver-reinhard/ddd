@@ -9,27 +9,36 @@ import "http://www.mimacom.com/ddd/sm/sim"
 DNamespace:
 	'system'
 	name=DQualifiedName
-	(imports+=DImport)*
+	(imports+=SImport)*
 	model=SInformationModel;
 	
+SImport:
+	'import' 
+	(	importedNamespace=DQualifiedNameWithWildcard
+	|	'model' model=[SInformationModel|DQualifiedName]
+	)
+	;	
+	
 SInformationModel:
-	kind=SInformationModelKind 'information' 'model'
+	(	kind=STypeModelKind 'type' 'model'
+	|	kind=SInformationModelKind 'information' 'model'		
+	)
 	name=ID
 	 (^generate?='generate')?
 	(description=DRichText)?
 	'{'
-	(types+=SType | aggregates+=SAggregate | domainProxies+=SDomain)*
+	(types+=SType | aggregates+=SAggregate)*
 	'}';
-
+	
+enum STypeModelKind returns SInformationModelKind:
+	BASE='base';
+	
 enum SInformationModelKind:
-	BASE='base' | INTERFACE='interface' | CORE='core';
+	INTERFACE='interface' | CORE='core';
 
 /*
  * RULEs
  */
-
-SGrabModelRule:
-	source=[DInformationModel|DQualifiedName];
 		
 SGrabAggregateRule:
 	source=[DAggregate|DQualifiedName]
@@ -118,10 +127,6 @@ enum SDetailType returns STristate:
 
 enum SEntityType returns STristate:
 	FALSE='entity';
-	
-SDomain returns SDomainDeduction:
-	{SDomainDeduction}
-	'grab' 'domain' deductionRule=SGrabModelRule;
 
 SAggregate returns DAggregate:
 	SAggregateDeduction | DAggregate;

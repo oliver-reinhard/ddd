@@ -10,15 +10,13 @@ import com.mimacom.ddd.sm.sim.SAttributeDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomainDeduction;
 import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
-import com.mimacom.ddd.sm.sim.SGrabModelRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
+import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
@@ -30,6 +28,7 @@ import com.mimacom.ddd.sm.sim.SRenameRule;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STristate;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
+import com.mimacom.ddd.sm.sim.STypeMapping;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -55,6 +54,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass sImportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass sInformationModelEClass = null;
 
 	/**
@@ -62,14 +68,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sImplicitElementDeductionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sDomainDeductionEClass = null;
+	private EClass sTypeMappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,13 +215,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sGrabModelRuleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum sInformationModelKindEEnum = null;
 
 	/**
@@ -261,7 +253,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SimPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -276,7 +268,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		if (isInited) return (SimPackage)EPackage.Registry.INSTANCE.getEPackage(SimPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SimPackageImpl theSimPackage = (SimPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimPackageImpl());
+		Object registeredSimPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SimPackageImpl theSimPackage = registeredSimPackage instanceof SimPackageImpl ? (SimPackageImpl)registeredSimPackage : new SimPackageImpl();
 
 		isInited = true;
 
@@ -292,7 +285,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Mark meta-data to indicate it can't be changed
 		theSimPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimPackage.eNS_URI, theSimPackage);
 		return theSimPackage;
@@ -303,6 +295,29 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EClass getSImport()
+	{
+		return sImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSImport_Model()
+	{
+		return (EReference)sImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSInformationModel()
 	{
 		return sInformationModelEClass;
@@ -313,6 +328,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSInformationModel_Generate()
 	{
 		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(0);
@@ -323,6 +339,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSInformationModel_Kind()
 	{
 		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(1);
@@ -333,7 +350,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSInformationModel_DomainProxies()
+	@Override
+	public EReference getSInformationModel_IndexingHelper()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -343,9 +361,10 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSImplicitElementDeduction()
+	@Override
+	public EClass getSTypeMapping()
 	{
-		return sImplicitElementDeductionEClass;
+		return sTypeMappingEClass;
 	}
 
 	/**
@@ -353,26 +372,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSImplicitElementDeduction_OriginalDeductionDefinition()
-	{
-		return (EReference)sImplicitElementDeductionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSDomainDeduction()
-	{
-		return sDomainDeductionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public EClass getSAggregateDeduction()
 	{
 		return sAggregateDeductionEClass;
@@ -383,6 +383,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSTypeDeduction()
 	{
 		return sTypeDeductionEClass;
@@ -393,6 +394,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSPrimitiveDeduction()
 	{
 		return sPrimitiveDeductionEClass;
@@ -403,6 +405,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSEnumerationDeduction()
 	{
 		return sEnumerationDeductionEClass;
@@ -413,6 +416,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSLiteralDeduction()
 	{
 		return sLiteralDeductionEClass;
@@ -423,6 +427,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSComplexTypeDeduction()
 	{
 		return sComplexTypeDeductionEClass;
@@ -433,6 +438,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSDetailTypeDeduction()
 	{
 		return sDetailTypeDeductionEClass;
@@ -443,6 +449,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSEntityTypeDeduction()
 	{
 		return sEntityTypeDeductionEClass;
@@ -453,6 +460,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSFeatureDeduction()
 	{
 		return sFeatureDeductionEClass;
@@ -463,6 +471,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSAssociationDeduction()
 	{
 		return sAssociationDeductionEClass;
@@ -473,6 +482,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSAssociationDeduction__GetTargetType()
 	{
 		return sAssociationDeductionEClass.getEOperations().get(0);
@@ -483,6 +493,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSAttributeDeduction()
 	{
 		return sAttributeDeductionEClass;
@@ -493,6 +504,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSQueryDeduction()
 	{
 		return sQueryDeductionEClass;
@@ -503,6 +515,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSQueryParameterDeduction()
 	{
 		return sQueryParameterDeductionEClass;
@@ -513,6 +526,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSRenameRule()
 	{
 		return sRenameRuleEClass;
@@ -523,6 +537,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSRenameRule_RenameTo()
 	{
 		return (EAttribute)sRenameRuleEClass.getEStructuralFeatures().get(0);
@@ -533,6 +548,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSGrabRule()
 	{
 		return sGrabRuleEClass;
@@ -543,6 +559,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSDitchRule()
 	{
 		return sDitchRuleEClass;
@@ -553,6 +570,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSStructureChangingRule()
 	{
 		return sStructureChangingRuleEClass;
@@ -563,6 +581,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSStructureChangingRule_Abstract()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(0);
@@ -573,6 +592,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSStructureChangingRule_RootEntity()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(1);
@@ -583,6 +603,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSStructureChangingRule_Detail()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(2);
@@ -593,6 +614,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSStructureChangingRule_ExtendFrom()
 	{
 		return (EReference)sStructureChangingRuleEClass.getEStructuralFeatures().get(3);
@@ -603,6 +625,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSMorphRule()
 	{
 		return sMorphRuleEClass;
@@ -613,6 +636,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSMorphRule_RetypeTo()
 	{
 		return (EReference)sMorphRuleEClass.getEStructuralFeatures().get(0);
@@ -623,6 +647,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSMorphRule_RemultiplyTo()
 	{
 		return (EReference)sMorphRuleEClass.getEStructuralFeatures().get(1);
@@ -633,6 +658,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSFuseRule()
 	{
 		return sFuseRuleEClass;
@@ -643,6 +669,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSFuseRule_OtherSources()
 	{
 		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(0);
@@ -653,6 +680,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSGrabAggregateRule()
 	{
 		return sGrabAggregateRuleEClass;
@@ -663,6 +691,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSGrabAggregateRule_Aggregate()
 	{
 		return (EReference)sGrabAggregateRuleEClass.getEStructuralFeatures().get(0);
@@ -673,26 +702,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSGrabModelRule()
-	{
-		return sGrabModelRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSGrabModelRule_DModel()
-	{
-		return (EReference)sGrabModelRuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public EEnum getSInformationModelKind()
 	{
 		return sInformationModelKindEEnum;
@@ -703,6 +713,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSTristate()
 	{
 		return sTristateEEnum;
@@ -713,6 +724,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimFactory getSimFactory()
 	{
 		return (SimFactory)getEFactoryInstance();
@@ -738,15 +750,15 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		isCreated = true;
 
 		// Create classes and their features
+		sImportEClass = createEClass(SIMPORT);
+		createEReference(sImportEClass, SIMPORT__MODEL);
+
 		sInformationModelEClass = createEClass(SINFORMATION_MODEL);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__GENERATE);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__KIND);
-		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DOMAIN_PROXIES);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__INDEXING_HELPER);
 
-		sImplicitElementDeductionEClass = createEClass(SIMPLICIT_ELEMENT_DEDUCTION);
-		createEReference(sImplicitElementDeductionEClass, SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION);
-
-		sDomainDeductionEClass = createEClass(SDOMAIN_DEDUCTION);
+		sTypeMappingEClass = createEClass(STYPE_MAPPING);
 
 		sAggregateDeductionEClass = createEClass(SAGGREGATE_DEDUCTION);
 
@@ -798,9 +810,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sGrabAggregateRuleEClass = createEClass(SGRAB_AGGREGATE_RULE);
 		createEReference(sGrabAggregateRuleEClass, SGRAB_AGGREGATE_RULE__AGGREGATE);
 
-		sGrabModelRuleEClass = createEClass(SGRAB_MODEL_RULE);
-		createEReference(sGrabModelRuleEClass, SGRAB_MODEL_RULE__DMODEL);
-
 		// Create enums
 		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
 		sTristateEEnum = createEEnum(STRISTATE);
@@ -838,13 +847,12 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sImportEClass.getESuperTypes().add(theBasePackage.getDImport());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getDModel());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIAggregateContainer());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getITypeContainer());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
-		sImplicitElementDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
-		sDomainDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
 		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getDAggregate());
 		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
 		sTypeDeductionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
@@ -876,18 +884,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sMorphRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sFuseRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSRenameRule());
-		sGrabModelRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(sImportEClass, SImport.class, "SImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSImport_Model(), this.getSInformationModel(), null, "model", null, 0, 1, SImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSInformationModel_Generate(), ecorePackage.getEBoolean(), "generate", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSInformationModel_Kind(), this.getSInformationModelKind(), "kind", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_DomainProxies(), this.getSDomainDeduction(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_IndexingHelper(), this.getSTypeMapping(), null, "indexingHelper", null, 0, 1, SInformationModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sImplicitElementDeductionEClass, SImplicitElementDeduction.class, "SImplicitElementDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSImplicitElementDeduction_OriginalDeductionDefinition(), theBasePackage.getIDeductionDefinition(), null, "originalDeductionDefinition", null, 0, 1, SImplicitElementDeduction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sDomainDeductionEClass, SDomainDeduction.class, "SDomainDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sTypeMappingEClass, STypeMapping.class, "STypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sAggregateDeductionEClass, SAggregateDeduction.class, "SAggregateDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -939,9 +946,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sGrabAggregateRuleEClass, SGrabAggregateRule.class, "SGrabAggregateRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSGrabAggregateRule_Aggregate(), theBasePackage.getDAggregate(), null, "aggregate", null, 0, 1, SGrabAggregateRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEClass(sGrabModelRuleEClass, SGrabModelRule.class, "SGrabModelRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSGrabModelRule_DModel(), theBasePackage.getDInformationModel(), null, "dModel", null, 0, 1, SGrabModelRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");

@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.dm.base;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.IDeductionDefinition#getDeductionRule <em>Deduction Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.IDeductionDefinition#getImpliedDeductions <em>Implied Deductions</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getIDeductionDefinition()
@@ -43,5 +46,17 @@ public interface IDeductionDefinition extends EObject
 	 * @generated
 	 */
 	void setDeductionRule(DDeductionRule value);
+
+	/**
+	 * Returns the value of the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImplicitDeduction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Implied Deductions</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getIDeductionDefinition_ImpliedDeductions()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	EList<DImplicitDeduction> getImpliedDeductions();
 
 } // IDeductionDefinition

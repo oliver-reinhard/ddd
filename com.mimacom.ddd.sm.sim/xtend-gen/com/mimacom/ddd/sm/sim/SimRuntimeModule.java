@@ -5,22 +5,22 @@ package com.mimacom.ddd.sm.sim;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import com.mimacom.ddd.dm.base.modelDeduction.TrueDerivedStateAwareResourceDescriptionManager;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
+import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.resource.DerivedStateAwareResource;
-import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -39,12 +39,12 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
-    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProvider.class);
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(ImportedNamespaceAwareLocalScopeProvider.class);
   }
   
   @Override
   public Class<? extends XtextResource> bindXtextResource() {
-    return DerivedStateAwareResource.class;
+    return DeductionAwareResource.class;
   }
   
   public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
@@ -52,7 +52,7 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   }
   
   public Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
-    return DerivedStateAwareResourceDescriptionManager.class;
+    return TrueDerivedStateAwareResourceDescriptionManager.class;
   }
   
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {

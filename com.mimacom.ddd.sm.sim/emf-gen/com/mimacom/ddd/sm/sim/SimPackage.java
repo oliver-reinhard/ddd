@@ -62,6 +62,52 @@ public interface SimPackage extends EPackage
 	SimPackage eINSTANCE = com.mimacom.ddd.sm.sim.impl.SimPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImportImpl <em>SImport</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SImportImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImport()
+	 * @generated
+	 */
+	int SIMPORT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPORT__IMPORTED_NAMESPACE = BasePackage.DIMPORT__IMPORTED_NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPORT__MODEL = BasePackage.DIMPORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SImport</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPORT_FEATURE_COUNT = BasePackage.DIMPORT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>SImport</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPORT_OPERATION_COUNT = BasePackage.DIMPORT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl <em>SInformation Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,7 +115,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModel()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL = 0;
+	int SINFORMATION_MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -135,13 +181,13 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL__KIND = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Domain Proxies</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Indexing Helper</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DOMAIN_PROXIES = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int SINFORMATION_MODEL__INDEXING_HELPER = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
@@ -162,87 +208,32 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.STypeMappingImpl <em>SType Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImplicitElementDeduction()
+	 * @see com.mimacom.ddd.sm.sim.impl.STypeMappingImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTypeMapping()
 	 * @generated
 	 */
-	int SIMPLICIT_ELEMENT_DEDUCTION = 1;
+	int STYPE_MAPPING = 2;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
+	 * The number of structural features of the '<em>SType Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLICIT_ELEMENT_DEDUCTION__DEDUCTION_RULE = BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE;
+	int STYPE_MAPPING_FEATURE_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Original Deduction Definition</b></em>' reference.
+	 * The number of operations of the '<em>SType Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION = BasePackage.IDEDUCTION_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>SImplicit Element Deduction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLICIT_ELEMENT_DEDUCTION_FEATURE_COUNT = BasePackage.IDEDUCTION_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>SImplicit Element Deduction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLICIT_ELEMENT_DEDUCTION_OPERATION_COUNT = BasePackage.IDEDUCTION_DEFINITION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainDeductionImpl <em>SDomain Deduction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SDomainDeductionImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainDeduction()
-	 * @generated
-	 */
-	int SDOMAIN_DEDUCTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDOMAIN_DEDUCTION__DEDUCTION_RULE = BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE;
-
-	/**
-	 * The number of structural features of the '<em>SDomain Deduction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDOMAIN_DEDUCTION_FEATURE_COUNT = BasePackage.IDEDUCTION_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>SDomain Deduction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDOMAIN_DEDUCTION_OPERATION_COUNT = BasePackage.IDEDUCTION_DEFINITION_OPERATION_COUNT + 0;
+	int STYPE_MAPPING_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SAggregateDeductionImpl <em>SAggregate Deduction</em>}' class.
@@ -345,13 +336,22 @@ public interface SimPackage extends EPackage
 	int SAGGREGATE_DEDUCTION__DEDUCTION_RULE = BasePackage.DAGGREGATE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DAGGREGATE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SAggregate Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE_DEDUCTION_FEATURE_COUNT = BasePackage.DAGGREGATE_FEATURE_COUNT + 1;
+	int SAGGREGATE_DEDUCTION_FEATURE_COUNT = BasePackage.DAGGREGATE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SAggregate Deduction</em>' class.
@@ -409,13 +409,22 @@ public interface SimPackage extends EPackage
 	int STYPE_DEDUCTION__DEDUCTION_RULE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYPE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SType Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE_DEDUCTION_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int STYPE_DEDUCTION_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SType Deduction</em>' class.
@@ -518,13 +527,22 @@ public interface SimPackage extends EPackage
 	int SPRIMITIVE_DEDUCTION__DEDUCTION_RULE = BasePackage.DPRIMITIVE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRIMITIVE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DPRIMITIVE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SPrimitive Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRIMITIVE_DEDUCTION_FEATURE_COUNT = BasePackage.DPRIMITIVE_FEATURE_COUNT + 1;
+	int SPRIMITIVE_DEDUCTION_FEATURE_COUNT = BasePackage.DPRIMITIVE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SPrimitive Deduction</em>' class.
@@ -636,13 +654,22 @@ public interface SimPackage extends EPackage
 	int SENUMERATION_DEDUCTION__DEDUCTION_RULE = BasePackage.DENUMERATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENUMERATION_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DENUMERATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SEnumeration Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENUMERATION_DEDUCTION_FEATURE_COUNT = BasePackage.DENUMERATION_FEATURE_COUNT + 1;
+	int SENUMERATION_DEDUCTION_FEATURE_COUNT = BasePackage.DENUMERATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SEnumeration Deduction</em>' class.
@@ -754,13 +781,22 @@ public interface SimPackage extends EPackage
 	int SLITERAL_DEDUCTION__DEDUCTION_RULE = BasePackage.DLITERAL_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLITERAL_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DLITERAL_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SLiteral Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL_DEDUCTION_FEATURE_COUNT = BasePackage.DLITERAL_FEATURE_COUNT + 1;
+	int SLITERAL_DEDUCTION_FEATURE_COUNT = BasePackage.DLITERAL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SLiteral Deduction</em>' class.
@@ -816,6 +852,15 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SCOMPLEX_TYPE_DEDUCTION__DEDUCTION_RULE = STYPE_DEDUCTION__DEDUCTION_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOMPLEX_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS = STYPE_DEDUCTION__IMPLIED_DEDUCTIONS;
 
 	/**
 	 * The number of structural features of the '<em>SComplex Type Deduction</em>' class.
@@ -954,13 +999,22 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE = BasePackage.DDETAIL_TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DDETAIL_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SDetail Type Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SDETAIL_TYPE_DEDUCTION_FEATURE_COUNT = BasePackage.DDETAIL_TYPE_FEATURE_COUNT + 1;
+	int SDETAIL_TYPE_DEDUCTION_FEATURE_COUNT = BasePackage.DDETAIL_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SDetail Type Deduction</em>' class.
@@ -1126,13 +1180,22 @@ public interface SimPackage extends EPackage
 	int SENTITY_TYPE_DEDUCTION__DEDUCTION_RULE = BasePackage.DENTITY_TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DENTITY_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SEntity Type Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE_DEDUCTION_FEATURE_COUNT = BasePackage.DENTITY_TYPE_FEATURE_COUNT + 1;
+	int SENTITY_TYPE_DEDUCTION_FEATURE_COUNT = BasePackage.DENTITY_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SEntity Type Deduction</em>' class.
@@ -1161,6 +1224,15 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SFEATURE_DEDUCTION__DEDUCTION_RULE = BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFEATURE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.IDEDUCTION_DEFINITION__IMPLIED_DEDUCTIONS;
 
 	/**
 	 * The number of structural features of the '<em>SFeature Deduction</em>' class.
@@ -1308,13 +1380,22 @@ public interface SimPackage extends EPackage
 	int SASSOCIATION_DEDUCTION__DEDUCTION_RULE = BasePackage.DASSOCIATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SAssociation Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SASSOCIATION_DEDUCTION_FEATURE_COUNT = BasePackage.DASSOCIATION_FEATURE_COUNT + 1;
+	int SASSOCIATION_DEDUCTION_FEATURE_COUNT = BasePackage.DASSOCIATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Target Type</em>' operation.
@@ -1453,13 +1534,22 @@ public interface SimPackage extends EPackage
 	int SATTRIBUTE_DEDUCTION__DEDUCTION_RULE = BasePackage.DATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SATTRIBUTE_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SAttribute Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SATTRIBUTE_DEDUCTION_FEATURE_COUNT = BasePackage.DATTRIBUTE_FEATURE_COUNT + 1;
+	int SATTRIBUTE_DEDUCTION_FEATURE_COUNT = BasePackage.DATTRIBUTE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SAttribute Deduction</em>' class.
@@ -1598,13 +1688,22 @@ public interface SimPackage extends EPackage
 	int SQUERY_DEDUCTION__DEDUCTION_RULE = BasePackage.DQUERY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUERY_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DQUERY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SQuery Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_DEDUCTION_FEATURE_COUNT = BasePackage.DQUERY_FEATURE_COUNT + 1;
+	int SQUERY_DEDUCTION_FEATURE_COUNT = BasePackage.DQUERY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SQuery Deduction</em>' class.
@@ -1716,13 +1815,22 @@ public interface SimPackage extends EPackage
 	int SQUERY_PARAMETER_DEDUCTION__DEDUCTION_RULE = BasePackage.DQUERY_PARAMETER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Implied Deductions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUERY_PARAMETER_DEDUCTION__IMPLIED_DEDUCTIONS = BasePackage.DQUERY_PARAMETER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>SQuery Parameter Deduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER_DEDUCTION_FEATURE_COUNT = BasePackage.DQUERY_PARAMETER_FEATURE_COUNT + 1;
+	int SQUERY_PARAMETER_DEDUCTION_FEATURE_COUNT = BasePackage.DQUERY_PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>SQuery Parameter Deduction</em>' class.
@@ -2254,61 +2362,6 @@ public interface SimPackage extends EPackage
 	int SGRAB_AGGREGATE_RULE_OPERATION_COUNT = SRENAME_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl <em>SGrab Model Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabModelRule()
-	 * @generated
-	 */
-	int SGRAB_MODEL_RULE = 23;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SGRAB_MODEL_RULE__SOURCE = BasePackage.DDEDUCTION_RULE__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Named Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SGRAB_MODEL_RULE__NAMED_SOURCE = BasePackage.DDEDUCTION_RULE__NAMED_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>DModel</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SGRAB_MODEL_RULE__DMODEL = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>SGrab Model Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SGRAB_MODEL_RULE_FEATURE_COUNT = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>SGrab Model Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SGRAB_MODEL_RULE_OPERATION_COUNT = BasePackage.DDEDUCTION_RULE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2316,7 +2369,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 24;
+	int SINFORMATION_MODEL_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
@@ -2326,8 +2379,29 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
 	 * @generated
 	 */
-	int STRISTATE = 25;
+	int STRISTATE = 24;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SImport</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SImport
+	 * @generated
+	 */
+	EClass getSImport();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SImport#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SImport#getModel()
+	 * @see #getSImport()
+	 * @generated
+	 */
+	EReference getSImport_Model();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
@@ -2362,46 +2436,25 @@ public interface SimPackage extends EPackage
 	EAttribute getSInformationModel_Kind();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getDomainProxies <em>Domain Proxies</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sim.SInformationModel#getIndexingHelper <em>Indexing Helper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Domain Proxies</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getDomainProxies()
+	 * @return the meta object for the containment reference '<em>Indexing Helper</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getIndexingHelper()
 	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EReference getSInformationModel_DomainProxies();
+	EReference getSInformationModel_IndexingHelper();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction <em>SImplicit Element Deduction</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.STypeMapping <em>SType Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SImplicit Element Deduction</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SImplicitElementDeduction
+	 * @return the meta object for class '<em>SType Mapping</em>'.
+	 * @see com.mimacom.ddd.sm.sim.STypeMapping
 	 * @generated
 	 */
-	EClass getSImplicitElementDeduction();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction#getOriginalDeductionDefinition <em>Original Deduction Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Original Deduction Definition</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SImplicitElementDeduction#getOriginalDeductionDefinition()
-	 * @see #getSImplicitElementDeduction()
-	 * @generated
-	 */
-	EReference getSImplicitElementDeduction_OriginalDeductionDefinition();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDomainDeduction <em>SDomain Deduction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SDomain Deduction</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDomainDeduction
-	 * @generated
-	 */
-	EClass getSDomainDeduction();
+	EClass getSTypeMapping();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SAggregateDeduction <em>SAggregate Deduction</em>}'.
@@ -2713,27 +2766,6 @@ public interface SimPackage extends EPackage
 	EReference getSGrabAggregateRule_Aggregate();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabModelRule <em>SGrab Model Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SGrab Model Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SGrabModelRule
-	 * @generated
-	 */
-	EClass getSGrabModelRule();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SGrabModelRule#getDModel <em>DModel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>DModel</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SGrabModelRule#getDModel()
-	 * @see #getSGrabModelRule()
-	 * @generated
-	 */
-	EReference getSGrabModelRule_DModel();
-
-	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2778,6 +2810,24 @@ public interface SimPackage extends EPackage
 	interface Literals
 	{
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SImportImpl <em>SImport</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SImportImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImport()
+		 * @generated
+		 */
+		EClass SIMPORT = eINSTANCE.getSImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMPORT__MODEL = eINSTANCE.getSImport_Model();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl <em>SInformation Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2804,40 +2854,22 @@ public interface SimPackage extends EPackage
 		EAttribute SINFORMATION_MODEL__KIND = eINSTANCE.getSInformationModel_Kind();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain Proxies</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Indexing Helper</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SINFORMATION_MODEL__DOMAIN_PROXIES = eINSTANCE.getSInformationModel_DomainProxies();
+		EReference SINFORMATION_MODEL__INDEXING_HELPER = eINSTANCE.getSInformationModel_IndexingHelper();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.STypeMappingImpl <em>SType Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImplicitElementDeduction()
+		 * @see com.mimacom.ddd.sm.sim.impl.STypeMappingImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTypeMapping()
 		 * @generated
 		 */
-		EClass SIMPLICIT_ELEMENT_DEDUCTION = eINSTANCE.getSImplicitElementDeduction();
-
-		/**
-		 * The meta object literal for the '<em><b>Original Deduction Definition</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION = eINSTANCE.getSImplicitElementDeduction_OriginalDeductionDefinition();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainDeductionImpl <em>SDomain Deduction</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SDomainDeductionImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainDeduction()
-		 * @generated
-		 */
-		EClass SDOMAIN_DEDUCTION = eINSTANCE.getSDomainDeduction();
+		EClass STYPE_MAPPING = eINSTANCE.getSTypeMapping();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SAggregateDeductionImpl <em>SAggregate Deduction</em>}' class.
@@ -3118,24 +3150,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SGRAB_AGGREGATE_RULE__AGGREGATE = eINSTANCE.getSGrabAggregateRule_Aggregate();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl <em>SGrab Model Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SGrabModelRuleImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabModelRule()
-		 * @generated
-		 */
-		EClass SGRAB_MODEL_RULE = eINSTANCE.getSGrabModelRule();
-
-		/**
-		 * The meta object literal for the '<em><b>DModel</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SGRAB_MODEL_RULE__DMODEL = eINSTANCE.getSGrabModelRule_DModel();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.

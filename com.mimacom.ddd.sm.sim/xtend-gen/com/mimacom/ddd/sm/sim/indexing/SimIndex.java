@@ -3,10 +3,9 @@ package com.mimacom.ddd.sm.sim.indexing;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.dmx.indexing.AbstractXtextIndex;
-import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
+import com.mimacom.ddd.sm.sim.SimPackage;
 import java.util.Collections;
 import java.util.Map;
-import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IEObjectDescription;
@@ -17,7 +16,9 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @Singleton
 @SuppressWarnings("all")
 public class SimIndex extends AbstractXtextIndex {
-  private final BasePackage BASE = BasePackage.eINSTANCE;
+  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  
+  private static final SimPackage SIM = SimPackage.eINSTANCE;
   
   public Iterable<IEObjectDescription> getExportedDTypeDescriptions(final EObject context) {
     Iterable<IEObjectDescription> _xblockexpression = null;
@@ -26,38 +27,27 @@ public class SimIndex extends AbstractXtextIndex {
       if ((rd == null)) {
         return Collections.EMPTY_LIST;
       }
-      _xblockexpression = rd.getExportedObjectsByType(this.BASE.getDType());
+      _xblockexpression = rd.getExportedObjectsByType(SimIndex.BASE.getDType());
     }
     return _xblockexpression;
   }
   
   public Iterable<IEObjectDescription> getVisibleDTypeDescriptions(final EObject context) {
-    return this.getVisibleEObjectDescriptions(context, this.BASE.getDType());
+    return this.getVisibleEObjectDescriptions(context, SimIndex.BASE.getDType());
+  }
+  
+  public Iterable<IEObjectDescription> getVisibleDTypeDescriptions(final EObject context, final QualifiedName name) {
+    return this.getVisibleEObjectDescriptions(context, SimIndex.BASE.getDType(), name);
   }
   
   public Map<QualifiedName, IEObjectDescription> getVisibleDTypeDescriptionsMap(final EObject context) {
     final Function1<IEObjectDescription, QualifiedName> _function = (IEObjectDescription it) -> {
       return it.getQualifiedName();
     };
-    return IterableExtensions.<QualifiedName, IEObjectDescription>toMap(this.getVisibleEObjectDescriptions(context, this.BASE.getDType()), _function);
+    return IterableExtensions.<QualifiedName, IEObjectDescription>toMap(this.getVisibleEObjectDescriptions(context, SimIndex.BASE.getDType()), _function);
   }
   
-  protected boolean isDeducedSystemType(final IEObjectDescription desc) {
-    String _userData = desc.getUserData(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM);
-    return (_userData != null);
-  }
-  
-  public Iterable<IEObjectDescription> getVisibleExternalDeducedDTypes(final EObject context) {
-    final Function1<IEObjectDescription, Boolean> _function = (IEObjectDescription it) -> {
-      return Boolean.valueOf(this.isDeducedSystemType(it));
-    };
-    final Iterable<IEObjectDescription> allVisibleTypes = IterableExtensions.<IEObjectDescription>filter(this.getVisibleDTypeDescriptions(context), _function);
-    final Function1<IEObjectDescription, Boolean> _function_1 = (IEObjectDescription it) -> {
-      return Boolean.valueOf(this.isDeducedSystemType(it));
-    };
-    final Iterable<IEObjectDescription> allExportedTypes = IterableExtensions.<IEObjectDescription>filter(this.getExportedDTypeDescriptions(context), _function_1);
-    final Set<IEObjectDescription> difference = IterableExtensions.<IEObjectDescription>toSet(allVisibleTypes);
-    difference.removeAll(IterableExtensions.<IEObjectDescription>toSet(allExportedTypes));
-    return difference;
+  public Iterable<IEObjectDescription> getVisibleSTypeMappingDescriptions(final EObject context, final QualifiedName name) {
+    return this.getVisibleEObjectDescriptions(context, SimIndex.SIM.getSTypeMapping(), name);
   }
 }

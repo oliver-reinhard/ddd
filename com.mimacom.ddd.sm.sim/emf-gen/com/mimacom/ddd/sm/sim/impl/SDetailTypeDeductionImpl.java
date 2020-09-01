@@ -4,6 +4,7 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DDeductionRule;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 
 import com.mimacom.ddd.dm.base.impl.DDetailTypeImpl;
@@ -13,13 +14,20 @@ import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeDeductionImpl#getDeductionRule <em>Deduction Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeDeductionImpl#getImpliedDeductions <em>Implied Deductions</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +54,16 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * @ordered
 	 */
 	protected DDeductionRule deductionRule;
+
+	/**
+	 * The cached value of the '{@link #getImpliedDeductions() <em>Implied Deductions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImpliedDeductions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DImplicitDeduction> impliedDeductions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,6 +91,7 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -99,6 +119,7 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)
@@ -121,12 +142,29 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * @generated
 	 */
 	@Override
+	public EList<DImplicitDeduction> getImpliedDeductions()
+	{
+		if (impliedDeductions == null)
+		{
+			impliedDeductions = new EObjectContainmentEList<DImplicitDeduction>(DImplicitDeduction.class, this, SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS);
+		}
+		return impliedDeductions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
 			case SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE:
 				return basicSetDeductionRule(null, msgs);
+			case SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS:
+				return ((InternalEList<?>)getImpliedDeductions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,6 +181,8 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 		{
 			case SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE:
 				return getDeductionRule();
+			case SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS:
+				return getImpliedDeductions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,6 +192,7 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -159,6 +200,10 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 		{
 			case SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE:
 				setDeductionRule((DDeductionRule)newValue);
+				return;
+			case SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS:
+				getImpliedDeductions().clear();
+				getImpliedDeductions().addAll((Collection<? extends DImplicitDeduction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,6 +222,9 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 			case SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE:
 				setDeductionRule((DDeductionRule)null);
 				return;
+			case SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS:
+				getImpliedDeductions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +241,8 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 		{
 			case SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE:
 				return deductionRule != null;
+			case SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS:
+				return impliedDeductions != null && !impliedDeductions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +260,7 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 			switch (derivedFeatureID)
 			{
 				case SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE: return BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE;
+				case SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS: return BasePackage.IDEDUCTION_DEFINITION__IMPLIED_DEDUCTIONS;
 				default: return -1;
 			}
 		}
@@ -243,6 +294,7 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 			switch (baseFeatureID)
 			{
 				case BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE: return SimPackage.SDETAIL_TYPE_DEDUCTION__DEDUCTION_RULE;
+				case BasePackage.IDEDUCTION_DEFINITION__IMPLIED_DEDUCTIONS: return SimPackage.SDETAIL_TYPE_DEDUCTION__IMPLIED_DEDUCTIONS;
 				default: return -1;
 			}
 		}

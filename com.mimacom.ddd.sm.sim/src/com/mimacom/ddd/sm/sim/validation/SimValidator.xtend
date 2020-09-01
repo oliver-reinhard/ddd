@@ -13,6 +13,8 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DImplicitDeduction
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
@@ -31,7 +33,6 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabRule
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
@@ -41,7 +42,6 @@ import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
-import com.mimacom.ddd.dm.base.DFeature
 
 /**
  * This class contains custom validation rules. 
@@ -290,8 +290,8 @@ class SimValidator extends AbstractSimValidator {
 		if (e instanceof IDeducibleElement) {
 			if (e.synthetic) {
 				var definition = e.deducedFrom
-				if (definition instanceof SImplicitElementDeduction) {
-					while (definition instanceof SImplicitElementDeduction) {
+				if (definition instanceof DImplicitDeduction) {
+					while (definition instanceof DImplicitDeduction) {
 						definition = definition.originalDeductionDefinition
 					}
 					warningOnStructuralElementImpl(definition, warningMsg)
@@ -327,8 +327,8 @@ class SimValidator extends AbstractSimValidator {
 		if (e instanceof IDeducibleElement) {
 			if (e.synthetic) {
 				var definition = e.deducedFrom
-				if (definition instanceof SImplicitElementDeduction) {
-					while (definition instanceof SImplicitElementDeduction) {
+				if (definition instanceof DImplicitDeduction) {
+					while (definition instanceof DImplicitDeduction) {
 						definition = definition.originalDeductionDefinition
 					}
 					errorOnStructuralElementImpl(definition, errorMsg)

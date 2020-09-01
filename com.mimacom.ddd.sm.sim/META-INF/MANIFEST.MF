@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.sm.sim
 Bundle-ManifestVersion: 2
-Bundle-Name: com.mimacom.ddd.sm.sim
-Bundle-Vendor: mimacom ag
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .

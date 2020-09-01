@@ -23,6 +23,15 @@ public interface SimFactory extends EFactory
 	SimFactory eINSTANCE = com.mimacom.ddd.sm.sim.impl.SimFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>SImport</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SImport</em>'.
+	 * @generated
+	 */
+	SImport createSImport();
+
+	/**
 	 * Returns a new object of class '<em>SInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32,22 +41,13 @@ public interface SimFactory extends EFactory
 	SInformationModel createSInformationModel();
 
 	/**
-	 * Returns a new object of class '<em>SImplicit Element Deduction</em>'.
+	 * Returns a new object of class '<em>SType Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SImplicit Element Deduction</em>'.
+	 * @return a new object of class '<em>SType Mapping</em>'.
 	 * @generated
 	 */
-	SImplicitElementDeduction createSImplicitElementDeduction();
-
-	/**
-	 * Returns a new object of class '<em>SDomain Deduction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDomain Deduction</em>'.
-	 * @generated
-	 */
-	SDomainDeduction createSDomainDeduction();
+	STypeMapping createSTypeMapping();
 
 	/**
 	 * Returns a new object of class '<em>SAggregate Deduction</em>'.
@@ -183,15 +183,6 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SGrabAggregateRule createSGrabAggregateRule();
-
-	/**
-	 * Returns a new object of class '<em>SGrab Model Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SGrab Model Rule</em>'.
-	 * @generated
-	 */
-	SGrabModelRule createSGrabModelRule();
 
 	/**
 	 * Returns the package supported by this factory.

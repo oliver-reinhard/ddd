@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DPrimitive;
@@ -22,7 +23,6 @@ import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
@@ -73,7 +73,7 @@ public class STypeDeductionRuleProcessor {
       CollectionExtensions.<DType>removeAll(implicitlyGrabbedSourceTypes, sourceTypesAffectedByRule);
       for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
-          final SImplicitElementDeduction implicitTypeDeduction = this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType);
+          final DImplicitDeduction implicitTypeDeduction = this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType);
           final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeDeduction, context);
           if ((syntheticType instanceof DEnumeration)) {
             this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), implicitTypeDeduction);

@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
@@ -101,6 +102,14 @@ public class SimSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
+			case SimPackage.SIMPORT:
+			{
+				SImport sImport = (SImport)theEObject;
+				T result = caseSImport(sImport);
+				if (result == null) result = caseDImport(sImport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SINFORMATION_MODEL:
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
@@ -114,19 +123,10 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SIMPLICIT_ELEMENT_DEDUCTION:
+			case SimPackage.STYPE_MAPPING:
 			{
-				SImplicitElementDeduction sImplicitElementDeduction = (SImplicitElementDeduction)theEObject;
-				T result = caseSImplicitElementDeduction(sImplicitElementDeduction);
-				if (result == null) result = caseIDeductionDefinition(sImplicitElementDeduction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SDOMAIN_DEDUCTION:
-			{
-				SDomainDeduction sDomainDeduction = (SDomainDeduction)theEObject;
-				T result = caseSDomainDeduction(sDomainDeduction);
-				if (result == null) result = caseIDeductionDefinition(sDomainDeduction);
+				STypeMapping sTypeMapping = (STypeMapping)theEObject;
+				T result = caseSTypeMapping(sTypeMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -374,16 +374,24 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SGRAB_MODEL_RULE:
-			{
-				SGrabModelRule sGrabModelRule = (SGrabModelRule)theEObject;
-				T result = caseSGrabModelRule(sGrabModelRule);
-				if (result == null) result = caseDDeductionRule(sGrabModelRule);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SImport</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SImport</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSImport(SImport object)
+	{
+		return null;
 	}
 
 	/**
@@ -403,33 +411,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SImplicit Element Deduction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SType Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SImplicit Element Deduction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SType Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSImplicitElementDeduction(SImplicitElementDeduction object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDomain Deduction</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDomain Deduction</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSDomainDeduction(SDomainDeduction object)
+	public T caseSTypeMapping(STypeMapping object)
 	{
 		return null;
 	}
@@ -755,17 +747,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SGrab Model Rule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SGrab Model Rule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DImport</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSGrabModelRule(SGrabModelRule object)
+	public T caseDImport(DImport object)
 	{
 		return null;
 	}
@@ -867,22 +859,6 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIDeductionDefinition(IDeductionDefinition object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IFeature Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -942,6 +918,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAggregate(DAggregate object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDeductionDefinition(IDeductionDefinition object)
 	{
 		return null;
 	}

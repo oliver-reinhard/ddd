@@ -62,13 +62,12 @@ import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
 import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomainDeduction;
 import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
-import com.mimacom.ddd.sm.sim.SGrabModelRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
@@ -380,9 +379,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 					return; 
 				}
 				else break;
-			case SimPackage.SDOMAIN_DEDUCTION:
-				sequence_SDomain(context, (SDomainDeduction) semanticObject); 
-				return; 
 			case SimPackage.SENTITY_TYPE_DEDUCTION:
 				sequence_SComplexTypeFeatures_SEntityTypeDeduction(context, (SEntityTypeDeduction) semanticObject); 
 				return; 
@@ -394,9 +390,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case SimPackage.SGRAB_AGGREGATE_RULE:
 				sequence_SGrabAggregateRule(context, (SGrabAggregateRule) semanticObject); 
-				return; 
-			case SimPackage.SGRAB_MODEL_RULE:
-				sequence_SGrabModelRule(context, (SGrabModelRule) semanticObject); 
 				return; 
 			case SimPackage.SGRAB_RULE:
 				if (rule == grammarAccess.getSGrabComplexTypeRuleRule()) {
@@ -424,6 +417,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 					return; 
 				}
 				else break;
+			case SimPackage.SIMPORT:
+				sequence_SImport(context, (SImport) semanticObject); 
+				return; 
 			case SimPackage.SINFORMATION_MODEL:
 				sequence_SInformationModel(context, (SInformationModel) semanticObject); 
 				return; 
@@ -500,7 +496,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=DImport* model=SInformationModel)
+	 *     (name=DQualifiedName imports+=SImport* model=SInformationModel)
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -705,24 +701,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SDomain returns SDomainDeduction
-	 *
-	 * Constraint:
-	 *     deductionRule=SGrabModelRule
-	 */
-	protected void sequence_SDomain(ISerializationContext context, SDomainDeduction semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDomainAccess().getDeductionRuleSGrabModelRuleParserRuleCall_3_0(), semanticObject.getDeductionRule());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DType returns SEnumerationDeduction
 	 *     SType returns SEnumerationDeduction
 	 *     SEnumerationDeduction returns SEnumerationDeduction
@@ -802,24 +780,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SGrabModelRule returns SGrabModelRule
-	 *
-	 * Constraint:
-	 *     source=[DInformationModel|DQualifiedName]
-	 */
-	protected void sequence_SGrabModelRule(ISerializationContext context, SGrabModelRule semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSGrabModelRuleAccess().getSourceDInformationModelDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SGrabPrimitiveRule returns SGrabRule
 	 *
 	 * Constraint:
@@ -844,16 +804,22 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SImport returns SImport
+	 *
+	 * Constraint:
+	 *     (importedNamespace=DQualifiedNameWithWildcard | model=[SInformationModel|DQualifiedName])
+	 */
+	protected void sequence_SImport(ISerializationContext context, SImport semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SInformationModel returns SInformationModel
 	 *
 	 * Constraint:
-	 *     (
-	 *         kind=SInformationModelKind 
-	 *         name=ID 
-	 *         generate?='generate'? 
-	 *         description=DRichText? 
-	 *         (types+=SType | aggregates+=SAggregate | domainProxies+=SDomain)*
-	 *     )
+	 *     ((kind=STypeModelKind | kind=SInformationModelKind) name=ID generate?='generate'? description=DRichText? (types+=SType | aggregates+=SAggregate)*)
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

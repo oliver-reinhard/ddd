@@ -156,6 +156,13 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BasePackage.DDEDUCTION_RULE:
+			{
+				DDeductionRule dDeductionRule = (DDeductionRule)theEObject;
+				T result = caseDDeductionRule(dDeductionRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BasePackage.IDEDUCIBLE_ELEMENT:
 			{
 				IDeducibleElement iDeducibleElement = (IDeducibleElement)theEObject;
@@ -163,10 +170,11 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DDEDUCTION_RULE:
+			case BasePackage.DIMPLICIT_DEDUCTION:
 			{
-				DDeductionRule dDeductionRule = (DDeductionRule)theEObject;
-				T result = caseDDeductionRule(dDeductionRule);
+				DImplicitDeduction dImplicitDeduction = (DImplicitDeduction)theEObject;
+				T result = caseDImplicitDeduction(dImplicitDeduction);
+				if (result == null) result = caseIDeductionDefinition(dImplicitDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -626,6 +634,22 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDDeductionRule(DDeductionRule object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -642,17 +666,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DImplicit Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DImplicit Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDDeductionRule(DDeductionRule object)
+	public T caseDImplicitDeduction(DImplicitDeduction object)
 	{
 		return null;
 	}

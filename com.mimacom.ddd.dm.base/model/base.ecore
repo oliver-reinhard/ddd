@@ -34,6 +34,13 @@
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deductionRule" eType="#//DDeductionRule"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="impliedDeductions" upperBound="-1"
+        eType="#//DImplicitDeduction" transient="true" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DDeductionRule" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//IDeducibleElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedSource" eType="#//DNamedElement"
+        changeable="false" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IDeducibleElement" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deducedFrom" eType="#//IDeductionDefinition"
@@ -41,10 +48,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DDeductionRule" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//IDeducibleElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namedSource" eType="#//DNamedElement"
-        changeable="false" transient="true" derived="true" resolveProxies="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DImplicitDeduction" eSuperTypes="#//IDeductionDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalDeductionDefinition"
+        eType="#//IDeductionDefinition" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DInformationModel" eSuperTypes="#//DModel #//IAggregateContainer #//ITypeContainer #//IStaticReferenceTarget #//IDeducibleElement #//IDiagramRoot"/>
   <eClassifiers xsi:type="ecore:EClass" name="IAggregateContainer" abstract="true"

@@ -65,9 +65,9 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eClass.getClassifierID())
 		{
+			case SimPackage.SIMPORT: return createSImport();
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
-			case SimPackage.SIMPLICIT_ELEMENT_DEDUCTION: return createSImplicitElementDeduction();
-			case SimPackage.SDOMAIN_DEDUCTION: return createSDomainDeduction();
+			case SimPackage.STYPE_MAPPING: return createSTypeMapping();
 			case SimPackage.SAGGREGATE_DEDUCTION: return createSAggregateDeduction();
 			case SimPackage.SPRIMITIVE_DEDUCTION: return createSPrimitiveDeduction();
 			case SimPackage.SENUMERATION_DEDUCTION: return createSEnumerationDeduction();
@@ -83,7 +83,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			case SimPackage.SMORPH_RULE: return createSMorphRule();
 			case SimPackage.SFUSE_RULE: return createSFuseRule();
 			case SimPackage.SGRAB_AGGREGATE_RULE: return createSGrabAggregateRule();
-			case SimPackage.SGRAB_MODEL_RULE: return createSGrabModelRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,6 +131,19 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public SImport createSImport()
+	{
+		SImportImpl sImport = new SImportImpl();
+		return sImport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SInformationModel createSInformationModel()
 	{
 		SInformationModelImpl sInformationModel = new SInformationModelImpl();
@@ -143,10 +155,11 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SImplicitElementDeduction createSImplicitElementDeduction()
+	@Override
+	public STypeMapping createSTypeMapping()
 	{
-		SImplicitElementDeductionImpl sImplicitElementDeduction = new SImplicitElementDeductionImpl();
-		return sImplicitElementDeduction;
+		STypeMappingImpl sTypeMapping = new STypeMappingImpl();
+		return sTypeMapping;
 	}
 
 	/**
@@ -154,17 +167,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SDomainDeduction createSDomainDeduction()
-	{
-		SDomainDeductionImpl sDomainDeduction = new SDomainDeductionImpl();
-		return sDomainDeduction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public SAggregateDeduction createSAggregateDeduction()
 	{
 		SAggregateDeductionImpl sAggregateDeduction = new SAggregateDeductionImpl();
@@ -176,6 +179,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SPrimitiveDeduction createSPrimitiveDeduction()
 	{
 		SPrimitiveDeductionImpl sPrimitiveDeduction = new SPrimitiveDeductionImpl();
@@ -187,6 +191,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SEnumerationDeduction createSEnumerationDeduction()
 	{
 		SEnumerationDeductionImpl sEnumerationDeduction = new SEnumerationDeductionImpl();
@@ -198,6 +203,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SLiteralDeduction createSLiteralDeduction()
 	{
 		SLiteralDeductionImpl sLiteralDeduction = new SLiteralDeductionImpl();
@@ -209,6 +215,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SDetailTypeDeduction createSDetailTypeDeduction()
 	{
 		SDetailTypeDeductionImpl sDetailTypeDeduction = new SDetailTypeDeductionImpl();
@@ -220,6 +227,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SEntityTypeDeduction createSEntityTypeDeduction()
 	{
 		SEntityTypeDeductionImpl sEntityTypeDeduction = new SEntityTypeDeductionImpl();
@@ -231,6 +239,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SAssociationDeduction createSAssociationDeduction()
 	{
 		SAssociationDeductionImplCustom sAssociationDeduction = new SAssociationDeductionImplCustom();
@@ -242,6 +251,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SAttributeDeduction createSAttributeDeduction()
 	{
 		SAttributeDeductionImpl sAttributeDeduction = new SAttributeDeductionImpl();
@@ -253,6 +263,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SQueryDeduction createSQueryDeduction()
 	{
 		SQueryDeductionImpl sQueryDeduction = new SQueryDeductionImpl();
@@ -264,6 +275,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SQueryParameterDeduction createSQueryParameterDeduction()
 	{
 		SQueryParameterDeductionImpl sQueryParameterDeduction = new SQueryParameterDeductionImpl();
@@ -275,6 +287,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SGrabRule createSGrabRule()
 	{
 		SGrabRuleImpl sGrabRule = new SGrabRuleImpl();
@@ -286,6 +299,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SDitchRule createSDitchRule()
 	{
 		SDitchRuleImpl sDitchRule = new SDitchRuleImpl();
@@ -297,6 +311,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SMorphRule createSMorphRule()
 	{
 		SMorphRuleImpl sMorphRule = new SMorphRuleImpl();
@@ -308,6 +323,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SFuseRule createSFuseRule()
 	{
 		SFuseRuleImpl sFuseRule = new SFuseRuleImpl();
@@ -319,21 +335,11 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SGrabAggregateRule createSGrabAggregateRule()
 	{
 		SGrabAggregateRuleImplCustom sGrabAggregateRule = new SGrabAggregateRuleImplCustom();
 		return sGrabAggregateRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SGrabModelRule createSGrabModelRule()
-	{
-		SGrabModelRuleImpl sGrabModelRule = new SGrabModelRuleImpl();
-		return sGrabModelRule;
 	}
 
 	/**
@@ -385,6 +391,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimPackage getSimPackage()
 	{
 		return (SimPackage)getEPackage();

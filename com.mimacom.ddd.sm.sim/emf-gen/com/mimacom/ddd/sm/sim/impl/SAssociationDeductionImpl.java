@@ -4,6 +4,7 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DDeductionRule;
+import com.mimacom.ddd.dm.base.DImplicitDeduction;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 
 import com.mimacom.ddd.dm.base.impl.DAssociationImplCustom;
@@ -15,6 +16,8 @@ import com.mimacom.ddd.sm.sim.SimPackage;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +28,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>SAssociation Deduction</b></em>'.
@@ -34,6 +40,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAssociationDeductionImpl#getDeductionRule <em>Deduction Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAssociationDeductionImpl#getImpliedDeductions <em>Implied Deductions</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +56,16 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * @ordered
 	 */
 	protected DDeductionRule deductionRule;
+
+	/**
+	 * The cached value of the '{@link #getImpliedDeductions() <em>Implied Deductions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImpliedDeductions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DImplicitDeduction> impliedDeductions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,6 +93,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -103,6 +121,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)
@@ -124,6 +143,22 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<DImplicitDeduction> getImpliedDeductions()
+	{
+		if (impliedDeductions == null)
+		{
+			impliedDeductions = new EObjectContainmentEList<DImplicitDeduction>(DImplicitDeduction.class, this, SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS);
+		}
+		return impliedDeductions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SEntityTypeDeduction getTargetType()
 	{
 		// TODO: implement this method
@@ -143,6 +178,8 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 		{
 			case SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE:
 				return basicSetDeductionRule(null, msgs);
+			case SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS:
+				return ((InternalEList<?>)getImpliedDeductions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,6 +196,8 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 		{
 			case SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE:
 				return getDeductionRule();
+			case SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS:
+				return getImpliedDeductions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +207,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -175,6 +215,10 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 		{
 			case SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE:
 				setDeductionRule((DDeductionRule)newValue);
+				return;
+			case SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS:
+				getImpliedDeductions().clear();
+				getImpliedDeductions().addAll((Collection<? extends DImplicitDeduction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,6 +237,9 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 			case SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE:
 				setDeductionRule((DDeductionRule)null);
 				return;
+			case SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS:
+				getImpliedDeductions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -209,6 +256,8 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 		{
 			case SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE:
 				return deductionRule != null;
+			case SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS:
+				return impliedDeductions != null && !impliedDeductions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -226,6 +275,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 			switch (derivedFeatureID)
 			{
 				case SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE: return BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE;
+				case SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS: return BasePackage.IDEDUCTION_DEFINITION__IMPLIED_DEDUCTIONS;
 				default: return -1;
 			}
 		}
@@ -252,6 +302,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 			switch (baseFeatureID)
 			{
 				case BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE: return SimPackage.SASSOCIATION_DEDUCTION__DEDUCTION_RULE;
+				case BasePackage.IDEDUCTION_DEFINITION__IMPLIED_DEDUCTIONS: return SimPackage.SASSOCIATION_DEDUCTION__IMPLIED_DEDUCTIONS;
 				default: return -1;
 			}
 		}
