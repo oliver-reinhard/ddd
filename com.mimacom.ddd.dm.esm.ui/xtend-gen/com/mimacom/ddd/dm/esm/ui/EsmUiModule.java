@@ -21,6 +21,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class EsmUiModule extends AbstractEsmUiModule {
+  public static final String FILE_EXTENSION = "esm";
+  
   public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
     return DmxSemanticHighlightingCalculator.class;
   }

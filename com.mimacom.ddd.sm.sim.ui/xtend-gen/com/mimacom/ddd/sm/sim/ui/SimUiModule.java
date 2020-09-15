@@ -21,6 +21,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class SimUiModule extends AbstractSimUiModule {
+  public static final String FILE_EXTENSION = "sim";
+  
   public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
     return DmxSemanticHighlightingCalculator.class;
   }

@@ -7,7 +7,7 @@ import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper;
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil;
 import com.mimacom.ddd.sm.sim.indexing.SimIndex;
 import java.util.ArrayList;
 import org.apache.log4j.Level;
@@ -21,8 +21,8 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 
 @Singleton
 @SuppressWarnings("all")
-public class TransformationContext {
-  private static final Logger LOGGER = Logger.getLogger(TransformationContext.class);
+public class TypeMappingUtil {
+  private static final Logger LOGGER = Logger.getLogger(TypeMappingUtil.class);
   
   private static final BaseFactory BASE = BaseFactory.eINSTANCE;
   
@@ -32,28 +32,38 @@ public class TransformationContext {
   @Inject
   private IQualifiedNameProvider qualifiedNameProvider;
   
-  public TransformationContext() {
-    TransformationContext.LOGGER.setLevel(Level.DEBUG);
+  public TypeMappingUtil() {
+    TypeMappingUtil.LOGGER.setLevel(Level.DEBUG);
   }
   
+  /**
+   * Returns a proxy object with a URL that will resolve to the actual system type by ways of the SimIndex.
+   * 
+   * @param context used to derive the relevant eResource.
+   * @return null if context is null or domainType has no fully qualified name
+   */
   public DType getSystemTypeProxy(final EObject context, final DType domainType) {
     final QualifiedName domainTypeQN = this.qualifiedNameProvider.getFullyQualifiedName(domainType);
+    if (((context == null) || (domainTypeQN == null))) {
+      return null;
+    }
     final URI resourceURI = context.eResource().getURI();
     String _string = resourceURI.toString();
     String _plus = (_string + "#");
-    String _deductionProxyUriFragment = DeductionHelper.getDeductionProxyUriFragment(domainTypeQN);
+    String _deductionProxyUriFragment = DeductionUtil.getDeductionProxyUriFragment(domainTypeQN);
     String _plus_1 = (_plus + _deductionProxyUriFragment);
     final URI uri = URI.createURI(_plus_1);
-    final DPrimitive systemType = TransformationContext.BASE.createDPrimitive();
+    final DPrimitive systemType = TypeMappingUtil.BASE.createDPrimitive();
     ((BasicEObjectImpl) systemType).eSetProxyURI(uri);
-    boolean _isGreaterOrEqual = TransformationContext.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+    boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
-      TransformationContext.LOGGER.debug(((("getSystemTypeProxy for " + domainTypeQN) + " -> ") + uri));
+      TypeMappingUtil.LOGGER.debug(((("getSystemTypeProxy for " + domainTypeQN) + " -> ") + uri));
     }
     return systemType;
   }
   
   /**
+   * @param context used to derive the relevant eResource.
    * @return  null if no system type is found for the given domain type.
    */
   public Iterable<IEObjectDescription> getSystemTypeDescriptions(final EObject context, final QualifiedName domainTypeQN) {
@@ -66,13 +76,13 @@ public class TransformationContext {
     final ArrayList<IEObjectDescription> sTypes = Lists.<IEObjectDescription>newArrayList();
     for (final IEObjectDescription desc : typeDeductionDescriptions) {
       {
-        final QualifiedName systemTypeQN = DeductionHelper.getDeductionTargetQN(desc);
+        final QualifiedName systemTypeQN = DeductionUtil.getDeductionTargetQN(desc);
         Iterables.<IEObjectDescription>addAll(sTypes, this.index.getVisibleDTypeDescriptions(context, systemTypeQN));
       }
     }
-    boolean _isGreaterOrEqual = TransformationContext.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+    boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
-      TransformationContext.LOGGER.debug(((("getSystemTypeDescriptions for " + domainTypeQN) + " -> ") + sTypes));
+      TypeMappingUtil.LOGGER.debug(((("getSystemTypeDescriptions for " + domainTypeQN) + " -> ") + sTypes));
     }
     return sTypes;
   }

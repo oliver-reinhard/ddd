@@ -16,7 +16,6 @@ import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
@@ -49,13 +48,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class SimPackageImpl extends EPackageImpl implements SimPackage
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sImportEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,28 +280,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimPackage.eNS_URI, theSimPackage);
 		return theSimPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSImport()
-	{
-		return sImportEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSImport_Model()
-	{
-		return (EReference)sImportEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -750,9 +720,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		isCreated = true;
 
 		// Create classes and their features
-		sImportEClass = createEClass(SIMPORT);
-		createEReference(sImportEClass, SIMPORT__MODEL);
-
 		sInformationModelEClass = createEClass(SINFORMATION_MODEL);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__GENERATE);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__KIND);
@@ -847,7 +814,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sImportEClass.getESuperTypes().add(theBasePackage.getDImport());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getDModel());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getIAggregateContainer());
@@ -886,9 +852,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSRenameRule());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(sImportEClass, SImport.class, "SImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSImport_Model(), this.getSInformationModel(), null, "model", null, 0, 1, SImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSInformationModel_Generate(), ecorePackage.getEBoolean(), "generate", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSInformationModel_Kind(), this.getSInformationModelKind(), "kind", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dmx.indexing;
 
 import com.google.inject.Singleton;
+import com.mimacom.ddd.dm.base.DNamespace;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
@@ -19,6 +20,9 @@ public class DmxResourceDescriptionStrategy extends DefaultResourceDescriptionSt
   
   @Override
   public boolean createEObjectDescriptions(final EObject obj, final IAcceptor<IEObjectDescription> acceptor) {
+    if ((obj instanceof DNamespace)) {
+      return true;
+    }
     boolean _isGreaterOrEqual = DmxResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
       IQualifiedNameProvider _qualifiedNameProvider = this.getQualifiedNameProvider();

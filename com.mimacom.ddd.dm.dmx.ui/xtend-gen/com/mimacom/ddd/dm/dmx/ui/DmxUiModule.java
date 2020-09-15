@@ -21,6 +21,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class DmxUiModule extends AbstractDmxUiModule {
+  public static final String FILE_EXTENSION = "dmx";
+  
   public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
     return DmxSemanticHighlightingCalculator.class;
   }

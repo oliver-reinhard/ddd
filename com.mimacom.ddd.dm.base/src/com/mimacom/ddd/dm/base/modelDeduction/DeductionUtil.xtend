@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.resource.IEObjectDescription
 
-class DeductionHelper {
+class DeductionUtil {
 
 	public static val DEDUCTION_PROXY_URI_FRAGMENT_PREFIX = "deductionSourceTypeQN="
 

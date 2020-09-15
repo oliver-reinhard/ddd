@@ -18,6 +18,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
  */
 @FinalFieldsConstructor
 class PubUiModule extends AbstractPubUiModule {
+	
+	static public val FILE_EXTENSION = "pub"
 
 	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
 		return DmxSemanticHighlightingCalculator

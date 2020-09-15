@@ -5,7 +5,6 @@ package com.mimacom.ddd.sm.sim;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
-import com.mimacom.ddd.dm.base.modelDeduction.TrueDerivedStateAwareResourceDescriptionManager;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource;
@@ -14,6 +13,7 @@ import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
 import org.eclipse.xtext.resource.IResourceDescription;
@@ -52,7 +52,7 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   }
   
   public Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
-    return TrueDerivedStateAwareResourceDescriptionManager.class;
+    return DerivedStateAwareResourceDescriptionManager.class;
   }
   
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {

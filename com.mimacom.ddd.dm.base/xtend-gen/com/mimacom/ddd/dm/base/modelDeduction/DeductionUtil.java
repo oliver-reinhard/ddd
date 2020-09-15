@@ -8,7 +8,7 @@ import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IEObjectDescription;
 
 @SuppressWarnings("all")
-public class DeductionHelper {
+public class DeductionUtil {
   public static final String DEDUCTION_PROXY_URI_FRAGMENT_PREFIX = "deductionSourceTypeQN=";
   
   public static final String KEY_DEDUCTION_TARGET_TYPE = "DEDUCTION_TARGET_TYPE";
@@ -18,12 +18,12 @@ public class DeductionHelper {
       return false;
     }
     final String fragment = uri.fragment();
-    return ((fragment != null) && fragment.startsWith(DeductionHelper.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX));
+    return ((fragment != null) && fragment.startsWith(DeductionUtil.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX));
   }
   
   public static String getDeductionProxyUriFragment(final QualifiedName qualifiedName) {
-    QualifiedName _deductionSourceQNForIndex = DeductionHelper.getDeductionSourceQNForIndex(qualifiedName.toString());
-    return (DeductionHelper.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX + _deductionSourceQNForIndex);
+    QualifiedName _deductionSourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(qualifiedName.toString());
+    return (DeductionUtil.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX + _deductionSourceQNForIndex);
   }
   
   public static QualifiedName getDeductionSourceQN(final URI proxyUri) {
@@ -31,15 +31,15 @@ public class DeductionHelper {
       return null;
     }
     final String fragment = proxyUri.fragment();
-    if (((fragment == null) || (!fragment.startsWith(DeductionHelper.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX)))) {
+    if (((fragment == null) || (!fragment.startsWith(DeductionUtil.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX)))) {
       return null;
     }
-    final String sourceQNStr = fragment.substring(DeductionHelper.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX.length());
+    final String sourceQNStr = fragment.substring(DeductionUtil.DEDUCTION_PROXY_URI_FRAGMENT_PREFIX.length());
     return QualifiedName.create(sourceQNStr.split("\\."));
   }
   
   public static QualifiedName getDeductionTargetQN(final IEObjectDescription description) {
-    return QualifiedName.create(description.getUserData(DeductionHelper.KEY_DEDUCTION_TARGET_TYPE).split("\\."));
+    return QualifiedName.create(description.getUserData(DeductionUtil.KEY_DEDUCTION_TARGET_TYPE).split("\\."));
   }
   
   public static QualifiedName getDeductionSourceQNForIndex(final String qualifiedName) {
@@ -47,12 +47,12 @@ public class DeductionHelper {
   }
   
   public static QualifiedName getDeductionSourceQNForIndex(final QualifiedName qualifiedName) {
-    return DeductionHelper.getDeductionSourceQNForIndex(qualifiedName.toString());
+    return DeductionUtil.getDeductionSourceQNForIndex(qualifiedName.toString());
   }
   
   public static Map<String, String> createEObjectDescriptionUserData(final QualifiedName targetQN) {
     final HashMap<String, String> userData = Maps.<String, String>newHashMap();
-    userData.put(DeductionHelper.KEY_DEDUCTION_TARGET_TYPE, targetQN.toString());
+    userData.put(DeductionUtil.KEY_DEDUCTION_TARGET_TYPE, targetQN.toString());
     return userData;
   }
 }

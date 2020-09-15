@@ -15,7 +15,6 @@ import com.mimacom.ddd.sm.sim.derivedState.SFeatureDeductionRuleProcessor;
 import com.mimacom.ddd.sm.sim.derivedState.STypeDeductionRuleProcessor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
-import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -36,7 +35,7 @@ public class SAggregateDeductionRuleProcessor {
   @Extension
   private SFeatureDeductionRuleProcessor _sFeatureDeductionRuleProcessor;
   
-  public void processAggregateTypes(final DAggregate dAggregate, final SInformationModel model, final List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor, final TransformationContext context) {
+  public void processAggregateTypes(final DAggregate dAggregate, final SInformationModel model, final List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor) {
     EObject _xifexpression = null;
     SInformationModelKind _kind = model.getKind();
     boolean _equals = Objects.equal(_kind, SInformationModelKind.CORE);
@@ -64,16 +63,16 @@ public class SAggregateDeductionRuleProcessor {
               _xifexpression_1 = ((DAggregate)source).getName();
             }
             final String name = _xifexpression_1;
-            syntheticTypesContainer = this._syntheticModelElementsFactory.addSyntheticAggregate(model, name, definition, context);
+            syntheticTypesContainer = this._syntheticModelElementsFactory.addSyntheticAggregate(model, name, definition);
           }
-          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(syntheticTypesContainer, definition, ((DAggregate)source), syntheticComplexTypesAcceptor, context);
+          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(syntheticTypesContainer, definition, ((DAggregate)source), syntheticComplexTypesAcceptor);
         }
       }
     }
-    this._sTypeDeductionRuleProcessor.addSyntheticTypes(syntheticTypesContainer, dAggregate, syntheticComplexTypesAcceptor, context);
+    this._sTypeDeductionRuleProcessor.addSyntheticTypes(syntheticTypesContainer, dAggregate, syntheticComplexTypesAcceptor);
   }
   
-  public void processAggregateQueries(final DAggregate dAggregate, final SInformationModel model, final TransformationContext context) {
+  public void processAggregateQueries(final DAggregate dAggregate, final SInformationModel model) {
     if ((dAggregate instanceof SAggregateDeduction)) {
       final SAggregateDeduction definition = ((SAggregateDeduction)dAggregate);
       final DDeductionRule rule = definition.getDeductionRule();
@@ -90,7 +89,7 @@ public class SAggregateDeductionRuleProcessor {
         if (_equals_1) {
           IDeducibleElement _source = rule.getSource();
           final SyntheticFeatureContainerDescriptor desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, definition, ((IFeatureContainer) _source));
-          this._sFeatureDeductionRuleProcessor.addSyntheticFeatures(desc, context);
+          this._sFeatureDeductionRuleProcessor.addSyntheticFeatures(desc);
         }
       }
     }

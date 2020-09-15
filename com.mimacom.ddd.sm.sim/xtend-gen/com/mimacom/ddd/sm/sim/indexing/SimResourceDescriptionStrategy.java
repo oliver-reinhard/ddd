@@ -4,7 +4,7 @@ import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper;
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.STypeMapping;
@@ -26,7 +26,7 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 @SuppressWarnings("all")
 public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
   public SimResourceDescriptionStrategy() {
-    DmxResourceDescriptionStrategy.LOGGER.setLevel(Level.DEBUG);
+    DmxResourceDescriptionStrategy.LOGGER.setLevel(Level.ERROR);
   }
   
   /**
@@ -76,8 +76,8 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
           final IDeductionDefinition deduction = typeToIndex.getDeducedFrom();
           final SInformationModel model = EcoreUtil2.<SInformationModel>getContainerOfType(deduction, SInformationModel.class);
           final STypeMapping typeMappingType = model.getIndexingHelper();
-          final Map<String, String> userData = DeductionHelper.createEObjectDescriptionUserData(targetQN);
-          final QualifiedName sourceQNForIndex = DeductionHelper.getDeductionSourceQNForIndex(sourceQN);
+          final Map<String, String> userData = DeductionUtil.createEObjectDescriptionUserData(targetQN);
+          final QualifiedName sourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(sourceQN);
           final IEObjectDescription mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData);
           acceptor.accept(mappingDesc);
           boolean _isGreaterOrEqual_1 = DmxResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);

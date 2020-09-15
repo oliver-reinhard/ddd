@@ -23,15 +23,6 @@ public interface SimFactory extends EFactory
 	SimFactory eINSTANCE = com.mimacom.ddd.sm.sim.impl.SimFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>SImport</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SImport</em>'.
-	 * @generated
-	 */
-	SImport createSImport();
-
-	/**
 	 * Returns a new object of class '<em>SInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

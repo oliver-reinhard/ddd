@@ -2,7 +2,7 @@ package com.mimacom.ddd.sm.sim.derivedState;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.modelDeduction.IDeductionAwareResource;
-import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
+import com.mimacom.ddd.sm.sim.derivedState.TypeMappingUtil;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
@@ -13,10 +13,23 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class DeductionAwareResource extends DerivedStateAwareResource implements IDeductionAwareResource {
+  /**
+   * A tri-state initialization to distinguish between preIndexingPhase derived-state computation and full derived-state computation.
+   */
+  public enum InitializationState {
+    NOT_INITIALIZED,
+    
+    PRE_INDEXING,
+    
+    FULLY_INITIALIZED;
+  }
+  
   private static final Logger LOGGER = Logger.getLogger(DeductionAwareResource.class);
   
   @Inject
-  private TransformationContext helper;
+  private TypeMappingUtil helper;
+  
+  protected volatile DeductionAwareResource.InitializationState initializationState = DeductionAwareResource.InitializationState.NOT_INITIALIZED;
   
   public DeductionAwareResource() {
     DeductionAwareResource.LOGGER.setLevel(Level.DEBUG);
@@ -25,6 +38,9 @@ public class DeductionAwareResource extends DerivedStateAwareResource implements
     DeductionAwareResource.LOGGER.debug(_plus);
   }
   
+  /**
+   * IDeductionAwareResource
+   */
   @Override
   public EObject deduceTargetObject(final QualifiedName sourceObjectQN, final EObject objectContext) {
     final Iterable<IEObjectDescription> descriptions = this.helper.getSystemTypeDescriptions(objectContext, sourceObjectQN);

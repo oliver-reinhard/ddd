@@ -23,6 +23,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class DomUiModule extends AbstractDomUiModule {
+  public static final String FILE_EXTENSION = "dom";
+  
   public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
     return DomEObjectHoverProvider.class;
   }

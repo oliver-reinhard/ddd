@@ -65,7 +65,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case SimPackage.SIMPORT: return createSImport();
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
 			case SimPackage.STYPE_MAPPING: return createSTypeMapping();
 			case SimPackage.SAGGREGATE_DEDUCTION: return createSAggregateDeduction();
@@ -124,18 +123,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SImport createSImport()
-	{
-		SImportImpl sImport = new SImportImpl();
-		return sImport;
 	}
 
 	/**

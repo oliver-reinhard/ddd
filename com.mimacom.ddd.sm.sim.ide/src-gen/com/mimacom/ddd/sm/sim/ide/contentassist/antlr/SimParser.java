@@ -31,7 +31,6 @@ public class SimParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SimGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getSImportAccess().getAlternatives_1(), "rule__SImport__Alternatives_1");
 			builder.put(grammarAccess.getSInformationModelAccess().getAlternatives_0(), "rule__SInformationModel__Alternatives_0");
 			builder.put(grammarAccess.getSInformationModelAccess().getAlternatives_5(), "rule__SInformationModel__Alternatives_5");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getAlternatives_2(), "rule__ChangeComplexType__Alternatives_2");
@@ -102,8 +101,6 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
 			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
-			builder.put(grammarAccess.getSImportAccess().getGroup(), "rule__SImport__Group__0");
-			builder.put(grammarAccess.getSImportAccess().getGroup_1_1(), "rule__SImport__Group_1_1__0");
 			builder.put(grammarAccess.getSInformationModelAccess().getGroup(), "rule__SInformationModel__Group__0");
 			builder.put(grammarAccess.getSInformationModelAccess().getGroup_0_0(), "rule__SInformationModel__Group_0_0__0");
 			builder.put(grammarAccess.getSInformationModelAccess().getGroup_0_1(), "rule__SInformationModel__Group_0_1__0");
@@ -330,8 +327,6 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamespaceAccess().getNameAssignment_1(), "rule__DNamespace__NameAssignment_1");
 			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
 			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
-			builder.put(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1_0(), "rule__SImport__ImportedNamespaceAssignment_1_0");
-			builder.put(grammarAccess.getSImportAccess().getModelAssignment_1_1_1(), "rule__SImport__ModelAssignment_1_1_1");
 			builder.put(grammarAccess.getSInformationModelAccess().getKindAssignment_0_0_0(), "rule__SInformationModel__KindAssignment_0_0_0");
 			builder.put(grammarAccess.getSInformationModelAccess().getKindAssignment_0_1_0(), "rule__SInformationModel__KindAssignment_0_1_0");
 			builder.put(grammarAccess.getSInformationModelAccess().getNameAssignment_1(), "rule__SInformationModel__NameAssignment_1");

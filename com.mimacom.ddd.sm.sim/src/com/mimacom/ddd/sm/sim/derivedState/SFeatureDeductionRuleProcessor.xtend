@@ -20,12 +20,12 @@ class SFeatureDeductionRuleProcessor  {
 	@Inject extension SimUtil
 	@Inject extension SyntheticModelElementsFactory
 	
-	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SGrabRule rule /*dispatch*/, TransformationContext context) {
-		grabFeature(container, deductionDefinition, rule, context)
+	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SGrabRule rule /*dispatch*/) {
+		grabFeature(container, deductionDefinition, rule)
 	}
 	
-	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SMorphRule rule /*dispatch*/, TransformationContext context) {
-		val syntheticFeature = grabFeature(container, deductionDefinition, rule, context)
+	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SMorphRule rule /*dispatch*/) {
+		val syntheticFeature = grabFeature(container, deductionDefinition, rule)
 		if (syntheticFeature !== null) {
 			if (rule.retypeTo !== null) {
 				syntheticFeature.type = rule.retypeTo
@@ -36,14 +36,14 @@ class SFeatureDeductionRuleProcessor  {
 		}
 	}
 	
-	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SDitchRule rule /*dispatch*/, TransformationContext context) {
+	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SDitchRule rule /*dispatch*/) {
 		// do nothing (has been taken care of by DComplexType
 	}
 	
-	def  DFeature grabFeature(IFeatureContainer container, SFeatureDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
+	def  DFeature grabFeature(IFeatureContainer container, SFeatureDeduction deductionDefinition, SRenameRule rule) {
 		val source = rule.source
 		if (source instanceof DFeature) {
-			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition, context)
+			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition)
 			
 			if (deductionDefinition instanceof SQueryDeduction) {
 				val syntheticQuery = syntheticFeature as DQuery
@@ -56,18 +56,18 @@ class SFeatureDeductionRuleProcessor  {
 					implicitlyGrabbedSourceParameters.removeAll(sourceParametersAffectedByRule)
 					// create synthetic SFeatures for implicit features:
 					for (sourceParameter : implicitlyGrabbedSourceParameters) {
-						syntheticQuery.addSyntheticQueryParameter(sourceParameter.name, sourceParameter, createImplicitElementCopyDeduction(deductionDefinition, sourceParameter), context)
+						syntheticQuery.addSyntheticQueryParameter(sourceParameter.name, sourceParameter, createImplicitElementCopyDeduction(deductionDefinition, sourceParameter))
 					}
 				}
 				
 				val parameterDeductionDefinitionsList = parameterDeductionDefinitions.toList  // cannot change iterable while iterating
 				for (definition : parameterDeductionDefinitionsList) {
-					syntheticQuery.processQueryParameterDeduction(definition, definition.deductionRule, context)
+					syntheticQuery.processQueryParameterDeduction(definition, definition.deductionRule)
 				}
 		
 				// add explicit parameters (= parameters added without rule):
 				for (param : explicitParameters) {
-					syntheticQuery.addSyntheticQueryParameterAsCopy(param, context)
+					syntheticQuery.addSyntheticQueryParameterAsCopy(param)
 				}
 			}
 			return syntheticFeature
@@ -75,7 +75,7 @@ class SFeatureDeductionRuleProcessor  {
 		return null
 	}
 	
-	def void addSyntheticFeatures(SyntheticFeatureContainerDescriptor desc, TransformationContext context) {
+	def void addSyntheticFeatures(SyntheticFeatureContainerDescriptor desc) {
 		var Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.newArrayList
 		var Iterable<DFeature> explicitFeatures = Lists.newArrayList
 		
@@ -91,29 +91,29 @@ class SFeatureDeductionRuleProcessor  {
 			implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesAffectedByRule)
 			// create synthetic DFeatures for implicit features:
 			for (sourceFeature : implicitlyGrabbedSourceFeatures) {
-				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, sourceFeature), context)
+				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, sourceFeature))
 			}
 		}
 		
 		// add explicit features (added via rule):
 		val featureDeductionDefinitionsList = featureDeductionDefinitions.toList  // cannot change iterable while iterating => create new list
 		for (definition : featureDeductionDefinitionsList) {
-			desc.syntheticType.processFeatureDeduction(definition, definition.deductionRule, context)
+			desc.syntheticType.processFeatureDeduction(definition, definition.deductionRule)
 		}
 		
 		// add explicit features (= features added without rule):
 		for (feature : explicitFeatures) {
-				desc.syntheticType.addSyntheticFeatureAsCopy(feature, context)
+				desc.syntheticType.addSyntheticFeatureAsCopy(feature)
 		}
 	}
 	
 	
-	def  dispatch void processQueryParameterDeduction(DQuery container, SQueryParameterDeduction deductionDefinition, SGrabRule rule, TransformationContext context) {
-		grabQueryParameter(container, deductionDefinition, rule, context)
+	def  dispatch void processQueryParameterDeduction(DQuery container, SQueryParameterDeduction deductionDefinition, SGrabRule rule) {
+		grabQueryParameter(container, deductionDefinition, rule)
 	}
 	
-	def  dispatch void processQueryParameterDeduction(DQuery container, SQueryParameterDeduction deductionDefinition, SMorphRule rule, TransformationContext context) {
-		val syntheticParameter = grabQueryParameter(container, deductionDefinition, rule, context)
+	def  dispatch void processQueryParameterDeduction(DQuery container, SQueryParameterDeduction deductionDefinition, SMorphRule rule) {
+		val syntheticParameter = grabQueryParameter(container, deductionDefinition, rule)
 		if (syntheticParameter !== null) {
 			if (rule.retypeTo !== null) {
 				syntheticParameter.type = rule.retypeTo
@@ -124,15 +124,15 @@ class SFeatureDeductionRuleProcessor  {
 		}
 	}
 	
-	def  DQueryParameter grabQueryParameter(DQuery container, SQueryParameterDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
+	def  DQueryParameter grabQueryParameter(DQuery container, SQueryParameterDeduction deductionDefinition, SRenameRule rule) {
 		val source = rule.source
 		if (source instanceof DQueryParameter) {
-			val syntheticParameter = container.addSyntheticQueryParameter(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition, context)
+			val syntheticParameter = container.addSyntheticQueryParameter(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition)
 			return syntheticParameter
 		}
 	}
 	
-	def  dispatch void processQueryParameterDeduction(SQueryDeduction container, SQueryParameterDeduction deductionDefinition, SDitchRule rule, TransformationContext context) {
+	def  dispatch void processQueryParameterDeduction(SQueryDeduction container, SQueryParameterDeduction deductionDefinition, SDitchRule rule) {
 		// do nothing (has been taken care of by SQuery)
 	}
 	

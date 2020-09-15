@@ -1,5 +1,6 @@
 package com.mimacom.ddd.sm.sim.derivedState
 
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BaseFactory
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
@@ -33,8 +34,10 @@ class SyntheticModelElementsFactory {
 	static val BASE = BaseFactory.eINSTANCE
 	static val SIM = SimFactory.eINSTANCE
 
+	@Inject TypeMappingUtil context
+
 	def DAggregate addSyntheticAggregate(SInformationModel container, String name,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		val syntheticAggregate = BASE.createDAggregate
 		syntheticAggregate.name = name
 		syntheticAggregate.synthetic = true
@@ -44,29 +47,29 @@ class SyntheticModelElementsFactory {
 	}
 
 	def dispatch DPrimitive addSyntheticType(ITypeContainer container, String name, DPrimitive source /*dispatch*/ ,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		val syntheticPrimitive = BASE.createDPrimitive
-		syntheticPrimitive.initSyntheticType(container, name, source, deductionDefinition, context)
+		syntheticPrimitive.initSyntheticType(container, name, source, deductionDefinition)
 		syntheticPrimitive.redefines = source.redefines
 		return syntheticPrimitive
 	}
 
 	def dispatch DEnumeration addSyntheticType(ITypeContainer container, String name, DEnumeration source /*dispatch*/ ,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		val syntheticEnumeration = BASE.createDEnumeration
-		syntheticEnumeration.initSyntheticType(container, name, source, deductionDefinition, context)
+		syntheticEnumeration.initSyntheticType(container, name, source, deductionDefinition)
 		return syntheticEnumeration
 	}
 
 	def dispatch DComplexType addSyntheticType(ITypeContainer container, String name, DComplexType source /*dispatch*/ ,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		val isCoreModel = EcoreUtil2.getContainerOfType(container, SInformationModel).kind == SInformationModelKind.CORE
 		val syntheticComplexType = if (!isCoreModel || deductionDefinition.deductionRule.makeDetailType(source)) {
 				BASE.createDDetailType
 			} else {
 				BASE.createDEntityType
 			}
-		syntheticComplexType.initSyntheticType(container, name, source, deductionDefinition, context)
+		syntheticComplexType.initSyntheticType(container, name, source, deductionDefinition)
 		syntheticComplexType.abstract = deductionDefinition.deductionRule.makeAbstract(source)
 		if (syntheticComplexType instanceof DEntityType) {
 			syntheticComplexType.root = deductionDefinition.deductionRule.makeRoot(source)
@@ -76,7 +79,7 @@ class SyntheticModelElementsFactory {
 	}
 
 	protected def void initSyntheticType(DType syntheticType, ITypeContainer container, String name, DType source,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		syntheticType.name = name
 		syntheticType.synthetic = true
 		syntheticType.deducedFrom = deductionDefinition
@@ -85,9 +88,9 @@ class SyntheticModelElementsFactory {
 	}
 
 	def DFeature addSyntheticFeature(IFeatureContainer container, String name, DFeature source,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		val sourceFeatureType = source.getType
-		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add synthetic feature now
+		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add synthetic feature now)
 			return null
 		}
 //		val featureType = context.getSystemType(sourceFeatureType) // may be null
@@ -97,14 +100,14 @@ class SyntheticModelElementsFactory {
 //				createDAttribute
 //			DQuery: BASE.createDQuery
 //		}
-		val featureType = context.getSystemTypeProxy(deductionDefinition, sourceFeatureType) // may be null ??
+		val featureTypeProxy = context.getSystemTypeProxy(deductionDefinition, sourceFeatureType) // may be null
 		val syntheticFeature = switch source {
-			DAssociation:BASE.createDAssociation  // TODO this fails when IdentityType is changed to DetailType as part of the transformation
+			DAssociation: BASE.createDAssociation // TODO this fails when IdentityType is changed to DetailType as part of the transformation
 			DAttribute: BASE.createDAttribute
 			DQuery: BASE.createDQuery
 		}
 		syntheticFeature.name = name
-		syntheticFeature.type = featureType
+		syntheticFeature.type = featureTypeProxy // may be null -> TODO add validation!
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.synthetic = true
 		syntheticFeature.deducedFrom = deductionDefinition
@@ -112,25 +115,25 @@ class SyntheticModelElementsFactory {
 		return syntheticFeature
 	}
 
-	def DFeature addSyntheticFeatureAsCopy(IFeatureContainer container, DFeature source, TransformationContext context) {
+	def DFeature addSyntheticFeatureAsCopy(IFeatureContainer container, DFeature source) {
 		val syntheticFeature = switch source {
 			DAttribute: BASE.createDAttribute
 			DQuery: BASE.createDQuery
 			DAssociation: BASE.createDAssociation
 		}
 		container.features.add(syntheticFeature)
-		syntheticFeature.initSyntheticFeatureAsCopy(source, context)
+		syntheticFeature.initSyntheticFeatureAsCopy(source)
 		return syntheticFeature
 	}
 
-	def DFeature addSyntheticQueryAsCopy(DAggregate container, DQuery source, TransformationContext context) {
+	def DFeature addSyntheticQueryAsCopy(DAggregate container, DQuery source) {
 		val syntheticFeature = BASE.createDQuery
 		container.features.add(syntheticFeature)
-		syntheticFeature.initSyntheticFeatureAsCopy(source, context)
+		syntheticFeature.initSyntheticFeatureAsCopy(source)
 		return syntheticFeature
 	}
-	
-	private def void initSyntheticFeatureAsCopy(DFeature syntheticFeature, DFeature source, TransformationContext context) {
+
+	private def void initSyntheticFeatureAsCopy(DFeature syntheticFeature, DFeature source) {
 		syntheticFeature.name = source.name
 		syntheticFeature.type = source.getType
 		syntheticFeature.multiplicity = source.getMultiplicity
@@ -138,13 +141,13 @@ class SyntheticModelElementsFactory {
 		syntheticFeature.deducedFrom = null /* NOTE: null */
 		if (source instanceof DQuery) {
 			for (p : source.parameters) {
-				(syntheticFeature as DQuery).addSyntheticQueryParameterAsCopy(p, context)
+				(syntheticFeature as DQuery).addSyntheticQueryParameterAsCopy(p)
 			}
 		}
 	}
 
 	def DQueryParameter addSyntheticQueryParameter(DQuery container, String name, DQueryParameter source,
-		IDeductionDefinition deductionDefinition, TransformationContext context) {
+		IDeductionDefinition deductionDefinition) {
 		val sourceParameterType = source.getType
 		if (sourceParameterType === null) { // the domain model is (temporarily incomplete => don't add sFeature now
 			return null
@@ -159,8 +162,7 @@ class SyntheticModelElementsFactory {
 		return syntheticParameter
 	}
 
-	def DQueryParameter addSyntheticQueryParameterAsCopy(DQuery container, DQueryParameter source,
-		TransformationContext context) {
+	def DQueryParameter addSyntheticQueryParameterAsCopy(DQuery container, DQueryParameter source) {
 		val syntheticParameter = BASE.createDQueryParameter
 		syntheticParameter.name = source.name
 		syntheticParameter.type = source.getType
@@ -178,7 +180,6 @@ class SyntheticModelElementsFactory {
 		syntheticLiteral.deducedFrom = deductionDefinition
 		container.literals.add(syntheticLiteral)
 	}
-	
 
 	def void addSyntheticLiteralAsCopy(DEnumeration container, String name) {
 		addSyntheticLiteral(container, name, null) /* NOTE: null */
@@ -228,7 +229,7 @@ class SyntheticModelElementsFactory {
 		val implicitDeduction = BASE.createDImplicitDeduction
 		originalDeductionDefinition.impliedDeductions.add(implicitDeduction)
 		implicitDeduction.originalDeductionDefinition = originalDeductionDefinition
-		val grabRule = SIM.createSGrabRule  
+		val grabRule = SIM.createSGrabRule
 		grabRule.source = source
 		implicitDeduction.deductionRule = grabRule // add to container
 		return implicitDeduction

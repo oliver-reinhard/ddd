@@ -21,7 +21,6 @@ import com.mimacom.ddd.sm.sim.SRenameRule;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
-import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,12 +39,12 @@ public class SFeatureDeductionRuleProcessor {
   @Extension
   private SyntheticModelElementsFactory _syntheticModelElementsFactory;
   
-  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
-    this.grabFeature(container, deductionDefinition, rule, context);
+  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SGrabRule rule) {
+    this.grabFeature(container, deductionDefinition, rule);
   }
   
-  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
-    final DFeature syntheticFeature = this.grabFeature(container, deductionDefinition, rule, context);
+  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SMorphRule rule) {
+    final DFeature syntheticFeature = this.grabFeature(container, deductionDefinition, rule);
     if ((syntheticFeature != null)) {
       DType _retypeTo = rule.getRetypeTo();
       boolean _tripleNotEquals = (_retypeTo != null);
@@ -60,10 +59,10 @@ public class SFeatureDeductionRuleProcessor {
     }
   }
   
-  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
+  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SDitchRule rule) {
   }
   
-  public DFeature grabFeature(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
+  public DFeature grabFeature(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SRenameRule rule) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DFeature)) {
       String _xifexpression = null;
@@ -74,7 +73,7 @@ public class SFeatureDeductionRuleProcessor {
       } else {
         _xifexpression = ((DFeature)source).getName();
       }
-      final DFeature syntheticFeature = this._syntheticModelElementsFactory.addSyntheticFeature(container, _xifexpression, ((DFeature)source), deductionDefinition, context);
+      final DFeature syntheticFeature = this._syntheticModelElementsFactory.addSyntheticFeature(container, _xifexpression, ((DFeature)source), deductionDefinition);
       if ((deductionDefinition instanceof SQueryDeduction)) {
         final DQuery syntheticQuery = ((DQuery) syntheticFeature);
         final Iterable<SQueryParameterDeduction> parameterDeductionDefinitions = Iterables.<SQueryParameterDeduction>filter(((SQueryDeduction)deductionDefinition).getParameters(), SQueryParameterDeduction.class);
@@ -100,15 +99,15 @@ public class SFeatureDeductionRuleProcessor {
           final Iterable<DQueryParameter> sourceParametersAffectedByRule = IterableExtensions.<SQueryParameterDeduction, DQueryParameter>map(IterableExtensions.<SQueryParameterDeduction>filter(parameterDeductionDefinitions, _function_2), _function_3);
           CollectionExtensions.<DQueryParameter>removeAll(implicitlyGrabbedSourceParameters, sourceParametersAffectedByRule);
           for (final DQueryParameter sourceParameter : implicitlyGrabbedSourceParameters) {
-            this._syntheticModelElementsFactory.addSyntheticQueryParameter(syntheticQuery, sourceParameter.getName(), sourceParameter, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceParameter), context);
+            this._syntheticModelElementsFactory.addSyntheticQueryParameter(syntheticQuery, sourceParameter.getName(), sourceParameter, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceParameter));
           }
         }
         final List<SQueryParameterDeduction> parameterDeductionDefinitionsList = IterableExtensions.<SQueryParameterDeduction>toList(parameterDeductionDefinitions);
         for (final SQueryParameterDeduction definition : parameterDeductionDefinitionsList) {
-          this.processQueryParameterDeduction(syntheticQuery, definition, definition.getDeductionRule(), context);
+          this.processQueryParameterDeduction(syntheticQuery, definition, definition.getDeductionRule());
         }
         for (final DQueryParameter param : explicitParameters) {
-          this._syntheticModelElementsFactory.addSyntheticQueryParameterAsCopy(syntheticQuery, param, context);
+          this._syntheticModelElementsFactory.addSyntheticQueryParameterAsCopy(syntheticQuery, param);
         }
       }
       return syntheticFeature;
@@ -116,7 +115,7 @@ public class SFeatureDeductionRuleProcessor {
     return null;
   }
   
-  public void addSyntheticFeatures(final SyntheticFeatureContainerDescriptor desc, final TransformationContext context) {
+  public void addSyntheticFeatures(final SyntheticFeatureContainerDescriptor desc) {
     Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.<SFeatureDeduction>newArrayList();
     Iterable<DFeature> explicitFeatures = Lists.<DFeature>newArrayList();
     if ((desc.deductionDefinition instanceof IFeatureContainer)) {
@@ -146,24 +145,24 @@ public class SFeatureDeductionRuleProcessor {
       final Iterable<DFeature> sourceFeaturesAffectedByRule = IterableExtensions.<SFeatureDeduction, DFeature>map(IterableExtensions.<SFeatureDeduction>filter(featureDeductionDefinitions, _function_2), _function_3);
       CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedSourceFeatures, sourceFeaturesAffectedByRule);
       for (final DFeature sourceFeature : implicitlyGrabbedSourceFeatures) {
-        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, sourceFeature), context);
+        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, sourceFeature));
       }
     }
     final List<SFeatureDeduction> featureDeductionDefinitionsList = IterableExtensions.<SFeatureDeduction>toList(featureDeductionDefinitions);
     for (final SFeatureDeduction definition : featureDeductionDefinitionsList) {
-      this.processFeatureDeduction(desc.syntheticType, definition, definition.getDeductionRule(), context);
+      this.processFeatureDeduction(desc.syntheticType, definition, definition.getDeductionRule());
     }
     for (final DFeature feature : explicitFeatures) {
-      this._syntheticModelElementsFactory.addSyntheticFeatureAsCopy(desc.syntheticType, feature, context);
+      this._syntheticModelElementsFactory.addSyntheticFeatureAsCopy(desc.syntheticType, feature);
     }
   }
   
-  protected void _processQueryParameterDeduction(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
-    this.grabQueryParameter(container, deductionDefinition, rule, context);
+  protected void _processQueryParameterDeduction(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SGrabRule rule) {
+    this.grabQueryParameter(container, deductionDefinition, rule);
   }
   
-  protected void _processQueryParameterDeduction(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
-    final DQueryParameter syntheticParameter = this.grabQueryParameter(container, deductionDefinition, rule, context);
+  protected void _processQueryParameterDeduction(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SMorphRule rule) {
+    final DQueryParameter syntheticParameter = this.grabQueryParameter(container, deductionDefinition, rule);
     if ((syntheticParameter != null)) {
       DType _retypeTo = rule.getRetypeTo();
       boolean _tripleNotEquals = (_retypeTo != null);
@@ -178,7 +177,7 @@ public class SFeatureDeductionRuleProcessor {
     }
   }
   
-  public DQueryParameter grabQueryParameter(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
+  public DQueryParameter grabQueryParameter(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SRenameRule rule) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DQueryParameter)) {
       String _xifexpression = null;
@@ -189,47 +188,47 @@ public class SFeatureDeductionRuleProcessor {
       } else {
         _xifexpression = ((DQueryParameter)source).getName();
       }
-      final DQueryParameter syntheticParameter = this._syntheticModelElementsFactory.addSyntheticQueryParameter(container, _xifexpression, ((DQueryParameter)source), deductionDefinition, context);
+      final DQueryParameter syntheticParameter = this._syntheticModelElementsFactory.addSyntheticQueryParameter(container, _xifexpression, ((DQueryParameter)source), deductionDefinition);
       return syntheticParameter;
     }
     return null;
   }
   
-  protected void _processQueryParameterDeduction(final SQueryDeduction container, final SQueryParameterDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
+  protected void _processQueryParameterDeduction(final SQueryDeduction container, final SQueryParameterDeduction deductionDefinition, final SDitchRule rule) {
   }
   
-  public void processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
+  public void processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final DDeductionRule rule) {
     if (rule instanceof SMorphRule) {
-      _processFeatureDeduction(container, deductionDefinition, (SMorphRule)rule, context);
+      _processFeatureDeduction(container, deductionDefinition, (SMorphRule)rule);
       return;
     } else if (rule instanceof SGrabRule) {
-      _processFeatureDeduction(container, deductionDefinition, (SGrabRule)rule, context);
+      _processFeatureDeduction(container, deductionDefinition, (SGrabRule)rule);
       return;
     } else if (rule instanceof SDitchRule) {
-      _processFeatureDeduction(container, deductionDefinition, (SDitchRule)rule, context);
+      _processFeatureDeduction(container, deductionDefinition, (SDitchRule)rule);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, deductionDefinition, rule, context).toString());
+        Arrays.<Object>asList(container, deductionDefinition, rule).toString());
     }
   }
   
-  public void processQueryParameterDeduction(final DQuery container, final SQueryParameterDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
+  public void processQueryParameterDeduction(final DQuery container, final SQueryParameterDeduction deductionDefinition, final DDeductionRule rule) {
     if (container instanceof SQueryDeduction
          && rule instanceof SDitchRule) {
-      _processQueryParameterDeduction((SQueryDeduction)container, deductionDefinition, (SDitchRule)rule, context);
+      _processQueryParameterDeduction((SQueryDeduction)container, deductionDefinition, (SDitchRule)rule);
       return;
     } else if (container != null
          && rule instanceof SMorphRule) {
-      _processQueryParameterDeduction(container, deductionDefinition, (SMorphRule)rule, context);
+      _processQueryParameterDeduction(container, deductionDefinition, (SMorphRule)rule);
       return;
     } else if (container != null
          && rule instanceof SGrabRule) {
-      _processQueryParameterDeduction(container, deductionDefinition, (SGrabRule)rule, context);
+      _processQueryParameterDeduction(container, deductionDefinition, (SGrabRule)rule);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, deductionDefinition, rule, context).toString());
+        Arrays.<Object>asList(container, deductionDefinition, rule).toString());
     }
   }
 }

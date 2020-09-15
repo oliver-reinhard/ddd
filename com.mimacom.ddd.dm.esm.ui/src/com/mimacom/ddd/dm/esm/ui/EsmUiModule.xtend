@@ -18,6 +18,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
  */
 @FinalFieldsConstructor
 class EsmUiModule extends AbstractEsmUiModule {
+	
+	static public val FILE_EXTENSION = "esm"
 
 	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
 		return DmxSemanticHighlightingCalculator

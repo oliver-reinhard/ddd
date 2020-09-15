@@ -35,7 +35,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cImportsSImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
 		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cModelSInformationModelParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
 		
@@ -43,11 +43,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DNamespace:
 		//	'system'
 		//	name=DQualifiedName
-		//	imports+=SImport*
+		//	imports+=DImport*
 		//	model=SInformationModel;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'system' name=DQualifiedName imports+=SImport* model=SInformationModel
+		//'system' name=DQualifiedName imports+=DImport* model=SInformationModel
 		public Group getGroup() { return cGroup; }
 		
 		//'system'
@@ -59,65 +59,17 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
 		
-		//imports+=SImport*
+		//imports+=DImport*
 		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
 		
-		//SImport
-		public RuleCall getImportsSImportParserRuleCall_2_0() { return cImportsSImportParserRuleCall_2_0; }
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
 		
 		//model=SInformationModel
 		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
 		
 		//SInformationModel
 		public RuleCall getModelSInformationModelParserRuleCall_3_0() { return cModelSInformationModelParserRuleCall_3_0; }
-	}
-	public class SImportElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SImport");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cImportedNamespaceAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0_0 = (RuleCall)cImportedNamespaceAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Keyword cModelKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cModelAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final CrossReference cModelSInformationModelCrossReference_1_1_1_0 = (CrossReference)cModelAssignment_1_1_1.eContents().get(0);
-		private final RuleCall cModelSInformationModelDQualifiedNameParserRuleCall_1_1_1_0_1 = (RuleCall)cModelSInformationModelCrossReference_1_1_1_0.eContents().get(1);
-		
-		//SImport:
-		//	'import' (importedNamespace=DQualifiedNameWithWildcard
-		//	| 'model' model=[SInformationModel|DQualifiedName]);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'import' (importedNamespace=DQualifiedNameWithWildcard | 'model' model=[SInformationModel|DQualifiedName])
-		public Group getGroup() { return cGroup; }
-		
-		//'import'
-		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
-		
-		//(importedNamespace=DQualifiedNameWithWildcard | 'model' model=[SInformationModel|DQualifiedName])
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//importedNamespace=DQualifiedNameWithWildcard
-		public Assignment getImportedNamespaceAssignment_1_0() { return cImportedNamespaceAssignment_1_0; }
-		
-		//DQualifiedNameWithWildcard
-		public RuleCall getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0_0() { return cImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0_0; }
-		
-		//'model' model=[SInformationModel|DQualifiedName]
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//'model'
-		public Keyword getModelKeyword_1_1_0() { return cModelKeyword_1_1_0; }
-		
-		//model=[SInformationModel|DQualifiedName]
-		public Assignment getModelAssignment_1_1_1() { return cModelAssignment_1_1_1; }
-		
-		//[SInformationModel|DQualifiedName]
-		public CrossReference getModelSInformationModelCrossReference_1_1_1_0() { return cModelSInformationModelCrossReference_1_1_1_0; }
-		
-		//DQualifiedName
-		public RuleCall getModelSInformationModelDQualifiedNameParserRuleCall_1_1_1_0_1() { return cModelSInformationModelDQualifiedNameParserRuleCall_1_1_1_0_1; }
 	}
 	public class SInformationModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModel");
@@ -2487,7 +2439,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final DNamespaceElements pDNamespace;
-	private final SImportElements pSImport;
 	private final SInformationModelElements pSInformationModel;
 	private final STypeModelKindElements eSTypeModelKind;
 	private final SInformationModelKindElements eSInformationModelKind;
@@ -2546,7 +2497,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaDim = gaDim;
 		this.gaDmx = gaDmx;
 		this.pDNamespace = new DNamespaceElements();
-		this.pSImport = new SImportElements();
 		this.pSInformationModel = new SInformationModelElements();
 		this.eSTypeModelKind = new STypeModelKindElements();
 		this.eSInformationModelKind = new SInformationModelKindElements();
@@ -2627,7 +2577,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//DNamespace:
 	//	'system'
 	//	name=DQualifiedName
-	//	imports+=SImport*
+	//	imports+=DImport*
 	//	model=SInformationModel;
 	public DNamespaceElements getDNamespaceAccess() {
 		return pDNamespace;
@@ -2635,17 +2585,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDNamespaceRule() {
 		return getDNamespaceAccess().getRule();
-	}
-	
-	//SImport:
-	//	'import' (importedNamespace=DQualifiedNameWithWildcard
-	//	| 'model' model=[SInformationModel|DQualifiedName]);
-	public SImportElements getSImportAccess() {
-		return pSImport;
-	}
-	
-	public ParserRule getSImportRule() {
-		return getSImportAccess().getRule();
 	}
 	
 	//SInformationModel:

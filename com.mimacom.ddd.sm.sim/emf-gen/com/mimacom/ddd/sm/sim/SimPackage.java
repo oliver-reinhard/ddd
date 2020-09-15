@@ -62,52 +62,6 @@ public interface SimPackage extends EPackage
 	SimPackage eINSTANCE = com.mimacom.ddd.sm.sim.impl.SimPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImportImpl <em>SImport</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SImportImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImport()
-	 * @generated
-	 */
-	int SIMPORT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPORT__IMPORTED_NAMESPACE = BasePackage.DIMPORT__IMPORTED_NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPORT__MODEL = BasePackage.DIMPORT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>SImport</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPORT_FEATURE_COUNT = BasePackage.DIMPORT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>SImport</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPORT_OPERATION_COUNT = BasePackage.DIMPORT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl <em>SInformation Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,7 +69,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModel()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL = 1;
+	int SINFORMATION_MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -215,7 +169,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTypeMapping()
 	 * @generated
 	 */
-	int STYPE_MAPPING = 2;
+	int STYPE_MAPPING = 1;
 
 	/**
 	 * The number of structural features of the '<em>SType Mapping</em>' class.
@@ -243,7 +197,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAggregateDeduction()
 	 * @generated
 	 */
-	int SAGGREGATE_DEDUCTION = 3;
+	int SAGGREGATE_DEDUCTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -370,7 +324,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTypeDeduction()
 	 * @generated
 	 */
-	int STYPE_DEDUCTION = 4;
+	int STYPE_DEDUCTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -443,7 +397,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSPrimitiveDeduction()
 	 * @generated
 	 */
-	int SPRIMITIVE_DEDUCTION = 5;
+	int SPRIMITIVE_DEDUCTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -561,7 +515,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEnumerationDeduction()
 	 * @generated
 	 */
-	int SENUMERATION_DEDUCTION = 6;
+	int SENUMERATION_DEDUCTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -688,7 +642,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSLiteralDeduction()
 	 * @generated
 	 */
-	int SLITERAL_DEDUCTION = 7;
+	int SLITERAL_DEDUCTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,7 +769,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexTypeDeduction()
 	 * @generated
 	 */
-	int SCOMPLEX_TYPE_DEDUCTION = 8;
+	int SCOMPLEX_TYPE_DEDUCTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -888,7 +842,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailTypeDeduction()
 	 * @generated
 	 */
-	int SDETAIL_TYPE_DEDUCTION = 9;
+	int SDETAIL_TYPE_DEDUCTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1033,7 +987,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityTypeDeduction()
 	 * @generated
 	 */
-	int SENTITY_TYPE_DEDUCTION = 10;
+	int SENTITY_TYPE_DEDUCTION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1214,7 +1168,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFeatureDeduction()
 	 * @generated
 	 */
-	int SFEATURE_DEDUCTION = 11;
+	int SFEATURE_DEDUCTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -1260,7 +1214,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationDeduction()
 	 * @generated
 	 */
-	int SASSOCIATION_DEDUCTION = 12;
+	int SASSOCIATION_DEDUCTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1423,7 +1377,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAttributeDeduction()
 	 * @generated
 	 */
-	int SATTRIBUTE_DEDUCTION = 13;
+	int SATTRIBUTE_DEDUCTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1568,7 +1522,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryDeduction()
 	 * @generated
 	 */
-	int SQUERY_DEDUCTION = 14;
+	int SQUERY_DEDUCTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1722,7 +1676,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryParameterDeduction()
 	 * @generated
 	 */
-	int SQUERY_PARAMETER_DEDUCTION = 15;
+	int SQUERY_PARAMETER_DEDUCTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1849,7 +1803,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRenameRule()
 	 * @generated
 	 */
-	int SRENAME_RULE = 16;
+	int SRENAME_RULE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1904,7 +1858,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 17;
+	int SGRAB_RULE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1959,7 +1913,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 18;
+	int SDITCH_RULE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2005,7 +1959,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSStructureChangingRule()
 	 * @generated
 	 */
-	int SSTRUCTURE_CHANGING_RULE = 19;
+	int SSTRUCTURE_CHANGING_RULE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2096,7 +2050,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 20;
+	int SMORPH_RULE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2205,7 +2159,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 21;
+	int SFUSE_RULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2305,7 +2259,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 22;
+	int SGRAB_AGGREGATE_RULE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2369,7 +2323,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 23;
+	int SINFORMATION_MODEL_KIND = 22;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
@@ -2379,29 +2333,8 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
 	 * @generated
 	 */
-	int STRISTATE = 24;
+	int STRISTATE = 23;
 
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SImport</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SImport
-	 * @generated
-	 */
-	EClass getSImport();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SImport#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SImport#getModel()
-	 * @see #getSImport()
-	 * @generated
-	 */
-	EReference getSImport_Model();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
@@ -2809,24 +2742,6 @@ public interface SimPackage extends EPackage
 	 */
 	interface Literals
 	{
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SImportImpl <em>SImport</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SImportImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImport()
-		 * @generated
-		 */
-		EClass SIMPORT = eINSTANCE.getSImport();
-
-		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SIMPORT__MODEL = eINSTANCE.getSImport_Model();
-
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl <em>SInformation Model</em>}' class.
 		 * <!-- begin-user-doc -->

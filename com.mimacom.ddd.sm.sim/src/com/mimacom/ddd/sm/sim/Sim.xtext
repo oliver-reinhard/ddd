@@ -9,15 +9,8 @@ import "http://www.mimacom.com/ddd/sm/sim"
 DNamespace:
 	'system'
 	name=DQualifiedName
-	(imports+=SImport)*
+	(imports+=DImport)*
 	model=SInformationModel;
-	
-SImport:
-	'import' 
-	(	importedNamespace=DQualifiedNameWithWildcard
-	|	'model' model=[SInformationModel|DQualifiedName]
-	)
-	;	
 	
 SInformationModel:
 	(	kind=STypeModelKind 'type' 'model'

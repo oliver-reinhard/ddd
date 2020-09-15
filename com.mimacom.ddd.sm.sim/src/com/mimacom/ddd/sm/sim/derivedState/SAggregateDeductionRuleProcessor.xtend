@@ -17,7 +17,7 @@ class SAggregateDeductionRuleProcessor {
 	@Inject extension SFeatureDeductionRuleProcessor
 
 	def void processAggregateTypes(DAggregate dAggregate, SInformationModel model, 
-		List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor, TransformationContext context) {
+		List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor) {
 		var ITypeContainer syntheticTypesContainer = if (model.kind == SInformationModelKind.CORE) dAggregate else model
 
 		if (dAggregate instanceof SAggregateDeduction) {
@@ -28,18 +28,18 @@ class SAggregateDeductionRuleProcessor {
 				if (source instanceof DAggregate) {
 					if (model.kind == SInformationModelKind.CORE) {
 						val name = rule.renameTo !== null ? rule.renameTo : source.name
-						syntheticTypesContainer = model.addSyntheticAggregate(name, definition, context)
+						syntheticTypesContainer = model.addSyntheticAggregate(name, definition)
 					}
 					// Add types but not features of complex types:
-					syntheticTypesContainer.addImplicitSyntheticTypes(definition, source, syntheticComplexTypesAcceptor, context)
+					syntheticTypesContainer.addImplicitSyntheticTypes(definition, source, syntheticComplexTypesAcceptor)
 				}
 			}
 		}
 
-		syntheticTypesContainer.addSyntheticTypes(dAggregate, syntheticComplexTypesAcceptor, context)
+		syntheticTypesContainer.addSyntheticTypes(dAggregate, syntheticComplexTypesAcceptor)
 	}
 
-	def void processAggregateQueries(DAggregate dAggregate, SInformationModel model, TransformationContext context) {
+	def void processAggregateQueries(DAggregate dAggregate, SInformationModel model) {
 		if (dAggregate instanceof SAggregateDeduction) {
 			val definition = dAggregate
 			val rule = definition.deductionRule
@@ -51,7 +51,7 @@ class SAggregateDeductionRuleProcessor {
 				// Process queries grabbed from domain aggregate:
 				if (model.kind == SInformationModelKind.CORE) {
 					val desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, definition, rule.source as IFeatureContainer)
-					desc.addSyntheticFeatures(context) // = queries
+					desc.addSyntheticFeatures // = queries
 				}
 			}
 		}

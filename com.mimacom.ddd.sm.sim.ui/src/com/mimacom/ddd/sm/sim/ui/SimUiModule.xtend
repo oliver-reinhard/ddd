@@ -18,6 +18,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
  */
 @FinalFieldsConstructor
 class SimUiModule extends AbstractSimUiModule {
+	
+	static public val FILE_EXTENSION = "sim"
 
 	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
 		return DmxSemanticHighlightingCalculator

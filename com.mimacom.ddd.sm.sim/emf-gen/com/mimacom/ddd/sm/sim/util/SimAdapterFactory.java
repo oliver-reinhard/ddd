@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
@@ -104,11 +103,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	protected SimSwitch<Adapter> modelSwitch =
 		new SimSwitch<Adapter>()
 		{
-			@Override
-			public Adapter caseSImport(SImport object)
-			{
-				return createSImportAdapter();
-			}
 			@Override
 			public Adapter caseSInformationModel(SInformationModel object)
 			{
@@ -218,11 +212,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSGrabAggregateRule(SGrabAggregateRule object)
 			{
 				return createSGrabAggregateRuleAdapter();
-			}
-			@Override
-			public Adapter caseDImport(DImport object)
-			{
-				return createDImportAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -385,21 +374,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SImport
-	 * @generated
-	 */
-	public Adapter createSImportAdapter()
-	{
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
@@ -727,21 +701,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSGrabAggregateRuleAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DImport
-	 * @generated
-	 */
-	public Adapter createDImportAdapter()
 	{
 		return null;
 	}

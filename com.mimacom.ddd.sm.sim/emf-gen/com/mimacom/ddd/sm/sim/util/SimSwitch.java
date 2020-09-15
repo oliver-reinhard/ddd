@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
@@ -102,14 +101,6 @@ public class SimSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case SimPackage.SIMPORT:
-			{
-				SImport sImport = (SImport)theEObject;
-				T result = caseSImport(sImport);
-				if (result == null) result = caseDImport(sImport);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimPackage.SINFORMATION_MODEL:
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
@@ -376,22 +367,6 @@ public class SimSwitch<T> extends Switch<T>
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SImport</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SImport</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSImport(SImport object)
-	{
-		return null;
 	}
 
 	/**
@@ -742,22 +717,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSGrabAggregateRule(SGrabAggregateRule object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DImport</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DImport</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDImport(DImport object)
 	{
 		return null;
 	}

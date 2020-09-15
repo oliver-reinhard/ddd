@@ -67,7 +67,6 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
@@ -417,9 +416,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 					return; 
 				}
 				else break;
-			case SimPackage.SIMPORT:
-				sequence_SImport(context, (SImport) semanticObject); 
-				return; 
 			case SimPackage.SINFORMATION_MODEL:
 				sequence_SInformationModel(context, (SInformationModel) semanticObject); 
 				return; 
@@ -496,7 +492,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=SImport* model=SInformationModel)
+	 *     (name=DQualifiedName imports+=DImport* model=SInformationModel)
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -798,18 +794,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (source=[DQueryParameter|ID] renameTo=ID?)
 	 */
 	protected void sequence_SGrabQueryParameterRule(ISerializationContext context, SGrabRule semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SImport returns SImport
-	 *
-	 * Constraint:
-	 *     (importedNamespace=DQualifiedNameWithWildcard | model=[SInformationModel|DQualifiedName])
-	 */
-	protected void sequence_SImport(ISerializationContext context, SImport semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

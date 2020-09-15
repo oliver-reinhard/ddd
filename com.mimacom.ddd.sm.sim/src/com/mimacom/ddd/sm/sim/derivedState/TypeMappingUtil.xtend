@@ -5,7 +5,6 @@ import com.google.inject.Inject
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.BaseFactory
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper
 import com.mimacom.ddd.sm.sim.indexing.SimIndex
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
@@ -14,14 +13,13 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.impl.BasicEObjectImpl
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.naming.QualifiedName
-import org.eclipse.xtext.nodemodel.ICompositeNode
-import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.resource.IEObjectDescription
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
 
 @Singleton
-class TransformationContext {
+class TypeMappingUtil {
 
-	static val LOGGER = Logger.getLogger(TransformationContext);
+	static val LOGGER = Logger.getLogger(TypeMappingUtil);
 	static val BASE = BaseFactory.eINSTANCE
 
 	@Inject SimIndex index
@@ -31,15 +29,21 @@ class TransformationContext {
 	new() {
 		LOGGER.level = Level.DEBUG
 	}
+	
+	/**
+	 * Returns a proxy object with a URL that will resolve to the actual system type by ways of the SimIndex.
+	 * 
+	 * @param context used to derive the relevant eResource.
+	 * @return null if context is null or domainType has no fully qualified name
+	 */
 	def DType getSystemTypeProxy(EObject context, DType domainType) {
-//		var dType = domainType as EObject
-//		if (domainType.eIsProxy) {
-//			dType = context.eResource.resourceSet.getEObject((domainType as InternalEObject).eProxyURI, true)
-//		}
 		val domainTypeQN = qualifiedNameProvider.getFullyQualifiedName(domainType)
+		if (context === null || domainTypeQN === null) {
+			return null
+		}
 		val resourceURI = context.eResource.URI
-		val uri = URI.createURI(resourceURI.toString + "#" + DeductionHelper.getDeductionProxyUriFragment(domainTypeQN))
-		val systemType = BASE.createDPrimitive()
+		val uri = URI.createURI(resourceURI.toString + "#" + DeductionUtil.getDeductionProxyUriFragment(domainTypeQN))
+		val systemType = BASE.createDPrimitive() // any concrete DType will do here
 		(systemType as BasicEObjectImpl).eSetProxyURI(uri)
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
 			LOGGER.debug("getSystemTypeProxy for " + domainTypeQN + " -> " + uri)
@@ -47,7 +51,8 @@ class TransformationContext {
 		return systemType
 	}
 
-	/*
+	/**
+	 * @param context used to derive the relevant eResource.
 	 * @return  null if no system type is found for the given domain type.
 	 */
 	def Iterable<IEObjectDescription> getSystemTypeDescriptions(EObject context, QualifiedName domainTypeQN) {
@@ -58,7 +63,7 @@ class TransformationContext {
 			getVisibleSTypeMappingDescriptions(context, domainTypeQN)
 		val sTypes = Lists.newArrayList
 		for (desc : typeDeductionDescriptions) {
-			val systemTypeQN = DeductionHelper.getDeductionTargetQN(desc)
+			val systemTypeQN = DeductionUtil.getDeductionTargetQN(desc)
 			sTypes.addAll(index.getVisibleDTypeDescriptions(context, systemTypeQN));
 		}
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {

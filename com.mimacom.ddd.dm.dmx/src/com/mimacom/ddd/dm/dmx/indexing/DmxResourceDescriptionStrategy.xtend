@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dmx.indexing
 
 import com.google.inject.Singleton
+import com.mimacom.ddd.dm.base.DNamespace
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
@@ -15,10 +16,10 @@ class DmxResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 	protected static val LOGGER = Logger.getLogger(DmxResourceDescriptionStrategy)
 	
 	override boolean createEObjectDescriptions(EObject obj, IAcceptor<IEObjectDescription> acceptor) {
-//		if (obj instanceof DNamespace) {
-//			// Don't index
-//			return true // = index children
-//		}
+		if (obj instanceof DNamespace) {
+			// Don't index
+			return true // = index children
+		}
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
 			if (getQualifiedNameProvider() === null)
 				return false;

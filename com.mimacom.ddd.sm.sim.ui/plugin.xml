@@ -466,4 +466,10 @@
 	         providerClass="com.mimacom.ddd.sm.sim.ui.plantuml.SimTypeDiagramTextProviderWrapper">
 	   </diagramTextProvider>
 	</extension>
+    <extension
+       point="org.eclipse.xtext.ui.shared.overridingGuiceModule">
+       <module
+          class="com.mimacom.ddd.sm.sim.ui.builder.SimDerivedStateBuilderModule">
+       </module>
+    </extension>
 </plugin>

@@ -31,7 +31,6 @@ import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
-import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
 import com.mimacom.ddd.sm.sim.derivedState.TypeSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +50,7 @@ public class STypeDeductionRuleProcessor {
   
   private static final String UNDEFINED = "UNDEFINED";
   
-  protected void addImplicitSyntheticTypes(final ITypeContainer container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticFeatureContainerDescriptor> acceptor, final TransformationContext context) {
+  protected void addImplicitSyntheticTypes(final ITypeContainer container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticFeatureContainerDescriptor> acceptor) {
     final Iterable<IDeductionDefinition> typeDeductionDefinitions = Iterables.<IDeductionDefinition>filter(deductionDefinition.getTypes(), IDeductionDefinition.class);
     final Function1<IDeductionDefinition, Boolean> _function = (IDeductionDefinition it) -> {
       DDeductionRule _deductionRule = it.getDeductionRule();
@@ -74,7 +73,7 @@ public class STypeDeductionRuleProcessor {
       for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
           final DImplicitDeduction implicitTypeDeduction = this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType);
-          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeDeduction, context);
+          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeDeduction);
           if ((syntheticType instanceof DEnumeration)) {
             this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), implicitTypeDeduction);
           } else {
@@ -88,7 +87,7 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor, final TransformationContext context) {
+  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor) {
     final List<STypeDeduction> typeDeductionDefinitions = IterableExtensions.<STypeDeduction>toList(Iterables.<STypeDeduction>filter(origin.getTypes(), STypeDeduction.class));
     TypeSorter _typeSorter = new TypeSorter();
     Collections.<STypeDeduction>sort(typeDeductionDefinitions, _typeSorter);
@@ -97,7 +96,7 @@ public class STypeDeductionRuleProcessor {
         final DDeductionRule rule = definition.getDeductionRule();
         final IDeducibleElement source = rule.getSource();
         if ((source instanceof DType)) {
-          final DType syntheticType = this.processTypeDeduction(container, definition, rule, context);
+          final DType syntheticType = this.processTypeDeduction(container, definition, rule);
           if ((syntheticType instanceof DComplexType)) {
             SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((SComplexTypeDeduction) definition), ((DComplexType) source));
             acceptor.add(_syntheticFeatureContainerDescriptor);
@@ -107,7 +106,7 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected DPrimitive _processTypeDeduction(final ITypeContainer container, final SPrimitiveDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  protected DPrimitive _processTypeDeduction(final ITypeContainer container, final SPrimitiveDeduction deductionDefinition, final SGrabRule rule) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DPrimitive)) {
       String _xifexpression = null;
@@ -119,14 +118,14 @@ public class STypeDeductionRuleProcessor {
         _xifexpression = ((DPrimitive)source).getName();
       }
       final String name = _xifexpression;
-      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition, context);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition);
       final DPrimitive syntheticType = ((DPrimitive) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  protected DEnumeration _processTypeDeduction(final ITypeContainer container, final SEnumerationDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  protected DEnumeration _processTypeDeduction(final ITypeContainer container, final SEnumerationDeduction deductionDefinition, final SGrabRule rule) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DEnumeration)) {
       String _xifexpression = null;
@@ -138,7 +137,7 @@ public class STypeDeductionRuleProcessor {
         _xifexpression = ((DEnumeration)source).getName();
       }
       final String name = _xifexpression;
-      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition, context);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition);
       final DEnumeration syntheticEnum = ((DEnumeration) _addSyntheticType);
       this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), deductionDefinition);
       this.addSyntheticLiterals(syntheticEnum, deductionDefinition);
@@ -147,31 +146,31 @@ public class STypeDeductionRuleProcessor {
     return null;
   }
   
-  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
-    return this.grabComplexType(container, deductionDefinition, rule, context);
+  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SGrabRule rule) {
+    return this.grabComplexType(container, deductionDefinition, rule);
   }
   
-  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
-    final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule, context);
-    this.extendsComplexType(syntheticType, rule, context);
+  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SMorphRule rule) {
+    final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule);
+    this.extendsComplexType(syntheticType, rule);
     return syntheticType;
   }
   
-  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SFuseRule rule, final TransformationContext context) {
-    final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule, context);
-    this.extendsComplexType(syntheticType, rule, context);
+  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SFuseRule rule) {
+    final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule);
+    this.extendsComplexType(syntheticType, rule);
     return syntheticType;
   }
   
-  protected DComplexType _processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
+  protected DComplexType _processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final SDitchRule rule) {
     return null;
   }
   
-  protected DType _processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
+  protected DType _processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final DDeductionRule rule) {
     throw new UnsupportedOperationException();
   }
   
-  public DComplexType grabComplexType(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
+  public DComplexType grabComplexType(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SRenameRule rule) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DComplexType)) {
       String _xifexpression = null;
@@ -183,14 +182,14 @@ public class STypeDeductionRuleProcessor {
         _xifexpression = ((DComplexType)source).getName();
       }
       final String name = _xifexpression;
-      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition, context);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition);
       final DComplexType syntheticType = ((DComplexType) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  public void extendsComplexType(final DComplexType syntheticType, final SStructureChangingRule rule, final TransformationContext context) {
+  public void extendsComplexType(final DComplexType syntheticType, final SStructureChangingRule rule) {
     if (((rule.getExtendFrom() instanceof DComplexType) && Objects.equal(syntheticType.getClass(), rule.getExtendFrom().getClass()))) {
       DType _extendFrom = rule.getExtendFrom();
       syntheticType.setSuperType(((DComplexType) _extendFrom));
@@ -262,38 +261,38 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  public DType processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
+  public DType processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final DDeductionRule rule) {
     if (container instanceof ITypeContainer
          && deductionDefinition instanceof SEnumerationDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeDeduction((ITypeContainer)container, (SEnumerationDeduction)deductionDefinition, (SGrabRule)rule, context);
+      return _processTypeDeduction((ITypeContainer)container, (SEnumerationDeduction)deductionDefinition, (SGrabRule)rule);
     } else if (container instanceof ITypeContainer
          && deductionDefinition instanceof SPrimitiveDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeDeduction((ITypeContainer)container, (SPrimitiveDeduction)deductionDefinition, (SGrabRule)rule, context);
+      return _processTypeDeduction((ITypeContainer)container, (SPrimitiveDeduction)deductionDefinition, (SGrabRule)rule);
     } else if (container instanceof ITypeContainer
          && deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SFuseRule) {
-      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SFuseRule)rule, context);
+      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SFuseRule)rule);
     } else if (container instanceof ITypeContainer
          && deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SMorphRule) {
-      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SMorphRule)rule, context);
+      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SMorphRule)rule);
     } else if (container instanceof ITypeContainer
          && deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SGrabRule)rule, context);
+      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SGrabRule)rule);
     } else if (container != null
          && deductionDefinition != null
          && rule instanceof SDitchRule) {
-      return _processTypeDeduction(container, deductionDefinition, (SDitchRule)rule, context);
+      return _processTypeDeduction(container, deductionDefinition, (SDitchRule)rule);
     } else if (container != null
          && deductionDefinition != null
          && rule != null) {
-      return _processTypeDeduction(container, deductionDefinition, rule, context);
+      return _processTypeDeduction(container, deductionDefinition, rule);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, deductionDefinition, rule, context).toString());
+        Arrays.<Object>asList(container, deductionDefinition, rule).toString());
     }
   }
 }

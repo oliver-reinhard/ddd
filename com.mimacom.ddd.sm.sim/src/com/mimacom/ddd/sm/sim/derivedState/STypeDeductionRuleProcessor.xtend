@@ -33,7 +33,7 @@ class STypeDeductionRuleProcessor  {
 	
 	static val UNDEFINED = "UNDEFINED"
 	
-	protected def void addImplicitSyntheticTypes(ITypeContainer container, SAggregateDeduction deductionDefinition, DAggregate source, List<SyntheticFeatureContainerDescriptor> acceptor, TransformationContext context) {
+	protected def void addImplicitSyntheticTypes(ITypeContainer container, SAggregateDeduction deductionDefinition, DAggregate source, List<SyntheticFeatureContainerDescriptor> acceptor) {
 		val typeDeductionDefinitions = deductionDefinition.types.filter(IDeductionDefinition)
 		if (! typeDeductionDefinitions.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab ALL TYPES WITHOUT an EXPLICIT RULE:
@@ -44,7 +44,7 @@ class STypeDeductionRuleProcessor  {
 			// create synthetic STypes for implicit types (but not their features yet because they may depend on the mappings of those types ):
 			for (sourceType : implicitlyGrabbedSourceTypes) {
 				val implicitTypeDeduction = createImplicitElementCopyDeduction(deductionDefinition, sourceType)
-				val syntheticType = container.addSyntheticType(sourceType.name, sourceType, implicitTypeDeduction, context)
+				val syntheticType = container.addSyntheticType(sourceType.name, sourceType, implicitTypeDeduction)
 				if (syntheticType instanceof DEnumeration) {
 					syntheticType.addImplicitSyntheticLiterals(sourceType as DEnumeration, implicitTypeDeduction)
 				} else if (syntheticType instanceof DComplexType) {
@@ -54,14 +54,14 @@ class STypeDeductionRuleProcessor  {
 		}
 	}
 	
-	protected def void addSyntheticTypes(ITypeContainer container, DAggregate origin, List<SyntheticFeatureContainerDescriptor> acceptor, TransformationContext context) {
+	protected def void addSyntheticTypes(ITypeContainer container, DAggregate origin, List<SyntheticFeatureContainerDescriptor> acceptor) {
 		val typeDeductionDefinitions = origin.types.filter(STypeDeduction).toList // cannot sort iterable 
 		Collections.sort(typeDeductionDefinitions, new TypeSorter)
 		for (definition : typeDeductionDefinitions) {
 			val rule = definition.deductionRule
 			val source = rule.source
 			if (source instanceof DType) {
-				val syntheticType = container.processTypeDeduction(definition, rule, context)
+				val syntheticType = container.processTypeDeduction(definition, rule)
 				if (syntheticType instanceof DComplexType) {
 					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, definition as SComplexTypeDeduction, source as DComplexType))
 				}
@@ -69,21 +69,21 @@ class STypeDeductionRuleProcessor  {
 		}
 	}
 	
-	def dispatch DPrimitive processTypeDeduction(ITypeContainer container, SPrimitiveDeduction deductionDefinition, SGrabRule rule /*dispatch*/, TransformationContext context) {
+	def dispatch DPrimitive processTypeDeduction(ITypeContainer container, SPrimitiveDeduction deductionDefinition, SGrabRule rule /*dispatch*/) {
 		val source = rule.source
 		if (source instanceof DPrimitive) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
-			val syntheticType = container.addSyntheticType(name, source, deductionDefinition, context) as DPrimitive
+			val syntheticType = container.addSyntheticType(name, source, deductionDefinition) as DPrimitive
 			return syntheticType
 		}
 		return null
 	}
 	
-	def dispatch DEnumeration processTypeDeduction(ITypeContainer container, SEnumerationDeduction deductionDefinition, SGrabRule rule /*dispatch*/, TransformationContext context) {
+	def dispatch DEnumeration processTypeDeduction(ITypeContainer container, SEnumerationDeduction deductionDefinition, SGrabRule rule /*dispatch*/) {
 		val source = rule.source
 		if (source instanceof DEnumeration) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
-			val syntheticEnum = container.addSyntheticType(name , source, deductionDefinition, context) as DEnumeration
+			val syntheticEnum = container.addSyntheticType(name , source, deductionDefinition) as DEnumeration
 			syntheticEnum.addImplicitSyntheticLiterals(source, deductionDefinition)
 			syntheticEnum.addSyntheticLiterals(deductionDefinition)
 			return syntheticEnum
@@ -91,44 +91,44 @@ class STypeDeductionRuleProcessor  {
 		return null
 	}
 	
-	def dispatch DComplexType processTypeDeduction(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SGrabRule rule /*dispatch*/, TransformationContext context) {
-		return grabComplexType(container, deductionDefinition, rule, context)
+	def dispatch DComplexType processTypeDeduction(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SGrabRule rule /*dispatch*/) {
+		return grabComplexType(container, deductionDefinition, rule)
 	}
 	
-	def dispatch DComplexType processTypeDeduction(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SMorphRule rule /*dispatch*/, TransformationContext context) {
-		val syntheticType = grabComplexType(container, deductionDefinition, rule, context)
-		extendsComplexType(syntheticType, rule, context)
+	def dispatch DComplexType processTypeDeduction(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SMorphRule rule /*dispatch*/) {
+		val syntheticType = grabComplexType(container, deductionDefinition, rule)
+		extendsComplexType(syntheticType, rule)
 		return syntheticType
 	}
 	
-	def dispatch DComplexType processTypeDeduction(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SFuseRule rule /*dispatch*/, TransformationContext context) {
-		val syntheticType = grabComplexType(container, deductionDefinition, rule, context)
-		extendsComplexType(syntheticType, rule, context)
+	def dispatch DComplexType processTypeDeduction(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SFuseRule rule /*dispatch*/) {
+		val syntheticType = grabComplexType(container, deductionDefinition, rule)
+		extendsComplexType(syntheticType, rule)
 		// TODO 1. enhance scope provider to enable feature transformations (rules)
 		// TODO 2. add respective features of all source types to fused type
 		return syntheticType
 	}
 	
-	def dispatch DComplexType processTypeDeduction(EObject container, STypeDeduction deductionDefinition, SDitchRule rule /*dispatch*/, TransformationContext context) {
+	def dispatch DComplexType processTypeDeduction(EObject container, STypeDeduction deductionDefinition, SDitchRule rule /*dispatch*/) {
 		// do nothing
 	}
 	
-	def dispatch DType processTypeDeduction(EObject container, STypeDeduction deductionDefinition, DDeductionRule rule /*dispatch*/, TransformationContext context) {
+	def dispatch DType processTypeDeduction(EObject container, STypeDeduction deductionDefinition, DDeductionRule rule /*dispatch*/) {
 		throw new UnsupportedOperationException() // catch-all => should not occur
 	}
 	
-	def  DComplexType grabComplexType(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
+	def  DComplexType grabComplexType(ITypeContainer container, SComplexTypeDeduction deductionDefinition, SRenameRule rule) {
 		val source = rule.source
 		if (source instanceof DComplexType) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
-			val syntheticType = container.addSyntheticType(name , source, deductionDefinition, context) as DComplexType
+			val syntheticType = container.addSyntheticType(name , source, deductionDefinition) as DComplexType
 			// do not add features yet (they may refer to types that might not exist yet => added by containers of this type later)
 			return syntheticType
 		}
 		return null
 	}
 	
-	def void extendsComplexType(DComplexType syntheticType, SStructureChangingRule rule, TransformationContext context) {
+	def void extendsComplexType(DComplexType syntheticType, SStructureChangingRule rule) {
 		if (rule.extendFrom instanceof DComplexType && syntheticType.class == rule.extendFrom.class ) {
 			syntheticType.superType = rule.extendFrom as DComplexType
 		}

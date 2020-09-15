@@ -103,9 +103,9 @@ ruleDNamespace returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsSImportParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDNamespaceAccess().getImportsDImportParserRuleCall_2_0());
 				}
-				lv_imports_2_0=ruleSImport
+				lv_imports_2_0=ruleDImport
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDNamespaceRule());
@@ -114,7 +114,7 @@ ruleDNamespace returns [EObject current=null]
 						$current,
 						"imports",
 						lv_imports_2_0,
-						"com.mimacom.ddd.sm.sim.Sim.SImport");
+						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -136,73 +136,6 @@ ruleDNamespace returns [EObject current=null]
 						"com.mimacom.ddd.sm.sim.Sim.SInformationModel");
 					afterParserOrEnumRuleCall();
 				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleSImport
-entryRuleSImport returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSImportRule()); }
-	iv_ruleSImport=ruleSImport
-	{ $current=$iv_ruleSImport.current; }
-	EOF;
-
-// Rule SImport
-ruleSImport returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='import'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSImportAccess().getImportKeyword_0());
-		}
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0_0());
-					}
-					lv_importedNamespace_1_0=ruleDQualifiedNameWithWildcard
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSImportRule());
-						}
-						set(
-							$current,
-							"importedNamespace",
-							lv_importedNamespace_1_0,
-							"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				otherlv_2='model'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getSImportAccess().getModelKeyword_1_1_0());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSImportRule());
-							}
-						}
-						{
-							newCompositeNode(grammarAccess.getSImportAccess().getModelSInformationModelCrossReference_1_1_1_0());
-						}
-						ruleDQualifiedName
-						{
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
 			)
 		)
 	)
@@ -5356,6 +5289,48 @@ ruleDQueryParameter returns [EObject current=null]
 				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleDImport
+entryRuleDImport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDImportRule()); }
+	iv_ruleDImport=ruleDImport
+	{ $current=$iv_ruleDImport.current; }
+	EOF;
+
+// Rule DImport
+ruleDImport returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='import'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0());
+				}
+				lv_importedNamespace_1_0=ruleDQualifiedNameWithWildcard
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDImportRule());
+					}
+					set(
+						$current,
+						"importedNamespace",
+						lv_importedNamespace_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

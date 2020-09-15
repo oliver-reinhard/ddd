@@ -3,7 +3,6 @@ package com.mimacom.ddd.sm.sim.indexing
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeductionDefinition
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.apache.log4j.Level
@@ -15,12 +14,13 @@ import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.IReferenceDescription
 import org.eclipse.xtext.util.IAcceptor
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
 
 @Singleton
 class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 	
 	new() {
-		LOGGER.level = Level.DEBUG
+		LOGGER.level = Level.ERROR
 	}
 
 	/*
@@ -77,8 +77,8 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 					val deduction = typeToIndex.deducedFrom
 					val model = EcoreUtil2.getContainerOfType(deduction, SInformationModel)
 					val typeMappingType = model.indexingHelper
-					val userData = DeductionHelper.createEObjectDescriptionUserData(targetQN)
-					val sourceQNForIndex = DeductionHelper.getDeductionSourceQNForIndex(sourceQN)
+					val userData = DeductionUtil.createEObjectDescriptionUserData(targetQN)
+					val sourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(sourceQN)
 					val mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData)
 					acceptor.accept(mappingDesc);
 

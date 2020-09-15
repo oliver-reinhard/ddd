@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.naming.QualifiedName;
 
 import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper;
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil;
 import com.mimacom.ddd.dm.base.modelDeduction.IDeductionAwareResource;
 
 public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
@@ -24,7 +24,7 @@ public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
 	}
 
 	public EObject eResolveProxy(InternalEObject proxy) {
-		final QualifiedName sourceQN = DeductionHelper.getDeductionSourceQN(proxy.eProxyURI());
+		final QualifiedName sourceQN = DeductionUtil.getDeductionSourceQN(proxy.eProxyURI());
 		if (sourceQN != null && !sourceQN.isEmpty()) {
 			final Resource resource = eResource();
 			if (resource instanceof IDeductionAwareResource) {

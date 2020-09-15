@@ -22,7 +22,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper;
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxModel;
@@ -275,9 +275,9 @@ public class SimDeductionTest {
       final List<IEObjectDescription> visibleDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(st));
       Assertions.assertEquals(4, visibleDescs.size());
       Assertions.assertEquals(SimDeductionTest.SM_SM1_ST, visibleDescs.get(3).getQualifiedName());
-      final List<IEObjectDescription> visibleMapings = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleSTypeMappingDescriptions(st, DeductionHelper.getDeductionSourceQNForIndex(SimDeductionTest.DM_DT)));
+      final List<IEObjectDescription> visibleMapings = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleSTypeMappingDescriptions(st, DeductionUtil.getDeductionSourceQNForIndex(SimDeductionTest.DM_DT)));
       Assertions.assertEquals(1, visibleMapings.size());
-      Assertions.assertEquals(SimDeductionTest.SM_SM1_ST, DeductionHelper.getDeductionTargetQN(visibleMapings.get(0)));
+      Assertions.assertEquals(SimDeductionTest.SM_SM1_ST, DeductionUtil.getDeductionTargetQN(visibleMapings.get(0)));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

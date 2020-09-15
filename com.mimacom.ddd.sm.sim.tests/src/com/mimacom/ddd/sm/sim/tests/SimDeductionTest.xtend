@@ -15,7 +15,6 @@ import com.mimacom.ddd.dm.base.DNamespace
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionHelper
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxModel
@@ -41,6 +40,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
@@ -217,9 +217,9 @@ class SimDeductionTest {
 		val visibleDescs = index.getVisibleDTypeDescriptions(st).toList
 		assertEquals(4, visibleDescs.size)
 		assertEquals(SM_SM1_ST, visibleDescs.get(3).qualifiedName)
-		val visibleMapings = index.getVisibleSTypeMappingDescriptions(st, DeductionHelper.getDeductionSourceQNForIndex(DM_DT)).toList
+		val visibleMapings = index.getVisibleSTypeMappingDescriptions(st, DeductionUtil.getDeductionSourceQNForIndex(DM_DT)).toList
 		assertEquals(1, visibleMapings.size)
-		assertEquals(SM_SM1_ST, DeductionHelper.getDeductionTargetQN(visibleMapings.get(0)))
+		assertEquals(SM_SM1_ST, DeductionUtil.getDeductionTargetQN(visibleMapings.get(0)))
 	}
 
 	@Test

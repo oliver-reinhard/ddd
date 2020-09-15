@@ -21,6 +21,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
 @FinalFieldsConstructor
 class DomUiModule extends AbstractDomUiModule {
 	
+	static public val FILE_EXTENSION = "dom"
+	
 	def Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
 		return DomEObjectHoverProvider
 	}
