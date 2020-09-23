@@ -117,7 +117,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Model createModel()
   {
     ModelImpl model = new ModelImpl();
@@ -129,7 +128,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public TypeMapping createTypeMapping()
   {
     TypeMappingImpl typeMapping = new TypeMappingImpl();
@@ -141,7 +139,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public ExceptionMapping createExceptionMapping()
   {
     ExceptionMappingImpl exceptionMapping = new ExceptionMappingImpl();
@@ -153,7 +150,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EndpointDeclarationBlock createEndpointDeclarationBlock()
   {
     EndpointDeclarationBlockImpl endpointDeclarationBlock = new EndpointDeclarationBlockImpl();
@@ -165,7 +161,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EndpointDeclaration createEndpointDeclaration()
   {
     EndpointDeclarationImpl endpointDeclaration = new EndpointDeclarationImpl();
@@ -177,7 +172,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Path createPath()
   {
     PathImpl path = new PathImpl();
@@ -189,7 +183,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public PathSegment createPathSegment()
   {
     PathSegmentImpl pathSegment = new PathSegmentImpl();
@@ -223,7 +216,6 @@ public class GeneratorFactoryImpl extends EFactoryImpl implements GeneratorFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public GeneratorPackage getGeneratorPackage()
   {
     return (GeneratorPackage)getEPackage();

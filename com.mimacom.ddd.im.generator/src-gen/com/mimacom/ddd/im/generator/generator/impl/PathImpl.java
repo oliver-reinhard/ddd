@@ -95,7 +95,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public boolean isLeadingSlash()
   {
     return leadingSlash;
@@ -106,7 +105,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setLeadingSlash(boolean newLeadingSlash)
   {
     boolean oldLeadingSlash = leadingSlash;
@@ -120,7 +118,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EList<PathSegment> getSegments()
   {
     if (segments == null)
@@ -234,7 +231,7 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (leadingSlash: ");
     result.append(leadingSlash);
     result.append(')');

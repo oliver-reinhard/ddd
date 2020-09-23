@@ -73,6 +73,10 @@ public enum HttpVerb implements Enumerator
   /**
    * The '<em><b>PUT</b></em>' literal value.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>PUT</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @see #PUT
    * @model
@@ -84,6 +88,10 @@ public enum HttpVerb implements Enumerator
   /**
    * The '<em><b>POST</b></em>' literal value.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>POST</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @see #POST
    * @model
@@ -95,6 +103,10 @@ public enum HttpVerb implements Enumerator
   /**
    * The '<em><b>GET</b></em>' literal value.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>GET</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @see #GET
    * @model
@@ -106,6 +118,10 @@ public enum HttpVerb implements Enumerator
   /**
    * The '<em><b>DELETE</b></em>' literal value.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>DELETE</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @see #DELETE
    * @model
@@ -117,6 +133,10 @@ public enum HttpVerb implements Enumerator
   /**
    * The '<em><b>PATCH</b></em>' literal value.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>PATCH</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @see #PATCH
    * @model
@@ -251,7 +271,6 @@ public enum HttpVerb implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public int getValue()
   {
     return value;
@@ -262,7 +281,6 @@ public enum HttpVerb implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -273,7 +291,6 @@ public enum HttpVerb implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getLiteral()
   {
     return literal;

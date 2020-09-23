@@ -123,7 +123,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public HttpVerb getVerb()
   {
     return verb;
@@ -134,7 +133,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setVerb(HttpVerb newVerb)
   {
     HttpVerb oldVerb = verb;
@@ -148,7 +146,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -159,7 +156,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -173,7 +169,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public SServiceOperation getType()
   {
     if (type != null && type.eIsProxy())
@@ -204,7 +199,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setType(SServiceOperation newType)
   {
     SServiceOperation oldType = type;
@@ -218,7 +212,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Path getPath()
   {
     return path;
@@ -246,7 +239,6 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setPath(Path newPath)
   {
     if (newPath != path)
@@ -386,7 +378,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (verb: ");
     result.append(verb);
     result.append(", name: ");

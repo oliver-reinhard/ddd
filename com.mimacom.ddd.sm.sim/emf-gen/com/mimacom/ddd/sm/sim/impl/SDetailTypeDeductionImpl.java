@@ -91,7 +91,6 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -119,7 +118,6 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)
@@ -141,7 +139,6 @@ public class SDetailTypeDeductionImpl extends DDetailTypeImpl implements SDetail
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DImplicitDeduction> getImpliedDeductions()
 	{
 		if (impliedDeductions == null)

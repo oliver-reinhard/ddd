@@ -122,7 +122,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -133,7 +132,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -147,7 +145,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public SException getType()
   {
     if (type != null && type.eIsProxy())
@@ -178,7 +175,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setType(SException newType)
   {
     SException oldType = type;
@@ -192,7 +188,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public JvmType getExtends()
   {
     if (extends_ != null && extends_.eIsProxy())
@@ -223,7 +218,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setExtends(JvmType newExtends)
   {
     JvmType oldExtends = extends_;
@@ -237,7 +231,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getMessage()
   {
     return message;
@@ -248,7 +241,6 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setMessage(String newMessage)
   {
     String oldMessage = message;
@@ -365,7 +357,7 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
     result.append(", message: ");

@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
+import com.mimacom.ddd.sm.sim.SInformationModelKind
 import com.mimacom.ddd.sm.sim.STypeDeduction
 import com.mimacom.ddd.sm.sim.SimFactory
 import java.util.Collections
@@ -34,15 +35,19 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	}
 
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
-		if (/*!preLinkingPhase && */ ! resource.parseResult.hasSyntaxErrors) {
+		if (! resource.parseResult.hasSyntaxErrors) {
 			val namespace = resource.allContents.head as DNamespace
 			val model = namespace.model as SInformationModel
 			if (model !== null) {
-				LOGGER.debug("Derive " + (preLinkingPhase ? "pre-linking " : "") + "state for " + resource.URI)
-				derivedStateInstalled = true
-				model.indexingHelper = SIM.createSTypeMapping
-				model.process
-				LOGGER.debug("Derive state END for " + resource.URI)
+				if (preLinkingPhase && model.kind !== SInformationModelKind.BASE) {
+					LOGGER.debug("Derive pre-linking state SKIPPED for " + resource.URI)
+				} else {
+					derivedStateInstalled = true
+					LOGGER.debug("Derive state for " + resource.URI)
+					model.indexingHelper = SIM.createSTypeMapping
+					model.process
+					LOGGER.debug("Derive state END for " + resource.URI)
+				}
 			}
 		}
 	}

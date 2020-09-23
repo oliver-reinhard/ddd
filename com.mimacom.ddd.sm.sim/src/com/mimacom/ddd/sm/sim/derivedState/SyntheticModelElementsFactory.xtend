@@ -20,6 +20,7 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.dm.base.IDeductionDefinition
 import com.mimacom.ddd.dm.base.IFeatureContainer
+import com.mimacom.ddd.dm.base.IIdentityType
 import com.mimacom.ddd.dm.base.ITypeContainer
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SInformationModelKind
@@ -34,7 +35,7 @@ class SyntheticModelElementsFactory {
 	static val BASE = BaseFactory.eINSTANCE
 	static val SIM = SimFactory.eINSTANCE
 
-	@Inject TypeMappingUtil context
+	@Inject extension TypeMappingUtil
 
 	def DAggregate addSyntheticAggregate(SInformationModel container, String name,
 		IDeductionDefinition deductionDefinition) {
@@ -93,21 +94,29 @@ class SyntheticModelElementsFactory {
 		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add synthetic feature now)
 			return null
 		}
-//		val featureType = context.getSystemType(sourceFeatureType) // may be null
-//		val syntheticFeature = switch source {
-//			DAttribute | DAssociation: if (featureType instanceof IIdentityType ||
-//				featureType === null && source instanceof DAssociation) BASE.createDAssociation else BASE.
-//				createDAttribute
-//			DQuery: BASE.createDQuery
-//		}
-		val featureTypeProxy = context.getSystemTypeProxy(deductionDefinition, sourceFeatureType) // may be null
+		val featureTypeProxy = getSystemTypeProxy(deductionDefinition, sourceFeatureType) // may be null
+		// Now create the actual feature with correct type:
 		val syntheticFeature = switch source {
-			DAssociation: BASE.createDAssociation // TODO this fails when IdentityType is changed to DetailType as part of the transformation
-			DAttribute: BASE.createDAttribute
-			DQuery: BASE.createDQuery
+			DQuery: {
+				BASE.createDQuery
+			}
+			DAttribute | DAssociation: {
+				// We need the actual type of the feature -> create temporary feature and resolve type proxy:
+				val tempFeature = BASE.createDAttribute
+				container.features.add(tempFeature)
+				tempFeature.type = featureTypeProxy // may be null
+				// FORCE proxy resolution by accessing the type field:
+				val featureType = tempFeature.type
+				container.features.remove(tempFeature)
+				//
+				if (featureType instanceof IIdentityType || featureType === null && source instanceof DAssociation)
+					BASE.createDAssociation
+				else
+					BASE.createDAttribute
+			}
 		}
 		syntheticFeature.name = name
-		syntheticFeature.type = featureTypeProxy // may be null -> TODO add validation!
+		syntheticFeature.type = featureTypeProxy // may be null -> there is a validation catching this case
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.synthetic = true
 		syntheticFeature.deducedFrom = deductionDefinition
@@ -154,7 +163,7 @@ class SyntheticModelElementsFactory {
 		}
 		val syntheticParameter = BASE.createDQueryParameter
 		syntheticParameter.name = name
-		syntheticParameter.type = context.getSystemTypeProxy(deductionDefinition, sourceParameterType)
+		syntheticParameter.type = getSystemTypeProxy(deductionDefinition, sourceParameterType)
 		syntheticParameter.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticParameter.synthetic = true
 		syntheticParameter.deducedFrom = deductionDefinition

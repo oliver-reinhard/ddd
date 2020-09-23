@@ -34,6 +34,10 @@ public interface Model extends EObject
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
@@ -56,6 +60,10 @@ public interface Model extends EObject
   /**
    * Returns the value of the '<em><b>Import Section</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Import Section</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Import Section</em>' containment reference.
    * @see #setImportSection(XImportSection)
@@ -79,6 +87,10 @@ public interface Model extends EObject
    * Returns the value of the '<em><b>Type Mappings</b></em>' containment reference list.
    * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.TypeMapping}.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Mappings</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type Mappings</em>' containment reference list.
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_TypeMappings()
@@ -91,6 +103,10 @@ public interface Model extends EObject
    * Returns the value of the '<em><b>Exception Mappings</b></em>' containment reference list.
    * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.ExceptionMapping}.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exception Mappings</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Exception Mappings</em>' containment reference list.
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_ExceptionMappings()
@@ -103,6 +119,10 @@ public interface Model extends EObject
    * Returns the value of the '<em><b>Endpoint Declarations</b></em>' containment reference list.
    * The list contents are of type {@link com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock}.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Endpoint Declarations</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Endpoint Declarations</em>' containment reference list.
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getModel_EndpointDeclarations()

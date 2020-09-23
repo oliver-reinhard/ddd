@@ -22,6 +22,7 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IFeatureContainer;
+import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SInformationModel;
@@ -34,6 +35,7 @@ import com.mimacom.ddd.sm.sim.derivedState.TypeMappingUtil;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public class SyntheticModelElementsFactory {
@@ -42,7 +44,8 @@ public class SyntheticModelElementsFactory {
   private static final SimFactory SIM = SimFactory.eINSTANCE;
   
   @Inject
-  private TypeMappingUtil context;
+  @Extension
+  private TypeMappingUtil _typeMappingUtil;
   
   public DAggregate addSyntheticAggregate(final SInformationModel container, final String name, final IDeductionDefinition deductionDefinition) {
     final DAggregate syntheticAggregate = SyntheticModelElementsFactory.BASE.createDAggregate();
@@ -97,23 +100,32 @@ public class SyntheticModelElementsFactory {
     if ((sourceFeatureType == null)) {
       return null;
     }
-    final DType featureTypeProxy = this.context.getSystemTypeProxy(deductionDefinition, sourceFeatureType);
+    final DType featureTypeProxy = this._typeMappingUtil.getSystemTypeProxy(deductionDefinition, sourceFeatureType);
     DFeature _switchResult = null;
     boolean _matched = false;
-    if (source instanceof DAssociation) {
+    if (source instanceof DQuery) {
       _matched=true;
-      _switchResult = SyntheticModelElementsFactory.BASE.createDAssociation();
+      _switchResult = SyntheticModelElementsFactory.BASE.createDQuery();
     }
     if (!_matched) {
-      if (source instanceof DAttribute) {
+      if (source instanceof DAttribute || source instanceof DAssociation) {
         _matched=true;
-        _switchResult = SyntheticModelElementsFactory.BASE.createDAttribute();
-      }
-    }
-    if (!_matched) {
-      if (source instanceof DQuery) {
-        _matched=true;
-        _switchResult = SyntheticModelElementsFactory.BASE.createDQuery();
+        DFeature _xblockexpression = null;
+        {
+          final DAttribute tempFeature = SyntheticModelElementsFactory.BASE.createDAttribute();
+          container.getFeatures().add(tempFeature);
+          tempFeature.setType(featureTypeProxy);
+          final DType featureType = tempFeature.getType();
+          container.getFeatures().remove(tempFeature);
+          DFeature _xifexpression = null;
+          if (((featureType instanceof IIdentityType) || ((featureType == null) && (source instanceof DAssociation)))) {
+            _xifexpression = SyntheticModelElementsFactory.BASE.createDAssociation();
+          } else {
+            _xifexpression = SyntheticModelElementsFactory.BASE.createDAttribute();
+          }
+          _xblockexpression = _xifexpression;
+        }
+        _switchResult = _xblockexpression;
       }
     }
     final DFeature syntheticFeature = _switchResult;
@@ -179,7 +191,7 @@ public class SyntheticModelElementsFactory {
     }
     final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.BASE.createDQueryParameter();
     syntheticParameter.setName(name);
-    syntheticParameter.setType(this.context.getSystemTypeProxy(deductionDefinition, sourceParameterType));
+    syntheticParameter.setType(this._typeMappingUtil.getSystemTypeProxy(deductionDefinition, sourceParameterType));
     syntheticParameter.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     syntheticParameter.setSynthetic(true);
     syntheticParameter.setDeducedFrom(deductionDefinition);

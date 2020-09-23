@@ -10,6 +10,7 @@ import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.STypeMapping;
 import java.util.Map;
 import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -25,8 +26,10 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 @Singleton
 @SuppressWarnings("all")
 public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
+  protected static final Logger LOGGER = Logger.getLogger(SimResourceDescriptionStrategy.class);
+  
   public SimResourceDescriptionStrategy() {
-    DmxResourceDescriptionStrategy.LOGGER.setLevel(Level.ERROR);
+    SimResourceDescriptionStrategy.LOGGER.setLevel(Level.ERROR);
   }
   
   /**
@@ -60,7 +63,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
       if ((targetQN != null)) {
         IEObjectDescription targetDesc = EObjectDescription.create(targetQN, typeToIndex);
         acceptor.accept(targetDesc);
-        boolean _isGreaterOrEqual = DmxResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+        boolean _isGreaterOrEqual = SimResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
         if (_isGreaterOrEqual) {
           String _path = typeToIndex.eResource().getURI().path();
           String _plus = ("OBJ " + _path);
@@ -69,7 +72,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
           String _plus_3 = (_plus_2 + ": ");
           String _name = typeToIndex.eClass().getName();
           String _plus_4 = (_plus_3 + _name);
-          DmxResourceDescriptionStrategy.LOGGER.debug(_plus_4);
+          SimResourceDescriptionStrategy.LOGGER.debug(_plus_4);
         }
         final QualifiedName sourceQN = qnp.getFullyQualifiedName(source);
         if ((sourceQN != null)) {
@@ -80,7 +83,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
           final QualifiedName sourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(sourceQN);
           final IEObjectDescription mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData);
           acceptor.accept(mappingDesc);
-          boolean _isGreaterOrEqual_1 = DmxResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+          boolean _isGreaterOrEqual_1 = SimResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
           if (_isGreaterOrEqual_1) {
             String _path_1 = deduction.eResource().getURI().path();
             String _plus_5 = ("OBJ " + _path_1);
@@ -92,14 +95,14 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
             String _plus_10 = (_plus_9 + 
               " -> ");
             String _plus_11 = (_plus_10 + targetQN);
-            DmxResourceDescriptionStrategy.LOGGER.debug(_plus_11);
+            SimResourceDescriptionStrategy.LOGGER.debug(_plus_11);
           }
         }
       }
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception exc = (Exception)_t;
-        DmxResourceDescriptionStrategy.LOGGER.error(exc.getMessage(), exc);
+        SimResourceDescriptionStrategy.LOGGER.error(exc.getMessage(), exc);
       } else {
         throw Exceptions.sneakyThrow(_t);
       }
@@ -122,7 +125,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
   @Override
   protected IReferenceDescription createReferenceDescription(final EObject owner, final URI exportedContainerURI, final EReference eReference, final int indexInList, final EObject target) {
     final IReferenceDescription refDesc = super.createReferenceDescription(owner, exportedContainerURI, eReference, indexInList, target);
-    boolean _isGreaterOrEqual = DmxResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+    boolean _isGreaterOrEqual = SimResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
       String _path = exportedContainerURI.path();
       String _plus = ("REF " + _path);
@@ -134,7 +137,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
       String _plus_5 = (_plus_4 + ":");
       URI _targetEObjectUri = refDesc.getTargetEObjectUri();
       String _plus_6 = (_plus_5 + _targetEObjectUri);
-      DmxResourceDescriptionStrategy.LOGGER.debug(_plus_6);
+      SimResourceDescriptionStrategy.LOGGER.debug(_plus_6);
     }
     return refDesc;
   }

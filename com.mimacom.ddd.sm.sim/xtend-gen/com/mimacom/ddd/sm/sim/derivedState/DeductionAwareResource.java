@@ -9,27 +9,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class DeductionAwareResource extends DerivedStateAwareResource implements IDeductionAwareResource {
-  /**
-   * A tri-state initialization to distinguish between preIndexingPhase derived-state computation and full derived-state computation.
-   */
-  public enum InitializationState {
-    NOT_INITIALIZED,
-    
-    PRE_INDEXING,
-    
-    FULLY_INITIALIZED;
-  }
-  
   private static final Logger LOGGER = Logger.getLogger(DeductionAwareResource.class);
   
   @Inject
-  private TypeMappingUtil helper;
-  
-  protected volatile DeductionAwareResource.InitializationState initializationState = DeductionAwareResource.InitializationState.NOT_INITIALIZED;
+  @Extension
+  private TypeMappingUtil _typeMappingUtil;
   
   public DeductionAwareResource() {
     DeductionAwareResource.LOGGER.setLevel(Level.DEBUG);
@@ -43,7 +32,7 @@ public class DeductionAwareResource extends DerivedStateAwareResource implements
    */
   @Override
   public EObject deduceTargetObject(final QualifiedName sourceObjectQN, final EObject objectContext) {
-    final Iterable<IEObjectDescription> descriptions = this.helper.getSystemTypeDescriptions(objectContext, sourceObjectQN);
+    final Iterable<IEObjectDescription> descriptions = this._typeMappingUtil.getSystemTypeDescriptions(objectContext, sourceObjectQN);
     boolean _isEmpty = IterableExtensions.isEmpty(descriptions);
     boolean _not = (!_isEmpty);
     if (_not) {

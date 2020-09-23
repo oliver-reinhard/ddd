@@ -3,9 +3,11 @@ package com.mimacom.ddd.sm.sim.indexing
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.apache.log4j.Level
+import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -14,10 +16,10 @@ import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.IReferenceDescription
 import org.eclipse.xtext.util.IAcceptor
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
 
 @Singleton
 class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
+	protected static val LOGGER = Logger.getLogger(SimResourceDescriptionStrategy)
 	
 	new() {
 		LOGGER.level = Level.ERROR

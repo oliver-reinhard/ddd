@@ -40,7 +40,7 @@ public class EsmUiModule extends AbstractEsmUiModule {
     return DmxDoubleClickStrategyProvider.class;
   }
   
-  public EsmUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public EsmUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

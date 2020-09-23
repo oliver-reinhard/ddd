@@ -18,8 +18,6 @@ import com.mimacom.ddd.im.generator.generator.TypeMapping;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
 
-import com.mimacom.ddd.sm.sim.SimPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -125,7 +123,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   *
+   * 
    * <p>This method is used to initialize {@link GeneratorPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -140,17 +138,13 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     if (isInited) return (GeneratorPackage)EPackage.Registry.INSTANCE.getEPackage(GeneratorPackage.eNS_URI);
 
     // Obtain or create and register package
-    Object registeredGeneratorPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-    GeneratorPackageImpl theGeneratorPackage = registeredGeneratorPackage instanceof GeneratorPackageImpl ? (GeneratorPackageImpl)registeredGeneratorPackage : new GeneratorPackageImpl();
+    GeneratorPackageImpl theGeneratorPackage = (GeneratorPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GeneratorPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GeneratorPackageImpl());
 
     isInited = true;
 
     // Initialize simple dependencies
-    BasePackage.eINSTANCE.eClass();
     AsmPackage.eINSTANCE.eClass();
-    TypesPackage.eINSTANCE.eClass();
     XtypePackage.eINSTANCE.eClass();
-    SimPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theGeneratorPackage.createPackageContents();
@@ -161,6 +155,7 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
     // Mark meta-data to indicate it can't be changed
     theGeneratorPackage.freeze();
 
+  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(GeneratorPackage.eNS_URI, theGeneratorPackage);
     return theGeneratorPackage;
@@ -171,7 +166,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getModel()
   {
     return modelEClass;
@@ -182,7 +176,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getModel_Name()
   {
     return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
@@ -193,7 +186,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getModel_ImportSection()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
@@ -204,7 +196,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getModel_TypeMappings()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(2);
@@ -215,7 +206,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getModel_ExceptionMappings()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(3);
@@ -226,7 +216,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getModel_EndpointDeclarations()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(4);
@@ -237,7 +226,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getTypeMapping()
   {
     return typeMappingEClass;
@@ -248,7 +236,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getTypeMapping_Name()
   {
     return (EAttribute)typeMappingEClass.getEStructuralFeatures().get(0);
@@ -259,7 +246,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getTypeMapping_Type()
   {
     return (EReference)typeMappingEClass.getEStructuralFeatures().get(1);
@@ -270,7 +256,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getTypeMapping_JavaType()
   {
     return (EReference)typeMappingEClass.getEStructuralFeatures().get(2);
@@ -281,7 +266,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getExceptionMapping()
   {
     return exceptionMappingEClass;
@@ -292,7 +276,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getExceptionMapping_Name()
   {
     return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(0);
@@ -303,7 +286,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getExceptionMapping_Type()
   {
     return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(1);
@@ -314,7 +296,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getExceptionMapping_Extends()
   {
     return (EReference)exceptionMappingEClass.getEStructuralFeatures().get(2);
@@ -325,7 +306,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getExceptionMapping_Message()
   {
     return (EAttribute)exceptionMappingEClass.getEStructuralFeatures().get(3);
@@ -336,7 +316,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getEndpointDeclarationBlock()
   {
     return endpointDeclarationBlockEClass;
@@ -347,7 +326,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getEndpointDeclarationBlock_Name()
   {
     return (EAttribute)endpointDeclarationBlockEClass.getEStructuralFeatures().get(0);
@@ -358,7 +336,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getEndpointDeclarationBlock_Path()
   {
     return (EReference)endpointDeclarationBlockEClass.getEStructuralFeatures().get(1);
@@ -369,7 +346,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getEndpointDeclarationBlock_Endpoints()
   {
     return (EReference)endpointDeclarationBlockEClass.getEStructuralFeatures().get(2);
@@ -380,7 +356,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getEndpointDeclaration()
   {
     return endpointDeclarationEClass;
@@ -391,7 +366,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getEndpointDeclaration_Verb()
   {
     return (EAttribute)endpointDeclarationEClass.getEStructuralFeatures().get(0);
@@ -402,7 +376,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getEndpointDeclaration_Name()
   {
     return (EAttribute)endpointDeclarationEClass.getEStructuralFeatures().get(1);
@@ -413,7 +386,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getEndpointDeclaration_Type()
   {
     return (EReference)endpointDeclarationEClass.getEStructuralFeatures().get(2);
@@ -424,7 +396,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getEndpointDeclaration_Path()
   {
     return (EReference)endpointDeclarationEClass.getEStructuralFeatures().get(3);
@@ -435,7 +406,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getPath()
   {
     return pathEClass;
@@ -446,7 +416,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getPath_LeadingSlash()
   {
     return (EAttribute)pathEClass.getEStructuralFeatures().get(0);
@@ -457,7 +426,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getPath_Segments()
   {
     return (EReference)pathEClass.getEStructuralFeatures().get(1);
@@ -468,7 +436,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getPathSegment()
   {
     return pathSegmentEClass;
@@ -479,7 +446,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getPathSegment_Name()
   {
     return (EAttribute)pathSegmentEClass.getEStructuralFeatures().get(0);
@@ -490,7 +456,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getPathSegment_Variable()
   {
     return (EAttribute)pathSegmentEClass.getEStructuralFeatures().get(1);
@@ -501,7 +466,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EEnum getHttpVerb()
   {
     return httpVerbEEnum;
@@ -512,7 +476,6 @@ public class GeneratorPackageImpl extends EPackageImpl implements GeneratorPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public GeneratorFactory getGeneratorFactory()
   {
     return (GeneratorFactory)getEFactoryInstance();

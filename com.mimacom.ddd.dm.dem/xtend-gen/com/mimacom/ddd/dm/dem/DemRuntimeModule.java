@@ -9,12 +9,14 @@ import com.mimacom.ddd.dm.dem.AbstractDemRuntimeModule;
 import com.mimacom.ddd.dm.dem.scoping.DemQualifiedNameProvider;
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeComputer;
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeDescriptorProvider;
+import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
@@ -36,6 +38,10 @@ public class DemRuntimeModule extends AbstractDemRuntimeModule {
   @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
     binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.class);
+  }
+  
+  public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+    return DmxResourceDescriptionStrategy.class;
   }
   
   public Class<? extends DmxTypeComputer> bindDmxTypeComputer() {

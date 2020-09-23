@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.derivedState.SAggregateDeductionRuleProcessor;
@@ -71,23 +72,21 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       DModel _model = namespace.getModel();
       final SInformationModel model = ((SInformationModel) _model);
       if ((model != null)) {
-        String _xifexpression = null;
-        if (preLinkingPhase) {
-          _xifexpression = "pre-linking ";
+        if ((preLinkingPhase && (model.getKind() != SInformationModelKind.BASE))) {
+          URI _uRI = resource.getURI();
+          String _plus = ("Derive pre-linking state SKIPPED for " + _uRI);
+          SimDerivedStateComputer.LOGGER.debug(_plus);
         } else {
-          _xifexpression = "";
+          this.derivedStateInstalled = true;
+          URI _uRI_1 = resource.getURI();
+          String _plus_1 = ("Derive state for " + _uRI_1);
+          SimDerivedStateComputer.LOGGER.debug(_plus_1);
+          model.setIndexingHelper(SimDerivedStateComputer.SIM.createSTypeMapping());
+          this.process(model);
+          URI _uRI_2 = resource.getURI();
+          String _plus_2 = ("Derive state END for " + _uRI_2);
+          SimDerivedStateComputer.LOGGER.debug(_plus_2);
         }
-        String _plus = ("Derive " + _xifexpression);
-        String _plus_1 = (_plus + "state for ");
-        URI _uRI = resource.getURI();
-        String _plus_2 = (_plus_1 + _uRI);
-        SimDerivedStateComputer.LOGGER.debug(_plus_2);
-        this.derivedStateInstalled = true;
-        model.setIndexingHelper(SimDerivedStateComputer.SIM.createSTypeMapping());
-        this.process(model);
-        URI _uRI_1 = resource.getURI();
-        String _plus_3 = ("Derive state END for " + _uRI_1);
-        SimDerivedStateComputer.LOGGER.debug(_plus_3);
       }
     }
   }

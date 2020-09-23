@@ -245,7 +245,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link SimPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -260,8 +260,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		if (isInited) return (SimPackage)EPackage.Registry.INSTANCE.getEPackage(SimPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredSimPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		SimPackageImpl theSimPackage = registeredSimPackage instanceof SimPackageImpl ? (SimPackageImpl)registeredSimPackage : new SimPackageImpl();
+		SimPackageImpl theSimPackage = (SimPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimPackageImpl());
 
 		isInited = true;
 
@@ -277,6 +276,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Mark meta-data to indicate it can't be changed
 		theSimPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimPackage.eNS_URI, theSimPackage);
 		return theSimPackage;
@@ -287,7 +287,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSInformationModel()
 	{
 		return sInformationModelEClass;
@@ -298,7 +297,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSInformationModel_Generate()
 	{
 		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(0);
@@ -309,7 +307,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSInformationModel_Kind()
 	{
 		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(1);
@@ -320,7 +317,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSInformationModel_IndexingHelper()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(2);
@@ -331,7 +327,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSTypeMapping()
 	{
 		return sTypeMappingEClass;
@@ -342,7 +337,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSAggregateDeduction()
 	{
 		return sAggregateDeductionEClass;
@@ -353,7 +347,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSTypeDeduction()
 	{
 		return sTypeDeductionEClass;
@@ -364,7 +357,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSPrimitiveDeduction()
 	{
 		return sPrimitiveDeductionEClass;
@@ -375,7 +367,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSEnumerationDeduction()
 	{
 		return sEnumerationDeductionEClass;
@@ -386,7 +377,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSLiteralDeduction()
 	{
 		return sLiteralDeductionEClass;
@@ -397,7 +387,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSComplexTypeDeduction()
 	{
 		return sComplexTypeDeductionEClass;
@@ -408,7 +397,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSDetailTypeDeduction()
 	{
 		return sDetailTypeDeductionEClass;
@@ -419,7 +407,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSEntityTypeDeduction()
 	{
 		return sEntityTypeDeductionEClass;
@@ -430,7 +417,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSFeatureDeduction()
 	{
 		return sFeatureDeductionEClass;
@@ -441,7 +427,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSAssociationDeduction()
 	{
 		return sAssociationDeductionEClass;
@@ -452,7 +437,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EOperation getSAssociationDeduction__GetTargetType()
 	{
 		return sAssociationDeductionEClass.getEOperations().get(0);
@@ -463,7 +447,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSAttributeDeduction()
 	{
 		return sAttributeDeductionEClass;
@@ -474,7 +457,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSQueryDeduction()
 	{
 		return sQueryDeductionEClass;
@@ -485,7 +467,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSQueryParameterDeduction()
 	{
 		return sQueryParameterDeductionEClass;
@@ -496,7 +477,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSRenameRule()
 	{
 		return sRenameRuleEClass;
@@ -507,7 +487,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSRenameRule_RenameTo()
 	{
 		return (EAttribute)sRenameRuleEClass.getEStructuralFeatures().get(0);
@@ -518,7 +497,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSGrabRule()
 	{
 		return sGrabRuleEClass;
@@ -529,7 +507,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSDitchRule()
 	{
 		return sDitchRuleEClass;
@@ -540,7 +517,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSStructureChangingRule()
 	{
 		return sStructureChangingRuleEClass;
@@ -551,7 +527,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSStructureChangingRule_Abstract()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(0);
@@ -562,7 +537,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSStructureChangingRule_RootEntity()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(1);
@@ -573,7 +547,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSStructureChangingRule_Detail()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(2);
@@ -584,7 +557,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSStructureChangingRule_ExtendFrom()
 	{
 		return (EReference)sStructureChangingRuleEClass.getEStructuralFeatures().get(3);
@@ -595,7 +567,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSMorphRule()
 	{
 		return sMorphRuleEClass;
@@ -606,7 +577,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSMorphRule_RetypeTo()
 	{
 		return (EReference)sMorphRuleEClass.getEStructuralFeatures().get(0);
@@ -617,7 +587,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSMorphRule_RemultiplyTo()
 	{
 		return (EReference)sMorphRuleEClass.getEStructuralFeatures().get(1);
@@ -628,7 +597,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSFuseRule()
 	{
 		return sFuseRuleEClass;
@@ -639,7 +607,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSFuseRule_OtherSources()
 	{
 		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(0);
@@ -650,7 +617,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSGrabAggregateRule()
 	{
 		return sGrabAggregateRuleEClass;
@@ -661,7 +627,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSGrabAggregateRule_Aggregate()
 	{
 		return (EReference)sGrabAggregateRuleEClass.getEStructuralFeatures().get(0);
@@ -672,7 +637,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getSInformationModelKind()
 	{
 		return sInformationModelKindEEnum;
@@ -683,7 +647,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getSTristate()
 	{
 		return sTristateEEnum;
@@ -694,7 +657,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SimFactory getSimFactory()
 	{
 		return (SimFactory)getEFactoryInstance();

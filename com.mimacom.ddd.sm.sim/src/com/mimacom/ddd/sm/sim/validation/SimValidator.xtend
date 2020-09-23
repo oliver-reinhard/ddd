@@ -219,7 +219,7 @@ class SimValidator extends AbstractSimValidator {
 		if (! a.synthetic && ! (a.getType instanceof IValueType)) {
 			super.checkAttributeIsValueType(a)
 		} else if (a.synthetic) {
-			if (a.getType === null) {
+			if (a.type === null) {
 				val deductionDefinition = a.deducedFrom
 				val source = deductionDefinition?.deductionRule?.source as DAttribute
 				val sourceType = source?.type
@@ -239,7 +239,7 @@ class SimValidator extends AbstractSimValidator {
 //			super.checkAssocitionToRootType(a)
 //		} else
 		if (a.synthetic) {
-			if (a.getType === null) {
+			if (a.type === null) {
 				val deductionDefinition = a.deducedFrom
 				val source = deductionDefinition?.deductionRule?.source as DAssociation
 				val sourceType = source?.type

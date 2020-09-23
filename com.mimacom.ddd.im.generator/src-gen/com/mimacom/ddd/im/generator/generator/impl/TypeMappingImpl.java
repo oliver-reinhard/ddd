@@ -101,7 +101,6 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -112,7 +111,6 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -126,7 +124,6 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public DType getType()
   {
     if (type != null && type.eIsProxy())
@@ -157,7 +154,6 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setType(DType newType)
   {
     DType oldType = type;
@@ -171,7 +167,6 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public JvmType getJavaType()
   {
     if (javaType != null && javaType.eIsProxy())
@@ -202,7 +197,6 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setJavaType(JvmType newJavaType)
   {
     JvmType oldJavaType = javaType;
@@ -309,7 +303,7 @@ public class TypeMappingImpl extends MinimalEObjectImpl.Container implements Typ
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
     result.append(')');

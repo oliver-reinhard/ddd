@@ -95,7 +95,6 @@ public class PathSegmentImpl extends MinimalEObjectImpl.Container implements Pat
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -106,7 +105,6 @@ public class PathSegmentImpl extends MinimalEObjectImpl.Container implements Pat
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -120,7 +118,6 @@ public class PathSegmentImpl extends MinimalEObjectImpl.Container implements Pat
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public boolean isVariable()
   {
     return variable;
@@ -131,7 +128,6 @@ public class PathSegmentImpl extends MinimalEObjectImpl.Container implements Pat
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setVariable(boolean newVariable)
   {
     boolean oldVariable = variable;
@@ -226,7 +222,7 @@ public class PathSegmentImpl extends MinimalEObjectImpl.Container implements Pat
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
     result.append(", variable: ");

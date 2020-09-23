@@ -10,6 +10,7 @@
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/xbase/compiler/**"/>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/generator/**"/>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/common/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/xbase/services/**"/>
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
