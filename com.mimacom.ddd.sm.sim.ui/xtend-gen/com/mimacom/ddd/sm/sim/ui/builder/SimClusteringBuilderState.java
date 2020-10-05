@@ -31,7 +31,7 @@ public class SimClusteringBuilderState extends ClusteringBuilderState {
   @Override
   protected void writeNewResourceDescriptions(final BuildData buildData, final IResourceDescriptions oldState, final CurrentDescriptions newState, final IProgressMonitor monitor) {
     super.writeNewResourceDescriptions(buildData, oldState, newState, monitor);
-    this.reorderURIQueueByDependencies(buildData, newState);
+    this.reorderURIQueueByDependencies(buildData);
   }
   
   /**
@@ -45,7 +45,7 @@ public class SimClusteringBuilderState extends ClusteringBuilderState {
    * Achieve the sorting by reordering the URIQueue of the BuildData. The CurrentDescriptions are used
    * to validate that importedNamespaces are, in fact, SIM models.
    */
-  protected void reorderURIQueueByDependencies(final BuildData buildData, final CurrentDescriptions newState) {
+  protected void reorderURIQueueByDependencies(final BuildData buildData) {
     final Queue<URI> queue = buildData.getURIQueue();
     boolean _isGreaterOrEqual = SimClusteringBuilderState.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
@@ -69,8 +69,8 @@ public class SimClusteringBuilderState extends ClusteringBuilderState {
     };
     final Iterable<URI> simURIs = IterableExtensions.<URI>filter(queueCopy, _function_2);
     ResourceSet _resourceSet = buildData.getResourceSet();
-    final SimBuildOrderComputer buildOrderComputer = new SimBuildOrderComputer(_resourceSet, newState);
-    Iterables.<URI>addAll(queue, buildOrderComputer.orderByDependencies(simURIs));
+    final SimBuildOrderComputer buildOrderComputer = new SimBuildOrderComputer(_resourceSet, simURIs);
+    Iterables.<URI>addAll(queue, buildOrderComputer.orderByDependencies());
     queue.addAll(queueCopy);
     boolean _isGreaterOrEqual_1 = SimClusteringBuilderState.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual_1) {

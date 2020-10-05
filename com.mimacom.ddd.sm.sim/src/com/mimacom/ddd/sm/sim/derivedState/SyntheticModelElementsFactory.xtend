@@ -12,6 +12,7 @@ import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DImplicitDeduction
+import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
@@ -28,6 +29,7 @@ import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
 import com.mimacom.ddd.sm.sim.STristate
 import com.mimacom.ddd.sm.sim.SimFactory
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 
 class SyntheticModelElementsFactory {
@@ -79,13 +81,48 @@ class SyntheticModelElementsFactory {
 		return syntheticComplexType
 	}
 
-	protected def void initSyntheticType(DType syntheticType, ITypeContainer container, String name, DType source,
+	def dispatch DPrimitive addSyntheticTypeAsCopy(ITypeContainer container, DPrimitive original /*dispatch*/ ) {
+		val syntheticPrimitive = BASE.createDPrimitive
+		syntheticPrimitive.initSyntheticType(container, original.name, original, null /* NOTE: null */ )
+		return syntheticPrimitive
+	}
+
+	def dispatch DEnumeration addSyntheticTypeAsCopy(ITypeContainer container, DEnumeration original /*dispatch*/ ) {
+		val syntheticEnumeration = BASE.createDEnumeration
+		syntheticEnumeration.initSyntheticType(container, original.name, original, null /* NOTE: null */ )
+		for (literal : original.literals) {
+			syntheticEnumeration.addSyntheticLiteralAsCopy(literal.name, literal)
+		}
+		return syntheticEnumeration
+	}
+
+	def dispatch DEntityType addSyntheticTypeAsCopy(ITypeContainer container, DEntityType original /*dispatch*/ ) {
+		val syntheticEntity = BASE.createDEntityType
+		syntheticEntity.initSyntheticType(container, original.name, original, null /* NOTE: null */ )
+		syntheticEntity.abstract = original.abstract
+		syntheticEntity.superType = original.superType
+		syntheticEntity.root = original.root
+		syntheticEntity.nature = original.nature
+		// Do not add features yet!
+		return syntheticEntity
+	}
+
+	def dispatch DDetailType addSyntheticTypeAsCopy(ITypeContainer container, DDetailType original /*dispatch*/ ) {
+		val syntheticEntity = BASE.createDDetailType
+		syntheticEntity.initSyntheticType(container, original.name, original, null /* NOTE: null */ )
+		syntheticEntity.abstract = original.abstract
+		syntheticEntity.superType = original.superType
+		// Do not add features yet!
+		return syntheticEntity
+	}
+
+	protected def void initSyntheticType(DType syntheticType, ITypeContainer container, String name, DType original,
 		IDeductionDefinition deductionDefinition) {
 		syntheticType.name = name
+		syntheticType.aliases.addAll(original.aliases)
 		syntheticType.synthetic = true
 		syntheticType.deducedFrom = deductionDefinition
 		container.types.add(syntheticType)
-//		context.putSystemType(source, syntheticType)
 	}
 
 	def DFeature addSyntheticFeature(IFeatureContainer container, String name, DFeature source,
@@ -101,14 +138,19 @@ class SyntheticModelElementsFactory {
 				BASE.createDQuery
 			}
 			DAttribute | DAssociation: {
-				// We need the actual type of the feature -> create temporary feature and resolve type proxy:
-				val tempFeature = BASE.createDAttribute
-				container.features.add(tempFeature)
-				tempFeature.type = featureTypeProxy // may be null
-				// FORCE proxy resolution by accessing the type field:
-				val featureType = tempFeature.type
-				container.features.remove(tempFeature)
+				// We need the actual type of the feature in order to distinguish between associations and attributes:
+				var featureType = container.findLocalTypeMappingFor(source.type)
+				if (featureType === null) {
+					// There is no local type mapping -> find external type mappings.
+					// Create temporary feature and resolve type proxy:
+					val tempFeature = BASE.createDAttribute
+					container.features.add(tempFeature)
+					tempFeature.type = featureTypeProxy // may be null
+					// FORCE proxy resolution by accessing the type field:
+					featureType = tempFeature.type
+					container.features.remove(tempFeature)
 				//
+				}
 				if (featureType instanceof IIdentityType || featureType === null && source instanceof DAssociation)
 					BASE.createDAssociation
 				else
@@ -116,6 +158,7 @@ class SyntheticModelElementsFactory {
 			}
 		}
 		syntheticFeature.name = name
+		syntheticFeature.aliases.addAll(source.aliases)
 		syntheticFeature.type = featureTypeProxy // may be null -> there is a validation catching this case
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.synthetic = true
@@ -144,6 +187,7 @@ class SyntheticModelElementsFactory {
 
 	private def void initSyntheticFeatureAsCopy(DFeature syntheticFeature, DFeature source) {
 		syntheticFeature.name = source.name
+		syntheticFeature.aliases.addAll(source.aliases)
 		syntheticFeature.type = source.getType
 		syntheticFeature.multiplicity = source.getMultiplicity
 		syntheticFeature.synthetic = true
@@ -182,16 +226,18 @@ class SyntheticModelElementsFactory {
 		return syntheticParameter
 	}
 
-	def void addSyntheticLiteral(DEnumeration container, String name, IDeductionDefinition deductionDefinition) {
+	def void addSyntheticLiteral(DEnumeration container, String name, DLiteral source,
+		IDeductionDefinition deductionDefinition) {
 		val syntheticLiteral = BASE.createDLiteral
 		syntheticLiteral.name = name
+		syntheticLiteral.aliases.addAll(source.aliases)
 		syntheticLiteral.synthetic = true
 		syntheticLiteral.deducedFrom = deductionDefinition
 		container.literals.add(syntheticLiteral)
 	}
 
-	def void addSyntheticLiteralAsCopy(DEnumeration container, String name) {
-		addSyntheticLiteral(container, name, null) /* NOTE: null */
+	def void addSyntheticLiteralAsCopy(DEnumeration container, String name, DLiteral original) {
+		addSyntheticLiteral(container, name, original, null /* NOTE: null */ )
 	}
 
 	protected def DMultiplicity grabMultiplicity(DMultiplicity source) {
@@ -231,6 +277,12 @@ class SyntheticModelElementsFactory {
 
 	protected def dispatch boolean makeDetailType(DDeductionRule r, DComplexType source) {
 		return source instanceof DDetailType
+	}
+
+	protected def DType findLocalTypeMappingFor(EObject context, DType source) {
+		val types = context.eResource.allContents.filter(DType).filter[! (it instanceof IDeductionDefinition)]
+		val candidates = types.filter[deducedFrom?.deductionRule?.source === source]
+		return candidates.head
 	}
 
 	def DImplicitDeduction createImplicitElementCopyDeduction(IDeductionDefinition originalDeductionDefinition,

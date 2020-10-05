@@ -6,6 +6,7 @@ import com.mimacom.ddd.dm.base.IFeatureContainer
 class SyntheticFeatureContainerDescriptor {
 		
 		public val IFeatureContainer syntheticType
+		/* Is null if the synthetic container is a COPY of the source */
 		public val IDeductionDefinition deductionDefinition
 		public val IFeatureContainer source
 		

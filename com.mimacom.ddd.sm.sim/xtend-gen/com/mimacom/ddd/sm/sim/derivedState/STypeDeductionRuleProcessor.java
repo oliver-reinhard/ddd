@@ -87,6 +87,9 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
+  /**
+   * Add synthetic types for which there is an explicit STypeDeduction rule in the aggregate:
+   */
   protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor) {
     final List<STypeDeduction> typeDeductionDefinitions = IterableExtensions.<STypeDeduction>toList(Iterables.<STypeDeduction>filter(origin.getTypes(), STypeDeduction.class));
     TypeSorter _typeSorter = new TypeSorter();
@@ -101,6 +104,25 @@ public class STypeDeductionRuleProcessor {
             SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((SComplexTypeDeduction) definition), ((DComplexType) source));
             acceptor.add(_syntheticFeatureContainerDescriptor);
           }
+        }
+      }
+    }
+  }
+  
+  /**
+   * Add synthetic types for which there is an explicit definition (but not a rule) in the aggregate:
+   */
+  protected void addSyntheticTypesAsCopy(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor) {
+    final Function1<DType, Boolean> _function = (DType it) -> {
+      return Boolean.valueOf((!(it instanceof STypeDeduction)));
+    };
+    final List<DType> typeDefinitions = IterableExtensions.<DType>toList(IterableExtensions.<DType>filter(origin.getTypes(), _function));
+    for (final DType original : typeDefinitions) {
+      {
+        final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticTypeAsCopy(container, original);
+        if ((syntheticType instanceof DComplexType)) {
+          SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), null, ((DComplexType) original));
+          acceptor.add(_syntheticFeatureContainerDescriptor);
         }
       }
     }
@@ -220,7 +242,7 @@ public class STypeDeductionRuleProcessor {
       final Iterable<DLiteral> sourceLiteralsAffectedByRule = IterableExtensions.<SLiteralDeduction, DLiteral>map(IterableExtensions.<SLiteralDeduction>filter(literalDeductionDefinitions, _function_1), _function_2);
       CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedSourceLiterals, sourceLiteralsAffectedByRule);
       for (final DLiteral sourceLiteral : implicitlyGrabbedSourceLiterals) {
-        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceLiteral));
+        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), sourceLiteral, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceLiteral));
       }
     }
   }
@@ -248,7 +270,8 @@ public class STypeDeductionRuleProcessor {
             _xifexpression = _xifexpression_1;
           }
           final String literalName = _xifexpression;
-          this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literalName, definition);
+          IDeducibleElement _source = ((SGrabRule)rule).getSource();
+          this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literalName, ((DLiteral) _source), definition);
         }
       }
     }
@@ -257,7 +280,7 @@ public class STypeDeductionRuleProcessor {
     };
     final Iterable<DLiteral> genuineLiterals = IterableExtensions.<DLiteral>filter(deductionDefinition.getLiterals(), _function);
     for (final DLiteral literal : genuineLiterals) {
-      this._syntheticModelElementsFactory.addSyntheticLiteralAsCopy(syntheticEnum, literal.getName());
+      this._syntheticModelElementsFactory.addSyntheticLiteralAsCopy(syntheticEnum, literal.getName(), literal);
     }
   }
   

@@ -7,7 +7,6 @@ import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.apache.log4j.Level
-import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -19,10 +18,10 @@ import org.eclipse.xtext.util.IAcceptor
 
 @Singleton
 class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
-	protected static val LOGGER = Logger.getLogger(SimResourceDescriptionStrategy)
-	
+//	protected static val LOGGER = Logger.getLogger(SimResourceDescriptionStrategy)
+
 	new() {
-		LOGGER.level = Level.ERROR
+		LOGGER.level = Level.DEBUG
 	}
 
 	/*
@@ -34,12 +33,11 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 			return false // don't index child objects either
 		}
 		if (obj instanceof DType) {
-			if (obj.synthetic) {
-				val typeToIndex = obj
-				val source = typeToIndex.deducedFrom.deductionRule.source
+			if (obj.synthetic && obj.deducedFrom !== null) {
+				val source = obj.deducedFrom.deductionRule.source
 				if (source instanceof DType) {
 					// create custom index entry with reference to source
-					return createSTypeDeductionDescription(typeToIndex, source, acceptor)
+					return createSTypeDeductionDescription(obj, source, acceptor)
 				}
 			}
 		}
@@ -68,7 +66,7 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 				var IEObjectDescription targetDesc = EObjectDescription.create(targetQN, typeToIndex)
 				acceptor.accept(targetDesc);
 
-				if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
+				if (LOGGER.debugEnabled) {
 					LOGGER.debug(
 						"OBJ " + typeToIndex.eResource.URI.path + " - " + targetQN + ": " + typeToIndex.eClass.name)
 				}
@@ -84,10 +82,10 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 					val mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData)
 					acceptor.accept(mappingDesc);
 
-					if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
+					if (LOGGER.debugEnabled) {
 						LOGGER.debug(
-							"OBJ " + deduction.eResource.URI.path + " - " + sourceQNForIndex + ": " + typeMappingType.eClass.name +
-								" -> " + targetQN)
+							"OBJ " + deduction.eResource.URI.path + " - " + sourceQNForIndex + ": " +
+								typeMappingType.eClass.name + " -> " + targetQN)
 					}
 				}
 			}
@@ -106,13 +104,13 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 		super.createReferenceDescriptions(from, exportedContainerURI, acceptor)
 	}
 
-	override protected IReferenceDescription createReferenceDescription(EObject owner, URI exportedContainerURI, EReference eReference,
-		int indexInList, EObject target) {
+	override protected IReferenceDescription createReferenceDescription(EObject owner, URI exportedContainerURI,
+		EReference eReference, int indexInList, EObject target) {
 		val refDesc = super.createReferenceDescription(owner, exportedContainerURI, eReference, indexInList, target)
-		
-		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
+
+		if (LOGGER.debugEnabled) {
 			LOGGER.debug("REF " + exportedContainerURI.path + " - " + owner + " -> " + target.class.simpleName + ":" +
-			refDesc.targetEObjectUri)
+				refDesc.targetEObjectUri)
 		}
 		return refDesc
 	}

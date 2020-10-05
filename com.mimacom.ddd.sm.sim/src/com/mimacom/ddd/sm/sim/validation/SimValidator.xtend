@@ -223,7 +223,7 @@ class SimValidator extends AbstractSimValidator {
 				val deductionDefinition = a.deducedFrom
 				val source = deductionDefinition?.deductionRule?.source as DAttribute
 				val sourceType = source?.type
-				errorOnStructuralElement(a, getDescription(a) + ": no system-type mapping for domain type '" + sourceType?.name + "'")
+				errorOnStructuralElement(a, getDescription(a) + ": no type mapping for domain type '" + sourceType?.name + "'")
 			} else if (! (a.getType instanceof IValueType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": attribute type must be a ValueType")
 			}
@@ -244,7 +244,7 @@ class SimValidator extends AbstractSimValidator {
 				val source = deductionDefinition?.deductionRule?.source as DAssociation
 				val sourceType = source?.type
 				errorOnStructuralElement(a,
-					getDescription(a) + ": no system-type mapping for association-target type '" + sourceType?.name + "'")
+					getDescription(a) + ": no type mapping for association-target domain type '" + sourceType?.name + "'")
 			} else if (! (a.getType instanceof IIdentityType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": association target must be an IdentityType")
 			}
@@ -260,7 +260,14 @@ class SimValidator extends AbstractSimValidator {
 			if (! p.synthetic) {
 				super.checkMemberType(p)
 			} else if (p.getType === null) {
-				errorOnStructuralElement(p, getDescription(p) + ": no type mapping for element '" + p.name + "'")
+				val source = p.deducedFrom?.deductionRule?.source
+				var sourceType = ""
+				if (source instanceof DNavigableMember) {
+					if (source.type !== null) {
+						sourceType = " '" + source.type.name + "'"
+					}
+				}
+				errorOnStructuralElement(p, getDescription(p) + ": no type mapping for domain type" + sourceType)
 			} else if (! p.isAllowedMemberType) {
 				errorOnStructuralElement(p, getDescription(p) + ": " + ILLEGAL_MEMBER_TYPE_MSG)
 			}

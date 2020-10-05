@@ -52,8 +52,11 @@ class TypeMappingUtil {
 	}
 
 	/**
+	 * Returns the descriptions of all visible mapped types for a domain type given by its qualified name.
+	 * 
 	 * @param context used to derive the relevant eResource.
-	 * @return  null if no system type is found for the given domain type.
+	 * @param domainTypeQN cannot be null
+	 * @return never null but may be an empty collection.
 	 */
 	def Iterable<IEObjectDescription> getSystemTypeDescriptions(EObject context, QualifiedName domainTypeQN) {
 		if (domainTypeQN === null) {

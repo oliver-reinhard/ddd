@@ -293,7 +293,7 @@ public class SimValidator extends AbstractSimValidator {
           }
           final DType sourceType = _type_1;
           String _description = this.getDescription(a);
-          String _plus = (_description + ": no system-type mapping for domain type \'");
+          String _plus = (_description + ": no type mapping for domain type \'");
           String _name = null;
           if (sourceType!=null) {
             _name=sourceType.getName();
@@ -341,7 +341,7 @@ public class SimValidator extends AbstractSimValidator {
         }
         final DType sourceType = _type_1;
         String _description = this.getDescription(a);
-        String _plus = (_description + ": no system-type mapping for association-target type \'");
+        String _plus = (_description + ": no type mapping for association-target domain type \'");
         String _name = null;
         if (sourceType!=null) {
           _name=sourceType.getName();
@@ -375,20 +375,39 @@ public class SimValidator extends AbstractSimValidator {
         DType _type = p.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
+          IDeductionDefinition _deducedFrom = ((IDeducibleElement)p).getDeducedFrom();
+          DDeductionRule _deductionRule = null;
+          if (_deducedFrom!=null) {
+            _deductionRule=_deducedFrom.getDeductionRule();
+          }
+          IDeducibleElement _source = null;
+          if (_deductionRule!=null) {
+            _source=_deductionRule.getSource();
+          }
+          final IDeducibleElement source = _source;
+          String sourceType = "";
+          if ((source instanceof DNavigableMember)) {
+            DType _type_1 = ((DNavigableMember)source).getType();
+            boolean _tripleNotEquals = (_type_1 != null);
+            if (_tripleNotEquals) {
+              String _name = ((DNavigableMember)source).getType().getName();
+              String _plus = (" \'" + _name);
+              String _plus_1 = (_plus + "\'");
+              sourceType = _plus_1;
+            }
+          }
           String _description = this.getDescription(p);
-          String _plus = (_description + ": no type mapping for element \'");
-          String _name = p.getName();
-          String _plus_1 = (_plus + _name);
-          String _plus_2 = (_plus_1 + "\'");
-          this.errorOnStructuralElement(p, _plus_2);
+          String _plus_2 = (_description + ": no type mapping for domain type");
+          String _plus_3 = (_plus_2 + sourceType);
+          this.errorOnStructuralElement(p, _plus_3);
         } else {
           boolean _isAllowedMemberType = this.isAllowedMemberType(p);
           boolean _not_1 = (!_isAllowedMemberType);
           if (_not_1) {
             String _description_1 = this.getDescription(p);
-            String _plus_3 = (_description_1 + ": ");
-            String _plus_4 = (_plus_3 + DimValidator.ILLEGAL_MEMBER_TYPE_MSG);
-            this.errorOnStructuralElement(p, _plus_4);
+            String _plus_4 = (_description_1 + ": ");
+            String _plus_5 = (_plus_4 + DimValidator.ILLEGAL_MEMBER_TYPE_MSG);
+            this.errorOnStructuralElement(p, _plus_5);
           }
         }
       }

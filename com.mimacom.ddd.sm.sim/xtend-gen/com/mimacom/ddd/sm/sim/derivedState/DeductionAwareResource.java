@@ -2,9 +2,11 @@ package com.mimacom.ddd.sm.sim.derivedState;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.modelDeduction.IDeductionAwareResource;
+import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareScopeProvider;
 import com.mimacom.ddd.sm.sim.derivedState.TypeMappingUtil;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
@@ -15,6 +17,9 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class DeductionAwareResource extends DerivedStateAwareResource implements IDeductionAwareResource {
   private static final Logger LOGGER = Logger.getLogger(DeductionAwareResource.class);
+  
+  @Inject
+  private DeductionAwareScopeProvider scopeProvider;
   
   @Inject
   @Extension
@@ -33,13 +38,14 @@ public class DeductionAwareResource extends DerivedStateAwareResource implements
   @Override
   public EObject deduceTargetObject(final QualifiedName sourceObjectQN, final EObject objectContext) {
     final Iterable<IEObjectDescription> descriptions = this._typeMappingUtil.getSystemTypeDescriptions(objectContext, sourceObjectQN);
-    boolean _isEmpty = IterableExtensions.isEmpty(descriptions);
+    final Iterable<IEObjectDescription> importedDescriptions = this.scopeProvider.filterByImportedNamespaces(objectContext, descriptions, false);
+    boolean _isEmpty = IterableExtensions.isEmpty(importedDescriptions);
     boolean _not = (!_isEmpty);
     if (_not) {
-      final IEObjectDescription systemTypeDesc = IterableExtensions.<IEObjectDescription>head(descriptions);
+      final IEObjectDescription systemTypeDesc = IterableExtensions.<IEObjectDescription>head(importedDescriptions);
       final EObject systemType = this.getResourceSet().getEObject(systemTypeDesc.getEObjectURI(), true);
-      boolean _isGreaterOrEqual = DeductionAwareResource.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
-      if (_isGreaterOrEqual) {
+      boolean _isDebugEnabled = DeductionAwareResource.LOGGER.isDebugEnabled();
+      if (_isDebugEnabled) {
         String _plus = (sourceObjectQN + " -> ");
         QualifiedName _name = systemTypeDesc.getName();
         String _plus_1 = (_plus + _name);
@@ -52,5 +58,12 @@ public class DeductionAwareResource extends DerivedStateAwareResource implements
     }
     DeductionAwareResource.LOGGER.debug(((("fragment QN = " + sourceObjectQN) + " -> ") + null));
     return null;
+  }
+  
+  /**
+   * Returns the contents without computing the derived state.
+   */
+  public synchronized EList<EObject> peekContents() {
+    return this.doGetContents();
   }
 }

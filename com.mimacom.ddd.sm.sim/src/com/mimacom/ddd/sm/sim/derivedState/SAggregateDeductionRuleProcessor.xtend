@@ -30,13 +30,17 @@ class SAggregateDeductionRuleProcessor {
 						val name = rule.renameTo !== null ? rule.renameTo : source.name
 						syntheticTypesContainer = model.addSyntheticAggregate(name, definition)
 					}
-					// Add types but not features of complex types:
+					// Add types (but not features!) of complex types:
 					syntheticTypesContainer.addImplicitSyntheticTypes(definition, source, syntheticComplexTypesAcceptor)
 				}
 			}
 		}
 
+		// add explicit types (added via rule):
 		syntheticTypesContainer.addSyntheticTypes(dAggregate, syntheticComplexTypesAcceptor)
+		
+		// add explicit types (= types added without rule):
+		syntheticTypesContainer.addSyntheticTypesAsCopy(dAggregate, syntheticComplexTypesAcceptor)
 	}
 
 	def void processAggregateQueries(DAggregate dAggregate, SInformationModel model) {

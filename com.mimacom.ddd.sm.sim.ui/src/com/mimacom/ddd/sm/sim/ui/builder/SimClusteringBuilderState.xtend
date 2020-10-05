@@ -23,7 +23,7 @@ class SimClusteringBuilderState extends ClusteringBuilderState {
 	override protected void writeNewResourceDescriptions(BuildData buildData, IResourceDescriptions oldState,
 		CurrentDescriptions newState, IProgressMonitor monitor) {
 		super.writeNewResourceDescriptions(buildData, oldState, newState, monitor)
-		reorderURIQueueByDependencies(buildData, newState)
+		reorderURIQueueByDependencies(buildData)
 	}
 	
 	/**
@@ -37,7 +37,7 @@ class SimClusteringBuilderState extends ClusteringBuilderState {
 	 * Achieve the sorting by reordering the URIQueue of the BuildData. The CurrentDescriptions are used
 	 * to validate that importedNamespaces are, in fact, SIM models.
 	 */
-	protected def void reorderURIQueueByDependencies(BuildData buildData, CurrentDescriptions newState) {
+	protected def void reorderURIQueueByDependencies(BuildData buildData) {
 		val queue = buildData.URIQueue
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
 			LOGGER.debug("URI queue (unsorted): " + queue)
@@ -49,8 +49,8 @@ class SimClusteringBuilderState extends ClusteringBuilderState {
 		queue.addAll(queueCopy.filter[DimUiModule.FILE_EXTENSION == it.fileExtension])
 
 		val simURIs = queueCopy.filter[SimUiModule.FILE_EXTENSION == it.fileExtension]
-		val buildOrderComputer = new SimBuildOrderComputer(buildData.resourceSet, newState)
-		queue.addAll(buildOrderComputer.orderByDependencies(simURIs))
+		val buildOrderComputer = new SimBuildOrderComputer(buildData.resourceSet, simURIs)
+		queue.addAll(buildOrderComputer.orderByDependencies())
 
 		// add remaining elements:
 		queue.addAll(queueCopy) // the existing elements of the queue will maintain their position

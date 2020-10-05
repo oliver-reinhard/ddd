@@ -70,6 +70,7 @@ public class SAggregateDeductionRuleProcessor {
       }
     }
     this._sTypeDeductionRuleProcessor.addSyntheticTypes(syntheticTypesContainer, dAggregate, syntheticComplexTypesAcceptor);
+    this._sTypeDeductionRuleProcessor.addSyntheticTypesAsCopy(syntheticTypesContainer, dAggregate, syntheticComplexTypesAcceptor);
   }
   
   public void processAggregateQueries(final DAggregate dAggregate, final SInformationModel model) {

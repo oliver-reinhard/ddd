@@ -1,6 +1,7 @@
 package com.mimacom.ddd.sm.sim.derivedState;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BaseFactory;
 import com.mimacom.ddd.dm.base.DAggregate;
@@ -33,9 +34,13 @@ import com.mimacom.ddd.sm.sim.STristate;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TypeMappingUtil;
 import java.util.Arrays;
+import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
 public class SyntheticModelElementsFactory {
@@ -88,8 +93,43 @@ public class SyntheticModelElementsFactory {
     return syntheticComplexType;
   }
   
-  protected void initSyntheticType(final DType syntheticType, final ITypeContainer container, final String name, final DType source, final IDeductionDefinition deductionDefinition) {
+  protected DPrimitive _addSyntheticTypeAsCopy(final ITypeContainer container, final DPrimitive original) {
+    final DPrimitive syntheticPrimitive = SyntheticModelElementsFactory.BASE.createDPrimitive();
+    this.initSyntheticType(syntheticPrimitive, container, original.getName(), original, null);
+    return syntheticPrimitive;
+  }
+  
+  protected DEnumeration _addSyntheticTypeAsCopy(final ITypeContainer container, final DEnumeration original) {
+    final DEnumeration syntheticEnumeration = SyntheticModelElementsFactory.BASE.createDEnumeration();
+    this.initSyntheticType(syntheticEnumeration, container, original.getName(), original, null);
+    EList<DLiteral> _literals = original.getLiterals();
+    for (final DLiteral literal : _literals) {
+      this.addSyntheticLiteralAsCopy(syntheticEnumeration, literal.getName(), literal);
+    }
+    return syntheticEnumeration;
+  }
+  
+  protected DEntityType _addSyntheticTypeAsCopy(final ITypeContainer container, final DEntityType original) {
+    final DEntityType syntheticEntity = SyntheticModelElementsFactory.BASE.createDEntityType();
+    this.initSyntheticType(syntheticEntity, container, original.getName(), original, null);
+    syntheticEntity.setAbstract(original.isAbstract());
+    syntheticEntity.setSuperType(original.getSuperType());
+    syntheticEntity.setRoot(original.isRoot());
+    syntheticEntity.setNature(original.getNature());
+    return syntheticEntity;
+  }
+  
+  protected DDetailType _addSyntheticTypeAsCopy(final ITypeContainer container, final DDetailType original) {
+    final DDetailType syntheticEntity = SyntheticModelElementsFactory.BASE.createDDetailType();
+    this.initSyntheticType(syntheticEntity, container, original.getName(), original, null);
+    syntheticEntity.setAbstract(original.isAbstract());
+    syntheticEntity.setSuperType(original.getSuperType());
+    return syntheticEntity;
+  }
+  
+  protected void initSyntheticType(final DType syntheticType, final ITypeContainer container, final String name, final DType original, final IDeductionDefinition deductionDefinition) {
     syntheticType.setName(name);
+    syntheticType.getAliases().addAll(original.getAliases());
     syntheticType.setSynthetic(true);
     syntheticType.setDeducedFrom(deductionDefinition);
     container.getTypes().add(syntheticType);
@@ -112,11 +152,14 @@ public class SyntheticModelElementsFactory {
         _matched=true;
         DFeature _xblockexpression = null;
         {
-          final DAttribute tempFeature = SyntheticModelElementsFactory.BASE.createDAttribute();
-          container.getFeatures().add(tempFeature);
-          tempFeature.setType(featureTypeProxy);
-          final DType featureType = tempFeature.getType();
-          container.getFeatures().remove(tempFeature);
+          DType featureType = this.findLocalTypeMappingFor(container, source.getType());
+          if ((featureType == null)) {
+            final DAttribute tempFeature = SyntheticModelElementsFactory.BASE.createDAttribute();
+            container.getFeatures().add(tempFeature);
+            tempFeature.setType(featureTypeProxy);
+            featureType = tempFeature.getType();
+            container.getFeatures().remove(tempFeature);
+          }
           DFeature _xifexpression = null;
           if (((featureType instanceof IIdentityType) || ((featureType == null) && (source instanceof DAssociation)))) {
             _xifexpression = SyntheticModelElementsFactory.BASE.createDAssociation();
@@ -130,6 +173,7 @@ public class SyntheticModelElementsFactory {
     }
     final DFeature syntheticFeature = _switchResult;
     syntheticFeature.setName(name);
+    syntheticFeature.getAliases().addAll(source.getAliases());
     syntheticFeature.setType(featureTypeProxy);
     syntheticFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     syntheticFeature.setSynthetic(true);
@@ -172,6 +216,7 @@ public class SyntheticModelElementsFactory {
   
   private void initSyntheticFeatureAsCopy(final DFeature syntheticFeature, final DFeature source) {
     syntheticFeature.setName(source.getName());
+    syntheticFeature.getAliases().addAll(source.getAliases());
     syntheticFeature.setType(source.getType());
     syntheticFeature.setMultiplicity(source.getMultiplicity());
     syntheticFeature.setSynthetic(true);
@@ -210,16 +255,17 @@ public class SyntheticModelElementsFactory {
     return syntheticParameter;
   }
   
-  public void addSyntheticLiteral(final DEnumeration container, final String name, final IDeductionDefinition deductionDefinition) {
+  public void addSyntheticLiteral(final DEnumeration container, final String name, final DLiteral source, final IDeductionDefinition deductionDefinition) {
     final DLiteral syntheticLiteral = SyntheticModelElementsFactory.BASE.createDLiteral();
     syntheticLiteral.setName(name);
+    syntheticLiteral.getAliases().addAll(source.getAliases());
     syntheticLiteral.setSynthetic(true);
     syntheticLiteral.setDeducedFrom(deductionDefinition);
     container.getLiterals().add(syntheticLiteral);
   }
   
-  public void addSyntheticLiteralAsCopy(final DEnumeration container, final String name) {
-    this.addSyntheticLiteral(container, name, null);
+  public void addSyntheticLiteralAsCopy(final DEnumeration container, final String name, final DLiteral original) {
+    this.addSyntheticLiteral(container, name, original, null);
   }
   
   protected DMultiplicity grabMultiplicity(final DMultiplicity source) {
@@ -274,6 +320,27 @@ public class SyntheticModelElementsFactory {
     return (source instanceof DDetailType);
   }
   
+  protected DType findLocalTypeMappingFor(final EObject context, final DType source) {
+    final Function1<DType, Boolean> _function = (DType it) -> {
+      return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+    };
+    final Iterator<DType> types = IteratorExtensions.<DType>filter(Iterators.<DType>filter(context.eResource().getAllContents(), DType.class), _function);
+    final Function1<DType, Boolean> _function_1 = (DType it) -> {
+      IDeductionDefinition _deducedFrom = it.getDeducedFrom();
+      DDeductionRule _deductionRule = null;
+      if (_deducedFrom!=null) {
+        _deductionRule=_deducedFrom.getDeductionRule();
+      }
+      IDeducibleElement _source = null;
+      if (_deductionRule!=null) {
+        _source=_deductionRule.getSource();
+      }
+      return Boolean.valueOf((_source == source));
+    };
+    final Iterator<DType> candidates = IteratorExtensions.<DType>filter(types, _function_1);
+    return IteratorExtensions.<DType>head(candidates);
+  }
+  
   public DImplicitDeduction createImplicitElementCopyDeduction(final IDeductionDefinition originalDeductionDefinition, final IDeducibleElement source) {
     final DImplicitDeduction implicitDeduction = SyntheticModelElementsFactory.BASE.createDImplicitDeduction();
     originalDeductionDefinition.getImpliedDeductions().add(implicitDeduction);
@@ -294,6 +361,21 @@ public class SyntheticModelElementsFactory {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(container, name, source, deductionDefinition).toString());
+    }
+  }
+  
+  public DType addSyntheticTypeAsCopy(final ITypeContainer container, final DType original) {
+    if (original instanceof DDetailType) {
+      return _addSyntheticTypeAsCopy(container, (DDetailType)original);
+    } else if (original instanceof DEntityType) {
+      return _addSyntheticTypeAsCopy(container, (DEntityType)original);
+    } else if (original instanceof DEnumeration) {
+      return _addSyntheticTypeAsCopy(container, (DEnumeration)original);
+    } else if (original instanceof DPrimitive) {
+      return _addSyntheticTypeAsCopy(container, (DPrimitive)original);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(container, original).toString());
     }
   }
   

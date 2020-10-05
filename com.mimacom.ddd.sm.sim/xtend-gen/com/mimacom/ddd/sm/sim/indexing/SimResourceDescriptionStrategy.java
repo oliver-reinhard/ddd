@@ -10,7 +10,6 @@ import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.STypeMapping;
 import java.util.Map;
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -26,10 +25,8 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 @Singleton
 @SuppressWarnings("all")
 public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
-  protected static final Logger LOGGER = Logger.getLogger(SimResourceDescriptionStrategy.class);
-  
   public SimResourceDescriptionStrategy() {
-    SimResourceDescriptionStrategy.LOGGER.setLevel(Level.ERROR);
+    DmxResourceDescriptionStrategy.LOGGER.setLevel(Level.DEBUG);
   }
   
   /**
@@ -41,12 +38,10 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
       return false;
     }
     if ((obj instanceof DType)) {
-      boolean _isSynthetic = ((DType)obj).isSynthetic();
-      if (_isSynthetic) {
-        final DType typeToIndex = ((DType)obj);
-        final IDeducibleElement source = typeToIndex.getDeducedFrom().getDeductionRule().getSource();
+      if ((((DType)obj).isSynthetic() && (((DType)obj).getDeducedFrom() != null))) {
+        final IDeducibleElement source = ((DType)obj).getDeducedFrom().getDeductionRule().getSource();
         if ((source instanceof DType)) {
-          return this.createSTypeDeductionDescription(typeToIndex, ((DType)source), acceptor);
+          return this.createSTypeDeductionDescription(((DType)obj), ((DType)source), acceptor);
         }
       }
     }
@@ -63,8 +58,8 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
       if ((targetQN != null)) {
         IEObjectDescription targetDesc = EObjectDescription.create(targetQN, typeToIndex);
         acceptor.accept(targetDesc);
-        boolean _isGreaterOrEqual = SimResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
-        if (_isGreaterOrEqual) {
+        boolean _isDebugEnabled = DmxResourceDescriptionStrategy.LOGGER.isDebugEnabled();
+        if (_isDebugEnabled) {
           String _path = typeToIndex.eResource().getURI().path();
           String _plus = ("OBJ " + _path);
           String _plus_1 = (_plus + " - ");
@@ -72,7 +67,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
           String _plus_3 = (_plus_2 + ": ");
           String _name = typeToIndex.eClass().getName();
           String _plus_4 = (_plus_3 + _name);
-          SimResourceDescriptionStrategy.LOGGER.debug(_plus_4);
+          DmxResourceDescriptionStrategy.LOGGER.debug(_plus_4);
         }
         final QualifiedName sourceQN = qnp.getFullyQualifiedName(source);
         if ((sourceQN != null)) {
@@ -83,8 +78,8 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
           final QualifiedName sourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(sourceQN);
           final IEObjectDescription mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData);
           acceptor.accept(mappingDesc);
-          boolean _isGreaterOrEqual_1 = SimResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
-          if (_isGreaterOrEqual_1) {
+          boolean _isDebugEnabled_1 = DmxResourceDescriptionStrategy.LOGGER.isDebugEnabled();
+          if (_isDebugEnabled_1) {
             String _path_1 = deduction.eResource().getURI().path();
             String _plus_5 = ("OBJ " + _path_1);
             String _plus_6 = (_plus_5 + " - ");
@@ -92,17 +87,16 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
             String _plus_8 = (_plus_7 + ": ");
             String _name_1 = typeMappingType.eClass().getName();
             String _plus_9 = (_plus_8 + _name_1);
-            String _plus_10 = (_plus_9 + 
-              " -> ");
+            String _plus_10 = (_plus_9 + " -> ");
             String _plus_11 = (_plus_10 + targetQN);
-            SimResourceDescriptionStrategy.LOGGER.debug(_plus_11);
+            DmxResourceDescriptionStrategy.LOGGER.debug(_plus_11);
           }
         }
       }
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception exc = (Exception)_t;
-        SimResourceDescriptionStrategy.LOGGER.error(exc.getMessage(), exc);
+        DmxResourceDescriptionStrategy.LOGGER.error(exc.getMessage(), exc);
       } else {
         throw Exceptions.sneakyThrow(_t);
       }
@@ -125,8 +119,8 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
   @Override
   protected IReferenceDescription createReferenceDescription(final EObject owner, final URI exportedContainerURI, final EReference eReference, final int indexInList, final EObject target) {
     final IReferenceDescription refDesc = super.createReferenceDescription(owner, exportedContainerURI, eReference, indexInList, target);
-    boolean _isGreaterOrEqual = SimResourceDescriptionStrategy.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
-    if (_isGreaterOrEqual) {
+    boolean _isDebugEnabled = DmxResourceDescriptionStrategy.LOGGER.isDebugEnabled();
+    if (_isDebugEnabled) {
       String _path = exportedContainerURI.path();
       String _plus = ("REF " + _path);
       String _plus_1 = (_plus + " - ");
@@ -137,7 +131,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
       String _plus_5 = (_plus_4 + ":");
       URI _targetEObjectUri = refDesc.getTargetEObjectUri();
       String _plus_6 = (_plus_5 + _targetEObjectUri);
-      SimResourceDescriptionStrategy.LOGGER.debug(_plus_6);
+      DmxResourceDescriptionStrategy.LOGGER.debug(_plus_6);
     }
     return refDesc;
   }

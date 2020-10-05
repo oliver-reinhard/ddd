@@ -7,6 +7,9 @@ import com.mimacom.ddd.dm.base.IFeatureContainer;
 public class SyntheticFeatureContainerDescriptor {
   public final IFeatureContainer syntheticType;
   
+  /**
+   * Is null if the synthetic container is a COPY of the source
+   */
   public final IDeductionDefinition deductionDefinition;
   
   public final IFeatureContainer source;
