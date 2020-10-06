@@ -4,7 +4,7 @@
 package com.mimacom.ddd.sm.sim.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;

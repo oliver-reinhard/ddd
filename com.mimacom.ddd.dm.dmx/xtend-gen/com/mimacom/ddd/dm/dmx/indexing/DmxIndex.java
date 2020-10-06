@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dmx.indexing.AbstractXtextIndex;
+import com.mimacom.ddd.util.indexing.AbstractXtextIndex;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;

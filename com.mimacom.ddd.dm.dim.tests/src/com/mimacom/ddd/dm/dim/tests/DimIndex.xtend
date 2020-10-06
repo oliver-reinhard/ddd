@@ -1,9 +1,9 @@
 package com.mimacom.ddd.dm.dim.tests
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.base.BasePackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
-import com.mimacom.ddd.dm.base.BasePackage
 
 class DimIndex {
 	@Inject ResourceDescriptionsProvider rdp

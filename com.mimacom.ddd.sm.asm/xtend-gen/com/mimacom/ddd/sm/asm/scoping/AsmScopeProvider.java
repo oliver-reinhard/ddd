@@ -6,10 +6,10 @@ package com.mimacom.ddd.sm.asm.scoping;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.sm.asm.SServiceInterface;
 import com.mimacom.ddd.sm.asm.SServiceParameter;
 import com.mimacom.ddd.sm.asm.scoping.AbstractAsmScopeProvider;
@@ -43,7 +43,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
         if (_equals) {
           final SServiceInterface service = EcoreUtil2.<SServiceInterface>getContainerOfType(context, SServiceInterface.class);
           final Function1<DType, Boolean> _function = (DType it) -> {
-            return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+            return Boolean.valueOf((!(it instanceof ITransposition)));
           };
           return Scopes.scopeFor(IterableExtensions.<DType>filter(EcoreUtil2.<DType>eAllOfType(service.getInterface(), DType.class), _function), super.getScope(context, reference));
         }
@@ -73,7 +73,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
     {
       final List<EObject> list = Lists.<EObject>newArrayList();
       final Function1<DType, Boolean> _function = (DType it) -> {
-        return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+        return Boolean.valueOf((!(it instanceof ITransposition)));
       };
       Iterables.<EObject>addAll(list, IterableExtensions.<DType>filter(EcoreUtil2.<DType>eAllOfType(core, DType.class), _function));
       _xblockexpression = Scopes.scopeFor(list, outerScope);

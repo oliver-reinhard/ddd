@@ -1,7 +1,7 @@
 package com.mimacom.ddd.sm.sim.diagramProvider;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;

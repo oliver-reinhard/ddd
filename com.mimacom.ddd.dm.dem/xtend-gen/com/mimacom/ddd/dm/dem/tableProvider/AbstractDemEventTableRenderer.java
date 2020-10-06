@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dem.tableProvider;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.pub.pub.generator.CodeListingFormatter;
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer;

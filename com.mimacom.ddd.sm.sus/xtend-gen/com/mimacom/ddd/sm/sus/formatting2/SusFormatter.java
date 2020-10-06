@@ -3,11 +3,11 @@
  */
 package com.mimacom.ddd.sm.sus.formatting2;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamespace;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DImport;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.PubModel;

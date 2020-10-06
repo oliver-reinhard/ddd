@@ -2,11 +2,11 @@
  */
 package com.mimacom.ddd.dm.dem.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 
-import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
+import com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImplCustom;
 
 import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemMessage;

@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.proto;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import org.eclipse.emf.common.util.EList;
 

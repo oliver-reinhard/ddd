@@ -1,6 +1,22 @@
 package com.mimacom.ddd.dm.base
 
 import com.google.common.collect.Lists
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DDetailType
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DEnumeration
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DInformationModel
+import com.mimacom.ddd.dm.base.base.DLiteral
+import com.mimacom.ddd.dm.base.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DNavigableMember
+import com.mimacom.ddd.dm.base.base.DPrimitive
+import com.mimacom.ddd.dm.base.base.DQueryParameter
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.IFeatureContainer
+import com.mimacom.ddd.dm.base.base.ITransposableElement
 import java.util.Collections
 import java.util.LinkedHashSet
 import java.util.List
@@ -178,7 +194,7 @@ class TypesUtil {
 		return "Constraint " + c.name
 	}
 
-	def String label(IDeducibleElement e) {
+	def String label(ITransposableElement e) {
 		switch e {
 			DAggregate: e.label
 			DType: e.label

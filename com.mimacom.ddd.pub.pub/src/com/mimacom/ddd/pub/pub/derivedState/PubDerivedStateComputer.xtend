@@ -2,13 +2,14 @@ package com.mimacom.ddd.pub.pub.derivedState
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.BaseFactory
+import com.mimacom.ddd.dm.base.base.BaseFactory
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubModel
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistry
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistry
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
+
 import static com.mimacom.ddd.pub.proto.derivedState.PubProtoDerivedStateComputer.TITLE_SYMBOL_NAME
 
 @Singleton

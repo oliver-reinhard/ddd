@@ -2,9 +2,9 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 /**
  * <!-- begin-user-doc -->

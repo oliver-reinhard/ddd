@@ -1,9 +1,9 @@
 package com.mimacom.ddd.pub.pub.generator
 
-import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.base.DRichText
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
-import com.mimacom.ddd.dm.styledText.parser.NullErrorMessageAcceptor
+import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor
+import com.mimacom.ddd.dm.base.styledText.parser.NullErrorMessageAcceptor
 import com.mimacom.ddd.pub.pub.AbstractFigure
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.Division

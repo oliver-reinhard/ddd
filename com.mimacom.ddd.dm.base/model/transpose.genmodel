@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.mimacom.ddd.dm.base/emf-gen" modelPluginID="com.mimacom.ddd.dm.base"
+    modelName="Transpose" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="base.genmodel#//base" operationReflection="true" importOrganizing="true">
+  <foreignModel>transpose.ecore</foreignModel>
+  <genPackages prefix="Transpose" basePackage="com.mimacom.ddd.dm.base" disposableProviderFactory="true"
+      ecorePackage="transpose.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="transpose.ecore#//TTristate">
+      <genEnumLiterals ecoreEnumLiteral="transpose.ecore#//TTristate/DONT_CARE"/>
+      <genEnumLiterals ecoreEnumLiteral="transpose.ecore#//TTristate/FALSE"/>
+      <genEnumLiterals ecoreEnumLiteral="transpose.ecore#//TTristate/TRUE"/>
+    </genEnums>
+    <genClasses ecoreClass="transpose.ecore#//TTypeMapping"/>
+    <genClasses ecoreClass="transpose.ecore#//TAggregateTransposition"/>
+    <genClasses image="false" ecoreClass="transpose.ecore#//TTypeTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TPrimitiveTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TEnumerationTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TLiteralTransposition"/>
+    <genClasses image="false" ecoreClass="transpose.ecore#//TComplexTypeTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TDetailTypeTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TEntityTypeTransposition"/>
+    <genClasses image="false" ecoreClass="transpose.ecore#//TFeatureTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TAssociationTransposition">
+      <genOperations ecoreOperation="transpose.ecore#//TAssociationTransposition/getTargetType"/>
+    </genClasses>
+    <genClasses ecoreClass="transpose.ecore#//TAttributeTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TQueryTransposition"/>
+    <genClasses ecoreClass="transpose.ecore#//TQueryParameterTransposition"/>
+    <genClasses image="false" ecoreClass="transpose.ecore#//TRenameRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transpose.ecore#//TRenameRule/renameTo"/>
+    </genClasses>
+    <genClasses ecoreClass="transpose.ecore#//TGrabRule"/>
+    <genClasses ecoreClass="transpose.ecore#//TDitchRule"/>
+    <genClasses image="false" ecoreClass="transpose.ecore#//TStructureChangingRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transpose.ecore#//TStructureChangingRule/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transpose.ecore#//TStructureChangingRule/rootEntity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transpose.ecore#//TStructureChangingRule/detail"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transpose.ecore#//TStructureChangingRule/extendFrom"/>
+    </genClasses>
+    <genClasses ecoreClass="transpose.ecore#//TMorphRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transpose.ecore#//TMorphRule/retypeTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference transpose.ecore#//TMorphRule/remultiplyTo"/>
+    </genClasses>
+    <genClasses ecoreClass="transpose.ecore#//TFuseRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference transpose.ecore#//TFuseRule/otherSources"/>
+    </genClasses>
+    <genClasses ecoreClass="transpose.ecore#//TGrabAggregateRule">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference transpose.ecore#//TGrabAggregateRule/aggregate"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

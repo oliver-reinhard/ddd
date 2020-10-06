@@ -4,17 +4,17 @@
 package com.mimacom.ddd.sm.sim.ui.labeling;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SAggregateDeduction;
-import com.mimacom.ddd.sm.sim.SFeatureDeduction;
-import com.mimacom.ddd.sm.sim.SLiteralDeduction;
-import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
-import com.mimacom.ddd.sm.sim.STypeDeduction;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
+import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
+import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -37,32 +37,32 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final DAggregate a) {
-    if ((a instanceof SAggregateDeduction)) {
-      String _label = this._simUtil.label(((SAggregateDeduction)a).getDeductionRule());
+    if ((a instanceof TAggregateTransposition)) {
+      String _label = this._simUtil.label(((TAggregateTransposition)a).getTranspositionRule());
       return (">" + _label);
     }
     return this._simUtil.label(a);
   }
   
   public String text(final DType t) {
-    if ((t instanceof STypeDeduction)) {
-      String _label = this._simUtil.label(((STypeDeduction)t).getDeductionRule());
+    if ((t instanceof TTypeTransposition)) {
+      String _label = this._simUtil.label(((TTypeTransposition)t).getTranspositionRule());
       return (">" + _label);
     }
     return this._simUtil.label(t);
   }
   
   public String text(final DFeature f) {
-    if ((f instanceof SFeatureDeduction)) {
-      String _label = this._simUtil.label(((SFeatureDeduction)f).getDeductionRule());
+    if ((f instanceof TFeatureTransposition)) {
+      String _label = this._simUtil.label(((TFeatureTransposition)f).getTranspositionRule());
       return (">" + _label);
     }
     return this._simUtil.label(f);
   }
   
   public String text(final DQueryParameter p) {
-    if ((p instanceof SQueryParameterDeduction)) {
-      String _label = this._simUtil.label(((SQueryParameterDeduction)p).getDeductionRule());
+    if ((p instanceof TQueryParameterTransposition)) {
+      String _label = this._simUtil.label(((TQueryParameterTransposition)p).getTranspositionRule());
       return (">" + _label);
     }
     return this._simUtil.label(p);
@@ -73,8 +73,8 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final DLiteral literal) {
-    if ((literal instanceof SLiteralDeduction)) {
-      String _label = this._simUtil.label(((SLiteralDeduction)literal).getDeductionRule());
+    if ((literal instanceof TLiteralTransposition)) {
+      String _label = this._simUtil.label(((TLiteralTransposition)literal).getTranspositionRule());
       return (">" + _label);
     }
     return literal.getName();

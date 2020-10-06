@@ -5,11 +5,11 @@ package com.mimacom.ddd.dm.dmx.validation
 
 import com.google.common.collect.Lists
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxCallArguments

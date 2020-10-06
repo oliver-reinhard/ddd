@@ -3,8 +3,8 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -90,7 +90,7 @@ public interface SServiceOperation extends INavigableMemberContainer
 
 	/**
 	 * Returns the value of the '<em><b>Guards</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DExpression}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Guards</em>' containment reference list isn't clear,
@@ -106,7 +106,7 @@ public interface SServiceOperation extends INavigableMemberContainer
 
 	/**
 	 * Returns the value of the '<em><b>Effects</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DExpression}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Effects</em>' containment reference list isn't clear,

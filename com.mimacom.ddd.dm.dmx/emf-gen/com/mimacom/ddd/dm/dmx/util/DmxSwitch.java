@@ -2,20 +2,20 @@
  */
 package com.mimacom.ddd.dm.dmx.util;
 
-import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DSimpleType;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.ITypeContainer;
-import com.mimacom.ddd.dm.base.IValueType;
+import com.mimacom.ddd.dm.base.base.DContext;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DSimpleType;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.IValueType;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -130,7 +130,7 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = caseDSimpleType(dmxArchetype);
 				if (result == null) result = caseDType(dmxArchetype);
 				if (result == null) result = caseIValueType(dmxArchetype);
-				if (result == null) result = caseIDeducibleElement(dmxArchetype);
+				if (result == null) result = caseITransposableElement(dmxArchetype);
 				if (result == null) result = caseIStaticReferenceTarget(dmxArchetype);
 				if (result == null) result = caseDNamedElement(dmxArchetype);
 				if (result == null) result = defaultCase(theEObject);
@@ -1017,17 +1017,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIDeducibleElement(IDeducibleElement object)
+	public T caseITransposableElement(ITransposableElement object)
 	{
 		return null;
 	}

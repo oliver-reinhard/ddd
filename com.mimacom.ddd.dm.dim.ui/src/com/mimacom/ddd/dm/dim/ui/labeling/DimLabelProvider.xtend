@@ -4,14 +4,14 @@
 package com.mimacom.ddd.dm.dim.ui.labeling
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DQueryParameter
+import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
-import com.mimacom.ddd.dm.base.DNamedPredicate
 
 /**
  * Provides labels for EObjects.

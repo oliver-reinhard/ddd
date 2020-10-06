@@ -35,6 +35,7 @@ Workflow {
 			name = "${project}.Sim"
 			fileExtensions = "sim"
 			referencedResource = "platform:/resource/${project}/model/sim.genmodel"
+			referencedResource = "platform:/resource/com.mimacom.ddd.dm.base/model/transpose.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
 
 			formatter = {

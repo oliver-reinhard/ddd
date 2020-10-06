@@ -2,11 +2,11 @@
 @GenModel(modelDirectory="/com.mimacom.ddd.pub.pub/emf-gen")
 package com.mimacom.ddd.pub.pub
 
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DImport
-import com.mimacom.ddd.dm.base.DNamedElement
-import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.base.IDiagramRoot
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DImport
+import com.mimacom.ddd.dm.base.base.DNamedElement
+import com.mimacom.ddd.dm.base.base.DRichText
+import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.proto.PublicationClass
 import com.mimacom.ddd.pub.pub.impl.PubConstants

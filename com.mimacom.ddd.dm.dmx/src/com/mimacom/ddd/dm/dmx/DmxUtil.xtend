@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dmx
 
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.TypesUtil
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DFeature
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Collections

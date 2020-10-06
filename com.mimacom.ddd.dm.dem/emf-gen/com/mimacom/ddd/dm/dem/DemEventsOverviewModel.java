@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dem;
 
-import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.base.DModel;
 
 import org.eclipse.emf.common.util.EList;
 

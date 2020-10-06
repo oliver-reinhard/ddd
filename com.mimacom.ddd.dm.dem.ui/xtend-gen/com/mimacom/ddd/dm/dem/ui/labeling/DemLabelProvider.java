@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.dem.ui.labeling;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 

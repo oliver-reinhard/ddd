@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
 
 /**
  * <!-- begin-user-doc -->

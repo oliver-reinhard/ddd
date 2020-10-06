@@ -6,7 +6,7 @@ package com.mimacom.ddd.pub.pub.scoping;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.ProvidedDiagramType;
 import com.mimacom.ddd.pub.pub.ProvidedFigure;

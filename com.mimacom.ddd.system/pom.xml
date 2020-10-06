@@ -43,6 +43,11 @@
         <dependencies>
           <dependency>
             <groupId>com.mimacom.ddd</groupId>
+            <artifactId>com.mimacom.ddd.util</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>com.mimacom.ddd</groupId>
             <artifactId>com.mimacom.ddd.dm.base</artifactId>
             <version>${project.version}</version>
           </dependency>

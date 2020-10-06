@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
+import com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImplCustom;
 
 import com.mimacom.ddd.dm.dmx.DmxBaseTypeSet;
 import com.mimacom.ddd.dm.dmx.DmxFilter;

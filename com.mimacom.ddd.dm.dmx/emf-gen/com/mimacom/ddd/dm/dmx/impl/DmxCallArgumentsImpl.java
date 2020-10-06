@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DExpression;
 
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxPackage;

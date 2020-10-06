@@ -4,12 +4,12 @@
 package com.mimacom.ddd.pub.proto.serializer;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNamespace;
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DImport;
+import com.mimacom.ddd.dm.base.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxBaseTypeSet;

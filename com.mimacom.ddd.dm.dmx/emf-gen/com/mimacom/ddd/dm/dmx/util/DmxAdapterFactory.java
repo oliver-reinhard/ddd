@@ -2,20 +2,20 @@
  */
 package com.mimacom.ddd.dm.dmx.util;
 
-import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DSimpleType;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.ITypeContainer;
-import com.mimacom.ddd.dm.base.IValueType;
+import com.mimacom.ddd.dm.base.base.DContext;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DSimpleType;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.IValueType;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -285,9 +285,9 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDContextAdapter();
 			}
 			@Override
-			public Adapter caseIDeducibleElement(IDeducibleElement object)
+			public Adapter caseITransposableElement(ITransposableElement object)
 			{
-				return createIDeducibleElementAdapter();
+				return createITransposableElementAdapter();
 			}
 			@Override
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
@@ -842,13 +842,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DNamedElement <em>DNamed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @see com.mimacom.ddd.dm.base.base.DNamedElement
 	 * @generated
 	 */
 	public Adapter createDNamedElementAdapter()
@@ -857,13 +857,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DModel <em>DModel</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DModel <em>DModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DModel
+	 * @see com.mimacom.ddd.dm.base.base.DModel
 	 * @generated
 	 */
 	public Adapter createDModelAdapter()
@@ -872,13 +872,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITypeContainer <em>IType Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.ITypeContainer
+	 * @see com.mimacom.ddd.dm.base.base.ITypeContainer
 	 * @generated
 	 */
 	public Adapter createITypeContainerAdapter()
@@ -887,13 +887,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @see com.mimacom.ddd.dm.base.base.INavigableMemberContainer
 	 * @generated
 	 */
 	public Adapter createINavigableMemberContainerAdapter()
@@ -902,13 +902,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DNavigableMember <em>DNavigable Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNavigableMember
+	 * @see com.mimacom.ddd.dm.base.base.DNavigableMember
 	 * @generated
 	 */
 	public Adapter createDNavigableMemberAdapter()
@@ -917,13 +917,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DContext <em>DContext</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DContext
+	 * @see com.mimacom.ddd.dm.base.base.DContext
 	 * @generated
 	 */
 	public Adapter createDContextAdapter()
@@ -932,28 +932,28 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeducibleElement <em>IDeducible Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IDeducibleElement
+	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
 	 * @generated
 	 */
-	public Adapter createIDeducibleElementAdapter()
+	public Adapter createITransposableElementAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @see com.mimacom.ddd.dm.base.base.IStaticReferenceTarget
 	 * @generated
 	 */
 	public Adapter createIStaticReferenceTargetAdapter()
@@ -962,13 +962,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DType <em>DType</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DType <em>DType</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DType
+	 * @see com.mimacom.ddd.dm.base.base.DType
 	 * @generated
 	 */
 	public Adapter createDTypeAdapter()
@@ -977,13 +977,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IValueType <em>IValue Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IValueType
+	 * @see com.mimacom.ddd.dm.base.base.IValueType
 	 * @generated
 	 */
 	public Adapter createIValueTypeAdapter()
@@ -992,13 +992,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DSimpleType <em>DSimple Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DSimpleType <em>DSimple Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DSimpleType
+	 * @see com.mimacom.ddd.dm.base.base.DSimpleType
 	 * @generated
 	 */
 	public Adapter createDSimpleTypeAdapter()
@@ -1007,13 +1007,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DPrimitive <em>DPrimitive</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DPrimitive <em>DPrimitive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DPrimitive
+	 * @see com.mimacom.ddd.dm.base.base.DPrimitive
 	 * @generated
 	 */
 	public Adapter createDPrimitiveAdapter()
@@ -1022,13 +1022,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IRichTextSegment <em>IRich Text Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IRichTextSegment
+	 * @see com.mimacom.ddd.dm.base.base.IRichTextSegment
 	 * @generated
 	 */
 	public Adapter createIRichTextSegmentAdapter()
@@ -1037,13 +1037,13 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DExpression <em>DExpression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DExpression <em>DExpression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DExpression
+	 * @see com.mimacom.ddd.dm.base.base.DExpression
 	 * @generated
 	 */
 	public Adapter createDExpressionAdapter()

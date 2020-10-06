@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.base.richText.test
 
-import com.mimacom.ddd.dm.base.BaseFactory
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.impl.DExpressionImpl
+import com.mimacom.ddd.dm.base.base.BaseFactory
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.impl.DExpressionImpl
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer
 import org.junit.Test

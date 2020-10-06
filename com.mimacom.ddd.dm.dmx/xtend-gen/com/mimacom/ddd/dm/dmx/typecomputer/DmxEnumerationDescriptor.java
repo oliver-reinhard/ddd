@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dmx.typecomputer;
 
-import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DEnumeration;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import java.util.List;

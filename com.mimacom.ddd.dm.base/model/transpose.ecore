@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="transpose" nsURI="http://www.mimacom.com/ddd/dm/transpose" nsPrefix="transpose">
+  <eClassifiers xsi:type="ecore:EClass" name="TTypeMapping"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TAggregateTransposition" eSuperTypes="base.ecore#//DAggregate base.ecore#//ITransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TTypeTransposition" abstract="true"
+      interface="true" eSuperTypes="base.ecore#//DNamedElement base.ecore#//ITransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TPrimitiveTransposition" eSuperTypes="base.ecore#//DPrimitive #//TTypeTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TEnumerationTransposition" eSuperTypes="base.ecore#//DEnumeration #//TTypeTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TLiteralTransposition" eSuperTypes="base.ecore#//DLiteral base.ecore#//ITransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TComplexTypeTransposition" abstract="true"
+      interface="true" eSuperTypes="#//TTypeTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TDetailTypeTransposition" eSuperTypes="base.ecore#//DDetailType #//TComplexTypeTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TEntityTypeTransposition" eSuperTypes="base.ecore#//DEntityType #//TComplexTypeTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TFeatureTransposition" abstract="true"
+      interface="true" eSuperTypes="base.ecore#//ITransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TAssociationTransposition" eSuperTypes="base.ecore#//DAssociation #//TFeatureTransposition">
+    <eOperations name="getTargetType" eType="#//TEntityTypeTransposition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TAttributeTransposition" eSuperTypes="base.ecore#//DAttribute #//TFeatureTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TQueryTransposition" eSuperTypes="base.ecore#//DQuery #//TFeatureTransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TQueryParameterTransposition" eSuperTypes="base.ecore#//DQueryParameter base.ecore#//ITransposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TRenameRule" abstract="true" eSuperTypes="base.ecore#//TTranspositionRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renameTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TGrabRule" eSuperTypes="#//TRenameRule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TDitchRule" eSuperTypes="base.ecore#//TTranspositionRule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TStructureChangingRule" abstract="true"
+      eSuperTypes="#//TRenameRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="#//TTristate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootEntity" eType="#//TTristate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detail" eType="#//TTristate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="ecore:EClass base.ecore#//DType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TMorphRule" eSuperTypes="#//TStructureChangingRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="retypeTo" eType="ecore:EClass base.ecore#//DType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="remultiplyTo" eType="ecore:EClass base.ecore#//DMultiplicity"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TFuseRule" eSuperTypes="#//TStructureChangingRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DNamedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TGrabAggregateRule" eSuperTypes="#//TRenameRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass base.ecore#//DAggregate"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TTristate">
+    <eLiterals name="DONT_CARE"/>
+    <eLiterals name="FALSE" value="1"/>
+    <eLiterals name="TRUE" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

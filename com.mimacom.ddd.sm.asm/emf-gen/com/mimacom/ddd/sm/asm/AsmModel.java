@@ -3,9 +3,9 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 /**
  * <!-- begin-user-doc -->

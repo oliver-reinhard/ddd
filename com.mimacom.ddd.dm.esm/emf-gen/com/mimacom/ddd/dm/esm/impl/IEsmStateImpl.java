@@ -3,8 +3,8 @@
  */
 package com.mimacom.ddd.dm.esm.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DState;
 
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmStateKind;

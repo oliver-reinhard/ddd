@@ -4,10 +4,10 @@
 package com.mimacom.ddd.dm.esm.validation;
 
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DState;
-import com.mimacom.ddd.dm.base.DStateEvent;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DState;
+import com.mimacom.ddd.dm.base.base.DStateEvent;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmTransition;

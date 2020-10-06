@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub;
 
-import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.base.DImport;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface PubModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DImport}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.

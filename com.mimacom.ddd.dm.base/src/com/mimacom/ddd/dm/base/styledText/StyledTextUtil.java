@@ -1,15 +1,15 @@
 package com.mimacom.ddd.dm.base.styledText;
 
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.EMPHASIS;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.KEYWORD;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.MONOSPACE_END;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.MONOSPACE_START;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.STRONG;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.SUBSCRIPT;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.SUPERSCRIPT;
-import static com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token.UNDERLINE;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.EMPHASIS;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.KEYWORD;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.MONOSPACE_END;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.MONOSPACE_START;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.STRONG;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.SUBSCRIPT;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.SUPERSCRIPT;
+import static com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token.UNDERLINE;
 
-import com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token;
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token;
 
 public class StyledTextUtil {
 

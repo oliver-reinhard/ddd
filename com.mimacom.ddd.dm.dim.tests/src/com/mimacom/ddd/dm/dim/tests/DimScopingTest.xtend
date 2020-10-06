@@ -4,9 +4,10 @@
 package com.mimacom.ddd.dm.dim.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DDetailType
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DDetailType
+import com.mimacom.ddd.dm.base.base.DInformationModel
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScopeProvider
@@ -14,12 +15,11 @@ import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Disabled
-import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DimInjectorProvider)

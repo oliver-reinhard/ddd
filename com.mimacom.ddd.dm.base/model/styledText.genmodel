@@ -7,7 +7,7 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true" pluginKey="base">
   <foreignModel>styledText.ecore</foreignModel>
-  <genPackages prefix="StyledText" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
+  <genPackages prefix="StyledText" basePackage="com.mimacom.ddd.dm.base" disposableProviderFactory="true"
       ecorePackage="styledText.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="styledText.ecore#//DTextStyle">
       <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Plain"/>
@@ -15,6 +15,7 @@
       <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Strong"/>
       <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Keyword"/>
       <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Monospace"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Expression"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="styledText.ecore#//DTextAttribute">
       <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextAttribute/Underline"/>
@@ -42,6 +43,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference styledText.ecore#//DStyledTextSpan/subspans"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/textColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/highlightColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/leaf"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference styledText.ecore#//DStyledTextSpan/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

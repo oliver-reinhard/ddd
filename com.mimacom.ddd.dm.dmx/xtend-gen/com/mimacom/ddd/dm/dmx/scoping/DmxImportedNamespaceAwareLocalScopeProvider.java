@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dmx.scoping;
 
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.scoping.impl.ImportNormalizer;

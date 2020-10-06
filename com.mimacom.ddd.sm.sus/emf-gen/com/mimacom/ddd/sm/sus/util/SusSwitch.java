@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.sm.sus.util;
 
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
 
 import com.mimacom.ddd.sm.sus.*;
 

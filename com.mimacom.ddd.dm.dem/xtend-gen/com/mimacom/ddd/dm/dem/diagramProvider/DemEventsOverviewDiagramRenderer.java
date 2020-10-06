@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dem.diagramProvider;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.dem.DemEventsOverviewModel;
 import com.mimacom.ddd.dm.dem.diagramProvider.DemEventDiagramRenderer;
 import com.mimacom.ddd.dm.dem.plantuml.DemEventsOverviewDiagramTextProviderImpl;

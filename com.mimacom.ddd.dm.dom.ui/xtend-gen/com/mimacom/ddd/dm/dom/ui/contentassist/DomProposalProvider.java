@@ -4,11 +4,11 @@
 package com.mimacom.ddd.dm.dom.ui.contentassist;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DEnumeration;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxField;

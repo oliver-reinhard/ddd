@@ -2,11 +2,13 @@
  */
 package com.mimacom.ddd.sm.sim;
 
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.IAggregateContainer;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.IAggregateContainer;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
+
+import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,12 +94,12 @@ public interface SInformationModel extends DModel, IDiagramRoot, IAggregateConta
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Indexing Helper</em>' containment reference.
-	 * @see #setIndexingHelper(STypeMapping)
+	 * @see #setIndexingHelper(TTypeMapping)
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_IndexingHelper()
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	STypeMapping getIndexingHelper();
+	TTypeMapping getIndexingHelper();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SInformationModel#getIndexingHelper <em>Indexing Helper</em>}' containment reference.
@@ -107,6 +109,6 @@ public interface SInformationModel extends DModel, IDiagramRoot, IAggregateConta
 	 * @see #getIndexingHelper()
 	 * @generated
 	 */
-	void setIndexingHelper(STypeMapping value);
+	void setIndexingHelper(TTypeMapping value);
 
 } // SInformationModel

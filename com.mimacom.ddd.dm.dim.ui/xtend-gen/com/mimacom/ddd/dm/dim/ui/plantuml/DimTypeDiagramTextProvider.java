@@ -1,9 +1,9 @@
 package com.mimacom.ddd.dm.dim.ui.plantuml;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DInformationModel;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DInformationModel;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Map;

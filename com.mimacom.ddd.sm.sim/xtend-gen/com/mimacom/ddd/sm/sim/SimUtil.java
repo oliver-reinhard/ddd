@@ -1,37 +1,37 @@
 package com.mimacom.ddd.sm.sim;
 
 import com.google.common.base.Objects;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DAssociation;
-import com.mimacom.ddd.dm.base.DAttribute;
-import com.mimacom.ddd.dm.base.DDeductionRule;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.impl.DDetailTypeImpl;
-import com.mimacom.ddd.dm.base.impl.DEntityTypeImpl;
-import com.mimacom.ddd.dm.base.impl.DEnumerationImpl;
-import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl;
-import com.mimacom.ddd.dm.base.impl.DTypeImpl;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DAssociation;
+import com.mimacom.ddd.dm.base.base.DAttribute;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DQuery;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.base.impl.DDetailTypeImpl;
+import com.mimacom.ddd.dm.base.base.impl.DEntityTypeImpl;
+import com.mimacom.ddd.dm.base.base.impl.DEnumerationImpl;
+import com.mimacom.ddd.dm.base.base.impl.DPrimitiveImpl;
+import com.mimacom.ddd.dm.base.base.impl.DTypeImpl;
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
+import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
+import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TDetailTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TDitchRule;
+import com.mimacom.ddd.dm.base.transpose.TEntityTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition;
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
+import com.mimacom.ddd.dm.base.transpose.TFuseRule;
+import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule;
+import com.mimacom.ddd.dm.base.transpose.TGrabRule;
+import com.mimacom.ddd.dm.base.transpose.TMorphRule;
+import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
+import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.dim.DimUtil;
-import com.mimacom.ddd.sm.sim.SAggregateDeduction;
-import com.mimacom.ddd.sm.sim.SAssociationDeduction;
-import com.mimacom.ddd.sm.sim.SAttributeDeduction;
-import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
-import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
-import com.mimacom.ddd.sm.sim.SFeatureDeduction;
-import com.mimacom.ddd.sm.sim.SFuseRule;
-import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
-import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
-import com.mimacom.ddd.sm.sim.SQueryDeduction;
-import com.mimacom.ddd.sm.sim.STypeDeduction;
 import java.util.Collections;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -42,27 +42,27 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class SimUtil extends DimUtil {
-  public Class<? extends DType> baseImplClass(final STypeDeduction type) {
+  public Class<? extends DType> baseImplClass(final TTypeTransposition type) {
     Class<? extends DTypeImpl> _switchResult = null;
     boolean _matched = false;
-    if (type instanceof SPrimitiveDeduction) {
+    if (type instanceof TPrimitiveTransposition) {
       _matched=true;
       _switchResult = DPrimitiveImpl.class;
     }
     if (!_matched) {
-      if (type instanceof SEnumerationDeduction) {
+      if (type instanceof TEnumerationTransposition) {
         _matched=true;
         _switchResult = DEnumerationImpl.class;
       }
     }
     if (!_matched) {
-      if (type instanceof SEntityTypeDeduction) {
+      if (type instanceof TEntityTypeTransposition) {
         _matched=true;
         _switchResult = DEntityTypeImpl.class;
       }
     }
     if (!_matched) {
-      if (type instanceof SDetailTypeDeduction) {
+      if (type instanceof TDetailTypeTransposition) {
         _matched=true;
         _switchResult = DDetailTypeImpl.class;
       }
@@ -70,21 +70,21 @@ public class SimUtil extends DimUtil {
     return _switchResult;
   }
   
-  public Class<? extends DFeature> baseClass(final SFeatureDeduction feature) {
+  public Class<? extends DFeature> baseClass(final TFeatureTransposition feature) {
     Class<? extends DFeature> _switchResult = null;
     boolean _matched = false;
-    if (feature instanceof SAttributeDeduction) {
+    if (feature instanceof TAttributeTransposition) {
       _matched=true;
       _switchResult = DAttribute.class;
     }
     if (!_matched) {
-      if (feature instanceof SAssociationDeduction) {
+      if (feature instanceof TAssociationTransposition) {
         _matched=true;
         _switchResult = DAssociation.class;
       }
     }
     if (!_matched) {
-      if (feature instanceof SQueryDeduction) {
+      if (feature instanceof TQueryTransposition) {
         _matched=true;
         _switchResult = DQuery.class;
       }
@@ -92,11 +92,11 @@ public class SimUtil extends DimUtil {
     return _switchResult;
   }
   
-  public List<DType> syntheticTypes(final SAggregateDeduction a) {
+  public List<DType> syntheticTypes(final TAggregateTransposition a) {
     EObject _eContainer = a.eContainer();
     final SInformationModel model = ((SInformationModel) _eContainer);
     final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
-      return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getDeducedFrom(), a)));
+      return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getTransposedBy(), a)));
     };
     final Iterable<DAggregate> syntheticAggregates = IterableExtensions.<DAggregate>filter(model.getAggregates(), _function);
     int _size = IterableExtensions.size(syntheticAggregates);
@@ -107,21 +107,21 @@ public class SimUtil extends DimUtil {
     return Collections.EMPTY_LIST;
   }
   
-  public EClass baseEClass(final SFeatureDeduction feature) {
+  public EClass baseEClass(final TFeatureTransposition feature) {
     EClass _switchResult = null;
     boolean _matched = false;
-    if (feature instanceof SAttributeDeduction) {
+    if (feature instanceof TAttributeTransposition) {
       _matched=true;
       _switchResult = BasePackage.eINSTANCE.getDAttribute();
     }
     if (!_matched) {
-      if (feature instanceof SAssociationDeduction) {
+      if (feature instanceof TAssociationTransposition) {
         _matched=true;
         _switchResult = BasePackage.eINSTANCE.getDAssociation();
       }
     }
     if (!_matched) {
-      if (feature instanceof SQueryDeduction) {
+      if (feature instanceof TQueryTransposition) {
         _matched=true;
         _switchResult = BasePackage.eINSTANCE.getDQuery();
       }
@@ -135,18 +135,18 @@ public class SimUtil extends DimUtil {
     return ("Aggregate " + _name);
   }
   
-  public String label(final DDeductionRule rule) {
+  public String label(final TTranspositionRule rule) {
     String _switchResult = null;
     boolean _matched = false;
-    if (rule instanceof SMorphRule) {
+    if (rule instanceof TMorphRule) {
       _matched=true;
-      String _label = this.label(((SMorphRule)rule).getSource());
+      String _label = this.label(((TMorphRule)rule).getSource());
       String _plus = ("Morph " + _label);
       String _xifexpression = null;
-      String _renameTo = ((SMorphRule)rule).getRenameTo();
+      String _renameTo = ((TMorphRule)rule).getRenameTo();
       boolean _tripleNotEquals = (_renameTo != null);
       if (_tripleNotEquals) {
-        String _renameTo_1 = ((SMorphRule)rule).getRenameTo();
+        String _renameTo_1 = ((TMorphRule)rule).getRenameTo();
         _xifexpression = (" as " + _renameTo_1);
       } else {
         _xifexpression = "";
@@ -154,22 +154,22 @@ public class SimUtil extends DimUtil {
       _switchResult = (_plus + _xifexpression);
     }
     if (!_matched) {
-      if (rule instanceof SFuseRule) {
+      if (rule instanceof TFuseRule) {
         _matched=true;
-        String _label = this.label(((SFuseRule)rule).getSource());
+        String _label = this.label(((TFuseRule)rule).getSource());
         _switchResult = ("Fuse " + _label);
       }
     }
     if (!_matched) {
-      if (rule instanceof SGrabRule) {
+      if (rule instanceof TGrabRule) {
         _matched=true;
-        String _label = this.label(((SGrabRule)rule).getSource());
+        String _label = this.label(((TGrabRule)rule).getSource());
         String _plus = ("Grab " + _label);
         String _xifexpression = null;
-        String _renameTo = ((SGrabRule)rule).getRenameTo();
+        String _renameTo = ((TGrabRule)rule).getRenameTo();
         boolean _tripleNotEquals = (_renameTo != null);
         if (_tripleNotEquals) {
-          String _renameTo_1 = ((SGrabRule)rule).getRenameTo();
+          String _renameTo_1 = ((TGrabRule)rule).getRenameTo();
           _xifexpression = (" as " + _renameTo_1);
         } else {
           _xifexpression = "";
@@ -178,16 +178,16 @@ public class SimUtil extends DimUtil {
       }
     }
     if (!_matched) {
-      if (rule instanceof SDitchRule) {
+      if (rule instanceof TDitchRule) {
         _matched=true;
-        String _label = this.label(((SDitchRule)rule).getSource());
+        String _label = this.label(((TDitchRule)rule).getSource());
         _switchResult = ("Ditch " + _label);
       }
     }
     if (!_matched) {
-      if (rule instanceof SGrabAggregateRule) {
+      if (rule instanceof TGrabAggregateRule) {
         _matched=true;
-        String _label = this.label(((SGrabAggregateRule)rule).getSource());
+        String _label = this.label(((TGrabAggregateRule)rule).getSource());
         _switchResult = ("Grab aggregate " + _label);
       }
     }
@@ -197,7 +197,7 @@ public class SimUtil extends DimUtil {
     return _switchResult;
   }
   
-  public String label(final SFuseRule rule) {
+  public String label(final TFuseRule rule) {
     DNamedElement _namedSource = rule.getNamedSource();
     String _name = null;
     if (_namedSource!=null) {

@@ -2,9 +2,9 @@
  */
 package com.mimacom.ddd.dm.dem;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -82,7 +82,7 @@ public interface DemCaseConjunction extends DNamedElement
 
 	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DNamedPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Predicates</em>' containment reference list isn't clear,

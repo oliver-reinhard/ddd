@@ -6,27 +6,27 @@ package com.mimacom.ddd.sm.sim.scoping;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DDeductionRule;
-import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.ITypeContainer;
-import com.mimacom.ddd.sm.sim.SAggregateDeduction;
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
-import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
-import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
-import com.mimacom.ddd.sm.sim.SFeatureDeduction;
-import com.mimacom.ddd.sm.sim.SLiteralDeduction;
-import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
-import com.mimacom.ddd.sm.sim.SQueryDeduction;
-import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DEnumeration;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DQuery;
+import com.mimacom.ddd.dm.base.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TDetailTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TEntityTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition;
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
+import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
+import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
+import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
+import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.scoping.AbstractSimScopeProvider;
 import java.util.List;
@@ -50,63 +50,63 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      EReference _dDeductionRule_Source = SimScopeProvider.BASE.getDDeductionRule_Source();
-      boolean _equals = Objects.equal(reference, _dDeductionRule_Source);
+      EReference _tTranspositionRule_Source = SimScopeProvider.BASE.getTTranspositionRule_Source();
+      boolean _equals = Objects.equal(reference, _tTranspositionRule_Source);
       if (_equals) {
         EObject _xifexpression = null;
-        if ((context instanceof DDeductionRule)) {
-          _xifexpression = ((DDeductionRule)context).eContainer();
+        if ((context instanceof TTranspositionRule)) {
+          _xifexpression = ((TTranspositionRule)context).eContainer();
         } else {
           _xifexpression = context;
         }
         final EObject decduction = _xifexpression;
         final EObject container = decduction.eContainer();
-        if ((decduction instanceof SAggregateDeduction)) {
+        if ((decduction instanceof TAggregateTransposition)) {
           return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDAggregate());
         } else {
-          if ((decduction instanceof SPrimitiveDeduction)) {
+          if ((decduction instanceof TPrimitiveTransposition)) {
             return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDPrimitive());
           } else {
-            if ((decduction instanceof SEntityTypeDeduction)) {
+            if ((decduction instanceof TEntityTypeTransposition)) {
               return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDEntityType());
             } else {
-              if ((decduction instanceof SDetailTypeDeduction)) {
+              if ((decduction instanceof TDetailTypeTransposition)) {
                 return this.getDefaultScopeOfType(decduction, SimScopeProvider.BASE.getDDetailType());
               } else {
-                if ((decduction instanceof SLiteralDeduction)) {
-                  if ((container instanceof SEnumerationDeduction)) {
-                    DDeductionRule _deductionRule = ((SEnumerationDeduction)container).getDeductionRule();
-                    IDeducibleElement _source = null;
-                    if (_deductionRule!=null) {
-                      _source=_deductionRule.getSource();
+                if ((decduction instanceof TLiteralTransposition)) {
+                  if ((container instanceof TEnumerationTransposition)) {
+                    TTranspositionRule _transpositionRule = ((TEnumerationTransposition)container).getTranspositionRule();
+                    ITransposableElement _source = null;
+                    if (_transpositionRule!=null) {
+                      _source=_transpositionRule.getSource();
                     }
-                    final IDeducibleElement sourceType = _source;
+                    final ITransposableElement sourceType = _source;
                     if ((sourceType instanceof DEnumeration)) {
                       return Scopes.scopeFor(((DEnumeration)sourceType).getLiterals());
                     }
                   }
                   return IScope.NULLSCOPE;
                 } else {
-                  if ((decduction instanceof SFeatureDeduction)) {
-                    if ((container instanceof SComplexTypeDeduction)) {
-                      DDeductionRule _deductionRule_1 = ((SComplexTypeDeduction)container).getDeductionRule();
-                      IDeducibleElement _source_1 = null;
-                      if (_deductionRule_1!=null) {
-                        _source_1=_deductionRule_1.getSource();
+                  if ((decduction instanceof TFeatureTransposition)) {
+                    if ((container instanceof TComplexTypeTransposition)) {
+                      TTranspositionRule _transpositionRule_1 = ((TComplexTypeTransposition)container).getTranspositionRule();
+                      ITransposableElement _source_1 = null;
+                      if (_transpositionRule_1!=null) {
+                        _source_1=_transpositionRule_1.getSource();
                       }
-                      final IDeducibleElement sourceType_1 = _source_1;
+                      final ITransposableElement sourceType_1 = _source_1;
                       if ((sourceType_1 instanceof DComplexType)) {
-                        final Class<? extends DFeature> requiredFeatureType = this._simUtil.baseClass(((SFeatureDeduction)decduction));
+                        final Class<? extends DFeature> requiredFeatureType = this._simUtil.baseClass(((TFeatureTransposition)decduction));
                         return this.getInheritedFeaturesScope(((DComplexType)sourceType_1), requiredFeatureType, IScope.NULLSCOPE);
                       }
                     } else {
-                      if ((container instanceof SAggregateDeduction)) {
-                        DDeductionRule _deductionRule_2 = ((SAggregateDeduction)container).getDeductionRule();
-                        IDeducibleElement _source_2 = null;
-                        if (_deductionRule_2!=null) {
-                          _source_2=_deductionRule_2.getSource();
+                      if ((container instanceof TAggregateTransposition)) {
+                        TTranspositionRule _transpositionRule_2 = ((TAggregateTransposition)container).getTranspositionRule();
+                        ITransposableElement _source_2 = null;
+                        if (_transpositionRule_2!=null) {
+                          _source_2=_transpositionRule_2.getSource();
                         }
-                        final IDeducibleElement source = _source_2;
+                        final ITransposableElement source = _source_2;
                         if ((source instanceof DAggregate)) {
                           return Scopes.scopeFor(Iterables.<DQuery>filter(((DAggregate)source).getFeatures(), DQuery.class));
                         }
@@ -114,14 +114,14 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
                     }
                     return IScope.NULLSCOPE;
                   } else {
-                    if ((decduction instanceof SQueryParameterDeduction)) {
-                      if ((container instanceof SQueryDeduction)) {
-                        DDeductionRule _deductionRule_3 = ((SQueryDeduction)container).getDeductionRule();
-                        IDeducibleElement _source_3 = null;
-                        if (_deductionRule_3!=null) {
-                          _source_3=_deductionRule_3.getSource();
+                    if ((decduction instanceof TQueryParameterTransposition)) {
+                      if ((container instanceof TQueryTransposition)) {
+                        TTranspositionRule _transpositionRule_3 = ((TQueryTransposition)container).getTranspositionRule();
+                        ITransposableElement _source_3 = null;
+                        if (_transpositionRule_3!=null) {
+                          _source_3=_transpositionRule_3.getSource();
                         }
-                        final IDeducibleElement source_1 = _source_3;
+                        final ITransposableElement source_1 = _source_3;
                         if ((source_1 instanceof DQuery)) {
                           return Scopes.scopeFor(((DQuery)source_1).getParameters());
                         }
@@ -144,9 +144,9 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
   public IScope getDefaultScopeOfType(final EObject context, final EClass type) {
     if (((context instanceof DQuery) || (context instanceof DQueryParameter))) {
       final ITypeContainer container = EcoreUtil2.<ITypeContainer>getContainerOfType(context, ITypeContainer.class);
-      if ((container instanceof SAggregateDeduction)) {
+      if ((container instanceof TAggregateTransposition)) {
         final IScope outerScope = this.getDefaultScopeOfType(container, SimScopeProvider.BASE.getIValueType());
-        final List<DType> syntheticTypes = this._simUtil.syntheticTypes(((SAggregateDeduction)container));
+        final List<DType> syntheticTypes = this._simUtil.syntheticTypes(((TAggregateTransposition)container));
         boolean _isEmpty = syntheticTypes.isEmpty();
         boolean _not = (!_isEmpty);
         if (_not) {

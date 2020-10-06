@@ -2,10 +2,10 @@ package com.mimacom.ddd.dm.dmx.typecomputer;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxUtil;

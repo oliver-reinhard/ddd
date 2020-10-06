@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.base.styledText.test
 
-import com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer
-import com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer.Token
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token
 import org.junit.Test
 
 import static org.junit.Assert.assertEquals

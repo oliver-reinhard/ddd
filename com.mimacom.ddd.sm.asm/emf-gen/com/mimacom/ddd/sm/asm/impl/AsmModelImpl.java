@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
-import com.mimacom.ddd.dm.base.impl.DModelImpl;
+import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
 
 import com.mimacom.ddd.sm.asm.AsmModel;
 import com.mimacom.ddd.sm.asm.AsmPackage;

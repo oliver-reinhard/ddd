@@ -457,7 +457,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSInformationModel"
-    // InternalSim.g:152:1: ruleSInformationModel returns [EObject current=null] : ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSType ) ) | ( (lv_aggregates_11_0= ruleSAggregate ) ) )* otherlv_12= '}' ) ;
+    // InternalSim.g:152:1: ruleSInformationModel returns [EObject current=null] : ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSimType ) ) | ( (lv_aggregates_11_0= ruleSimAggregate ) ) )* otherlv_12= '}' ) ;
     public final EObject ruleSInformationModel() throws RecognitionException {
         EObject current = null;
 
@@ -484,11 +484,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:158:2: ( ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSType ) ) | ( (lv_aggregates_11_0= ruleSAggregate ) ) )* otherlv_12= '}' ) )
-            // InternalSim.g:159:2: ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSType ) ) | ( (lv_aggregates_11_0= ruleSAggregate ) ) )* otherlv_12= '}' )
+            // InternalSim.g:158:2: ( ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSimType ) ) | ( (lv_aggregates_11_0= ruleSimAggregate ) ) )* otherlv_12= '}' ) )
+            // InternalSim.g:159:2: ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSimType ) ) | ( (lv_aggregates_11_0= ruleSimAggregate ) ) )* otherlv_12= '}' )
             {
-            // InternalSim.g:159:2: ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSType ) ) | ( (lv_aggregates_11_0= ruleSAggregate ) ) )* otherlv_12= '}' )
-            // InternalSim.g:160:3: ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSType ) ) | ( (lv_aggregates_11_0= ruleSAggregate ) ) )* otherlv_12= '}'
+            // InternalSim.g:159:2: ( ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSimType ) ) | ( (lv_aggregates_11_0= ruleSimAggregate ) ) )* otherlv_12= '}' )
+            // InternalSim.g:160:3: ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) ) ( (lv_name_6_0= RULE_ID ) ) ( (lv_generate_7_0= 'generate' ) )? ( (lv_description_8_0= ruleDRichText ) )? otherlv_9= '{' ( ( (lv_types_10_0= ruleSimType ) ) | ( (lv_aggregates_11_0= ruleSimAggregate ) ) )* otherlv_12= '}'
             {
             // InternalSim.g:160:3: ( ( ( (lv_kind_0_0= ruleSTypeModelKind ) ) otherlv_1= 'type' otherlv_2= 'model' ) | ( ( (lv_kind_3_0= ruleSInformationModelKind ) ) otherlv_4= 'information' otherlv_5= 'model' ) )
             int alt2=2;
@@ -748,7 +748,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_9, grammarAccess.getSInformationModelAccess().getLeftCurlyBracketKeyword_4());
               		
             }
-            // InternalSim.g:276:3: ( ( (lv_types_10_0= ruleSType ) ) | ( (lv_aggregates_11_0= ruleSAggregate ) ) )*
+            // InternalSim.g:276:3: ( ( (lv_types_10_0= ruleSimType ) ) | ( (lv_aggregates_11_0= ruleSimAggregate ) ) )*
             loop5:
             do {
                 int alt5=3;
@@ -785,21 +785,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalSim.g:277:4: ( (lv_types_10_0= ruleSType ) )
+            	    // InternalSim.g:277:4: ( (lv_types_10_0= ruleSimType ) )
             	    {
-            	    // InternalSim.g:277:4: ( (lv_types_10_0= ruleSType ) )
-            	    // InternalSim.g:278:5: (lv_types_10_0= ruleSType )
+            	    // InternalSim.g:277:4: ( (lv_types_10_0= ruleSimType ) )
+            	    // InternalSim.g:278:5: (lv_types_10_0= ruleSimType )
             	    {
-            	    // InternalSim.g:278:5: (lv_types_10_0= ruleSType )
-            	    // InternalSim.g:279:6: lv_types_10_0= ruleSType
+            	    // InternalSim.g:278:5: (lv_types_10_0= ruleSimType )
+            	    // InternalSim.g:279:6: lv_types_10_0= ruleSimType
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getSInformationModelAccess().getTypesSTypeParserRuleCall_5_0_0());
+            	      						newCompositeNode(grammarAccess.getSInformationModelAccess().getTypesSimTypeParserRuleCall_5_0_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_11);
-            	    lv_types_10_0=ruleSType();
+            	    lv_types_10_0=ruleSimType();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -812,7 +812,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	      							current,
             	      							"types",
             	      							lv_types_10_0,
-            	      							"com.mimacom.ddd.sm.sim.Sim.SType");
+            	      							"com.mimacom.ddd.sm.sim.Sim.SimType");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -826,21 +826,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalSim.g:297:4: ( (lv_aggregates_11_0= ruleSAggregate ) )
+            	    // InternalSim.g:297:4: ( (lv_aggregates_11_0= ruleSimAggregate ) )
             	    {
-            	    // InternalSim.g:297:4: ( (lv_aggregates_11_0= ruleSAggregate ) )
-            	    // InternalSim.g:298:5: (lv_aggregates_11_0= ruleSAggregate )
+            	    // InternalSim.g:297:4: ( (lv_aggregates_11_0= ruleSimAggregate ) )
+            	    // InternalSim.g:298:5: (lv_aggregates_11_0= ruleSimAggregate )
             	    {
-            	    // InternalSim.g:298:5: (lv_aggregates_11_0= ruleSAggregate )
-            	    // InternalSim.g:299:6: lv_aggregates_11_0= ruleSAggregate
+            	    // InternalSim.g:298:5: (lv_aggregates_11_0= ruleSimAggregate )
+            	    // InternalSim.g:299:6: lv_aggregates_11_0= ruleSimAggregate
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getSInformationModelAccess().getAggregatesSAggregateParserRuleCall_5_1_0());
+            	      						newCompositeNode(grammarAccess.getSInformationModelAccess().getAggregatesSimAggregateParserRuleCall_5_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_11);
-            	    lv_aggregates_11_0=ruleSAggregate();
+            	    lv_aggregates_11_0=ruleSimAggregate();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -853,7 +853,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	      							current,
             	      							"aggregates",
             	      							lv_aggregates_11_0,
-            	      							"com.mimacom.ddd.sm.sim.Sim.SAggregate");
+            	      							"com.mimacom.ddd.sm.sim.Sim.SimAggregate");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -902,28 +902,28 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSInformationModel"
 
 
-    // $ANTLR start "entryRuleSGrabAggregateRule"
-    // InternalSim.g:325:1: entryRuleSGrabAggregateRule returns [EObject current=null] : iv_ruleSGrabAggregateRule= ruleSGrabAggregateRule EOF ;
-    public final EObject entryRuleSGrabAggregateRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabAggregateRule"
+    // InternalSim.g:325:1: entryRuleSimGrabAggregateRule returns [EObject current=null] : iv_ruleSimGrabAggregateRule= ruleSimGrabAggregateRule EOF ;
+    public final EObject entryRuleSimGrabAggregateRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabAggregateRule = null;
+        EObject iv_ruleSimGrabAggregateRule = null;
 
 
         try {
-            // InternalSim.g:325:59: (iv_ruleSGrabAggregateRule= ruleSGrabAggregateRule EOF )
-            // InternalSim.g:326:2: iv_ruleSGrabAggregateRule= ruleSGrabAggregateRule EOF
+            // InternalSim.g:325:61: (iv_ruleSimGrabAggregateRule= ruleSimGrabAggregateRule EOF )
+            // InternalSim.g:326:2: iv_ruleSimGrabAggregateRule= ruleSimGrabAggregateRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabAggregateRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabAggregateRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabAggregateRule=ruleSGrabAggregateRule();
+            iv_ruleSimGrabAggregateRule=ruleSimGrabAggregateRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabAggregateRule; 
+               current =iv_ruleSimGrabAggregateRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -939,12 +939,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabAggregateRule"
+    // $ANTLR end "entryRuleSimGrabAggregateRule"
 
 
-    // $ANTLR start "ruleSGrabAggregateRule"
-    // InternalSim.g:332:1: ruleSGrabAggregateRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabAggregateRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabAggregateRule"
+    // InternalSim.g:332:1: ruleSimGrabAggregateRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabAggregateRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -969,13 +969,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabAggregateRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabAggregateRuleRule());
               					}
               				
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0_0());
+              					newCompositeNode(grammarAccess.getSimGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0_0());
               				
             }
             pushFollow(FOLLOW_12);
@@ -1008,7 +1008,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabAggregateRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabAggregateRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:361:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -1020,13 +1020,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabAggregateRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabAggregateRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabAggregateRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabAggregateRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -1068,31 +1068,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabAggregateRule"
+    // $ANTLR end "ruleSimGrabAggregateRule"
 
 
-    // $ANTLR start "entryRuleSGrabPrimitiveRule"
-    // InternalSim.g:384:1: entryRuleSGrabPrimitiveRule returns [EObject current=null] : iv_ruleSGrabPrimitiveRule= ruleSGrabPrimitiveRule EOF ;
-    public final EObject entryRuleSGrabPrimitiveRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabPrimitiveRule"
+    // InternalSim.g:384:1: entryRuleSimGrabPrimitiveRule returns [EObject current=null] : iv_ruleSimGrabPrimitiveRule= ruleSimGrabPrimitiveRule EOF ;
+    public final EObject entryRuleSimGrabPrimitiveRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabPrimitiveRule = null;
+        EObject iv_ruleSimGrabPrimitiveRule = null;
 
 
         try {
-            // InternalSim.g:384:59: (iv_ruleSGrabPrimitiveRule= ruleSGrabPrimitiveRule EOF )
-            // InternalSim.g:385:2: iv_ruleSGrabPrimitiveRule= ruleSGrabPrimitiveRule EOF
+            // InternalSim.g:384:61: (iv_ruleSimGrabPrimitiveRule= ruleSimGrabPrimitiveRule EOF )
+            // InternalSim.g:385:2: iv_ruleSimGrabPrimitiveRule= ruleSimGrabPrimitiveRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabPrimitiveRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabPrimitiveRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabPrimitiveRule=ruleSGrabPrimitiveRule();
+            iv_ruleSimGrabPrimitiveRule=ruleSimGrabPrimitiveRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabPrimitiveRule; 
+               current =iv_ruleSimGrabPrimitiveRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1108,12 +1108,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabPrimitiveRule"
+    // $ANTLR end "entryRuleSimGrabPrimitiveRule"
 
 
-    // $ANTLR start "ruleSGrabPrimitiveRule"
-    // InternalSim.g:391:1: ruleSGrabPrimitiveRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabPrimitiveRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabPrimitiveRule"
+    // InternalSim.g:391:1: ruleSimGrabPrimitiveRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabPrimitiveRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -1138,13 +1138,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabPrimitiveRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabPrimitiveRuleRule());
               					}
               				
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSGrabPrimitiveRuleAccess().getSourceDPrimitiveCrossReference_0_0());
+              					newCompositeNode(grammarAccess.getSimGrabPrimitiveRuleAccess().getSourceDPrimitiveCrossReference_0_0());
               				
             }
             pushFollow(FOLLOW_12);
@@ -1177,7 +1177,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabPrimitiveRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabPrimitiveRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:420:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -1189,13 +1189,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabPrimitiveRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabPrimitiveRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabPrimitiveRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabPrimitiveRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -1237,31 +1237,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabPrimitiveRule"
+    // $ANTLR end "ruleSimGrabPrimitiveRule"
 
 
-    // $ANTLR start "entryRuleSDitchPrimitiveRule"
-    // InternalSim.g:443:1: entryRuleSDitchPrimitiveRule returns [EObject current=null] : iv_ruleSDitchPrimitiveRule= ruleSDitchPrimitiveRule EOF ;
-    public final EObject entryRuleSDitchPrimitiveRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDitchPrimitiveRule"
+    // InternalSim.g:443:1: entryRuleSimDitchPrimitiveRule returns [EObject current=null] : iv_ruleSimDitchPrimitiveRule= ruleSimDitchPrimitiveRule EOF ;
+    public final EObject entryRuleSimDitchPrimitiveRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDitchPrimitiveRule = null;
+        EObject iv_ruleSimDitchPrimitiveRule = null;
 
 
         try {
-            // InternalSim.g:443:60: (iv_ruleSDitchPrimitiveRule= ruleSDitchPrimitiveRule EOF )
-            // InternalSim.g:444:2: iv_ruleSDitchPrimitiveRule= ruleSDitchPrimitiveRule EOF
+            // InternalSim.g:443:62: (iv_ruleSimDitchPrimitiveRule= ruleSimDitchPrimitiveRule EOF )
+            // InternalSim.g:444:2: iv_ruleSimDitchPrimitiveRule= ruleSimDitchPrimitiveRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDitchPrimitiveRuleRule()); 
+               newCompositeNode(grammarAccess.getSimDitchPrimitiveRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDitchPrimitiveRule=ruleSDitchPrimitiveRule();
+            iv_ruleSimDitchPrimitiveRule=ruleSimDitchPrimitiveRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDitchPrimitiveRule; 
+               current =iv_ruleSimDitchPrimitiveRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1277,12 +1277,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDitchPrimitiveRule"
+    // $ANTLR end "entryRuleSimDitchPrimitiveRule"
 
 
-    // $ANTLR start "ruleSDitchPrimitiveRule"
-    // InternalSim.g:450:1: ruleSDitchPrimitiveRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
-    public final EObject ruleSDitchPrimitiveRule() throws RecognitionException {
+    // $ANTLR start "ruleSimDitchPrimitiveRule"
+    // InternalSim.g:450:1: ruleSimDitchPrimitiveRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
+    public final EObject ruleSimDitchPrimitiveRule() throws RecognitionException {
         EObject current = null;
 
 
@@ -1301,13 +1301,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSDitchPrimitiveRuleRule());
+              					current = createModelElement(grammarAccess.getSimDitchPrimitiveRuleRule());
               				}
               			
             }
             if ( state.backtracking==0 ) {
 
-              				newCompositeNode(grammarAccess.getSDitchPrimitiveRuleAccess().getSourceDPrimitiveCrossReference_0());
+              				newCompositeNode(grammarAccess.getSimDitchPrimitiveRuleAccess().getSourceDPrimitiveCrossReference_0());
               			
             }
             pushFollow(FOLLOW_2);
@@ -1344,31 +1344,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDitchPrimitiveRule"
+    // $ANTLR end "ruleSimDitchPrimitiveRule"
 
 
-    // $ANTLR start "entryRuleSGrabEnumerationRule"
-    // InternalSim.g:476:1: entryRuleSGrabEnumerationRule returns [EObject current=null] : iv_ruleSGrabEnumerationRule= ruleSGrabEnumerationRule EOF ;
-    public final EObject entryRuleSGrabEnumerationRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabEnumerationRule"
+    // InternalSim.g:476:1: entryRuleSimGrabEnumerationRule returns [EObject current=null] : iv_ruleSimGrabEnumerationRule= ruleSimGrabEnumerationRule EOF ;
+    public final EObject entryRuleSimGrabEnumerationRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabEnumerationRule = null;
+        EObject iv_ruleSimGrabEnumerationRule = null;
 
 
         try {
-            // InternalSim.g:476:61: (iv_ruleSGrabEnumerationRule= ruleSGrabEnumerationRule EOF )
-            // InternalSim.g:477:2: iv_ruleSGrabEnumerationRule= ruleSGrabEnumerationRule EOF
+            // InternalSim.g:476:63: (iv_ruleSimGrabEnumerationRule= ruleSimGrabEnumerationRule EOF )
+            // InternalSim.g:477:2: iv_ruleSimGrabEnumerationRule= ruleSimGrabEnumerationRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabEnumerationRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabEnumerationRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabEnumerationRule=ruleSGrabEnumerationRule();
+            iv_ruleSimGrabEnumerationRule=ruleSimGrabEnumerationRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabEnumerationRule; 
+               current =iv_ruleSimGrabEnumerationRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1384,12 +1384,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabEnumerationRule"
+    // $ANTLR end "entryRuleSimGrabEnumerationRule"
 
 
-    // $ANTLR start "ruleSGrabEnumerationRule"
-    // InternalSim.g:483:1: ruleSGrabEnumerationRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabEnumerationRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabEnumerationRule"
+    // InternalSim.g:483:1: ruleSimGrabEnumerationRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabEnumerationRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -1414,13 +1414,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabEnumerationRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabEnumerationRuleRule());
               					}
               				
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSGrabEnumerationRuleAccess().getSourceDEnumerationCrossReference_0_0());
+              					newCompositeNode(grammarAccess.getSimGrabEnumerationRuleAccess().getSourceDEnumerationCrossReference_0_0());
               				
             }
             pushFollow(FOLLOW_12);
@@ -1453,7 +1453,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabEnumerationRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabEnumerationRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:512:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -1465,13 +1465,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabEnumerationRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabEnumerationRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabEnumerationRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabEnumerationRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -1513,31 +1513,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabEnumerationRule"
+    // $ANTLR end "ruleSimGrabEnumerationRule"
 
 
-    // $ANTLR start "entryRuleSDitchEnumerationRule"
-    // InternalSim.g:535:1: entryRuleSDitchEnumerationRule returns [EObject current=null] : iv_ruleSDitchEnumerationRule= ruleSDitchEnumerationRule EOF ;
-    public final EObject entryRuleSDitchEnumerationRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDitchEnumerationRule"
+    // InternalSim.g:535:1: entryRuleSimDitchEnumerationRule returns [EObject current=null] : iv_ruleSimDitchEnumerationRule= ruleSimDitchEnumerationRule EOF ;
+    public final EObject entryRuleSimDitchEnumerationRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDitchEnumerationRule = null;
+        EObject iv_ruleSimDitchEnumerationRule = null;
 
 
         try {
-            // InternalSim.g:535:62: (iv_ruleSDitchEnumerationRule= ruleSDitchEnumerationRule EOF )
-            // InternalSim.g:536:2: iv_ruleSDitchEnumerationRule= ruleSDitchEnumerationRule EOF
+            // InternalSim.g:535:64: (iv_ruleSimDitchEnumerationRule= ruleSimDitchEnumerationRule EOF )
+            // InternalSim.g:536:2: iv_ruleSimDitchEnumerationRule= ruleSimDitchEnumerationRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDitchEnumerationRuleRule()); 
+               newCompositeNode(grammarAccess.getSimDitchEnumerationRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDitchEnumerationRule=ruleSDitchEnumerationRule();
+            iv_ruleSimDitchEnumerationRule=ruleSimDitchEnumerationRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDitchEnumerationRule; 
+               current =iv_ruleSimDitchEnumerationRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1553,12 +1553,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDitchEnumerationRule"
+    // $ANTLR end "entryRuleSimDitchEnumerationRule"
 
 
-    // $ANTLR start "ruleSDitchEnumerationRule"
-    // InternalSim.g:542:1: ruleSDitchEnumerationRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
-    public final EObject ruleSDitchEnumerationRule() throws RecognitionException {
+    // $ANTLR start "ruleSimDitchEnumerationRule"
+    // InternalSim.g:542:1: ruleSimDitchEnumerationRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
+    public final EObject ruleSimDitchEnumerationRule() throws RecognitionException {
         EObject current = null;
 
 
@@ -1577,13 +1577,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSDitchEnumerationRuleRule());
+              					current = createModelElement(grammarAccess.getSimDitchEnumerationRuleRule());
               				}
               			
             }
             if ( state.backtracking==0 ) {
 
-              				newCompositeNode(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationCrossReference_0());
+              				newCompositeNode(grammarAccess.getSimDitchEnumerationRuleAccess().getSourceDEnumerationCrossReference_0());
               			
             }
             pushFollow(FOLLOW_2);
@@ -1620,31 +1620,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDitchEnumerationRule"
+    // $ANTLR end "ruleSimDitchEnumerationRule"
 
 
-    // $ANTLR start "entryRuleSGrabEnumerationLiteralRule"
-    // InternalSim.g:568:1: entryRuleSGrabEnumerationLiteralRule returns [EObject current=null] : iv_ruleSGrabEnumerationLiteralRule= ruleSGrabEnumerationLiteralRule EOF ;
-    public final EObject entryRuleSGrabEnumerationLiteralRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabEnumerationLiteralRule"
+    // InternalSim.g:568:1: entryRuleSimGrabEnumerationLiteralRule returns [EObject current=null] : iv_ruleSimGrabEnumerationLiteralRule= ruleSimGrabEnumerationLiteralRule EOF ;
+    public final EObject entryRuleSimGrabEnumerationLiteralRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabEnumerationLiteralRule = null;
+        EObject iv_ruleSimGrabEnumerationLiteralRule = null;
 
 
         try {
-            // InternalSim.g:568:68: (iv_ruleSGrabEnumerationLiteralRule= ruleSGrabEnumerationLiteralRule EOF )
-            // InternalSim.g:569:2: iv_ruleSGrabEnumerationLiteralRule= ruleSGrabEnumerationLiteralRule EOF
+            // InternalSim.g:568:70: (iv_ruleSimGrabEnumerationLiteralRule= ruleSimGrabEnumerationLiteralRule EOF )
+            // InternalSim.g:569:2: iv_ruleSimGrabEnumerationLiteralRule= ruleSimGrabEnumerationLiteralRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabEnumerationLiteralRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabEnumerationLiteralRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabEnumerationLiteralRule=ruleSGrabEnumerationLiteralRule();
+            iv_ruleSimGrabEnumerationLiteralRule=ruleSimGrabEnumerationLiteralRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabEnumerationLiteralRule; 
+               current =iv_ruleSimGrabEnumerationLiteralRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1660,12 +1660,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabEnumerationLiteralRule"
+    // $ANTLR end "entryRuleSimGrabEnumerationLiteralRule"
 
 
-    // $ANTLR start "ruleSGrabEnumerationLiteralRule"
-    // InternalSim.g:575:1: ruleSGrabEnumerationLiteralRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabEnumerationLiteralRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabEnumerationLiteralRule"
+    // InternalSim.g:575:1: ruleSimGrabEnumerationLiteralRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabEnumerationLiteralRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1691,14 +1691,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabEnumerationLiteralRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabEnumerationLiteralRuleRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getSGrabEnumerationLiteralRuleAccess().getSourceDLiteralCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getSimGrabEnumerationLiteralRuleAccess().getSourceDLiteralCrossReference_0_0());
               				
             }
 
@@ -1721,7 +1721,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabEnumerationLiteralRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabEnumerationLiteralRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:601:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -1733,13 +1733,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabEnumerationLiteralRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabEnumerationLiteralRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabEnumerationLiteralRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabEnumerationLiteralRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -1781,31 +1781,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabEnumerationLiteralRule"
+    // $ANTLR end "ruleSimGrabEnumerationLiteralRule"
 
 
-    // $ANTLR start "entryRuleSDitchEnumerationLiteralRule"
-    // InternalSim.g:624:1: entryRuleSDitchEnumerationLiteralRule returns [EObject current=null] : iv_ruleSDitchEnumerationLiteralRule= ruleSDitchEnumerationLiteralRule EOF ;
-    public final EObject entryRuleSDitchEnumerationLiteralRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDitchEnumerationLiteralRule"
+    // InternalSim.g:624:1: entryRuleSimDitchEnumerationLiteralRule returns [EObject current=null] : iv_ruleSimDitchEnumerationLiteralRule= ruleSimDitchEnumerationLiteralRule EOF ;
+    public final EObject entryRuleSimDitchEnumerationLiteralRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDitchEnumerationLiteralRule = null;
+        EObject iv_ruleSimDitchEnumerationLiteralRule = null;
 
 
         try {
-            // InternalSim.g:624:69: (iv_ruleSDitchEnumerationLiteralRule= ruleSDitchEnumerationLiteralRule EOF )
-            // InternalSim.g:625:2: iv_ruleSDitchEnumerationLiteralRule= ruleSDitchEnumerationLiteralRule EOF
+            // InternalSim.g:624:71: (iv_ruleSimDitchEnumerationLiteralRule= ruleSimDitchEnumerationLiteralRule EOF )
+            // InternalSim.g:625:2: iv_ruleSimDitchEnumerationLiteralRule= ruleSimDitchEnumerationLiteralRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDitchEnumerationLiteralRuleRule()); 
+               newCompositeNode(grammarAccess.getSimDitchEnumerationLiteralRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDitchEnumerationLiteralRule=ruleSDitchEnumerationLiteralRule();
+            iv_ruleSimDitchEnumerationLiteralRule=ruleSimDitchEnumerationLiteralRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDitchEnumerationLiteralRule; 
+               current =iv_ruleSimDitchEnumerationLiteralRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1821,12 +1821,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDitchEnumerationLiteralRule"
+    // $ANTLR end "entryRuleSimDitchEnumerationLiteralRule"
 
 
-    // $ANTLR start "ruleSDitchEnumerationLiteralRule"
-    // InternalSim.g:631:1: ruleSDitchEnumerationLiteralRule returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
-    public final EObject ruleSDitchEnumerationLiteralRule() throws RecognitionException {
+    // $ANTLR start "ruleSimDitchEnumerationLiteralRule"
+    // InternalSim.g:631:1: ruleSimDitchEnumerationLiteralRule returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    public final EObject ruleSimDitchEnumerationLiteralRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1847,14 +1847,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSDitchEnumerationLiteralRuleRule());
+              					current = createModelElement(grammarAccess.getSimDitchEnumerationLiteralRuleRule());
               				}
               			
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(otherlv_0, grammarAccess.getSDitchEnumerationLiteralRuleAccess().getSourceDLiteralCrossReference_0());
+              				newLeafNode(otherlv_0, grammarAccess.getSimDitchEnumerationLiteralRuleAccess().getSourceDLiteralCrossReference_0());
               			
             }
 
@@ -1881,31 +1881,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDitchEnumerationLiteralRule"
+    // $ANTLR end "ruleSimDitchEnumerationLiteralRule"
 
 
-    // $ANTLR start "entryRuleSGrabComplexTypeRule"
-    // InternalSim.g:654:1: entryRuleSGrabComplexTypeRule returns [EObject current=null] : iv_ruleSGrabComplexTypeRule= ruleSGrabComplexTypeRule EOF ;
-    public final EObject entryRuleSGrabComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabComplexTypeRule"
+    // InternalSim.g:654:1: entryRuleSimGrabComplexTypeRule returns [EObject current=null] : iv_ruleSimGrabComplexTypeRule= ruleSimGrabComplexTypeRule EOF ;
+    public final EObject entryRuleSimGrabComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabComplexTypeRule = null;
+        EObject iv_ruleSimGrabComplexTypeRule = null;
 
 
         try {
-            // InternalSim.g:654:61: (iv_ruleSGrabComplexTypeRule= ruleSGrabComplexTypeRule EOF )
-            // InternalSim.g:655:2: iv_ruleSGrabComplexTypeRule= ruleSGrabComplexTypeRule EOF
+            // InternalSim.g:654:63: (iv_ruleSimGrabComplexTypeRule= ruleSimGrabComplexTypeRule EOF )
+            // InternalSim.g:655:2: iv_ruleSimGrabComplexTypeRule= ruleSimGrabComplexTypeRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabComplexTypeRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabComplexTypeRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabComplexTypeRule=ruleSGrabComplexTypeRule();
+            iv_ruleSimGrabComplexTypeRule=ruleSimGrabComplexTypeRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabComplexTypeRule; 
+               current =iv_ruleSimGrabComplexTypeRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1921,12 +1921,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabComplexTypeRule"
+    // $ANTLR end "entryRuleSimGrabComplexTypeRule"
 
 
-    // $ANTLR start "ruleSGrabComplexTypeRule"
-    // InternalSim.g:661:1: ruleSGrabComplexTypeRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabComplexTypeRule"
+    // InternalSim.g:661:1: ruleSimGrabComplexTypeRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -1951,13 +1951,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabComplexTypeRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabComplexTypeRuleRule());
               					}
               				
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSGrabComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0_0());
+              					newCompositeNode(grammarAccess.getSimGrabComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0_0());
               				
             }
             pushFollow(FOLLOW_12);
@@ -1990,7 +1990,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabComplexTypeRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabComplexTypeRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:690:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -2002,13 +2002,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabComplexTypeRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabComplexTypeRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabComplexTypeRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabComplexTypeRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -2050,31 +2050,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabComplexTypeRule"
+    // $ANTLR end "ruleSimGrabComplexTypeRule"
 
 
-    // $ANTLR start "entryRuleSDitchComplexTypeRule"
-    // InternalSim.g:713:1: entryRuleSDitchComplexTypeRule returns [EObject current=null] : iv_ruleSDitchComplexTypeRule= ruleSDitchComplexTypeRule EOF ;
-    public final EObject entryRuleSDitchComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDitchComplexTypeRule"
+    // InternalSim.g:713:1: entryRuleSimDitchComplexTypeRule returns [EObject current=null] : iv_ruleSimDitchComplexTypeRule= ruleSimDitchComplexTypeRule EOF ;
+    public final EObject entryRuleSimDitchComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDitchComplexTypeRule = null;
+        EObject iv_ruleSimDitchComplexTypeRule = null;
 
 
         try {
-            // InternalSim.g:713:62: (iv_ruleSDitchComplexTypeRule= ruleSDitchComplexTypeRule EOF )
-            // InternalSim.g:714:2: iv_ruleSDitchComplexTypeRule= ruleSDitchComplexTypeRule EOF
+            // InternalSim.g:713:64: (iv_ruleSimDitchComplexTypeRule= ruleSimDitchComplexTypeRule EOF )
+            // InternalSim.g:714:2: iv_ruleSimDitchComplexTypeRule= ruleSimDitchComplexTypeRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDitchComplexTypeRuleRule()); 
+               newCompositeNode(grammarAccess.getSimDitchComplexTypeRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDitchComplexTypeRule=ruleSDitchComplexTypeRule();
+            iv_ruleSimDitchComplexTypeRule=ruleSimDitchComplexTypeRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDitchComplexTypeRule; 
+               current =iv_ruleSimDitchComplexTypeRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2090,12 +2090,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDitchComplexTypeRule"
+    // $ANTLR end "entryRuleSimDitchComplexTypeRule"
 
 
-    // $ANTLR start "ruleSDitchComplexTypeRule"
-    // InternalSim.g:720:1: ruleSDitchComplexTypeRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
-    public final EObject ruleSDitchComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "ruleSimDitchComplexTypeRule"
+    // InternalSim.g:720:1: ruleSimDitchComplexTypeRule returns [EObject current=null] : ( ( ruleDQualifiedName ) ) ;
+    public final EObject ruleSimDitchComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
 
@@ -2114,13 +2114,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSDitchComplexTypeRuleRule());
+              					current = createModelElement(grammarAccess.getSimDitchComplexTypeRuleRule());
               				}
               			
             }
             if ( state.backtracking==0 ) {
 
-              				newCompositeNode(grammarAccess.getSDitchComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0());
+              				newCompositeNode(grammarAccess.getSimDitchComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0());
               			
             }
             pushFollow(FOLLOW_2);
@@ -2157,31 +2157,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDitchComplexTypeRule"
+    // $ANTLR end "ruleSimDitchComplexTypeRule"
 
 
-    // $ANTLR start "entryRuleSMorphComplexTypeRule"
-    // InternalSim.g:746:1: entryRuleSMorphComplexTypeRule returns [EObject current=null] : iv_ruleSMorphComplexTypeRule= ruleSMorphComplexTypeRule EOF ;
-    public final EObject entryRuleSMorphComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimMorphComplexTypeRule"
+    // InternalSim.g:746:1: entryRuleSimMorphComplexTypeRule returns [EObject current=null] : iv_ruleSimMorphComplexTypeRule= ruleSimMorphComplexTypeRule EOF ;
+    public final EObject entryRuleSimMorphComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSMorphComplexTypeRule = null;
+        EObject iv_ruleSimMorphComplexTypeRule = null;
 
 
         try {
-            // InternalSim.g:746:62: (iv_ruleSMorphComplexTypeRule= ruleSMorphComplexTypeRule EOF )
-            // InternalSim.g:747:2: iv_ruleSMorphComplexTypeRule= ruleSMorphComplexTypeRule EOF
+            // InternalSim.g:746:64: (iv_ruleSimMorphComplexTypeRule= ruleSimMorphComplexTypeRule EOF )
+            // InternalSim.g:747:2: iv_ruleSimMorphComplexTypeRule= ruleSimMorphComplexTypeRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSMorphComplexTypeRuleRule()); 
+               newCompositeNode(grammarAccess.getSimMorphComplexTypeRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSMorphComplexTypeRule=ruleSMorphComplexTypeRule();
+            iv_ruleSimMorphComplexTypeRule=ruleSimMorphComplexTypeRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSMorphComplexTypeRule; 
+               current =iv_ruleSimMorphComplexTypeRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2197,12 +2197,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSMorphComplexTypeRule"
+    // $ANTLR end "entryRuleSimMorphComplexTypeRule"
 
 
-    // $ANTLR start "ruleSMorphComplexTypeRule"
-    // InternalSim.g:753:1: ruleSMorphComplexTypeRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) this_ChangeComplexType_1= ruleChangeComplexType[$current] ) ;
-    public final EObject ruleSMorphComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "ruleSimMorphComplexTypeRule"
+    // InternalSim.g:753:1: ruleSimMorphComplexTypeRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) this_ChangeComplexType_1= ruleChangeComplexType[$current] ) ;
+    public final EObject ruleSimMorphComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
         EObject this_ChangeComplexType_1 = null;
@@ -2227,13 +2227,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSMorphComplexTypeRuleRule());
+              						current = createModelElement(grammarAccess.getSimMorphComplexTypeRuleRule());
               					}
               				
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSMorphComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0_0());
+              					newCompositeNode(grammarAccess.getSimMorphComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0_0());
               				
             }
             pushFollow(FOLLOW_13);
@@ -2255,9 +2255,9 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               			if (current==null) {
-              				current = createModelElement(grammarAccess.getSMorphComplexTypeRuleRule());
+              				current = createModelElement(grammarAccess.getSimMorphComplexTypeRuleRule());
               			}
-              			newCompositeNode(grammarAccess.getSMorphComplexTypeRuleAccess().getChangeComplexTypeParserRuleCall_1());
+              			newCompositeNode(grammarAccess.getSimMorphComplexTypeRuleAccess().getChangeComplexTypeParserRuleCall_1());
               		
             }
             pushFollow(FOLLOW_2);
@@ -2292,31 +2292,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSMorphComplexTypeRule"
+    // $ANTLR end "ruleSimMorphComplexTypeRule"
 
 
-    // $ANTLR start "entryRuleSFuseComplexTypeRule"
-    // InternalSim.g:792:1: entryRuleSFuseComplexTypeRule returns [EObject current=null] : iv_ruleSFuseComplexTypeRule= ruleSFuseComplexTypeRule EOF ;
-    public final EObject entryRuleSFuseComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimFuseComplexTypeRule"
+    // InternalSim.g:792:1: entryRuleSimFuseComplexTypeRule returns [EObject current=null] : iv_ruleSimFuseComplexTypeRule= ruleSimFuseComplexTypeRule EOF ;
+    public final EObject entryRuleSimFuseComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSFuseComplexTypeRule = null;
+        EObject iv_ruleSimFuseComplexTypeRule = null;
 
 
         try {
-            // InternalSim.g:792:61: (iv_ruleSFuseComplexTypeRule= ruleSFuseComplexTypeRule EOF )
-            // InternalSim.g:793:2: iv_ruleSFuseComplexTypeRule= ruleSFuseComplexTypeRule EOF
+            // InternalSim.g:792:63: (iv_ruleSimFuseComplexTypeRule= ruleSimFuseComplexTypeRule EOF )
+            // InternalSim.g:793:2: iv_ruleSimFuseComplexTypeRule= ruleSimFuseComplexTypeRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSFuseComplexTypeRuleRule()); 
+               newCompositeNode(grammarAccess.getSimFuseComplexTypeRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSFuseComplexTypeRule=ruleSFuseComplexTypeRule();
+            iv_ruleSimFuseComplexTypeRule=ruleSimFuseComplexTypeRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSFuseComplexTypeRule; 
+               current =iv_ruleSimFuseComplexTypeRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2332,12 +2332,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSFuseComplexTypeRule"
+    // $ANTLR end "entryRuleSimFuseComplexTypeRule"
 
 
-    // $ANTLR start "ruleSFuseComplexTypeRule"
-    // InternalSim.g:799:1: ruleSFuseComplexTypeRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'and' ( ( ruleDQualifiedName ) ) )+ this_ChangeComplexType_3= ruleChangeComplexType[$current] ) ;
-    public final EObject ruleSFuseComplexTypeRule() throws RecognitionException {
+    // $ANTLR start "ruleSimFuseComplexTypeRule"
+    // InternalSim.g:799:1: ruleSimFuseComplexTypeRule returns [EObject current=null] : ( ( ( ruleDQualifiedName ) ) (otherlv_1= 'and' ( ( ruleDQualifiedName ) ) )+ this_ChangeComplexType_3= ruleChangeComplexType[$current] ) ;
+    public final EObject ruleSimFuseComplexTypeRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -2363,13 +2363,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSFuseComplexTypeRuleRule());
+              						current = createModelElement(grammarAccess.getSimFuseComplexTypeRuleRule());
               					}
               				
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSFuseComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0_0());
+              					newCompositeNode(grammarAccess.getSimFuseComplexTypeRuleAccess().getSourceDComplexTypeCrossReference_0_0());
               				
             }
             pushFollow(FOLLOW_14);
@@ -2407,7 +2407,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	    otherlv_1=(Token)match(input,25,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_1, grammarAccess.getSFuseComplexTypeRuleAccess().getAndKeyword_1_0());
+            	      				newLeafNode(otherlv_1, grammarAccess.getSimFuseComplexTypeRuleAccess().getAndKeyword_1_0());
             	      			
             	    }
             	    // InternalSim.g:828:4: ( ( ruleDQualifiedName ) )
@@ -2419,13 +2419,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getSFuseComplexTypeRuleRule());
+            	      							current = createModelElement(grammarAccess.getSimFuseComplexTypeRuleRule());
             	      						}
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getSFuseComplexTypeRuleAccess().getOtherSourcesDComplexTypeCrossReference_1_1_0());
+            	      						newCompositeNode(grammarAccess.getSimFuseComplexTypeRuleAccess().getOtherSourcesDComplexTypeCrossReference_1_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_15);
@@ -2461,9 +2461,9 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               			if (current==null) {
-              				current = createModelElement(grammarAccess.getSFuseComplexTypeRuleRule());
+              				current = createModelElement(grammarAccess.getSimFuseComplexTypeRuleRule());
               			}
-              			newCompositeNode(grammarAccess.getSFuseComplexTypeRuleAccess().getChangeComplexTypeParserRuleCall_2());
+              			newCompositeNode(grammarAccess.getSimFuseComplexTypeRuleAccess().getChangeComplexTypeParserRuleCall_2());
               		
             }
             pushFollow(FOLLOW_2);
@@ -2498,11 +2498,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSFuseComplexTypeRule"
+    // $ANTLR end "ruleSimFuseComplexTypeRule"
 
 
     // $ANTLR start "ruleChangeComplexType"
-    // InternalSim.g:861:1: ruleChangeComplexType[EObject in_current] returns [EObject current=in_current] : (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSAbstractType ) )? ( ( (lv_detail_2_0= ruleSDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? ) ;
+    // InternalSim.g:861:1: ruleChangeComplexType[EObject in_current] returns [EObject current=in_current] : (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSimAbstractType ) )? ( ( (lv_detail_2_0= ruleSimDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? ) ;
     public final EObject ruleChangeComplexType(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
@@ -2523,11 +2523,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:867:2: ( (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSAbstractType ) )? ( ( (lv_detail_2_0= ruleSDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? ) )
-            // InternalSim.g:868:2: (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSAbstractType ) )? ( ( (lv_detail_2_0= ruleSDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? )
+            // InternalSim.g:867:2: ( (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSimAbstractType ) )? ( ( (lv_detail_2_0= ruleSimDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? ) )
+            // InternalSim.g:868:2: (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSimAbstractType ) )? ( ( (lv_detail_2_0= ruleSimDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? )
             {
-            // InternalSim.g:868:2: (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSAbstractType ) )? ( ( (lv_detail_2_0= ruleSDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? )
-            // InternalSim.g:869:3: otherlv_0= 'to' ( (lv_abstract_1_0= ruleSAbstractType ) )? ( ( (lv_detail_2_0= ruleSDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )?
+            // InternalSim.g:868:2: (otherlv_0= 'to' ( (lv_abstract_1_0= ruleSimAbstractType ) )? ( ( (lv_detail_2_0= ruleSimDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )? )
+            // InternalSim.g:869:3: otherlv_0= 'to' ( (lv_abstract_1_0= ruleSimAbstractType ) )? ( ( (lv_detail_2_0= ruleSimDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) ) ) ( (lv_renameTo_5_0= RULE_ID ) )? (otherlv_6= 'extends' ( (otherlv_7= RULE_ID ) ) )?
             {
             otherlv_0=(Token)match(input,26,FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2535,7 +2535,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getChangeComplexTypeAccess().getToKeyword_0());
               		
             }
-            // InternalSim.g:873:3: ( (lv_abstract_1_0= ruleSAbstractType ) )?
+            // InternalSim.g:873:3: ( (lv_abstract_1_0= ruleSimAbstractType ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2544,18 +2544,18 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalSim.g:874:4: (lv_abstract_1_0= ruleSAbstractType )
+                    // InternalSim.g:874:4: (lv_abstract_1_0= ruleSimAbstractType )
                     {
-                    // InternalSim.g:874:4: (lv_abstract_1_0= ruleSAbstractType )
-                    // InternalSim.g:875:5: lv_abstract_1_0= ruleSAbstractType
+                    // InternalSim.g:874:4: (lv_abstract_1_0= ruleSimAbstractType )
+                    // InternalSim.g:875:5: lv_abstract_1_0= ruleSimAbstractType
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getAbstractSAbstractTypeEnumRuleCall_1_0());
+                      					newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getAbstractSimAbstractTypeEnumRuleCall_1_0());
                       				
                     }
                     pushFollow(FOLLOW_16);
-                    lv_abstract_1_0=ruleSAbstractType();
+                    lv_abstract_1_0=ruleSimAbstractType();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -2568,7 +2568,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       						current,
                       						"abstract",
                       						lv_abstract_1_0,
-                      						"com.mimacom.ddd.sm.sim.Sim.SAbstractType");
+                      						"com.mimacom.ddd.sm.sim.Sim.SimAbstractType");
                       					afterParserOrEnumRuleCall();
                       				
                     }
@@ -2581,7 +2581,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:892:3: ( ( (lv_detail_2_0= ruleSDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) ) )
+            // InternalSim.g:892:3: ( ( (lv_detail_2_0= ruleSimDetailType ) ) | ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) ) )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -2600,21 +2600,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalSim.g:893:4: ( (lv_detail_2_0= ruleSDetailType ) )
+                    // InternalSim.g:893:4: ( (lv_detail_2_0= ruleSimDetailType ) )
                     {
-                    // InternalSim.g:893:4: ( (lv_detail_2_0= ruleSDetailType ) )
-                    // InternalSim.g:894:5: (lv_detail_2_0= ruleSDetailType )
+                    // InternalSim.g:893:4: ( (lv_detail_2_0= ruleSimDetailType ) )
+                    // InternalSim.g:894:5: (lv_detail_2_0= ruleSimDetailType )
                     {
-                    // InternalSim.g:894:5: (lv_detail_2_0= ruleSDetailType )
-                    // InternalSim.g:895:6: lv_detail_2_0= ruleSDetailType
+                    // InternalSim.g:894:5: (lv_detail_2_0= ruleSimDetailType )
+                    // InternalSim.g:895:6: lv_detail_2_0= ruleSimDetailType
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getDetailSDetailTypeEnumRuleCall_2_0_0());
+                      						newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getDetailSimDetailTypeEnumRuleCall_2_0_0());
                       					
                     }
                     pushFollow(FOLLOW_17);
-                    lv_detail_2_0=ruleSDetailType();
+                    lv_detail_2_0=ruleSimDetailType();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -2627,7 +2627,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       							current,
                       							"detail",
                       							lv_detail_2_0,
-                      							"com.mimacom.ddd.sm.sim.Sim.SDetailType");
+                      							"com.mimacom.ddd.sm.sim.Sim.SimDetailType");
                       						afterParserOrEnumRuleCall();
                       					
                     }
@@ -2641,12 +2641,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:913:4: ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) )
+                    // InternalSim.g:913:4: ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) )
                     {
-                    // InternalSim.g:913:4: ( ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) ) )
-                    // InternalSim.g:914:5: ( (lv_rootEntity_3_0= ruleSRootEntity ) )? ( (lv_detail_4_0= ruleSEntityType ) )
+                    // InternalSim.g:913:4: ( ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) ) )
+                    // InternalSim.g:914:5: ( (lv_rootEntity_3_0= ruleSimRootEntity ) )? ( (lv_detail_4_0= ruleSimEntityType ) )
                     {
-                    // InternalSim.g:914:5: ( (lv_rootEntity_3_0= ruleSRootEntity ) )?
+                    // InternalSim.g:914:5: ( (lv_rootEntity_3_0= ruleSimRootEntity ) )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -2655,18 +2655,18 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt13) {
                         case 1 :
-                            // InternalSim.g:915:6: (lv_rootEntity_3_0= ruleSRootEntity )
+                            // InternalSim.g:915:6: (lv_rootEntity_3_0= ruleSimRootEntity )
                             {
-                            // InternalSim.g:915:6: (lv_rootEntity_3_0= ruleSRootEntity )
-                            // InternalSim.g:916:7: lv_rootEntity_3_0= ruleSRootEntity
+                            // InternalSim.g:915:6: (lv_rootEntity_3_0= ruleSimRootEntity )
+                            // InternalSim.g:916:7: lv_rootEntity_3_0= ruleSimRootEntity
                             {
                             if ( state.backtracking==0 ) {
 
-                              							newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getRootEntitySRootEntityEnumRuleCall_2_1_0_0());
+                              							newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getRootEntitySimRootEntityEnumRuleCall_2_1_0_0());
                               						
                             }
                             pushFollow(FOLLOW_16);
-                            lv_rootEntity_3_0=ruleSRootEntity();
+                            lv_rootEntity_3_0=ruleSimRootEntity();
 
                             state._fsp--;
                             if (state.failed) return current;
@@ -2679,7 +2679,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                               								current,
                               								"rootEntity",
                               								lv_rootEntity_3_0,
-                              								"com.mimacom.ddd.sm.sim.Sim.SRootEntity");
+                              								"com.mimacom.ddd.sm.sim.Sim.SimRootEntity");
                               							afterParserOrEnumRuleCall();
                               						
                             }
@@ -2692,19 +2692,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:933:5: ( (lv_detail_4_0= ruleSEntityType ) )
-                    // InternalSim.g:934:6: (lv_detail_4_0= ruleSEntityType )
+                    // InternalSim.g:933:5: ( (lv_detail_4_0= ruleSimEntityType ) )
+                    // InternalSim.g:934:6: (lv_detail_4_0= ruleSimEntityType )
                     {
-                    // InternalSim.g:934:6: (lv_detail_4_0= ruleSEntityType )
-                    // InternalSim.g:935:7: lv_detail_4_0= ruleSEntityType
+                    // InternalSim.g:934:6: (lv_detail_4_0= ruleSimEntityType )
+                    // InternalSim.g:935:7: lv_detail_4_0= ruleSimEntityType
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getDetailSEntityTypeEnumRuleCall_2_1_1_0());
+                      							newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getDetailSimEntityTypeEnumRuleCall_2_1_1_0());
                       						
                     }
                     pushFollow(FOLLOW_17);
-                    lv_detail_4_0=ruleSEntityType();
+                    lv_detail_4_0=ruleSimEntityType();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -2717,7 +2717,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       								current,
                       								"detail",
                       								lv_detail_4_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SEntityType");
+                      								"com.mimacom.ddd.sm.sim.Sim.SimEntityType");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -2849,28 +2849,28 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleChangeComplexType"
 
 
-    // $ANTLR start "entryRuleSGrabFeatureRule"
-    // InternalSim.g:995:1: entryRuleSGrabFeatureRule returns [EObject current=null] : iv_ruleSGrabFeatureRule= ruleSGrabFeatureRule EOF ;
-    public final EObject entryRuleSGrabFeatureRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabFeatureRule"
+    // InternalSim.g:995:1: entryRuleSimGrabFeatureRule returns [EObject current=null] : iv_ruleSimGrabFeatureRule= ruleSimGrabFeatureRule EOF ;
+    public final EObject entryRuleSimGrabFeatureRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabFeatureRule = null;
+        EObject iv_ruleSimGrabFeatureRule = null;
 
 
         try {
-            // InternalSim.g:995:57: (iv_ruleSGrabFeatureRule= ruleSGrabFeatureRule EOF )
-            // InternalSim.g:996:2: iv_ruleSGrabFeatureRule= ruleSGrabFeatureRule EOF
+            // InternalSim.g:995:59: (iv_ruleSimGrabFeatureRule= ruleSimGrabFeatureRule EOF )
+            // InternalSim.g:996:2: iv_ruleSimGrabFeatureRule= ruleSimGrabFeatureRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabFeatureRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabFeatureRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabFeatureRule=ruleSGrabFeatureRule();
+            iv_ruleSimGrabFeatureRule=ruleSimGrabFeatureRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabFeatureRule; 
+               current =iv_ruleSimGrabFeatureRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2886,12 +2886,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabFeatureRule"
+    // $ANTLR end "entryRuleSimGrabFeatureRule"
 
 
-    // $ANTLR start "ruleSGrabFeatureRule"
-    // InternalSim.g:1002:1: ruleSGrabFeatureRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabFeatureRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabFeatureRule"
+    // InternalSim.g:1002:1: ruleSimGrabFeatureRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabFeatureRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -2917,14 +2917,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabFeatureRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabFeatureRuleRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getSGrabFeatureRuleAccess().getSourceDFeatureCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getSimGrabFeatureRuleAccess().getSourceDFeatureCrossReference_0_0());
               				
             }
 
@@ -2947,7 +2947,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabFeatureRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabFeatureRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:1028:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -2959,13 +2959,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabFeatureRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabFeatureRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabFeatureRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabFeatureRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -3007,31 +3007,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabFeatureRule"
+    // $ANTLR end "ruleSimGrabFeatureRule"
 
 
-    // $ANTLR start "entryRuleSMorphFeatureRule"
-    // InternalSim.g:1051:1: entryRuleSMorphFeatureRule returns [EObject current=null] : iv_ruleSMorphFeatureRule= ruleSMorphFeatureRule EOF ;
-    public final EObject entryRuleSMorphFeatureRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimMorphFeatureRule"
+    // InternalSim.g:1051:1: entryRuleSimMorphFeatureRule returns [EObject current=null] : iv_ruleSimMorphFeatureRule= ruleSimMorphFeatureRule EOF ;
+    public final EObject entryRuleSimMorphFeatureRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSMorphFeatureRule = null;
+        EObject iv_ruleSimMorphFeatureRule = null;
 
 
         try {
-            // InternalSim.g:1051:58: (iv_ruleSMorphFeatureRule= ruleSMorphFeatureRule EOF )
-            // InternalSim.g:1052:2: iv_ruleSMorphFeatureRule= ruleSMorphFeatureRule EOF
+            // InternalSim.g:1051:60: (iv_ruleSimMorphFeatureRule= ruleSimMorphFeatureRule EOF )
+            // InternalSim.g:1052:2: iv_ruleSimMorphFeatureRule= ruleSimMorphFeatureRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSMorphFeatureRuleRule()); 
+               newCompositeNode(grammarAccess.getSimMorphFeatureRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSMorphFeatureRule=ruleSMorphFeatureRule();
+            iv_ruleSimMorphFeatureRule=ruleSimMorphFeatureRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSMorphFeatureRule; 
+               current =iv_ruleSimMorphFeatureRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3047,12 +3047,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSMorphFeatureRule"
+    // $ANTLR end "entryRuleSimMorphFeatureRule"
 
 
-    // $ANTLR start "ruleSMorphFeatureRule"
-    // InternalSim.g:1058:1: ruleSMorphFeatureRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( ( (lv_renameTo_2_0= RULE_ID ) ) otherlv_3= ':' )? ( (otherlv_4= RULE_ID ) ) ( (lv_remultiplyTo_5_0= ruleDMultiplicity ) )? ) ;
-    public final EObject ruleSMorphFeatureRule() throws RecognitionException {
+    // $ANTLR start "ruleSimMorphFeatureRule"
+    // InternalSim.g:1058:1: ruleSimMorphFeatureRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( ( (lv_renameTo_2_0= RULE_ID ) ) otherlv_3= ':' )? ( (otherlv_4= RULE_ID ) ) ( (lv_remultiplyTo_5_0= ruleDMultiplicity ) )? ) ;
+    public final EObject ruleSimMorphFeatureRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -3082,14 +3082,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSMorphFeatureRuleRule());
+              						current = createModelElement(grammarAccess.getSimMorphFeatureRuleRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_13); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getSMorphFeatureRuleAccess().getSourceDFeatureCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getSimMorphFeatureRuleAccess().getSourceDFeatureCrossReference_0_0());
               				
             }
 
@@ -3101,7 +3101,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             otherlv_1=(Token)match(input,26,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getSMorphFeatureRuleAccess().getToKeyword_1());
+              			newLeafNode(otherlv_1, grammarAccess.getSimMorphFeatureRuleAccess().getToKeyword_1());
               		
             }
             // InternalSim.g:1083:3: ( ( (lv_renameTo_2_0= RULE_ID ) ) otherlv_3= ':' )?
@@ -3128,13 +3128,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_19); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSMorphFeatureRuleAccess().getRenameToIDTerminalRuleCall_2_0_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimMorphFeatureRuleAccess().getRenameToIDTerminalRuleCall_2_0_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSMorphFeatureRuleRule());
+                      							current = createModelElement(grammarAccess.getSimMorphFeatureRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -3152,7 +3152,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_3=(Token)match(input,28,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_3, grammarAccess.getSMorphFeatureRuleAccess().getColonKeyword_2_1());
+                      				newLeafNode(otherlv_3, grammarAccess.getSimMorphFeatureRuleAccess().getColonKeyword_2_1());
                       			
                     }
 
@@ -3170,14 +3170,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSMorphFeatureRuleRule());
+              						current = createModelElement(grammarAccess.getSimMorphFeatureRuleRule());
               					}
               				
             }
             otherlv_4=(Token)match(input,RULE_ID,FOLLOW_20); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_4, grammarAccess.getSMorphFeatureRuleAccess().getRetypeToDTypeCrossReference_3_0());
+              					newLeafNode(otherlv_4, grammarAccess.getSimMorphFeatureRuleAccess().getRetypeToDTypeCrossReference_3_0());
               				
             }
 
@@ -3209,7 +3209,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSMorphFeatureRuleAccess().getRemultiplyToDMultiplicityParserRuleCall_4_0());
+                      					newCompositeNode(grammarAccess.getSimMorphFeatureRuleAccess().getRemultiplyToDMultiplicityParserRuleCall_4_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -3220,7 +3220,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSMorphFeatureRuleRule());
+                      						current = createModelElementForParent(grammarAccess.getSimMorphFeatureRuleRule());
                       					}
                       					set(
                       						current,
@@ -3260,31 +3260,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSMorphFeatureRule"
+    // $ANTLR end "ruleSimMorphFeatureRule"
 
 
-    // $ANTLR start "entryRuleSDitchFeatureRule"
-    // InternalSim.g:1143:1: entryRuleSDitchFeatureRule returns [EObject current=null] : iv_ruleSDitchFeatureRule= ruleSDitchFeatureRule EOF ;
-    public final EObject entryRuleSDitchFeatureRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDitchFeatureRule"
+    // InternalSim.g:1143:1: entryRuleSimDitchFeatureRule returns [EObject current=null] : iv_ruleSimDitchFeatureRule= ruleSimDitchFeatureRule EOF ;
+    public final EObject entryRuleSimDitchFeatureRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDitchFeatureRule = null;
+        EObject iv_ruleSimDitchFeatureRule = null;
 
 
         try {
-            // InternalSim.g:1143:58: (iv_ruleSDitchFeatureRule= ruleSDitchFeatureRule EOF )
-            // InternalSim.g:1144:2: iv_ruleSDitchFeatureRule= ruleSDitchFeatureRule EOF
+            // InternalSim.g:1143:60: (iv_ruleSimDitchFeatureRule= ruleSimDitchFeatureRule EOF )
+            // InternalSim.g:1144:2: iv_ruleSimDitchFeatureRule= ruleSimDitchFeatureRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDitchFeatureRuleRule()); 
+               newCompositeNode(grammarAccess.getSimDitchFeatureRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDitchFeatureRule=ruleSDitchFeatureRule();
+            iv_ruleSimDitchFeatureRule=ruleSimDitchFeatureRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDitchFeatureRule; 
+               current =iv_ruleSimDitchFeatureRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3300,12 +3300,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDitchFeatureRule"
+    // $ANTLR end "entryRuleSimDitchFeatureRule"
 
 
-    // $ANTLR start "ruleSDitchFeatureRule"
-    // InternalSim.g:1150:1: ruleSDitchFeatureRule returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
-    public final EObject ruleSDitchFeatureRule() throws RecognitionException {
+    // $ANTLR start "ruleSimDitchFeatureRule"
+    // InternalSim.g:1150:1: ruleSimDitchFeatureRule returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    public final EObject ruleSimDitchFeatureRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -3326,14 +3326,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSDitchFeatureRuleRule());
+              					current = createModelElement(grammarAccess.getSimDitchFeatureRuleRule());
               				}
               			
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(otherlv_0, grammarAccess.getSDitchFeatureRuleAccess().getSourceDFeatureCrossReference_0());
+              				newLeafNode(otherlv_0, grammarAccess.getSimDitchFeatureRuleAccess().getSourceDFeatureCrossReference_0());
               			
             }
 
@@ -3360,31 +3360,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDitchFeatureRule"
+    // $ANTLR end "ruleSimDitchFeatureRule"
 
 
-    // $ANTLR start "entryRuleSGrabQueryParameterRule"
-    // InternalSim.g:1173:1: entryRuleSGrabQueryParameterRule returns [EObject current=null] : iv_ruleSGrabQueryParameterRule= ruleSGrabQueryParameterRule EOF ;
-    public final EObject entryRuleSGrabQueryParameterRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimGrabQueryParameterRule"
+    // InternalSim.g:1173:1: entryRuleSimGrabQueryParameterRule returns [EObject current=null] : iv_ruleSimGrabQueryParameterRule= ruleSimGrabQueryParameterRule EOF ;
+    public final EObject entryRuleSimGrabQueryParameterRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSGrabQueryParameterRule = null;
+        EObject iv_ruleSimGrabQueryParameterRule = null;
 
 
         try {
-            // InternalSim.g:1173:64: (iv_ruleSGrabQueryParameterRule= ruleSGrabQueryParameterRule EOF )
-            // InternalSim.g:1174:2: iv_ruleSGrabQueryParameterRule= ruleSGrabQueryParameterRule EOF
+            // InternalSim.g:1173:66: (iv_ruleSimGrabQueryParameterRule= ruleSimGrabQueryParameterRule EOF )
+            // InternalSim.g:1174:2: iv_ruleSimGrabQueryParameterRule= ruleSimGrabQueryParameterRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSGrabQueryParameterRuleRule()); 
+               newCompositeNode(grammarAccess.getSimGrabQueryParameterRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSGrabQueryParameterRule=ruleSGrabQueryParameterRule();
+            iv_ruleSimGrabQueryParameterRule=ruleSimGrabQueryParameterRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSGrabQueryParameterRule; 
+               current =iv_ruleSimGrabQueryParameterRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3400,12 +3400,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSGrabQueryParameterRule"
+    // $ANTLR end "entryRuleSimGrabQueryParameterRule"
 
 
-    // $ANTLR start "ruleSGrabQueryParameterRule"
-    // InternalSim.g:1180:1: ruleSGrabQueryParameterRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
-    public final EObject ruleSGrabQueryParameterRule() throws RecognitionException {
+    // $ANTLR start "ruleSimGrabQueryParameterRule"
+    // InternalSim.g:1180:1: ruleSimGrabQueryParameterRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) ) )? ) ;
+    public final EObject ruleSimGrabQueryParameterRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -3431,14 +3431,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSGrabQueryParameterRuleRule());
+              						current = createModelElement(grammarAccess.getSimGrabQueryParameterRuleRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getSGrabQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getSimGrabQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0_0());
               				
             }
 
@@ -3461,7 +3461,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSGrabQueryParameterRuleAccess().getAsKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimGrabQueryParameterRuleAccess().getAsKeyword_1_0());
                       			
                     }
                     // InternalSim.g:1206:4: ( (lv_renameTo_2_0= RULE_ID ) )
@@ -3473,13 +3473,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimGrabQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSGrabQueryParameterRuleRule());
+                      							current = createModelElement(grammarAccess.getSimGrabQueryParameterRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -3521,31 +3521,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSGrabQueryParameterRule"
+    // $ANTLR end "ruleSimGrabQueryParameterRule"
 
 
-    // $ANTLR start "entryRuleSMorphQueryParameterRule"
-    // InternalSim.g:1229:1: entryRuleSMorphQueryParameterRule returns [EObject current=null] : iv_ruleSMorphQueryParameterRule= ruleSMorphQueryParameterRule EOF ;
-    public final EObject entryRuleSMorphQueryParameterRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimMorphQueryParameterRule"
+    // InternalSim.g:1229:1: entryRuleSimMorphQueryParameterRule returns [EObject current=null] : iv_ruleSimMorphQueryParameterRule= ruleSimMorphQueryParameterRule EOF ;
+    public final EObject entryRuleSimMorphQueryParameterRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSMorphQueryParameterRule = null;
+        EObject iv_ruleSimMorphQueryParameterRule = null;
 
 
         try {
-            // InternalSim.g:1229:65: (iv_ruleSMorphQueryParameterRule= ruleSMorphQueryParameterRule EOF )
-            // InternalSim.g:1230:2: iv_ruleSMorphQueryParameterRule= ruleSMorphQueryParameterRule EOF
+            // InternalSim.g:1229:67: (iv_ruleSimMorphQueryParameterRule= ruleSimMorphQueryParameterRule EOF )
+            // InternalSim.g:1230:2: iv_ruleSimMorphQueryParameterRule= ruleSimMorphQueryParameterRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSMorphQueryParameterRuleRule()); 
+               newCompositeNode(grammarAccess.getSimMorphQueryParameterRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSMorphQueryParameterRule=ruleSMorphQueryParameterRule();
+            iv_ruleSimMorphQueryParameterRule=ruleSimMorphQueryParameterRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSMorphQueryParameterRule; 
+               current =iv_ruleSimMorphQueryParameterRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3561,12 +3561,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSMorphQueryParameterRule"
+    // $ANTLR end "entryRuleSimMorphQueryParameterRule"
 
 
-    // $ANTLR start "ruleSMorphQueryParameterRule"
-    // InternalSim.g:1236:1: ruleSMorphQueryParameterRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( ( (lv_renameTo_2_0= RULE_ID ) ) otherlv_3= ':' )? ( (otherlv_4= RULE_ID ) ) ( (lv_remultiplyTo_5_0= ruleDMultiplicity ) )? ) ;
-    public final EObject ruleSMorphQueryParameterRule() throws RecognitionException {
+    // $ANTLR start "ruleSimMorphQueryParameterRule"
+    // InternalSim.g:1236:1: ruleSimMorphQueryParameterRule returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( ( (lv_renameTo_2_0= RULE_ID ) ) otherlv_3= ':' )? ( (otherlv_4= RULE_ID ) ) ( (lv_remultiplyTo_5_0= ruleDMultiplicity ) )? ) ;
+    public final EObject ruleSimMorphQueryParameterRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -3596,14 +3596,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSMorphQueryParameterRuleRule());
+              						current = createModelElement(grammarAccess.getSimMorphQueryParameterRuleRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_13); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getSMorphQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getSimMorphQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0_0());
               				
             }
 
@@ -3615,7 +3615,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             otherlv_1=(Token)match(input,26,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getSMorphQueryParameterRuleAccess().getToKeyword_1());
+              			newLeafNode(otherlv_1, grammarAccess.getSimMorphQueryParameterRuleAccess().getToKeyword_1());
               		
             }
             // InternalSim.g:1261:3: ( ( (lv_renameTo_2_0= RULE_ID ) ) otherlv_3= ':' )?
@@ -3642,13 +3642,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     lv_renameTo_2_0=(Token)match(input,RULE_ID,FOLLOW_19); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSMorphQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_2_0_0());
+                      						newLeafNode(lv_renameTo_2_0, grammarAccess.getSimMorphQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_2_0_0());
                       					
                     }
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getSMorphQueryParameterRuleRule());
+                      							current = createModelElement(grammarAccess.getSimMorphQueryParameterRuleRule());
                       						}
                       						setWithLastConsumed(
                       							current,
@@ -3666,7 +3666,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_3=(Token)match(input,28,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_3, grammarAccess.getSMorphQueryParameterRuleAccess().getColonKeyword_2_1());
+                      				newLeafNode(otherlv_3, grammarAccess.getSimMorphQueryParameterRuleAccess().getColonKeyword_2_1());
                       			
                     }
 
@@ -3684,14 +3684,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getSMorphQueryParameterRuleRule());
+              						current = createModelElement(grammarAccess.getSimMorphQueryParameterRuleRule());
               					}
               				
             }
             otherlv_4=(Token)match(input,RULE_ID,FOLLOW_20); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_4, grammarAccess.getSMorphQueryParameterRuleAccess().getRetypeToDTypeCrossReference_3_0());
+              					newLeafNode(otherlv_4, grammarAccess.getSimMorphQueryParameterRuleAccess().getRetypeToDTypeCrossReference_3_0());
               				
             }
 
@@ -3716,7 +3716,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSMorphQueryParameterRuleAccess().getRemultiplyToDMultiplicityParserRuleCall_4_0());
+                      					newCompositeNode(grammarAccess.getSimMorphQueryParameterRuleAccess().getRemultiplyToDMultiplicityParserRuleCall_4_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -3727,7 +3727,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSMorphQueryParameterRuleRule());
+                      						current = createModelElementForParent(grammarAccess.getSimMorphQueryParameterRuleRule());
                       					}
                       					set(
                       						current,
@@ -3767,31 +3767,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSMorphQueryParameterRule"
+    // $ANTLR end "ruleSimMorphQueryParameterRule"
 
 
-    // $ANTLR start "entryRuleSDitchQueryParameterRule"
-    // InternalSim.g:1321:1: entryRuleSDitchQueryParameterRule returns [EObject current=null] : iv_ruleSDitchQueryParameterRule= ruleSDitchQueryParameterRule EOF ;
-    public final EObject entryRuleSDitchQueryParameterRule() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDitchQueryParameterRule"
+    // InternalSim.g:1321:1: entryRuleSimDitchQueryParameterRule returns [EObject current=null] : iv_ruleSimDitchQueryParameterRule= ruleSimDitchQueryParameterRule EOF ;
+    public final EObject entryRuleSimDitchQueryParameterRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDitchQueryParameterRule = null;
+        EObject iv_ruleSimDitchQueryParameterRule = null;
 
 
         try {
-            // InternalSim.g:1321:65: (iv_ruleSDitchQueryParameterRule= ruleSDitchQueryParameterRule EOF )
-            // InternalSim.g:1322:2: iv_ruleSDitchQueryParameterRule= ruleSDitchQueryParameterRule EOF
+            // InternalSim.g:1321:67: (iv_ruleSimDitchQueryParameterRule= ruleSimDitchQueryParameterRule EOF )
+            // InternalSim.g:1322:2: iv_ruleSimDitchQueryParameterRule= ruleSimDitchQueryParameterRule EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDitchQueryParameterRuleRule()); 
+               newCompositeNode(grammarAccess.getSimDitchQueryParameterRuleRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDitchQueryParameterRule=ruleSDitchQueryParameterRule();
+            iv_ruleSimDitchQueryParameterRule=ruleSimDitchQueryParameterRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDitchQueryParameterRule; 
+               current =iv_ruleSimDitchQueryParameterRule; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3807,12 +3807,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDitchQueryParameterRule"
+    // $ANTLR end "entryRuleSimDitchQueryParameterRule"
 
 
-    // $ANTLR start "ruleSDitchQueryParameterRule"
-    // InternalSim.g:1328:1: ruleSDitchQueryParameterRule returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
-    public final EObject ruleSDitchQueryParameterRule() throws RecognitionException {
+    // $ANTLR start "ruleSimDitchQueryParameterRule"
+    // InternalSim.g:1328:1: ruleSimDitchQueryParameterRule returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    public final EObject ruleSimDitchQueryParameterRule() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -3833,14 +3833,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getSDitchQueryParameterRuleRule());
+              					current = createModelElement(grammarAccess.getSimDitchQueryParameterRuleRule());
               				}
               			
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(otherlv_0, grammarAccess.getSDitchQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0());
+              				newLeafNode(otherlv_0, grammarAccess.getSimDitchQueryParameterRuleAccess().getSourceDQueryParameterCrossReference_0());
               			
             }
 
@@ -3867,31 +3867,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDitchQueryParameterRule"
+    // $ANTLR end "ruleSimDitchQueryParameterRule"
 
 
-    // $ANTLR start "entryRuleSAggregate"
-    // InternalSim.g:1351:1: entryRuleSAggregate returns [EObject current=null] : iv_ruleSAggregate= ruleSAggregate EOF ;
-    public final EObject entryRuleSAggregate() throws RecognitionException {
+    // $ANTLR start "entryRuleSimAggregate"
+    // InternalSim.g:1351:1: entryRuleSimAggregate returns [EObject current=null] : iv_ruleSimAggregate= ruleSimAggregate EOF ;
+    public final EObject entryRuleSimAggregate() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSAggregate = null;
+        EObject iv_ruleSimAggregate = null;
 
 
         try {
-            // InternalSim.g:1351:51: (iv_ruleSAggregate= ruleSAggregate EOF )
-            // InternalSim.g:1352:2: iv_ruleSAggregate= ruleSAggregate EOF
+            // InternalSim.g:1351:53: (iv_ruleSimAggregate= ruleSimAggregate EOF )
+            // InternalSim.g:1352:2: iv_ruleSimAggregate= ruleSimAggregate EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSAggregateRule()); 
+               newCompositeNode(grammarAccess.getSimAggregateRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSAggregate=ruleSAggregate();
+            iv_ruleSimAggregate=ruleSimAggregate();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSAggregate; 
+               current =iv_ruleSimAggregate; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3907,15 +3907,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSAggregate"
+    // $ANTLR end "entryRuleSimAggregate"
 
 
-    // $ANTLR start "ruleSAggregate"
-    // InternalSim.g:1358:1: ruleSAggregate returns [EObject current=null] : (this_SAggregateDeduction_0= ruleSAggregateDeduction | this_DAggregate_1= ruleDAggregate ) ;
-    public final EObject ruleSAggregate() throws RecognitionException {
+    // $ANTLR start "ruleSimAggregate"
+    // InternalSim.g:1358:1: ruleSimAggregate returns [EObject current=null] : (this_SimAggregateTransposition_0= ruleSimAggregateTransposition | this_DAggregate_1= ruleDAggregate ) ;
+    public final EObject ruleSimAggregate() throws RecognitionException {
         EObject current = null;
 
-        EObject this_SAggregateDeduction_0 = null;
+        EObject this_SimAggregateTransposition_0 = null;
 
         EObject this_DAggregate_1 = null;
 
@@ -3924,10 +3924,10 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1364:2: ( (this_SAggregateDeduction_0= ruleSAggregateDeduction | this_DAggregate_1= ruleDAggregate ) )
-            // InternalSim.g:1365:2: (this_SAggregateDeduction_0= ruleSAggregateDeduction | this_DAggregate_1= ruleDAggregate )
+            // InternalSim.g:1364:2: ( (this_SimAggregateTransposition_0= ruleSimAggregateTransposition | this_DAggregate_1= ruleDAggregate ) )
+            // InternalSim.g:1365:2: (this_SimAggregateTransposition_0= ruleSimAggregateTransposition | this_DAggregate_1= ruleDAggregate )
             {
-            // InternalSim.g:1365:2: (this_SAggregateDeduction_0= ruleSAggregateDeduction | this_DAggregate_1= ruleDAggregate )
+            // InternalSim.g:1365:2: (this_SimAggregateTransposition_0= ruleSimAggregateTransposition | this_DAggregate_1= ruleDAggregate )
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -3946,21 +3946,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt23) {
                 case 1 :
-                    // InternalSim.g:1366:3: this_SAggregateDeduction_0= ruleSAggregateDeduction
+                    // InternalSim.g:1366:3: this_SimAggregateTransposition_0= ruleSimAggregateTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSAggregateAccess().getSAggregateDeductionParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getSimAggregateAccess().getSimAggregateTranspositionParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SAggregateDeduction_0=ruleSAggregateDeduction();
+                    this_SimAggregateTransposition_0=ruleSimAggregateTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SAggregateDeduction_0;
+                      			current = this_SimAggregateTransposition_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -3972,7 +3972,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSAggregateAccess().getDAggregateParserRuleCall_1());
+                      			newCompositeNode(grammarAccess.getSimAggregateAccess().getDAggregateParserRuleCall_1());
                       		
                     }
                     pushFollow(FOLLOW_2);
@@ -4010,31 +4010,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSAggregate"
+    // $ANTLR end "ruleSimAggregate"
 
 
-    // $ANTLR start "entryRuleSAggregateDeduction"
-    // InternalSim.g:1387:1: entryRuleSAggregateDeduction returns [EObject current=null] : iv_ruleSAggregateDeduction= ruleSAggregateDeduction EOF ;
-    public final EObject entryRuleSAggregateDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimAggregateTransposition"
+    // InternalSim.g:1387:1: entryRuleSimAggregateTransposition returns [EObject current=null] : iv_ruleSimAggregateTransposition= ruleSimAggregateTransposition EOF ;
+    public final EObject entryRuleSimAggregateTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSAggregateDeduction = null;
+        EObject iv_ruleSimAggregateTransposition = null;
 
 
         try {
-            // InternalSim.g:1387:60: (iv_ruleSAggregateDeduction= ruleSAggregateDeduction EOF )
-            // InternalSim.g:1388:2: iv_ruleSAggregateDeduction= ruleSAggregateDeduction EOF
+            // InternalSim.g:1387:66: (iv_ruleSimAggregateTransposition= ruleSimAggregateTransposition EOF )
+            // InternalSim.g:1388:2: iv_ruleSimAggregateTransposition= ruleSimAggregateTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSAggregateDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimAggregateTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSAggregateDeduction=ruleSAggregateDeduction();
+            iv_ruleSimAggregateTransposition=ruleSimAggregateTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSAggregateDeduction; 
+               current =iv_ruleSimAggregateTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -4050,12 +4050,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSAggregateDeduction"
+    // $ANTLR end "entryRuleSimAggregateTransposition"
 
 
-    // $ANTLR start "ruleSAggregateDeduction"
-    // InternalSim.g:1394:1: ruleSAggregateDeduction returns [EObject current=null] : ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_deductionRule_3_0= ruleSGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}' )? ) ;
-    public final EObject ruleSAggregateDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimAggregateTransposition"
+    // InternalSim.g:1394:1: ruleSimAggregateTransposition returns [EObject current=null] : ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_transpositionRule_3_0= ruleSimGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}' )? ) ;
+    public final EObject ruleSimAggregateTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -4064,7 +4064,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_7=null;
         Token otherlv_8=null;
         Token otherlv_11=null;
-        EObject lv_deductionRule_3_0 = null;
+        EObject lv_transpositionRule_3_0 = null;
 
         EObject lv_description_4_0 = null;
 
@@ -4079,11 +4079,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1400:2: ( ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_deductionRule_3_0= ruleSGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}' )? ) )
-            // InternalSim.g:1401:2: ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_deductionRule_3_0= ruleSGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}' )? )
+            // InternalSim.g:1400:2: ( ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_transpositionRule_3_0= ruleSimGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}' )? ) )
+            // InternalSim.g:1401:2: ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_transpositionRule_3_0= ruleSimGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}' )? )
             {
-            // InternalSim.g:1401:2: ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_deductionRule_3_0= ruleSGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}' )? )
-            // InternalSim.g:1402:3: () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_deductionRule_3_0= ruleSGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}' )?
+            // InternalSim.g:1401:2: ( () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_transpositionRule_3_0= ruleSimGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}' )? )
+            // InternalSim.g:1402:3: () otherlv_1= 'grab' otherlv_2= 'aggregate' ( (lv_transpositionRule_3_0= ruleSimGrabAggregateRule ) ) ( (lv_description_4_0= ruleDRichText ) )? (otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}' )?
             {
             // InternalSim.g:1402:3: ()
             // InternalSim.g:1403:4: 
@@ -4091,7 +4091,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSAggregateDeductionAccess().getSAggregateDeductionAction_0(),
+              					grammarAccess.getSimAggregateTranspositionAccess().getTAggregateTranspositionAction_0(),
               					current);
               			
             }
@@ -4101,41 +4101,41 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             otherlv_1=(Token)match(input,29,FOLLOW_21); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getSAggregateDeductionAccess().getGrabKeyword_1());
+              			newLeafNode(otherlv_1, grammarAccess.getSimAggregateTranspositionAccess().getGrabKeyword_1());
               		
             }
             otherlv_2=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_2, grammarAccess.getSAggregateDeductionAccess().getAggregateKeyword_2());
+              			newLeafNode(otherlv_2, grammarAccess.getSimAggregateTranspositionAccess().getAggregateKeyword_2());
               		
             }
-            // InternalSim.g:1417:3: ( (lv_deductionRule_3_0= ruleSGrabAggregateRule ) )
-            // InternalSim.g:1418:4: (lv_deductionRule_3_0= ruleSGrabAggregateRule )
+            // InternalSim.g:1417:3: ( (lv_transpositionRule_3_0= ruleSimGrabAggregateRule ) )
+            // InternalSim.g:1418:4: (lv_transpositionRule_3_0= ruleSimGrabAggregateRule )
             {
-            // InternalSim.g:1418:4: (lv_deductionRule_3_0= ruleSGrabAggregateRule )
-            // InternalSim.g:1419:5: lv_deductionRule_3_0= ruleSGrabAggregateRule
+            // InternalSim.g:1418:4: (lv_transpositionRule_3_0= ruleSimGrabAggregateRule )
+            // InternalSim.g:1419:5: lv_transpositionRule_3_0= ruleSimGrabAggregateRule
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSAggregateDeductionAccess().getDeductionRuleSGrabAggregateRuleParserRuleCall_3_0());
+              					newCompositeNode(grammarAccess.getSimAggregateTranspositionAccess().getTranspositionRuleSimGrabAggregateRuleParserRuleCall_3_0());
               				
             }
             pushFollow(FOLLOW_22);
-            lv_deductionRule_3_0=ruleSGrabAggregateRule();
+            lv_transpositionRule_3_0=ruleSimGrabAggregateRule();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElementForParent(grammarAccess.getSAggregateDeductionRule());
+              						current = createModelElementForParent(grammarAccess.getSimAggregateTranspositionRule());
               					}
               					set(
               						current,
-              						"deductionRule",
-              						lv_deductionRule_3_0,
-              						"com.mimacom.ddd.sm.sim.Sim.SGrabAggregateRule");
+              						"transpositionRule",
+              						lv_transpositionRule_3_0,
+              						"com.mimacom.ddd.sm.sim.Sim.SimGrabAggregateRule");
               					afterParserOrEnumRuleCall();
               				
             }
@@ -4161,7 +4161,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSAggregateDeductionAccess().getDescriptionDRichTextParserRuleCall_4_0());
+                      					newCompositeNode(grammarAccess.getSimAggregateTranspositionAccess().getDescriptionDRichTextParserRuleCall_4_0());
                       				
                     }
                     pushFollow(FOLLOW_23);
@@ -4172,7 +4172,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSAggregateDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimAggregateTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -4191,7 +4191,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:1455:3: (otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}' )?
+            // InternalSim.g:1455:3: (otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -4200,15 +4200,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt27) {
                 case 1 :
-                    // InternalSim.g:1456:4: otherlv_5= '{' ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSType ) )* otherlv_11= '}'
+                    // InternalSim.g:1456:4: otherlv_5= '{' ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )* ( (lv_types_10_0= ruleSimType ) )* otherlv_11= '}'
                     {
                     otherlv_5=(Token)match(input,22,FOLLOW_24); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_5, grammarAccess.getSAggregateDeductionAccess().getLeftCurlyBracketKeyword_5_0());
+                      				newLeafNode(otherlv_5, grammarAccess.getSimAggregateTranspositionAccess().getLeftCurlyBracketKeyword_5_0());
                       			
                     }
-                    // InternalSim.g:1460:4: ( ( (lv_features_6_0= ruleSQueryDeduction ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )*
+                    // InternalSim.g:1460:4: ( ( (lv_features_6_0= ruleSimQueryTransposition ) ) | (otherlv_7= 'add' otherlv_8= 'query' ( (lv_features_9_0= ruleDQuery ) ) ) )*
                     loop25:
                     do {
                         int alt25=3;
@@ -4262,34 +4262,34 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                         switch (alt25) {
                     	case 1 :
-                    	    // InternalSim.g:1461:5: ( (lv_features_6_0= ruleSQueryDeduction ) )
+                    	    // InternalSim.g:1461:5: ( (lv_features_6_0= ruleSimQueryTransposition ) )
                     	    {
-                    	    // InternalSim.g:1461:5: ( (lv_features_6_0= ruleSQueryDeduction ) )
-                    	    // InternalSim.g:1462:6: (lv_features_6_0= ruleSQueryDeduction )
+                    	    // InternalSim.g:1461:5: ( (lv_features_6_0= ruleSimQueryTransposition ) )
+                    	    // InternalSim.g:1462:6: (lv_features_6_0= ruleSimQueryTransposition )
                     	    {
-                    	    // InternalSim.g:1462:6: (lv_features_6_0= ruleSQueryDeduction )
-                    	    // InternalSim.g:1463:7: lv_features_6_0= ruleSQueryDeduction
+                    	    // InternalSim.g:1462:6: (lv_features_6_0= ruleSimQueryTransposition )
+                    	    // InternalSim.g:1463:7: lv_features_6_0= ruleSimQueryTransposition
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getSAggregateDeductionAccess().getFeaturesSQueryDeductionParserRuleCall_5_1_0_0());
+                    	      							newCompositeNode(grammarAccess.getSimAggregateTranspositionAccess().getFeaturesSimQueryTranspositionParserRuleCall_5_1_0_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_24);
-                    	    lv_features_6_0=ruleSQueryDeduction();
+                    	    lv_features_6_0=ruleSimQueryTransposition();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      							if (current==null) {
-                    	      								current = createModelElementForParent(grammarAccess.getSAggregateDeductionRule());
+                    	      								current = createModelElementForParent(grammarAccess.getSimAggregateTranspositionRule());
                     	      							}
                     	      							add(
                     	      								current,
                     	      								"features",
                     	      								lv_features_6_0,
-                    	      								"com.mimacom.ddd.sm.sim.Sim.SQueryDeduction");
+                    	      								"com.mimacom.ddd.sm.sim.Sim.SimQueryTransposition");
                     	      							afterParserOrEnumRuleCall();
                     	      						
                     	    }
@@ -4311,13 +4311,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    otherlv_7=(Token)match(input,31,FOLLOW_25); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      						newLeafNode(otherlv_7, grammarAccess.getSAggregateDeductionAccess().getAddKeyword_5_1_1_0());
+                    	      						newLeafNode(otherlv_7, grammarAccess.getSimAggregateTranspositionAccess().getAddKeyword_5_1_1_0());
                     	      					
                     	    }
                     	    otherlv_8=(Token)match(input,32,FOLLOW_3); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      						newLeafNode(otherlv_8, grammarAccess.getSAggregateDeductionAccess().getQueryKeyword_5_1_1_1());
+                    	      						newLeafNode(otherlv_8, grammarAccess.getSimAggregateTranspositionAccess().getQueryKeyword_5_1_1_1());
                     	      					
                     	    }
                     	    // InternalSim.g:1490:6: ( (lv_features_9_0= ruleDQuery ) )
@@ -4328,7 +4328,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      								newCompositeNode(grammarAccess.getSAggregateDeductionAccess().getFeaturesDQueryParserRuleCall_5_1_1_2_0());
+                    	      								newCompositeNode(grammarAccess.getSimAggregateTranspositionAccess().getFeaturesDQueryParserRuleCall_5_1_1_2_0());
                     	      							
                     	    }
                     	    pushFollow(FOLLOW_24);
@@ -4339,7 +4339,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    if ( state.backtracking==0 ) {
 
                     	      								if (current==null) {
-                    	      									current = createModelElementForParent(grammarAccess.getSAggregateDeductionRule());
+                    	      									current = createModelElementForParent(grammarAccess.getSimAggregateTranspositionRule());
                     	      								}
                     	      								add(
                     	      									current,
@@ -4367,7 +4367,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalSim.g:1511:4: ( (lv_types_10_0= ruleSType ) )*
+                    // InternalSim.g:1511:4: ( (lv_types_10_0= ruleSimType ) )*
                     loop26:
                     do {
                         int alt26=2;
@@ -4380,31 +4380,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                         switch (alt26) {
                     	case 1 :
-                    	    // InternalSim.g:1512:5: (lv_types_10_0= ruleSType )
+                    	    // InternalSim.g:1512:5: (lv_types_10_0= ruleSimType )
                     	    {
-                    	    // InternalSim.g:1512:5: (lv_types_10_0= ruleSType )
-                    	    // InternalSim.g:1513:6: lv_types_10_0= ruleSType
+                    	    // InternalSim.g:1512:5: (lv_types_10_0= ruleSimType )
+                    	    // InternalSim.g:1513:6: lv_types_10_0= ruleSimType
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      						newCompositeNode(grammarAccess.getSAggregateDeductionAccess().getTypesSTypeParserRuleCall_5_2_0());
+                    	      						newCompositeNode(grammarAccess.getSimAggregateTranspositionAccess().getTypesSimTypeParserRuleCall_5_2_0());
                     	      					
                     	    }
                     	    pushFollow(FOLLOW_24);
-                    	    lv_types_10_0=ruleSType();
+                    	    lv_types_10_0=ruleSimType();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      						if (current==null) {
-                    	      							current = createModelElementForParent(grammarAccess.getSAggregateDeductionRule());
+                    	      							current = createModelElementForParent(grammarAccess.getSimAggregateTranspositionRule());
                     	      						}
                     	      						add(
                     	      							current,
                     	      							"types",
                     	      							lv_types_10_0,
-                    	      							"com.mimacom.ddd.sm.sim.Sim.SType");
+                    	      							"com.mimacom.ddd.sm.sim.Sim.SimType");
                     	      						afterParserOrEnumRuleCall();
                     	      					
                     	    }
@@ -4423,7 +4423,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_11=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_11, grammarAccess.getSAggregateDeductionAccess().getRightCurlyBracketKeyword_5_3());
+                      				newLeafNode(otherlv_11, grammarAccess.getSimAggregateTranspositionAccess().getRightCurlyBracketKeyword_5_3());
                       			
                     }
 
@@ -4453,7 +4453,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSAggregateDeduction"
+    // $ANTLR end "ruleSimAggregateTransposition"
 
 
     // $ANTLR start "entryRuleDAggregateKeyword"
@@ -4579,23 +4579,23 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDType"
-    // InternalSim.g:1568:1: ruleDType returns [EObject current=null] : (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | this_DPrimitive_1= ruleDPrimitive | this_SEnumerationDeduction_2= ruleSEnumerationDeduction | this_DEnumeration_3= ruleDEnumeration | this_SEntityTypeDeduction_4= ruleSEntityTypeDeduction | this_DEntityType_5= ruleDEntityType | this_SDetailTypeDeduction_6= ruleSDetailTypeDeduction | this_DDetailType_7= ruleDDetailType ) ;
+    // InternalSim.g:1568:1: ruleDType returns [EObject current=null] : (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | this_DPrimitive_1= ruleDPrimitive | this_SimEnumerationTransposition_2= ruleSimEnumerationTransposition | this_DEnumeration_3= ruleDEnumeration | this_SimEntityTypeTransposition_4= ruleSimEntityTypeTransposition | this_DEntityType_5= ruleDEntityType | this_SimDetailTypeTransposition_6= ruleSimDetailTypeTransposition | this_DDetailType_7= ruleDDetailType ) ;
     public final EObject ruleDType() throws RecognitionException {
         EObject current = null;
 
-        EObject this_SPrimitiveDeduction_0 = null;
+        EObject this_SimPrimitiveTransposition_0 = null;
 
         EObject this_DPrimitive_1 = null;
 
-        EObject this_SEnumerationDeduction_2 = null;
+        EObject this_SimEnumerationTransposition_2 = null;
 
         EObject this_DEnumeration_3 = null;
 
-        EObject this_SEntityTypeDeduction_4 = null;
+        EObject this_SimEntityTypeTransposition_4 = null;
 
         EObject this_DEntityType_5 = null;
 
-        EObject this_SDetailTypeDeduction_6 = null;
+        EObject this_SimDetailTypeTransposition_6 = null;
 
         EObject this_DDetailType_7 = null;
 
@@ -4604,29 +4604,29 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1574:2: ( (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | this_DPrimitive_1= ruleDPrimitive | this_SEnumerationDeduction_2= ruleSEnumerationDeduction | this_DEnumeration_3= ruleDEnumeration | this_SEntityTypeDeduction_4= ruleSEntityTypeDeduction | this_DEntityType_5= ruleDEntityType | this_SDetailTypeDeduction_6= ruleSDetailTypeDeduction | this_DDetailType_7= ruleDDetailType ) )
-            // InternalSim.g:1575:2: (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | this_DPrimitive_1= ruleDPrimitive | this_SEnumerationDeduction_2= ruleSEnumerationDeduction | this_DEnumeration_3= ruleDEnumeration | this_SEntityTypeDeduction_4= ruleSEntityTypeDeduction | this_DEntityType_5= ruleDEntityType | this_SDetailTypeDeduction_6= ruleSDetailTypeDeduction | this_DDetailType_7= ruleDDetailType )
+            // InternalSim.g:1574:2: ( (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | this_DPrimitive_1= ruleDPrimitive | this_SimEnumerationTransposition_2= ruleSimEnumerationTransposition | this_DEnumeration_3= ruleDEnumeration | this_SimEntityTypeTransposition_4= ruleSimEntityTypeTransposition | this_DEntityType_5= ruleDEntityType | this_SimDetailTypeTransposition_6= ruleSimDetailTypeTransposition | this_DDetailType_7= ruleDDetailType ) )
+            // InternalSim.g:1575:2: (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | this_DPrimitive_1= ruleDPrimitive | this_SimEnumerationTransposition_2= ruleSimEnumerationTransposition | this_DEnumeration_3= ruleDEnumeration | this_SimEntityTypeTransposition_4= ruleSimEntityTypeTransposition | this_DEntityType_5= ruleDEntityType | this_SimDetailTypeTransposition_6= ruleSimDetailTypeTransposition | this_DDetailType_7= ruleDDetailType )
             {
-            // InternalSim.g:1575:2: (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | this_DPrimitive_1= ruleDPrimitive | this_SEnumerationDeduction_2= ruleSEnumerationDeduction | this_DEnumeration_3= ruleDEnumeration | this_SEntityTypeDeduction_4= ruleSEntityTypeDeduction | this_DEntityType_5= ruleDEntityType | this_SDetailTypeDeduction_6= ruleSDetailTypeDeduction | this_DDetailType_7= ruleDDetailType )
+            // InternalSim.g:1575:2: (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | this_DPrimitive_1= ruleDPrimitive | this_SimEnumerationTransposition_2= ruleSimEnumerationTransposition | this_DEnumeration_3= ruleDEnumeration | this_SimEntityTypeTransposition_4= ruleSimEntityTypeTransposition | this_DEntityType_5= ruleDEntityType | this_SimDetailTypeTransposition_6= ruleSimDetailTypeTransposition | this_DDetailType_7= ruleDDetailType )
             int alt28=8;
             alt28 = dfa28.predict(input);
             switch (alt28) {
                 case 1 :
-                    // InternalSim.g:1576:3: this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction
+                    // InternalSim.g:1576:3: this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getSPrimitiveDeductionParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getDTypeAccess().getSimPrimitiveTranspositionParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SPrimitiveDeduction_0=ruleSPrimitiveDeduction();
+                    this_SimPrimitiveTransposition_0=ruleSimPrimitiveTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SPrimitiveDeduction_0;
+                      			current = this_SimPrimitiveTransposition_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4656,21 +4656,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:1594:3: this_SEnumerationDeduction_2= ruleSEnumerationDeduction
+                    // InternalSim.g:1594:3: this_SimEnumerationTransposition_2= ruleSimEnumerationTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getSEnumerationDeductionParserRuleCall_2());
+                      			newCompositeNode(grammarAccess.getDTypeAccess().getSimEnumerationTranspositionParserRuleCall_2());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SEnumerationDeduction_2=ruleSEnumerationDeduction();
+                    this_SimEnumerationTransposition_2=ruleSimEnumerationTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SEnumerationDeduction_2;
+                      			current = this_SimEnumerationTransposition_2;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4700,21 +4700,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalSim.g:1612:3: this_SEntityTypeDeduction_4= ruleSEntityTypeDeduction
+                    // InternalSim.g:1612:3: this_SimEntityTypeTransposition_4= ruleSimEntityTypeTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getSEntityTypeDeductionParserRuleCall_4());
+                      			newCompositeNode(grammarAccess.getDTypeAccess().getSimEntityTypeTranspositionParserRuleCall_4());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SEntityTypeDeduction_4=ruleSEntityTypeDeduction();
+                    this_SimEntityTypeTransposition_4=ruleSimEntityTypeTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SEntityTypeDeduction_4;
+                      			current = this_SimEntityTypeTransposition_4;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4744,21 +4744,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalSim.g:1630:3: this_SDetailTypeDeduction_6= ruleSDetailTypeDeduction
+                    // InternalSim.g:1630:3: this_SimDetailTypeTransposition_6= ruleSimDetailTypeTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getSDetailTypeDeductionParserRuleCall_6());
+                      			newCompositeNode(grammarAccess.getDTypeAccess().getSimDetailTypeTranspositionParserRuleCall_6());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SDetailTypeDeduction_6=ruleSDetailTypeDeduction();
+                    this_SimDetailTypeTransposition_6=ruleSimDetailTypeTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SDetailTypeDeduction_6;
+                      			current = this_SimDetailTypeTransposition_6;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4811,28 +4811,28 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDType"
 
 
-    // $ANTLR start "entryRuleSType"
-    // InternalSim.g:1651:1: entryRuleSType returns [EObject current=null] : iv_ruleSType= ruleSType EOF ;
-    public final EObject entryRuleSType() throws RecognitionException {
+    // $ANTLR start "entryRuleSimType"
+    // InternalSim.g:1651:1: entryRuleSimType returns [EObject current=null] : iv_ruleSimType= ruleSimType EOF ;
+    public final EObject entryRuleSimType() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSType = null;
+        EObject iv_ruleSimType = null;
 
 
         try {
-            // InternalSim.g:1651:46: (iv_ruleSType= ruleSType EOF )
-            // InternalSim.g:1652:2: iv_ruleSType= ruleSType EOF
+            // InternalSim.g:1651:48: (iv_ruleSimType= ruleSimType EOF )
+            // InternalSim.g:1652:2: iv_ruleSimType= ruleSimType EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSTypeRule()); 
+               newCompositeNode(grammarAccess.getSimTypeRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSType=ruleSType();
+            iv_ruleSimType=ruleSimType();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSType; 
+               current =iv_ruleSimType; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -4848,31 +4848,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSType"
+    // $ANTLR end "entryRuleSimType"
 
 
-    // $ANTLR start "ruleSType"
-    // InternalSim.g:1658:1: ruleSType returns [EObject current=null] : (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SEnumerationDeduction_3= ruleSEnumerationDeduction | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SEntityTypeDeduction_6= ruleSEntityTypeDeduction | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SDetailTypeDeduction_9= ruleSDetailTypeDeduction | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) ) ;
-    public final EObject ruleSType() throws RecognitionException {
+    // $ANTLR start "ruleSimType"
+    // InternalSim.g:1658:1: ruleSimType returns [EObject current=null] : (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SimEnumerationTransposition_3= ruleSimEnumerationTransposition | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SimEntityTypeTransposition_6= ruleSimEntityTypeTransposition | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SimDetailTypeTransposition_9= ruleSimDetailTypeTransposition | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) ) ;
+    public final EObject ruleSimType() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_4=null;
         Token otherlv_7=null;
         Token otherlv_10=null;
-        EObject this_SPrimitiveDeduction_0 = null;
+        EObject this_SimPrimitiveTransposition_0 = null;
 
         EObject this_DPrimitive_2 = null;
 
-        EObject this_SEnumerationDeduction_3 = null;
+        EObject this_SimEnumerationTransposition_3 = null;
 
         EObject this_DEnumeration_5 = null;
 
-        EObject this_SEntityTypeDeduction_6 = null;
+        EObject this_SimEntityTypeTransposition_6 = null;
 
         EObject this_DEntityType_8 = null;
 
-        EObject this_SDetailTypeDeduction_9 = null;
+        EObject this_SimDetailTypeTransposition_9 = null;
 
         EObject this_DDetailType_11 = null;
 
@@ -4881,29 +4881,29 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1664:2: ( (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SEnumerationDeduction_3= ruleSEnumerationDeduction | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SEntityTypeDeduction_6= ruleSEntityTypeDeduction | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SDetailTypeDeduction_9= ruleSDetailTypeDeduction | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) ) )
-            // InternalSim.g:1665:2: (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SEnumerationDeduction_3= ruleSEnumerationDeduction | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SEntityTypeDeduction_6= ruleSEntityTypeDeduction | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SDetailTypeDeduction_9= ruleSDetailTypeDeduction | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) )
+            // InternalSim.g:1664:2: ( (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SimEnumerationTransposition_3= ruleSimEnumerationTransposition | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SimEntityTypeTransposition_6= ruleSimEntityTypeTransposition | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SimDetailTypeTransposition_9= ruleSimDetailTypeTransposition | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) ) )
+            // InternalSim.g:1665:2: (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SimEnumerationTransposition_3= ruleSimEnumerationTransposition | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SimEntityTypeTransposition_6= ruleSimEntityTypeTransposition | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SimDetailTypeTransposition_9= ruleSimDetailTypeTransposition | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) )
             {
-            // InternalSim.g:1665:2: (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SEnumerationDeduction_3= ruleSEnumerationDeduction | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SEntityTypeDeduction_6= ruleSEntityTypeDeduction | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SDetailTypeDeduction_9= ruleSDetailTypeDeduction | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) )
+            // InternalSim.g:1665:2: (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SimEnumerationTransposition_3= ruleSimEnumerationTransposition | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SimEntityTypeTransposition_6= ruleSimEntityTypeTransposition | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SimDetailTypeTransposition_9= ruleSimDetailTypeTransposition | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) )
             int alt29=8;
             alt29 = dfa29.predict(input);
             switch (alt29) {
                 case 1 :
-                    // InternalSim.g:1666:3: this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction
+                    // InternalSim.g:1666:3: this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSTypeAccess().getSPrimitiveDeductionParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getSimTypeAccess().getSimPrimitiveTranspositionParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SPrimitiveDeduction_0=ruleSPrimitiveDeduction();
+                    this_SimPrimitiveTransposition_0=ruleSimPrimitiveTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SPrimitiveDeduction_0;
+                      			current = this_SimPrimitiveTransposition_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4919,12 +4919,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,31,FOLLOW_26); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSTypeAccess().getAddKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimTypeAccess().getAddKeyword_1_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSTypeAccess().getDPrimitiveParserRuleCall_1_1());
+                      				newCompositeNode(grammarAccess.getSimTypeAccess().getDPrimitiveParserRuleCall_1_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -4945,21 +4945,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:1690:3: this_SEnumerationDeduction_3= ruleSEnumerationDeduction
+                    // InternalSim.g:1690:3: this_SimEnumerationTransposition_3= ruleSimEnumerationTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSTypeAccess().getSEnumerationDeductionParserRuleCall_2());
+                      			newCompositeNode(grammarAccess.getSimTypeAccess().getSimEnumerationTranspositionParserRuleCall_2());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SEnumerationDeduction_3=ruleSEnumerationDeduction();
+                    this_SimEnumerationTransposition_3=ruleSimEnumerationTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SEnumerationDeduction_3;
+                      			current = this_SimEnumerationTransposition_3;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4975,12 +4975,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_4=(Token)match(input,31,FOLLOW_27); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_4, grammarAccess.getSTypeAccess().getAddKeyword_3_0());
+                      				newLeafNode(otherlv_4, grammarAccess.getSimTypeAccess().getAddKeyword_3_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSTypeAccess().getDEnumerationParserRuleCall_3_1());
+                      				newCompositeNode(grammarAccess.getSimTypeAccess().getDEnumerationParserRuleCall_3_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -5001,21 +5001,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalSim.g:1714:3: this_SEntityTypeDeduction_6= ruleSEntityTypeDeduction
+                    // InternalSim.g:1714:3: this_SimEntityTypeTransposition_6= ruleSimEntityTypeTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSTypeAccess().getSEntityTypeDeductionParserRuleCall_4());
+                      			newCompositeNode(grammarAccess.getSimTypeAccess().getSimEntityTypeTranspositionParserRuleCall_4());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SEntityTypeDeduction_6=ruleSEntityTypeDeduction();
+                    this_SimEntityTypeTransposition_6=ruleSimEntityTypeTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SEntityTypeDeduction_6;
+                      			current = this_SimEntityTypeTransposition_6;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -5031,12 +5031,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_7=(Token)match(input,31,FOLLOW_28); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_7, grammarAccess.getSTypeAccess().getAddKeyword_5_0());
+                      				newLeafNode(otherlv_7, grammarAccess.getSimTypeAccess().getAddKeyword_5_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSTypeAccess().getDEntityTypeParserRuleCall_5_1());
+                      				newCompositeNode(grammarAccess.getSimTypeAccess().getDEntityTypeParserRuleCall_5_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -5057,21 +5057,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalSim.g:1738:3: this_SDetailTypeDeduction_9= ruleSDetailTypeDeduction
+                    // InternalSim.g:1738:3: this_SimDetailTypeTransposition_9= ruleSimDetailTypeTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSTypeAccess().getSDetailTypeDeductionParserRuleCall_6());
+                      			newCompositeNode(grammarAccess.getSimTypeAccess().getSimDetailTypeTranspositionParserRuleCall_6());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SDetailTypeDeduction_9=ruleSDetailTypeDeduction();
+                    this_SimDetailTypeTransposition_9=ruleSimDetailTypeTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SDetailTypeDeduction_9;
+                      			current = this_SimDetailTypeTransposition_9;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -5087,12 +5087,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_10=(Token)match(input,31,FOLLOW_29); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_10, grammarAccess.getSTypeAccess().getAddKeyword_7_0());
+                      				newLeafNode(otherlv_10, grammarAccess.getSimTypeAccess().getAddKeyword_7_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSTypeAccess().getDDetailTypeParserRuleCall_7_1());
+                      				newCompositeNode(grammarAccess.getSimTypeAccess().getDDetailTypeParserRuleCall_7_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -5133,31 +5133,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSType"
+    // $ANTLR end "ruleSimType"
 
 
-    // $ANTLR start "entryRuleSPrimitiveDeduction"
-    // InternalSim.g:1765:1: entryRuleSPrimitiveDeduction returns [EObject current=null] : iv_ruleSPrimitiveDeduction= ruleSPrimitiveDeduction EOF ;
-    public final EObject entryRuleSPrimitiveDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimPrimitiveTransposition"
+    // InternalSim.g:1765:1: entryRuleSimPrimitiveTransposition returns [EObject current=null] : iv_ruleSimPrimitiveTransposition= ruleSimPrimitiveTransposition EOF ;
+    public final EObject entryRuleSimPrimitiveTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSPrimitiveDeduction = null;
+        EObject iv_ruleSimPrimitiveTransposition = null;
 
 
         try {
-            // InternalSim.g:1765:60: (iv_ruleSPrimitiveDeduction= ruleSPrimitiveDeduction EOF )
-            // InternalSim.g:1766:2: iv_ruleSPrimitiveDeduction= ruleSPrimitiveDeduction EOF
+            // InternalSim.g:1765:66: (iv_ruleSimPrimitiveTransposition= ruleSimPrimitiveTransposition EOF )
+            // InternalSim.g:1766:2: iv_ruleSimPrimitiveTransposition= ruleSimPrimitiveTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSPrimitiveDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimPrimitiveTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSPrimitiveDeduction=ruleSPrimitiveDeduction();
+            iv_ruleSimPrimitiveTransposition=ruleSimPrimitiveTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSPrimitiveDeduction; 
+               current =iv_ruleSimPrimitiveTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -5173,12 +5173,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSPrimitiveDeduction"
+    // $ANTLR end "entryRuleSimPrimitiveTransposition"
 
 
-    // $ANTLR start "ruleSPrimitiveDeduction"
-    // InternalSim.g:1772:1: ruleSPrimitiveDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? ) ;
-    public final EObject ruleSPrimitiveDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimPrimitiveTransposition"
+    // InternalSim.g:1772:1: ruleSimPrimitiveTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? ) ;
+    public final EObject ruleSimPrimitiveTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -5188,9 +5188,9 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_8=null;
         Token otherlv_9=null;
         Token otherlv_11=null;
-        EObject lv_deductionRule_3_0 = null;
+        EObject lv_transpositionRule_3_0 = null;
 
-        EObject lv_deductionRule_6_0 = null;
+        EObject lv_transpositionRule_6_0 = null;
 
         EObject lv_description_7_0 = null;
 
@@ -5201,11 +5201,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1778:2: ( ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? ) )
-            // InternalSim.g:1779:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? )
+            // InternalSim.g:1778:2: ( ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? ) )
+            // InternalSim.g:1779:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? )
             {
-            // InternalSim.g:1779:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? )
-            // InternalSim.g:1780:3: () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )?
+            // InternalSim.g:1779:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )? )
+            // InternalSim.g:1780:3: () ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )* otherlv_11= '}' )?
             {
             // InternalSim.g:1780:3: ()
             // InternalSim.g:1781:4: 
@@ -5213,14 +5213,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSPrimitiveDeductionAccess().getSPrimitiveDeductionAction_0(),
+              					grammarAccess.getSimPrimitiveTranspositionAccess().getTPrimitiveTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:1787:3: ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) ) )
+            // InternalSim.g:1787:3: ( (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) ) )
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -5239,49 +5239,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt30) {
                 case 1 :
-                    // InternalSim.g:1788:4: (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) )
+                    // InternalSim.g:1788:4: (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) )
                     {
-                    // InternalSim.g:1788:4: (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) ) )
-                    // InternalSim.g:1789:5: otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) )
+                    // InternalSim.g:1788:4: (otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) ) )
+                    // InternalSim.g:1789:5: otherlv_1= 'grab' otherlv_2= 'primitive' ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_26); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSPrimitiveDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimPrimitiveTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
                     otherlv_2=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_2, grammarAccess.getSPrimitiveDeductionAccess().getPrimitiveKeyword_1_0_1());
+                      					newLeafNode(otherlv_2, grammarAccess.getSimPrimitiveTranspositionAccess().getPrimitiveKeyword_1_0_1());
                       				
                     }
-                    // InternalSim.g:1797:5: ( (lv_deductionRule_3_0= ruleSGrabPrimitiveRule ) )
-                    // InternalSim.g:1798:6: (lv_deductionRule_3_0= ruleSGrabPrimitiveRule )
+                    // InternalSim.g:1797:5: ( (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule ) )
+                    // InternalSim.g:1798:6: (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule )
                     {
-                    // InternalSim.g:1798:6: (lv_deductionRule_3_0= ruleSGrabPrimitiveRule )
-                    // InternalSim.g:1799:7: lv_deductionRule_3_0= ruleSGrabPrimitiveRule
+                    // InternalSim.g:1798:6: (lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule )
+                    // InternalSim.g:1799:7: lv_transpositionRule_3_0= ruleSimGrabPrimitiveRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSPrimitiveDeductionAccess().getDeductionRuleSGrabPrimitiveRuleParserRuleCall_1_0_2_0());
+                      							newCompositeNode(grammarAccess.getSimPrimitiveTranspositionAccess().getTranspositionRuleSimGrabPrimitiveRuleParserRuleCall_1_0_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_3_0=ruleSGrabPrimitiveRule();
+                    lv_transpositionRule_3_0=ruleSimGrabPrimitiveRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSPrimitiveDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimPrimitiveTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_3_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabPrimitiveRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_3_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabPrimitiveRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -5298,49 +5298,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:1818:4: (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) )
+                    // InternalSim.g:1818:4: (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) )
                     {
-                    // InternalSim.g:1818:4: (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) ) )
-                    // InternalSim.g:1819:5: otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) )
+                    // InternalSim.g:1818:4: (otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) ) )
+                    // InternalSim.g:1819:5: otherlv_4= 'ditch' otherlv_5= 'primitive' ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) )
                     {
                     otherlv_4=(Token)match(input,34,FOLLOW_26); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_4, grammarAccess.getSPrimitiveDeductionAccess().getDitchKeyword_1_1_0());
+                      					newLeafNode(otherlv_4, grammarAccess.getSimPrimitiveTranspositionAccess().getDitchKeyword_1_1_0());
                       				
                     }
                     otherlv_5=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSPrimitiveDeductionAccess().getPrimitiveKeyword_1_1_1());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimPrimitiveTranspositionAccess().getPrimitiveKeyword_1_1_1());
                       				
                     }
-                    // InternalSim.g:1827:5: ( (lv_deductionRule_6_0= ruleSDitchPrimitiveRule ) )
-                    // InternalSim.g:1828:6: (lv_deductionRule_6_0= ruleSDitchPrimitiveRule )
+                    // InternalSim.g:1827:5: ( (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule ) )
+                    // InternalSim.g:1828:6: (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule )
                     {
-                    // InternalSim.g:1828:6: (lv_deductionRule_6_0= ruleSDitchPrimitiveRule )
-                    // InternalSim.g:1829:7: lv_deductionRule_6_0= ruleSDitchPrimitiveRule
+                    // InternalSim.g:1828:6: (lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule )
+                    // InternalSim.g:1829:7: lv_transpositionRule_6_0= ruleSimDitchPrimitiveRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSPrimitiveDeductionAccess().getDeductionRuleSDitchPrimitiveRuleParserRuleCall_1_1_2_0());
+                      							newCompositeNode(grammarAccess.getSimPrimitiveTranspositionAccess().getTranspositionRuleSimDitchPrimitiveRuleParserRuleCall_1_1_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_6_0=ruleSDitchPrimitiveRule();
+                    lv_transpositionRule_6_0=ruleSimDitchPrimitiveRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSPrimitiveDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimPrimitiveTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_6_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchPrimitiveRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_6_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchPrimitiveRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -5375,7 +5375,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSPrimitiveDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimPrimitiveTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_23);
@@ -5386,7 +5386,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSPrimitiveDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimPrimitiveTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -5419,7 +5419,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_8=(Token)match(input,22,FOLLOW_30); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_8, grammarAccess.getSPrimitiveDeductionAccess().getLeftCurlyBracketKeyword_3_0());
+                      				newLeafNode(otherlv_8, grammarAccess.getSimPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_3_0());
                       			
                     }
                     // InternalSim.g:1872:4: (otherlv_9= 'add' ( (lv_constraints_10_0= ruleDConstraint ) ) )*
@@ -5440,7 +5440,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    otherlv_9=(Token)match(input,31,FOLLOW_31); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      					newLeafNode(otherlv_9, grammarAccess.getSPrimitiveDeductionAccess().getAddKeyword_3_1_0());
+                    	      					newLeafNode(otherlv_9, grammarAccess.getSimPrimitiveTranspositionAccess().getAddKeyword_3_1_0());
                     	      				
                     	    }
                     	    // InternalSim.g:1877:5: ( (lv_constraints_10_0= ruleDConstraint ) )
@@ -5451,7 +5451,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getSPrimitiveDeductionAccess().getConstraintsDConstraintParserRuleCall_3_1_1_0());
+                    	      							newCompositeNode(grammarAccess.getSimPrimitiveTranspositionAccess().getConstraintsDConstraintParserRuleCall_3_1_1_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_30);
@@ -5462,7 +5462,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    if ( state.backtracking==0 ) {
 
                     	      							if (current==null) {
-                    	      								current = createModelElementForParent(grammarAccess.getSPrimitiveDeductionRule());
+                    	      								current = createModelElementForParent(grammarAccess.getSimPrimitiveTranspositionRule());
                     	      							}
                     	      							add(
                     	      								current,
@@ -5490,7 +5490,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_11=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_11, grammarAccess.getSPrimitiveDeductionAccess().getRightCurlyBracketKeyword_3_2());
+                      				newLeafNode(otherlv_11, grammarAccess.getSimPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_3_2());
                       			
                     }
 
@@ -5520,31 +5520,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSPrimitiveDeduction"
+    // $ANTLR end "ruleSimPrimitiveTransposition"
 
 
-    // $ANTLR start "entryRuleSEnumerationDeduction"
-    // InternalSim.g:1906:1: entryRuleSEnumerationDeduction returns [EObject current=null] : iv_ruleSEnumerationDeduction= ruleSEnumerationDeduction EOF ;
-    public final EObject entryRuleSEnumerationDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimEnumerationTransposition"
+    // InternalSim.g:1906:1: entryRuleSimEnumerationTransposition returns [EObject current=null] : iv_ruleSimEnumerationTransposition= ruleSimEnumerationTransposition EOF ;
+    public final EObject entryRuleSimEnumerationTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSEnumerationDeduction = null;
+        EObject iv_ruleSimEnumerationTransposition = null;
 
 
         try {
-            // InternalSim.g:1906:62: (iv_ruleSEnumerationDeduction= ruleSEnumerationDeduction EOF )
-            // InternalSim.g:1907:2: iv_ruleSEnumerationDeduction= ruleSEnumerationDeduction EOF
+            // InternalSim.g:1906:68: (iv_ruleSimEnumerationTransposition= ruleSimEnumerationTransposition EOF )
+            // InternalSim.g:1907:2: iv_ruleSimEnumerationTransposition= ruleSimEnumerationTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSEnumerationDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimEnumerationTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSEnumerationDeduction=ruleSEnumerationDeduction();
+            iv_ruleSimEnumerationTransposition=ruleSimEnumerationTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSEnumerationDeduction; 
+               current =iv_ruleSimEnumerationTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -5560,12 +5560,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSEnumerationDeduction"
+    // $ANTLR end "entryRuleSimEnumerationTransposition"
 
 
-    // $ANTLR start "ruleSEnumerationDeduction"
-    // InternalSim.g:1913:1: ruleSEnumerationDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? ) ;
-    public final EObject ruleSEnumerationDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimEnumerationTransposition"
+    // InternalSim.g:1913:1: ruleSimEnumerationTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? ) ;
+    public final EObject ruleSimEnumerationTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -5576,9 +5576,9 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_10=null;
         Token otherlv_12=null;
         Token otherlv_14=null;
-        EObject lv_deductionRule_3_0 = null;
+        EObject lv_transpositionRule_3_0 = null;
 
-        EObject lv_deductionRule_6_0 = null;
+        EObject lv_transpositionRule_6_0 = null;
 
         EObject lv_description_7_0 = null;
 
@@ -5593,11 +5593,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:1919:2: ( ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? ) )
-            // InternalSim.g:1920:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? )
+            // InternalSim.g:1919:2: ( ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? ) )
+            // InternalSim.g:1920:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? )
             {
-            // InternalSim.g:1920:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? )
-            // InternalSim.g:1921:3: () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )?
+            // InternalSim.g:1920:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )? )
+            // InternalSim.g:1921:3: () ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )?
             {
             // InternalSim.g:1921:3: ()
             // InternalSim.g:1922:4: 
@@ -5605,14 +5605,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSEnumerationDeductionAccess().getSEnumerationDeductionAction_0(),
+              					grammarAccess.getSimEnumerationTranspositionAccess().getTEnumerationTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:1928:3: ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) ) )
+            // InternalSim.g:1928:3: ( (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) ) )
             int alt34=2;
             int LA34_0 = input.LA(1);
 
@@ -5631,49 +5631,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt34) {
                 case 1 :
-                    // InternalSim.g:1929:4: (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) )
+                    // InternalSim.g:1929:4: (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) )
                     {
-                    // InternalSim.g:1929:4: (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) ) )
-                    // InternalSim.g:1930:5: otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) )
+                    // InternalSim.g:1929:4: (otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) ) )
+                    // InternalSim.g:1930:5: otherlv_1= 'grab' otherlv_2= 'enumeration' ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_27); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSEnumerationDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimEnumerationTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
                     otherlv_2=(Token)match(input,35,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_2, grammarAccess.getSEnumerationDeductionAccess().getEnumerationKeyword_1_0_1());
+                      					newLeafNode(otherlv_2, grammarAccess.getSimEnumerationTranspositionAccess().getEnumerationKeyword_1_0_1());
                       				
                     }
-                    // InternalSim.g:1938:5: ( (lv_deductionRule_3_0= ruleSGrabEnumerationRule ) )
-                    // InternalSim.g:1939:6: (lv_deductionRule_3_0= ruleSGrabEnumerationRule )
+                    // InternalSim.g:1938:5: ( (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule ) )
+                    // InternalSim.g:1939:6: (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule )
                     {
-                    // InternalSim.g:1939:6: (lv_deductionRule_3_0= ruleSGrabEnumerationRule )
-                    // InternalSim.g:1940:7: lv_deductionRule_3_0= ruleSGrabEnumerationRule
+                    // InternalSim.g:1939:6: (lv_transpositionRule_3_0= ruleSimGrabEnumerationRule )
+                    // InternalSim.g:1940:7: lv_transpositionRule_3_0= ruleSimGrabEnumerationRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSEnumerationDeductionAccess().getDeductionRuleSGrabEnumerationRuleParserRuleCall_1_0_2_0());
+                      							newCompositeNode(grammarAccess.getSimEnumerationTranspositionAccess().getTranspositionRuleSimGrabEnumerationRuleParserRuleCall_1_0_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_3_0=ruleSGrabEnumerationRule();
+                    lv_transpositionRule_3_0=ruleSimGrabEnumerationRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSEnumerationDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimEnumerationTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_3_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabEnumerationRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_3_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabEnumerationRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -5690,49 +5690,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:1959:4: (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) )
+                    // InternalSim.g:1959:4: (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) )
                     {
-                    // InternalSim.g:1959:4: (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) ) )
-                    // InternalSim.g:1960:5: otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) )
+                    // InternalSim.g:1959:4: (otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) ) )
+                    // InternalSim.g:1960:5: otherlv_4= 'ditch' otherlv_5= 'enumeration' ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) )
                     {
                     otherlv_4=(Token)match(input,34,FOLLOW_27); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_4, grammarAccess.getSEnumerationDeductionAccess().getDitchKeyword_1_1_0());
+                      					newLeafNode(otherlv_4, grammarAccess.getSimEnumerationTranspositionAccess().getDitchKeyword_1_1_0());
                       				
                     }
                     otherlv_5=(Token)match(input,35,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSEnumerationDeductionAccess().getEnumerationKeyword_1_1_1());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimEnumerationTranspositionAccess().getEnumerationKeyword_1_1_1());
                       				
                     }
-                    // InternalSim.g:1968:5: ( (lv_deductionRule_6_0= ruleSDitchEnumerationRule ) )
-                    // InternalSim.g:1969:6: (lv_deductionRule_6_0= ruleSDitchEnumerationRule )
+                    // InternalSim.g:1968:5: ( (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule ) )
+                    // InternalSim.g:1969:6: (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule )
                     {
-                    // InternalSim.g:1969:6: (lv_deductionRule_6_0= ruleSDitchEnumerationRule )
-                    // InternalSim.g:1970:7: lv_deductionRule_6_0= ruleSDitchEnumerationRule
+                    // InternalSim.g:1969:6: (lv_transpositionRule_6_0= ruleSimDitchEnumerationRule )
+                    // InternalSim.g:1970:7: lv_transpositionRule_6_0= ruleSimDitchEnumerationRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSEnumerationDeductionAccess().getDeductionRuleSDitchEnumerationRuleParserRuleCall_1_1_2_0());
+                      							newCompositeNode(grammarAccess.getSimEnumerationTranspositionAccess().getTranspositionRuleSimDitchEnumerationRuleParserRuleCall_1_1_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_6_0=ruleSDitchEnumerationRule();
+                    lv_transpositionRule_6_0=ruleSimDitchEnumerationRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSEnumerationDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimEnumerationTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_6_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchEnumerationRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_6_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchEnumerationRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -5767,7 +5767,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSEnumerationDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimEnumerationTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_23);
@@ -5778,7 +5778,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSEnumerationDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimEnumerationTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -5797,7 +5797,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:2008:3: (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )?
+            // InternalSim.g:2008:3: (otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}' )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -5806,15 +5806,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt39) {
                 case 1 :
-                    // InternalSim.g:2009:4: otherlv_8= '{' ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}'
+                    // InternalSim.g:2009:4: otherlv_8= '{' ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )? (otherlv_12= 'add' ( (lv_constraints_13_0= ruleDConstraint ) ) )* otherlv_14= '}'
                     {
                     otherlv_8=(Token)match(input,22,FOLLOW_32); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_8, grammarAccess.getSEnumerationDeductionAccess().getLeftCurlyBracketKeyword_3_0());
+                      				newLeafNode(otherlv_8, grammarAccess.getSimEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_3_0());
                       			
                     }
-                    // InternalSim.g:2013:4: ( ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )* )?
+                    // InternalSim.g:2013:4: ( ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )* )?
                     int alt37=2;
                     int LA37_0 = input.LA(1);
 
@@ -5830,34 +5830,34 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt37) {
                         case 1 :
-                            // InternalSim.g:2014:5: ( (lv_literals_9_0= ruleSLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )*
+                            // InternalSim.g:2014:5: ( (lv_literals_9_0= ruleSimLiteral ) ) (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )*
                             {
-                            // InternalSim.g:2014:5: ( (lv_literals_9_0= ruleSLiteral ) )
-                            // InternalSim.g:2015:6: (lv_literals_9_0= ruleSLiteral )
+                            // InternalSim.g:2014:5: ( (lv_literals_9_0= ruleSimLiteral ) )
+                            // InternalSim.g:2015:6: (lv_literals_9_0= ruleSimLiteral )
                             {
-                            // InternalSim.g:2015:6: (lv_literals_9_0= ruleSLiteral )
-                            // InternalSim.g:2016:7: lv_literals_9_0= ruleSLiteral
+                            // InternalSim.g:2015:6: (lv_literals_9_0= ruleSimLiteral )
+                            // InternalSim.g:2016:7: lv_literals_9_0= ruleSimLiteral
                             {
                             if ( state.backtracking==0 ) {
 
-                              							newCompositeNode(grammarAccess.getSEnumerationDeductionAccess().getLiteralsSLiteralParserRuleCall_3_1_0_0());
+                              							newCompositeNode(grammarAccess.getSimEnumerationTranspositionAccess().getLiteralsSimLiteralParserRuleCall_3_1_0_0());
                               						
                             }
                             pushFollow(FOLLOW_33);
-                            lv_literals_9_0=ruleSLiteral();
+                            lv_literals_9_0=ruleSimLiteral();
 
                             state._fsp--;
                             if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							if (current==null) {
-                              								current = createModelElementForParent(grammarAccess.getSEnumerationDeductionRule());
+                              								current = createModelElementForParent(grammarAccess.getSimEnumerationTranspositionRule());
                               							}
                               							add(
                               								current,
                               								"literals",
                               								lv_literals_9_0,
-                              								"com.mimacom.ddd.sm.sim.Sim.SLiteral");
+                              								"com.mimacom.ddd.sm.sim.Sim.SimLiteral");
                               							afterParserOrEnumRuleCall();
                               						
                             }
@@ -5867,7 +5867,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalSim.g:2033:5: (otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) ) )*
+                            // InternalSim.g:2033:5: (otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) ) )*
                             loop36:
                             do {
                                 int alt36=2;
@@ -5880,40 +5880,40 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                                 switch (alt36) {
                             	case 1 :
-                            	    // InternalSim.g:2034:6: otherlv_10= ',' ( (lv_literals_11_0= ruleSLiteral ) )
+                            	    // InternalSim.g:2034:6: otherlv_10= ',' ( (lv_literals_11_0= ruleSimLiteral ) )
                             	    {
                             	    otherlv_10=(Token)match(input,36,FOLLOW_34); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
-                            	      						newLeafNode(otherlv_10, grammarAccess.getSEnumerationDeductionAccess().getCommaKeyword_3_1_1_0());
+                            	      						newLeafNode(otherlv_10, grammarAccess.getSimEnumerationTranspositionAccess().getCommaKeyword_3_1_1_0());
                             	      					
                             	    }
-                            	    // InternalSim.g:2038:6: ( (lv_literals_11_0= ruleSLiteral ) )
-                            	    // InternalSim.g:2039:7: (lv_literals_11_0= ruleSLiteral )
+                            	    // InternalSim.g:2038:6: ( (lv_literals_11_0= ruleSimLiteral ) )
+                            	    // InternalSim.g:2039:7: (lv_literals_11_0= ruleSimLiteral )
                             	    {
-                            	    // InternalSim.g:2039:7: (lv_literals_11_0= ruleSLiteral )
-                            	    // InternalSim.g:2040:8: lv_literals_11_0= ruleSLiteral
+                            	    // InternalSim.g:2039:7: (lv_literals_11_0= ruleSimLiteral )
+                            	    // InternalSim.g:2040:8: lv_literals_11_0= ruleSimLiteral
                             	    {
                             	    if ( state.backtracking==0 ) {
 
-                            	      								newCompositeNode(grammarAccess.getSEnumerationDeductionAccess().getLiteralsSLiteralParserRuleCall_3_1_1_1_0());
+                            	      								newCompositeNode(grammarAccess.getSimEnumerationTranspositionAccess().getLiteralsSimLiteralParserRuleCall_3_1_1_1_0());
                             	      							
                             	    }
                             	    pushFollow(FOLLOW_33);
-                            	    lv_literals_11_0=ruleSLiteral();
+                            	    lv_literals_11_0=ruleSimLiteral();
 
                             	    state._fsp--;
                             	    if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	      								if (current==null) {
-                            	      									current = createModelElementForParent(grammarAccess.getSEnumerationDeductionRule());
+                            	      									current = createModelElementForParent(grammarAccess.getSimEnumerationTranspositionRule());
                             	      								}
                             	      								add(
                             	      									current,
                             	      									"literals",
                             	      									lv_literals_11_0,
-                            	      									"com.mimacom.ddd.sm.sim.Sim.SLiteral");
+                            	      									"com.mimacom.ddd.sm.sim.Sim.SimLiteral");
                             	      								afterParserOrEnumRuleCall();
                             	      							
                             	    }
@@ -5956,7 +5956,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    otherlv_12=(Token)match(input,31,FOLLOW_31); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      					newLeafNode(otherlv_12, grammarAccess.getSEnumerationDeductionAccess().getAddKeyword_3_2_0());
+                    	      					newLeafNode(otherlv_12, grammarAccess.getSimEnumerationTranspositionAccess().getAddKeyword_3_2_0());
                     	      				
                     	    }
                     	    // InternalSim.g:2064:5: ( (lv_constraints_13_0= ruleDConstraint ) )
@@ -5967,7 +5967,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getSEnumerationDeductionAccess().getConstraintsDConstraintParserRuleCall_3_2_1_0());
+                    	      							newCompositeNode(grammarAccess.getSimEnumerationTranspositionAccess().getConstraintsDConstraintParserRuleCall_3_2_1_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_30);
@@ -5978,7 +5978,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	    if ( state.backtracking==0 ) {
 
                     	      							if (current==null) {
-                    	      								current = createModelElementForParent(grammarAccess.getSEnumerationDeductionRule());
+                    	      								current = createModelElementForParent(grammarAccess.getSimEnumerationTranspositionRule());
                     	      							}
                     	      							add(
                     	      								current,
@@ -6006,7 +6006,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_14=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_14, grammarAccess.getSEnumerationDeductionAccess().getRightCurlyBracketKeyword_3_3());
+                      				newLeafNode(otherlv_14, grammarAccess.getSimEnumerationTranspositionAccess().getRightCurlyBracketKeyword_3_3());
                       			
                     }
 
@@ -6036,31 +6036,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSEnumerationDeduction"
+    // $ANTLR end "ruleSimEnumerationTransposition"
 
 
-    // $ANTLR start "entryRuleSLiteral"
-    // InternalSim.g:2093:1: entryRuleSLiteral returns [EObject current=null] : iv_ruleSLiteral= ruleSLiteral EOF ;
-    public final EObject entryRuleSLiteral() throws RecognitionException {
+    // $ANTLR start "entryRuleSimLiteral"
+    // InternalSim.g:2093:1: entryRuleSimLiteral returns [EObject current=null] : iv_ruleSimLiteral= ruleSimLiteral EOF ;
+    public final EObject entryRuleSimLiteral() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSLiteral = null;
+        EObject iv_ruleSimLiteral = null;
 
 
         try {
-            // InternalSim.g:2093:49: (iv_ruleSLiteral= ruleSLiteral EOF )
-            // InternalSim.g:2094:2: iv_ruleSLiteral= ruleSLiteral EOF
+            // InternalSim.g:2093:51: (iv_ruleSimLiteral= ruleSimLiteral EOF )
+            // InternalSim.g:2094:2: iv_ruleSimLiteral= ruleSimLiteral EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSLiteralRule()); 
+               newCompositeNode(grammarAccess.getSimLiteralRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSLiteral=ruleSLiteral();
+            iv_ruleSimLiteral=ruleSimLiteral();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSLiteral; 
+               current =iv_ruleSimLiteral; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -6076,16 +6076,16 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSLiteral"
+    // $ANTLR end "entryRuleSimLiteral"
 
 
-    // $ANTLR start "ruleSLiteral"
-    // InternalSim.g:2100:1: ruleSLiteral returns [EObject current=null] : (this_SLiteralDeduction_0= ruleSLiteralDeduction | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) ) ;
-    public final EObject ruleSLiteral() throws RecognitionException {
+    // $ANTLR start "ruleSimLiteral"
+    // InternalSim.g:2100:1: ruleSimLiteral returns [EObject current=null] : (this_SimLiteralTransposition_0= ruleSimLiteralTransposition | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) ) ;
+    public final EObject ruleSimLiteral() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        EObject this_SLiteralDeduction_0 = null;
+        EObject this_SimLiteralTransposition_0 = null;
 
         EObject this_DLiteral_2 = null;
 
@@ -6094,10 +6094,10 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:2106:2: ( (this_SLiteralDeduction_0= ruleSLiteralDeduction | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) ) )
-            // InternalSim.g:2107:2: (this_SLiteralDeduction_0= ruleSLiteralDeduction | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) )
+            // InternalSim.g:2106:2: ( (this_SimLiteralTransposition_0= ruleSimLiteralTransposition | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) ) )
+            // InternalSim.g:2107:2: (this_SimLiteralTransposition_0= ruleSimLiteralTransposition | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) )
             {
-            // InternalSim.g:2107:2: (this_SLiteralDeduction_0= ruleSLiteralDeduction | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) )
+            // InternalSim.g:2107:2: (this_SimLiteralTransposition_0= ruleSimLiteralTransposition | (otherlv_1= 'add' this_DLiteral_2= ruleDLiteral ) )
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -6116,21 +6116,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt40) {
                 case 1 :
-                    // InternalSim.g:2108:3: this_SLiteralDeduction_0= ruleSLiteralDeduction
+                    // InternalSim.g:2108:3: this_SimLiteralTransposition_0= ruleSimLiteralTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSLiteralAccess().getSLiteralDeductionParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getSimLiteralAccess().getSimLiteralTranspositionParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SLiteralDeduction_0=ruleSLiteralDeduction();
+                    this_SimLiteralTransposition_0=ruleSimLiteralTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SLiteralDeduction_0;
+                      			current = this_SimLiteralTransposition_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -6146,12 +6146,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,31,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSLiteralAccess().getAddKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimLiteralAccess().getAddKeyword_1_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSLiteralAccess().getDLiteralParserRuleCall_1_1());
+                      				newCompositeNode(grammarAccess.getSimLiteralAccess().getDLiteralParserRuleCall_1_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -6192,31 +6192,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSLiteral"
+    // $ANTLR end "ruleSimLiteral"
 
 
-    // $ANTLR start "entryRuleSLiteralDeduction"
-    // InternalSim.g:2135:1: entryRuleSLiteralDeduction returns [EObject current=null] : iv_ruleSLiteralDeduction= ruleSLiteralDeduction EOF ;
-    public final EObject entryRuleSLiteralDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimLiteralTransposition"
+    // InternalSim.g:2135:1: entryRuleSimLiteralTransposition returns [EObject current=null] : iv_ruleSimLiteralTransposition= ruleSimLiteralTransposition EOF ;
+    public final EObject entryRuleSimLiteralTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSLiteralDeduction = null;
+        EObject iv_ruleSimLiteralTransposition = null;
 
 
         try {
-            // InternalSim.g:2135:58: (iv_ruleSLiteralDeduction= ruleSLiteralDeduction EOF )
-            // InternalSim.g:2136:2: iv_ruleSLiteralDeduction= ruleSLiteralDeduction EOF
+            // InternalSim.g:2135:64: (iv_ruleSimLiteralTransposition= ruleSimLiteralTransposition EOF )
+            // InternalSim.g:2136:2: iv_ruleSimLiteralTransposition= ruleSimLiteralTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSLiteralDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimLiteralTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSLiteralDeduction=ruleSLiteralDeduction();
+            iv_ruleSimLiteralTransposition=ruleSimLiteralTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSLiteralDeduction; 
+               current =iv_ruleSimLiteralTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -6232,19 +6232,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSLiteralDeduction"
+    // $ANTLR end "entryRuleSimLiteralTransposition"
 
 
-    // $ANTLR start "ruleSLiteralDeduction"
-    // InternalSim.g:2142:1: ruleSLiteralDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? ) ;
-    public final EObject ruleSLiteralDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimLiteralTransposition"
+    // InternalSim.g:2142:1: ruleSimLiteralTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? ) ;
+    public final EObject ruleSimLiteralTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_3=null;
-        EObject lv_deductionRule_2_0 = null;
+        EObject lv_transpositionRule_2_0 = null;
 
-        EObject lv_deductionRule_4_0 = null;
+        EObject lv_transpositionRule_4_0 = null;
 
         EObject lv_description_5_0 = null;
 
@@ -6253,11 +6253,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:2148:2: ( ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? ) )
-            // InternalSim.g:2149:2: ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? )
+            // InternalSim.g:2148:2: ( ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? ) )
+            // InternalSim.g:2149:2: ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? )
             {
-            // InternalSim.g:2149:2: ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? )
-            // InternalSim.g:2150:3: () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )?
+            // InternalSim.g:2149:2: ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )? )
+            // InternalSim.g:2150:3: () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) ) ) ( (lv_description_5_0= ruleDRichText ) )?
             {
             // InternalSim.g:2150:3: ()
             // InternalSim.g:2151:4: 
@@ -6265,14 +6265,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSLiteralDeductionAccess().getSLiteralDeductionAction_0(),
+              					grammarAccess.getSimLiteralTranspositionAccess().getTLiteralTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:2157:3: ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) ) )
+            // InternalSim.g:2157:3: ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) ) | (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) ) )
             int alt41=2;
             int LA41_0 = input.LA(1);
 
@@ -6291,43 +6291,43 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt41) {
                 case 1 :
-                    // InternalSim.g:2158:4: (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) )
+                    // InternalSim.g:2158:4: (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) )
                     {
-                    // InternalSim.g:2158:4: (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) )
-                    // InternalSim.g:2159:5: otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) )
+                    // InternalSim.g:2158:4: (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) ) )
+                    // InternalSim.g:2159:5: otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSLiteralDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimLiteralTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
-                    // InternalSim.g:2163:5: ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) )
-                    // InternalSim.g:2164:6: (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule )
+                    // InternalSim.g:2163:5: ( (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule ) )
+                    // InternalSim.g:2164:6: (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule )
                     {
-                    // InternalSim.g:2164:6: (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule )
-                    // InternalSim.g:2165:7: lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule
+                    // InternalSim.g:2164:6: (lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule )
+                    // InternalSim.g:2165:7: lv_transpositionRule_2_0= ruleSimGrabEnumerationLiteralRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSLiteralDeductionAccess().getDeductionRuleSGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0());
+                      							newCompositeNode(grammarAccess.getSimLiteralTranspositionAccess().getTranspositionRuleSimGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_2_0=ruleSGrabEnumerationLiteralRule();
+                    lv_transpositionRule_2_0=ruleSimGrabEnumerationLiteralRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSLiteralDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimLiteralTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_2_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabEnumerationLiteralRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_2_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabEnumerationLiteralRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -6344,43 +6344,43 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:2184:4: (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) )
+                    // InternalSim.g:2184:4: (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) )
                     {
-                    // InternalSim.g:2184:4: (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) )
-                    // InternalSim.g:2185:5: otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) )
+                    // InternalSim.g:2184:4: (otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) ) )
+                    // InternalSim.g:2185:5: otherlv_3= 'ditch' ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) )
                     {
                     otherlv_3=(Token)match(input,34,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_3, grammarAccess.getSLiteralDeductionAccess().getDitchKeyword_1_1_0());
+                      					newLeafNode(otherlv_3, grammarAccess.getSimLiteralTranspositionAccess().getDitchKeyword_1_1_0());
                       				
                     }
-                    // InternalSim.g:2189:5: ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) )
-                    // InternalSim.g:2190:6: (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule )
+                    // InternalSim.g:2189:5: ( (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule ) )
+                    // InternalSim.g:2190:6: (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule )
                     {
-                    // InternalSim.g:2190:6: (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule )
-                    // InternalSim.g:2191:7: lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule
+                    // InternalSim.g:2190:6: (lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule )
+                    // InternalSim.g:2191:7: lv_transpositionRule_4_0= ruleSimDitchEnumerationLiteralRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSLiteralDeductionAccess().getDeductionRuleSDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0());
+                      							newCompositeNode(grammarAccess.getSimLiteralTranspositionAccess().getTranspositionRuleSimDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_4_0=ruleSDitchEnumerationLiteralRule();
+                    lv_transpositionRule_4_0=ruleSimDitchEnumerationLiteralRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSLiteralDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimLiteralTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_4_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchEnumerationLiteralRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_4_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchEnumerationLiteralRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -6415,7 +6415,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSLiteralDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimLiteralTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -6426,7 +6426,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSLiteralDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimLiteralTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -6466,31 +6466,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSLiteralDeduction"
+    // $ANTLR end "ruleSimLiteralTransposition"
 
 
-    // $ANTLR start "entryRuleSEntityTypeDeduction"
-    // InternalSim.g:2233:1: entryRuleSEntityTypeDeduction returns [EObject current=null] : iv_ruleSEntityTypeDeduction= ruleSEntityTypeDeduction EOF ;
-    public final EObject entryRuleSEntityTypeDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimEntityTypeTransposition"
+    // InternalSim.g:2233:1: entryRuleSimEntityTypeTransposition returns [EObject current=null] : iv_ruleSimEntityTypeTransposition= ruleSimEntityTypeTransposition EOF ;
+    public final EObject entryRuleSimEntityTypeTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSEntityTypeDeduction = null;
+        EObject iv_ruleSimEntityTypeTransposition = null;
 
 
         try {
-            // InternalSim.g:2233:61: (iv_ruleSEntityTypeDeduction= ruleSEntityTypeDeduction EOF )
-            // InternalSim.g:2234:2: iv_ruleSEntityTypeDeduction= ruleSEntityTypeDeduction EOF
+            // InternalSim.g:2233:67: (iv_ruleSimEntityTypeTransposition= ruleSimEntityTypeTransposition EOF )
+            // InternalSim.g:2234:2: iv_ruleSimEntityTypeTransposition= ruleSimEntityTypeTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSEntityTypeDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimEntityTypeTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSEntityTypeDeduction=ruleSEntityTypeDeduction();
+            iv_ruleSimEntityTypeTransposition=ruleSimEntityTypeTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSEntityTypeDeduction; 
+               current =iv_ruleSimEntityTypeTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -6506,12 +6506,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSEntityTypeDeduction"
+    // $ANTLR end "entryRuleSimEntityTypeTransposition"
 
 
-    // $ANTLR start "ruleSEntityTypeDeduction"
-    // InternalSim.g:2240:1: ruleSEntityTypeDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current] )? ) ;
-    public final EObject ruleSEntityTypeDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimEntityTypeTransposition"
+    // InternalSim.g:2240:1: ruleSimEntityTypeTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current] )? ) ;
+    public final EObject ruleSimEntityTypeTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -6526,28 +6526,28 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_13=null;
         Token lv_root_14_0=null;
         Token otherlv_15=null;
-        EObject lv_deductionRule_4_0 = null;
+        EObject lv_transpositionRule_4_0 = null;
 
-        EObject lv_deductionRule_8_0 = null;
+        EObject lv_transpositionRule_8_0 = null;
 
-        EObject lv_deductionRule_12_0 = null;
+        EObject lv_transpositionRule_12_0 = null;
 
-        EObject lv_deductionRule_16_0 = null;
+        EObject lv_transpositionRule_16_0 = null;
 
         EObject lv_description_17_0 = null;
 
-        EObject this_SComplexTypeFeatures_18 = null;
+        EObject this_TComplexTypeFeatures_18 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSim.g:2246:2: ( ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current] )? ) )
-            // InternalSim.g:2247:2: ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current] )? )
+            // InternalSim.g:2246:2: ( ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current] )? ) )
+            // InternalSim.g:2247:2: ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current] )? )
             {
-            // InternalSim.g:2247:2: ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current] )? )
-            // InternalSim.g:2248:3: () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current] )?
+            // InternalSim.g:2247:2: ( () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current] )? )
+            // InternalSim.g:2248:3: () ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_17_0= ruleDRichText ) )? (this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current] )?
             {
             // InternalSim.g:2248:3: ()
             // InternalSim.g:2249:4: 
@@ -6555,14 +6555,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSEntityTypeDeductionAccess().getSEntityTypeDeductionAction_0(),
+              					grammarAccess.getSimEntityTypeTranspositionAccess().getTEntityTypeTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:2255:3: ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) ) )
+            // InternalSim.g:2255:3: ( (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) ) )
             int alt47=4;
             switch ( input.LA(1) ) {
             case 29:
@@ -6595,15 +6595,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             switch (alt47) {
                 case 1 :
-                    // InternalSim.g:2256:4: (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) )
+                    // InternalSim.g:2256:4: (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2256:4: (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) ) )
-                    // InternalSim.g:2257:5: otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) )
+                    // InternalSim.g:2256:4: (otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) ) )
+                    // InternalSim.g:2257:5: otherlv_1= 'grab' ( (lv_root_2_0= 'root' ) )? otherlv_3= 'entity' ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_36); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSEntityTypeDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimEntityTypeTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
                     // InternalSim.g:2261:5: ( (lv_root_2_0= 'root' ) )?
@@ -6623,13 +6623,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_root_2_0=(Token)match(input,37,FOLLOW_37); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(lv_root_2_0, grammarAccess.getSEntityTypeDeductionAccess().getRootRootKeyword_1_0_1_0());
+                              							newLeafNode(lv_root_2_0, grammarAccess.getSimEntityTypeTranspositionAccess().getRootRootKeyword_1_0_1_0());
                               						
                             }
                             if ( state.backtracking==0 ) {
 
                               							if (current==null) {
-                              								current = createModelElement(grammarAccess.getSEntityTypeDeductionRule());
+                              								current = createModelElement(grammarAccess.getSimEntityTypeTranspositionRule());
                               							}
                               							setWithLastConsumed(current, "root", true, "root");
                               						
@@ -6646,35 +6646,35 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_3=(Token)match(input,38,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_3, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_0_2());
+                      					newLeafNode(otherlv_3, grammarAccess.getSimEntityTypeTranspositionAccess().getEntityKeyword_1_0_2());
                       				
                     }
-                    // InternalSim.g:2279:5: ( (lv_deductionRule_4_0= ruleSGrabComplexTypeRule ) )
-                    // InternalSim.g:2280:6: (lv_deductionRule_4_0= ruleSGrabComplexTypeRule )
+                    // InternalSim.g:2279:5: ( (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule ) )
+                    // InternalSim.g:2280:6: (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule )
                     {
-                    // InternalSim.g:2280:6: (lv_deductionRule_4_0= ruleSGrabComplexTypeRule )
-                    // InternalSim.g:2281:7: lv_deductionRule_4_0= ruleSGrabComplexTypeRule
+                    // InternalSim.g:2280:6: (lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule )
+                    // InternalSim.g:2281:7: lv_transpositionRule_4_0= ruleSimGrabComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSEntityTypeDeductionAccess().getDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_3_0());
+                      							newCompositeNode(grammarAccess.getSimEntityTypeTranspositionAccess().getTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_3_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_4_0=ruleSGrabComplexTypeRule();
+                    lv_transpositionRule_4_0=ruleSimGrabComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSEntityTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimEntityTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_4_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_4_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -6691,15 +6691,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:2300:4: (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) )
+                    // InternalSim.g:2300:4: (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2300:4: (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) ) )
-                    // InternalSim.g:2301:5: otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) )
+                    // InternalSim.g:2300:4: (otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) ) )
+                    // InternalSim.g:2301:5: otherlv_5= 'ditch' ( (lv_root_6_0= 'root' ) )? otherlv_7= 'entity' ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) )
                     {
                     otherlv_5=(Token)match(input,34,FOLLOW_36); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSEntityTypeDeductionAccess().getDitchKeyword_1_1_0());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimEntityTypeTranspositionAccess().getDitchKeyword_1_1_0());
                       				
                     }
                     // InternalSim.g:2305:5: ( (lv_root_6_0= 'root' ) )?
@@ -6719,13 +6719,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_root_6_0=(Token)match(input,37,FOLLOW_37); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(lv_root_6_0, grammarAccess.getSEntityTypeDeductionAccess().getRootRootKeyword_1_1_1_0());
+                              							newLeafNode(lv_root_6_0, grammarAccess.getSimEntityTypeTranspositionAccess().getRootRootKeyword_1_1_1_0());
                               						
                             }
                             if ( state.backtracking==0 ) {
 
                               							if (current==null) {
-                              								current = createModelElement(grammarAccess.getSEntityTypeDeductionRule());
+                              								current = createModelElement(grammarAccess.getSimEntityTypeTranspositionRule());
                               							}
                               							setWithLastConsumed(current, "root", true, "root");
                               						
@@ -6742,35 +6742,35 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_7=(Token)match(input,38,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_7, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_1_2());
+                      					newLeafNode(otherlv_7, grammarAccess.getSimEntityTypeTranspositionAccess().getEntityKeyword_1_1_2());
                       				
                     }
-                    // InternalSim.g:2323:5: ( (lv_deductionRule_8_0= ruleSDitchComplexTypeRule ) )
-                    // InternalSim.g:2324:6: (lv_deductionRule_8_0= ruleSDitchComplexTypeRule )
+                    // InternalSim.g:2323:5: ( (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule ) )
+                    // InternalSim.g:2324:6: (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule )
                     {
-                    // InternalSim.g:2324:6: (lv_deductionRule_8_0= ruleSDitchComplexTypeRule )
-                    // InternalSim.g:2325:7: lv_deductionRule_8_0= ruleSDitchComplexTypeRule
+                    // InternalSim.g:2324:6: (lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule )
+                    // InternalSim.g:2325:7: lv_transpositionRule_8_0= ruleSimDitchComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSEntityTypeDeductionAccess().getDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_3_0());
+                      							newCompositeNode(grammarAccess.getSimEntityTypeTranspositionAccess().getTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_3_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_8_0=ruleSDitchComplexTypeRule();
+                    lv_transpositionRule_8_0=ruleSimDitchComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSEntityTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimEntityTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_8_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_8_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -6787,15 +6787,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:2344:4: (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) )
+                    // InternalSim.g:2344:4: (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2344:4: (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) ) )
-                    // InternalSim.g:2345:5: otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) )
+                    // InternalSim.g:2344:4: (otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) ) )
+                    // InternalSim.g:2345:5: otherlv_9= 'morph' ( (lv_root_10_0= 'root' ) )? otherlv_11= 'entity' ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) )
                     {
                     otherlv_9=(Token)match(input,39,FOLLOW_36); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_9, grammarAccess.getSEntityTypeDeductionAccess().getMorphKeyword_1_2_0());
+                      					newLeafNode(otherlv_9, grammarAccess.getSimEntityTypeTranspositionAccess().getMorphKeyword_1_2_0());
                       				
                     }
                     // InternalSim.g:2349:5: ( (lv_root_10_0= 'root' ) )?
@@ -6815,13 +6815,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_root_10_0=(Token)match(input,37,FOLLOW_37); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(lv_root_10_0, grammarAccess.getSEntityTypeDeductionAccess().getRootRootKeyword_1_2_1_0());
+                              							newLeafNode(lv_root_10_0, grammarAccess.getSimEntityTypeTranspositionAccess().getRootRootKeyword_1_2_1_0());
                               						
                             }
                             if ( state.backtracking==0 ) {
 
                               							if (current==null) {
-                              								current = createModelElement(grammarAccess.getSEntityTypeDeductionRule());
+                              								current = createModelElement(grammarAccess.getSimEntityTypeTranspositionRule());
                               							}
                               							setWithLastConsumed(current, "root", true, "root");
                               						
@@ -6838,35 +6838,35 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_11=(Token)match(input,38,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_11, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_2_2());
+                      					newLeafNode(otherlv_11, grammarAccess.getSimEntityTypeTranspositionAccess().getEntityKeyword_1_2_2());
                       				
                     }
-                    // InternalSim.g:2367:5: ( (lv_deductionRule_12_0= ruleSMorphComplexTypeRule ) )
-                    // InternalSim.g:2368:6: (lv_deductionRule_12_0= ruleSMorphComplexTypeRule )
+                    // InternalSim.g:2367:5: ( (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule ) )
+                    // InternalSim.g:2368:6: (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule )
                     {
-                    // InternalSim.g:2368:6: (lv_deductionRule_12_0= ruleSMorphComplexTypeRule )
-                    // InternalSim.g:2369:7: lv_deductionRule_12_0= ruleSMorphComplexTypeRule
+                    // InternalSim.g:2368:6: (lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule )
+                    // InternalSim.g:2369:7: lv_transpositionRule_12_0= ruleSimMorphComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSEntityTypeDeductionAccess().getDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_3_0());
+                      							newCompositeNode(grammarAccess.getSimEntityTypeTranspositionAccess().getTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_12_0=ruleSMorphComplexTypeRule();
+                    lv_transpositionRule_12_0=ruleSimMorphComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSEntityTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimEntityTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_12_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SMorphComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_12_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimMorphComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -6883,15 +6883,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalSim.g:2388:4: (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) )
+                    // InternalSim.g:2388:4: (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2388:4: (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) ) )
-                    // InternalSim.g:2389:5: otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) )
+                    // InternalSim.g:2388:4: (otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) ) )
+                    // InternalSim.g:2389:5: otherlv_13= 'fuse' ( (lv_root_14_0= 'root' ) )? otherlv_15= 'entity' ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) )
                     {
                     otherlv_13=(Token)match(input,40,FOLLOW_36); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_13, grammarAccess.getSEntityTypeDeductionAccess().getFuseKeyword_1_3_0());
+                      					newLeafNode(otherlv_13, grammarAccess.getSimEntityTypeTranspositionAccess().getFuseKeyword_1_3_0());
                       				
                     }
                     // InternalSim.g:2393:5: ( (lv_root_14_0= 'root' ) )?
@@ -6911,13 +6911,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_root_14_0=(Token)match(input,37,FOLLOW_37); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(lv_root_14_0, grammarAccess.getSEntityTypeDeductionAccess().getRootRootKeyword_1_3_1_0());
+                              							newLeafNode(lv_root_14_0, grammarAccess.getSimEntityTypeTranspositionAccess().getRootRootKeyword_1_3_1_0());
                               						
                             }
                             if ( state.backtracking==0 ) {
 
                               							if (current==null) {
-                              								current = createModelElement(grammarAccess.getSEntityTypeDeductionRule());
+                              								current = createModelElement(grammarAccess.getSimEntityTypeTranspositionRule());
                               							}
                               							setWithLastConsumed(current, "root", true, "root");
                               						
@@ -6934,35 +6934,35 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_15=(Token)match(input,38,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_15, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_3_2());
+                      					newLeafNode(otherlv_15, grammarAccess.getSimEntityTypeTranspositionAccess().getEntityKeyword_1_3_2());
                       				
                     }
-                    // InternalSim.g:2411:5: ( (lv_deductionRule_16_0= ruleSFuseComplexTypeRule ) )
-                    // InternalSim.g:2412:6: (lv_deductionRule_16_0= ruleSFuseComplexTypeRule )
+                    // InternalSim.g:2411:5: ( (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule ) )
+                    // InternalSim.g:2412:6: (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule )
                     {
-                    // InternalSim.g:2412:6: (lv_deductionRule_16_0= ruleSFuseComplexTypeRule )
-                    // InternalSim.g:2413:7: lv_deductionRule_16_0= ruleSFuseComplexTypeRule
+                    // InternalSim.g:2412:6: (lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule )
+                    // InternalSim.g:2413:7: lv_transpositionRule_16_0= ruleSimFuseComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSEntityTypeDeductionAccess().getDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_3_0());
+                      							newCompositeNode(grammarAccess.getSimEntityTypeTranspositionAccess().getTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_3_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_16_0=ruleSFuseComplexTypeRule();
+                    lv_transpositionRule_16_0=ruleSimFuseComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSEntityTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimEntityTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_16_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SFuseComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_16_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimFuseComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -6997,7 +6997,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSEntityTypeDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimEntityTypeTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_23);
@@ -7008,7 +7008,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSEntityTypeDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimEntityTypeTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -7027,7 +7027,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:2451:3: (this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current] )?
+            // InternalSim.g:2451:3: (this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current] )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
@@ -7036,24 +7036,24 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt49) {
                 case 1 :
-                    // InternalSim.g:2452:4: this_SComplexTypeFeatures_18= ruleSComplexTypeFeatures[$current]
+                    // InternalSim.g:2452:4: this_TComplexTypeFeatures_18= ruleTComplexTypeFeatures[$current]
                     {
                     if ( state.backtracking==0 ) {
 
                       				if (current==null) {
-                      					current = createModelElement(grammarAccess.getSEntityTypeDeductionRule());
+                      					current = createModelElement(grammarAccess.getSimEntityTypeTranspositionRule());
                       				}
-                      				newCompositeNode(grammarAccess.getSEntityTypeDeductionAccess().getSComplexTypeFeaturesParserRuleCall_3());
+                      				newCompositeNode(grammarAccess.getSimEntityTypeTranspositionAccess().getTComplexTypeFeaturesParserRuleCall_3());
                       			
                     }
                     pushFollow(FOLLOW_2);
-                    this_SComplexTypeFeatures_18=ruleSComplexTypeFeatures(current);
+                    this_TComplexTypeFeatures_18=ruleTComplexTypeFeatures(current);
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = this_SComplexTypeFeatures_18;
+                      				current = this_TComplexTypeFeatures_18;
                       				afterParserOrEnumRuleCall();
                       			
                     }
@@ -7084,31 +7084,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSEntityTypeDeduction"
+    // $ANTLR end "ruleSimEntityTypeTransposition"
 
 
-    // $ANTLR start "entryRuleSDetailTypeDeduction"
-    // InternalSim.g:2468:1: entryRuleSDetailTypeDeduction returns [EObject current=null] : iv_ruleSDetailTypeDeduction= ruleSDetailTypeDeduction EOF ;
-    public final EObject entryRuleSDetailTypeDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimDetailTypeTransposition"
+    // InternalSim.g:2468:1: entryRuleSimDetailTypeTransposition returns [EObject current=null] : iv_ruleSimDetailTypeTransposition= ruleSimDetailTypeTransposition EOF ;
+    public final EObject entryRuleSimDetailTypeTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSDetailTypeDeduction = null;
+        EObject iv_ruleSimDetailTypeTransposition = null;
 
 
         try {
-            // InternalSim.g:2468:61: (iv_ruleSDetailTypeDeduction= ruleSDetailTypeDeduction EOF )
-            // InternalSim.g:2469:2: iv_ruleSDetailTypeDeduction= ruleSDetailTypeDeduction EOF
+            // InternalSim.g:2468:67: (iv_ruleSimDetailTypeTransposition= ruleSimDetailTypeTransposition EOF )
+            // InternalSim.g:2469:2: iv_ruleSimDetailTypeTransposition= ruleSimDetailTypeTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSDetailTypeDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimDetailTypeTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSDetailTypeDeduction=ruleSDetailTypeDeduction();
+            iv_ruleSimDetailTypeTransposition=ruleSimDetailTypeTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSDetailTypeDeduction; 
+               current =iv_ruleSimDetailTypeTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -7124,12 +7124,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSDetailTypeDeduction"
+    // $ANTLR end "entryRuleSimDetailTypeTransposition"
 
 
-    // $ANTLR start "ruleSDetailTypeDeduction"
-    // InternalSim.g:2475:1: ruleSDetailTypeDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current] )? ) ;
-    public final EObject ruleSDetailTypeDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimDetailTypeTransposition"
+    // InternalSim.g:2475:1: ruleSimDetailTypeTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current] )? ) ;
+    public final EObject ruleSimDetailTypeTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -7140,28 +7140,28 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_8=null;
         Token otherlv_10=null;
         Token otherlv_11=null;
-        EObject lv_deductionRule_3_0 = null;
+        EObject lv_transpositionRule_3_0 = null;
 
-        EObject lv_deductionRule_6_0 = null;
+        EObject lv_transpositionRule_6_0 = null;
 
-        EObject lv_deductionRule_9_0 = null;
+        EObject lv_transpositionRule_9_0 = null;
 
-        EObject lv_deductionRule_12_0 = null;
+        EObject lv_transpositionRule_12_0 = null;
 
         EObject lv_description_13_0 = null;
 
-        EObject this_SComplexTypeFeatures_14 = null;
+        EObject this_TComplexTypeFeatures_14 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSim.g:2481:2: ( ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current] )? ) )
-            // InternalSim.g:2482:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current] )? )
+            // InternalSim.g:2481:2: ( ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current] )? ) )
+            // InternalSim.g:2482:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current] )? )
             {
-            // InternalSim.g:2482:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current] )? )
-            // InternalSim.g:2483:3: () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current] )?
+            // InternalSim.g:2482:2: ( () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current] )? )
+            // InternalSim.g:2483:3: () ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? (this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current] )?
             {
             // InternalSim.g:2483:3: ()
             // InternalSim.g:2484:4: 
@@ -7169,14 +7169,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSDetailTypeDeductionAccess().getSDetailTypeDeductionAction_0(),
+              					grammarAccess.getSimDetailTypeTranspositionAccess().getTDetailTypeTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:2490:3: ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) ) )
+            // InternalSim.g:2490:3: ( (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) ) | (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) ) | (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) ) | (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) ) )
             int alt50=4;
             switch ( input.LA(1) ) {
             case 29:
@@ -7209,49 +7209,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             switch (alt50) {
                 case 1 :
-                    // InternalSim.g:2491:4: (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) )
+                    // InternalSim.g:2491:4: (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2491:4: (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) ) )
-                    // InternalSim.g:2492:5: otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) )
+                    // InternalSim.g:2491:4: (otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) ) )
+                    // InternalSim.g:2492:5: otherlv_1= 'grab' otherlv_2= 'detail' ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_38); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSDetailTypeDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimDetailTypeTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
                     otherlv_2=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_2, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_0_1());
+                      					newLeafNode(otherlv_2, grammarAccess.getSimDetailTypeTranspositionAccess().getDetailKeyword_1_0_1());
                       				
                     }
-                    // InternalSim.g:2500:5: ( (lv_deductionRule_3_0= ruleSGrabComplexTypeRule ) )
-                    // InternalSim.g:2501:6: (lv_deductionRule_3_0= ruleSGrabComplexTypeRule )
+                    // InternalSim.g:2500:5: ( (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule ) )
+                    // InternalSim.g:2501:6: (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule )
                     {
-                    // InternalSim.g:2501:6: (lv_deductionRule_3_0= ruleSGrabComplexTypeRule )
-                    // InternalSim.g:2502:7: lv_deductionRule_3_0= ruleSGrabComplexTypeRule
+                    // InternalSim.g:2501:6: (lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule )
+                    // InternalSim.g:2502:7: lv_transpositionRule_3_0= ruleSimGrabComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSDetailTypeDeductionAccess().getDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_2_0());
+                      							newCompositeNode(grammarAccess.getSimDetailTypeTranspositionAccess().getTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_3_0=ruleSGrabComplexTypeRule();
+                    lv_transpositionRule_3_0=ruleSimGrabComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSDetailTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimDetailTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_3_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_3_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -7268,49 +7268,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:2521:4: (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) )
+                    // InternalSim.g:2521:4: (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2521:4: (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) ) )
-                    // InternalSim.g:2522:5: otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) )
+                    // InternalSim.g:2521:4: (otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) ) )
+                    // InternalSim.g:2522:5: otherlv_4= 'ditch' otherlv_5= 'detail' ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) )
                     {
                     otherlv_4=(Token)match(input,34,FOLLOW_38); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_4, grammarAccess.getSDetailTypeDeductionAccess().getDitchKeyword_1_1_0());
+                      					newLeafNode(otherlv_4, grammarAccess.getSimDetailTypeTranspositionAccess().getDitchKeyword_1_1_0());
                       				
                     }
                     otherlv_5=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_1_1());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimDetailTypeTranspositionAccess().getDetailKeyword_1_1_1());
                       				
                     }
-                    // InternalSim.g:2530:5: ( (lv_deductionRule_6_0= ruleSDitchComplexTypeRule ) )
-                    // InternalSim.g:2531:6: (lv_deductionRule_6_0= ruleSDitchComplexTypeRule )
+                    // InternalSim.g:2530:5: ( (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule ) )
+                    // InternalSim.g:2531:6: (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule )
                     {
-                    // InternalSim.g:2531:6: (lv_deductionRule_6_0= ruleSDitchComplexTypeRule )
-                    // InternalSim.g:2532:7: lv_deductionRule_6_0= ruleSDitchComplexTypeRule
+                    // InternalSim.g:2531:6: (lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule )
+                    // InternalSim.g:2532:7: lv_transpositionRule_6_0= ruleSimDitchComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSDetailTypeDeductionAccess().getDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_2_0());
+                      							newCompositeNode(grammarAccess.getSimDetailTypeTranspositionAccess().getTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_6_0=ruleSDitchComplexTypeRule();
+                    lv_transpositionRule_6_0=ruleSimDitchComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSDetailTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimDetailTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_6_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_6_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -7327,49 +7327,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:2551:4: (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) )
+                    // InternalSim.g:2551:4: (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2551:4: (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) ) )
-                    // InternalSim.g:2552:5: otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) )
+                    // InternalSim.g:2551:4: (otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) ) )
+                    // InternalSim.g:2552:5: otherlv_7= 'morph' otherlv_8= 'detail' ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) )
                     {
                     otherlv_7=(Token)match(input,39,FOLLOW_38); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_7, grammarAccess.getSDetailTypeDeductionAccess().getMorphKeyword_1_2_0());
+                      					newLeafNode(otherlv_7, grammarAccess.getSimDetailTypeTranspositionAccess().getMorphKeyword_1_2_0());
                       				
                     }
                     otherlv_8=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_8, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_2_1());
+                      					newLeafNode(otherlv_8, grammarAccess.getSimDetailTypeTranspositionAccess().getDetailKeyword_1_2_1());
                       				
                     }
-                    // InternalSim.g:2560:5: ( (lv_deductionRule_9_0= ruleSMorphComplexTypeRule ) )
-                    // InternalSim.g:2561:6: (lv_deductionRule_9_0= ruleSMorphComplexTypeRule )
+                    // InternalSim.g:2560:5: ( (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule ) )
+                    // InternalSim.g:2561:6: (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule )
                     {
-                    // InternalSim.g:2561:6: (lv_deductionRule_9_0= ruleSMorphComplexTypeRule )
-                    // InternalSim.g:2562:7: lv_deductionRule_9_0= ruleSMorphComplexTypeRule
+                    // InternalSim.g:2561:6: (lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule )
+                    // InternalSim.g:2562:7: lv_transpositionRule_9_0= ruleSimMorphComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSDetailTypeDeductionAccess().getDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_2_0());
+                      							newCompositeNode(grammarAccess.getSimDetailTypeTranspositionAccess().getTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_9_0=ruleSMorphComplexTypeRule();
+                    lv_transpositionRule_9_0=ruleSimMorphComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSDetailTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimDetailTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_9_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SMorphComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_9_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimMorphComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -7386,49 +7386,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalSim.g:2581:4: (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) )
+                    // InternalSim.g:2581:4: (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) )
                     {
-                    // InternalSim.g:2581:4: (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) ) )
-                    // InternalSim.g:2582:5: otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) )
+                    // InternalSim.g:2581:4: (otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) ) )
+                    // InternalSim.g:2582:5: otherlv_10= 'fuse' otherlv_11= 'detail' ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) )
                     {
                     otherlv_10=(Token)match(input,40,FOLLOW_38); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_10, grammarAccess.getSDetailTypeDeductionAccess().getFuseKeyword_1_3_0());
+                      					newLeafNode(otherlv_10, grammarAccess.getSimDetailTypeTranspositionAccess().getFuseKeyword_1_3_0());
                       				
                     }
                     otherlv_11=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_11, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_3_1());
+                      					newLeafNode(otherlv_11, grammarAccess.getSimDetailTypeTranspositionAccess().getDetailKeyword_1_3_1());
                       				
                     }
-                    // InternalSim.g:2590:5: ( (lv_deductionRule_12_0= ruleSFuseComplexTypeRule ) )
-                    // InternalSim.g:2591:6: (lv_deductionRule_12_0= ruleSFuseComplexTypeRule )
+                    // InternalSim.g:2590:5: ( (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule ) )
+                    // InternalSim.g:2591:6: (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule )
                     {
-                    // InternalSim.g:2591:6: (lv_deductionRule_12_0= ruleSFuseComplexTypeRule )
-                    // InternalSim.g:2592:7: lv_deductionRule_12_0= ruleSFuseComplexTypeRule
+                    // InternalSim.g:2591:6: (lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule )
+                    // InternalSim.g:2592:7: lv_transpositionRule_12_0= ruleSimFuseComplexTypeRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSDetailTypeDeductionAccess().getDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_2_0());
+                      							newCompositeNode(grammarAccess.getSimDetailTypeTranspositionAccess().getTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_2_0());
                       						
                     }
                     pushFollow(FOLLOW_22);
-                    lv_deductionRule_12_0=ruleSFuseComplexTypeRule();
+                    lv_transpositionRule_12_0=ruleSimFuseComplexTypeRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSDetailTypeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimDetailTypeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_12_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SFuseComplexTypeRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_12_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimFuseComplexTypeRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -7463,7 +7463,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSDetailTypeDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimDetailTypeTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_23);
@@ -7474,7 +7474,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSDetailTypeDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimDetailTypeTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -7493,7 +7493,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:2630:3: (this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current] )?
+            // InternalSim.g:2630:3: (this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current] )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -7502,24 +7502,24 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt52) {
                 case 1 :
-                    // InternalSim.g:2631:4: this_SComplexTypeFeatures_14= ruleSComplexTypeFeatures[$current]
+                    // InternalSim.g:2631:4: this_TComplexTypeFeatures_14= ruleTComplexTypeFeatures[$current]
                     {
                     if ( state.backtracking==0 ) {
 
                       				if (current==null) {
-                      					current = createModelElement(grammarAccess.getSDetailTypeDeductionRule());
+                      					current = createModelElement(grammarAccess.getSimDetailTypeTranspositionRule());
                       				}
-                      				newCompositeNode(grammarAccess.getSDetailTypeDeductionAccess().getSComplexTypeFeaturesParserRuleCall_3());
+                      				newCompositeNode(grammarAccess.getSimDetailTypeTranspositionAccess().getTComplexTypeFeaturesParserRuleCall_3());
                       			
                     }
                     pushFollow(FOLLOW_2);
-                    this_SComplexTypeFeatures_14=ruleSComplexTypeFeatures(current);
+                    this_TComplexTypeFeatures_14=ruleTComplexTypeFeatures(current);
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = this_SComplexTypeFeatures_14;
+                      				current = this_TComplexTypeFeatures_14;
                       				afterParserOrEnumRuleCall();
                       			
                     }
@@ -7550,12 +7550,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDetailTypeDeduction"
+    // $ANTLR end "ruleSimDetailTypeTransposition"
 
 
-    // $ANTLR start "ruleSComplexTypeFeatures"
-    // InternalSim.g:2648:1: ruleSComplexTypeFeatures[EObject in_current] returns [EObject current=in_current] : (otherlv_0= '{' ( ( (lv_features_1_0= ruleSFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' ) ;
-    public final EObject ruleSComplexTypeFeatures(EObject in_current) throws RecognitionException {
+    // $ANTLR start "ruleTComplexTypeFeatures"
+    // InternalSim.g:2648:1: ruleTComplexTypeFeatures[EObject in_current] returns [EObject current=in_current] : (otherlv_0= '{' ( ( (lv_features_1_0= ruleSimFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' ) ;
+    public final EObject ruleTComplexTypeFeatures(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
         Token otherlv_0=null;
@@ -7570,19 +7570,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:2654:2: ( (otherlv_0= '{' ( ( (lv_features_1_0= ruleSFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' ) )
-            // InternalSim.g:2655:2: (otherlv_0= '{' ( ( (lv_features_1_0= ruleSFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' )
+            // InternalSim.g:2654:2: ( (otherlv_0= '{' ( ( (lv_features_1_0= ruleSimFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' ) )
+            // InternalSim.g:2655:2: (otherlv_0= '{' ( ( (lv_features_1_0= ruleSimFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' )
             {
-            // InternalSim.g:2655:2: (otherlv_0= '{' ( ( (lv_features_1_0= ruleSFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' )
-            // InternalSim.g:2656:3: otherlv_0= '{' ( ( (lv_features_1_0= ruleSFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}'
+            // InternalSim.g:2655:2: (otherlv_0= '{' ( ( (lv_features_1_0= ruleSimFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}' )
+            // InternalSim.g:2656:3: otherlv_0= '{' ( ( (lv_features_1_0= ruleSimFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )* otherlv_4= '}'
             {
             otherlv_0=(Token)match(input,22,FOLLOW_39); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_0, grammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
+              			newLeafNode(otherlv_0, grammarAccess.getTComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
               		
             }
-            // InternalSim.g:2660:3: ( ( (lv_features_1_0= ruleSFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )*
+            // InternalSim.g:2660:3: ( ( (lv_features_1_0= ruleSimFeature ) ) | (otherlv_2= 'add' ( (lv_constraints_3_0= ruleDConstraint ) ) ) )*
             loop53:
             do {
                 int alt53=3;
@@ -7607,34 +7607,34 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                 switch (alt53) {
             	case 1 :
-            	    // InternalSim.g:2661:4: ( (lv_features_1_0= ruleSFeature ) )
+            	    // InternalSim.g:2661:4: ( (lv_features_1_0= ruleSimFeature ) )
             	    {
-            	    // InternalSim.g:2661:4: ( (lv_features_1_0= ruleSFeature ) )
-            	    // InternalSim.g:2662:5: (lv_features_1_0= ruleSFeature )
+            	    // InternalSim.g:2661:4: ( (lv_features_1_0= ruleSimFeature ) )
+            	    // InternalSim.g:2662:5: (lv_features_1_0= ruleSimFeature )
             	    {
-            	    // InternalSim.g:2662:5: (lv_features_1_0= ruleSFeature )
-            	    // InternalSim.g:2663:6: lv_features_1_0= ruleSFeature
+            	    // InternalSim.g:2662:5: (lv_features_1_0= ruleSimFeature )
+            	    // InternalSim.g:2663:6: lv_features_1_0= ruleSimFeature
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getSComplexTypeFeaturesAccess().getFeaturesSFeatureParserRuleCall_1_0_0());
+            	      						newCompositeNode(grammarAccess.getTComplexTypeFeaturesAccess().getFeaturesSimFeatureParserRuleCall_1_0_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_39);
-            	    lv_features_1_0=ruleSFeature();
+            	    lv_features_1_0=ruleSimFeature();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getSComplexTypeFeaturesRule());
+            	      							current = createModelElementForParent(grammarAccess.getTComplexTypeFeaturesRule());
             	      						}
             	      						add(
             	      							current,
             	      							"features",
             	      							lv_features_1_0,
-            	      							"com.mimacom.ddd.sm.sim.Sim.SFeature");
+            	      							"com.mimacom.ddd.sm.sim.Sim.SimFeature");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -7656,7 +7656,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	    otherlv_2=(Token)match(input,31,FOLLOW_31); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      					newLeafNode(otherlv_2, grammarAccess.getSComplexTypeFeaturesAccess().getAddKeyword_1_1_0());
+            	      					newLeafNode(otherlv_2, grammarAccess.getTComplexTypeFeaturesAccess().getAddKeyword_1_1_0());
             	      				
             	    }
             	    // InternalSim.g:2686:5: ( (lv_constraints_3_0= ruleDConstraint ) )
@@ -7667,7 +7667,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      							newCompositeNode(grammarAccess.getSComplexTypeFeaturesAccess().getConstraintsDConstraintParserRuleCall_1_1_1_0());
+            	      							newCompositeNode(grammarAccess.getTComplexTypeFeaturesAccess().getConstraintsDConstraintParserRuleCall_1_1_1_0());
             	      						
             	    }
             	    pushFollow(FOLLOW_39);
@@ -7678,7 +7678,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      							if (current==null) {
-            	      								current = createModelElementForParent(grammarAccess.getSComplexTypeFeaturesRule());
+            	      								current = createModelElementForParent(grammarAccess.getTComplexTypeFeaturesRule());
             	      							}
             	      							add(
             	      								current,
@@ -7709,7 +7709,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             otherlv_4=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_4, grammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
+              			newLeafNode(otherlv_4, grammarAccess.getTComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
               		
             }
 
@@ -7733,31 +7733,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSComplexTypeFeatures"
+    // $ANTLR end "ruleTComplexTypeFeatures"
 
 
-    // $ANTLR start "entryRuleSFeature"
-    // InternalSim.g:2715:1: entryRuleSFeature returns [EObject current=null] : iv_ruleSFeature= ruleSFeature EOF ;
-    public final EObject entryRuleSFeature() throws RecognitionException {
+    // $ANTLR start "entryRuleSimFeature"
+    // InternalSim.g:2715:1: entryRuleSimFeature returns [EObject current=null] : iv_ruleSimFeature= ruleSimFeature EOF ;
+    public final EObject entryRuleSimFeature() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSFeature = null;
+        EObject iv_ruleSimFeature = null;
 
 
         try {
-            // InternalSim.g:2715:49: (iv_ruleSFeature= ruleSFeature EOF )
-            // InternalSim.g:2716:2: iv_ruleSFeature= ruleSFeature EOF
+            // InternalSim.g:2715:51: (iv_ruleSimFeature= ruleSimFeature EOF )
+            // InternalSim.g:2716:2: iv_ruleSimFeature= ruleSimFeature EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSFeatureRule()); 
+               newCompositeNode(grammarAccess.getSimFeatureRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSFeature=ruleSFeature();
+            iv_ruleSimFeature=ruleSimFeature();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSFeature; 
+               current =iv_ruleSimFeature; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -7773,26 +7773,26 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSFeature"
+    // $ANTLR end "entryRuleSimFeature"
 
 
-    // $ANTLR start "ruleSFeature"
-    // InternalSim.g:2722:1: ruleSFeature returns [EObject current=null] : (this_SAssociationDeduction_0= ruleSAssociationDeduction | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SAttributeDeduction_3= ruleSAttributeDeduction | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SQueryDeduction_6= ruleSQueryDeduction | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) ) ;
-    public final EObject ruleSFeature() throws RecognitionException {
+    // $ANTLR start "ruleSimFeature"
+    // InternalSim.g:2722:1: ruleSimFeature returns [EObject current=null] : (this_SimAssociationTransposition_0= ruleSimAssociationTransposition | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SimAttributeTransposition_3= ruleSimAttributeTransposition | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SimQueryTransposition_6= ruleSimQueryTransposition | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) ) ;
+    public final EObject ruleSimFeature() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_4=null;
         Token otherlv_7=null;
-        EObject this_SAssociationDeduction_0 = null;
+        EObject this_SimAssociationTransposition_0 = null;
 
         EObject this_DAssociation_2 = null;
 
-        EObject this_SAttributeDeduction_3 = null;
+        EObject this_SimAttributeTransposition_3 = null;
 
         EObject this_DAttribute_5 = null;
 
-        EObject this_SQueryDeduction_6 = null;
+        EObject this_SimQueryTransposition_6 = null;
 
         EObject this_DQuery_8 = null;
 
@@ -7801,29 +7801,29 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:2728:2: ( (this_SAssociationDeduction_0= ruleSAssociationDeduction | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SAttributeDeduction_3= ruleSAttributeDeduction | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SQueryDeduction_6= ruleSQueryDeduction | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) ) )
-            // InternalSim.g:2729:2: (this_SAssociationDeduction_0= ruleSAssociationDeduction | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SAttributeDeduction_3= ruleSAttributeDeduction | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SQueryDeduction_6= ruleSQueryDeduction | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) )
+            // InternalSim.g:2728:2: ( (this_SimAssociationTransposition_0= ruleSimAssociationTransposition | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SimAttributeTransposition_3= ruleSimAttributeTransposition | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SimQueryTransposition_6= ruleSimQueryTransposition | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) ) )
+            // InternalSim.g:2729:2: (this_SimAssociationTransposition_0= ruleSimAssociationTransposition | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SimAttributeTransposition_3= ruleSimAttributeTransposition | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SimQueryTransposition_6= ruleSimQueryTransposition | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) )
             {
-            // InternalSim.g:2729:2: (this_SAssociationDeduction_0= ruleSAssociationDeduction | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SAttributeDeduction_3= ruleSAttributeDeduction | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SQueryDeduction_6= ruleSQueryDeduction | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) )
+            // InternalSim.g:2729:2: (this_SimAssociationTransposition_0= ruleSimAssociationTransposition | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SimAttributeTransposition_3= ruleSimAttributeTransposition | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SimQueryTransposition_6= ruleSimQueryTransposition | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) )
             int alt54=6;
             alt54 = dfa54.predict(input);
             switch (alt54) {
                 case 1 :
-                    // InternalSim.g:2730:3: this_SAssociationDeduction_0= ruleSAssociationDeduction
+                    // InternalSim.g:2730:3: this_SimAssociationTransposition_0= ruleSimAssociationTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSFeatureAccess().getSAssociationDeductionParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getSimFeatureAccess().getSimAssociationTranspositionParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SAssociationDeduction_0=ruleSAssociationDeduction();
+                    this_SimAssociationTransposition_0=ruleSimAssociationTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SAssociationDeduction_0;
+                      			current = this_SimAssociationTransposition_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -7839,12 +7839,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,31,FOLLOW_40); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSFeatureAccess().getAddKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimFeatureAccess().getAddKeyword_1_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSFeatureAccess().getDAssociationParserRuleCall_1_1());
+                      				newCompositeNode(grammarAccess.getSimFeatureAccess().getDAssociationParserRuleCall_1_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -7865,21 +7865,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:2754:3: this_SAttributeDeduction_3= ruleSAttributeDeduction
+                    // InternalSim.g:2754:3: this_SimAttributeTransposition_3= ruleSimAttributeTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSFeatureAccess().getSAttributeDeductionParserRuleCall_2());
+                      			newCompositeNode(grammarAccess.getSimFeatureAccess().getSimAttributeTranspositionParserRuleCall_2());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SAttributeDeduction_3=ruleSAttributeDeduction();
+                    this_SimAttributeTransposition_3=ruleSimAttributeTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SAttributeDeduction_3;
+                      			current = this_SimAttributeTransposition_3;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -7895,12 +7895,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_4=(Token)match(input,31,FOLLOW_41); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_4, grammarAccess.getSFeatureAccess().getAddKeyword_3_0());
+                      				newLeafNode(otherlv_4, grammarAccess.getSimFeatureAccess().getAddKeyword_3_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSFeatureAccess().getDAttributeParserRuleCall_3_1());
+                      				newCompositeNode(grammarAccess.getSimFeatureAccess().getDAttributeParserRuleCall_3_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -7921,21 +7921,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalSim.g:2778:3: this_SQueryDeduction_6= ruleSQueryDeduction
+                    // InternalSim.g:2778:3: this_SimQueryTransposition_6= ruleSimQueryTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSFeatureAccess().getSQueryDeductionParserRuleCall_4());
+                      			newCompositeNode(grammarAccess.getSimFeatureAccess().getSimQueryTranspositionParserRuleCall_4());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SQueryDeduction_6=ruleSQueryDeduction();
+                    this_SimQueryTransposition_6=ruleSimQueryTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SQueryDeduction_6;
+                      			current = this_SimQueryTransposition_6;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -7951,12 +7951,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_7=(Token)match(input,31,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_7, grammarAccess.getSFeatureAccess().getAddKeyword_5_0());
+                      				newLeafNode(otherlv_7, grammarAccess.getSimFeatureAccess().getAddKeyword_5_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSFeatureAccess().getDQueryParserRuleCall_5_1());
+                      				newCompositeNode(grammarAccess.getSimFeatureAccess().getDQueryParserRuleCall_5_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -7997,31 +7997,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSFeature"
+    // $ANTLR end "ruleSimFeature"
 
 
-    // $ANTLR start "entryRuleSAssociationDeduction"
-    // InternalSim.g:2805:1: entryRuleSAssociationDeduction returns [EObject current=null] : iv_ruleSAssociationDeduction= ruleSAssociationDeduction EOF ;
-    public final EObject entryRuleSAssociationDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimAssociationTransposition"
+    // InternalSim.g:2805:1: entryRuleSimAssociationTransposition returns [EObject current=null] : iv_ruleSimAssociationTransposition= ruleSimAssociationTransposition EOF ;
+    public final EObject entryRuleSimAssociationTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSAssociationDeduction = null;
+        EObject iv_ruleSimAssociationTransposition = null;
 
 
         try {
-            // InternalSim.g:2805:62: (iv_ruleSAssociationDeduction= ruleSAssociationDeduction EOF )
-            // InternalSim.g:2806:2: iv_ruleSAssociationDeduction= ruleSAssociationDeduction EOF
+            // InternalSim.g:2805:68: (iv_ruleSimAssociationTransposition= ruleSimAssociationTransposition EOF )
+            // InternalSim.g:2806:2: iv_ruleSimAssociationTransposition= ruleSimAssociationTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSAssociationDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimAssociationTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSAssociationDeduction=ruleSAssociationDeduction();
+            iv_ruleSimAssociationTransposition=ruleSimAssociationTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSAssociationDeduction; 
+               current =iv_ruleSimAssociationTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -8037,12 +8037,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSAssociationDeduction"
+    // $ANTLR end "entryRuleSimAssociationTransposition"
 
 
-    // $ANTLR start "ruleSAssociationDeduction"
-    // InternalSim.g:2812:1: ruleSAssociationDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) ;
-    public final EObject ruleSAssociationDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimAssociationTransposition"
+    // InternalSim.g:2812:1: ruleSimAssociationTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) ;
+    public final EObject ruleSimAssociationTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -8054,11 +8054,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_9=null;
         Token otherlv_10=null;
         Token otherlv_11=null;
-        EObject lv_deductionRule_4_0 = null;
+        EObject lv_transpositionRule_4_0 = null;
 
-        EObject lv_deductionRule_8_0 = null;
+        EObject lv_transpositionRule_8_0 = null;
 
-        EObject lv_deductionRule_12_0 = null;
+        EObject lv_transpositionRule_12_0 = null;
 
         EObject lv_description_13_0 = null;
 
@@ -8067,11 +8067,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:2818:2: ( ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) )
-            // InternalSim.g:2819:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
+            // InternalSim.g:2818:2: ( ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) )
+            // InternalSim.g:2819:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
             {
-            // InternalSim.g:2819:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
-            // InternalSim.g:2820:3: () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )?
+            // InternalSim.g:2819:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
+            // InternalSim.g:2820:3: () ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )?
             {
             // InternalSim.g:2820:3: ()
             // InternalSim.g:2821:4: 
@@ -8079,14 +8079,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSAssociationDeductionAccess().getSAssociationDeductionAction_0(),
+              					grammarAccess.getSimAssociationTranspositionAccess().getTAssociationTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:2827:3: ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) )
+            // InternalSim.g:2827:3: ( (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) )
             int alt58=3;
             switch ( input.LA(1) ) {
             case 29:
@@ -8114,15 +8114,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             switch (alt58) {
                 case 1 :
-                    // InternalSim.g:2828:4: (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) )
+                    // InternalSim.g:2828:4: (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) )
                     {
-                    // InternalSim.g:2828:4: (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) )
-                    // InternalSim.g:2829:5: otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) )
+                    // InternalSim.g:2828:4: (otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) )
+                    // InternalSim.g:2829:5: otherlv_1= 'grab' (otherlv_2= 'reference' | otherlv_3= 'composite' ) ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_42); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSAssociationDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimAssociationTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
                     // InternalSim.g:2833:5: (otherlv_2= 'reference' | otherlv_3= 'composite' )
@@ -8149,7 +8149,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_2=(Token)match(input,42,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_2, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_0_1_0());
+                              						newLeafNode(otherlv_2, grammarAccess.getSimAssociationTranspositionAccess().getReferenceKeyword_1_0_1_0());
                               					
                             }
 
@@ -8161,7 +8161,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_3=(Token)match(input,43,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_3, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_0_1_1());
+                              						newLeafNode(otherlv_3, grammarAccess.getSimAssociationTranspositionAccess().getCompositeKeyword_1_0_1_1());
                               					
                             }
 
@@ -8170,32 +8170,32 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:2844:5: ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) )
-                    // InternalSim.g:2845:6: (lv_deductionRule_4_0= ruleSGrabFeatureRule )
+                    // InternalSim.g:2844:5: ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) )
+                    // InternalSim.g:2845:6: (lv_transpositionRule_4_0= ruleSimGrabFeatureRule )
                     {
-                    // InternalSim.g:2845:6: (lv_deductionRule_4_0= ruleSGrabFeatureRule )
-                    // InternalSim.g:2846:7: lv_deductionRule_4_0= ruleSGrabFeatureRule
+                    // InternalSim.g:2845:6: (lv_transpositionRule_4_0= ruleSimGrabFeatureRule )
+                    // InternalSim.g:2846:7: lv_transpositionRule_4_0= ruleSimGrabFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSAssociationDeductionAccess().getDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0());
+                      							newCompositeNode(grammarAccess.getSimAssociationTranspositionAccess().getTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_4_0=ruleSGrabFeatureRule();
+                    lv_transpositionRule_4_0=ruleSimGrabFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSAssociationDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimAssociationTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_4_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_4_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -8212,15 +8212,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:2865:4: (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) )
+                    // InternalSim.g:2865:4: (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) )
                     {
-                    // InternalSim.g:2865:4: (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) )
-                    // InternalSim.g:2866:5: otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) )
+                    // InternalSim.g:2865:4: (otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) )
+                    // InternalSim.g:2866:5: otherlv_5= 'morph' (otherlv_6= 'reference' | otherlv_7= 'composite' ) ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) )
                     {
                     otherlv_5=(Token)match(input,39,FOLLOW_42); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSAssociationDeductionAccess().getMorphKeyword_1_1_0());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimAssociationTranspositionAccess().getMorphKeyword_1_1_0());
                       				
                     }
                     // InternalSim.g:2870:5: (otherlv_6= 'reference' | otherlv_7= 'composite' )
@@ -8247,7 +8247,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_6=(Token)match(input,42,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_6, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_1_1_0());
+                              						newLeafNode(otherlv_6, grammarAccess.getSimAssociationTranspositionAccess().getReferenceKeyword_1_1_1_0());
                               					
                             }
 
@@ -8259,7 +8259,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_7=(Token)match(input,43,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_7, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_1_1_1());
+                              						newLeafNode(otherlv_7, grammarAccess.getSimAssociationTranspositionAccess().getCompositeKeyword_1_1_1_1());
                               					
                             }
 
@@ -8268,32 +8268,32 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:2881:5: ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) )
-                    // InternalSim.g:2882:6: (lv_deductionRule_8_0= ruleSMorphFeatureRule )
+                    // InternalSim.g:2881:5: ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) )
+                    // InternalSim.g:2882:6: (lv_transpositionRule_8_0= ruleSimMorphFeatureRule )
                     {
-                    // InternalSim.g:2882:6: (lv_deductionRule_8_0= ruleSMorphFeatureRule )
-                    // InternalSim.g:2883:7: lv_deductionRule_8_0= ruleSMorphFeatureRule
+                    // InternalSim.g:2882:6: (lv_transpositionRule_8_0= ruleSimMorphFeatureRule )
+                    // InternalSim.g:2883:7: lv_transpositionRule_8_0= ruleSimMorphFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSAssociationDeductionAccess().getDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0());
+                      							newCompositeNode(grammarAccess.getSimAssociationTranspositionAccess().getTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_8_0=ruleSMorphFeatureRule();
+                    lv_transpositionRule_8_0=ruleSimMorphFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSAssociationDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimAssociationTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_8_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SMorphFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_8_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimMorphFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -8310,15 +8310,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:2902:4: (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) )
+                    // InternalSim.g:2902:4: (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) )
                     {
-                    // InternalSim.g:2902:4: (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) )
-                    // InternalSim.g:2903:5: otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) )
+                    // InternalSim.g:2902:4: (otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) )
+                    // InternalSim.g:2903:5: otherlv_9= 'ditch' (otherlv_10= 'reference' | otherlv_11= 'composite' ) ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) )
                     {
                     otherlv_9=(Token)match(input,34,FOLLOW_42); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_9, grammarAccess.getSAssociationDeductionAccess().getDitchKeyword_1_2_0());
+                      					newLeafNode(otherlv_9, grammarAccess.getSimAssociationTranspositionAccess().getDitchKeyword_1_2_0());
                       				
                     }
                     // InternalSim.g:2907:5: (otherlv_10= 'reference' | otherlv_11= 'composite' )
@@ -8345,7 +8345,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_10=(Token)match(input,42,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_10, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_2_1_0());
+                              						newLeafNode(otherlv_10, grammarAccess.getSimAssociationTranspositionAccess().getReferenceKeyword_1_2_1_0());
                               					
                             }
 
@@ -8357,7 +8357,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_11=(Token)match(input,43,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_11, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_2_1_1());
+                              						newLeafNode(otherlv_11, grammarAccess.getSimAssociationTranspositionAccess().getCompositeKeyword_1_2_1_1());
                               					
                             }
 
@@ -8366,32 +8366,32 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:2918:5: ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) )
-                    // InternalSim.g:2919:6: (lv_deductionRule_12_0= ruleSDitchFeatureRule )
+                    // InternalSim.g:2918:5: ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) )
+                    // InternalSim.g:2919:6: (lv_transpositionRule_12_0= ruleSimDitchFeatureRule )
                     {
-                    // InternalSim.g:2919:6: (lv_deductionRule_12_0= ruleSDitchFeatureRule )
-                    // InternalSim.g:2920:7: lv_deductionRule_12_0= ruleSDitchFeatureRule
+                    // InternalSim.g:2919:6: (lv_transpositionRule_12_0= ruleSimDitchFeatureRule )
+                    // InternalSim.g:2920:7: lv_transpositionRule_12_0= ruleSimDitchFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSAssociationDeductionAccess().getDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0());
+                      							newCompositeNode(grammarAccess.getSimAssociationTranspositionAccess().getTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_12_0=ruleSDitchFeatureRule();
+                    lv_transpositionRule_12_0=ruleSimDitchFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSAssociationDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimAssociationTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_12_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_12_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -8426,7 +8426,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSAssociationDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimAssociationTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -8437,7 +8437,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSAssociationDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimAssociationTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -8477,31 +8477,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSAssociationDeduction"
+    // $ANTLR end "ruleSimAssociationTransposition"
 
 
-    // $ANTLR start "entryRuleSAttributeDeduction"
-    // InternalSim.g:2962:1: entryRuleSAttributeDeduction returns [EObject current=null] : iv_ruleSAttributeDeduction= ruleSAttributeDeduction EOF ;
-    public final EObject entryRuleSAttributeDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimAttributeTransposition"
+    // InternalSim.g:2962:1: entryRuleSimAttributeTransposition returns [EObject current=null] : iv_ruleSimAttributeTransposition= ruleSimAttributeTransposition EOF ;
+    public final EObject entryRuleSimAttributeTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSAttributeDeduction = null;
+        EObject iv_ruleSimAttributeTransposition = null;
 
 
         try {
-            // InternalSim.g:2962:60: (iv_ruleSAttributeDeduction= ruleSAttributeDeduction EOF )
-            // InternalSim.g:2963:2: iv_ruleSAttributeDeduction= ruleSAttributeDeduction EOF
+            // InternalSim.g:2962:66: (iv_ruleSimAttributeTransposition= ruleSimAttributeTransposition EOF )
+            // InternalSim.g:2963:2: iv_ruleSimAttributeTransposition= ruleSimAttributeTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSAttributeDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimAttributeTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSAttributeDeduction=ruleSAttributeDeduction();
+            iv_ruleSimAttributeTransposition=ruleSimAttributeTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSAttributeDeduction; 
+               current =iv_ruleSimAttributeTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -8517,12 +8517,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSAttributeDeduction"
+    // $ANTLR end "entryRuleSimAttributeTransposition"
 
 
-    // $ANTLR start "ruleSAttributeDeduction"
-    // InternalSim.g:2969:1: ruleSAttributeDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) ;
-    public final EObject ruleSAttributeDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimAttributeTransposition"
+    // InternalSim.g:2969:1: ruleSimAttributeTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) ;
+    public final EObject ruleSimAttributeTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -8534,11 +8534,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_9=null;
         Token otherlv_10=null;
         Token lv_detail_11_0=null;
-        EObject lv_deductionRule_4_0 = null;
+        EObject lv_transpositionRule_4_0 = null;
 
-        EObject lv_deductionRule_8_0 = null;
+        EObject lv_transpositionRule_8_0 = null;
 
-        EObject lv_deductionRule_12_0 = null;
+        EObject lv_transpositionRule_12_0 = null;
 
         EObject lv_description_13_0 = null;
 
@@ -8547,11 +8547,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:2975:2: ( ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) )
-            // InternalSim.g:2976:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
+            // InternalSim.g:2975:2: ( ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? ) )
+            // InternalSim.g:2976:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
             {
-            // InternalSim.g:2976:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
-            // InternalSim.g:2977:3: () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )?
+            // InternalSim.g:2976:2: ( () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )? )
+            // InternalSim.g:2977:3: () ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_13_0= ruleDRichText ) )?
             {
             // InternalSim.g:2977:3: ()
             // InternalSim.g:2978:4: 
@@ -8559,14 +8559,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSAttributeDeductionAccess().getSAttributeDeductionAction_0(),
+              					grammarAccess.getSimAttributeTranspositionAccess().getTAttributeTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:2984:3: ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) ) )
+            // InternalSim.g:2984:3: ( (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) ) | (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) ) )
             int alt63=3;
             switch ( input.LA(1) ) {
             case 29:
@@ -8594,15 +8594,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             switch (alt63) {
                 case 1 :
-                    // InternalSim.g:2985:4: (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) )
+                    // InternalSim.g:2985:4: (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) )
                     {
-                    // InternalSim.g:2985:4: (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) ) )
-                    // InternalSim.g:2986:5: otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) )
+                    // InternalSim.g:2985:4: (otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) ) )
+                    // InternalSim.g:2986:5: otherlv_1= 'grab' (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )? ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_43); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSAttributeDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimAttributeTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
                     // InternalSim.g:2990:5: (otherlv_2= 'attribute' | ( (lv_detail_3_0= 'detail' ) ) )?
@@ -8622,7 +8622,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_2=(Token)match(input,44,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_2, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_0_1_0());
+                              						newLeafNode(otherlv_2, grammarAccess.getSimAttributeTranspositionAccess().getAttributeKeyword_1_0_1_0());
                               					
                             }
 
@@ -8640,13 +8640,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_detail_3_0=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              								newLeafNode(lv_detail_3_0, grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_0_1_1_0());
+                              								newLeafNode(lv_detail_3_0, grammarAccess.getSimAttributeTranspositionAccess().getDetailDetailKeyword_1_0_1_1_0());
                               							
                             }
                             if ( state.backtracking==0 ) {
 
                               								if (current==null) {
-                              									current = createModelElement(grammarAccess.getSAttributeDeductionRule());
+                              									current = createModelElement(grammarAccess.getSimAttributeTranspositionRule());
                               								}
                               								setWithLastConsumed(current, "detail", true, "detail");
                               							
@@ -8663,32 +8663,32 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:3011:5: ( (lv_deductionRule_4_0= ruleSGrabFeatureRule ) )
-                    // InternalSim.g:3012:6: (lv_deductionRule_4_0= ruleSGrabFeatureRule )
+                    // InternalSim.g:3011:5: ( (lv_transpositionRule_4_0= ruleSimGrabFeatureRule ) )
+                    // InternalSim.g:3012:6: (lv_transpositionRule_4_0= ruleSimGrabFeatureRule )
                     {
-                    // InternalSim.g:3012:6: (lv_deductionRule_4_0= ruleSGrabFeatureRule )
-                    // InternalSim.g:3013:7: lv_deductionRule_4_0= ruleSGrabFeatureRule
+                    // InternalSim.g:3012:6: (lv_transpositionRule_4_0= ruleSimGrabFeatureRule )
+                    // InternalSim.g:3013:7: lv_transpositionRule_4_0= ruleSimGrabFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSAttributeDeductionAccess().getDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0());
+                      							newCompositeNode(grammarAccess.getSimAttributeTranspositionAccess().getTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_4_0=ruleSGrabFeatureRule();
+                    lv_transpositionRule_4_0=ruleSimGrabFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSAttributeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimAttributeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_4_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_4_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -8705,15 +8705,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:3032:4: (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) )
+                    // InternalSim.g:3032:4: (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) )
                     {
-                    // InternalSim.g:3032:4: (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) ) )
-                    // InternalSim.g:3033:5: otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) )
+                    // InternalSim.g:3032:4: (otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) ) )
+                    // InternalSim.g:3033:5: otherlv_5= 'morph' (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )? ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) )
                     {
                     otherlv_5=(Token)match(input,39,FOLLOW_43); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSAttributeDeductionAccess().getMorphKeyword_1_1_0());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimAttributeTranspositionAccess().getMorphKeyword_1_1_0());
                       				
                     }
                     // InternalSim.g:3037:5: (otherlv_6= 'attribute' | ( (lv_detail_7_0= 'detail' ) ) )?
@@ -8733,7 +8733,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_6=(Token)match(input,44,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_6, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_1_1_0());
+                              						newLeafNode(otherlv_6, grammarAccess.getSimAttributeTranspositionAccess().getAttributeKeyword_1_1_1_0());
                               					
                             }
 
@@ -8751,13 +8751,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_detail_7_0=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              								newLeafNode(lv_detail_7_0, grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_1_1_1_0());
+                              								newLeafNode(lv_detail_7_0, grammarAccess.getSimAttributeTranspositionAccess().getDetailDetailKeyword_1_1_1_1_0());
                               							
                             }
                             if ( state.backtracking==0 ) {
 
                               								if (current==null) {
-                              									current = createModelElement(grammarAccess.getSAttributeDeductionRule());
+                              									current = createModelElement(grammarAccess.getSimAttributeTranspositionRule());
                               								}
                               								setWithLastConsumed(current, "detail", true, "detail");
                               							
@@ -8774,32 +8774,32 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:3058:5: ( (lv_deductionRule_8_0= ruleSMorphFeatureRule ) )
-                    // InternalSim.g:3059:6: (lv_deductionRule_8_0= ruleSMorphFeatureRule )
+                    // InternalSim.g:3058:5: ( (lv_transpositionRule_8_0= ruleSimMorphFeatureRule ) )
+                    // InternalSim.g:3059:6: (lv_transpositionRule_8_0= ruleSimMorphFeatureRule )
                     {
-                    // InternalSim.g:3059:6: (lv_deductionRule_8_0= ruleSMorphFeatureRule )
-                    // InternalSim.g:3060:7: lv_deductionRule_8_0= ruleSMorphFeatureRule
+                    // InternalSim.g:3059:6: (lv_transpositionRule_8_0= ruleSimMorphFeatureRule )
+                    // InternalSim.g:3060:7: lv_transpositionRule_8_0= ruleSimMorphFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSAttributeDeductionAccess().getDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0());
+                      							newCompositeNode(grammarAccess.getSimAttributeTranspositionAccess().getTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_8_0=ruleSMorphFeatureRule();
+                    lv_transpositionRule_8_0=ruleSimMorphFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSAttributeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimAttributeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_8_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SMorphFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_8_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimMorphFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -8816,15 +8816,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:3079:4: (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) )
+                    // InternalSim.g:3079:4: (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) )
                     {
-                    // InternalSim.g:3079:4: (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) ) )
-                    // InternalSim.g:3080:5: otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) )
+                    // InternalSim.g:3079:4: (otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) ) )
+                    // InternalSim.g:3080:5: otherlv_9= 'ditch' (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )? ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) )
                     {
                     otherlv_9=(Token)match(input,34,FOLLOW_43); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_9, grammarAccess.getSAttributeDeductionAccess().getDitchKeyword_1_2_0());
+                      					newLeafNode(otherlv_9, grammarAccess.getSimAttributeTranspositionAccess().getDitchKeyword_1_2_0());
                       				
                     }
                     // InternalSim.g:3084:5: (otherlv_10= 'attribute' | ( (lv_detail_11_0= 'detail' ) ) )?
@@ -8844,7 +8844,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_10=(Token)match(input,44,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_10, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_2_1_0());
+                              						newLeafNode(otherlv_10, grammarAccess.getSimAttributeTranspositionAccess().getAttributeKeyword_1_2_1_0());
                               					
                             }
 
@@ -8862,13 +8862,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             lv_detail_11_0=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              								newLeafNode(lv_detail_11_0, grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_2_1_1_0());
+                              								newLeafNode(lv_detail_11_0, grammarAccess.getSimAttributeTranspositionAccess().getDetailDetailKeyword_1_2_1_1_0());
                               							
                             }
                             if ( state.backtracking==0 ) {
 
                               								if (current==null) {
-                              									current = createModelElement(grammarAccess.getSAttributeDeductionRule());
+                              									current = createModelElement(grammarAccess.getSimAttributeTranspositionRule());
                               								}
                               								setWithLastConsumed(current, "detail", true, "detail");
                               							
@@ -8885,32 +8885,32 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSim.g:3105:5: ( (lv_deductionRule_12_0= ruleSDitchFeatureRule ) )
-                    // InternalSim.g:3106:6: (lv_deductionRule_12_0= ruleSDitchFeatureRule )
+                    // InternalSim.g:3105:5: ( (lv_transpositionRule_12_0= ruleSimDitchFeatureRule ) )
+                    // InternalSim.g:3106:6: (lv_transpositionRule_12_0= ruleSimDitchFeatureRule )
                     {
-                    // InternalSim.g:3106:6: (lv_deductionRule_12_0= ruleSDitchFeatureRule )
-                    // InternalSim.g:3107:7: lv_deductionRule_12_0= ruleSDitchFeatureRule
+                    // InternalSim.g:3106:6: (lv_transpositionRule_12_0= ruleSimDitchFeatureRule )
+                    // InternalSim.g:3107:7: lv_transpositionRule_12_0= ruleSimDitchFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSAttributeDeductionAccess().getDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0());
+                      							newCompositeNode(grammarAccess.getSimAttributeTranspositionAccess().getTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_12_0=ruleSDitchFeatureRule();
+                    lv_transpositionRule_12_0=ruleSimDitchFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSAttributeDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimAttributeTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_12_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_12_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -8945,7 +8945,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSAttributeDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimAttributeTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -8956,7 +8956,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSAttributeDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimAttributeTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -8996,31 +8996,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSAttributeDeduction"
+    // $ANTLR end "ruleSimAttributeTransposition"
 
 
-    // $ANTLR start "entryRuleSQueryDeduction"
-    // InternalSim.g:3149:1: entryRuleSQueryDeduction returns [EObject current=null] : iv_ruleSQueryDeduction= ruleSQueryDeduction EOF ;
-    public final EObject entryRuleSQueryDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimQueryTransposition"
+    // InternalSim.g:3149:1: entryRuleSimQueryTransposition returns [EObject current=null] : iv_ruleSimQueryTransposition= ruleSimQueryTransposition EOF ;
+    public final EObject entryRuleSimQueryTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSQueryDeduction = null;
+        EObject iv_ruleSimQueryTransposition = null;
 
 
         try {
-            // InternalSim.g:3149:56: (iv_ruleSQueryDeduction= ruleSQueryDeduction EOF )
-            // InternalSim.g:3150:2: iv_ruleSQueryDeduction= ruleSQueryDeduction EOF
+            // InternalSim.g:3149:62: (iv_ruleSimQueryTransposition= ruleSimQueryTransposition EOF )
+            // InternalSim.g:3150:2: iv_ruleSimQueryTransposition= ruleSimQueryTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSQueryDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimQueryTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSQueryDeduction=ruleSQueryDeduction();
+            iv_ruleSimQueryTransposition=ruleSimQueryTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSQueryDeduction; 
+               current =iv_ruleSimQueryTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -9036,12 +9036,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSQueryDeduction"
+    // $ANTLR end "entryRuleSimQueryTransposition"
 
 
-    // $ANTLR start "ruleSQueryDeduction"
-    // InternalSim.g:3156:1: ruleSQueryDeduction returns [EObject current=null] : ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? ) ;
-    public final EObject ruleSQueryDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimQueryTransposition"
+    // InternalSim.g:3156:1: ruleSimQueryTransposition returns [EObject current=null] : ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? ) ;
+    public final EObject ruleSimQueryTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -9054,15 +9054,15 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         Token otherlv_12=null;
         Token otherlv_13=null;
         Token otherlv_14=null;
-        EObject lv_deductionRule_3_0 = null;
+        EObject lv_transpositionRule_3_0 = null;
 
-        EObject lv_deductionRule_6_0 = null;
+        EObject lv_transpositionRule_6_0 = null;
 
         EObject lv_parameters_9_0 = null;
 
         EObject lv_parameters_11_0 = null;
 
-        EObject lv_deductionRule_15_0 = null;
+        EObject lv_transpositionRule_15_0 = null;
 
         EObject lv_description_16_0 = null;
 
@@ -9071,11 +9071,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:3162:2: ( ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? ) )
-            // InternalSim.g:3163:2: ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? )
+            // InternalSim.g:3162:2: ( ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? ) )
+            // InternalSim.g:3163:2: ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? )
             {
-            // InternalSim.g:3163:2: ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? )
-            // InternalSim.g:3164:3: () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )?
+            // InternalSim.g:3163:2: ( () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )? )
+            // InternalSim.g:3164:3: () ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) ) ) ( (lv_description_16_0= ruleDRichText ) )?
             {
             // InternalSim.g:3164:3: ()
             // InternalSim.g:3165:4: 
@@ -9083,14 +9083,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSQueryDeductionAccess().getSQueryDeductionAction_0(),
+              					grammarAccess.getSimQueryTranspositionAccess().getTQueryTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:3171:3: ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) ) )
+            // InternalSim.g:3171:3: ( ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' ) | (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) ) )
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -9109,12 +9109,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt68) {
                 case 1 :
-                    // InternalSim.g:3172:4: ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' )
+                    // InternalSim.g:3172:4: ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' )
                     {
-                    // InternalSim.g:3172:4: ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')' )
-                    // InternalSim.g:3173:5: ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) ) otherlv_12= ')'
+                    // InternalSim.g:3172:4: ( ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')' )
+                    // InternalSim.g:3173:5: ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) ) otherlv_7= '(' (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) ) otherlv_12= ')'
                     {
-                    // InternalSim.g:3173:5: ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) ) )
+                    // InternalSim.g:3173:5: ( (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) ) | (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) ) )
                     int alt65=2;
                     int LA65_0 = input.LA(1);
 
@@ -9133,49 +9133,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt65) {
                         case 1 :
-                            // InternalSim.g:3174:6: (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) )
+                            // InternalSim.g:3174:6: (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) )
                             {
-                            // InternalSim.g:3174:6: (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) ) )
-                            // InternalSim.g:3175:7: otherlv_1= 'grab' otherlv_2= 'query' ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) )
+                            // InternalSim.g:3174:6: (otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) ) )
+                            // InternalSim.g:3175:7: otherlv_1= 'grab' otherlv_2= 'query' ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) )
                             {
                             otherlv_1=(Token)match(input,29,FOLLOW_25); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(otherlv_1, grammarAccess.getSQueryDeductionAccess().getGrabKeyword_1_0_0_0_0());
+                              							newLeafNode(otherlv_1, grammarAccess.getSimQueryTranspositionAccess().getGrabKeyword_1_0_0_0_0());
                               						
                             }
                             otherlv_2=(Token)match(input,32,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(otherlv_2, grammarAccess.getSQueryDeductionAccess().getQueryKeyword_1_0_0_0_1());
+                              							newLeafNode(otherlv_2, grammarAccess.getSimQueryTranspositionAccess().getQueryKeyword_1_0_0_0_1());
                               						
                             }
-                            // InternalSim.g:3183:7: ( (lv_deductionRule_3_0= ruleSGrabFeatureRule ) )
-                            // InternalSim.g:3184:8: (lv_deductionRule_3_0= ruleSGrabFeatureRule )
+                            // InternalSim.g:3183:7: ( (lv_transpositionRule_3_0= ruleSimGrabFeatureRule ) )
+                            // InternalSim.g:3184:8: (lv_transpositionRule_3_0= ruleSimGrabFeatureRule )
                             {
-                            // InternalSim.g:3184:8: (lv_deductionRule_3_0= ruleSGrabFeatureRule )
-                            // InternalSim.g:3185:9: lv_deductionRule_3_0= ruleSGrabFeatureRule
+                            // InternalSim.g:3184:8: (lv_transpositionRule_3_0= ruleSimGrabFeatureRule )
+                            // InternalSim.g:3185:9: lv_transpositionRule_3_0= ruleSimGrabFeatureRule
                             {
                             if ( state.backtracking==0 ) {
 
-                              									newCompositeNode(grammarAccess.getSQueryDeductionAccess().getDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_0_0_2_0());
+                              									newCompositeNode(grammarAccess.getSimQueryTranspositionAccess().getTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_0_0_2_0());
                               								
                             }
                             pushFollow(FOLLOW_44);
-                            lv_deductionRule_3_0=ruleSGrabFeatureRule();
+                            lv_transpositionRule_3_0=ruleSimGrabFeatureRule();
 
                             state._fsp--;
                             if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               									if (current==null) {
-                              										current = createModelElementForParent(grammarAccess.getSQueryDeductionRule());
+                              										current = createModelElementForParent(grammarAccess.getSimQueryTranspositionRule());
                               									}
                               									set(
                               										current,
-                              										"deductionRule",
-                              										lv_deductionRule_3_0,
-                              										"com.mimacom.ddd.sm.sim.Sim.SGrabFeatureRule");
+                              										"transpositionRule",
+                              										lv_transpositionRule_3_0,
+                              										"com.mimacom.ddd.sm.sim.Sim.SimGrabFeatureRule");
                               									afterParserOrEnumRuleCall();
                               								
                             }
@@ -9192,49 +9192,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalSim.g:3204:6: (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) )
+                            // InternalSim.g:3204:6: (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) )
                             {
-                            // InternalSim.g:3204:6: (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) ) )
-                            // InternalSim.g:3205:7: otherlv_4= 'morph' otherlv_5= 'query' ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) )
+                            // InternalSim.g:3204:6: (otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) ) )
+                            // InternalSim.g:3205:7: otherlv_4= 'morph' otherlv_5= 'query' ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) )
                             {
                             otherlv_4=(Token)match(input,39,FOLLOW_25); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(otherlv_4, grammarAccess.getSQueryDeductionAccess().getMorphKeyword_1_0_0_1_0());
+                              							newLeafNode(otherlv_4, grammarAccess.getSimQueryTranspositionAccess().getMorphKeyword_1_0_0_1_0());
                               						
                             }
                             otherlv_5=(Token)match(input,32,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              							newLeafNode(otherlv_5, grammarAccess.getSQueryDeductionAccess().getQueryKeyword_1_0_0_1_1());
+                              							newLeafNode(otherlv_5, grammarAccess.getSimQueryTranspositionAccess().getQueryKeyword_1_0_0_1_1());
                               						
                             }
-                            // InternalSim.g:3213:7: ( (lv_deductionRule_6_0= ruleSMorphFeatureRule ) )
-                            // InternalSim.g:3214:8: (lv_deductionRule_6_0= ruleSMorphFeatureRule )
+                            // InternalSim.g:3213:7: ( (lv_transpositionRule_6_0= ruleSimMorphFeatureRule ) )
+                            // InternalSim.g:3214:8: (lv_transpositionRule_6_0= ruleSimMorphFeatureRule )
                             {
-                            // InternalSim.g:3214:8: (lv_deductionRule_6_0= ruleSMorphFeatureRule )
-                            // InternalSim.g:3215:9: lv_deductionRule_6_0= ruleSMorphFeatureRule
+                            // InternalSim.g:3214:8: (lv_transpositionRule_6_0= ruleSimMorphFeatureRule )
+                            // InternalSim.g:3215:9: lv_transpositionRule_6_0= ruleSimMorphFeatureRule
                             {
                             if ( state.backtracking==0 ) {
 
-                              									newCompositeNode(grammarAccess.getSQueryDeductionAccess().getDeductionRuleSMorphFeatureRuleParserRuleCall_1_0_0_1_2_0());
+                              									newCompositeNode(grammarAccess.getSimQueryTranspositionAccess().getTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_0_0_1_2_0());
                               								
                             }
                             pushFollow(FOLLOW_44);
-                            lv_deductionRule_6_0=ruleSMorphFeatureRule();
+                            lv_transpositionRule_6_0=ruleSimMorphFeatureRule();
 
                             state._fsp--;
                             if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               									if (current==null) {
-                              										current = createModelElementForParent(grammarAccess.getSQueryDeductionRule());
+                              										current = createModelElementForParent(grammarAccess.getSimQueryTranspositionRule());
                               									}
                               									set(
                               										current,
-                              										"deductionRule",
-                              										lv_deductionRule_6_0,
-                              										"com.mimacom.ddd.sm.sim.Sim.SMorphFeatureRule");
+                              										"transpositionRule",
+                              										lv_transpositionRule_6_0,
+                              										"com.mimacom.ddd.sm.sim.Sim.SimMorphFeatureRule");
                               									afterParserOrEnumRuleCall();
                               								
                             }
@@ -9256,10 +9256,10 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_7=(Token)match(input,45,FOLLOW_45); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_7, grammarAccess.getSQueryDeductionAccess().getLeftParenthesisKeyword_1_0_1());
+                      					newLeafNode(otherlv_7, grammarAccess.getSimQueryTranspositionAccess().getLeftParenthesisKeyword_1_0_1());
                       				
                     }
-                    // InternalSim.g:3238:5: (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* ) )
+                    // InternalSim.g:3238:5: (otherlv_8= '*' | ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* ) )
                     int alt67=2;
                     int LA67_0 = input.LA(1);
 
@@ -9283,44 +9283,44 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             otherlv_8=(Token)match(input,46,FOLLOW_46); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(otherlv_8, grammarAccess.getSQueryDeductionAccess().getAsteriskKeyword_1_0_2_0());
+                              						newLeafNode(otherlv_8, grammarAccess.getSimQueryTranspositionAccess().getAsteriskKeyword_1_0_2_0());
                               					
                             }
 
                             }
                             break;
                         case 2 :
-                            // InternalSim.g:3244:6: ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* )
+                            // InternalSim.g:3244:6: ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* )
                             {
-                            // InternalSim.g:3244:6: ( ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )* )
-                            // InternalSim.g:3245:7: ( (lv_parameters_9_0= ruleSQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )*
+                            // InternalSim.g:3244:6: ( ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )* )
+                            // InternalSim.g:3245:7: ( (lv_parameters_9_0= ruleSimQueryParameter ) ) (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )*
                             {
-                            // InternalSim.g:3245:7: ( (lv_parameters_9_0= ruleSQueryParameter ) )
-                            // InternalSim.g:3246:8: (lv_parameters_9_0= ruleSQueryParameter )
+                            // InternalSim.g:3245:7: ( (lv_parameters_9_0= ruleSimQueryParameter ) )
+                            // InternalSim.g:3246:8: (lv_parameters_9_0= ruleSimQueryParameter )
                             {
-                            // InternalSim.g:3246:8: (lv_parameters_9_0= ruleSQueryParameter )
-                            // InternalSim.g:3247:9: lv_parameters_9_0= ruleSQueryParameter
+                            // InternalSim.g:3246:8: (lv_parameters_9_0= ruleSimQueryParameter )
+                            // InternalSim.g:3247:9: lv_parameters_9_0= ruleSimQueryParameter
                             {
                             if ( state.backtracking==0 ) {
 
-                              									newCompositeNode(grammarAccess.getSQueryDeductionAccess().getParametersSQueryParameterParserRuleCall_1_0_2_1_0_0());
+                              									newCompositeNode(grammarAccess.getSimQueryTranspositionAccess().getParametersSimQueryParameterParserRuleCall_1_0_2_1_0_0());
                               								
                             }
                             pushFollow(FOLLOW_47);
-                            lv_parameters_9_0=ruleSQueryParameter();
+                            lv_parameters_9_0=ruleSimQueryParameter();
 
                             state._fsp--;
                             if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               									if (current==null) {
-                              										current = createModelElementForParent(grammarAccess.getSQueryDeductionRule());
+                              										current = createModelElementForParent(grammarAccess.getSimQueryTranspositionRule());
                               									}
                               									add(
                               										current,
                               										"parameters",
                               										lv_parameters_9_0,
-                              										"com.mimacom.ddd.sm.sim.Sim.SQueryParameter");
+                              										"com.mimacom.ddd.sm.sim.Sim.SimQueryParameter");
                               									afterParserOrEnumRuleCall();
                               								
                             }
@@ -9330,7 +9330,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalSim.g:3264:7: (otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) ) )*
+                            // InternalSim.g:3264:7: (otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) ) )*
                             loop66:
                             do {
                                 int alt66=2;
@@ -9343,40 +9343,40 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                                 switch (alt66) {
                             	case 1 :
-                            	    // InternalSim.g:3265:8: otherlv_10= ',' ( (lv_parameters_11_0= ruleSQueryParameter ) )
+                            	    // InternalSim.g:3265:8: otherlv_10= ',' ( (lv_parameters_11_0= ruleSimQueryParameter ) )
                             	    {
                             	    otherlv_10=(Token)match(input,36,FOLLOW_45); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
-                            	      								newLeafNode(otherlv_10, grammarAccess.getSQueryDeductionAccess().getCommaKeyword_1_0_2_1_1_0());
+                            	      								newLeafNode(otherlv_10, grammarAccess.getSimQueryTranspositionAccess().getCommaKeyword_1_0_2_1_1_0());
                             	      							
                             	    }
-                            	    // InternalSim.g:3269:8: ( (lv_parameters_11_0= ruleSQueryParameter ) )
-                            	    // InternalSim.g:3270:9: (lv_parameters_11_0= ruleSQueryParameter )
+                            	    // InternalSim.g:3269:8: ( (lv_parameters_11_0= ruleSimQueryParameter ) )
+                            	    // InternalSim.g:3270:9: (lv_parameters_11_0= ruleSimQueryParameter )
                             	    {
-                            	    // InternalSim.g:3270:9: (lv_parameters_11_0= ruleSQueryParameter )
-                            	    // InternalSim.g:3271:10: lv_parameters_11_0= ruleSQueryParameter
+                            	    // InternalSim.g:3270:9: (lv_parameters_11_0= ruleSimQueryParameter )
+                            	    // InternalSim.g:3271:10: lv_parameters_11_0= ruleSimQueryParameter
                             	    {
                             	    if ( state.backtracking==0 ) {
 
-                            	      										newCompositeNode(grammarAccess.getSQueryDeductionAccess().getParametersSQueryParameterParserRuleCall_1_0_2_1_1_1_0());
+                            	      										newCompositeNode(grammarAccess.getSimQueryTranspositionAccess().getParametersSimQueryParameterParserRuleCall_1_0_2_1_1_1_0());
                             	      									
                             	    }
                             	    pushFollow(FOLLOW_47);
-                            	    lv_parameters_11_0=ruleSQueryParameter();
+                            	    lv_parameters_11_0=ruleSimQueryParameter();
 
                             	    state._fsp--;
                             	    if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	      										if (current==null) {
-                            	      											current = createModelElementForParent(grammarAccess.getSQueryDeductionRule());
+                            	      											current = createModelElementForParent(grammarAccess.getSimQueryTranspositionRule());
                             	      										}
                             	      										add(
                             	      											current,
                             	      											"parameters",
                             	      											lv_parameters_11_0,
-                            	      											"com.mimacom.ddd.sm.sim.Sim.SQueryParameter");
+                            	      											"com.mimacom.ddd.sm.sim.Sim.SimQueryParameter");
                             	      										afterParserOrEnumRuleCall();
                             	      									
                             	    }
@@ -9407,7 +9407,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_12=(Token)match(input,47,FOLLOW_35); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_12, grammarAccess.getSQueryDeductionAccess().getRightParenthesisKeyword_1_0_3());
+                      					newLeafNode(otherlv_12, grammarAccess.getSimQueryTranspositionAccess().getRightParenthesisKeyword_1_0_3());
                       				
                     }
 
@@ -9417,49 +9417,49 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:3297:4: (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) )
+                    // InternalSim.g:3297:4: (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) )
                     {
-                    // InternalSim.g:3297:4: (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) ) )
-                    // InternalSim.g:3298:5: otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) )
+                    // InternalSim.g:3297:4: (otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) ) )
+                    // InternalSim.g:3298:5: otherlv_13= 'ditch' otherlv_14= 'query' ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) )
                     {
                     otherlv_13=(Token)match(input,34,FOLLOW_25); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_13, grammarAccess.getSQueryDeductionAccess().getDitchKeyword_1_1_0());
+                      					newLeafNode(otherlv_13, grammarAccess.getSimQueryTranspositionAccess().getDitchKeyword_1_1_0());
                       				
                     }
                     otherlv_14=(Token)match(input,32,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_14, grammarAccess.getSQueryDeductionAccess().getQueryKeyword_1_1_1());
+                      					newLeafNode(otherlv_14, grammarAccess.getSimQueryTranspositionAccess().getQueryKeyword_1_1_1());
                       				
                     }
-                    // InternalSim.g:3306:5: ( (lv_deductionRule_15_0= ruleSDitchFeatureRule ) )
-                    // InternalSim.g:3307:6: (lv_deductionRule_15_0= ruleSDitchFeatureRule )
+                    // InternalSim.g:3306:5: ( (lv_transpositionRule_15_0= ruleSimDitchFeatureRule ) )
+                    // InternalSim.g:3307:6: (lv_transpositionRule_15_0= ruleSimDitchFeatureRule )
                     {
-                    // InternalSim.g:3307:6: (lv_deductionRule_15_0= ruleSDitchFeatureRule )
-                    // InternalSim.g:3308:7: lv_deductionRule_15_0= ruleSDitchFeatureRule
+                    // InternalSim.g:3307:6: (lv_transpositionRule_15_0= ruleSimDitchFeatureRule )
+                    // InternalSim.g:3308:7: lv_transpositionRule_15_0= ruleSimDitchFeatureRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSQueryDeductionAccess().getDeductionRuleSDitchFeatureRuleParserRuleCall_1_1_2_0());
+                      							newCompositeNode(grammarAccess.getSimQueryTranspositionAccess().getTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_1_2_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_15_0=ruleSDitchFeatureRule();
+                    lv_transpositionRule_15_0=ruleSimDitchFeatureRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSQueryDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimQueryTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_15_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchFeatureRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_15_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchFeatureRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -9494,7 +9494,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSQueryDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimQueryTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -9505,7 +9505,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSQueryDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimQueryTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -9545,31 +9545,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSQueryDeduction"
+    // $ANTLR end "ruleSimQueryTransposition"
 
 
-    // $ANTLR start "entryRuleSQueryParameter"
-    // InternalSim.g:3350:1: entryRuleSQueryParameter returns [EObject current=null] : iv_ruleSQueryParameter= ruleSQueryParameter EOF ;
-    public final EObject entryRuleSQueryParameter() throws RecognitionException {
+    // $ANTLR start "entryRuleSimQueryParameter"
+    // InternalSim.g:3350:1: entryRuleSimQueryParameter returns [EObject current=null] : iv_ruleSimQueryParameter= ruleSimQueryParameter EOF ;
+    public final EObject entryRuleSimQueryParameter() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSQueryParameter = null;
+        EObject iv_ruleSimQueryParameter = null;
 
 
         try {
-            // InternalSim.g:3350:56: (iv_ruleSQueryParameter= ruleSQueryParameter EOF )
-            // InternalSim.g:3351:2: iv_ruleSQueryParameter= ruleSQueryParameter EOF
+            // InternalSim.g:3350:58: (iv_ruleSimQueryParameter= ruleSimQueryParameter EOF )
+            // InternalSim.g:3351:2: iv_ruleSimQueryParameter= ruleSimQueryParameter EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSQueryParameterRule()); 
+               newCompositeNode(grammarAccess.getSimQueryParameterRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSQueryParameter=ruleSQueryParameter();
+            iv_ruleSimQueryParameter=ruleSimQueryParameter();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSQueryParameter; 
+               current =iv_ruleSimQueryParameter; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -9585,16 +9585,16 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSQueryParameter"
+    // $ANTLR end "entryRuleSimQueryParameter"
 
 
-    // $ANTLR start "ruleSQueryParameter"
-    // InternalSim.g:3357:1: ruleSQueryParameter returns [EObject current=null] : (this_SQueryParameterDeduction_0= ruleSQueryParameterDeduction | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) ) ;
-    public final EObject ruleSQueryParameter() throws RecognitionException {
+    // $ANTLR start "ruleSimQueryParameter"
+    // InternalSim.g:3357:1: ruleSimQueryParameter returns [EObject current=null] : (this_SimQueryParameterTransposition_0= ruleSimQueryParameterTransposition | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) ) ;
+    public final EObject ruleSimQueryParameter() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        EObject this_SQueryParameterDeduction_0 = null;
+        EObject this_SimQueryParameterTransposition_0 = null;
 
         EObject this_DQueryParameter_2 = null;
 
@@ -9603,10 +9603,10 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:3363:2: ( (this_SQueryParameterDeduction_0= ruleSQueryParameterDeduction | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) ) )
-            // InternalSim.g:3364:2: (this_SQueryParameterDeduction_0= ruleSQueryParameterDeduction | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) )
+            // InternalSim.g:3363:2: ( (this_SimQueryParameterTransposition_0= ruleSimQueryParameterTransposition | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) ) )
+            // InternalSim.g:3364:2: (this_SimQueryParameterTransposition_0= ruleSimQueryParameterTransposition | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) )
             {
-            // InternalSim.g:3364:2: (this_SQueryParameterDeduction_0= ruleSQueryParameterDeduction | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) )
+            // InternalSim.g:3364:2: (this_SimQueryParameterTransposition_0= ruleSimQueryParameterTransposition | (otherlv_1= 'add' this_DQueryParameter_2= ruleDQueryParameter ) )
             int alt70=2;
             int LA70_0 = input.LA(1);
 
@@ -9625,21 +9625,21 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt70) {
                 case 1 :
-                    // InternalSim.g:3365:3: this_SQueryParameterDeduction_0= ruleSQueryParameterDeduction
+                    // InternalSim.g:3365:3: this_SimQueryParameterTransposition_0= ruleSimQueryParameterTransposition
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getSQueryParameterAccess().getSQueryParameterDeductionParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getSimQueryParameterAccess().getSimQueryParameterTranspositionParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SQueryParameterDeduction_0=ruleSQueryParameterDeduction();
+                    this_SimQueryParameterTransposition_0=ruleSimQueryParameterTransposition();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SQueryParameterDeduction_0;
+                      			current = this_SimQueryParameterTransposition_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -9655,12 +9655,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,31,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_1, grammarAccess.getSQueryParameterAccess().getAddKeyword_1_0());
+                      				newLeafNode(otherlv_1, grammarAccess.getSimQueryParameterAccess().getAddKeyword_1_0());
                       			
                     }
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getSQueryParameterAccess().getDQueryParameterParserRuleCall_1_1());
+                      				newCompositeNode(grammarAccess.getSimQueryParameterAccess().getDQueryParameterParserRuleCall_1_1());
                       			
                     }
                     pushFollow(FOLLOW_2);
@@ -9701,31 +9701,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSQueryParameter"
+    // $ANTLR end "ruleSimQueryParameter"
 
 
-    // $ANTLR start "entryRuleSQueryParameterDeduction"
-    // InternalSim.g:3392:1: entryRuleSQueryParameterDeduction returns [EObject current=null] : iv_ruleSQueryParameterDeduction= ruleSQueryParameterDeduction EOF ;
-    public final EObject entryRuleSQueryParameterDeduction() throws RecognitionException {
+    // $ANTLR start "entryRuleSimQueryParameterTransposition"
+    // InternalSim.g:3392:1: entryRuleSimQueryParameterTransposition returns [EObject current=null] : iv_ruleSimQueryParameterTransposition= ruleSimQueryParameterTransposition EOF ;
+    public final EObject entryRuleSimQueryParameterTransposition() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSQueryParameterDeduction = null;
+        EObject iv_ruleSimQueryParameterTransposition = null;
 
 
         try {
-            // InternalSim.g:3392:65: (iv_ruleSQueryParameterDeduction= ruleSQueryParameterDeduction EOF )
-            // InternalSim.g:3393:2: iv_ruleSQueryParameterDeduction= ruleSQueryParameterDeduction EOF
+            // InternalSim.g:3392:71: (iv_ruleSimQueryParameterTransposition= ruleSimQueryParameterTransposition EOF )
+            // InternalSim.g:3393:2: iv_ruleSimQueryParameterTransposition= ruleSimQueryParameterTransposition EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSQueryParameterDeductionRule()); 
+               newCompositeNode(grammarAccess.getSimQueryParameterTranspositionRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleSQueryParameterDeduction=ruleSQueryParameterDeduction();
+            iv_ruleSimQueryParameterTransposition=ruleSimQueryParameterTransposition();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSQueryParameterDeduction; 
+               current =iv_ruleSimQueryParameterTransposition; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -9741,22 +9741,22 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSQueryParameterDeduction"
+    // $ANTLR end "entryRuleSimQueryParameterTransposition"
 
 
-    // $ANTLR start "ruleSQueryParameterDeduction"
-    // InternalSim.g:3399:1: ruleSQueryParameterDeduction returns [EObject current=null] : ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? ) ;
-    public final EObject ruleSQueryParameterDeduction() throws RecognitionException {
+    // $ANTLR start "ruleSimQueryParameterTransposition"
+    // InternalSim.g:3399:1: ruleSimQueryParameterTransposition returns [EObject current=null] : ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? ) ;
+    public final EObject ruleSimQueryParameterTransposition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_3=null;
         Token otherlv_5=null;
-        EObject lv_deductionRule_2_0 = null;
+        EObject lv_transpositionRule_2_0 = null;
 
-        EObject lv_deductionRule_4_0 = null;
+        EObject lv_transpositionRule_4_0 = null;
 
-        EObject lv_deductionRule_6_0 = null;
+        EObject lv_transpositionRule_6_0 = null;
 
         EObject lv_description_7_0 = null;
 
@@ -9765,11 +9765,11 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:3405:2: ( ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? ) )
-            // InternalSim.g:3406:2: ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? )
+            // InternalSim.g:3405:2: ( ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? ) )
+            // InternalSim.g:3406:2: ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? )
             {
-            // InternalSim.g:3406:2: ( () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? )
-            // InternalSim.g:3407:3: () ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )?
+            // InternalSim.g:3406:2: ( () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )? )
+            // InternalSim.g:3407:3: () ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) ) ) ( (lv_description_7_0= ruleDRichText ) )?
             {
             // InternalSim.g:3407:3: ()
             // InternalSim.g:3408:4: 
@@ -9777,14 +9777,14 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getSQueryParameterDeductionAccess().getSQueryParameterDeductionAction_0(),
+              					grammarAccess.getSimQueryParameterTranspositionAccess().getTQueryParameterTranspositionAction_0(),
               					current);
               			
             }
 
             }
 
-            // InternalSim.g:3414:3: ( (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) ) )
+            // InternalSim.g:3414:3: ( (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) ) | (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) ) | (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) ) )
             int alt71=3;
             switch ( input.LA(1) ) {
             case 29:
@@ -9812,43 +9812,43 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             switch (alt71) {
                 case 1 :
-                    // InternalSim.g:3415:4: (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) )
+                    // InternalSim.g:3415:4: (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) )
                     {
-                    // InternalSim.g:3415:4: (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) ) )
-                    // InternalSim.g:3416:5: otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) )
+                    // InternalSim.g:3415:4: (otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) ) )
+                    // InternalSim.g:3416:5: otherlv_1= 'grab' ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) )
                     {
                     otherlv_1=(Token)match(input,29,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_1, grammarAccess.getSQueryParameterDeductionAccess().getGrabKeyword_1_0_0());
+                      					newLeafNode(otherlv_1, grammarAccess.getSimQueryParameterTranspositionAccess().getGrabKeyword_1_0_0());
                       				
                     }
-                    // InternalSim.g:3420:5: ( (lv_deductionRule_2_0= ruleSGrabQueryParameterRule ) )
-                    // InternalSim.g:3421:6: (lv_deductionRule_2_0= ruleSGrabQueryParameterRule )
+                    // InternalSim.g:3420:5: ( (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule ) )
+                    // InternalSim.g:3421:6: (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule )
                     {
-                    // InternalSim.g:3421:6: (lv_deductionRule_2_0= ruleSGrabQueryParameterRule )
-                    // InternalSim.g:3422:7: lv_deductionRule_2_0= ruleSGrabQueryParameterRule
+                    // InternalSim.g:3421:6: (lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule )
+                    // InternalSim.g:3422:7: lv_transpositionRule_2_0= ruleSimGrabQueryParameterRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSQueryParameterDeductionAccess().getDeductionRuleSGrabQueryParameterRuleParserRuleCall_1_0_1_0());
+                      							newCompositeNode(grammarAccess.getSimQueryParameterTranspositionAccess().getTranspositionRuleSimGrabQueryParameterRuleParserRuleCall_1_0_1_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_2_0=ruleSGrabQueryParameterRule();
+                    lv_transpositionRule_2_0=ruleSimGrabQueryParameterRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSQueryParameterDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimQueryParameterTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_2_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SGrabQueryParameterRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_2_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimGrabQueryParameterRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -9865,43 +9865,43 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:3441:4: (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) )
+                    // InternalSim.g:3441:4: (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) )
                     {
-                    // InternalSim.g:3441:4: (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) ) )
-                    // InternalSim.g:3442:5: otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) )
+                    // InternalSim.g:3441:4: (otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) ) )
+                    // InternalSim.g:3442:5: otherlv_3= 'morph' ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) )
                     {
                     otherlv_3=(Token)match(input,39,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_3, grammarAccess.getSQueryParameterDeductionAccess().getMorphKeyword_1_1_0());
+                      					newLeafNode(otherlv_3, grammarAccess.getSimQueryParameterTranspositionAccess().getMorphKeyword_1_1_0());
                       				
                     }
-                    // InternalSim.g:3446:5: ( (lv_deductionRule_4_0= ruleSMorphQueryParameterRule ) )
-                    // InternalSim.g:3447:6: (lv_deductionRule_4_0= ruleSMorphQueryParameterRule )
+                    // InternalSim.g:3446:5: ( (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule ) )
+                    // InternalSim.g:3447:6: (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule )
                     {
-                    // InternalSim.g:3447:6: (lv_deductionRule_4_0= ruleSMorphQueryParameterRule )
-                    // InternalSim.g:3448:7: lv_deductionRule_4_0= ruleSMorphQueryParameterRule
+                    // InternalSim.g:3447:6: (lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule )
+                    // InternalSim.g:3448:7: lv_transpositionRule_4_0= ruleSimMorphQueryParameterRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSQueryParameterDeductionAccess().getDeductionRuleSMorphQueryParameterRuleParserRuleCall_1_1_1_0());
+                      							newCompositeNode(grammarAccess.getSimQueryParameterTranspositionAccess().getTranspositionRuleSimMorphQueryParameterRuleParserRuleCall_1_1_1_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_4_0=ruleSMorphQueryParameterRule();
+                    lv_transpositionRule_4_0=ruleSimMorphQueryParameterRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSQueryParameterDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimQueryParameterTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_4_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SMorphQueryParameterRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_4_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimMorphQueryParameterRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -9918,43 +9918,43 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSim.g:3467:4: (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) )
+                    // InternalSim.g:3467:4: (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) )
                     {
-                    // InternalSim.g:3467:4: (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) ) )
-                    // InternalSim.g:3468:5: otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) )
+                    // InternalSim.g:3467:4: (otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) ) )
+                    // InternalSim.g:3468:5: otherlv_5= 'ditch' ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) )
                     {
                     otherlv_5=(Token)match(input,34,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_5, grammarAccess.getSQueryParameterDeductionAccess().getDitchKeyword_1_2_0());
+                      					newLeafNode(otherlv_5, grammarAccess.getSimQueryParameterTranspositionAccess().getDitchKeyword_1_2_0());
                       				
                     }
-                    // InternalSim.g:3472:5: ( (lv_deductionRule_6_0= ruleSDitchQueryParameterRule ) )
-                    // InternalSim.g:3473:6: (lv_deductionRule_6_0= ruleSDitchQueryParameterRule )
+                    // InternalSim.g:3472:5: ( (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule ) )
+                    // InternalSim.g:3473:6: (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule )
                     {
-                    // InternalSim.g:3473:6: (lv_deductionRule_6_0= ruleSDitchQueryParameterRule )
-                    // InternalSim.g:3474:7: lv_deductionRule_6_0= ruleSDitchQueryParameterRule
+                    // InternalSim.g:3473:6: (lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule )
+                    // InternalSim.g:3474:7: lv_transpositionRule_6_0= ruleSimDitchQueryParameterRule
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getSQueryParameterDeductionAccess().getDeductionRuleSDitchQueryParameterRuleParserRuleCall_1_2_1_0());
+                      							newCompositeNode(grammarAccess.getSimQueryParameterTranspositionAccess().getTranspositionRuleSimDitchQueryParameterRuleParserRuleCall_1_2_1_0());
                       						
                     }
                     pushFollow(FOLLOW_35);
-                    lv_deductionRule_6_0=ruleSDitchQueryParameterRule();
+                    lv_transpositionRule_6_0=ruleSimDitchQueryParameterRule();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getSQueryParameterDeductionRule());
+                      								current = createModelElementForParent(grammarAccess.getSimQueryParameterTranspositionRule());
                       							}
                       							set(
                       								current,
-                      								"deductionRule",
-                      								lv_deductionRule_6_0,
-                      								"com.mimacom.ddd.sm.sim.Sim.SDitchQueryParameterRule");
+                      								"transpositionRule",
+                      								lv_transpositionRule_6_0,
+                      								"com.mimacom.ddd.sm.sim.Sim.SimDitchQueryParameterRule");
                       							afterParserOrEnumRuleCall();
                       						
                     }
@@ -9989,7 +9989,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSQueryParameterDeductionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getSimQueryParameterTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -10000,7 +10000,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getSQueryParameterDeductionRule());
+                      						current = createModelElementForParent(grammarAccess.getSimQueryParameterTranspositionRule());
                       					}
                       					set(
                       						current,
@@ -10040,7 +10040,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSQueryParameterDeduction"
+    // $ANTLR end "ruleSimQueryParameterTransposition"
 
 
     // $ANTLR start "entryRuleDAggregate"
@@ -26138,9 +26138,9 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSInformationModelKind"
 
 
-    // $ANTLR start "ruleSAbstractType"
-    // InternalSim.g:9213:1: ruleSAbstractType returns [Enumerator current=null] : ( (enumLiteral_0= 'nonabstract' ) | (enumLiteral_1= 'abstract' ) ) ;
-    public final Enumerator ruleSAbstractType() throws RecognitionException {
+    // $ANTLR start "ruleSimAbstractType"
+    // InternalSim.g:9213:1: ruleSimAbstractType returns [Enumerator current=null] : ( (enumLiteral_0= 'nonabstract' ) | (enumLiteral_1= 'abstract' ) ) ;
+    public final Enumerator ruleSimAbstractType() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -26180,8 +26180,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     enumLiteral_0=(Token)match(input,98,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = grammarAccess.getSAbstractTypeAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_0, grammarAccess.getSAbstractTypeAccess().getFALSEEnumLiteralDeclaration_0());
+                      				current = grammarAccess.getSimAbstractTypeAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_0, grammarAccess.getSimAbstractTypeAccess().getFALSEEnumLiteralDeclaration_0());
                       			
                     }
 
@@ -26199,8 +26199,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     enumLiteral_1=(Token)match(input,51,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = grammarAccess.getSAbstractTypeAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_1, grammarAccess.getSAbstractTypeAccess().getTRUEEnumLiteralDeclaration_1());
+                      				current = grammarAccess.getSimAbstractTypeAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_1, grammarAccess.getSimAbstractTypeAccess().getTRUEEnumLiteralDeclaration_1());
                       			
                     }
 
@@ -26230,12 +26230,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSAbstractType"
+    // $ANTLR end "ruleSimAbstractType"
 
 
-    // $ANTLR start "ruleSRootEntity"
-    // InternalSim.g:9240:1: ruleSRootEntity returns [Enumerator current=null] : ( (enumLiteral_0= 'nonroot' ) | (enumLiteral_1= 'root' ) ) ;
-    public final Enumerator ruleSRootEntity() throws RecognitionException {
+    // $ANTLR start "ruleSimRootEntity"
+    // InternalSim.g:9240:1: ruleSimRootEntity returns [Enumerator current=null] : ( (enumLiteral_0= 'nonroot' ) | (enumLiteral_1= 'root' ) ) ;
+    public final Enumerator ruleSimRootEntity() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -26275,8 +26275,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     enumLiteral_0=(Token)match(input,99,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = grammarAccess.getSRootEntityAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_0, grammarAccess.getSRootEntityAccess().getFALSEEnumLiteralDeclaration_0());
+                      				current = grammarAccess.getSimRootEntityAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_0, grammarAccess.getSimRootEntityAccess().getFALSEEnumLiteralDeclaration_0());
                       			
                     }
 
@@ -26294,8 +26294,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     enumLiteral_1=(Token)match(input,37,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = grammarAccess.getSRootEntityAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_1, grammarAccess.getSRootEntityAccess().getTRUEEnumLiteralDeclaration_1());
+                      				current = grammarAccess.getSimRootEntityAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_1, grammarAccess.getSimRootEntityAccess().getTRUEEnumLiteralDeclaration_1());
                       			
                     }
 
@@ -26325,12 +26325,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSRootEntity"
+    // $ANTLR end "ruleSimRootEntity"
 
 
-    // $ANTLR start "ruleSDetailType"
-    // InternalSim.g:9267:1: ruleSDetailType returns [Enumerator current=null] : (enumLiteral_0= 'detail' ) ;
-    public final Enumerator ruleSDetailType() throws RecognitionException {
+    // $ANTLR start "ruleSimDetailType"
+    // InternalSim.g:9267:1: ruleSimDetailType returns [Enumerator current=null] : (enumLiteral_0= 'detail' ) ;
+    public final Enumerator ruleSimDetailType() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -26348,8 +26348,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             enumLiteral_0=(Token)match(input,41,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration().getEnumLiteral().getInstance();
-              			newLeafNode(enumLiteral_0, grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration());
+              			current = grammarAccess.getSimDetailTypeAccess().getTRUEEnumLiteralDeclaration().getEnumLiteral().getInstance();
+              			newLeafNode(enumLiteral_0, grammarAccess.getSimDetailTypeAccess().getTRUEEnumLiteralDeclaration());
               		
             }
 
@@ -26373,12 +26373,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSDetailType"
+    // $ANTLR end "ruleSimDetailType"
 
 
-    // $ANTLR start "ruleSEntityType"
-    // InternalSim.g:9284:1: ruleSEntityType returns [Enumerator current=null] : (enumLiteral_0= 'entity' ) ;
-    public final Enumerator ruleSEntityType() throws RecognitionException {
+    // $ANTLR start "ruleSimEntityType"
+    // InternalSim.g:9284:1: ruleSimEntityType returns [Enumerator current=null] : (enumLiteral_0= 'entity' ) ;
+    public final Enumerator ruleSimEntityType() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -26396,8 +26396,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             enumLiteral_0=(Token)match(input,38,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration().getEnumLiteral().getInstance();
-              			newLeafNode(enumLiteral_0, grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration());
+              			current = grammarAccess.getSimEntityTypeAccess().getFALSEEnumLiteralDeclaration().getEnumLiteral().getInstance();
+              			newLeafNode(enumLiteral_0, grammarAccess.getSimEntityTypeAccess().getFALSEEnumLiteralDeclaration());
               		
             }
 
@@ -26421,7 +26421,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSEntityType"
+    // $ANTLR end "ruleSimEntityType"
 
 
     // $ANTLR start "ruleDEntityNatureAutonomous"
@@ -28937,7 +28937,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "1575:2: (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | this_DPrimitive_1= ruleDPrimitive | this_SEnumerationDeduction_2= ruleSEnumerationDeduction | this_DEnumeration_3= ruleDEnumeration | this_SEntityTypeDeduction_4= ruleSEntityTypeDeduction | this_DEntityType_5= ruleDEntityType | this_SDetailTypeDeduction_6= ruleSDetailTypeDeduction | this_DDetailType_7= ruleDDetailType )";
+            return "1575:2: (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | this_DPrimitive_1= ruleDPrimitive | this_SimEnumerationTransposition_2= ruleSimEnumerationTransposition | this_DEnumeration_3= ruleDEnumeration | this_SimEntityTypeTransposition_4= ruleSimEntityTypeTransposition | this_DEntityType_5= ruleDEntityType | this_SimDetailTypeTransposition_6= ruleSimDetailTypeTransposition | this_DDetailType_7= ruleDDetailType )";
         }
     }
     static final String dfa_7s = "\17\uffff";
@@ -28984,7 +28984,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             this.transition = dfa_12;
         }
         public String getDescription() {
-            return "1665:2: (this_SPrimitiveDeduction_0= ruleSPrimitiveDeduction | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SEnumerationDeduction_3= ruleSEnumerationDeduction | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SEntityTypeDeduction_6= ruleSEntityTypeDeduction | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SDetailTypeDeduction_9= ruleSDetailTypeDeduction | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) )";
+            return "1665:2: (this_SimPrimitiveTransposition_0= ruleSimPrimitiveTransposition | (otherlv_1= 'add' this_DPrimitive_2= ruleDPrimitive ) | this_SimEnumerationTransposition_3= ruleSimEnumerationTransposition | (otherlv_4= 'add' this_DEnumeration_5= ruleDEnumeration ) | this_SimEntityTypeTransposition_6= ruleSimEntityTypeTransposition | (otherlv_7= 'add' this_DEntityType_8= ruleDEntityType ) | this_SimDetailTypeTransposition_9= ruleSimDetailTypeTransposition | (otherlv_10= 'add' this_DDetailType_11= ruleDDetailType ) )";
         }
     }
     static final String dfa_13s = "\1\35\4\4\4\uffff\1\34\1\uffff\1\4\1\uffff\1\34";
@@ -29025,7 +29025,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             this.transition = dfa_16;
         }
         public String getDescription() {
-            return "2729:2: (this_SAssociationDeduction_0= ruleSAssociationDeduction | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SAttributeDeduction_3= ruleSAttributeDeduction | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SQueryDeduction_6= ruleSQueryDeduction | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) )";
+            return "2729:2: (this_SimAssociationTransposition_0= ruleSimAssociationTransposition | (otherlv_1= 'add' this_DAssociation_2= ruleDAssociation ) | this_SimAttributeTransposition_3= ruleSimAttributeTransposition | (otherlv_4= 'add' this_DAttribute_5= ruleDAttribute ) | this_SimQueryTransposition_6= ruleSimQueryTransposition | (otherlv_7= 'add' this_DQuery_8= ruleDQuery ) )";
         }
     }
     static final String dfa_17s = "\7\uffff";

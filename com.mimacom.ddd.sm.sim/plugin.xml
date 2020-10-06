@@ -14,6 +14,7 @@
             class="com.mimacom.ddd.sm.sim.SimPackage"
             genModel="model/sim.genmodel"/>
    </extension>
+
    <extension
          point="com.mimacom.ddd.pub.pub.diagramProvider">
       <renderer

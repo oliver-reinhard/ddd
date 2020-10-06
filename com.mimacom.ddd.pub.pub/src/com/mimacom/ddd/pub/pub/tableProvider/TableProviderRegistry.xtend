@@ -3,7 +3,7 @@ package com.mimacom.ddd.pub.pub.tableProvider
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.IDiagramRoot
+import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import java.util.List
 import java.util.Map
 import org.apache.log4j.Logger
@@ -12,9 +12,9 @@ import org.eclipse.core.runtime.IConfigurationElement
 import org.eclipse.core.runtime.InvalidRegistryObjectException
 import org.eclipse.core.runtime.Platform
 
+import static com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistryUtil.*
 
 import static extension com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistryUtil.identify
-import static com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistryUtil.*
 
 @Singleton
 class TableProviderRegistry {

@@ -3,14 +3,14 @@
  */
 package com.mimacom.ddd.dm.esm.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
-import com.mimacom.ddd.dm.base.impl.DModelImpl;
+import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
 
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmLayoutDirection;

@@ -1,8 +1,8 @@
 package com.mimacom.ddd.sm.sim.ui.plantuml;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;

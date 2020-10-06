@@ -2,11 +2,11 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
-import com.mimacom.ddd.dm.base.impl.DModelImpl;
+import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
 
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxModel;

@@ -4,8 +4,8 @@
     editorDirectory="/com.mimacom.ddd.sm.sim.editor/src" modelPluginID="com.mimacom.ddd.sm.sim"
     modelName="Sim" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base" operationReflection="true"
-    importOrganizing="true">
+    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base ../../com.mimacom.ddd.dm.base/model/transpose.genmodel#//transpose"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>sim.ecore</foreignModel>
   <genPackages prefix="Sim" basePackage="com.mimacom.ddd.sm" disposableProviderFactory="true"
       ecorePackage="sim.ecore#/">
@@ -14,58 +14,10 @@
       <genEnumLiterals ecoreEnumLiteral="sim.ecore#//SInformationModelKind/INTERFACE"/>
       <genEnumLiterals ecoreEnumLiteral="sim.ecore#//SInformationModelKind/CORE"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sim.ecore#//STristate">
-      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//STristate/DONT_CARE"/>
-      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//STristate/FALSE"/>
-      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//STristate/TRUE"/>
-    </genEnums>
     <genClasses ecoreClass="sim.ecore#//SInformationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/generate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/kind"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/domainProxies"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SImplicitElementDeduction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SImplicitElementDeduction/originalDeductionDefinition"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SDomainDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SAggregateDeduction"/>
-    <genClasses image="false" ecoreClass="sim.ecore#//STypeDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SPrimitiveDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SEnumerationDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SLiteralDeduction"/>
-    <genClasses image="false" ecoreClass="sim.ecore#//SComplexTypeDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SDetailTypeDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SEntityTypeDeduction"/>
-    <genClasses image="false" ecoreClass="sim.ecore#//SFeatureDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SAssociationDeduction">
-      <genOperations ecoreOperation="sim.ecore#//SAssociationDeduction/getTargetType"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SAttributeDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SQueryDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SQueryParameterDeduction"/>
-    <genClasses image="false" ecoreClass="sim.ecore#//SRenameRule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SRenameRule/renameTo"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SGrabRule"/>
-    <genClasses ecoreClass="sim.ecore#//SDitchRule"/>
-    <genClasses image="false" ecoreClass="sim.ecore#//SStructureChangingRule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SStructureChangingRule/abstract"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SStructureChangingRule/rootEntity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SStructureChangingRule/detail"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SStructureChangingRule/extendFrom"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SMorphRule">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SMorphRule/retypeTo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SMorphRule/remultiplyTo"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SFuseRule">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SFuseRule/otherSources"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SGrabAggregateRule">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SGrabAggregateRule/aggregate"/>
-    </genClasses>
-    <genClasses ecoreClass="sim.ecore#//SGrabModelRule">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SGrabModelRule/dModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/indexingHelper"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

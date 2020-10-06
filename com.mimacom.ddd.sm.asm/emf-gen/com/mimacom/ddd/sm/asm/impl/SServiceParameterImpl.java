@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
-import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
+import com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImplCustom;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.SDirection;

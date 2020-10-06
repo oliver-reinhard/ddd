@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dem.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 
 import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemActorModel;

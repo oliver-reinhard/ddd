@@ -4,11 +4,11 @@
 package com.mimacom.ddd.dm.dim.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DInformationModel
-import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DEnumeration
+import com.mimacom.ddd.dm.base.base.DInformationModel
+import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
 import org.eclipse.xtext.formatting2.IFormattableDocument

@@ -1,16 +1,16 @@
 package com.mimacom.ddd.dm.dmx.tests;
 
-import com.mimacom.ddd.dm.base.BaseFactory;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DAttribute;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DInformationModel;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DNamespace;
-import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.base.BaseFactory;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DAttribute;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DEnumeration;
+import com.mimacom.ddd.dm.base.base.DInformationModel;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DQuery;
+import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;

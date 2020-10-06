@@ -4,14 +4,14 @@
 package com.mimacom.ddd.sm.sim.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DImport
-import com.mimacom.ddd.sm.sim.SAggregateDeduction
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DImport
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
+import com.mimacom.ddd.dm.base.transpose.TMorphRule
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.SMorphRule
-import com.mimacom.ddd.sm.sim.STypeDeduction
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
@@ -35,14 +35,14 @@ class SimFormatter extends AbstractFormatter2 {
 		imp.append[newLine]
 	}
 
-	def dispatch void format(SMorphRule sMorphRule, extension IFormattableDocument document) {
+	def dispatch void format(TMorphRule sMorphRule, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		sMorphRule.remultiplyTo.format
+		sMorphRule.getRemultiplyTo.format
 	}
 
-	def dispatch void format(SAggregateDeduction aggregate, extension IFormattableDocument document) {
-		val open = aggregate.regionFor.keyword(SAggregateDeductionAccess.leftCurlyBracketKeyword_5_0)
-		val close = aggregate.regionFor.keyword(SAggregateDeductionAccess.rightCurlyBracketKeyword_5_3)
+	def dispatch void format(TAggregateTransposition aggregate, extension IFormattableDocument document) {
+		val open = aggregate.regionFor.keyword(simAggregateTranspositionAccess.leftCurlyBracketKeyword_5_0)
+		val close = aggregate.regionFor.keyword(simAggregateTranspositionAccess.rightCurlyBracketKeyword_5_3)
 		open.append[newLines = 2]
 		interior(open, close)[indent]
 
@@ -51,17 +51,17 @@ class SimFormatter extends AbstractFormatter2 {
 		}
 	}
 
-	def dispatch void format(SEnumerationDeduction en, extension IFormattableDocument document) {
+	def dispatch void format(TEnumerationTransposition en, extension IFormattableDocument document) {
 		if (en.literals.size > 3) {
-			val open = en.regionFor.keyword(SEnumerationDeductionAccess.leftCurlyBracketKeyword_3_0)
-			val close = en.regionFor.keyword(SEnumerationDeductionAccess.rightCurlyBracketKeyword_3_3)
+			val open = en.regionFor.keyword(simEnumerationTranspositionAccess.leftCurlyBracketKeyword_3_0)
+			val close = en.regionFor.keyword(simEnumerationTranspositionAccess.rightCurlyBracketKeyword_3_3)
 			open.append[newLine]
 			interior(open, close)[indent]
 
 			for (literal : en.literals) {
-				literal.regionFor.assignment(SEnumerationDeductionAccess.literalsAssignment_3_1_0).surround[noSpace]
+				literal.regionFor.assignment(simEnumerationTranspositionAccess.literalsAssignment_3_1_0).surround[noSpace]
 			}
-			for (comma : en.regionFor.keywords(SEnumerationDeductionAccess.commaKeyword_3_1_1_0)) {
+			for (comma : en.regionFor.keywords(simEnumerationTranspositionAccess.commaKeyword_3_1_1_0)) {
 				comma.append[newLine]
 			}
 			en.literals.last.append[newLine]
@@ -69,9 +69,9 @@ class SimFormatter extends AbstractFormatter2 {
 		en.append[newLines = 2]
 	}
 
-	def dispatch void format(SComplexTypeDeduction type, extension IFormattableDocument document) {
-		val open = type.regionFor.keyword(SComplexTypeFeaturesAccess.leftCurlyBracketKeyword_0)
-		val close = type.regionFor.keyword(SComplexTypeFeaturesAccess.rightCurlyBracketKeyword_2)
+	def dispatch void format(TComplexTypeTransposition type, extension IFormattableDocument document) {
+		val open = type.regionFor.keyword(TComplexTypeFeaturesAccess.leftCurlyBracketKeyword_0)
+		val close = type.regionFor.keyword(TComplexTypeFeaturesAccess.rightCurlyBracketKeyword_2)
 		open.append[newLine]
 		interior(open, close)[indent]
 		close.append[newLines = 2]
@@ -86,7 +86,7 @@ class SimFormatter extends AbstractFormatter2 {
 		}
 	}
 
-	def dispatch void format(STypeDeduction type, extension IFormattableDocument document) {
+	def dispatch void format(TTypeTransposition type, extension IFormattableDocument document) {
 		type.append[newLines = 2]
 	}
 }

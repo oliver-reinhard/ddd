@@ -1,9 +1,9 @@
 package com.mimacom.ddd.im.generator.documentation;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DTextSegment;
-import com.mimacom.ddd.dm.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DTextSegment;
+import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.sm.asm.SException;
 import java.util.Arrays;

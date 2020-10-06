@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
+import com.mimacom.ddd.dm.base.base.impl.DExpressionImpl;
 
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;

@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -391,13 +391,13 @@ public interface DmxPackage extends EPackage
 	int DMX_ARCHETYPE__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
+	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_ARCHETYPE__DEDUCED_FROM = BasePackage.DPRIMITIVE__DEDUCED_FROM;
+	int DMX_ARCHETYPE__TRANSPOSED_BY = BasePackage.DPRIMITIVE__TRANSPOSED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.

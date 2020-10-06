@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.esm.ui.plantuml
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel
 import com.mimacom.ddd.dm.esm.plantuml.EsmStateDiagramTextProviderImpl
 import com.mimacom.ddd.dm.esm.ui.internal.EsmActivator

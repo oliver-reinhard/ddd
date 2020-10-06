@@ -3,9 +3,9 @@
  */
 package com.mimacom.ddd.dm.esm;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DState;
-import com.mimacom.ddd.dm.base.DStateEvent;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DState;
+import com.mimacom.ddd.dm.base.base.DStateEvent;
 
 /**
  * <!-- begin-user-doc -->

@@ -1,14 +1,14 @@
 package com.mimacom.ddd.dm.dmx.typecomputer
 
 import com.google.common.collect.Lists
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DNavigableMember
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DNavigableMember
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxUtil
+import com.mimacom.ddd.dm.dmx.indexing.DmxIndex
 import java.util.List
 import org.eclipse.emf.ecore.EObject
-import com.mimacom.ddd.dm.dmx.indexing.DmxIndex
 
 class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplexType> {
 	

@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dom
 
-import com.mimacom.ddd.dm.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DEntityType
 import com.mimacom.ddd.dm.dmx.DmxComplexObject
 import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxUtil

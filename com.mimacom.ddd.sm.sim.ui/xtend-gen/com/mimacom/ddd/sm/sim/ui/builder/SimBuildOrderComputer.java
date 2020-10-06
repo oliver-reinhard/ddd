@@ -3,11 +3,11 @@ package com.mimacom.ddd.sm.sim.ui.builder;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DImport;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -99,8 +99,8 @@ public class SimBuildOrderComputer {
           throw new IllegalStateException(("Cannot load resource: " + uri));
         }
         EObject _xifexpression = null;
-        if ((resource instanceof DeductionAwareResource)) {
-          _xifexpression = IterableExtensions.<EObject>head(((DeductionAwareResource)resource).peekContents());
+        if ((resource instanceof TransposeAwareResource)) {
+          _xifexpression = IterableExtensions.<EObject>head(((TransposeAwareResource)resource).peekContents());
         } else {
           _xifexpression = IterableExtensions.<EObject>head(resource.getContents());
         }

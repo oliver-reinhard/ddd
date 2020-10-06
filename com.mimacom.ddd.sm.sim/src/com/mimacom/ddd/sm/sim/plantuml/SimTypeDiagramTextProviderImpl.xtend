@@ -1,25 +1,25 @@
 package com.mimacom.ddd.sm.sim.plantuml
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DDetailType
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DEnumeration
+import com.mimacom.ddd.dm.base.base.DPrimitive
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
+import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
+import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.dm.dim.DimUtil
-import com.mimacom.ddd.sm.sim.SAggregateDeduction
-import com.mimacom.ddd.sm.sim.SAssociationDeduction
-import com.mimacom.ddd.sm.sim.SAttributeDeduction
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
-import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.STypeDeduction
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
@@ -29,17 +29,17 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 	@Inject extension DimUtil
 
 	override canProvide(SInformationModel model) {
-		model !== null && !(model.types.filter[!(it instanceof IDeductionDefinition)].empty && model.aggregates.filter [
-			!(it instanceof IDeductionDefinition)
+		model !== null && !(model.types.filter[!(it instanceof ITransposition)].empty && model.aggregates.filter [
+			!(it instanceof ITransposition)
 		].empty)
 	}
 
 	override String diagramText(SInformationModel model) {
-		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof SAggregateDeduction)]
-		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof SAssociationDeduction)]
+		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof TAggregateTransposition)]
+		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof TAssociationTransposition)]
 		val allReferencedDomains = allAssociations.filter[targetType.modelName != model.name].map[targetType.modelName]
 		val allComplexAttributes = EcoreUtil2.eAllOfType(model, DAttribute).filter [
-			!(it instanceof SAttributeDeduction) && !(eContainer instanceof SComplexTypeDeduction)
+			!(it instanceof TAttributeTransposition) && !(eContainer instanceof TComplexTypeTransposition)
 		]
 		val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
 
@@ -58,12 +58,12 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 				FontColor MediumBlue
 			}
 			
-			«FOR t : model.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+			«FOR t : model.types.filter[!(it instanceof TTypeTransposition)]»«t.generateType»«ENDFOR»
 			
 			«FOR a : allAggregates»
 				package «a.aggregateName» <<Rectangle>> {
 				«IF ! a.features.empty»«a.generateAggregateQueries»«ENDIF»
-				«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+				«FOR t:a.types.filter[!(it instanceof TTypeTransposition)]»«t.generateType»«ENDFOR»
 				}
 				«FOR d:allReferencedDomains»package «d» <<Frame>> { 
 					}
@@ -94,7 +94,7 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 
 	def dispatch generateType(DComplexType c) '''	
 		«IF c.abstract»abstract «ENDIF»class «c.qualifiedlName» «c.getSpot» {
-			«FOR f : c.features.filter[!(it instanceof SFeatureDeduction)]»«f.generateFeature»«ENDFOR»
+			«FOR f : c.features.filter[!(it instanceof TFeatureTransposition)]»«f.generateFeature»«ENDFOR»
 		}
 	'''
 

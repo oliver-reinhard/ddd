@@ -4,9 +4,9 @@
 package com.mimacom.ddd.dm.dmx.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DNamespace
-import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DRichText
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2

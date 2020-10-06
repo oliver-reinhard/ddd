@@ -4,15 +4,15 @@
 package com.mimacom.ddd.dm.dim.scoping
 
 import com.google.common.collect.Lists
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.IAggregateContainer
-import com.mimacom.ddd.dm.base.ITypeContainer
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DDetailType
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DQueryParameter
+import com.mimacom.ddd.dm.base.base.IAggregateContainer
+import com.mimacom.ddd.dm.base.base.ITypeContainer
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2

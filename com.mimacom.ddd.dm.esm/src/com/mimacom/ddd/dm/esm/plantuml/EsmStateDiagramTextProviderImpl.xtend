@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.esm.plantuml
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DState
-import com.mimacom.ddd.dm.base.DStateEvent
+import com.mimacom.ddd.dm.base.base.DState
+import com.mimacom.ddd.dm.base.base.DStateEvent
 import com.mimacom.ddd.dm.esm.EsmCompositeState
 import com.mimacom.ddd.dm.esm.EsmConcurrentState
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel

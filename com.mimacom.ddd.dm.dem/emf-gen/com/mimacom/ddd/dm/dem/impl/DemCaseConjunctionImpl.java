@@ -2,10 +2,10 @@
  */
 package com.mimacom.ddd.dm.dem.impl;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 
-import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+import com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl;
 
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemPackage;

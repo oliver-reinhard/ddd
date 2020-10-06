@@ -1,13 +1,13 @@
 package com.mimacom.ddd.dm.base.richText;
 
-import com.mimacom.ddd.dm.base.BaseFactory;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DTextSegment;
-import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
-import com.mimacom.ddd.dm.styledText.parser.FirstErrorMessageAcceptor;
-import com.mimacom.ddd.dm.styledText.parser.StyledTextParser;
+import com.mimacom.ddd.dm.base.base.BaseFactory;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DTextSegment;
+import com.mimacom.ddd.dm.base.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan;
+import com.mimacom.ddd.dm.base.styledText.parser.FirstErrorMessageAcceptor;
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser;
 
 /**
  * This module has been written in Java because Xtend has problems with

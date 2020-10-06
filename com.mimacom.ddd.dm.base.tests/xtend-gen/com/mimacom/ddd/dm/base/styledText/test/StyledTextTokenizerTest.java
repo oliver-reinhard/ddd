@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.base.styledText.test;
 
-import com.mimacom.ddd.dm.styledText.parser.StyledTextTokenizer;
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer;
 import org.junit.Assert;
 import org.junit.Test;
 

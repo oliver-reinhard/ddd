@@ -4,20 +4,20 @@
 package com.mimacom.ddd.sm.sim.formatting2;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SAggregateDeduction;
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DImport;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition;
+import com.mimacom.ddd.dm.base.transpose.TMorphRule;
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 import java.util.Arrays;
 import java.util.List;
@@ -60,13 +60,13 @@ public class SimFormatter extends AbstractFormatter2 {
     document.<DImport>append(imp, _function);
   }
   
-  protected void _format(final SMorphRule sMorphRule, @Extension final IFormattableDocument document) {
+  protected void _format(final TMorphRule sMorphRule, @Extension final IFormattableDocument document) {
     document.<DMultiplicity>format(sMorphRule.getRemultiplyTo());
   }
   
-  protected void _format(final SAggregateDeduction aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getLeftCurlyBracketKeyword_5_0());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getRightCurlyBracketKeyword_5_3());
+  protected void _format(final TAggregateTransposition aggregate, @Extension final IFormattableDocument document) {
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSimAggregateTranspositionAccess().getLeftCurlyBracketKeyword_5_0());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSimAggregateTranspositionAccess().getRightCurlyBracketKeyword_5_3());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -81,12 +81,12 @@ public class SimFormatter extends AbstractFormatter2 {
     }
   }
   
-  protected void _format(final SEnumerationDeduction en, @Extension final IFormattableDocument document) {
+  protected void _format(final TEnumerationTransposition en, @Extension final IFormattableDocument document) {
     int _size = en.getLiterals().size();
     boolean _greaterThan = (_size > 3);
     if (_greaterThan) {
-      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getLeftCurlyBracketKeyword_3_0());
-      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getRightCurlyBracketKeyword_3_3());
+      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_3_0());
+      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getRightCurlyBracketKeyword_3_3());
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
@@ -100,9 +100,9 @@ public class SimFormatter extends AbstractFormatter2 {
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.noSpace();
         };
-        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSEnumerationDeductionAccess().getLiteralsAssignment_3_1_0()), _function_2);
+        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getLiteralsAssignment_3_1_0()), _function_2);
       }
-      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSEnumerationDeductionAccess().getCommaKeyword_3_1_1_0());
+      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getCommaKeyword_3_1_1_0());
       for (final ISemanticRegion comma : _keywords) {
         final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
           it.newLine();
@@ -117,12 +117,12 @@ public class SimFormatter extends AbstractFormatter2 {
     final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<SEnumerationDeduction>append(en, _function_5);
+    document.<TEnumerationTransposition>append(en, _function_5);
   }
   
-  protected void _format(final SComplexTypeDeduction type, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
+  protected void _format(final TComplexTypeTransposition type, @Extension final IFormattableDocument document) {
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getTComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getTComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
@@ -152,25 +152,25 @@ public class SimFormatter extends AbstractFormatter2 {
     }
   }
   
-  protected void _format(final STypeDeduction type, @Extension final IFormattableDocument document) {
+  protected void _format(final TTypeTransposition type, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<STypeDeduction>append(type, _function);
+    document.<TTypeTransposition>append(type, _function);
   }
   
   public void format(final Object en, final IFormattableDocument document) {
-    if (en instanceof SEnumerationDeduction) {
-      _format((SEnumerationDeduction)en, document);
+    if (en instanceof TEnumerationTransposition) {
+      _format((TEnumerationTransposition)en, document);
       return;
-    } else if (en instanceof SAggregateDeduction) {
-      _format((SAggregateDeduction)en, document);
+    } else if (en instanceof TAggregateTransposition) {
+      _format((TAggregateTransposition)en, document);
       return;
-    } else if (en instanceof SMorphRule) {
-      _format((SMorphRule)en, document);
+    } else if (en instanceof TMorphRule) {
+      _format((TMorphRule)en, document);
       return;
-    } else if (en instanceof SComplexTypeDeduction) {
-      _format((SComplexTypeDeduction)en, document);
+    } else if (en instanceof TComplexTypeTransposition) {
+      _format((TComplexTypeTransposition)en, document);
       return;
     } else if (en instanceof SInformationModel) {
       _format((SInformationModel)en, document);
@@ -178,8 +178,8 @@ public class SimFormatter extends AbstractFormatter2 {
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
       return;
-    } else if (en instanceof STypeDeduction) {
-      _format((STypeDeduction)en, document);
+    } else if (en instanceof TTypeTransposition) {
+      _format((TTypeTransposition)en, document);
       return;
     } else if (en instanceof DImport) {
       _format((DImport)en, document);

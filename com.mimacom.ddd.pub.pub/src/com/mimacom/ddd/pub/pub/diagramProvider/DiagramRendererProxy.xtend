@@ -1,7 +1,7 @@
 package com.mimacom.ddd.pub.pub.diagramProvider
 
 import com.google.common.collect.Lists
-import com.mimacom.ddd.dm.base.IDiagramRoot
+import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import java.io.ByteArrayInputStream
 import java.io.InputStream
 import org.apache.log4j.Logger

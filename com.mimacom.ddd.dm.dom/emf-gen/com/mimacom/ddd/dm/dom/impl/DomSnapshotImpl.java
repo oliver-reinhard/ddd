@@ -3,12 +3,12 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 
-import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+import com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl;
 
 import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;

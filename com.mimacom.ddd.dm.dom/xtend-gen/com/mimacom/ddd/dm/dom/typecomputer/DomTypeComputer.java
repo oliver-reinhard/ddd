@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dom.typecomputer;
 
 import com.google.inject.Singleton;
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;

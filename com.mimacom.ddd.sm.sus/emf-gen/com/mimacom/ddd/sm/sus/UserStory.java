@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.sm.sus;
 
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 

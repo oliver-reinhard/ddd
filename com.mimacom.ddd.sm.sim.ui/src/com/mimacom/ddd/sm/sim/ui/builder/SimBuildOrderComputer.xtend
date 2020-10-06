@@ -3,9 +3,9 @@ package com.mimacom.ddd.sm.sim.ui.builder
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
 import com.google.common.collect.Sets
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource
 import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource
 import java.util.List
 import java.util.Map
 import java.util.Set
@@ -83,7 +83,7 @@ class SimBuildOrderComputer {
 			if (resource === null) {
 				throw new IllegalStateException("Cannot load resource: " + uri)
 			}
-			val namespace = if (resource instanceof DeductionAwareResource) {
+			val namespace = if (resource instanceof TransposeAwareResource) {
 					resource.peekContents.head // access resource contents without computing the derived state
 				} else {
 					resource.contents.head

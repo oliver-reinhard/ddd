@@ -2,8 +2,8 @@ package com.mimacom.ddd.system.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.DInformationModel
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DInformationModel
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider
 import java.net.URL
@@ -29,8 +29,8 @@ class ParsingTest {
   static val PATH_PREFIX = "platform:/plugin/com.mimacom.ddd.system/src/com/mimacom/ddd/system/"
   static val CURRENT_PATH = "platform:/plugin/com.mimacom.ddd.system.tests/src/com/mimacom/ddd/system/tests/"
 
-  static val ASSIGNMENTS_URI = URI.createURI('''«com.mimacom.ddd.system.tests.ParsingTest.CURRENT_PATH»/Assignments.dmx''')
-  static val CUSTOM_TYPES_URI = URI.createURI('''«com.mimacom.ddd.system.tests.ParsingTest.CURRENT_PATH»/CustomTypes.dim''')
+  static val ASSIGNMENTS_URI = URI.createURI('''«ParsingTest.CURRENT_PATH»/Assignments.dmx''')
+  static val CUSTOM_TYPES_URI = URI.createURI('''«ParsingTest.CURRENT_PATH»/CustomTypes.dim''')
   
   // files of a referenced OSGi bundle are loaded, hence test is executed as a plug-in test
   static val BASE_TYPES_URI = URI.createURI('''«PATH_PREFIX»/BaseTypes.dim''')

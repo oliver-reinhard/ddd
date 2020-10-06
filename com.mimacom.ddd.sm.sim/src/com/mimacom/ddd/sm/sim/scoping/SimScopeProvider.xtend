@@ -4,24 +4,24 @@
 package com.mimacom.ddd.sm.sim.scoping
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DDeductionRule
-import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.ITypeContainer
-import com.mimacom.ddd.sm.sim.SAggregateDeduction
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
-import com.mimacom.ddd.sm.sim.SDetailTypeDeduction
-import com.mimacom.ddd.sm.sim.SEntityTypeDeduction
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction
-import com.mimacom.ddd.sm.sim.SFeatureDeduction
-import com.mimacom.ddd.sm.sim.SLiteralDeduction
-import com.mimacom.ddd.sm.sim.SPrimitiveDeduction
-import com.mimacom.ddd.sm.sim.SQueryDeduction
-import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DEnumeration
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DQueryParameter
+import com.mimacom.ddd.dm.base.base.ITypeContainer
+import com.mimacom.ddd.dm.base.base.TTranspositionRule
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TDetailTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TEntityTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
+import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition
+import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition
+import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
+import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
@@ -38,49 +38,49 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
 
-		if (reference == BASE.DDeductionRule_Source) {
-			val decduction = context instanceof DDeductionRule ? context.eContainer : context
+		if (reference == BASE.TTranspositionRule_Source) {
+			val decduction = context instanceof TTranspositionRule ? context.eContainer : context
 			val container = decduction.eContainer
 			
-			if (decduction instanceof SAggregateDeduction) {
+			if (decduction instanceof TAggregateTransposition) {
 				return getDefaultScopeOfType(decduction, BASE.DAggregate)
 
-			} else if (decduction instanceof SPrimitiveDeduction) {
+			} else if (decduction instanceof TPrimitiveTransposition) {
 				return getDefaultScopeOfType(decduction, BASE.DPrimitive)
 
-			} else if (decduction instanceof SEntityTypeDeduction) {
+			} else if (decduction instanceof TEntityTypeTransposition) {
 				return getDefaultScopeOfType(decduction, BASE.DEntityType)
 
-			} else if (decduction instanceof SDetailTypeDeduction) {
+			} else if (decduction instanceof TDetailTypeTransposition) {
 				return getDefaultScopeOfType(decduction, BASE.DDetailType)
 
-			} else if (decduction instanceof SLiteralDeduction) {
-				if (container instanceof SEnumerationDeduction) {
-					val sourceType = container.deductionRule?.source
+			} else if (decduction instanceof TLiteralTransposition) {
+				if (container instanceof TEnumerationTransposition) {
+					val sourceType = container.getTranspositionRule?.getSource
 					if (sourceType instanceof DEnumeration) {
 						return Scopes.scopeFor(sourceType.literals)
 					}
 				}
 				return IScope.NULLSCOPE
 
-			} else if (decduction instanceof SFeatureDeduction) {
-				if (container instanceof SComplexTypeDeduction) {
-					val sourceType = container.deductionRule?.source
+			} else if (decduction instanceof TFeatureTransposition) {
+				if (container instanceof TComplexTypeTransposition) {
+					val sourceType = container.getTranspositionRule?.getSource
 					if (sourceType instanceof DComplexType) {
 						val requiredFeatureType = decduction.baseClass
 						return getInheritedFeaturesScope(sourceType, requiredFeatureType, IScope.NULLSCOPE)
 					}
-				} else if (container instanceof SAggregateDeduction) {
-					val source = container.deductionRule?.source
+				} else if (container instanceof TAggregateTransposition) {
+					val source = container.getTranspositionRule?.getSource
 					if (source instanceof DAggregate) {
 						return Scopes.scopeFor(source.features.filter(DQuery))
 					}
 				}
 				return IScope.NULLSCOPE
 
-			} else if (decduction instanceof SQueryParameterDeduction) {
-				if (container instanceof SQueryDeduction) {
-					val source = container.deductionRule?.source
+			} else if (decduction instanceof TQueryParameterTransposition) {
+				if (container instanceof TQueryTransposition) {
+					val source = container.getTranspositionRule?.getSource
 					if (source instanceof DQuery) {
 						return Scopes.scopeFor(source.parameters)
 					}
@@ -94,7 +94,7 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 	override getDefaultScopeOfType(EObject context, EClass type) {
 		if (context instanceof DQuery || context instanceof DQueryParameter) {
 			val container = EcoreUtil2.getContainerOfType(context, ITypeContainer)
-			if (container instanceof SAggregateDeduction) {
+			if (container instanceof TAggregateTransposition) {
 				val outerScope = getDefaultScopeOfType(container, BASE.IValueType)
 				val syntheticTypes = container.syntheticTypes
 				if (! syntheticTypes.empty) {

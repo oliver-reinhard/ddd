@@ -94,9 +94,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
 		private final Assignment cTypesAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
-		private final RuleCall cTypesSTypeParserRuleCall_5_0_0 = (RuleCall)cTypesAssignment_5_0.eContents().get(0);
+		private final RuleCall cTypesSimTypeParserRuleCall_5_0_0 = (RuleCall)cTypesAssignment_5_0.eContents().get(0);
 		private final Assignment cAggregatesAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
-		private final RuleCall cAggregatesSAggregateParserRuleCall_5_1_0 = (RuleCall)cAggregatesAssignment_5_1.eContents().get(0);
+		private final RuleCall cAggregatesSimAggregateParserRuleCall_5_1_0 = (RuleCall)cAggregatesAssignment_5_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//SInformationModel:
@@ -104,12 +104,12 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//	| kind=SInformationModelKind 'information' 'model') name=ID
 		//	^generate?='generate'?
 		//	description=DRichText?
-		//	'{' (types+=SType | aggregates+=SAggregate)*
+		//	'{' (types+=SimType | aggregates+=SimAggregate)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//(kind=STypeModelKind 'type' 'model' | kind=SInformationModelKind 'information' 'model') name=ID ^generate?='generate'?
-		//description=DRichText? '{' (types+=SType | aggregates+=SAggregate)* '}'
+		//description=DRichText? '{' (types+=SimType | aggregates+=SimAggregate)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//(kind=STypeModelKind 'type' 'model' | kind=SInformationModelKind 'information' 'model')
@@ -166,26 +166,26 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
-		//(types+=SType | aggregates+=SAggregate)*
+		//(types+=SimType | aggregates+=SimAggregate)*
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 		
-		//types+=SType
+		//types+=SimType
 		public Assignment getTypesAssignment_5_0() { return cTypesAssignment_5_0; }
 		
-		//SType
-		public RuleCall getTypesSTypeParserRuleCall_5_0_0() { return cTypesSTypeParserRuleCall_5_0_0; }
+		//SimType
+		public RuleCall getTypesSimTypeParserRuleCall_5_0_0() { return cTypesSimTypeParserRuleCall_5_0_0; }
 		
-		//aggregates+=SAggregate
+		//aggregates+=SimAggregate
 		public Assignment getAggregatesAssignment_5_1() { return cAggregatesAssignment_5_1; }
 		
-		//SAggregate
-		public RuleCall getAggregatesSAggregateParserRuleCall_5_1_0() { return cAggregatesSAggregateParserRuleCall_5_1_0; }
+		//SimAggregate
+		public RuleCall getAggregatesSimAggregateParserRuleCall_5_1_0() { return cAggregatesSimAggregateParserRuleCall_5_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
-	public class SGrabAggregateRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabAggregateRule");
+	public class SimGrabAggregateRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabAggregateRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDAggregateCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -197,7 +197,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		
 		///*
 		// * RULEs
-		// */ SGrabAggregateRule:
+		// */ SimGrabAggregateRule TGrabAggregateRule:
 		//	source=[DAggregate|DQualifiedName] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -225,8 +225,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SGrabPrimitiveRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabPrimitiveRule");
+	public class SimGrabPrimitiveRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabPrimitiveRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDPrimitiveCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -236,7 +236,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
 		
-		//SGrabPrimitiveRule SGrabRule:
+		//SimGrabPrimitiveRule TGrabRule:
 		//	source=[DPrimitive|DQualifiedName] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -264,13 +264,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SDitchPrimitiveRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchPrimitiveRule");
+	public class SimDitchPrimitiveRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDitchPrimitiveRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDPrimitiveCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
 		private final RuleCall cSourceDPrimitiveDQualifiedNameParserRuleCall_0_1 = (RuleCall)cSourceDPrimitiveCrossReference_0.eContents().get(1);
 		
-		//SDitchPrimitiveRule SDitchRule:
+		//SimDitchPrimitiveRule TDitchRule:
 		//	source=[DPrimitive|DQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -283,8 +283,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getSourceDPrimitiveDQualifiedNameParserRuleCall_0_1() { return cSourceDPrimitiveDQualifiedNameParserRuleCall_0_1; }
 	}
-	public class SGrabEnumerationRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabEnumerationRule");
+	public class SimGrabEnumerationRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabEnumerationRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDEnumerationCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -294,7 +294,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
 		
-		//SGrabEnumerationRule SGrabRule:
+		//SimGrabEnumerationRule TGrabRule:
 		//	source=[DEnumeration|DQualifiedName] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -322,13 +322,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SDitchEnumerationRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchEnumerationRule");
+	public class SimDitchEnumerationRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDitchEnumerationRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDEnumerationCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
 		private final RuleCall cSourceDEnumerationDQualifiedNameParserRuleCall_0_1 = (RuleCall)cSourceDEnumerationCrossReference_0.eContents().get(1);
 		
-		//SDitchEnumerationRule SDitchRule:
+		//SimDitchEnumerationRule TDitchRule:
 		//	source=[DEnumeration|DQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -341,8 +341,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getSourceDEnumerationDQualifiedNameParserRuleCall_0_1() { return cSourceDEnumerationDQualifiedNameParserRuleCall_0_1; }
 	}
-	public class SGrabEnumerationLiteralRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabEnumerationLiteralRule");
+	public class SimGrabEnumerationLiteralRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabEnumerationLiteralRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDLiteralCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -352,7 +352,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
 		
-		//SGrabEnumerationLiteralRule SGrabRule:
+		//SimGrabEnumerationLiteralRule TGrabRule:
 		//	source=[DLiteral] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -380,13 +380,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SDitchEnumerationLiteralRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchEnumerationLiteralRule");
+	public class SimDitchEnumerationLiteralRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDitchEnumerationLiteralRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDLiteralCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
 		private final RuleCall cSourceDLiteralIDTerminalRuleCall_0_1 = (RuleCall)cSourceDLiteralCrossReference_0.eContents().get(1);
 		
-		//SDitchEnumerationLiteralRule SDitchRule:
+		//SimDitchEnumerationLiteralRule TDitchRule:
 		//	source=[DLiteral];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -399,8 +399,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSourceDLiteralIDTerminalRuleCall_0_1() { return cSourceDLiteralIDTerminalRuleCall_0_1; }
 	}
-	public class SGrabComplexTypeRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabComplexTypeRule");
+	public class SimGrabComplexTypeRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabComplexTypeRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDComplexTypeCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -410,7 +410,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
 		
-		//SGrabComplexTypeRule SGrabRule:
+		//SimGrabComplexTypeRule TGrabRule:
 		//	source=[DComplexType|DQualifiedName] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -438,13 +438,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SDitchComplexTypeRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchComplexTypeRule");
+	public class SimDitchComplexTypeRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDitchComplexTypeRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDComplexTypeCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
 		private final RuleCall cSourceDComplexTypeDQualifiedNameParserRuleCall_0_1 = (RuleCall)cSourceDComplexTypeCrossReference_0.eContents().get(1);
 		
-		//SDitchComplexTypeRule SDitchRule:
+		//SimDitchComplexTypeRule TDitchRule:
 		//	source=[DComplexType|DQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -457,15 +457,15 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getSourceDComplexTypeDQualifiedNameParserRuleCall_0_1() { return cSourceDComplexTypeDQualifiedNameParserRuleCall_0_1; }
 	}
-	public class SMorphComplexTypeRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SMorphComplexTypeRule");
+	public class SimMorphComplexTypeRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimMorphComplexTypeRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDComplexTypeCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
 		private final RuleCall cSourceDComplexTypeDQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cSourceDComplexTypeCrossReference_0_0.eContents().get(1);
 		private final RuleCall cChangeComplexTypeParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//SMorphComplexTypeRule SMorphRule:
+		//SimMorphComplexTypeRule TMorphRule:
 		//	source=[DComplexType|DQualifiedName] ChangeComplexType;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -484,8 +484,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ChangeComplexType
 		public RuleCall getChangeComplexTypeParserRuleCall_1() { return cChangeComplexTypeParserRuleCall_1; }
 	}
-	public class SFuseComplexTypeRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SFuseComplexTypeRule");
+	public class SimFuseComplexTypeRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimFuseComplexTypeRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDComplexTypeCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -497,7 +497,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOtherSourcesDComplexTypeDQualifiedNameParserRuleCall_1_1_0_1 = (RuleCall)cOtherSourcesDComplexTypeCrossReference_1_1_0.eContents().get(1);
 		private final RuleCall cChangeComplexTypeParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		//SFuseComplexTypeRule SFuseRule:
+		//SimFuseComplexTypeRule TFuseRule:
 		//	source=[DComplexType|DQualifiedName] ('and' otherSources+=[DComplexType|DQualifiedName])+
 		//	ChangeComplexType;
 		@Override public ParserRule getRule() { return rule; }
@@ -537,15 +537,15 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cToKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAbstractAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAbstractSAbstractTypeEnumRuleCall_1_0 = (RuleCall)cAbstractAssignment_1.eContents().get(0);
+		private final RuleCall cAbstractSimAbstractTypeEnumRuleCall_1_0 = (RuleCall)cAbstractAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cDetailAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cDetailSDetailTypeEnumRuleCall_2_0_0 = (RuleCall)cDetailAssignment_2_0.eContents().get(0);
+		private final RuleCall cDetailSimDetailTypeEnumRuleCall_2_0_0 = (RuleCall)cDetailAssignment_2_0.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
 		private final Assignment cRootEntityAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
-		private final RuleCall cRootEntitySRootEntityEnumRuleCall_2_1_0_0 = (RuleCall)cRootEntityAssignment_2_1_0.eContents().get(0);
+		private final RuleCall cRootEntitySimRootEntityEnumRuleCall_2_1_0_0 = (RuleCall)cRootEntityAssignment_2_1_0.eContents().get(0);
 		private final Assignment cDetailAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cDetailSEntityTypeEnumRuleCall_2_1_1_0 = (RuleCall)cDetailAssignment_2_1_1.eContents().get(0);
+		private final RuleCall cDetailSimEntityTypeEnumRuleCall_2_1_1_0 = (RuleCall)cDetailAssignment_2_1_1.eContents().get(0);
 		private final Assignment cRenameToAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRenameToIDTerminalRuleCall_3_0 = (RuleCall)cRenameToAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
@@ -554,48 +554,48 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cExtendFromDComplexTypeCrossReference_4_1_0 = (CrossReference)cExtendFromAssignment_4_1.eContents().get(0);
 		private final RuleCall cExtendFromDComplexTypeIDTerminalRuleCall_4_1_0_1 = (RuleCall)cExtendFromDComplexTypeCrossReference_4_1_0.eContents().get(1);
 		
-		//fragment ChangeComplexType returns SStructureChangingRule:
+		//fragment ChangeComplexType returns TStructureChangingRule:
 		//	'to'
-		//	abstract=SAbstractType? (detail=SDetailType
-		//	| rootEntity=SRootEntity? detail=SEntityType) renameTo=ID? ('extends' extendFrom=[DComplexType])?;
+		//	abstract=SimAbstractType? (detail=SimDetailType
+		//	| rootEntity=SimRootEntity? detail=SimEntityType) renameTo=ID? ('extends' extendFrom=[DComplexType])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'to' abstract=SAbstractType? (detail=SDetailType | rootEntity=SRootEntity? detail=SEntityType) renameTo=ID? ('extends'
-		//extendFrom=[DComplexType])?
+		//'to' abstract=SimAbstractType? (detail=SimDetailType | rootEntity=SimRootEntity? detail=SimEntityType) renameTo=ID?
+		//('extends' extendFrom=[DComplexType])?
 		public Group getGroup() { return cGroup; }
 		
 		//'to'
 		public Keyword getToKeyword_0() { return cToKeyword_0; }
 		
-		//abstract=SAbstractType?
+		//abstract=SimAbstractType?
 		public Assignment getAbstractAssignment_1() { return cAbstractAssignment_1; }
 		
-		//SAbstractType
-		public RuleCall getAbstractSAbstractTypeEnumRuleCall_1_0() { return cAbstractSAbstractTypeEnumRuleCall_1_0; }
+		//SimAbstractType
+		public RuleCall getAbstractSimAbstractTypeEnumRuleCall_1_0() { return cAbstractSimAbstractTypeEnumRuleCall_1_0; }
 		
-		//(detail=SDetailType | rootEntity=SRootEntity? detail=SEntityType)
+		//(detail=SimDetailType | rootEntity=SimRootEntity? detail=SimEntityType)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//detail=SDetailType
+		//detail=SimDetailType
 		public Assignment getDetailAssignment_2_0() { return cDetailAssignment_2_0; }
 		
-		//SDetailType
-		public RuleCall getDetailSDetailTypeEnumRuleCall_2_0_0() { return cDetailSDetailTypeEnumRuleCall_2_0_0; }
+		//SimDetailType
+		public RuleCall getDetailSimDetailTypeEnumRuleCall_2_0_0() { return cDetailSimDetailTypeEnumRuleCall_2_0_0; }
 		
-		//rootEntity=SRootEntity? detail=SEntityType
+		//rootEntity=SimRootEntity? detail=SimEntityType
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
-		//rootEntity=SRootEntity?
+		//rootEntity=SimRootEntity?
 		public Assignment getRootEntityAssignment_2_1_0() { return cRootEntityAssignment_2_1_0; }
 		
-		//SRootEntity
-		public RuleCall getRootEntitySRootEntityEnumRuleCall_2_1_0_0() { return cRootEntitySRootEntityEnumRuleCall_2_1_0_0; }
+		//SimRootEntity
+		public RuleCall getRootEntitySimRootEntityEnumRuleCall_2_1_0_0() { return cRootEntitySimRootEntityEnumRuleCall_2_1_0_0; }
 		
-		//detail=SEntityType
+		//detail=SimEntityType
 		public Assignment getDetailAssignment_2_1_1() { return cDetailAssignment_2_1_1; }
 		
-		//SEntityType
-		public RuleCall getDetailSEntityTypeEnumRuleCall_2_1_1_0() { return cDetailSEntityTypeEnumRuleCall_2_1_1_0; }
+		//SimEntityType
+		public RuleCall getDetailSimEntityTypeEnumRuleCall_2_1_1_0() { return cDetailSimEntityTypeEnumRuleCall_2_1_1_0; }
 		
 		//renameTo=ID?
 		public Assignment getRenameToAssignment_3() { return cRenameToAssignment_3; }
@@ -618,8 +618,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getExtendFromDComplexTypeIDTerminalRuleCall_4_1_0_1() { return cExtendFromDComplexTypeIDTerminalRuleCall_4_1_0_1; }
 	}
-	public class SGrabFeatureRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabFeatureRule");
+	public class SimGrabFeatureRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabFeatureRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDFeatureCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -629,7 +629,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
 		
-		//SGrabFeatureRule SGrabRule:
+		//SimGrabFeatureRule TGrabRule:
 		//	source=[DFeature] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -657,8 +657,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SMorphFeatureRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SMorphFeatureRule");
+	public class SimMorphFeatureRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimMorphFeatureRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDFeatureCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -674,7 +674,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRemultiplyToAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cRemultiplyToDMultiplicityParserRuleCall_4_0 = (RuleCall)cRemultiplyToAssignment_4.eContents().get(0);
 		
-		//SMorphFeatureRule SMorphRule:
+		//SimMorphFeatureRule TMorphRule:
 		//	source=[DFeature]
 		//	'to' (renameTo=ID ':')?
 		//	retypeTo=[DType] remultiplyTo=DMultiplicity?;
@@ -722,13 +722,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DMultiplicity
 		public RuleCall getRemultiplyToDMultiplicityParserRuleCall_4_0() { return cRemultiplyToDMultiplicityParserRuleCall_4_0; }
 	}
-	public class SDitchFeatureRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchFeatureRule");
+	public class SimDitchFeatureRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDitchFeatureRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDFeatureCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
 		private final RuleCall cSourceDFeatureIDTerminalRuleCall_0_1 = (RuleCall)cSourceDFeatureCrossReference_0.eContents().get(1);
 		
-		//SDitchFeatureRule SDitchRule:
+		//SimDitchFeatureRule TDitchRule:
 		//	source=[DFeature];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -741,8 +741,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSourceDFeatureIDTerminalRuleCall_0_1() { return cSourceDFeatureIDTerminalRuleCall_0_1; }
 	}
-	public class SGrabQueryParameterRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabQueryParameterRule");
+	public class SimGrabQueryParameterRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimGrabQueryParameterRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDQueryParameterCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -752,7 +752,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
 		
-		//SGrabQueryParameterRule SGrabRule:
+		//SimGrabQueryParameterRule TGrabRule:
 		//	source=[DQueryParameter] ('as' renameTo=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -780,8 +780,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
 	}
-	public class SMorphQueryParameterRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SMorphQueryParameterRule");
+	public class SimMorphQueryParameterRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimMorphQueryParameterRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDQueryParameterCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -797,7 +797,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRemultiplyToAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cRemultiplyToDMultiplicityParserRuleCall_4_0 = (RuleCall)cRemultiplyToAssignment_4.eContents().get(0);
 		
-		//SMorphQueryParameterRule SMorphRule:
+		//SimMorphQueryParameterRule TMorphRule:
 		//	source=[DQueryParameter]
 		//	'to' (renameTo=ID ':')?
 		//	retypeTo=[DType] remultiplyTo=DMultiplicity?;
@@ -845,13 +845,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DMultiplicity
 		public RuleCall getRemultiplyToDMultiplicityParserRuleCall_4_0() { return cRemultiplyToDMultiplicityParserRuleCall_4_0; }
 	}
-	public class SDitchQueryParameterRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchQueryParameterRule");
+	public class SimDitchQueryParameterRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDitchQueryParameterRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDQueryParameterCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
 		private final RuleCall cSourceDQueryParameterIDTerminalRuleCall_0_1 = (RuleCall)cSourceDQueryParameterCrossReference_0.eContents().get(1);
 		
-		//SDitchQueryParameterRule SDitchRule:
+		//SimDitchQueryParameterRule TDitchRule:
 		//	source=[DQueryParameter];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -864,63 +864,63 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSourceDQueryParameterIDTerminalRuleCall_0_1() { return cSourceDQueryParameterIDTerminalRuleCall_0_1; }
 	}
-	public class SAggregateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAggregate");
+	public class SimAggregateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimAggregate");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSAggregateDeductionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimAggregateTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDAggregateParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//SAggregate DAggregate:
-		//	SAggregateDeduction | DAggregate;
+		//SimAggregate DAggregate:
+		//	SimAggregateTransposition | DAggregate;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SAggregateDeduction | DAggregate
+		//SimAggregateTransposition | DAggregate
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SAggregateDeduction
-		public RuleCall getSAggregateDeductionParserRuleCall_0() { return cSAggregateDeductionParserRuleCall_0; }
+		//SimAggregateTransposition
+		public RuleCall getSimAggregateTranspositionParserRuleCall_0() { return cSimAggregateTranspositionParserRuleCall_0; }
 		
 		//DAggregate
 		public RuleCall getDAggregateParserRuleCall_1() { return cDAggregateParserRuleCall_1; }
 	}
-	public class SAggregateDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAggregateDeduction");
+	public class SimAggregateTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimAggregateTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSAggregateDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTAggregateTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cGrabKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cAggregateKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDeductionRuleAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDeductionRuleSGrabAggregateRuleParserRuleCall_3_0 = (RuleCall)cDeductionRuleAssignment_3.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTranspositionRuleSimGrabAggregateRuleParserRuleCall_3_0 = (RuleCall)cTranspositionRuleAssignment_3.eContents().get(0);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cLeftCurlyBracketKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
 		private final Assignment cFeaturesAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
-		private final RuleCall cFeaturesSQueryDeductionParserRuleCall_5_1_0_0 = (RuleCall)cFeaturesAssignment_5_1_0.eContents().get(0);
+		private final RuleCall cFeaturesSimQueryTranspositionParserRuleCall_5_1_0_0 = (RuleCall)cFeaturesAssignment_5_1_0.eContents().get(0);
 		private final Group cGroup_5_1_1 = (Group)cAlternatives_5_1.eContents().get(1);
 		private final Keyword cAddKeyword_5_1_1_0 = (Keyword)cGroup_5_1_1.eContents().get(0);
 		private final Keyword cQueryKeyword_5_1_1_1 = (Keyword)cGroup_5_1_1.eContents().get(1);
 		private final Assignment cFeaturesAssignment_5_1_1_2 = (Assignment)cGroup_5_1_1.eContents().get(2);
 		private final RuleCall cFeaturesDQueryParserRuleCall_5_1_1_2_0 = (RuleCall)cFeaturesAssignment_5_1_1_2.eContents().get(0);
 		private final Assignment cTypesAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cTypesSTypeParserRuleCall_5_2_0 = (RuleCall)cTypesAssignment_5_2.eContents().get(0);
+		private final RuleCall cTypesSimTypeParserRuleCall_5_2_0 = (RuleCall)cTypesAssignment_5_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		
-		//SAggregateDeduction:
-		//	{SAggregateDeduction}
-		//	'grab' 'aggregate' deductionRule=SGrabAggregateRule
-		//	description=DRichText? ('{' (features+=SQueryDeduction | 'add' 'query' features+=DQuery)*
-		//	types+=SType*
+		//SimAggregateTransposition TAggregateTransposition:
+		//	{TAggregateTransposition}
+		//	'grab' 'aggregate' transpositionRule=SimGrabAggregateRule
+		//	description=DRichText? ('{' (features+=SimQueryTransposition | 'add' 'query' features+=DQuery)*
+		//	types+=SimType*
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SAggregateDeduction} 'grab' 'aggregate' deductionRule=SGrabAggregateRule description=DRichText? ('{'
-		//(features+=SQueryDeduction | 'add' 'query' features+=DQuery)* types+=SType* '}')?
+		//{TAggregateTransposition} 'grab' 'aggregate' transpositionRule=SimGrabAggregateRule description=DRichText? ('{'
+		//(features+=SimQueryTransposition | 'add' 'query' features+=DQuery)* types+=SimType* '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//{SAggregateDeduction}
-		public Action getSAggregateDeductionAction_0() { return cSAggregateDeductionAction_0; }
+		//{TAggregateTransposition}
+		public Action getTAggregateTranspositionAction_0() { return cTAggregateTranspositionAction_0; }
 		
 		//'grab'
 		public Keyword getGrabKeyword_1() { return cGrabKeyword_1; }
@@ -928,11 +928,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'aggregate'
 		public Keyword getAggregateKeyword_2() { return cAggregateKeyword_2; }
 		
-		//deductionRule=SGrabAggregateRule
-		public Assignment getDeductionRuleAssignment_3() { return cDeductionRuleAssignment_3; }
+		//transpositionRule=SimGrabAggregateRule
+		public Assignment getTranspositionRuleAssignment_3() { return cTranspositionRuleAssignment_3; }
 		
-		//SGrabAggregateRule
-		public RuleCall getDeductionRuleSGrabAggregateRuleParserRuleCall_3_0() { return cDeductionRuleSGrabAggregateRuleParserRuleCall_3_0; }
+		//SimGrabAggregateRule
+		public RuleCall getTranspositionRuleSimGrabAggregateRuleParserRuleCall_3_0() { return cTranspositionRuleSimGrabAggregateRuleParserRuleCall_3_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
@@ -940,20 +940,20 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
 		
-		//('{' (features+=SQueryDeduction | 'add' 'query' features+=DQuery)* types+=SType* '}')?
+		//('{' (features+=SimQueryTransposition | 'add' 'query' features+=DQuery)* types+=SimType* '}')?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5_0() { return cLeftCurlyBracketKeyword_5_0; }
 		
-		//(features+=SQueryDeduction | 'add' 'query' features+=DQuery)*
+		//(features+=SimQueryTransposition | 'add' 'query' features+=DQuery)*
 		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
 		
-		//features+=SQueryDeduction
+		//features+=SimQueryTransposition
 		public Assignment getFeaturesAssignment_5_1_0() { return cFeaturesAssignment_5_1_0; }
 		
-		//SQueryDeduction
-		public RuleCall getFeaturesSQueryDeductionParserRuleCall_5_1_0_0() { return cFeaturesSQueryDeductionParserRuleCall_5_1_0_0; }
+		//SimQueryTransposition
+		public RuleCall getFeaturesSimQueryTranspositionParserRuleCall_5_1_0_0() { return cFeaturesSimQueryTranspositionParserRuleCall_5_1_0_0; }
 		
 		//'add' 'query' features+=DQuery
 		public Group getGroup_5_1_1() { return cGroup_5_1_1; }
@@ -970,11 +970,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQuery
 		public RuleCall getFeaturesDQueryParserRuleCall_5_1_1_2_0() { return cFeaturesDQueryParserRuleCall_5_1_1_2_0; }
 		
-		//types+=SType*
+		//types+=SimType*
 		public Assignment getTypesAssignment_5_2() { return cTypesAssignment_5_2; }
 		
-		//SType
-		public RuleCall getTypesSTypeParserRuleCall_5_2_0() { return cTypesSTypeParserRuleCall_5_2_0; }
+		//SimType
+		public RuleCall getTypesSimTypeParserRuleCall_5_2_0() { return cTypesSimTypeParserRuleCall_5_2_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_3() { return cRightCurlyBracketKeyword_5_3; }
@@ -994,84 +994,84 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	public class DTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.DType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSPrimitiveDeductionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimPrimitiveTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDPrimitiveParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSEnumerationDeductionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSimEnumerationTranspositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDEnumerationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSEntityTypeDeductionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSimEntityTypeTranspositionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cDEntityTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cSDetailTypeDeductionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cSimDetailTypeTranspositionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cDDetailTypeParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//@Override
 		//DType:
-		//	SPrimitiveDeduction | DPrimitive
-		//	| SEnumerationDeduction | DEnumeration
-		//	| SEntityTypeDeduction | DEntityType
-		//	| SDetailTypeDeduction | DDetailType;
+		//	SimPrimitiveTransposition | DPrimitive
+		//	| SimEnumerationTransposition | DEnumeration
+		//	| SimEntityTypeTransposition | DEntityType
+		//	| SimDetailTypeTransposition | DDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SPrimitiveDeduction | DPrimitive | SEnumerationDeduction | DEnumeration | SEntityTypeDeduction | DEntityType |
-		//SDetailTypeDeduction | DDetailType
+		//SimPrimitiveTransposition | DPrimitive | SimEnumerationTransposition | DEnumeration | SimEntityTypeTransposition |
+		//DEntityType | SimDetailTypeTransposition | DDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SPrimitiveDeduction
-		public RuleCall getSPrimitiveDeductionParserRuleCall_0() { return cSPrimitiveDeductionParserRuleCall_0; }
+		//SimPrimitiveTransposition
+		public RuleCall getSimPrimitiveTranspositionParserRuleCall_0() { return cSimPrimitiveTranspositionParserRuleCall_0; }
 		
 		//DPrimitive
 		public RuleCall getDPrimitiveParserRuleCall_1() { return cDPrimitiveParserRuleCall_1; }
 		
-		//SEnumerationDeduction
-		public RuleCall getSEnumerationDeductionParserRuleCall_2() { return cSEnumerationDeductionParserRuleCall_2; }
+		//SimEnumerationTransposition
+		public RuleCall getSimEnumerationTranspositionParserRuleCall_2() { return cSimEnumerationTranspositionParserRuleCall_2; }
 		
 		//DEnumeration
 		public RuleCall getDEnumerationParserRuleCall_3() { return cDEnumerationParserRuleCall_3; }
 		
-		//SEntityTypeDeduction
-		public RuleCall getSEntityTypeDeductionParserRuleCall_4() { return cSEntityTypeDeductionParserRuleCall_4; }
+		//SimEntityTypeTransposition
+		public RuleCall getSimEntityTypeTranspositionParserRuleCall_4() { return cSimEntityTypeTranspositionParserRuleCall_4; }
 		
 		//DEntityType
 		public RuleCall getDEntityTypeParserRuleCall_5() { return cDEntityTypeParserRuleCall_5; }
 		
-		//SDetailTypeDeduction
-		public RuleCall getSDetailTypeDeductionParserRuleCall_6() { return cSDetailTypeDeductionParserRuleCall_6; }
+		//SimDetailTypeTransposition
+		public RuleCall getSimDetailTypeTranspositionParserRuleCall_6() { return cSimDetailTypeTranspositionParserRuleCall_6; }
 		
 		//DDetailType
 		public RuleCall getDDetailTypeParserRuleCall_7() { return cDDetailTypeParserRuleCall_7; }
 	}
-	public class STypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SType");
+	public class SimTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSPrimitiveDeductionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimPrimitiveTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cAddKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cDPrimitiveParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final RuleCall cSEnumerationDeductionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSimEnumerationTranspositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Keyword cAddKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final RuleCall cDEnumerationParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
-		private final RuleCall cSEntityTypeDeductionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSimEntityTypeTranspositionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
 		private final Keyword cAddKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final RuleCall cDEntityTypeParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
-		private final RuleCall cSDetailTypeDeductionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cSimDetailTypeTranspositionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
 		private final Keyword cAddKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final RuleCall cDDetailTypeParserRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
 		
-		//SType DType:
-		//	SPrimitiveDeduction | 'add' DPrimitive
-		//	| SEnumerationDeduction | 'add' DEnumeration
-		//	| SEntityTypeDeduction | 'add' DEntityType
-		//	| SDetailTypeDeduction | 'add' DDetailType;
+		//SimType DType:
+		//	SimPrimitiveTransposition | 'add' DPrimitive
+		//	| SimEnumerationTransposition | 'add' DEnumeration
+		//	| SimEntityTypeTransposition | 'add' DEntityType
+		//	| SimDetailTypeTransposition | 'add' DDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SPrimitiveDeduction | 'add' DPrimitive | SEnumerationDeduction | 'add' DEnumeration | SEntityTypeDeduction | 'add'
-		//DEntityType | SDetailTypeDeduction | 'add' DDetailType
+		//SimPrimitiveTransposition | 'add' DPrimitive | SimEnumerationTransposition | 'add' DEnumeration |
+		//SimEntityTypeTransposition | 'add' DEntityType | SimDetailTypeTransposition | 'add' DDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SPrimitiveDeduction
-		public RuleCall getSPrimitiveDeductionParserRuleCall_0() { return cSPrimitiveDeductionParserRuleCall_0; }
+		//SimPrimitiveTransposition
+		public RuleCall getSimPrimitiveTranspositionParserRuleCall_0() { return cSimPrimitiveTranspositionParserRuleCall_0; }
 		
 		//'add' DPrimitive
 		public Group getGroup_1() { return cGroup_1; }
@@ -1082,8 +1082,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DPrimitive
 		public RuleCall getDPrimitiveParserRuleCall_1_1() { return cDPrimitiveParserRuleCall_1_1; }
 		
-		//SEnumerationDeduction
-		public RuleCall getSEnumerationDeductionParserRuleCall_2() { return cSEnumerationDeductionParserRuleCall_2; }
+		//SimEnumerationTransposition
+		public RuleCall getSimEnumerationTranspositionParserRuleCall_2() { return cSimEnumerationTranspositionParserRuleCall_2; }
 		
 		//'add' DEnumeration
 		public Group getGroup_3() { return cGroup_3; }
@@ -1094,8 +1094,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DEnumeration
 		public RuleCall getDEnumerationParserRuleCall_3_1() { return cDEnumerationParserRuleCall_3_1; }
 		
-		//SEntityTypeDeduction
-		public RuleCall getSEntityTypeDeductionParserRuleCall_4() { return cSEntityTypeDeductionParserRuleCall_4; }
+		//SimEntityTypeTransposition
+		public RuleCall getSimEntityTypeTranspositionParserRuleCall_4() { return cSimEntityTypeTranspositionParserRuleCall_4; }
 		
 		//'add' DEntityType
 		public Group getGroup_5() { return cGroup_5; }
@@ -1106,8 +1106,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DEntityType
 		public RuleCall getDEntityTypeParserRuleCall_5_1() { return cDEntityTypeParserRuleCall_5_1; }
 		
-		//SDetailTypeDeduction
-		public RuleCall getSDetailTypeDeductionParserRuleCall_6() { return cSDetailTypeDeductionParserRuleCall_6; }
+		//SimDetailTypeTransposition
+		public RuleCall getSimDetailTypeTranspositionParserRuleCall_6() { return cSimDetailTypeTranspositionParserRuleCall_6; }
 		
 		//'add' DDetailType
 		public Group getGroup_7() { return cGroup_7; }
@@ -1118,21 +1118,21 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DDetailType
 		public RuleCall getDDetailTypeParserRuleCall_7_1() { return cDDetailTypeParserRuleCall_7_1; }
 	}
-	public class SPrimitiveDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SPrimitiveDeduction");
+	public class SimPrimitiveTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimPrimitiveTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSPrimitiveDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTPrimitiveTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Keyword cPrimitiveKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cDeductionRuleSGrabPrimitiveRuleParserRuleCall_1_0_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimGrabPrimitiveRuleParserRuleCall_1_0_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Keyword cPrimitiveKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSDitchPrimitiveRuleParserRuleCall_1_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimDitchPrimitiveRuleParserRuleCall_1_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_1_2.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -1143,23 +1143,25 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstraintsDConstraintParserRuleCall_3_1_1_0 = (RuleCall)cConstraintsAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
-		//SPrimitiveDeduction:
-		//	{SPrimitiveDeduction} ('grab' 'primitive' deductionRule=SGrabPrimitiveRule
-		//	| 'ditch' 'primitive' deductionRule=SDitchPrimitiveRule) description=DRichText? ('{' ('add' constraints+=DConstraint)*
+		//SimPrimitiveTransposition TPrimitiveTransposition:
+		//	{TPrimitiveTransposition} ('grab' 'primitive' transpositionRule=SimGrabPrimitiveRule
+		//	| 'ditch' 'primitive' transpositionRule=SimDitchPrimitiveRule) description=DRichText? ('{' ('add'
+		//	constraints+=DConstraint)*
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SPrimitiveDeduction} ('grab' 'primitive' deductionRule=SGrabPrimitiveRule | 'ditch' 'primitive'
-		//deductionRule=SDitchPrimitiveRule) description=DRichText? ('{' ('add' constraints+=DConstraint)* '}')?
+		//{TPrimitiveTransposition} ('grab' 'primitive' transpositionRule=SimGrabPrimitiveRule | 'ditch' 'primitive'
+		//transpositionRule=SimDitchPrimitiveRule) description=DRichText? ('{' ('add' constraints+=DConstraint)* '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//{SPrimitiveDeduction}
-		public Action getSPrimitiveDeductionAction_0() { return cSPrimitiveDeductionAction_0; }
+		//{TPrimitiveTransposition}
+		public Action getTPrimitiveTranspositionAction_0() { return cTPrimitiveTranspositionAction_0; }
 		
-		//('grab' 'primitive' deductionRule=SGrabPrimitiveRule | 'ditch' 'primitive' deductionRule=SDitchPrimitiveRule)
+		//('grab' 'primitive' transpositionRule=SimGrabPrimitiveRule | 'ditch' 'primitive'
+		//transpositionRule=SimDitchPrimitiveRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+		//'grab' 'primitive' transpositionRule=SimGrabPrimitiveRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
@@ -1168,13 +1170,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'primitive'
 		public Keyword getPrimitiveKeyword_1_0_1() { return cPrimitiveKeyword_1_0_1; }
 		
-		//deductionRule=SGrabPrimitiveRule
-		public Assignment getDeductionRuleAssignment_1_0_2() { return cDeductionRuleAssignment_1_0_2; }
+		//transpositionRule=SimGrabPrimitiveRule
+		public Assignment getTranspositionRuleAssignment_1_0_2() { return cTranspositionRuleAssignment_1_0_2; }
 		
-		//SGrabPrimitiveRule
-		public RuleCall getDeductionRuleSGrabPrimitiveRuleParserRuleCall_1_0_2_0() { return cDeductionRuleSGrabPrimitiveRuleParserRuleCall_1_0_2_0; }
+		//SimGrabPrimitiveRule
+		public RuleCall getTranspositionRuleSimGrabPrimitiveRuleParserRuleCall_1_0_2_0() { return cTranspositionRuleSimGrabPrimitiveRuleParserRuleCall_1_0_2_0; }
 		
-		//'ditch' 'primitive' deductionRule=SDitchPrimitiveRule
+		//'ditch' 'primitive' transpositionRule=SimDitchPrimitiveRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'ditch'
@@ -1183,11 +1185,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'primitive'
 		public Keyword getPrimitiveKeyword_1_1_1() { return cPrimitiveKeyword_1_1_1; }
 		
-		//deductionRule=SDitchPrimitiveRule
-		public Assignment getDeductionRuleAssignment_1_1_2() { return cDeductionRuleAssignment_1_1_2; }
+		//transpositionRule=SimDitchPrimitiveRule
+		public Assignment getTranspositionRuleAssignment_1_1_2() { return cTranspositionRuleAssignment_1_1_2; }
 		
-		//SDitchPrimitiveRule
-		public RuleCall getDeductionRuleSDitchPrimitiveRuleParserRuleCall_1_1_2_0() { return cDeductionRuleSDitchPrimitiveRuleParserRuleCall_1_1_2_0; }
+		//SimDitchPrimitiveRule
+		public RuleCall getTranspositionRuleSimDitchPrimitiveRuleParserRuleCall_1_1_2_0() { return cTranspositionRuleSimDitchPrimitiveRuleParserRuleCall_1_1_2_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1216,57 +1218,58 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
 	}
-	public class SEnumerationDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SEnumerationDeduction");
+	public class SimEnumerationTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimEnumerationTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSEnumerationDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTEnumerationTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Keyword cEnumerationKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cDeductionRuleSGrabEnumerationRuleParserRuleCall_1_0_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimGrabEnumerationRuleParserRuleCall_1_0_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Keyword cEnumerationKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSDitchEnumerationRuleParserRuleCall_1_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimDitchEnumerationRuleParserRuleCall_1_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_1_2.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
 		private final Assignment cLiteralsAssignment_3_1_0 = (Assignment)cGroup_3_1.eContents().get(0);
-		private final RuleCall cLiteralsSLiteralParserRuleCall_3_1_0_0 = (RuleCall)cLiteralsAssignment_3_1_0.eContents().get(0);
+		private final RuleCall cLiteralsSimLiteralParserRuleCall_3_1_0_0 = (RuleCall)cLiteralsAssignment_3_1_0.eContents().get(0);
 		private final Group cGroup_3_1_1 = (Group)cGroup_3_1.eContents().get(1);
 		private final Keyword cCommaKeyword_3_1_1_0 = (Keyword)cGroup_3_1_1.eContents().get(0);
 		private final Assignment cLiteralsAssignment_3_1_1_1 = (Assignment)cGroup_3_1_1.eContents().get(1);
-		private final RuleCall cLiteralsSLiteralParserRuleCall_3_1_1_1_0 = (RuleCall)cLiteralsAssignment_3_1_1_1.eContents().get(0);
+		private final RuleCall cLiteralsSimLiteralParserRuleCall_3_1_1_1_0 = (RuleCall)cLiteralsAssignment_3_1_1_1.eContents().get(0);
 		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
 		private final Keyword cAddKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
 		private final Assignment cConstraintsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
 		private final RuleCall cConstraintsDConstraintParserRuleCall_3_2_1_0 = (RuleCall)cConstraintsAssignment_3_2_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
-		//SEnumerationDeduction:
-		//	{SEnumerationDeduction} ('grab' 'enumeration' deductionRule=SGrabEnumerationRule
-		//	| 'ditch' 'enumeration' deductionRule=SDitchEnumerationRule) description=DRichText? ('{' (literals+=SLiteral (','
-		//	literals+=SLiteral)*)? ('add' constraints+=DConstraint)*
+		//SimEnumerationTransposition TEnumerationTransposition:
+		//	{TEnumerationTransposition} ('grab' 'enumeration' transpositionRule=SimGrabEnumerationRule
+		//	| 'ditch' 'enumeration' transpositionRule=SimDitchEnumerationRule) description=DRichText? ('{' (literals+=SimLiteral
+		//	(',' literals+=SimLiteral)*)? ('add' constraints+=DConstraint)*
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SEnumerationDeduction} ('grab' 'enumeration' deductionRule=SGrabEnumerationRule | 'ditch' 'enumeration'
-		//deductionRule=SDitchEnumerationRule) description=DRichText? ('{' (literals+=SLiteral (',' literals+=SLiteral)*)? ('add'
-		//constraints+=DConstraint)* '}')?
+		//{TEnumerationTransposition} ('grab' 'enumeration' transpositionRule=SimGrabEnumerationRule | 'ditch' 'enumeration'
+		//transpositionRule=SimDitchEnumerationRule) description=DRichText? ('{' (literals+=SimLiteral (','
+		//literals+=SimLiteral)*)? ('add' constraints+=DConstraint)* '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//{SEnumerationDeduction}
-		public Action getSEnumerationDeductionAction_0() { return cSEnumerationDeductionAction_0; }
+		//{TEnumerationTransposition}
+		public Action getTEnumerationTranspositionAction_0() { return cTEnumerationTranspositionAction_0; }
 		
-		//('grab' 'enumeration' deductionRule=SGrabEnumerationRule | 'ditch' 'enumeration' deductionRule=SDitchEnumerationRule)
+		//('grab' 'enumeration' transpositionRule=SimGrabEnumerationRule | 'ditch' 'enumeration'
+		//transpositionRule=SimDitchEnumerationRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' 'enumeration' deductionRule=SGrabEnumerationRule
+		//'grab' 'enumeration' transpositionRule=SimGrabEnumerationRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
@@ -1275,13 +1278,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'enumeration'
 		public Keyword getEnumerationKeyword_1_0_1() { return cEnumerationKeyword_1_0_1; }
 		
-		//deductionRule=SGrabEnumerationRule
-		public Assignment getDeductionRuleAssignment_1_0_2() { return cDeductionRuleAssignment_1_0_2; }
+		//transpositionRule=SimGrabEnumerationRule
+		public Assignment getTranspositionRuleAssignment_1_0_2() { return cTranspositionRuleAssignment_1_0_2; }
 		
-		//SGrabEnumerationRule
-		public RuleCall getDeductionRuleSGrabEnumerationRuleParserRuleCall_1_0_2_0() { return cDeductionRuleSGrabEnumerationRuleParserRuleCall_1_0_2_0; }
+		//SimGrabEnumerationRule
+		public RuleCall getTranspositionRuleSimGrabEnumerationRuleParserRuleCall_1_0_2_0() { return cTranspositionRuleSimGrabEnumerationRuleParserRuleCall_1_0_2_0; }
 		
-		//'ditch' 'enumeration' deductionRule=SDitchEnumerationRule
+		//'ditch' 'enumeration' transpositionRule=SimDitchEnumerationRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'ditch'
@@ -1290,11 +1293,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'enumeration'
 		public Keyword getEnumerationKeyword_1_1_1() { return cEnumerationKeyword_1_1_1; }
 		
-		//deductionRule=SDitchEnumerationRule
-		public Assignment getDeductionRuleAssignment_1_1_2() { return cDeductionRuleAssignment_1_1_2; }
+		//transpositionRule=SimDitchEnumerationRule
+		public Assignment getTranspositionRuleAssignment_1_1_2() { return cTranspositionRuleAssignment_1_1_2; }
 		
-		//SDitchEnumerationRule
-		public RuleCall getDeductionRuleSDitchEnumerationRuleParserRuleCall_1_1_2_0() { return cDeductionRuleSDitchEnumerationRuleParserRuleCall_1_1_2_0; }
+		//SimDitchEnumerationRule
+		public RuleCall getTranspositionRuleSimDitchEnumerationRuleParserRuleCall_1_1_2_0() { return cTranspositionRuleSimDitchEnumerationRuleParserRuleCall_1_1_2_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1302,32 +1305,32 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 		
-		//('{' (literals+=SLiteral (',' literals+=SLiteral)*)? ('add' constraints+=DConstraint)* '}')?
+		//('{' (literals+=SimLiteral (',' literals+=SimLiteral)*)? ('add' constraints+=DConstraint)* '}')?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
 		
-		//(literals+=SLiteral (',' literals+=SLiteral)*)?
+		//(literals+=SimLiteral (',' literals+=SimLiteral)*)?
 		public Group getGroup_3_1() { return cGroup_3_1; }
 		
-		//literals+=SLiteral
+		//literals+=SimLiteral
 		public Assignment getLiteralsAssignment_3_1_0() { return cLiteralsAssignment_3_1_0; }
 		
-		//SLiteral
-		public RuleCall getLiteralsSLiteralParserRuleCall_3_1_0_0() { return cLiteralsSLiteralParserRuleCall_3_1_0_0; }
+		//SimLiteral
+		public RuleCall getLiteralsSimLiteralParserRuleCall_3_1_0_0() { return cLiteralsSimLiteralParserRuleCall_3_1_0_0; }
 		
-		//(',' literals+=SLiteral)*
+		//(',' literals+=SimLiteral)*
 		public Group getGroup_3_1_1() { return cGroup_3_1_1; }
 		
 		//','
 		public Keyword getCommaKeyword_3_1_1_0() { return cCommaKeyword_3_1_1_0; }
 		
-		//literals+=SLiteral
+		//literals+=SimLiteral
 		public Assignment getLiteralsAssignment_3_1_1_1() { return cLiteralsAssignment_3_1_1_1; }
 		
-		//SLiteral
-		public RuleCall getLiteralsSLiteralParserRuleCall_3_1_1_1_0() { return cLiteralsSLiteralParserRuleCall_3_1_1_1_0; }
+		//SimLiteral
+		public RuleCall getLiteralsSimLiteralParserRuleCall_3_1_1_1_0() { return cLiteralsSimLiteralParserRuleCall_3_1_1_1_0; }
 		
 		//('add' constraints+=DConstraint)*
 		public Group getGroup_3_2() { return cGroup_3_2; }
@@ -1344,23 +1347,23 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
 	}
-	public class SLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SLiteral");
+	public class SimLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimLiteral");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSLiteralDeductionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimLiteralTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cAddKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cDLiteralParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//SLiteral DLiteral:
-		//	SLiteralDeduction | 'add' DLiteral;
+		//SimLiteral DLiteral:
+		//	SimLiteralTransposition | 'add' DLiteral;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SLiteralDeduction | 'add' DLiteral
+		//SimLiteralTransposition | 'add' DLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SLiteralDeduction
-		public RuleCall getSLiteralDeductionParserRuleCall_0() { return cSLiteralDeductionParserRuleCall_0; }
+		//SimLiteralTransposition
+		public RuleCall getSimLiteralTranspositionParserRuleCall_0() { return cSimLiteralTranspositionParserRuleCall_0; }
 		
 		//'add' DLiteral
 		public Group getGroup_1() { return cGroup_1; }
@@ -1371,60 +1374,60 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DLiteral
 		public RuleCall getDLiteralParserRuleCall_1_1() { return cDLiteralParserRuleCall_1_1; }
 	}
-	public class SLiteralDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SLiteralDeduction");
+	public class SimLiteralTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimLiteralTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSLiteralDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTLiteralTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cDeductionRuleSGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0 = (RuleCall)cDeductionRuleAssignment_1_0_1.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cTranspositionRuleSimGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0 = (RuleCall)cTranspositionRuleAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cDeductionRuleSDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0 = (RuleCall)cDeductionRuleAssignment_1_1_1.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cTranspositionRuleSimDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0 = (RuleCall)cTranspositionRuleAssignment_1_1_1.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
-		//SLiteralDeduction:
-		//	{SLiteralDeduction} ('grab' deductionRule=SGrabEnumerationLiteralRule
-		//	| 'ditch' deductionRule=SDitchEnumerationLiteralRule) description=DRichText?;
+		//SimLiteralTransposition TLiteralTransposition:
+		//	{TLiteralTransposition} ('grab' transpositionRule=SimGrabEnumerationLiteralRule
+		//	| 'ditch' transpositionRule=SimDitchEnumerationLiteralRule) description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SLiteralDeduction} ('grab' deductionRule=SGrabEnumerationLiteralRule | 'ditch'
-		//deductionRule=SDitchEnumerationLiteralRule) description=DRichText?
+		//{TLiteralTransposition} ('grab' transpositionRule=SimGrabEnumerationLiteralRule | 'ditch'
+		//transpositionRule=SimDitchEnumerationLiteralRule) description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//{SLiteralDeduction}
-		public Action getSLiteralDeductionAction_0() { return cSLiteralDeductionAction_0; }
+		//{TLiteralTransposition}
+		public Action getTLiteralTranspositionAction_0() { return cTLiteralTranspositionAction_0; }
 		
-		//('grab' deductionRule=SGrabEnumerationLiteralRule | 'ditch' deductionRule=SDitchEnumerationLiteralRule)
+		//('grab' transpositionRule=SimGrabEnumerationLiteralRule | 'ditch' transpositionRule=SimDitchEnumerationLiteralRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' deductionRule=SGrabEnumerationLiteralRule
+		//'grab' transpositionRule=SimGrabEnumerationLiteralRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
 		public Keyword getGrabKeyword_1_0_0() { return cGrabKeyword_1_0_0; }
 		
-		//deductionRule=SGrabEnumerationLiteralRule
-		public Assignment getDeductionRuleAssignment_1_0_1() { return cDeductionRuleAssignment_1_0_1; }
+		//transpositionRule=SimGrabEnumerationLiteralRule
+		public Assignment getTranspositionRuleAssignment_1_0_1() { return cTranspositionRuleAssignment_1_0_1; }
 		
-		//SGrabEnumerationLiteralRule
-		public RuleCall getDeductionRuleSGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0() { return cDeductionRuleSGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0; }
+		//SimGrabEnumerationLiteralRule
+		public RuleCall getTranspositionRuleSimGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0() { return cTranspositionRuleSimGrabEnumerationLiteralRuleParserRuleCall_1_0_1_0; }
 		
-		//'ditch' deductionRule=SDitchEnumerationLiteralRule
+		//'ditch' transpositionRule=SimDitchEnumerationLiteralRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'ditch'
 		public Keyword getDitchKeyword_1_1_0() { return cDitchKeyword_1_1_0; }
 		
-		//deductionRule=SDitchEnumerationLiteralRule
-		public Assignment getDeductionRuleAssignment_1_1_1() { return cDeductionRuleAssignment_1_1_1; }
+		//transpositionRule=SimDitchEnumerationLiteralRule
+		public Assignment getTranspositionRuleAssignment_1_1_1() { return cTranspositionRuleAssignment_1_1_1; }
 		
-		//SDitchEnumerationLiteralRule
-		public RuleCall getDeductionRuleSDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0() { return cDeductionRuleSDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0; }
+		//SimDitchEnumerationLiteralRule
+		public RuleCall getTranspositionRuleSimDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0() { return cTranspositionRuleSimDitchEnumerationLiteralRuleParserRuleCall_1_1_1_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1432,65 +1435,66 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
-	public class SEntityTypeDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SEntityTypeDeduction");
+	public class SimEntityTypeTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimEntityTypeTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSEntityTypeDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTEntityTypeTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Assignment cRootAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final Keyword cRootRootKeyword_1_0_1_0 = (Keyword)cRootAssignment_1_0_1.eContents().get(0);
 		private final Keyword cEntityKeyword_1_0_2 = (Keyword)cGroup_1_0.eContents().get(2);
-		private final Assignment cDeductionRuleAssignment_1_0_3 = (Assignment)cGroup_1_0.eContents().get(3);
-		private final RuleCall cDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_3_0 = (RuleCall)cDeductionRuleAssignment_1_0_3.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_3 = (Assignment)cGroup_1_0.eContents().get(3);
+		private final RuleCall cTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_3_0 = (RuleCall)cTranspositionRuleAssignment_1_0_3.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Assignment cRootAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final Keyword cRootRootKeyword_1_1_1_0 = (Keyword)cRootAssignment_1_1_1.eContents().get(0);
 		private final Keyword cEntityKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
-		private final Assignment cDeductionRuleAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
-		private final RuleCall cDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_3_0 = (RuleCall)cDeductionRuleAssignment_1_1_3.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
+		private final RuleCall cTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_3_0 = (RuleCall)cTranspositionRuleAssignment_1_1_3.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Keyword cMorphKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Assignment cRootAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final Keyword cRootRootKeyword_1_2_1_0 = (Keyword)cRootAssignment_1_2_1.eContents().get(0);
 		private final Keyword cEntityKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
-		private final Assignment cDeductionRuleAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
-		private final RuleCall cDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_3_0 = (RuleCall)cDeductionRuleAssignment_1_2_3.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
+		private final RuleCall cTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0 = (RuleCall)cTranspositionRuleAssignment_1_2_3.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
 		private final Keyword cFuseKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Assignment cRootAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
 		private final Keyword cRootRootKeyword_1_3_1_0 = (Keyword)cRootAssignment_1_3_1.eContents().get(0);
 		private final Keyword cEntityKeyword_1_3_2 = (Keyword)cGroup_1_3.eContents().get(2);
-		private final Assignment cDeductionRuleAssignment_1_3_3 = (Assignment)cGroup_1_3.eContents().get(3);
-		private final RuleCall cDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_3_0 = (RuleCall)cDeductionRuleAssignment_1_3_3.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_3_3 = (Assignment)cGroup_1_3.eContents().get(3);
+		private final RuleCall cTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_3_0 = (RuleCall)cTranspositionRuleAssignment_1_3_3.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
-		private final RuleCall cSComplexTypeFeaturesParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cTComplexTypeFeaturesParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//SEntityTypeDeduction:
-		//	{SEntityTypeDeduction} ('grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
-		//	| 'ditch' root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
-		//	| 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
-		//	| 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule) description=DRichText?
-		//	SComplexTypeFeatures?;
+		//SimEntityTypeTransposition TEntityTypeTransposition:
+		//	{TEntityTypeTransposition} ('grab' root?='root'? 'entity' transpositionRule=SimGrabComplexTypeRule
+		//	| 'ditch' root?='root'? 'entity' transpositionRule=SimDitchComplexTypeRule
+		//	| 'morph' root?='root'? 'entity' transpositionRule=SimMorphComplexTypeRule
+		//	| 'fuse' root?='root'? 'entity' transpositionRule=SimFuseComplexTypeRule) description=DRichText?
+		//	TComplexTypeFeatures?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SEntityTypeDeduction} ('grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule | 'ditch' root?='root'?
-		//'entity' deductionRule=SDitchComplexTypeRule | 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule |
-		//'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule) description=DRichText? SComplexTypeFeatures?
+		//{TEntityTypeTransposition} ('grab' root?='root'? 'entity' transpositionRule=SimGrabComplexTypeRule | 'ditch'
+		//root?='root'? 'entity' transpositionRule=SimDitchComplexTypeRule | 'morph' root?='root'? 'entity'
+		//transpositionRule=SimMorphComplexTypeRule | 'fuse' root?='root'? 'entity' transpositionRule=SimFuseComplexTypeRule)
+		//description=DRichText? TComplexTypeFeatures?
 		public Group getGroup() { return cGroup; }
 		
-		//{SEntityTypeDeduction}
-		public Action getSEntityTypeDeductionAction_0() { return cSEntityTypeDeductionAction_0; }
+		//{TEntityTypeTransposition}
+		public Action getTEntityTypeTranspositionAction_0() { return cTEntityTypeTranspositionAction_0; }
 		
-		//('grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule | 'ditch' root?='root'? 'entity'
-		//deductionRule=SDitchComplexTypeRule | 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule | 'fuse'
-		//root?='root'? 'entity' deductionRule=SFuseComplexTypeRule)
+		//('grab' root?='root'? 'entity' transpositionRule=SimGrabComplexTypeRule | 'ditch' root?='root'? 'entity'
+		//transpositionRule=SimDitchComplexTypeRule | 'morph' root?='root'? 'entity' transpositionRule=SimMorphComplexTypeRule |
+		//'fuse' root?='root'? 'entity' transpositionRule=SimFuseComplexTypeRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
+		//'grab' root?='root'? 'entity' transpositionRule=SimGrabComplexTypeRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
@@ -1505,13 +1509,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'entity'
 		public Keyword getEntityKeyword_1_0_2() { return cEntityKeyword_1_0_2; }
 		
-		//deductionRule=SGrabComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_0_3() { return cDeductionRuleAssignment_1_0_3; }
+		//transpositionRule=SimGrabComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_0_3() { return cTranspositionRuleAssignment_1_0_3; }
 		
-		//SGrabComplexTypeRule
-		public RuleCall getDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_3_0() { return cDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_3_0; }
+		//SimGrabComplexTypeRule
+		public RuleCall getTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_3_0() { return cTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_3_0; }
 		
-		//'ditch' root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
+		//'ditch' root?='root'? 'entity' transpositionRule=SimDitchComplexTypeRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'ditch'
@@ -1526,13 +1530,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'entity'
 		public Keyword getEntityKeyword_1_1_2() { return cEntityKeyword_1_1_2; }
 		
-		//deductionRule=SDitchComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_1_3() { return cDeductionRuleAssignment_1_1_3; }
+		//transpositionRule=SimDitchComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_1_3() { return cTranspositionRuleAssignment_1_1_3; }
 		
-		//SDitchComplexTypeRule
-		public RuleCall getDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_3_0() { return cDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_3_0; }
+		//SimDitchComplexTypeRule
+		public RuleCall getTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_3_0() { return cTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_3_0; }
 		
-		//'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
+		//'morph' root?='root'? 'entity' transpositionRule=SimMorphComplexTypeRule
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//'morph'
@@ -1547,13 +1551,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'entity'
 		public Keyword getEntityKeyword_1_2_2() { return cEntityKeyword_1_2_2; }
 		
-		//deductionRule=SMorphComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_2_3() { return cDeductionRuleAssignment_1_2_3; }
+		//transpositionRule=SimMorphComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_2_3() { return cTranspositionRuleAssignment_1_2_3; }
 		
-		//SMorphComplexTypeRule
-		public RuleCall getDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_3_0() { return cDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_3_0; }
+		//SimMorphComplexTypeRule
+		public RuleCall getTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0() { return cTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0; }
 		
-		//'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
+		//'fuse' root?='root'? 'entity' transpositionRule=SimFuseComplexTypeRule
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
 		//'fuse'
@@ -1568,11 +1572,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'entity'
 		public Keyword getEntityKeyword_1_3_2() { return cEntityKeyword_1_3_2; }
 		
-		//deductionRule=SFuseComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_3_3() { return cDeductionRuleAssignment_1_3_3; }
+		//transpositionRule=SimFuseComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_3_3() { return cTranspositionRuleAssignment_1_3_3; }
 		
-		//SFuseComplexTypeRule
-		public RuleCall getDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_3_0() { return cDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_3_0; }
+		//SimFuseComplexTypeRule
+		public RuleCall getTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_3_0() { return cTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_3_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1580,59 +1584,59 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 		
-		//SComplexTypeFeatures?
-		public RuleCall getSComplexTypeFeaturesParserRuleCall_3() { return cSComplexTypeFeaturesParserRuleCall_3; }
+		//TComplexTypeFeatures?
+		public RuleCall getTComplexTypeFeaturesParserRuleCall_3() { return cTComplexTypeFeaturesParserRuleCall_3; }
 	}
-	public class SDetailTypeDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDetailTypeDeduction");
+	public class SimDetailTypeTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDetailTypeTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSDetailTypeDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTDetailTypeTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Keyword cDetailKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Keyword cDetailKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_1_2.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Keyword cMorphKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Keyword cDetailKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_2_0 = (RuleCall)cDeductionRuleAssignment_1_2_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_2_0 = (RuleCall)cTranspositionRuleAssignment_1_2_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
 		private final Keyword cFuseKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Keyword cDetailKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
-		private final RuleCall cDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_2_0 = (RuleCall)cDeductionRuleAssignment_1_3_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_2_0 = (RuleCall)cTranspositionRuleAssignment_1_3_2.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
-		private final RuleCall cSComplexTypeFeaturesParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cTComplexTypeFeaturesParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//SDetailTypeDeduction:
-		//	{SDetailTypeDeduction} ('grab' 'detail' deductionRule=SGrabComplexTypeRule
-		//	| 'ditch' 'detail' deductionRule=SDitchComplexTypeRule
-		//	| 'morph' 'detail' deductionRule=SMorphComplexTypeRule
-		//	| 'fuse' 'detail' deductionRule=SFuseComplexTypeRule) description=DRichText?
-		//	SComplexTypeFeatures?;
+		//SimDetailTypeTransposition TDetailTypeTransposition:
+		//	{TDetailTypeTransposition} ('grab' 'detail' transpositionRule=SimGrabComplexTypeRule
+		//	| 'ditch' 'detail' transpositionRule=SimDitchComplexTypeRule
+		//	| 'morph' 'detail' transpositionRule=SimMorphComplexTypeRule
+		//	| 'fuse' 'detail' transpositionRule=SimFuseComplexTypeRule) description=DRichText?
+		//	TComplexTypeFeatures?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SDetailTypeDeduction} ('grab' 'detail' deductionRule=SGrabComplexTypeRule | 'ditch' 'detail'
-		//deductionRule=SDitchComplexTypeRule | 'morph' 'detail' deductionRule=SMorphComplexTypeRule | 'fuse' 'detail'
-		//deductionRule=SFuseComplexTypeRule) description=DRichText? SComplexTypeFeatures?
+		//{TDetailTypeTransposition} ('grab' 'detail' transpositionRule=SimGrabComplexTypeRule | 'ditch' 'detail'
+		//transpositionRule=SimDitchComplexTypeRule | 'morph' 'detail' transpositionRule=SimMorphComplexTypeRule | 'fuse'
+		//'detail' transpositionRule=SimFuseComplexTypeRule) description=DRichText? TComplexTypeFeatures?
 		public Group getGroup() { return cGroup; }
 		
-		//{SDetailTypeDeduction}
-		public Action getSDetailTypeDeductionAction_0() { return cSDetailTypeDeductionAction_0; }
+		//{TDetailTypeTransposition}
+		public Action getTDetailTypeTranspositionAction_0() { return cTDetailTypeTranspositionAction_0; }
 		
-		//('grab' 'detail' deductionRule=SGrabComplexTypeRule | 'ditch' 'detail' deductionRule=SDitchComplexTypeRule | 'morph'
-		//'detail' deductionRule=SMorphComplexTypeRule | 'fuse' 'detail' deductionRule=SFuseComplexTypeRule)
+		//('grab' 'detail' transpositionRule=SimGrabComplexTypeRule | 'ditch' 'detail' transpositionRule=SimDitchComplexTypeRule |
+		//'morph' 'detail' transpositionRule=SimMorphComplexTypeRule | 'fuse' 'detail' transpositionRule=SimFuseComplexTypeRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' 'detail' deductionRule=SGrabComplexTypeRule
+		//'grab' 'detail' transpositionRule=SimGrabComplexTypeRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
@@ -1641,13 +1645,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailKeyword_1_0_1() { return cDetailKeyword_1_0_1; }
 		
-		//deductionRule=SGrabComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_0_2() { return cDeductionRuleAssignment_1_0_2; }
+		//transpositionRule=SimGrabComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_0_2() { return cTranspositionRuleAssignment_1_0_2; }
 		
-		//SGrabComplexTypeRule
-		public RuleCall getDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_2_0() { return cDeductionRuleSGrabComplexTypeRuleParserRuleCall_1_0_2_0; }
+		//SimGrabComplexTypeRule
+		public RuleCall getTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_2_0() { return cTranspositionRuleSimGrabComplexTypeRuleParserRuleCall_1_0_2_0; }
 		
-		//'ditch' 'detail' deductionRule=SDitchComplexTypeRule
+		//'ditch' 'detail' transpositionRule=SimDitchComplexTypeRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'ditch'
@@ -1656,13 +1660,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailKeyword_1_1_1() { return cDetailKeyword_1_1_1; }
 		
-		//deductionRule=SDitchComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_1_2() { return cDeductionRuleAssignment_1_1_2; }
+		//transpositionRule=SimDitchComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_1_2() { return cTranspositionRuleAssignment_1_1_2; }
 		
-		//SDitchComplexTypeRule
-		public RuleCall getDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_2_0() { return cDeductionRuleSDitchComplexTypeRuleParserRuleCall_1_1_2_0; }
+		//SimDitchComplexTypeRule
+		public RuleCall getTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_2_0() { return cTranspositionRuleSimDitchComplexTypeRuleParserRuleCall_1_1_2_0; }
 		
-		//'morph' 'detail' deductionRule=SMorphComplexTypeRule
+		//'morph' 'detail' transpositionRule=SimMorphComplexTypeRule
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//'morph'
@@ -1671,13 +1675,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailKeyword_1_2_1() { return cDetailKeyword_1_2_1; }
 		
-		//deductionRule=SMorphComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_2_2() { return cDeductionRuleAssignment_1_2_2; }
+		//transpositionRule=SimMorphComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_2_2() { return cTranspositionRuleAssignment_1_2_2; }
 		
-		//SMorphComplexTypeRule
-		public RuleCall getDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_2_0() { return cDeductionRuleSMorphComplexTypeRuleParserRuleCall_1_2_2_0; }
+		//SimMorphComplexTypeRule
+		public RuleCall getTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_2_0() { return cTranspositionRuleSimMorphComplexTypeRuleParserRuleCall_1_2_2_0; }
 		
-		//'fuse' 'detail' deductionRule=SFuseComplexTypeRule
+		//'fuse' 'detail' transpositionRule=SimFuseComplexTypeRule
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
 		//'fuse'
@@ -1686,11 +1690,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailKeyword_1_3_1() { return cDetailKeyword_1_3_1; }
 		
-		//deductionRule=SFuseComplexTypeRule
-		public Assignment getDeductionRuleAssignment_1_3_2() { return cDeductionRuleAssignment_1_3_2; }
+		//transpositionRule=SimFuseComplexTypeRule
+		public Assignment getTranspositionRuleAssignment_1_3_2() { return cTranspositionRuleAssignment_1_3_2; }
 		
-		//SFuseComplexTypeRule
-		public RuleCall getDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_2_0() { return cDeductionRuleSFuseComplexTypeRuleParserRuleCall_1_3_2_0; }
+		//SimFuseComplexTypeRule
+		public RuleCall getTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_2_0() { return cTranspositionRuleSimFuseComplexTypeRuleParserRuleCall_1_3_2_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1698,41 +1702,41 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 		
-		//SComplexTypeFeatures?
-		public RuleCall getSComplexTypeFeaturesParserRuleCall_3() { return cSComplexTypeFeaturesParserRuleCall_3; }
+		//TComplexTypeFeatures?
+		public RuleCall getTComplexTypeFeaturesParserRuleCall_3() { return cTComplexTypeFeaturesParserRuleCall_3; }
 	}
-	public class SComplexTypeFeaturesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SComplexTypeFeatures");
+	public class TComplexTypeFeaturesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.TComplexTypeFeatures");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cFeaturesAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cFeaturesSFeatureParserRuleCall_1_0_0 = (RuleCall)cFeaturesAssignment_1_0.eContents().get(0);
+		private final RuleCall cFeaturesSimFeatureParserRuleCall_1_0_0 = (RuleCall)cFeaturesAssignment_1_0.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cAddKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Assignment cConstraintsAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cConstraintsDConstraintParserRuleCall_1_1_1_0 = (RuleCall)cConstraintsAssignment_1_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//fragment SComplexTypeFeatures returns DComplexType:
-		//	'{' (features+=SFeature | 'add' constraints+=DConstraint)*
+		//fragment TComplexTypeFeatures returns DComplexType:
+		//	'{' (features+=SimFeature | 'add' constraints+=DConstraint)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{' (features+=SFeature | 'add' constraints+=DConstraint)* '}'
+		//'{' (features+=SimFeature | 'add' constraints+=DConstraint)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 		
-		//(features+=SFeature | 'add' constraints+=DConstraint)*
+		//(features+=SimFeature | 'add' constraints+=DConstraint)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//features+=SFeature
+		//features+=SimFeature
 		public Assignment getFeaturesAssignment_1_0() { return cFeaturesAssignment_1_0; }
 		
-		//SFeature
-		public RuleCall getFeaturesSFeatureParserRuleCall_1_0_0() { return cFeaturesSFeatureParserRuleCall_1_0_0; }
+		//SimFeature
+		public RuleCall getFeaturesSimFeatureParserRuleCall_1_0_0() { return cFeaturesSimFeatureParserRuleCall_1_0_0; }
 		
 		//'add' constraints+=DConstraint
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -1749,35 +1753,36 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
-	public class SFeatureElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SFeature");
+	public class SimFeatureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimFeature");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSAssociationDeductionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimAssociationTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cAddKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cDAssociationParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final RuleCall cSAttributeDeductionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSimAttributeTranspositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Keyword cAddKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final RuleCall cDAttributeParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
-		private final RuleCall cSQueryDeductionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSimQueryTranspositionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
 		private final Keyword cAddKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final RuleCall cDQueryParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
 		
 		///*
 		// * FEATURES
-		// */ SFeature DFeature:
-		//	SAssociationDeduction | 'add' DAssociation
-		//	| SAttributeDeduction | 'add' DAttribute
-		//	| SQueryDeduction | 'add' DQuery;
+		// */ SimFeature DFeature:
+		//	SimAssociationTransposition | 'add' DAssociation
+		//	| SimAttributeTransposition | 'add' DAttribute
+		//	| SimQueryTransposition | 'add' DQuery;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SAssociationDeduction | 'add' DAssociation | SAttributeDeduction | 'add' DAttribute | SQueryDeduction | 'add' DQuery
+		//SimAssociationTransposition | 'add' DAssociation | SimAttributeTransposition | 'add' DAttribute | SimQueryTransposition
+		//| 'add' DQuery
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SAssociationDeduction
-		public RuleCall getSAssociationDeductionParserRuleCall_0() { return cSAssociationDeductionParserRuleCall_0; }
+		//SimAssociationTransposition
+		public RuleCall getSimAssociationTranspositionParserRuleCall_0() { return cSimAssociationTranspositionParserRuleCall_0; }
 		
 		//'add' DAssociation
 		public Group getGroup_1() { return cGroup_1; }
@@ -1788,8 +1793,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DAssociation
 		public RuleCall getDAssociationParserRuleCall_1_1() { return cDAssociationParserRuleCall_1_1; }
 		
-		//SAttributeDeduction
-		public RuleCall getSAttributeDeductionParserRuleCall_2() { return cSAttributeDeductionParserRuleCall_2; }
+		//SimAttributeTransposition
+		public RuleCall getSimAttributeTranspositionParserRuleCall_2() { return cSimAttributeTranspositionParserRuleCall_2; }
 		
 		//'add' DAttribute
 		public Group getGroup_3() { return cGroup_3; }
@@ -1800,8 +1805,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DAttribute
 		public RuleCall getDAttributeParserRuleCall_3_1() { return cDAttributeParserRuleCall_3_1; }
 		
-		//SQueryDeduction
-		public RuleCall getSQueryDeductionParserRuleCall_4() { return cSQueryDeductionParserRuleCall_4; }
+		//SimQueryTransposition
+		public RuleCall getSimQueryTranspositionParserRuleCall_4() { return cSimQueryTranspositionParserRuleCall_4; }
 		
 		//'add' DQuery
 		public Group getGroup_5() { return cGroup_5; }
@@ -1812,54 +1817,54 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQuery
 		public RuleCall getDQueryParserRuleCall_5_1() { return cDQueryParserRuleCall_5_1; }
 	}
-	public class SAssociationDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAssociationDeduction");
+	public class SimAssociationTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimAssociationTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSAssociationDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTAssociationTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Alternatives cAlternatives_1_0_1 = (Alternatives)cGroup_1_0.eContents().get(1);
 		private final Keyword cReferenceKeyword_1_0_1_0 = (Keyword)cAlternatives_1_0_1.eContents().get(0);
 		private final Keyword cCompositeKeyword_1_0_1_1 = (Keyword)cAlternatives_1_0_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cMorphKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Alternatives cAlternatives_1_1_1 = (Alternatives)cGroup_1_1.eContents().get(1);
 		private final Keyword cReferenceKeyword_1_1_1_0 = (Keyword)cAlternatives_1_1_1.eContents().get(0);
 		private final Keyword cCompositeKeyword_1_1_1_1 = (Keyword)cAlternatives_1_1_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_1_2.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Keyword cDitchKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Alternatives cAlternatives_1_2_1 = (Alternatives)cGroup_1_2.eContents().get(1);
 		private final Keyword cReferenceKeyword_1_2_1_0 = (Keyword)cAlternatives_1_2_1.eContents().get(0);
 		private final Keyword cCompositeKeyword_1_2_1_1 = (Keyword)cAlternatives_1_2_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0 = (RuleCall)cDeductionRuleAssignment_1_2_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0 = (RuleCall)cTranspositionRuleAssignment_1_2_2.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
-		//SAssociationDeduction:
-		//	{SAssociationDeduction} ('grab' ('reference' | 'composite') deductionRule=SGrabFeatureRule
-		//	| 'morph' ('reference' | 'composite') deductionRule=SMorphFeatureRule
-		//	| 'ditch' ('reference' | 'composite') deductionRule=SDitchFeatureRule) description=DRichText?;
+		//SimAssociationTransposition TAssociationTransposition:
+		//	{TAssociationTransposition} ('grab' ('reference' | 'composite') transpositionRule=SimGrabFeatureRule
+		//	| 'morph' ('reference' | 'composite') transpositionRule=SimMorphFeatureRule
+		//	| 'ditch' ('reference' | 'composite') transpositionRule=SimDitchFeatureRule) description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SAssociationDeduction} ('grab' ('reference' | 'composite') deductionRule=SGrabFeatureRule | 'morph' ('reference' |
-		//'composite') deductionRule=SMorphFeatureRule | 'ditch' ('reference' | 'composite') deductionRule=SDitchFeatureRule)
-		//description=DRichText?
+		//{TAssociationTransposition} ('grab' ('reference' | 'composite') transpositionRule=SimGrabFeatureRule | 'morph'
+		//('reference' | 'composite') transpositionRule=SimMorphFeatureRule | 'ditch' ('reference' | 'composite')
+		//transpositionRule=SimDitchFeatureRule) description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//{SAssociationDeduction}
-		public Action getSAssociationDeductionAction_0() { return cSAssociationDeductionAction_0; }
+		//{TAssociationTransposition}
+		public Action getTAssociationTranspositionAction_0() { return cTAssociationTranspositionAction_0; }
 		
-		//('grab' ('reference' | 'composite') deductionRule=SGrabFeatureRule | 'morph' ('reference' | 'composite')
-		//deductionRule=SMorphFeatureRule | 'ditch' ('reference' | 'composite') deductionRule=SDitchFeatureRule)
+		//('grab' ('reference' | 'composite') transpositionRule=SimGrabFeatureRule | 'morph' ('reference' | 'composite')
+		//transpositionRule=SimMorphFeatureRule | 'ditch' ('reference' | 'composite') transpositionRule=SimDitchFeatureRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' ('reference' | 'composite') deductionRule=SGrabFeatureRule
+		//'grab' ('reference' | 'composite') transpositionRule=SimGrabFeatureRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
@@ -1874,13 +1879,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'composite'
 		public Keyword getCompositeKeyword_1_0_1_1() { return cCompositeKeyword_1_0_1_1; }
 		
-		//deductionRule=SGrabFeatureRule
-		public Assignment getDeductionRuleAssignment_1_0_2() { return cDeductionRuleAssignment_1_0_2; }
+		//transpositionRule=SimGrabFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_0_2() { return cTranspositionRuleAssignment_1_0_2; }
 		
-		//SGrabFeatureRule
-		public RuleCall getDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0() { return cDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0; }
+		//SimGrabFeatureRule
+		public RuleCall getTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0() { return cTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0; }
 		
-		//'morph' ('reference' | 'composite') deductionRule=SMorphFeatureRule
+		//'morph' ('reference' | 'composite') transpositionRule=SimMorphFeatureRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'morph'
@@ -1895,13 +1900,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'composite'
 		public Keyword getCompositeKeyword_1_1_1_1() { return cCompositeKeyword_1_1_1_1; }
 		
-		//deductionRule=SMorphFeatureRule
-		public Assignment getDeductionRuleAssignment_1_1_2() { return cDeductionRuleAssignment_1_1_2; }
+		//transpositionRule=SimMorphFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_1_2() { return cTranspositionRuleAssignment_1_1_2; }
 		
-		//SMorphFeatureRule
-		public RuleCall getDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0() { return cDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0; }
+		//SimMorphFeatureRule
+		public RuleCall getTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0() { return cTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0; }
 		
-		//'ditch' ('reference' | 'composite') deductionRule=SDitchFeatureRule
+		//'ditch' ('reference' | 'composite') transpositionRule=SimDitchFeatureRule
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//'ditch'
@@ -1916,11 +1921,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'composite'
 		public Keyword getCompositeKeyword_1_2_1_1() { return cCompositeKeyword_1_2_1_1; }
 		
-		//deductionRule=SDitchFeatureRule
-		public Assignment getDeductionRuleAssignment_1_2_2() { return cDeductionRuleAssignment_1_2_2; }
+		//transpositionRule=SimDitchFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_2_2() { return cTranspositionRuleAssignment_1_2_2; }
 		
-		//SDitchFeatureRule
-		public RuleCall getDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0() { return cDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0; }
+		//SimDitchFeatureRule
+		public RuleCall getTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0() { return cTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1928,10 +1933,10 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
-	public class SAttributeDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAttributeDeduction");
+	public class SimAttributeTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimAttributeTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSAttributeDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTAttributeTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
@@ -1939,46 +1944,47 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAttributeKeyword_1_0_1_0 = (Keyword)cAlternatives_1_0_1.eContents().get(0);
 		private final Assignment cDetailAssignment_1_0_1_1 = (Assignment)cAlternatives_1_0_1.eContents().get(1);
 		private final Keyword cDetailDetailKeyword_1_0_1_1_0 = (Keyword)cDetailAssignment_1_0_1_1.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cMorphKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Alternatives cAlternatives_1_1_1 = (Alternatives)cGroup_1_1.eContents().get(1);
 		private final Keyword cAttributeKeyword_1_1_1_0 = (Keyword)cAlternatives_1_1_1.eContents().get(0);
 		private final Assignment cDetailAssignment_1_1_1_1 = (Assignment)cAlternatives_1_1_1.eContents().get(1);
 		private final Keyword cDetailDetailKeyword_1_1_1_1_0 = (Keyword)cDetailAssignment_1_1_1_1.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_1_2.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Keyword cDitchKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Alternatives cAlternatives_1_2_1 = (Alternatives)cGroup_1_2.eContents().get(1);
 		private final Keyword cAttributeKeyword_1_2_1_0 = (Keyword)cAlternatives_1_2_1.eContents().get(0);
 		private final Assignment cDetailAssignment_1_2_1_1 = (Assignment)cAlternatives_1_2_1.eContents().get(1);
 		private final Keyword cDetailDetailKeyword_1_2_1_1_0 = (Keyword)cDetailAssignment_1_2_1_1.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0 = (RuleCall)cDeductionRuleAssignment_1_2_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0 = (RuleCall)cTranspositionRuleAssignment_1_2_2.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
-		//SAttributeDeduction:
-		//	{SAttributeDeduction} ('grab' ('attribute' | detail?='detail')? deductionRule=SGrabFeatureRule
-		//	| 'morph' ('attribute' | detail?='detail')? deductionRule=SMorphFeatureRule
-		//	| 'ditch' ('attribute' | detail?='detail')? deductionRule=SDitchFeatureRule) description=DRichText?;
+		//SimAttributeTransposition TAttributeTransposition:
+		//	{TAttributeTransposition} ('grab' ('attribute' | detail?='detail')? transpositionRule=SimGrabFeatureRule
+		//	| 'morph' ('attribute' | detail?='detail')? transpositionRule=SimMorphFeatureRule
+		//	| 'ditch' ('attribute' | detail?='detail')? transpositionRule=SimDitchFeatureRule) description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SAttributeDeduction} ('grab' ('attribute' | detail?='detail')? deductionRule=SGrabFeatureRule | 'morph' ('attribute' |
-		//detail?='detail')? deductionRule=SMorphFeatureRule | 'ditch' ('attribute' | detail?='detail')?
-		//deductionRule=SDitchFeatureRule) description=DRichText?
+		//{TAttributeTransposition} ('grab' ('attribute' | detail?='detail')? transpositionRule=SimGrabFeatureRule | 'morph'
+		//('attribute' | detail?='detail')? transpositionRule=SimMorphFeatureRule | 'ditch' ('attribute' | detail?='detail')?
+		//transpositionRule=SimDitchFeatureRule) description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//{SAttributeDeduction}
-		public Action getSAttributeDeductionAction_0() { return cSAttributeDeductionAction_0; }
+		//{TAttributeTransposition}
+		public Action getTAttributeTranspositionAction_0() { return cTAttributeTranspositionAction_0; }
 		
-		//('grab' ('attribute' | detail?='detail')? deductionRule=SGrabFeatureRule | 'morph' ('attribute' | detail?='detail')?
-		//deductionRule=SMorphFeatureRule | 'ditch' ('attribute' | detail?='detail')? deductionRule=SDitchFeatureRule)
+		//('grab' ('attribute' | detail?='detail')? transpositionRule=SimGrabFeatureRule | 'morph' ('attribute' |
+		//detail?='detail')? transpositionRule=SimMorphFeatureRule | 'ditch' ('attribute' | detail?='detail')?
+		//transpositionRule=SimDitchFeatureRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' ('attribute' | detail?='detail')? deductionRule=SGrabFeatureRule
+		//'grab' ('attribute' | detail?='detail')? transpositionRule=SimGrabFeatureRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
@@ -1996,13 +2002,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailDetailKeyword_1_0_1_1_0() { return cDetailDetailKeyword_1_0_1_1_0; }
 		
-		//deductionRule=SGrabFeatureRule
-		public Assignment getDeductionRuleAssignment_1_0_2() { return cDeductionRuleAssignment_1_0_2; }
+		//transpositionRule=SimGrabFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_0_2() { return cTranspositionRuleAssignment_1_0_2; }
 		
-		//SGrabFeatureRule
-		public RuleCall getDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0() { return cDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_2_0; }
+		//SimGrabFeatureRule
+		public RuleCall getTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0() { return cTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_2_0; }
 		
-		//'morph' ('attribute' | detail?='detail')? deductionRule=SMorphFeatureRule
+		//'morph' ('attribute' | detail?='detail')? transpositionRule=SimMorphFeatureRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'morph'
@@ -2020,13 +2026,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailDetailKeyword_1_1_1_1_0() { return cDetailDetailKeyword_1_1_1_1_0; }
 		
-		//deductionRule=SMorphFeatureRule
-		public Assignment getDeductionRuleAssignment_1_1_2() { return cDeductionRuleAssignment_1_1_2; }
+		//transpositionRule=SimMorphFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_1_2() { return cTranspositionRuleAssignment_1_1_2; }
 		
-		//SMorphFeatureRule
-		public RuleCall getDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0() { return cDeductionRuleSMorphFeatureRuleParserRuleCall_1_1_2_0; }
+		//SimMorphFeatureRule
+		public RuleCall getTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0() { return cTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_1_2_0; }
 		
-		//'ditch' ('attribute' | detail?='detail')? deductionRule=SDitchFeatureRule
+		//'ditch' ('attribute' | detail?='detail')? transpositionRule=SimDitchFeatureRule
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//'ditch'
@@ -2044,11 +2050,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getDetailDetailKeyword_1_2_1_1_0() { return cDetailDetailKeyword_1_2_1_1_0; }
 		
-		//deductionRule=SDitchFeatureRule
-		public Assignment getDeductionRuleAssignment_1_2_2() { return cDeductionRuleAssignment_1_2_2; }
+		//transpositionRule=SimDitchFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_2_2() { return cTranspositionRuleAssignment_1_2_2; }
 		
-		//SDitchFeatureRule
-		public RuleCall getDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0() { return cDeductionRuleSDitchFeatureRuleParserRuleCall_1_2_2_0; }
+		//SimDitchFeatureRule
+		public RuleCall getTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0() { return cTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_2_2_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -2056,71 +2062,72 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
-	public class SQueryDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SQueryDeduction");
+	public class SimQueryTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimQueryTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSQueryDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTQueryTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Alternatives cAlternatives_1_0_0 = (Alternatives)cGroup_1_0.eContents().get(0);
 		private final Group cGroup_1_0_0_0 = (Group)cAlternatives_1_0_0.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0_0_0 = (Keyword)cGroup_1_0_0_0.eContents().get(0);
 		private final Keyword cQueryKeyword_1_0_0_0_1 = (Keyword)cGroup_1_0_0_0.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_0_0_0_2 = (Assignment)cGroup_1_0_0_0.eContents().get(2);
-		private final RuleCall cDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_0_0_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_0_0_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_0_0_2 = (Assignment)cGroup_1_0_0_0.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_0_0_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_0_0_2.eContents().get(0);
 		private final Group cGroup_1_0_0_1 = (Group)cAlternatives_1_0_0.eContents().get(1);
 		private final Keyword cMorphKeyword_1_0_0_1_0 = (Keyword)cGroup_1_0_0_1.eContents().get(0);
 		private final Keyword cQueryKeyword_1_0_0_1_1 = (Keyword)cGroup_1_0_0_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_0_0_1_2 = (Assignment)cGroup_1_0_0_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSMorphFeatureRuleParserRuleCall_1_0_0_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_0_0_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_0_1_2 = (Assignment)cGroup_1_0_0_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_0_0_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_0_0_1_2.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
 		private final Alternatives cAlternatives_1_0_2 = (Alternatives)cGroup_1_0.eContents().get(2);
 		private final Keyword cAsteriskKeyword_1_0_2_0 = (Keyword)cAlternatives_1_0_2.eContents().get(0);
 		private final Group cGroup_1_0_2_1 = (Group)cAlternatives_1_0_2.eContents().get(1);
 		private final Assignment cParametersAssignment_1_0_2_1_0 = (Assignment)cGroup_1_0_2_1.eContents().get(0);
-		private final RuleCall cParametersSQueryParameterParserRuleCall_1_0_2_1_0_0 = (RuleCall)cParametersAssignment_1_0_2_1_0.eContents().get(0);
+		private final RuleCall cParametersSimQueryParameterParserRuleCall_1_0_2_1_0_0 = (RuleCall)cParametersAssignment_1_0_2_1_0.eContents().get(0);
 		private final Group cGroup_1_0_2_1_1 = (Group)cGroup_1_0_2_1.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0_2_1_1_0 = (Keyword)cGroup_1_0_2_1_1.eContents().get(0);
 		private final Assignment cParametersAssignment_1_0_2_1_1_1 = (Assignment)cGroup_1_0_2_1_1.eContents().get(1);
-		private final RuleCall cParametersSQueryParameterParserRuleCall_1_0_2_1_1_1_0 = (RuleCall)cParametersAssignment_1_0_2_1_1_1.eContents().get(0);
+		private final RuleCall cParametersSimQueryParameterParserRuleCall_1_0_2_1_1_1_0 = (RuleCall)cParametersAssignment_1_0_2_1_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_0_3 = (Keyword)cGroup_1_0.eContents().get(3);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Keyword cQueryKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cDeductionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDeductionRuleSDitchFeatureRuleParserRuleCall_1_1_2_0 = (RuleCall)cDeductionRuleAssignment_1_1_2.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_1_2_0 = (RuleCall)cTranspositionRuleAssignment_1_1_2.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
-		//SQueryDeduction:
-		//	{SQueryDeduction} (('grab' 'query' deductionRule=SGrabFeatureRule
-		//	| 'morph' 'query' deductionRule=SMorphFeatureRule)
+		//SimQueryTransposition TQueryTransposition:
+		//	{TQueryTransposition} (('grab' 'query' transpositionRule=SimGrabFeatureRule
+		//	| 'morph' 'query' transpositionRule=SimMorphFeatureRule)
 		//	'(' ('*'
-		//	| parameters+=SQueryParameter (',' parameters+=SQueryParameter)*)
+		//	| parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*)
 		//	')'
-		//	| 'ditch' 'query' deductionRule=SDitchFeatureRule) description=DRichText?;
+		//	| 'ditch' 'query' transpositionRule=SimDitchFeatureRule) description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SQueryDeduction} (('grab' 'query' deductionRule=SGrabFeatureRule | 'morph' 'query' deductionRule=SMorphFeatureRule) '('
-		//('*' | parameters+=SQueryParameter (',' parameters+=SQueryParameter)*) ')' | 'ditch' 'query'
-		//deductionRule=SDitchFeatureRule) description=DRichText?
+		//{TQueryTransposition} (('grab' 'query' transpositionRule=SimGrabFeatureRule | 'morph' 'query'
+		//transpositionRule=SimMorphFeatureRule) '(' ('*' | parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*)
+		//')' | 'ditch' 'query' transpositionRule=SimDitchFeatureRule) description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//{SQueryDeduction}
-		public Action getSQueryDeductionAction_0() { return cSQueryDeductionAction_0; }
+		//{TQueryTransposition}
+		public Action getTQueryTranspositionAction_0() { return cTQueryTranspositionAction_0; }
 		
-		//(('grab' 'query' deductionRule=SGrabFeatureRule | 'morph' 'query' deductionRule=SMorphFeatureRule) '(' ('*' |
-		//parameters+=SQueryParameter (',' parameters+=SQueryParameter)*) ')' | 'ditch' 'query' deductionRule=SDitchFeatureRule)
+		//(('grab' 'query' transpositionRule=SimGrabFeatureRule | 'morph' 'query' transpositionRule=SimMorphFeatureRule) '(' ('*'
+		//| parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*) ')' | 'ditch' 'query'
+		//transpositionRule=SimDitchFeatureRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//('grab' 'query' deductionRule=SGrabFeatureRule | 'morph' 'query' deductionRule=SMorphFeatureRule) '(' ('*' |
-		//parameters+=SQueryParameter (',' parameters+=SQueryParameter)*) ')'
+		//('grab' 'query' transpositionRule=SimGrabFeatureRule | 'morph' 'query' transpositionRule=SimMorphFeatureRule) '(' ('*' |
+		//parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*) ')'
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//('grab' 'query' deductionRule=SGrabFeatureRule | 'morph' 'query' deductionRule=SMorphFeatureRule)
+		//('grab' 'query' transpositionRule=SimGrabFeatureRule | 'morph' 'query' transpositionRule=SimMorphFeatureRule)
 		public Alternatives getAlternatives_1_0_0() { return cAlternatives_1_0_0; }
 		
-		//'grab' 'query' deductionRule=SGrabFeatureRule
+		//'grab' 'query' transpositionRule=SimGrabFeatureRule
 		public Group getGroup_1_0_0_0() { return cGroup_1_0_0_0; }
 		
 		//'grab'
@@ -2129,13 +2136,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'query'
 		public Keyword getQueryKeyword_1_0_0_0_1() { return cQueryKeyword_1_0_0_0_1; }
 		
-		//deductionRule=SGrabFeatureRule
-		public Assignment getDeductionRuleAssignment_1_0_0_0_2() { return cDeductionRuleAssignment_1_0_0_0_2; }
+		//transpositionRule=SimGrabFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_0_0_0_2() { return cTranspositionRuleAssignment_1_0_0_0_2; }
 		
-		//SGrabFeatureRule
-		public RuleCall getDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_0_0_2_0() { return cDeductionRuleSGrabFeatureRuleParserRuleCall_1_0_0_0_2_0; }
+		//SimGrabFeatureRule
+		public RuleCall getTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_0_0_2_0() { return cTranspositionRuleSimGrabFeatureRuleParserRuleCall_1_0_0_0_2_0; }
 		
-		//'morph' 'query' deductionRule=SMorphFeatureRule
+		//'morph' 'query' transpositionRule=SimMorphFeatureRule
 		public Group getGroup_1_0_0_1() { return cGroup_1_0_0_1; }
 		
 		//'morph'
@@ -2144,46 +2151,46 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'query'
 		public Keyword getQueryKeyword_1_0_0_1_1() { return cQueryKeyword_1_0_0_1_1; }
 		
-		//deductionRule=SMorphFeatureRule
-		public Assignment getDeductionRuleAssignment_1_0_0_1_2() { return cDeductionRuleAssignment_1_0_0_1_2; }
+		//transpositionRule=SimMorphFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_0_0_1_2() { return cTranspositionRuleAssignment_1_0_0_1_2; }
 		
-		//SMorphFeatureRule
-		public RuleCall getDeductionRuleSMorphFeatureRuleParserRuleCall_1_0_0_1_2_0() { return cDeductionRuleSMorphFeatureRuleParserRuleCall_1_0_0_1_2_0; }
+		//SimMorphFeatureRule
+		public RuleCall getTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_0_0_1_2_0() { return cTranspositionRuleSimMorphFeatureRuleParserRuleCall_1_0_0_1_2_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_1_0_1() { return cLeftParenthesisKeyword_1_0_1; }
 		
-		//('*' | parameters+=SQueryParameter (',' parameters+=SQueryParameter)*)
+		//('*' | parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*)
 		public Alternatives getAlternatives_1_0_2() { return cAlternatives_1_0_2; }
 		
 		//'*'
 		public Keyword getAsteriskKeyword_1_0_2_0() { return cAsteriskKeyword_1_0_2_0; }
 		
-		//parameters+=SQueryParameter (',' parameters+=SQueryParameter)*
+		//parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*
 		public Group getGroup_1_0_2_1() { return cGroup_1_0_2_1; }
 		
-		//parameters+=SQueryParameter
+		//parameters+=SimQueryParameter
 		public Assignment getParametersAssignment_1_0_2_1_0() { return cParametersAssignment_1_0_2_1_0; }
 		
-		//SQueryParameter
-		public RuleCall getParametersSQueryParameterParserRuleCall_1_0_2_1_0_0() { return cParametersSQueryParameterParserRuleCall_1_0_2_1_0_0; }
+		//SimQueryParameter
+		public RuleCall getParametersSimQueryParameterParserRuleCall_1_0_2_1_0_0() { return cParametersSimQueryParameterParserRuleCall_1_0_2_1_0_0; }
 		
-		//(',' parameters+=SQueryParameter)*
+		//(',' parameters+=SimQueryParameter)*
 		public Group getGroup_1_0_2_1_1() { return cGroup_1_0_2_1_1; }
 		
 		//','
 		public Keyword getCommaKeyword_1_0_2_1_1_0() { return cCommaKeyword_1_0_2_1_1_0; }
 		
-		//parameters+=SQueryParameter
+		//parameters+=SimQueryParameter
 		public Assignment getParametersAssignment_1_0_2_1_1_1() { return cParametersAssignment_1_0_2_1_1_1; }
 		
-		//SQueryParameter
-		public RuleCall getParametersSQueryParameterParserRuleCall_1_0_2_1_1_1_0() { return cParametersSQueryParameterParserRuleCall_1_0_2_1_1_1_0; }
+		//SimQueryParameter
+		public RuleCall getParametersSimQueryParameterParserRuleCall_1_0_2_1_1_1_0() { return cParametersSimQueryParameterParserRuleCall_1_0_2_1_1_1_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_1_0_3() { return cRightParenthesisKeyword_1_0_3; }
 		
-		//'ditch' 'query' deductionRule=SDitchFeatureRule
+		//'ditch' 'query' transpositionRule=SimDitchFeatureRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'ditch'
@@ -2192,11 +2199,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'query'
 		public Keyword getQueryKeyword_1_1_1() { return cQueryKeyword_1_1_1; }
 		
-		//deductionRule=SDitchFeatureRule
-		public Assignment getDeductionRuleAssignment_1_1_2() { return cDeductionRuleAssignment_1_1_2; }
+		//transpositionRule=SimDitchFeatureRule
+		public Assignment getTranspositionRuleAssignment_1_1_2() { return cTranspositionRuleAssignment_1_1_2; }
 		
-		//SDitchFeatureRule
-		public RuleCall getDeductionRuleSDitchFeatureRuleParserRuleCall_1_1_2_0() { return cDeductionRuleSDitchFeatureRuleParserRuleCall_1_1_2_0; }
+		//SimDitchFeatureRule
+		public RuleCall getTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_1_2_0() { return cTranspositionRuleSimDitchFeatureRuleParserRuleCall_1_1_2_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -2204,23 +2211,23 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
-	public class SQueryParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SQueryParameter");
+	public class SimQueryParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimQueryParameter");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSQueryParameterDeductionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimQueryParameterTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cAddKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cDQueryParameterParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//SQueryParameter DQueryParameter:
-		//	SQueryParameterDeduction | 'add' DQueryParameter;
+		//SimQueryParameter DQueryParameter:
+		//	SimQueryParameterTransposition | 'add' DQueryParameter;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SQueryParameterDeduction | 'add' DQueryParameter
+		//SimQueryParameterTransposition | 'add' DQueryParameter
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SQueryParameterDeduction
-		public RuleCall getSQueryParameterDeductionParserRuleCall_0() { return cSQueryParameterDeductionParserRuleCall_0; }
+		//SimQueryParameterTransposition
+		public RuleCall getSimQueryParameterTranspositionParserRuleCall_0() { return cSimQueryParameterTranspositionParserRuleCall_0; }
 		
 		//'add' DQueryParameter
 		public Group getGroup_1() { return cGroup_1; }
@@ -2231,78 +2238,79 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DQueryParameter
 		public RuleCall getDQueryParameterParserRuleCall_1_1() { return cDQueryParameterParserRuleCall_1_1; }
 	}
-	public class SQueryParameterDeductionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SQueryParameterDeduction");
+	public class SimQueryParameterTranspositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimQueryParameterTransposition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSQueryParameterDeductionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cTQueryParameterTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cDeductionRuleSGrabQueryParameterRuleParserRuleCall_1_0_1_0 = (RuleCall)cDeductionRuleAssignment_1_0_1.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cTranspositionRuleSimGrabQueryParameterRuleParserRuleCall_1_0_1_0 = (RuleCall)cTranspositionRuleAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cMorphKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cDeductionRuleSMorphQueryParameterRuleParserRuleCall_1_1_1_0 = (RuleCall)cDeductionRuleAssignment_1_1_1.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cTranspositionRuleSimMorphQueryParameterRuleParserRuleCall_1_1_1_0 = (RuleCall)cTranspositionRuleAssignment_1_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Keyword cDitchKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
-		private final Assignment cDeductionRuleAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cDeductionRuleSDitchQueryParameterRuleParserRuleCall_1_2_1_0 = (RuleCall)cDeductionRuleAssignment_1_2_1.eContents().get(0);
+		private final Assignment cTranspositionRuleAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cTranspositionRuleSimDitchQueryParameterRuleParserRuleCall_1_2_1_0 = (RuleCall)cTranspositionRuleAssignment_1_2_1.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
-		//SQueryParameterDeduction:
-		//	{SQueryParameterDeduction} ('grab' deductionRule=SGrabQueryParameterRule
-		//	| 'morph' deductionRule=SMorphQueryParameterRule
-		//	| 'ditch' deductionRule=SDitchQueryParameterRule) description=DRichText?;
+		//SimQueryParameterTransposition TQueryParameterTransposition:
+		//	{TQueryParameterTransposition} ('grab' transpositionRule=SimGrabQueryParameterRule
+		//	| 'morph' transpositionRule=SimMorphQueryParameterRule
+		//	| 'ditch' transpositionRule=SimDitchQueryParameterRule) description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SQueryParameterDeduction} ('grab' deductionRule=SGrabQueryParameterRule | 'morph'
-		//deductionRule=SMorphQueryParameterRule | 'ditch' deductionRule=SDitchQueryParameterRule) description=DRichText?
+		//{TQueryParameterTransposition} ('grab' transpositionRule=SimGrabQueryParameterRule | 'morph'
+		//transpositionRule=SimMorphQueryParameterRule | 'ditch' transpositionRule=SimDitchQueryParameterRule)
+		//description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//{SQueryParameterDeduction}
-		public Action getSQueryParameterDeductionAction_0() { return cSQueryParameterDeductionAction_0; }
+		//{TQueryParameterTransposition}
+		public Action getTQueryParameterTranspositionAction_0() { return cTQueryParameterTranspositionAction_0; }
 		
-		//('grab' deductionRule=SGrabQueryParameterRule | 'morph' deductionRule=SMorphQueryParameterRule | 'ditch'
-		//deductionRule=SDitchQueryParameterRule)
+		//('grab' transpositionRule=SimGrabQueryParameterRule | 'morph' transpositionRule=SimMorphQueryParameterRule | 'ditch'
+		//transpositionRule=SimDitchQueryParameterRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'grab' deductionRule=SGrabQueryParameterRule
+		//'grab' transpositionRule=SimGrabQueryParameterRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'grab'
 		public Keyword getGrabKeyword_1_0_0() { return cGrabKeyword_1_0_0; }
 		
-		//deductionRule=SGrabQueryParameterRule
-		public Assignment getDeductionRuleAssignment_1_0_1() { return cDeductionRuleAssignment_1_0_1; }
+		//transpositionRule=SimGrabQueryParameterRule
+		public Assignment getTranspositionRuleAssignment_1_0_1() { return cTranspositionRuleAssignment_1_0_1; }
 		
-		//SGrabQueryParameterRule
-		public RuleCall getDeductionRuleSGrabQueryParameterRuleParserRuleCall_1_0_1_0() { return cDeductionRuleSGrabQueryParameterRuleParserRuleCall_1_0_1_0; }
+		//SimGrabQueryParameterRule
+		public RuleCall getTranspositionRuleSimGrabQueryParameterRuleParserRuleCall_1_0_1_0() { return cTranspositionRuleSimGrabQueryParameterRuleParserRuleCall_1_0_1_0; }
 		
-		//'morph' deductionRule=SMorphQueryParameterRule
+		//'morph' transpositionRule=SimMorphQueryParameterRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//'morph'
 		public Keyword getMorphKeyword_1_1_0() { return cMorphKeyword_1_1_0; }
 		
-		//deductionRule=SMorphQueryParameterRule
-		public Assignment getDeductionRuleAssignment_1_1_1() { return cDeductionRuleAssignment_1_1_1; }
+		//transpositionRule=SimMorphQueryParameterRule
+		public Assignment getTranspositionRuleAssignment_1_1_1() { return cTranspositionRuleAssignment_1_1_1; }
 		
-		//SMorphQueryParameterRule
-		public RuleCall getDeductionRuleSMorphQueryParameterRuleParserRuleCall_1_1_1_0() { return cDeductionRuleSMorphQueryParameterRuleParserRuleCall_1_1_1_0; }
+		//SimMorphQueryParameterRule
+		public RuleCall getTranspositionRuleSimMorphQueryParameterRuleParserRuleCall_1_1_1_0() { return cTranspositionRuleSimMorphQueryParameterRuleParserRuleCall_1_1_1_0; }
 		
-		//'ditch' deductionRule=SDitchQueryParameterRule
+		//'ditch' transpositionRule=SimDitchQueryParameterRule
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//'ditch'
 		public Keyword getDitchKeyword_1_2_0() { return cDitchKeyword_1_2_0; }
 		
-		//deductionRule=SDitchQueryParameterRule
-		public Assignment getDeductionRuleAssignment_1_2_1() { return cDeductionRuleAssignment_1_2_1; }
+		//transpositionRule=SimDitchQueryParameterRule
+		public Assignment getTranspositionRuleAssignment_1_2_1() { return cTranspositionRuleAssignment_1_2_1; }
 		
-		//SDitchQueryParameterRule
-		public RuleCall getDeductionRuleSDitchQueryParameterRuleParserRuleCall_1_2_1_0() { return cDeductionRuleSDitchQueryParameterRuleParserRuleCall_1_2_1_0; }
+		//SimDitchQueryParameterRule
+		public RuleCall getTranspositionRuleSimDitchQueryParameterRuleParserRuleCall_1_2_1_0() { return cTranspositionRuleSimDitchQueryParameterRuleParserRuleCall_1_2_1_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -2353,15 +2361,15 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'core'
 		public Keyword getCORECoreKeyword_1_0() { return cCORECoreKeyword_1_0; }
 	}
-	public class SAbstractTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAbstractType");
+	public class SimAbstractTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimAbstractType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cFALSEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cFALSENonabstractKeyword_0_0 = (Keyword)cFALSEEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cTRUEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cTRUEAbstractKeyword_1_0 = (Keyword)cTRUEEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum SAbstractType returns STristate:
+		//enum SimAbstractType returns TTristate:
 		//	FALSE='nonabstract' | TRUE='abstract';
 		public EnumRule getRule() { return rule; }
 		
@@ -2380,15 +2388,15 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getTRUEAbstractKeyword_1_0() { return cTRUEAbstractKeyword_1_0; }
 	}
-	public class SRootEntityElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SRootEntity");
+	public class SimRootEntityElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimRootEntity");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cFALSEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cFALSENonrootKeyword_0_0 = (Keyword)cFALSEEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cTRUEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cTRUERootKeyword_1_0 = (Keyword)cTRUEEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum SRootEntity returns STristate:
+		//enum SimRootEntity returns TTristate:
 		//	FALSE='nonroot' | TRUE='root';
 		public EnumRule getRule() { return rule; }
 		
@@ -2407,12 +2415,12 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'root'
 		public Keyword getTRUERootKeyword_1_0() { return cTRUERootKeyword_1_0; }
 	}
-	public class SDetailTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDetailType");
+	public class SimDetailTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimDetailType");
 		private final EnumLiteralDeclaration cTRUEEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
 		private final Keyword cTRUEDetailKeyword_0 = (Keyword)cTRUEEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum SDetailType returns STristate:
+		//enum SimDetailType returns TTristate:
 		//	TRUE='detail';
 		public EnumRule getRule() { return rule; }
 		
@@ -2422,12 +2430,12 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'detail'
 		public Keyword getTRUEDetailKeyword_0() { return cTRUEDetailKeyword_0; }
 	}
-	public class SEntityTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SEntityType");
+	public class SimEntityTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SimEntityType");
 		private final EnumLiteralDeclaration cFALSEEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
 		private final Keyword cFALSEEntityKeyword_0 = (Keyword)cFALSEEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum SEntityType returns STristate:
+		//enum SimEntityType returns TTristate:
 		//	FALSE='entity';
 		public EnumRule getRule() { return rule; }
 		
@@ -2442,46 +2450,46 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final SInformationModelElements pSInformationModel;
 	private final STypeModelKindElements eSTypeModelKind;
 	private final SInformationModelKindElements eSInformationModelKind;
-	private final SGrabAggregateRuleElements pSGrabAggregateRule;
-	private final SGrabPrimitiveRuleElements pSGrabPrimitiveRule;
-	private final SDitchPrimitiveRuleElements pSDitchPrimitiveRule;
-	private final SGrabEnumerationRuleElements pSGrabEnumerationRule;
-	private final SDitchEnumerationRuleElements pSDitchEnumerationRule;
-	private final SGrabEnumerationLiteralRuleElements pSGrabEnumerationLiteralRule;
-	private final SDitchEnumerationLiteralRuleElements pSDitchEnumerationLiteralRule;
-	private final SGrabComplexTypeRuleElements pSGrabComplexTypeRule;
-	private final SDitchComplexTypeRuleElements pSDitchComplexTypeRule;
-	private final SMorphComplexTypeRuleElements pSMorphComplexTypeRule;
-	private final SFuseComplexTypeRuleElements pSFuseComplexTypeRule;
+	private final SimGrabAggregateRuleElements pSimGrabAggregateRule;
+	private final SimGrabPrimitiveRuleElements pSimGrabPrimitiveRule;
+	private final SimDitchPrimitiveRuleElements pSimDitchPrimitiveRule;
+	private final SimGrabEnumerationRuleElements pSimGrabEnumerationRule;
+	private final SimDitchEnumerationRuleElements pSimDitchEnumerationRule;
+	private final SimGrabEnumerationLiteralRuleElements pSimGrabEnumerationLiteralRule;
+	private final SimDitchEnumerationLiteralRuleElements pSimDitchEnumerationLiteralRule;
+	private final SimGrabComplexTypeRuleElements pSimGrabComplexTypeRule;
+	private final SimDitchComplexTypeRuleElements pSimDitchComplexTypeRule;
+	private final SimMorphComplexTypeRuleElements pSimMorphComplexTypeRule;
+	private final SimFuseComplexTypeRuleElements pSimFuseComplexTypeRule;
 	private final ChangeComplexTypeElements pChangeComplexType;
-	private final SGrabFeatureRuleElements pSGrabFeatureRule;
-	private final SMorphFeatureRuleElements pSMorphFeatureRule;
-	private final SDitchFeatureRuleElements pSDitchFeatureRule;
-	private final SGrabQueryParameterRuleElements pSGrabQueryParameterRule;
-	private final SMorphQueryParameterRuleElements pSMorphQueryParameterRule;
-	private final SDitchQueryParameterRuleElements pSDitchQueryParameterRule;
-	private final SAbstractTypeElements eSAbstractType;
-	private final SRootEntityElements eSRootEntity;
-	private final SDetailTypeElements eSDetailType;
-	private final SEntityTypeElements eSEntityType;
-	private final SAggregateElements pSAggregate;
-	private final SAggregateDeductionElements pSAggregateDeduction;
+	private final SimGrabFeatureRuleElements pSimGrabFeatureRule;
+	private final SimMorphFeatureRuleElements pSimMorphFeatureRule;
+	private final SimDitchFeatureRuleElements pSimDitchFeatureRule;
+	private final SimGrabQueryParameterRuleElements pSimGrabQueryParameterRule;
+	private final SimMorphQueryParameterRuleElements pSimMorphQueryParameterRule;
+	private final SimDitchQueryParameterRuleElements pSimDitchQueryParameterRule;
+	private final SimAbstractTypeElements eSimAbstractType;
+	private final SimRootEntityElements eSimRootEntity;
+	private final SimDetailTypeElements eSimDetailType;
+	private final SimEntityTypeElements eSimEntityType;
+	private final SimAggregateElements pSimAggregate;
+	private final SimAggregateTranspositionElements pSimAggregateTransposition;
 	private final DAggregateKeywordElements pDAggregateKeyword;
 	private final DTypeElements pDType;
-	private final STypeElements pSType;
-	private final SPrimitiveDeductionElements pSPrimitiveDeduction;
-	private final SEnumerationDeductionElements pSEnumerationDeduction;
-	private final SLiteralElements pSLiteral;
-	private final SLiteralDeductionElements pSLiteralDeduction;
-	private final SEntityTypeDeductionElements pSEntityTypeDeduction;
-	private final SDetailTypeDeductionElements pSDetailTypeDeduction;
-	private final SComplexTypeFeaturesElements pSComplexTypeFeatures;
-	private final SFeatureElements pSFeature;
-	private final SAssociationDeductionElements pSAssociationDeduction;
-	private final SAttributeDeductionElements pSAttributeDeduction;
-	private final SQueryDeductionElements pSQueryDeduction;
-	private final SQueryParameterElements pSQueryParameter;
-	private final SQueryParameterDeductionElements pSQueryParameterDeduction;
+	private final SimTypeElements pSimType;
+	private final SimPrimitiveTranspositionElements pSimPrimitiveTransposition;
+	private final SimEnumerationTranspositionElements pSimEnumerationTransposition;
+	private final SimLiteralElements pSimLiteral;
+	private final SimLiteralTranspositionElements pSimLiteralTransposition;
+	private final SimEntityTypeTranspositionElements pSimEntityTypeTransposition;
+	private final SimDetailTypeTranspositionElements pSimDetailTypeTransposition;
+	private final TComplexTypeFeaturesElements pTComplexTypeFeatures;
+	private final SimFeatureElements pSimFeature;
+	private final SimAssociationTranspositionElements pSimAssociationTransposition;
+	private final SimAttributeTranspositionElements pSimAttributeTransposition;
+	private final SimQueryTranspositionElements pSimQueryTransposition;
+	private final SimQueryParameterElements pSimQueryParameter;
+	private final SimQueryParameterTranspositionElements pSimQueryParameterTransposition;
 	
 	private final Grammar grammar;
 	
@@ -2500,46 +2508,46 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSInformationModel = new SInformationModelElements();
 		this.eSTypeModelKind = new STypeModelKindElements();
 		this.eSInformationModelKind = new SInformationModelKindElements();
-		this.pSGrabAggregateRule = new SGrabAggregateRuleElements();
-		this.pSGrabPrimitiveRule = new SGrabPrimitiveRuleElements();
-		this.pSDitchPrimitiveRule = new SDitchPrimitiveRuleElements();
-		this.pSGrabEnumerationRule = new SGrabEnumerationRuleElements();
-		this.pSDitchEnumerationRule = new SDitchEnumerationRuleElements();
-		this.pSGrabEnumerationLiteralRule = new SGrabEnumerationLiteralRuleElements();
-		this.pSDitchEnumerationLiteralRule = new SDitchEnumerationLiteralRuleElements();
-		this.pSGrabComplexTypeRule = new SGrabComplexTypeRuleElements();
-		this.pSDitchComplexTypeRule = new SDitchComplexTypeRuleElements();
-		this.pSMorphComplexTypeRule = new SMorphComplexTypeRuleElements();
-		this.pSFuseComplexTypeRule = new SFuseComplexTypeRuleElements();
+		this.pSimGrabAggregateRule = new SimGrabAggregateRuleElements();
+		this.pSimGrabPrimitiveRule = new SimGrabPrimitiveRuleElements();
+		this.pSimDitchPrimitiveRule = new SimDitchPrimitiveRuleElements();
+		this.pSimGrabEnumerationRule = new SimGrabEnumerationRuleElements();
+		this.pSimDitchEnumerationRule = new SimDitchEnumerationRuleElements();
+		this.pSimGrabEnumerationLiteralRule = new SimGrabEnumerationLiteralRuleElements();
+		this.pSimDitchEnumerationLiteralRule = new SimDitchEnumerationLiteralRuleElements();
+		this.pSimGrabComplexTypeRule = new SimGrabComplexTypeRuleElements();
+		this.pSimDitchComplexTypeRule = new SimDitchComplexTypeRuleElements();
+		this.pSimMorphComplexTypeRule = new SimMorphComplexTypeRuleElements();
+		this.pSimFuseComplexTypeRule = new SimFuseComplexTypeRuleElements();
 		this.pChangeComplexType = new ChangeComplexTypeElements();
-		this.pSGrabFeatureRule = new SGrabFeatureRuleElements();
-		this.pSMorphFeatureRule = new SMorphFeatureRuleElements();
-		this.pSDitchFeatureRule = new SDitchFeatureRuleElements();
-		this.pSGrabQueryParameterRule = new SGrabQueryParameterRuleElements();
-		this.pSMorphQueryParameterRule = new SMorphQueryParameterRuleElements();
-		this.pSDitchQueryParameterRule = new SDitchQueryParameterRuleElements();
-		this.eSAbstractType = new SAbstractTypeElements();
-		this.eSRootEntity = new SRootEntityElements();
-		this.eSDetailType = new SDetailTypeElements();
-		this.eSEntityType = new SEntityTypeElements();
-		this.pSAggregate = new SAggregateElements();
-		this.pSAggregateDeduction = new SAggregateDeductionElements();
+		this.pSimGrabFeatureRule = new SimGrabFeatureRuleElements();
+		this.pSimMorphFeatureRule = new SimMorphFeatureRuleElements();
+		this.pSimDitchFeatureRule = new SimDitchFeatureRuleElements();
+		this.pSimGrabQueryParameterRule = new SimGrabQueryParameterRuleElements();
+		this.pSimMorphQueryParameterRule = new SimMorphQueryParameterRuleElements();
+		this.pSimDitchQueryParameterRule = new SimDitchQueryParameterRuleElements();
+		this.eSimAbstractType = new SimAbstractTypeElements();
+		this.eSimRootEntity = new SimRootEntityElements();
+		this.eSimDetailType = new SimDetailTypeElements();
+		this.eSimEntityType = new SimEntityTypeElements();
+		this.pSimAggregate = new SimAggregateElements();
+		this.pSimAggregateTransposition = new SimAggregateTranspositionElements();
 		this.pDAggregateKeyword = new DAggregateKeywordElements();
 		this.pDType = new DTypeElements();
-		this.pSType = new STypeElements();
-		this.pSPrimitiveDeduction = new SPrimitiveDeductionElements();
-		this.pSEnumerationDeduction = new SEnumerationDeductionElements();
-		this.pSLiteral = new SLiteralElements();
-		this.pSLiteralDeduction = new SLiteralDeductionElements();
-		this.pSEntityTypeDeduction = new SEntityTypeDeductionElements();
-		this.pSDetailTypeDeduction = new SDetailTypeDeductionElements();
-		this.pSComplexTypeFeatures = new SComplexTypeFeaturesElements();
-		this.pSFeature = new SFeatureElements();
-		this.pSAssociationDeduction = new SAssociationDeductionElements();
-		this.pSAttributeDeduction = new SAttributeDeductionElements();
-		this.pSQueryDeduction = new SQueryDeductionElements();
-		this.pSQueryParameter = new SQueryParameterElements();
-		this.pSQueryParameterDeduction = new SQueryParameterDeductionElements();
+		this.pSimType = new SimTypeElements();
+		this.pSimPrimitiveTransposition = new SimPrimitiveTranspositionElements();
+		this.pSimEnumerationTransposition = new SimEnumerationTranspositionElements();
+		this.pSimLiteral = new SimLiteralElements();
+		this.pSimLiteralTransposition = new SimLiteralTranspositionElements();
+		this.pSimEntityTypeTransposition = new SimEntityTypeTranspositionElements();
+		this.pSimDetailTypeTransposition = new SimDetailTypeTranspositionElements();
+		this.pTComplexTypeFeatures = new TComplexTypeFeaturesElements();
+		this.pSimFeature = new SimFeatureElements();
+		this.pSimAssociationTransposition = new SimAssociationTranspositionElements();
+		this.pSimAttributeTransposition = new SimAttributeTranspositionElements();
+		this.pSimQueryTransposition = new SimQueryTranspositionElements();
+		this.pSimQueryParameter = new SimQueryParameterElements();
+		this.pSimQueryParameterTransposition = new SimQueryParameterTranspositionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2592,7 +2600,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//	| kind=SInformationModelKind 'information' 'model') name=ID
 	//	^generate?='generate'?
 	//	description=DRichText?
-	//	'{' (types+=SType | aggregates+=SAggregate)*
+	//	'{' (types+=SimType | aggregates+=SimAggregate)*
 	//	'}';
 	public SInformationModelElements getSInformationModelAccess() {
 		return pSInformationModel;
@@ -2624,121 +2632,121 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	///*
 	// * RULEs
-	// */ SGrabAggregateRule:
+	// */ SimGrabAggregateRule TGrabAggregateRule:
 	//	source=[DAggregate|DQualifiedName] ('as' renameTo=ID)?;
-	public SGrabAggregateRuleElements getSGrabAggregateRuleAccess() {
-		return pSGrabAggregateRule;
+	public SimGrabAggregateRuleElements getSimGrabAggregateRuleAccess() {
+		return pSimGrabAggregateRule;
 	}
 	
-	public ParserRule getSGrabAggregateRuleRule() {
-		return getSGrabAggregateRuleAccess().getRule();
+	public ParserRule getSimGrabAggregateRuleRule() {
+		return getSimGrabAggregateRuleAccess().getRule();
 	}
 	
-	//SGrabPrimitiveRule SGrabRule:
+	//SimGrabPrimitiveRule TGrabRule:
 	//	source=[DPrimitive|DQualifiedName] ('as' renameTo=ID)?;
-	public SGrabPrimitiveRuleElements getSGrabPrimitiveRuleAccess() {
-		return pSGrabPrimitiveRule;
+	public SimGrabPrimitiveRuleElements getSimGrabPrimitiveRuleAccess() {
+		return pSimGrabPrimitiveRule;
 	}
 	
-	public ParserRule getSGrabPrimitiveRuleRule() {
-		return getSGrabPrimitiveRuleAccess().getRule();
+	public ParserRule getSimGrabPrimitiveRuleRule() {
+		return getSimGrabPrimitiveRuleAccess().getRule();
 	}
 	
-	//SDitchPrimitiveRule SDitchRule:
+	//SimDitchPrimitiveRule TDitchRule:
 	//	source=[DPrimitive|DQualifiedName];
-	public SDitchPrimitiveRuleElements getSDitchPrimitiveRuleAccess() {
-		return pSDitchPrimitiveRule;
+	public SimDitchPrimitiveRuleElements getSimDitchPrimitiveRuleAccess() {
+		return pSimDitchPrimitiveRule;
 	}
 	
-	public ParserRule getSDitchPrimitiveRuleRule() {
-		return getSDitchPrimitiveRuleAccess().getRule();
+	public ParserRule getSimDitchPrimitiveRuleRule() {
+		return getSimDitchPrimitiveRuleAccess().getRule();
 	}
 	
-	//SGrabEnumerationRule SGrabRule:
+	//SimGrabEnumerationRule TGrabRule:
 	//	source=[DEnumeration|DQualifiedName] ('as' renameTo=ID)?;
-	public SGrabEnumerationRuleElements getSGrabEnumerationRuleAccess() {
-		return pSGrabEnumerationRule;
+	public SimGrabEnumerationRuleElements getSimGrabEnumerationRuleAccess() {
+		return pSimGrabEnumerationRule;
 	}
 	
-	public ParserRule getSGrabEnumerationRuleRule() {
-		return getSGrabEnumerationRuleAccess().getRule();
+	public ParserRule getSimGrabEnumerationRuleRule() {
+		return getSimGrabEnumerationRuleAccess().getRule();
 	}
 	
-	//SDitchEnumerationRule SDitchRule:
+	//SimDitchEnumerationRule TDitchRule:
 	//	source=[DEnumeration|DQualifiedName];
-	public SDitchEnumerationRuleElements getSDitchEnumerationRuleAccess() {
-		return pSDitchEnumerationRule;
+	public SimDitchEnumerationRuleElements getSimDitchEnumerationRuleAccess() {
+		return pSimDitchEnumerationRule;
 	}
 	
-	public ParserRule getSDitchEnumerationRuleRule() {
-		return getSDitchEnumerationRuleAccess().getRule();
+	public ParserRule getSimDitchEnumerationRuleRule() {
+		return getSimDitchEnumerationRuleAccess().getRule();
 	}
 	
-	//SGrabEnumerationLiteralRule SGrabRule:
+	//SimGrabEnumerationLiteralRule TGrabRule:
 	//	source=[DLiteral] ('as' renameTo=ID)?;
-	public SGrabEnumerationLiteralRuleElements getSGrabEnumerationLiteralRuleAccess() {
-		return pSGrabEnumerationLiteralRule;
+	public SimGrabEnumerationLiteralRuleElements getSimGrabEnumerationLiteralRuleAccess() {
+		return pSimGrabEnumerationLiteralRule;
 	}
 	
-	public ParserRule getSGrabEnumerationLiteralRuleRule() {
-		return getSGrabEnumerationLiteralRuleAccess().getRule();
+	public ParserRule getSimGrabEnumerationLiteralRuleRule() {
+		return getSimGrabEnumerationLiteralRuleAccess().getRule();
 	}
 	
-	//SDitchEnumerationLiteralRule SDitchRule:
+	//SimDitchEnumerationLiteralRule TDitchRule:
 	//	source=[DLiteral];
-	public SDitchEnumerationLiteralRuleElements getSDitchEnumerationLiteralRuleAccess() {
-		return pSDitchEnumerationLiteralRule;
+	public SimDitchEnumerationLiteralRuleElements getSimDitchEnumerationLiteralRuleAccess() {
+		return pSimDitchEnumerationLiteralRule;
 	}
 	
-	public ParserRule getSDitchEnumerationLiteralRuleRule() {
-		return getSDitchEnumerationLiteralRuleAccess().getRule();
+	public ParserRule getSimDitchEnumerationLiteralRuleRule() {
+		return getSimDitchEnumerationLiteralRuleAccess().getRule();
 	}
 	
-	//SGrabComplexTypeRule SGrabRule:
+	//SimGrabComplexTypeRule TGrabRule:
 	//	source=[DComplexType|DQualifiedName] ('as' renameTo=ID)?;
-	public SGrabComplexTypeRuleElements getSGrabComplexTypeRuleAccess() {
-		return pSGrabComplexTypeRule;
+	public SimGrabComplexTypeRuleElements getSimGrabComplexTypeRuleAccess() {
+		return pSimGrabComplexTypeRule;
 	}
 	
-	public ParserRule getSGrabComplexTypeRuleRule() {
-		return getSGrabComplexTypeRuleAccess().getRule();
+	public ParserRule getSimGrabComplexTypeRuleRule() {
+		return getSimGrabComplexTypeRuleAccess().getRule();
 	}
 	
-	//SDitchComplexTypeRule SDitchRule:
+	//SimDitchComplexTypeRule TDitchRule:
 	//	source=[DComplexType|DQualifiedName];
-	public SDitchComplexTypeRuleElements getSDitchComplexTypeRuleAccess() {
-		return pSDitchComplexTypeRule;
+	public SimDitchComplexTypeRuleElements getSimDitchComplexTypeRuleAccess() {
+		return pSimDitchComplexTypeRule;
 	}
 	
-	public ParserRule getSDitchComplexTypeRuleRule() {
-		return getSDitchComplexTypeRuleAccess().getRule();
+	public ParserRule getSimDitchComplexTypeRuleRule() {
+		return getSimDitchComplexTypeRuleAccess().getRule();
 	}
 	
-	//SMorphComplexTypeRule SMorphRule:
+	//SimMorphComplexTypeRule TMorphRule:
 	//	source=[DComplexType|DQualifiedName] ChangeComplexType;
-	public SMorphComplexTypeRuleElements getSMorphComplexTypeRuleAccess() {
-		return pSMorphComplexTypeRule;
+	public SimMorphComplexTypeRuleElements getSimMorphComplexTypeRuleAccess() {
+		return pSimMorphComplexTypeRule;
 	}
 	
-	public ParserRule getSMorphComplexTypeRuleRule() {
-		return getSMorphComplexTypeRuleAccess().getRule();
+	public ParserRule getSimMorphComplexTypeRuleRule() {
+		return getSimMorphComplexTypeRuleAccess().getRule();
 	}
 	
-	//SFuseComplexTypeRule SFuseRule:
+	//SimFuseComplexTypeRule TFuseRule:
 	//	source=[DComplexType|DQualifiedName] ('and' otherSources+=[DComplexType|DQualifiedName])+
 	//	ChangeComplexType;
-	public SFuseComplexTypeRuleElements getSFuseComplexTypeRuleAccess() {
-		return pSFuseComplexTypeRule;
+	public SimFuseComplexTypeRuleElements getSimFuseComplexTypeRuleAccess() {
+		return pSimFuseComplexTypeRule;
 	}
 	
-	public ParserRule getSFuseComplexTypeRuleRule() {
-		return getSFuseComplexTypeRuleAccess().getRule();
+	public ParserRule getSimFuseComplexTypeRuleRule() {
+		return getSimFuseComplexTypeRuleAccess().getRule();
 	}
 	
-	//fragment ChangeComplexType returns SStructureChangingRule:
+	//fragment ChangeComplexType returns TStructureChangingRule:
 	//	'to'
-	//	abstract=SAbstractType? (detail=SDetailType
-	//	| rootEntity=SRootEntity? detail=SEntityType) renameTo=ID? ('extends' extendFrom=[DComplexType])?;
+	//	abstract=SimAbstractType? (detail=SimDetailType
+	//	| rootEntity=SimRootEntity? detail=SimEntityType) renameTo=ID? ('extends' extendFrom=[DComplexType])?;
 	public ChangeComplexTypeElements getChangeComplexTypeAccess() {
 		return pChangeComplexType;
 	}
@@ -2747,132 +2755,132 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getChangeComplexTypeAccess().getRule();
 	}
 	
-	//SGrabFeatureRule SGrabRule:
+	//SimGrabFeatureRule TGrabRule:
 	//	source=[DFeature] ('as' renameTo=ID)?;
-	public SGrabFeatureRuleElements getSGrabFeatureRuleAccess() {
-		return pSGrabFeatureRule;
+	public SimGrabFeatureRuleElements getSimGrabFeatureRuleAccess() {
+		return pSimGrabFeatureRule;
 	}
 	
-	public ParserRule getSGrabFeatureRuleRule() {
-		return getSGrabFeatureRuleAccess().getRule();
+	public ParserRule getSimGrabFeatureRuleRule() {
+		return getSimGrabFeatureRuleAccess().getRule();
 	}
 	
-	//SMorphFeatureRule SMorphRule:
+	//SimMorphFeatureRule TMorphRule:
 	//	source=[DFeature]
 	//	'to' (renameTo=ID ':')?
 	//	retypeTo=[DType] remultiplyTo=DMultiplicity?;
-	public SMorphFeatureRuleElements getSMorphFeatureRuleAccess() {
-		return pSMorphFeatureRule;
+	public SimMorphFeatureRuleElements getSimMorphFeatureRuleAccess() {
+		return pSimMorphFeatureRule;
 	}
 	
-	public ParserRule getSMorphFeatureRuleRule() {
-		return getSMorphFeatureRuleAccess().getRule();
+	public ParserRule getSimMorphFeatureRuleRule() {
+		return getSimMorphFeatureRuleAccess().getRule();
 	}
 	
-	//SDitchFeatureRule SDitchRule:
+	//SimDitchFeatureRule TDitchRule:
 	//	source=[DFeature];
-	public SDitchFeatureRuleElements getSDitchFeatureRuleAccess() {
-		return pSDitchFeatureRule;
+	public SimDitchFeatureRuleElements getSimDitchFeatureRuleAccess() {
+		return pSimDitchFeatureRule;
 	}
 	
-	public ParserRule getSDitchFeatureRuleRule() {
-		return getSDitchFeatureRuleAccess().getRule();
+	public ParserRule getSimDitchFeatureRuleRule() {
+		return getSimDitchFeatureRuleAccess().getRule();
 	}
 	
-	//SGrabQueryParameterRule SGrabRule:
+	//SimGrabQueryParameterRule TGrabRule:
 	//	source=[DQueryParameter] ('as' renameTo=ID)?;
-	public SGrabQueryParameterRuleElements getSGrabQueryParameterRuleAccess() {
-		return pSGrabQueryParameterRule;
+	public SimGrabQueryParameterRuleElements getSimGrabQueryParameterRuleAccess() {
+		return pSimGrabQueryParameterRule;
 	}
 	
-	public ParserRule getSGrabQueryParameterRuleRule() {
-		return getSGrabQueryParameterRuleAccess().getRule();
+	public ParserRule getSimGrabQueryParameterRuleRule() {
+		return getSimGrabQueryParameterRuleAccess().getRule();
 	}
 	
-	//SMorphQueryParameterRule SMorphRule:
+	//SimMorphQueryParameterRule TMorphRule:
 	//	source=[DQueryParameter]
 	//	'to' (renameTo=ID ':')?
 	//	retypeTo=[DType] remultiplyTo=DMultiplicity?;
-	public SMorphQueryParameterRuleElements getSMorphQueryParameterRuleAccess() {
-		return pSMorphQueryParameterRule;
+	public SimMorphQueryParameterRuleElements getSimMorphQueryParameterRuleAccess() {
+		return pSimMorphQueryParameterRule;
 	}
 	
-	public ParserRule getSMorphQueryParameterRuleRule() {
-		return getSMorphQueryParameterRuleAccess().getRule();
+	public ParserRule getSimMorphQueryParameterRuleRule() {
+		return getSimMorphQueryParameterRuleAccess().getRule();
 	}
 	
-	//SDitchQueryParameterRule SDitchRule:
+	//SimDitchQueryParameterRule TDitchRule:
 	//	source=[DQueryParameter];
-	public SDitchQueryParameterRuleElements getSDitchQueryParameterRuleAccess() {
-		return pSDitchQueryParameterRule;
+	public SimDitchQueryParameterRuleElements getSimDitchQueryParameterRuleAccess() {
+		return pSimDitchQueryParameterRule;
 	}
 	
-	public ParserRule getSDitchQueryParameterRuleRule() {
-		return getSDitchQueryParameterRuleAccess().getRule();
+	public ParserRule getSimDitchQueryParameterRuleRule() {
+		return getSimDitchQueryParameterRuleAccess().getRule();
 	}
 	
-	//enum SAbstractType returns STristate:
+	//enum SimAbstractType returns TTristate:
 	//	FALSE='nonabstract' | TRUE='abstract';
-	public SAbstractTypeElements getSAbstractTypeAccess() {
-		return eSAbstractType;
+	public SimAbstractTypeElements getSimAbstractTypeAccess() {
+		return eSimAbstractType;
 	}
 	
-	public EnumRule getSAbstractTypeRule() {
-		return getSAbstractTypeAccess().getRule();
+	public EnumRule getSimAbstractTypeRule() {
+		return getSimAbstractTypeAccess().getRule();
 	}
 	
-	//enum SRootEntity returns STristate:
+	//enum SimRootEntity returns TTristate:
 	//	FALSE='nonroot' | TRUE='root';
-	public SRootEntityElements getSRootEntityAccess() {
-		return eSRootEntity;
+	public SimRootEntityElements getSimRootEntityAccess() {
+		return eSimRootEntity;
 	}
 	
-	public EnumRule getSRootEntityRule() {
-		return getSRootEntityAccess().getRule();
+	public EnumRule getSimRootEntityRule() {
+		return getSimRootEntityAccess().getRule();
 	}
 	
-	//enum SDetailType returns STristate:
+	//enum SimDetailType returns TTristate:
 	//	TRUE='detail';
-	public SDetailTypeElements getSDetailTypeAccess() {
-		return eSDetailType;
+	public SimDetailTypeElements getSimDetailTypeAccess() {
+		return eSimDetailType;
 	}
 	
-	public EnumRule getSDetailTypeRule() {
-		return getSDetailTypeAccess().getRule();
+	public EnumRule getSimDetailTypeRule() {
+		return getSimDetailTypeAccess().getRule();
 	}
 	
-	//enum SEntityType returns STristate:
+	//enum SimEntityType returns TTristate:
 	//	FALSE='entity';
-	public SEntityTypeElements getSEntityTypeAccess() {
-		return eSEntityType;
+	public SimEntityTypeElements getSimEntityTypeAccess() {
+		return eSimEntityType;
 	}
 	
-	public EnumRule getSEntityTypeRule() {
-		return getSEntityTypeAccess().getRule();
+	public EnumRule getSimEntityTypeRule() {
+		return getSimEntityTypeAccess().getRule();
 	}
 	
-	//SAggregate DAggregate:
-	//	SAggregateDeduction | DAggregate;
-	public SAggregateElements getSAggregateAccess() {
-		return pSAggregate;
+	//SimAggregate DAggregate:
+	//	SimAggregateTransposition | DAggregate;
+	public SimAggregateElements getSimAggregateAccess() {
+		return pSimAggregate;
 	}
 	
-	public ParserRule getSAggregateRule() {
-		return getSAggregateAccess().getRule();
+	public ParserRule getSimAggregateRule() {
+		return getSimAggregateAccess().getRule();
 	}
 	
-	//SAggregateDeduction:
-	//	{SAggregateDeduction}
-	//	'grab' 'aggregate' deductionRule=SGrabAggregateRule
-	//	description=DRichText? ('{' (features+=SQueryDeduction | 'add' 'query' features+=DQuery)*
-	//	types+=SType*
+	//SimAggregateTransposition TAggregateTransposition:
+	//	{TAggregateTransposition}
+	//	'grab' 'aggregate' transpositionRule=SimGrabAggregateRule
+	//	description=DRichText? ('{' (features+=SimQueryTransposition | 'add' 'query' features+=DQuery)*
+	//	types+=SimType*
 	//	'}')?;
-	public SAggregateDeductionElements getSAggregateDeductionAccess() {
-		return pSAggregateDeduction;
+	public SimAggregateTranspositionElements getSimAggregateTranspositionAccess() {
+		return pSimAggregateTransposition;
 	}
 	
-	public ParserRule getSAggregateDeductionRule() {
-		return getSAggregateDeductionAccess().getRule();
+	public ParserRule getSimAggregateTranspositionRule() {
+		return getSimAggregateTranspositionAccess().getRule();
 	}
 	
 	//@Override
@@ -2888,10 +2896,10 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//@Override
 	//DType:
-	//	SPrimitiveDeduction | DPrimitive
-	//	| SEnumerationDeduction | DEnumeration
-	//	| SEntityTypeDeduction | DEntityType
-	//	| SDetailTypeDeduction | DDetailType;
+	//	SimPrimitiveTransposition | DPrimitive
+	//	| SimEnumerationTransposition | DEnumeration
+	//	| SimEntityTypeTransposition | DEntityType
+	//	| SimDetailTypeTransposition | DDetailType;
 	public DTypeElements getDTypeAccess() {
 		return pDType;
 	}
@@ -2900,177 +2908,178 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTypeAccess().getRule();
 	}
 	
-	//SType DType:
-	//	SPrimitiveDeduction | 'add' DPrimitive
-	//	| SEnumerationDeduction | 'add' DEnumeration
-	//	| SEntityTypeDeduction | 'add' DEntityType
-	//	| SDetailTypeDeduction | 'add' DDetailType;
-	public STypeElements getSTypeAccess() {
-		return pSType;
+	//SimType DType:
+	//	SimPrimitiveTransposition | 'add' DPrimitive
+	//	| SimEnumerationTransposition | 'add' DEnumeration
+	//	| SimEntityTypeTransposition | 'add' DEntityType
+	//	| SimDetailTypeTransposition | 'add' DDetailType;
+	public SimTypeElements getSimTypeAccess() {
+		return pSimType;
 	}
 	
-	public ParserRule getSTypeRule() {
-		return getSTypeAccess().getRule();
+	public ParserRule getSimTypeRule() {
+		return getSimTypeAccess().getRule();
 	}
 	
-	//SPrimitiveDeduction:
-	//	{SPrimitiveDeduction} ('grab' 'primitive' deductionRule=SGrabPrimitiveRule
-	//	| 'ditch' 'primitive' deductionRule=SDitchPrimitiveRule) description=DRichText? ('{' ('add' constraints+=DConstraint)*
+	//SimPrimitiveTransposition TPrimitiveTransposition:
+	//	{TPrimitiveTransposition} ('grab' 'primitive' transpositionRule=SimGrabPrimitiveRule
+	//	| 'ditch' 'primitive' transpositionRule=SimDitchPrimitiveRule) description=DRichText? ('{' ('add'
+	//	constraints+=DConstraint)*
 	//	'}')?;
-	public SPrimitiveDeductionElements getSPrimitiveDeductionAccess() {
-		return pSPrimitiveDeduction;
+	public SimPrimitiveTranspositionElements getSimPrimitiveTranspositionAccess() {
+		return pSimPrimitiveTransposition;
 	}
 	
-	public ParserRule getSPrimitiveDeductionRule() {
-		return getSPrimitiveDeductionAccess().getRule();
+	public ParserRule getSimPrimitiveTranspositionRule() {
+		return getSimPrimitiveTranspositionAccess().getRule();
 	}
 	
-	//SEnumerationDeduction:
-	//	{SEnumerationDeduction} ('grab' 'enumeration' deductionRule=SGrabEnumerationRule
-	//	| 'ditch' 'enumeration' deductionRule=SDitchEnumerationRule) description=DRichText? ('{' (literals+=SLiteral (','
-	//	literals+=SLiteral)*)? ('add' constraints+=DConstraint)*
+	//SimEnumerationTransposition TEnumerationTransposition:
+	//	{TEnumerationTransposition} ('grab' 'enumeration' transpositionRule=SimGrabEnumerationRule
+	//	| 'ditch' 'enumeration' transpositionRule=SimDitchEnumerationRule) description=DRichText? ('{' (literals+=SimLiteral
+	//	(',' literals+=SimLiteral)*)? ('add' constraints+=DConstraint)*
 	//	'}')?;
-	public SEnumerationDeductionElements getSEnumerationDeductionAccess() {
-		return pSEnumerationDeduction;
+	public SimEnumerationTranspositionElements getSimEnumerationTranspositionAccess() {
+		return pSimEnumerationTransposition;
 	}
 	
-	public ParserRule getSEnumerationDeductionRule() {
-		return getSEnumerationDeductionAccess().getRule();
+	public ParserRule getSimEnumerationTranspositionRule() {
+		return getSimEnumerationTranspositionAccess().getRule();
 	}
 	
-	//SLiteral DLiteral:
-	//	SLiteralDeduction | 'add' DLiteral;
-	public SLiteralElements getSLiteralAccess() {
-		return pSLiteral;
+	//SimLiteral DLiteral:
+	//	SimLiteralTransposition | 'add' DLiteral;
+	public SimLiteralElements getSimLiteralAccess() {
+		return pSimLiteral;
 	}
 	
-	public ParserRule getSLiteralRule() {
-		return getSLiteralAccess().getRule();
+	public ParserRule getSimLiteralRule() {
+		return getSimLiteralAccess().getRule();
 	}
 	
-	//SLiteralDeduction:
-	//	{SLiteralDeduction} ('grab' deductionRule=SGrabEnumerationLiteralRule
-	//	| 'ditch' deductionRule=SDitchEnumerationLiteralRule) description=DRichText?;
-	public SLiteralDeductionElements getSLiteralDeductionAccess() {
-		return pSLiteralDeduction;
+	//SimLiteralTransposition TLiteralTransposition:
+	//	{TLiteralTransposition} ('grab' transpositionRule=SimGrabEnumerationLiteralRule
+	//	| 'ditch' transpositionRule=SimDitchEnumerationLiteralRule) description=DRichText?;
+	public SimLiteralTranspositionElements getSimLiteralTranspositionAccess() {
+		return pSimLiteralTransposition;
 	}
 	
-	public ParserRule getSLiteralDeductionRule() {
-		return getSLiteralDeductionAccess().getRule();
+	public ParserRule getSimLiteralTranspositionRule() {
+		return getSimLiteralTranspositionAccess().getRule();
 	}
 	
-	//SEntityTypeDeduction:
-	//	{SEntityTypeDeduction} ('grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
-	//	| 'ditch' root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
-	//	| 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
-	//	| 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule) description=DRichText?
-	//	SComplexTypeFeatures?;
-	public SEntityTypeDeductionElements getSEntityTypeDeductionAccess() {
-		return pSEntityTypeDeduction;
+	//SimEntityTypeTransposition TEntityTypeTransposition:
+	//	{TEntityTypeTransposition} ('grab' root?='root'? 'entity' transpositionRule=SimGrabComplexTypeRule
+	//	| 'ditch' root?='root'? 'entity' transpositionRule=SimDitchComplexTypeRule
+	//	| 'morph' root?='root'? 'entity' transpositionRule=SimMorphComplexTypeRule
+	//	| 'fuse' root?='root'? 'entity' transpositionRule=SimFuseComplexTypeRule) description=DRichText?
+	//	TComplexTypeFeatures?;
+	public SimEntityTypeTranspositionElements getSimEntityTypeTranspositionAccess() {
+		return pSimEntityTypeTransposition;
 	}
 	
-	public ParserRule getSEntityTypeDeductionRule() {
-		return getSEntityTypeDeductionAccess().getRule();
+	public ParserRule getSimEntityTypeTranspositionRule() {
+		return getSimEntityTypeTranspositionAccess().getRule();
 	}
 	
-	//SDetailTypeDeduction:
-	//	{SDetailTypeDeduction} ('grab' 'detail' deductionRule=SGrabComplexTypeRule
-	//	| 'ditch' 'detail' deductionRule=SDitchComplexTypeRule
-	//	| 'morph' 'detail' deductionRule=SMorphComplexTypeRule
-	//	| 'fuse' 'detail' deductionRule=SFuseComplexTypeRule) description=DRichText?
-	//	SComplexTypeFeatures?;
-	public SDetailTypeDeductionElements getSDetailTypeDeductionAccess() {
-		return pSDetailTypeDeduction;
+	//SimDetailTypeTransposition TDetailTypeTransposition:
+	//	{TDetailTypeTransposition} ('grab' 'detail' transpositionRule=SimGrabComplexTypeRule
+	//	| 'ditch' 'detail' transpositionRule=SimDitchComplexTypeRule
+	//	| 'morph' 'detail' transpositionRule=SimMorphComplexTypeRule
+	//	| 'fuse' 'detail' transpositionRule=SimFuseComplexTypeRule) description=DRichText?
+	//	TComplexTypeFeatures?;
+	public SimDetailTypeTranspositionElements getSimDetailTypeTranspositionAccess() {
+		return pSimDetailTypeTransposition;
 	}
 	
-	public ParserRule getSDetailTypeDeductionRule() {
-		return getSDetailTypeDeductionAccess().getRule();
+	public ParserRule getSimDetailTypeTranspositionRule() {
+		return getSimDetailTypeTranspositionAccess().getRule();
 	}
 	
-	//fragment SComplexTypeFeatures returns DComplexType:
-	//	'{' (features+=SFeature | 'add' constraints+=DConstraint)*
+	//fragment TComplexTypeFeatures returns DComplexType:
+	//	'{' (features+=SimFeature | 'add' constraints+=DConstraint)*
 	//	'}';
-	public SComplexTypeFeaturesElements getSComplexTypeFeaturesAccess() {
-		return pSComplexTypeFeatures;
+	public TComplexTypeFeaturesElements getTComplexTypeFeaturesAccess() {
+		return pTComplexTypeFeatures;
 	}
 	
-	public ParserRule getSComplexTypeFeaturesRule() {
-		return getSComplexTypeFeaturesAccess().getRule();
+	public ParserRule getTComplexTypeFeaturesRule() {
+		return getTComplexTypeFeaturesAccess().getRule();
 	}
 	
 	///*
 	// * FEATURES
-	// */ SFeature DFeature:
-	//	SAssociationDeduction | 'add' DAssociation
-	//	| SAttributeDeduction | 'add' DAttribute
-	//	| SQueryDeduction | 'add' DQuery;
-	public SFeatureElements getSFeatureAccess() {
-		return pSFeature;
+	// */ SimFeature DFeature:
+	//	SimAssociationTransposition | 'add' DAssociation
+	//	| SimAttributeTransposition | 'add' DAttribute
+	//	| SimQueryTransposition | 'add' DQuery;
+	public SimFeatureElements getSimFeatureAccess() {
+		return pSimFeature;
 	}
 	
-	public ParserRule getSFeatureRule() {
-		return getSFeatureAccess().getRule();
+	public ParserRule getSimFeatureRule() {
+		return getSimFeatureAccess().getRule();
 	}
 	
-	//SAssociationDeduction:
-	//	{SAssociationDeduction} ('grab' ('reference' | 'composite') deductionRule=SGrabFeatureRule
-	//	| 'morph' ('reference' | 'composite') deductionRule=SMorphFeatureRule
-	//	| 'ditch' ('reference' | 'composite') deductionRule=SDitchFeatureRule) description=DRichText?;
-	public SAssociationDeductionElements getSAssociationDeductionAccess() {
-		return pSAssociationDeduction;
+	//SimAssociationTransposition TAssociationTransposition:
+	//	{TAssociationTransposition} ('grab' ('reference' | 'composite') transpositionRule=SimGrabFeatureRule
+	//	| 'morph' ('reference' | 'composite') transpositionRule=SimMorphFeatureRule
+	//	| 'ditch' ('reference' | 'composite') transpositionRule=SimDitchFeatureRule) description=DRichText?;
+	public SimAssociationTranspositionElements getSimAssociationTranspositionAccess() {
+		return pSimAssociationTransposition;
 	}
 	
-	public ParserRule getSAssociationDeductionRule() {
-		return getSAssociationDeductionAccess().getRule();
+	public ParserRule getSimAssociationTranspositionRule() {
+		return getSimAssociationTranspositionAccess().getRule();
 	}
 	
-	//SAttributeDeduction:
-	//	{SAttributeDeduction} ('grab' ('attribute' | detail?='detail')? deductionRule=SGrabFeatureRule
-	//	| 'morph' ('attribute' | detail?='detail')? deductionRule=SMorphFeatureRule
-	//	| 'ditch' ('attribute' | detail?='detail')? deductionRule=SDitchFeatureRule) description=DRichText?;
-	public SAttributeDeductionElements getSAttributeDeductionAccess() {
-		return pSAttributeDeduction;
+	//SimAttributeTransposition TAttributeTransposition:
+	//	{TAttributeTransposition} ('grab' ('attribute' | detail?='detail')? transpositionRule=SimGrabFeatureRule
+	//	| 'morph' ('attribute' | detail?='detail')? transpositionRule=SimMorphFeatureRule
+	//	| 'ditch' ('attribute' | detail?='detail')? transpositionRule=SimDitchFeatureRule) description=DRichText?;
+	public SimAttributeTranspositionElements getSimAttributeTranspositionAccess() {
+		return pSimAttributeTransposition;
 	}
 	
-	public ParserRule getSAttributeDeductionRule() {
-		return getSAttributeDeductionAccess().getRule();
+	public ParserRule getSimAttributeTranspositionRule() {
+		return getSimAttributeTranspositionAccess().getRule();
 	}
 	
-	//SQueryDeduction:
-	//	{SQueryDeduction} (('grab' 'query' deductionRule=SGrabFeatureRule
-	//	| 'morph' 'query' deductionRule=SMorphFeatureRule)
+	//SimQueryTransposition TQueryTransposition:
+	//	{TQueryTransposition} (('grab' 'query' transpositionRule=SimGrabFeatureRule
+	//	| 'morph' 'query' transpositionRule=SimMorphFeatureRule)
 	//	'(' ('*'
-	//	| parameters+=SQueryParameter (',' parameters+=SQueryParameter)*)
+	//	| parameters+=SimQueryParameter (',' parameters+=SimQueryParameter)*)
 	//	')'
-	//	| 'ditch' 'query' deductionRule=SDitchFeatureRule) description=DRichText?;
-	public SQueryDeductionElements getSQueryDeductionAccess() {
-		return pSQueryDeduction;
+	//	| 'ditch' 'query' transpositionRule=SimDitchFeatureRule) description=DRichText?;
+	public SimQueryTranspositionElements getSimQueryTranspositionAccess() {
+		return pSimQueryTransposition;
 	}
 	
-	public ParserRule getSQueryDeductionRule() {
-		return getSQueryDeductionAccess().getRule();
+	public ParserRule getSimQueryTranspositionRule() {
+		return getSimQueryTranspositionAccess().getRule();
 	}
 	
-	//SQueryParameter DQueryParameter:
-	//	SQueryParameterDeduction | 'add' DQueryParameter;
-	public SQueryParameterElements getSQueryParameterAccess() {
-		return pSQueryParameter;
+	//SimQueryParameter DQueryParameter:
+	//	SimQueryParameterTransposition | 'add' DQueryParameter;
+	public SimQueryParameterElements getSimQueryParameterAccess() {
+		return pSimQueryParameter;
 	}
 	
-	public ParserRule getSQueryParameterRule() {
-		return getSQueryParameterAccess().getRule();
+	public ParserRule getSimQueryParameterRule() {
+		return getSimQueryParameterAccess().getRule();
 	}
 	
-	//SQueryParameterDeduction:
-	//	{SQueryParameterDeduction} ('grab' deductionRule=SGrabQueryParameterRule
-	//	| 'morph' deductionRule=SMorphQueryParameterRule
-	//	| 'ditch' deductionRule=SDitchQueryParameterRule) description=DRichText?;
-	public SQueryParameterDeductionElements getSQueryParameterDeductionAccess() {
-		return pSQueryParameterDeduction;
+	//SimQueryParameterTransposition TQueryParameterTransposition:
+	//	{TQueryParameterTransposition} ('grab' transpositionRule=SimGrabQueryParameterRule
+	//	| 'morph' transpositionRule=SimMorphQueryParameterRule
+	//	| 'ditch' transpositionRule=SimDitchQueryParameterRule) description=DRichText?;
+	public SimQueryParameterTranspositionElements getSimQueryParameterTranspositionAccess() {
+		return pSimQueryParameterTransposition;
 	}
 	
-	public ParserRule getSQueryParameterDeductionRule() {
-		return getSQueryParameterDeductionAccess().getRule();
+	public ParserRule getSimQueryParameterTranspositionRule() {
+		return getSimQueryParameterTranspositionAccess().getRule();
 	}
 	
 	//DInformationModel:

@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl;
+import com.mimacom.ddd.dm.base.base.impl.DPrimitiveImpl;
 
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;

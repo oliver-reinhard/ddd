@@ -19,6 +19,9 @@
 
   <modules>
     <module>releng</module>
+    <!-- util -->
+    <module>com.mimacom.ddd.util</module>
+    <module>com.mimacom.ddd.util.feature</module>
     <!-- base -->
     <module>com.mimacom.ddd.dm.base</module>
     <module>com.mimacom.ddd.dm.base.tests</module>
@@ -26,9 +29,6 @@
     <!-- libs -->
     <module>com.mimacom.ddd.libs</module>
     <module>com.mimacom.ddd.libs.feature</module>
-    <!-- util -->
-    <module>com.mimacom.ddd.util</module>
-    <module>com.mimacom.ddd.util.feature</module>
     <!-- dmx -->
     <module>com.mimacom.ddd.dm.dmx</module>
     <module>com.mimacom.ddd.dm.dmx.ide</module>

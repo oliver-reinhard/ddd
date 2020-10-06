@@ -4,8 +4,8 @@
 package com.mimacom.ddd.sm.sim.generator
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.IDeducibleElement
-import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.base.base.ITransposableElement
+import com.mimacom.ddd.dm.base.base.ITransposition
 import com.mimacom.ddd.sm.sim.SInformationModel
 import java.io.CharArrayWriter
 import org.eclipse.emf.ecore.resource.Resource
@@ -54,16 +54,16 @@ class SimGenerator extends AbstractGenerator {
 			// change name space so index entries to avoid conflict with original Sim file:
 			model.name = model.name + ".generated"
 			
-			val deductionDefinitions = resource.allContents.filter(IDeductionDefinition).toList
+			val deductionDefinitions = resource.allContents.filter(ITransposition).toList
 			for (d : deductionDefinitions) {
 				EcoreUtil.remove(d)
 			}
 			
-			val deducibleElements = resource.allContents.filter(IDeducibleElement)
+			val deducibleElements = resource.allContents.filter(ITransposableElement)
 			while (deducibleElements.hasNext) {
 				val e = deducibleElements.next
-				e.deducedFrom = null
-				hadSyntheticItems = hadSyntheticItems || (e.synthetic)
+				e.transposedBy = null
+				hadSyntheticItems = hadSyntheticItems || (e.isSynthetic)
 				e.synthetic = false
 			}
 		}

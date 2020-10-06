@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dem.typecomputer;
 
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.dem.DemMessage;
 import com.mimacom.ddd.dm.dem.DemNotification;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;

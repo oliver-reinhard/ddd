@@ -2,13 +2,13 @@
  */
 package com.mimacom.ddd.dm.dem;
 
-import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.DContext;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -36,7 +36,7 @@ public interface DemDomainEvent extends DModel, INavigableMemberContainer, IStat
 {
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DContext}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DContext}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' containment reference list isn't clear,
@@ -68,7 +68,7 @@ public interface DemDomainEvent extends DModel, INavigableMemberContainer, IStat
 
 	/**
 	 * Returns the value of the '<em><b>Preconditions CNF</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DNamedPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Preconditions CNF</em>' containment reference list isn't clear,
@@ -84,7 +84,7 @@ public interface DemDomainEvent extends DModel, INavigableMemberContainer, IStat
 
 	/**
 	 * Returns the value of the '<em><b>Postconditions DNF</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedElement}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.base.DNamedElement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Postconditions DNF</em>' containment reference list isn't clear,

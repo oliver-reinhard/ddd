@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;

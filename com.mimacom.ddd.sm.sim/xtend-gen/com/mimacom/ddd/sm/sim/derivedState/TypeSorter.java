@@ -1,10 +1,10 @@
 package com.mimacom.ddd.sm.sim.derivedState;
 
 import com.google.common.base.Objects;
-import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
-import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
-import com.mimacom.ddd.sm.sim.STypeDeduction;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition;
+import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import java.util.Comparator;
 
 /**
@@ -15,9 +15,9 @@ import java.util.Comparator;
  * 4 – ComplexTypes
  */
 @SuppressWarnings("all")
-public class TypeSorter implements Comparator<STypeDeduction> {
+public class TypeSorter implements Comparator<TTypeTransposition> {
   @Override
-  public int compare(final STypeDeduction t1, final STypeDeduction t2) {
+  public int compare(final TTypeTransposition t1, final TTypeTransposition t2) {
     final int s1 = this.score(t1);
     final int s2 = this.score(t2);
     if (((s1 == 3) && (s2 == 3))) {
@@ -37,11 +37,11 @@ public class TypeSorter implements Comparator<STypeDeduction> {
     return (s2 - s1);
   }
   
-  public int score(final STypeDeduction t) {
-    if ((t instanceof SPrimitiveDeduction)) {
+  public int score(final TTypeTransposition t) {
+    if ((t instanceof TPrimitiveTransposition)) {
       return 3;
     } else {
-      if ((t instanceof SEnumerationDeduction)) {
+      if ((t instanceof TEnumerationTransposition)) {
         return 2;
       }
     }

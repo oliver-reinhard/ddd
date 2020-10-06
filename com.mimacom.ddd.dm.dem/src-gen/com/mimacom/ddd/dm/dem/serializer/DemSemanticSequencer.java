@@ -4,14 +4,14 @@
 package com.mimacom.ddd.dm.dem.serializer;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DNamespace;
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DContext;
+import com.mimacom.ddd.dm.base.base.DImport;
+import com.mimacom.ddd.dm.base.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.dem.DemActorModel;
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;

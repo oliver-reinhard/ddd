@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.dmx.ui.outline
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DContext
+import com.mimacom.ddd.dm.base.base.DContext
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxFilter

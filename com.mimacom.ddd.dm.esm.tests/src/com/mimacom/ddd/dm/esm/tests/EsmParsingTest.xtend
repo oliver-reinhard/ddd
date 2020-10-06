@@ -4,14 +4,14 @@
 package com.mimacom.ddd.dm.esm.tests
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.base.DInformationModel
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.junit.jupiter.api.Disabled
-import com.mimacom.ddd.dm.base.DInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(EsmInjectorProvider)

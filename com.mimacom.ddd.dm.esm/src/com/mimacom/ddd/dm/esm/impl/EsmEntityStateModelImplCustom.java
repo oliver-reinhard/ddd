@@ -3,7 +3,7 @@ package com.mimacom.ddd.dm.esm.impl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.esm.EsmLayoutDirection;
 
 public class EsmEntityStateModelImplCustom extends EsmEntityStateModelImpl {

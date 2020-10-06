@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
 
 /**
  * <!-- begin-user-doc -->

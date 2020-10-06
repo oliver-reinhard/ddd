@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DType;
 
 /**
  * <!-- begin-user-doc -->

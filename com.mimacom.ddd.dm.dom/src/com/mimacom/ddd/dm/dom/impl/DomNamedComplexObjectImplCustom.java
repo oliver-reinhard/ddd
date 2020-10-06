@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DType;
 
 public class DomNamedComplexObjectImplCustom extends DomNamedComplexObjectImpl {
 	@Override

@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.dm.dom;
 
-import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;

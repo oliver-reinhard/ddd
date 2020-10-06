@@ -1,11 +1,11 @@
 package com.mimacom.ddd.dm.dmx
 
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.styledText.DStyledTextSpan
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
-import com.mimacom.ddd.dm.styledText.parser.StyledTextParser
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DRichText
+import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan
+import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser
 import java.util.List
 import org.eclipse.xtext.nodemodel.ICompositeNode
 import org.eclipse.xtext.nodemodel.INode

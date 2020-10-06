@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dom.ui.hover
 
-import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.base.DExpression
 import com.mimacom.ddd.dm.dom.evaluator.DomExpressionEvaluator
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer
 import javax.inject.Inject

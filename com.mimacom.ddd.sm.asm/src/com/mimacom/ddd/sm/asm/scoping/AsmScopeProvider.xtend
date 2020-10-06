@@ -4,10 +4,10 @@
 package com.mimacom.ddd.sm.asm.scoping
 
 import com.google.common.collect.Lists
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.IDeductionDefinition
-import com.mimacom.ddd.dm.base.INavigableMemberContainer
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer
+import com.mimacom.ddd.dm.base.base.ITransposition
 import com.mimacom.ddd.sm.asm.SServiceInterface
 import com.mimacom.ddd.sm.asm.SServiceParameter
 import com.mimacom.ddd.sm.sim.SInformationModel
@@ -33,7 +33,7 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 		if (context instanceof SServiceParameter) {
 			if (reference == BASE.DNavigableMember_Type) {
 				val service = EcoreUtil2.getContainerOfType(context, SServiceInterface)
-				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType).filter[! (it instanceof IDeductionDefinition)], super.getScope(context, reference))
+				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType).filter[! (it instanceof ITransposition)], super.getScope(context, reference))
 			}
 		}
 		super.getScope(context, reference)
@@ -52,7 +52,7 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 		//
 		// TODO The types are not NavigableMembers !! They must not be made available via getEContainerNavigableMembersScopeSwitch.
 		//
-		list.addAll(EcoreUtil2.eAllOfType(core, DType).filter[! (it instanceof IDeductionDefinition)])
+		list.addAll(EcoreUtil2.eAllOfType(core, DType).filter[! (it instanceof ITransposition)])
 		Scopes.scopeFor(list, outerScope)
 	}
 }

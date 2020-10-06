@@ -3,7 +3,7 @@ package com.mimacom.ddd.pub.pub.diagramProvider
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.IDiagramRoot
+import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import java.util.List
 import java.util.Map
 import org.apache.log4j.Logger

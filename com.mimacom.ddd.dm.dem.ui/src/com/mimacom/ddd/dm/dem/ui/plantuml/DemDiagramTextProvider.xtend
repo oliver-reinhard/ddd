@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dem.ui.plantuml
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.dem.DemActorModel
 import com.mimacom.ddd.dm.dem.DemDomainEvent
 import com.mimacom.ddd.dm.dem.DemEventsOverviewModel

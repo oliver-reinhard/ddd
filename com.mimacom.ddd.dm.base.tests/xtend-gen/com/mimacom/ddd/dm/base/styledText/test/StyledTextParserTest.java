@@ -1,10 +1,10 @@
 package com.mimacom.ddd.dm.base.styledText.test;
 
-import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
-import com.mimacom.ddd.dm.styledText.DTextAttribute;
-import com.mimacom.ddd.dm.styledText.DTextStyle;
-import com.mimacom.ddd.dm.styledText.parser.StyledTextParser;
-import com.mimacom.ddd.dm.styledText.parser.SystemErrorErrorMessageAcceptor;
+import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan;
+import com.mimacom.ddd.dm.base.styledText.DTextAttribute;
+import com.mimacom.ddd.dm.base.styledText.DTextStyle;
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser;
+import com.mimacom.ddd.dm.base.styledText.parser.SystemErrorErrorMessageAcceptor;
 import org.junit.Assert;
 import org.junit.Test;
 

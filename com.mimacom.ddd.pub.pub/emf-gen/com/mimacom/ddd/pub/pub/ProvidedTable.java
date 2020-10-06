@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub;
 
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 
 /**
  * <!-- begin-user-doc -->

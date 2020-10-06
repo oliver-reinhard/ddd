@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dmx.typecomputer;
 
-import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;

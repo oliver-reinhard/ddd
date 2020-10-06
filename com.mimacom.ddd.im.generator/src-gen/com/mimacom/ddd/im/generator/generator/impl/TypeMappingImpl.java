@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator.impl;
 
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DType;
 
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;

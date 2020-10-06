@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dmx.typecomputer
 
-import com.mimacom.ddd.dm.base.DState
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DState
 import com.mimacom.ddd.dm.dmx.DmxBaseType
-import com.mimacom.ddd.dm.base.DEntityType
 
 class DmxStateDescriptor extends AbstractDmxTypeDescriptor<DEntityType> {
 	

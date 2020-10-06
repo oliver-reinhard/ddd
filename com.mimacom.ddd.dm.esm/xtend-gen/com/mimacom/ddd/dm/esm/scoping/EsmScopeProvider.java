@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm.scoping;
 
 import com.google.common.base.Objects;
-import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmTransition;

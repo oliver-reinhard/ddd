@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dmx.tests
 
-import com.mimacom.ddd.dm.base.BaseFactory
+import com.mimacom.ddd.dm.base.base.BaseFactory
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
 import java.util.Arrays
 import org.eclipse.emf.ecore.EObject

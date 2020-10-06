@@ -5,8 +5,8 @@ package com.mimacom.ddd.sm.sim;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
+import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
-import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
@@ -44,7 +44,7 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   @Override
   public Class<? extends XtextResource> bindXtextResource() {
-    return DeductionAwareResource.class;
+    return TransposeAwareResource.class;
   }
   
   public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {

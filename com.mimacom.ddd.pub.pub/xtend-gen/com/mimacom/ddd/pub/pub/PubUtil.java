@@ -2,8 +2,8 @@ package com.mimacom.ddd.pub.pub;
 
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;

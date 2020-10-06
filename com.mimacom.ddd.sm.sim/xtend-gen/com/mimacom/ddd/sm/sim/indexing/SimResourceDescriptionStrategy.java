@@ -1,13 +1,13 @@
 package com.mimacom.ddd.sm.sim.indexing;
 
 import com.google.inject.Singleton;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
+import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
+import com.mimacom.ddd.dm.base.transpose.TransposeUtil;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.STypeMapping;
 import java.util.Map;
 import org.apache.log4j.Level;
 import org.eclipse.emf.common.util.URI;
@@ -34,12 +34,12 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
    */
   @Override
   public boolean createEObjectDescriptions(final EObject obj, final IAcceptor<IEObjectDescription> acceptor) {
-    if ((obj instanceof IDeductionDefinition)) {
+    if ((obj instanceof ITransposition)) {
       return false;
     }
     if ((obj instanceof DType)) {
-      if ((((DType)obj).isSynthetic() && (((DType)obj).getDeducedFrom() != null))) {
-        final IDeducibleElement source = ((DType)obj).getDeducedFrom().getDeductionRule().getSource();
+      if ((((DType)obj).isSynthetic() && (((DType)obj).getTransposedBy() != null))) {
+        final ITransposableElement source = ((DType)obj).getTransposedBy().getTranspositionRule().getSource();
         if ((source instanceof DType)) {
           return this.createSTypeDeductionDescription(((DType)obj), ((DType)source), acceptor);
         }
@@ -71,11 +71,11 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
         }
         final QualifiedName sourceQN = qnp.getFullyQualifiedName(source);
         if ((sourceQN != null)) {
-          final IDeductionDefinition deduction = typeToIndex.getDeducedFrom();
+          final ITransposition deduction = typeToIndex.getTransposedBy();
           final SInformationModel model = EcoreUtil2.<SInformationModel>getContainerOfType(deduction, SInformationModel.class);
-          final STypeMapping typeMappingType = model.getIndexingHelper();
-          final Map<String, String> userData = DeductionUtil.createEObjectDescriptionUserData(targetQN);
-          final QualifiedName sourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(sourceQN);
+          final TTypeMapping typeMappingType = model.getIndexingHelper();
+          final Map<String, String> userData = TransposeUtil.createEObjectDescriptionUserData(targetQN);
+          final QualifiedName sourceQNForIndex = TransposeUtil.getDeductionSourceQNForIndex(sourceQN);
           final IEObjectDescription mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData);
           acceptor.accept(mappingDesc);
           boolean _isDebugEnabled_1 = DmxResourceDescriptionStrategy.LOGGER.isDebugEnabled();
@@ -108,7 +108,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
   public boolean createReferenceDescriptions(final EObject from, final URI exportedContainerURI, final IAcceptor<IReferenceDescription> acceptor) {
     boolean _xblockexpression = false;
     {
-      if ((from instanceof IDeductionDefinition)) {
+      if ((from instanceof ITransposition)) {
         return true;
       }
       _xblockexpression = super.createReferenceDescriptions(from, exportedContainerURI, acceptor);

@@ -4,17 +4,17 @@
 package com.mimacom.ddd.pub.pub.generator;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer;
 import com.mimacom.ddd.dm.base.richText.RichTextUtil;
+import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
 import com.mimacom.ddd.pub.proto.ProtoSymbolReference;
 import com.mimacom.ddd.pub.pub.AbstractFigure;

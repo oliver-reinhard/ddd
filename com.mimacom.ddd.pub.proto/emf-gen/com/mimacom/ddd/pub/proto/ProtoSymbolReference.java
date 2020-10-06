@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.proto;
 
-import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DExpression;
 
 /**
  * <!-- begin-user-doc -->

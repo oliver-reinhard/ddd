@@ -2,15 +2,15 @@ package com.mimacom.ddd.sm.sim.derivedState
 
 import com.google.common.collect.Lists
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DNamespace
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.IDeducibleElement
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.ITransposableElement
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TransposeFactory
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SInformationModelKind
-import com.mimacom.ddd.sm.sim.STypeDeduction
-import com.mimacom.ddd.sm.sim.SimFactory
 import java.util.Collections
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
@@ -20,11 +20,11 @@ import org.eclipse.xtext.resource.IDerivedStateComputer
 
 class SimDerivedStateComputer implements IDerivedStateComputer {
 
-	@Inject extension SAggregateDeductionRuleProcessor
-	@Inject extension STypeDeductionRuleProcessor
-	@Inject extension SFeatureDeductionRuleProcessor
+	@Inject extension SAggregateTranspositionRuleProcessor
+	@Inject extension STypeTranspositionRuleProcessor
+	@Inject extension SFeatureTranspositionRuleProcessor
 
-	static val SIM = SimFactory.eINSTANCE
+	static val TRANSPOSE = TransposeFactory.eINSTANCE
 	static val LOGGER = Logger.getLogger(SimDerivedStateComputer);
 
 	var derivedStateInstalled = false
@@ -44,7 +44,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				} else {
 					derivedStateInstalled = true
 					LOGGER.debug("Derive state for " + resource.URI)
-					model.indexingHelper = SIM.createSTypeMapping
+					model.indexingHelper = TRANSPOSE.createTTypeMapping
 					model.process
 					LOGGER.debug("Derive state END for " + resource.URI)
 				}
@@ -62,7 +62,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 					model.indexingHelper = null
 				}
 				// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
-				val syntheticElements = resource.allContents.filter(IDeducibleElement).filter[synthetic]
+				val syntheticElements = resource.allContents.filter(ITransposableElement).filter[isSynthetic]
 				val list = Lists.newArrayList
 				while (syntheticElements.hasNext)
 					list.add(syntheticElements.next)
@@ -78,16 +78,16 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	
 	def void process(SInformationModel model) {
 		// First: process the types defined by the model:
-		val typeDeductionDefinitions = model.types.filter(STypeDeduction)?.toList // cannot sort Iterable 
+		val typeDeductionDefinitions = model.types.filter(TTypeTransposition)?.toList // cannot sort Iterable 
 		if (! typeDeductionDefinitions.empty) {
 			Collections.sort(typeDeductionDefinitions, new TypeSorter)
 			val complexSyntheticTypes = Lists.newArrayList
 			for (definition : typeDeductionDefinitions) {
-				val rule = definition.deductionRule
-				val source = rule.source
+				val rule = definition.getTranspositionRule
+				val source = rule.getSource
 				if (source instanceof DType) {
 					val syntheticType = model.processTypeDeduction(definition, rule)
-					if (definition instanceof SComplexTypeDeduction) {
+					if (definition instanceof TComplexTypeTransposition) {
 						complexSyntheticTypes.add(
 							new SyntheticFeatureContainerDescriptor(syntheticType as DComplexType, definition,
 								source as DComplexType))

@@ -9,15 +9,23 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.mimacom.com/ddd/dm/base"
-            class="com.mimacom.ddd.dm.base.BasePackage"
+            class="com.mimacom.ddd.dm.base.base.BasePackage"
             genModel="model/base.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.mimacom.com/ddd/dm/styledText"
-            class="com.mimacom.ddd.dm.styledText.StyledTextPackage"
+            class="com.mimacom.ddd.dm.base.styledText.StyledTextPackage"
             genModel="model/styledText.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated transpose -->
+      <package
+            uri="http://www.mimacom.com/ddd/dm/transpose"
+            class="com.mimacom.ddd.dm.base.transpose.TransposePackage"
+            genModel="model/transpose.genmodel"/>
    </extension>
 
 </plugin>

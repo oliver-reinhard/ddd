@@ -2,10 +2,10 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DFeature;
 
-import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
+import com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImplCustom;
 
 import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxPackage;

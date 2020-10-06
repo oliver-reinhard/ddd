@@ -1,10 +1,10 @@
 package com.mimacom.ddd.dm.dom.ui.plantuml
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.dmx.DmxComplexObject
 import com.mimacom.ddd.dm.dmx.DmxDetail
 import com.mimacom.ddd.dm.dmx.DmxEntity

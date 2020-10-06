@@ -4,16 +4,16 @@
 package com.mimacom.ddd.im.generator.jvmmodel
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DDeductionRule
-import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DNamedElement
-import com.mimacom.ddd.dm.base.DNamespace
-import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.dm.base.DSimpleType
-import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DEnumeration
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DNamedElement
+import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DPrimitive
+import com.mimacom.ddd.dm.base.base.DSimpleType
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.TTranspositionRule
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock
@@ -274,14 +274,14 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		if (primitive.redefines !== null) {
 			return toType(mappings, primitive.redefines)
 		}
-		if (primitive.deducedFrom?.deductionRule !== null) {
-			return toType(mappings, primitive.deducedFrom.deductionRule)
+		if (primitive.getTransposedBy?.getTranspositionRule !== null) {
+			return toType(mappings, primitive.getTransposedBy.getTranspositionRule)
 		}
 		return typeRef(Object) // fallback
 	}
 
-	def dispatch JvmTypeReference toType(Iterable<TypeMapping> mappings, DDeductionRule deductionRule) {
-		toType(mappings, deductionRule.source)
+	def dispatch JvmTypeReference toType(Iterable<TypeMapping> mappings, TTranspositionRule deductionRule) {
+		toType(mappings, deductionRule.getSource)
 	}
 
 	def dispatch JvmTypeReference toType(Iterable<TypeMapping> mappings, DmxArchetype archetype) {

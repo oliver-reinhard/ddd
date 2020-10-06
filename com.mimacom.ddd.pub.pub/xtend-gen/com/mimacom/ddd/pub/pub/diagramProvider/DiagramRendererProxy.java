@@ -1,7 +1,7 @@
 package com.mimacom.ddd.pub.pub.diagramProvider;
 
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramFileFormat;
 import com.mimacom.ddd.pub.pub.diagramProvider.DiagramProviderRegistryUtil;
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer;

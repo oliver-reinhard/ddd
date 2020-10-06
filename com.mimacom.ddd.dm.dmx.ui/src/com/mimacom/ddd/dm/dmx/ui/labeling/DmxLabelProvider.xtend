@@ -4,8 +4,8 @@
 package com.mimacom.ddd.dm.dmx.ui.labeling
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCallArguments

@@ -1,9 +1,9 @@
 package com.mimacom.ddd.sm.sim.indexing
 
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.IDeductionDefinition
-import com.mimacom.ddd.dm.base.modelDeduction.DeductionUtil
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.transpose.TransposeUtil
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.apache.log4j.Level
@@ -28,13 +28,13 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 	 * Prevents indexing of deduction rules and creates custom index entries for synthetic types
 	 */
 	override boolean createEObjectDescriptions(EObject obj, IAcceptor<IEObjectDescription> acceptor) {
-		if (obj instanceof IDeductionDefinition) {
+		if (obj instanceof ITransposition) {
 			// Don't index IDeductionDefinition and its children
 			return false // don't index child objects either
 		}
 		if (obj instanceof DType) {
-			if (obj.synthetic && obj.deducedFrom !== null) {
-				val source = obj.deducedFrom.deductionRule.source
+			if (obj.isSynthetic && obj.getTransposedBy !== null) {
+				val source = obj.getTransposedBy.getTranspositionRule.getSource
 				if (source instanceof DType) {
 					// create custom index entry with reference to source
 					return createSTypeDeductionDescription(obj, source, acceptor)
@@ -74,11 +74,11 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 				// create mapping description:
 				val sourceQN = qnp.getFullyQualifiedName(source);
 				if (sourceQN !== null) {
-					val deduction = typeToIndex.deducedFrom
+					val deduction = typeToIndex.getTransposedBy
 					val model = EcoreUtil2.getContainerOfType(deduction, SInformationModel)
 					val typeMappingType = model.indexingHelper
-					val userData = DeductionUtil.createEObjectDescriptionUserData(targetQN)
-					val sourceQNForIndex = DeductionUtil.getDeductionSourceQNForIndex(sourceQN)
+					val userData = TransposeUtil.createEObjectDescriptionUserData(targetQN)
+					val sourceQNForIndex = TransposeUtil.getDeductionSourceQNForIndex(sourceQN)
 					val mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData)
 					acceptor.accept(mappingDesc);
 
@@ -97,7 +97,7 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 
 	override boolean createReferenceDescriptions(EObject from, URI exportedContainerURI,
 		IAcceptor<IReferenceDescription> acceptor) {
-		if (from instanceof IDeductionDefinition) {
+		if (from instanceof ITransposition) {
 			// Don't index IDeductionDefinition
 			return true // do index references of IDedctionRule children to domain model
 		}

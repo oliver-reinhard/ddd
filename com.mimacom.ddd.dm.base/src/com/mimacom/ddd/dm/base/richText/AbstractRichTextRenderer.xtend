@@ -1,14 +1,14 @@
 package com.mimacom.ddd.dm.base.richText
 
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.styledText.DStyledTextSpan
-import com.mimacom.ddd.dm.styledText.DTextStyle
-import com.mimacom.ddd.dm.styledText.StyledTextFactory
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
-import com.mimacom.ddd.dm.styledText.parser.StyledTextParser
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DRichText
+import com.mimacom.ddd.dm.base.base.DTextSegment
+import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan
+import com.mimacom.ddd.dm.base.styledText.DTextStyle
+import com.mimacom.ddd.dm.base.styledText.StyledTextFactory
+import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor
+import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser
 import java.util.List
-import com.mimacom.ddd.dm.base.DTextSegment
 
 abstract class AbstractRichTextRenderer {
 

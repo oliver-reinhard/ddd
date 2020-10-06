@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dmx.indexing;
 
 import com.google.inject.Singleton;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;

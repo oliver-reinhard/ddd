@@ -1,7 +1,7 @@
 package com.mimacom.ddd.im.generator.documentation
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DTextSegment
+import com.mimacom.ddd.dm.base.base.DTextSegment
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping
 import java.util.stream.Collectors
 import org.eclipse.emf.ecore.EObject

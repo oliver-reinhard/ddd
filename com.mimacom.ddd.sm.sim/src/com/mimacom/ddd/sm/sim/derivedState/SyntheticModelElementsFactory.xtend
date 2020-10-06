@@ -1,56 +1,57 @@
 package com.mimacom.ddd.sm.sim.derivedState
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BaseFactory
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DDeductionRule
-import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DImplicitDeduction
-import com.mimacom.ddd.dm.base.DLiteral
-import com.mimacom.ddd.dm.base.DMultiplicity
-import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.IDeducibleElement
-import com.mimacom.ddd.dm.base.IDeductionDefinition
-import com.mimacom.ddd.dm.base.IFeatureContainer
-import com.mimacom.ddd.dm.base.IIdentityType
-import com.mimacom.ddd.dm.base.ITypeContainer
+import com.mimacom.ddd.dm.base.base.BaseFactory
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DDetailType
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DEnumeration
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DLiteral
+import com.mimacom.ddd.dm.base.base.DMultiplicity
+import com.mimacom.ddd.dm.base.base.DPrimitive
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DQueryParameter
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.IFeatureContainer
+import com.mimacom.ddd.dm.base.base.IIdentityType
+import com.mimacom.ddd.dm.base.base.ITransposableElement
+import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.base.ITypeContainer
+import com.mimacom.ddd.dm.base.base.TImplicitTransposition
+import com.mimacom.ddd.dm.base.base.TTranspositionRule
+import com.mimacom.ddd.dm.base.transpose.TMorphRule
+import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule
+import com.mimacom.ddd.dm.base.transpose.TTristate
+import com.mimacom.ddd.dm.base.transpose.TransposeFactory
+import com.mimacom.ddd.dm.base.transpose.TypeMappingUtil
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SInformationModelKind
-import com.mimacom.ddd.sm.sim.SMorphRule
-import com.mimacom.ddd.sm.sim.SStructureChangingRule
-import com.mimacom.ddd.sm.sim.STristate
-import com.mimacom.ddd.sm.sim.SimFactory
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 
 class SyntheticModelElementsFactory {
 
 	static val BASE = BaseFactory.eINSTANCE
-	static val SIM = SimFactory.eINSTANCE
+	static val TRANSPOSE = TransposeFactory.eINSTANCE
 
 	@Inject extension TypeMappingUtil
 
 	def DAggregate addSyntheticAggregate(SInformationModel container, String name,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val syntheticAggregate = BASE.createDAggregate
 		syntheticAggregate.name = name
 		syntheticAggregate.synthetic = true
-		syntheticAggregate.deducedFrom = deductionDefinition
+		syntheticAggregate.transposedBy = deductionDefinition
 		container.aggregates.add(syntheticAggregate)
 		return syntheticAggregate
 	}
 
 	def dispatch DPrimitive addSyntheticType(ITypeContainer container, String name, DPrimitive source /*dispatch*/ ,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val syntheticPrimitive = BASE.createDPrimitive
 		syntheticPrimitive.initSyntheticType(container, name, source, deductionDefinition)
 		syntheticPrimitive.redefines = source.redefines
@@ -58,24 +59,24 @@ class SyntheticModelElementsFactory {
 	}
 
 	def dispatch DEnumeration addSyntheticType(ITypeContainer container, String name, DEnumeration source /*dispatch*/ ,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val syntheticEnumeration = BASE.createDEnumeration
 		syntheticEnumeration.initSyntheticType(container, name, source, deductionDefinition)
 		return syntheticEnumeration
 	}
 
 	def dispatch DComplexType addSyntheticType(ITypeContainer container, String name, DComplexType source /*dispatch*/ ,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val isCoreModel = EcoreUtil2.getContainerOfType(container, SInformationModel).kind == SInformationModelKind.CORE
-		val syntheticComplexType = if (!isCoreModel || deductionDefinition.deductionRule.makeDetailType(source)) {
+		val syntheticComplexType = if (!isCoreModel || deductionDefinition.getTranspositionRule.makeDetailType(source)) {
 				BASE.createDDetailType
 			} else {
 				BASE.createDEntityType
 			}
 		syntheticComplexType.initSyntheticType(container, name, source, deductionDefinition)
-		syntheticComplexType.abstract = deductionDefinition.deductionRule.makeAbstract(source)
+		syntheticComplexType.abstract = deductionDefinition.getTranspositionRule.makeAbstract(source)
 		if (syntheticComplexType instanceof DEntityType) {
-			syntheticComplexType.root = deductionDefinition.deductionRule.makeRoot(source)
+			syntheticComplexType.root = deductionDefinition.getTranspositionRule.makeRoot(source)
 		}
 		container.types.add(syntheticComplexType)
 		return syntheticComplexType
@@ -117,16 +118,16 @@ class SyntheticModelElementsFactory {
 	}
 
 	protected def void initSyntheticType(DType syntheticType, ITypeContainer container, String name, DType original,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		syntheticType.name = name
 		syntheticType.aliases.addAll(original.aliases)
 		syntheticType.synthetic = true
-		syntheticType.deducedFrom = deductionDefinition
+		syntheticType.transposedBy = deductionDefinition
 		container.types.add(syntheticType)
 	}
 
 	def DFeature addSyntheticFeature(IFeatureContainer container, String name, DFeature source,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val sourceFeatureType = source.getType
 		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add synthetic feature now)
 			return null
@@ -162,7 +163,7 @@ class SyntheticModelElementsFactory {
 		syntheticFeature.type = featureTypeProxy // may be null -> there is a validation catching this case
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.synthetic = true
-		syntheticFeature.deducedFrom = deductionDefinition
+		syntheticFeature.transposedBy = deductionDefinition
 		container.features.add(syntheticFeature)
 		return syntheticFeature
 	}
@@ -191,7 +192,7 @@ class SyntheticModelElementsFactory {
 		syntheticFeature.type = source.getType
 		syntheticFeature.multiplicity = source.getMultiplicity
 		syntheticFeature.synthetic = true
-		syntheticFeature.deducedFrom = null /* NOTE: null */
+		syntheticFeature.transposedBy = null /* NOTE: null */
 		if (source instanceof DQuery) {
 			for (p : source.parameters) {
 				(syntheticFeature as DQuery).addSyntheticQueryParameterAsCopy(p)
@@ -200,7 +201,7 @@ class SyntheticModelElementsFactory {
 	}
 
 	def DQueryParameter addSyntheticQueryParameter(DQuery container, String name, DQueryParameter source,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val sourceParameterType = source.getType
 		if (sourceParameterType === null) { // the domain model is (temporarily incomplete => don't add sFeature now
 			return null
@@ -210,7 +211,7 @@ class SyntheticModelElementsFactory {
 		syntheticParameter.type = getSystemTypeProxy(deductionDefinition, sourceParameterType)
 		syntheticParameter.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticParameter.synthetic = true
-		syntheticParameter.deducedFrom = deductionDefinition
+		syntheticParameter.transposedBy = deductionDefinition
 		container.parameters.add(syntheticParameter)
 		return syntheticParameter
 	}
@@ -221,18 +222,18 @@ class SyntheticModelElementsFactory {
 		syntheticParameter.type = source.getType
 		syntheticParameter.multiplicity = source.getMultiplicity
 		syntheticParameter.synthetic = true
-		syntheticParameter.deducedFrom = null /* NOTE: null */
+		syntheticParameter.transposedBy = null /* NOTE: null */
 		container.parameters.add(syntheticParameter)
 		return syntheticParameter
 	}
 
 	def void addSyntheticLiteral(DEnumeration container, String name, DLiteral source,
-		IDeductionDefinition deductionDefinition) {
+		ITransposition deductionDefinition) {
 		val syntheticLiteral = BASE.createDLiteral
 		syntheticLiteral.name = name
 		syntheticLiteral.aliases.addAll(source.aliases)
 		syntheticLiteral.synthetic = true
-		syntheticLiteral.deducedFrom = deductionDefinition
+		syntheticLiteral.transposedBy = deductionDefinition
 		container.literals.add(syntheticLiteral)
 	}
 
@@ -250,49 +251,49 @@ class SyntheticModelElementsFactory {
 		return result
 	}
 
-	protected def dispatch boolean makeAbstract(SStructureChangingRule r, DComplexType source) {
-		if (r.abstract == STristate.DONT_CARE) return source.abstract
-		return r.abstract == STristate.TRUE
+	protected def dispatch boolean makeAbstract(TStructureChangingRule r, DComplexType source) {
+		if (r.getAbstract == TTristate.DONT_CARE) return source.abstract
+		return r.getAbstract == TTristate.TRUE
 	}
 
-	protected def dispatch boolean makeAbstract(DDeductionRule r, DComplexType source) {
+	protected def dispatch boolean makeAbstract(TTranspositionRule r, DComplexType source) {
 		return source.abstract
 	}
 
-	protected def dispatch boolean makeRoot(SStructureChangingRule r, DComplexType source) {
-		if (r.rootEntity == STristate.DONT_CARE) {
+	protected def dispatch boolean makeRoot(TStructureChangingRule r, DComplexType source) {
+		if (r.getRootEntity == TTristate.DONT_CARE) {
 			return source instanceof DEntityType && (source as DEntityType).isRoot
 		}
-		return r.rootEntity == STristate.TRUE
+		return r.getRootEntity == TTristate.TRUE
 	}
 
-	protected def dispatch boolean makeRoot(DDeductionRule r, DComplexType source) {
+	protected def dispatch boolean makeRoot(TTranspositionRule r, DComplexType source) {
 		return source instanceof DEntityType && (source as DEntityType).isRoot
 	}
 
-	protected def dispatch boolean makeDetailType(SMorphRule r, DComplexType source) {
-		if (r.detail == STristate.DONT_CARE) return source instanceof DDetailType
-		return r.detail == STristate.TRUE
+	protected def dispatch boolean makeDetailType(TMorphRule r, DComplexType source) {
+		if (r.getDetail == TTristate.DONT_CARE) return source instanceof DDetailType
+		return r.getDetail == TTristate.TRUE
 	}
 
-	protected def dispatch boolean makeDetailType(DDeductionRule r, DComplexType source) {
+	protected def dispatch boolean makeDetailType(TTranspositionRule r, DComplexType source) {
 		return source instanceof DDetailType
 	}
 
 	protected def DType findLocalTypeMappingFor(EObject context, DType source) {
-		val types = context.eResource.allContents.filter(DType).filter[! (it instanceof IDeductionDefinition)]
-		val candidates = types.filter[deducedFrom?.deductionRule?.source === source]
+		val types = context.eResource.allContents.filter(DType).filter[! (it instanceof ITransposition)]
+		val candidates = types.filter[getTransposedBy?.getTranspositionRule?.getSource === source]
 		return candidates.head
 	}
 
-	def DImplicitDeduction createImplicitElementCopyDeduction(IDeductionDefinition originalDeductionDefinition,
-		IDeducibleElement source) {
-		val implicitDeduction = BASE.createDImplicitDeduction
-		originalDeductionDefinition.impliedDeductions.add(implicitDeduction)
+	def TImplicitTransposition createImplicitElementCopyDeduction(ITransposition originalDeductionDefinition,
+		ITransposableElement source) {
+		val implicitDeduction = BASE.createTImplicitTransposition
+		originalDeductionDefinition.impliedTranspositions.add(implicitDeduction)
 		implicitDeduction.originalDeductionDefinition = originalDeductionDefinition
-		val grabRule = SIM.createSGrabRule
+		val grabRule = TRANSPOSE.createTGrabRule
 		grabRule.source = source
-		implicitDeduction.deductionRule = grabRule // add to container
+		implicitDeduction.transpositionRule = grabRule // add to container
 		return implicitDeduction
 	}
 }

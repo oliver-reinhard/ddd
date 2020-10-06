@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.sus.formatting2
 
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.pub.pub.formatting2.PubFormatter
 import com.mimacom.ddd.sm.sus.UserStory
 import org.eclipse.xtext.formatting2.IFormattableDocument

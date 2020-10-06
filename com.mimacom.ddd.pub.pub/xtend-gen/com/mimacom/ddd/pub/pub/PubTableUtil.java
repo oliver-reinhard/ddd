@@ -1,9 +1,9 @@
 package com.mimacom.ddd.pub.pub;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BaseFactory;
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.base.base.BaseFactory;
+import com.mimacom.ddd.dm.base.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.pub.pub.PubFactory;
 import com.mimacom.ddd.pub.pub.Reference;

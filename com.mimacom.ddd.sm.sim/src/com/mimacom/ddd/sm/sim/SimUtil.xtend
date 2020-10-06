@@ -1,55 +1,70 @@
 package com.mimacom.ddd.sm.sim
 
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DDeductionRule
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.base.impl.DDetailTypeImpl
-import com.mimacom.ddd.dm.base.impl.DEntityTypeImpl
-import com.mimacom.ddd.dm.base.impl.DEnumerationImpl
-import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.TTranspositionRule
+import com.mimacom.ddd.dm.base.base.impl.DDetailTypeImpl
+import com.mimacom.ddd.dm.base.base.impl.DEntityTypeImpl
+import com.mimacom.ddd.dm.base.base.impl.DEnumerationImpl
+import com.mimacom.ddd.dm.base.base.impl.DPrimitiveImpl
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
+import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
+import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition
+import com.mimacom.ddd.dm.base.transpose.TDetailTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TDitchRule
+import com.mimacom.ddd.dm.base.transpose.TEntityTypeTransposition
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
+import com.mimacom.ddd.dm.base.transpose.TFuseRule
+import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule
+import com.mimacom.ddd.dm.base.transpose.TGrabRule
+import com.mimacom.ddd.dm.base.transpose.TMorphRule
+import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition
+import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.dm.dim.DimUtil
+import java.util.Collections
 import java.util.List
 import org.eclipse.emf.ecore.EClass
-import java.util.Collections
 
 class SimUtil extends DimUtil {
 	
-	def Class<? extends DType> baseImplClass(STypeDeduction type) {
+	def Class<? extends DType> baseImplClass(TTypeTransposition type) {
 		switch (type) {
-			SPrimitiveDeduction : DPrimitiveImpl
-			SEnumerationDeduction : DEnumerationImpl
-			SEntityTypeDeduction : DEntityTypeImpl
-			SDetailTypeDeduction : DDetailTypeImpl
+			TPrimitiveTransposition : DPrimitiveImpl
+			TEnumerationTransposition : DEnumerationImpl
+			TEntityTypeTransposition : DEntityTypeImpl
+			TDetailTypeTransposition : DDetailTypeImpl
 		}
 	}
-	def Class<? extends DFeature> baseClass(SFeatureDeduction feature) {
+	def Class<? extends DFeature> baseClass(TFeatureTransposition feature) {
 		switch (feature) {
-			SAttributeDeduction : DAttribute
-			SAssociationDeduction : DAssociation
-			SQueryDeduction : DQuery
+			TAttributeTransposition : DAttribute
+			TAssociationTransposition : DAssociation
+			TQueryTransposition : DQuery
 		}
 	}
 	
-	def List<DType> syntheticTypes(SAggregateDeduction a) {
+	def List<DType> syntheticTypes(TAggregateTransposition a) {
 		// get synthetic aggregate that was created for 'aggregate' rule:
 		val model = a.eContainer as SInformationModel
-		val syntheticAggregates = model.aggregates.filter[synthetic && deducedFrom == a]
+		val syntheticAggregates = model.aggregates.filter[isSynthetic && getTransposedBy == a]
 		if (syntheticAggregates.size == 1) {
 			return syntheticAggregates.head.types
 		}
 		return Collections.EMPTY_LIST
 	}
 	
-	def EClass baseEClass(SFeatureDeduction feature) {
+	def EClass baseEClass(TFeatureTransposition feature) {
 		switch (feature) {
-			SAttributeDeduction : BasePackage.eINSTANCE.DAttribute
-			SAssociationDeduction : BasePackage.eINSTANCE.DAssociation
-			SQueryDeduction : BasePackage.eINSTANCE.DQuery
+			TAttributeTransposition : BasePackage.eINSTANCE.DAttribute
+			TAssociationTransposition : BasePackage.eINSTANCE.DAssociation
+			TQueryTransposition : BasePackage.eINSTANCE.DQuery
 		}
 	}
 	
@@ -57,18 +72,18 @@ class SimUtil extends DimUtil {
 		return "Aggregate " + a.name
 	}
 	
-	def String label(DDeductionRule rule) {
+	def String label(TTranspositionRule rule) {
 		return switch rule {
-			SMorphRule : "Morph "  + rule.source.label + if (rule.renameTo !== null) " as " + rule.renameTo else ""
-			SFuseRule:  "Fuse "  + rule.source.label
-			SGrabRule : "Grab "  + rule.source.label + if (rule.renameTo !== null) " as " + rule.renameTo else ""
-			SDitchRule : "Ditch "  + rule.source.label
-			SGrabAggregateRule: "Grab aggregate " + rule.source.label
+			TMorphRule : "Morph "  + rule.getSource.label + if (rule.getRenameTo !== null) " as " + rule.getRenameTo else ""
+			TFuseRule:  "Fuse "  + rule.getSource.label
+			TGrabRule : "Grab "  + rule.getSource.label + if (rule.getRenameTo !== null) " as " + rule.getRenameTo else ""
+			TDitchRule : "Ditch "  + rule.getSource.label
+			TGrabAggregateRule: "Grab aggregate " + rule.getSource.label
 			default: rule.class.simpleName
 		}
 	}
 	
-	def String label(SFuseRule rule) {
+	def String label(TFuseRule rule) {
 		val sb = new StringBuilder(rule.namedSource?.name)
 		for (s : rule.otherSources) {
 			sb.append(" and ")

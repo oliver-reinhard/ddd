@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.base.richText;
 
-import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.richText.AbstractRichTextRenderer;
-import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
+import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan;
 
 @SuppressWarnings("all")
 public abstract class AbstractRichTextToPlainTextRenderer extends AbstractRichTextRenderer {

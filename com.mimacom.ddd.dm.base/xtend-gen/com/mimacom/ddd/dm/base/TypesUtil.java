@@ -2,25 +2,25 @@ package com.mimacom.ddd.dm.base;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DAssociation;
-import com.mimacom.ddd.dm.base.DAssociationKind;
-import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DEntityNature;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DInformationModel;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.IFeatureContainer;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DAssociation;
+import com.mimacom.ddd.dm.base.base.DAssociationKind;
+import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DDetailType;
+import com.mimacom.ddd.dm.base.base.DEntityNature;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DEnumeration;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DInformationModel;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.IFeatureContainer;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -321,7 +321,7 @@ public class TypesUtil {
     return ("Constraint " + _name);
   }
   
-  public String label(final IDeducibleElement e) {
+  public String label(final ITransposableElement e) {
     String _switchResult = null;
     boolean _matched = false;
     if (e instanceof DAggregate) {

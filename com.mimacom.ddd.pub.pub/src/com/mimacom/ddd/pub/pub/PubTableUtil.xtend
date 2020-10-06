@@ -1,8 +1,8 @@
 package com.mimacom.ddd.pub.pub
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BaseFactory
-import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.base.BaseFactory
+import com.mimacom.ddd.dm.base.base.DRichText
 import com.mimacom.ddd.dm.base.richText.RichTextUtil
 
 class PubTableUtil {

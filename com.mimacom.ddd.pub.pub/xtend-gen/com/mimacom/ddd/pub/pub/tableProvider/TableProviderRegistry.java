@@ -4,7 +4,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.inject.Singleton;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.tableProvider.TableProviderRegistryUtil;
 import com.mimacom.ddd.pub.pub.tableProvider.TableRendererProxy;
 import java.util.List;

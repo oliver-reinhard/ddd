@@ -1,8 +1,8 @@
 package com.mimacom.ddd.sm.sim.scoping;
 
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;

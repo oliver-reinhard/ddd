@@ -4,7 +4,7 @@
 package com.mimacom.ddd.sm.asm.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DNamespace
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper

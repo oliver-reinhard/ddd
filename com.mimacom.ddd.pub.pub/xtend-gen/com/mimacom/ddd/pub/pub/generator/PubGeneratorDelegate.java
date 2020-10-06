@@ -6,7 +6,7 @@ package com.mimacom.ddd.pub.pub.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.pub.pub.AbstractFigure;
 import com.mimacom.ddd.pub.pub.AbstractTable;
 import com.mimacom.ddd.pub.pub.Admonition;

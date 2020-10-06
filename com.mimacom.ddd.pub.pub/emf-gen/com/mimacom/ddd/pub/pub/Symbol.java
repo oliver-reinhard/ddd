@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.pub.pub;
 
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 /**
  * <!-- begin-user-doc -->

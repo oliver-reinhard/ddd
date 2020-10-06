@@ -1,10 +1,10 @@
 package com.mimacom.ddd.dm.dem.tableProvider
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DNamedPredicate
-import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.base.IDiagramRoot
 import com.mimacom.ddd.dm.base.TypesUtil
+import com.mimacom.ddd.dm.base.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DRichText
+import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.base.styledText.StyledTextUtil
 import com.mimacom.ddd.dm.dem.DemCaseConjunction

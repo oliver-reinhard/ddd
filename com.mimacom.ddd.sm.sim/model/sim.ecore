@@ -4,61 +4,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="SInformationModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot ../../com.mimacom.ddd.dm.base/model/base.ecore#//IAggregateContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//ITypeContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//SInformationModelKind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="indexingHelper" eType="#//STypeMapping"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="indexingHelper" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//TTypeMapping"
         transient="true" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SInformationModelKind">
     <eLiterals name="BASE"/>
     <eLiterals name="INTERFACE" value="1"/>
     <eLiterals name="CORE" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="STypeMapping"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SAggregateDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="STypeDeduction" abstract="true" interface="true"
-      eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SPrimitiveDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive #//STypeDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SEnumerationDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DEnumeration #//STypeDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SLiteralDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DLiteral ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SComplexTypeDeduction" abstract="true"
-      interface="true" eSuperTypes="#//STypeDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SDetailTypeDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DDetailType #//SComplexTypeDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SEntityTypeDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DEntityType #//SComplexTypeDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SFeatureDeduction" abstract="true" interface="true"
-      eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SAssociationDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAssociation #//SFeatureDeduction">
-    <eOperations name="getTargetType" eType="#//SEntityTypeDeduction"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SAttributeDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAttribute #//SFeatureDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SQueryDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DQuery #//SFeatureDeduction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SQueryParameterDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DQueryParameter ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SRenameRule" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DDeductionRule">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renameTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SGrabRule" eSuperTypes="#//SRenameRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SDitchRule" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DDeductionRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SStructureChangingRule" abstract="true"
-      eSuperTypes="#//SRenameRule">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="#//STristate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootEntity" eType="#//STristate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detail" eType="#//STristate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SMorphRule" eSuperTypes="#//SStructureChangingRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="retypeTo" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="remultiplyTo" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DMultiplicity"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SFuseRule" eSuperTypes="#//SStructureChangingRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SGrabAggregateRule" eSuperTypes="#//SRenameRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate"
-        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="STristate">
-    <eLiterals name="DONT_CARE"/>
-    <eLiterals name="FALSE" value="1"/>
-    <eLiterals name="TRUE" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

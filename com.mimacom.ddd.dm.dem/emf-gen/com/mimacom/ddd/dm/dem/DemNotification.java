@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dem;
 
-import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 
 /**
  * <!-- begin-user-doc -->

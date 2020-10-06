@@ -4,9 +4,9 @@
 package com.mimacom.ddd.dm.dmx.scoping
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.INavigableMemberContainer
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.INavigableMemberContainer
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxCallArguments
 import com.mimacom.ddd.dm.dmx.DmxComplexObject

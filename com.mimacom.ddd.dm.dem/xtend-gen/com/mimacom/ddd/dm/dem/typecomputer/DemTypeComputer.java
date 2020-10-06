@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dem.typecomputer;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.dem.DemNotification;
 import com.mimacom.ddd.dm.dem.typecomputer.DemTypeDescriptorProvider;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;

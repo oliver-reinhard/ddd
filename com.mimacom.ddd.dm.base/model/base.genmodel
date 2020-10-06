@@ -7,7 +7,7 @@
     editPluginID="com.mimacom.ddd.dm.base.edit" editorPluginID="com.mimacom.ddd.dm.base.editor"
     operationReflection="true" importOrganizing="true">
   <foreignModel>base.ecore</foreignModel>
-  <genPackages prefix="Base" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
+  <genPackages prefix="Base" basePackage="com.mimacom.ddd.dm.base" disposableProviderFactory="true"
       ecorePackage="base.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DMultiplicityShorthand">
       <genEnumLiterals ecoreEnumLiteral="base.ecore#//DMultiplicityShorthand/NONE"/>
@@ -48,16 +48,20 @@
     <genClasses ecoreClass="base.ecore#//DRichText">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DRichText/segments"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//IDeductionDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//IDeductionDefinition/deductionRule"/>
+    <genClasses image="false" ecoreClass="base.ecore#//ITransposition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//ITransposition/transpositionRule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//ITransposition/impliedTranspositions"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//IDeducibleElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//IDeducibleElement/deducedFrom"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//IDeducibleElement/synthetic"/>
+    <genClasses image="false" ecoreClass="base.ecore#//TTranspositionRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//TTranspositionRule/source"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference base.ecore#//TTranspositionRule/namedSource"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="base.ecore#//DDeductionRule">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DDeductionRule/source"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference base.ecore#//DDeductionRule/namedSource"/>
+    <genClasses image="false" ecoreClass="base.ecore#//ITransposableElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//ITransposableElement/transposedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//ITransposableElement/synthetic"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//TImplicitTransposition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//TImplicitTransposition/originalDeductionDefinition"/>
     </genClasses>
     <genClasses ecoreClass="base.ecore#//DInformationModel"/>
     <genClasses image="false" ecoreClass="base.ecore#//IAggregateContainer">

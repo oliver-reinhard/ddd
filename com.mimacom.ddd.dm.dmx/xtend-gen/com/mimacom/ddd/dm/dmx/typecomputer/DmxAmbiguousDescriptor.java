@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dmx.typecomputer;
 
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.indexing.DmxIndex;

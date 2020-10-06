@@ -1,11 +1,11 @@
 package com.mimacom.ddd.dm.dem.typecomputer
 
 import com.google.common.collect.Lists
-import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.dem.DemNotification
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor
 import java.util.Objects
-import com.mimacom.ddd.dm.dem.DemNotification
 
 class DemNotificationDescriptor extends AbstractDmxTypeDescriptor<DType> {
 	protected val DemNotification notification

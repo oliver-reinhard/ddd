@@ -1,9 +1,9 @@
 package com.mimacom.ddd.dm.dmx;
 
 import com.google.common.base.Objects;
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.TypesUtil;
+import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxField;

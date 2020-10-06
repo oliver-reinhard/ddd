@@ -3,11 +3,12 @@ package com.mimacom.ddd.dm.dmx.evaluator
 import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DLiteral
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DState
+import com.mimacom.ddd.dm.base.base.DAssociation
+import com.mimacom.ddd.dm.base.base.DAttribute
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DLiteral
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DState
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCastExpression
@@ -32,7 +33,6 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
 import java.math.BigDecimal
 import java.util.Date
 import java.util.List
-import com.mimacom.ddd.dm.base.DAssociation
 
 @Singleton
 class DmxExpressionEvaluator {

@@ -4,9 +4,9 @@
 package com.mimacom.ddd.dm.dem.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DContext
-import com.mimacom.ddd.dm.base.DNamedElement
-import com.mimacom.ddd.dm.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DContext
+import com.mimacom.ddd.dm.base.base.DNamedElement
+import com.mimacom.ddd.dm.base.base.DNamedPredicate
 import com.mimacom.ddd.dm.dem.DemCaseConjunction
 import com.mimacom.ddd.dm.dem.DemDomainEvent
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess

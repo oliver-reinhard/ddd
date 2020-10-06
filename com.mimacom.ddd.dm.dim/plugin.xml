@@ -7,7 +7,7 @@
             id="dim.informationStructure.png"
             diagramName="Domain Information Structure (PNG)"
             diagramType="dim.informationStructure"
-            diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            diagramRootClass="com.mimacom.ddd.dm.base.base.DInformationModel"
             outputFileFormat="PNG"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
@@ -16,7 +16,7 @@
             id="dim.informationStructure.svg"
             diagramName="Domain Information Structure (SVG)"
             diagramType="dim.informationStructure"
-            diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            diagramRootClass="com.mimacom.ddd.dm.base.base.DInformationModel"
             outputFileFormat="SVG"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
@@ -25,7 +25,7 @@
             id="dim.informationStructure.eps"
             diagramName="Domain Information Structure (EPS)"
             diagramType="dim.informationStructure"
-            diagramRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            diagramRootClass="com.mimacom.ddd.dm.base.base.DInformationModel"
             outputFileFormat="EPS"
             rendererClass="com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dim.diagramProvider.DimTypeDiagramRenderer">
       </renderer>
@@ -42,7 +42,7 @@
             id="dim.allTypesOverviewTable"
             tableName="All Types (Overview)"
             tableType="dim.typesOverview"
-            tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            tableRootClass="com.mimacom.ddd.dm.base.base.DInformationModel"
             rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimAllTypesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimAllTypesTableRenderer">
       </renderer>
       
@@ -55,7 +55,7 @@
             id="dim.allFeaturesOverviewTable"
             tableName="All Features (Overview)"
             tableType="dim.featuresOverview"
-            tableRootClass="com.mimacom.ddd.dm.base.DInformationModel"
+            tableRootClass="com.mimacom.ddd.dm.base.base.DInformationModel"
             rendererClass="com.mimacom.ddd.dm.dim.tableProvider.DimAllFeaturesTableRendererExtensionFactory:com.mimacom.ddd.dm.dim.tableProvider.DimAllFeaturesTableRenderer">
       </renderer>
       

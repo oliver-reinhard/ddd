@@ -1,7 +1,7 @@
 package com.mimacom.ddd.pub.pub.generator
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.IDiagramRoot
+import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import com.mimacom.ddd.pub.pub.Abbreviations
 import com.mimacom.ddd.pub.pub.Bibliography
 import com.mimacom.ddd.pub.pub.ChangeHistory

@@ -2,7 +2,7 @@ package com.mimacom.ddd.pub.pub.diagramProvider;
 
 import java.io.InputStream;
 
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 
 public interface IDiagramRenderer {
 

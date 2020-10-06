@@ -5,9 +5,9 @@ package com.mimacom.ddd.pub.pub.validation
 
 import com.google.common.collect.Sets
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.base.DTextSegment
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DRichText
+import com.mimacom.ddd.dm.base.base.DTextSegment
 import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference

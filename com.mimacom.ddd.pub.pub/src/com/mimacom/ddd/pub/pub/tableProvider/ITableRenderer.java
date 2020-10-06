@@ -1,6 +1,6 @@
 package com.mimacom.ddd.pub.pub.tableProvider;
 
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledTable;
 

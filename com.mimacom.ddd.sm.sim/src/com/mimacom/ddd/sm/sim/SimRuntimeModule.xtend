@@ -5,7 +5,7 @@ package com.mimacom.ddd.sm.sim
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
-import com.mimacom.ddd.sm.sim.derivedState.DeductionAwareResource
+import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
@@ -42,7 +42,7 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	// derived state:
 	
 	override bindXtextResource() {
-		DeductionAwareResource
+		TransposeAwareResource
 	}
 
 	def Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {

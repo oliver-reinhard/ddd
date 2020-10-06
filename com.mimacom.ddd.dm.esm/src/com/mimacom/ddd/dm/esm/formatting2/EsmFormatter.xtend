@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DNamespace
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel
 import com.mimacom.ddd.dm.esm.services.EsmGrammarAccess

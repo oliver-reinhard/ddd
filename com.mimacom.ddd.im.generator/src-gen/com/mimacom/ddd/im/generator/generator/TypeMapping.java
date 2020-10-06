@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator;
 
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DType;
 
 import org.eclipse.emf.ecore.EObject;
 

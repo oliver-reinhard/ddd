@@ -2,7 +2,7 @@ package com.mimacom.ddd.sm.asm.impl;
 
 import org.eclipse.emf.common.util.EList;
 
-import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNavigableMember;
 
 public class SServiceOperationImplCustom extends SServiceOperationImpl {
 

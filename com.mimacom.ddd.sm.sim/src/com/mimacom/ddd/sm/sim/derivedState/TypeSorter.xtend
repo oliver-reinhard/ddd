@@ -1,9 +1,9 @@
 package com.mimacom.ddd.sm.sim.derivedState
 
-import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.sm.sim.SEnumerationDeduction
-import com.mimacom.ddd.sm.sim.SPrimitiveDeduction
-import com.mimacom.ddd.sm.sim.STypeDeduction
+import com.mimacom.ddd.dm.base.base.DPrimitive
+import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
+import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import java.util.Comparator
 
 /*
@@ -13,9 +13,9 @@ import java.util.Comparator
  * 3 – Enumerations
  * 4 – ComplexTypes
  */
-class TypeSorter implements Comparator<STypeDeduction> {
+class TypeSorter implements Comparator<TTypeTransposition> {
 	
-	override compare(STypeDeduction t1, STypeDeduction t2) {
+	override compare(TTypeTransposition t1, TTypeTransposition t2) {
 		val s1 = t1.score
 		val s2 = t2.score
 		if (s1 == 3 && s2 == 3) { // one may redefine the other
@@ -27,10 +27,10 @@ class TypeSorter implements Comparator<STypeDeduction> {
 		return s2 - s1
 	}
 	
-	def int score(STypeDeduction t) {
-		if (t instanceof SPrimitiveDeduction) {
+	def int score(TTypeTransposition t) {
+		if (t instanceof TPrimitiveTransposition) {
 			return 3
-		} else if (t instanceof SEnumerationDeduction) {
+		} else if (t instanceof TEnumerationTransposition) {
 			return 2
 		}
 		return 1

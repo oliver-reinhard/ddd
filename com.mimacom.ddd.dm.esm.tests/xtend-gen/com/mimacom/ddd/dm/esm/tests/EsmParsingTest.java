@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DInformationModel;
+import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.esm.tests.EsmInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;

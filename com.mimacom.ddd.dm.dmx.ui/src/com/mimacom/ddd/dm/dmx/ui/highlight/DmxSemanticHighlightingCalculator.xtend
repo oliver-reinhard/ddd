@@ -1,9 +1,9 @@
 package com.mimacom.ddd.dm.dmx.ui.highlight
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DNamedElement
-import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.base.BasePackage
+import com.mimacom.ddd.dm.base.base.DNamedElement
+import com.mimacom.ddd.dm.base.base.DRichText
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator
 import org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor

@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dem.scoping;
 
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import org.apache.log4j.Logger;

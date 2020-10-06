@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.dm.esm.impl;
 
-import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DExpression;
 
 import com.mimacom.ddd.dm.esm.EsmDerivedState;
 import com.mimacom.ddd.dm.esm.EsmPackage;

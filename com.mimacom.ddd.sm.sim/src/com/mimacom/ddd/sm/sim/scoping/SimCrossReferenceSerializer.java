@@ -18,7 +18,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.base.DType;
 
 public class SimCrossReferenceSerializer extends CrossReferenceSerializer {
 	

@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;

@@ -5,8 +5,8 @@ package com.mimacom.ddd.sm.sim.generator;
 
 import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
+import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import java.io.CharArrayWriter;
 import java.util.Iterator;
@@ -71,15 +71,15 @@ public class SimGenerator extends AbstractGenerator {
       String _name = ((SInformationModel)model).getName();
       String _plus = (_name + ".generated");
       ((SInformationModel)model).setName(_plus);
-      final List<IDeductionDefinition> deductionDefinitions = IteratorExtensions.<IDeductionDefinition>toList(Iterators.<IDeductionDefinition>filter(resource.getAllContents(), IDeductionDefinition.class));
-      for (final IDeductionDefinition d : deductionDefinitions) {
+      final List<ITransposition> deductionDefinitions = IteratorExtensions.<ITransposition>toList(Iterators.<ITransposition>filter(resource.getAllContents(), ITransposition.class));
+      for (final ITransposition d : deductionDefinitions) {
         EcoreUtil.remove(d);
       }
-      final Iterator<IDeducibleElement> deducibleElements = Iterators.<IDeducibleElement>filter(resource.getAllContents(), IDeducibleElement.class);
+      final Iterator<ITransposableElement> deducibleElements = Iterators.<ITransposableElement>filter(resource.getAllContents(), ITransposableElement.class);
       while (deducibleElements.hasNext()) {
         {
-          final IDeducibleElement e = deducibleElements.next();
-          e.setDeducedFrom(null);
+          final ITransposableElement e = deducibleElements.next();
+          e.setTransposedBy(null);
           hadSyntheticItems = (hadSyntheticItems || e.isSynthetic());
           e.setSynthetic(false);
         }

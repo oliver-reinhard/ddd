@@ -2,19 +2,20 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IAggregateContainer;
-import com.mimacom.ddd.dm.base.IDiagramRoot;
-import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.IAggregateContainer;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
-import com.mimacom.ddd.dm.base.impl.DModelImpl;
+import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
+
+import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
 
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
-import com.mimacom.ddd.sm.sim.STypeMapping;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import java.util.Collection;
@@ -119,7 +120,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * @generated
 	 * @ordered
 	 */
-	protected STypeMapping indexingHelper;
+	protected TTypeMapping indexingHelper;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,7 +222,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public STypeMapping getIndexingHelper()
+	public TTypeMapping getIndexingHelper()
 	{
 		return indexingHelper;
 	}
@@ -231,9 +232,9 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIndexingHelper(STypeMapping newIndexingHelper, NotificationChain msgs)
+	public NotificationChain basicSetIndexingHelper(TTypeMapping newIndexingHelper, NotificationChain msgs)
 	{
-		STypeMapping oldIndexingHelper = indexingHelper;
+		TTypeMapping oldIndexingHelper = indexingHelper;
 		indexingHelper = newIndexingHelper;
 		if (eNotificationRequired())
 		{
@@ -248,7 +249,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIndexingHelper(STypeMapping newIndexingHelper)
+	public void setIndexingHelper(TTypeMapping newIndexingHelper)
 	{
 		if (newIndexingHelper != indexingHelper)
 		{
@@ -334,7 +335,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 				setKind((SInformationModelKind)newValue);
 				return;
 			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
-				setIndexingHelper((STypeMapping)newValue);
+				setIndexingHelper((TTypeMapping)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -363,7 +364,7 @@ public class SInformationModelImpl extends DModelImpl implements SInformationMod
 				setKind(KIND_EDEFAULT);
 				return;
 			case SimPackage.SINFORMATION_MODEL__INDEXING_HELPER:
-				setIndexingHelper((STypeMapping)null);
+				setIndexingHelper((TTypeMapping)null);
 				return;
 		}
 		super.eUnset(featureID);

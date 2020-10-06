@@ -4,17 +4,17 @@
 package com.mimacom.ddd.sm.sim.ui.labeling
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DLiteral
-import com.mimacom.ddd.dm.base.DNamedPredicate
-import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.sm.sim.SAggregateDeduction
-import com.mimacom.ddd.sm.sim.SFeatureDeduction
-import com.mimacom.ddd.sm.sim.SLiteralDeduction
-import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
-import com.mimacom.ddd.sm.sim.STypeDeduction
+import com.mimacom.ddd.dm.base.base.DAggregate
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DLiteral
+import com.mimacom.ddd.dm.base.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DQueryParameter
+import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
+import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition
+import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
@@ -33,29 +33,29 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(DAggregate a) {
-		if (a instanceof SAggregateDeduction) {
-			return ">" + a.deductionRule.label
+		if (a instanceof TAggregateTransposition) {
+			return ">" + a.getTranspositionRule.label
 		}
 		return a.label
 	}
 	
 	def text(DType t) {
-		if (t instanceof STypeDeduction) {
-			return ">" + t.deductionRule.label
+		if (t instanceof TTypeTransposition) {
+			return ">" + t.getTranspositionRule.label
 		}
 		return t.label
 	}
 	
 	def text(DFeature f) {
-		if (f instanceof SFeatureDeduction) {
-			return ">" + f.deductionRule.label
+		if (f instanceof TFeatureTransposition) {
+			return ">" + f.getTranspositionRule.label
 		}
 		return f.label
 	}
 	
 	def text(DQueryParameter p) {
-		if (p instanceof SQueryParameterDeduction) {
-			return ">" + p.deductionRule.label
+		if (p instanceof TQueryParameterTransposition) {
+			return ">" + p.getTranspositionRule.label
 		}
 		return p.label
 	}
@@ -65,8 +65,8 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(DLiteral literal) {
-		if (literal instanceof SLiteralDeduction) {
-			return ">" + literal.deductionRule.label
+		if (literal instanceof TLiteralTransposition) {
+			return ">" + literal.getTranspositionRule.label
 		}
 		return literal.name
 	}

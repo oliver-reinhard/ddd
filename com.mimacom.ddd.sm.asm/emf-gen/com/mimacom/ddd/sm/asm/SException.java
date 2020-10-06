@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.DNamedElement;
 
 /**
  * <!-- begin-user-doc -->

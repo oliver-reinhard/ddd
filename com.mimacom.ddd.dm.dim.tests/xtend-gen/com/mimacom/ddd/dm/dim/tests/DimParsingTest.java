@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.dim.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DInformationModel;
+import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.dim.tests.DimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;

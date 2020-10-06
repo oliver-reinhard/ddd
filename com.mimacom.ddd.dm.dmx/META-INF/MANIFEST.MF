@@ -1,14 +1,16 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.dmx
 Bundle-ManifestVersion: 2
-Bundle-Name: com.mimacom.ddd.dm.dmx
-Bundle-Vendor: mimacom ag
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.dm.dmx;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
+Require-Bundle: com.mimacom.ddd.util;visibility:=reexport,
+ com.mimacom.ddd.dm.base;visibility:=reexport,
+ org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.core.runtime,
@@ -17,8 +19,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtend.lib;bundle-version="2.13.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
  org.eclipse.xtext.xbase.lib;bundle-version="2.19.0",
- org.eclipse.emf.common,
- com.mimacom.ddd.dm.base;visibility:=reexport
+ org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dmx,
  com.mimacom.ddd.dm.dmx.evaluator,

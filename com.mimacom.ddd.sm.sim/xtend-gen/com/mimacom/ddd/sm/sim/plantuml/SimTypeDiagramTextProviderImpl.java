@@ -2,29 +2,29 @@ package com.mimacom.ddd.sm.sim.plantuml;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DAssociation;
-import com.mimacom.ddd.dm.base.DAssociationKind;
-import com.mimacom.ddd.dm.base.DAttribute;
-import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.base.DAggregate;
+import com.mimacom.ddd.dm.base.base.DAssociation;
+import com.mimacom.ddd.dm.base.base.DAssociationKind;
+import com.mimacom.ddd.dm.base.base.DAttribute;
+import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DDetailType;
+import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DEnumeration;
+import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
+import com.mimacom.ddd.dm.base.base.DQuery;
+import com.mimacom.ddd.dm.base.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
+import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
+import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.dim.DimUtil;
-import com.mimacom.ddd.sm.sim.SAggregateDeduction;
-import com.mimacom.ddd.sm.sim.SAssociationDeduction;
-import com.mimacom.ddd.sm.sim.SAttributeDeduction;
-import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
-import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
@@ -44,20 +44,20 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   @Override
   public boolean canProvide(final SInformationModel model) {
     return ((model != null) && (!(IterableExtensions.isEmpty(IterableExtensions.<DType>filter(model.getTypes(), ((Function1<DType, Boolean>) (DType it) -> {
-      return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+      return Boolean.valueOf((!(it instanceof ITransposition)));
     }))) && IterableExtensions.isEmpty(IterableExtensions.<DAggregate>filter(model.getAggregates(), ((Function1<DAggregate, Boolean>) (DAggregate it) -> {
-      return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+      return Boolean.valueOf((!(it instanceof ITransposition)));
     }))))));
   }
   
   @Override
   public String diagramText(final SInformationModel model) {
     final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
-      return Boolean.valueOf((!(it instanceof SAggregateDeduction)));
+      return Boolean.valueOf((!(it instanceof TAggregateTransposition)));
     };
     final Iterable<DAggregate> allAggregates = IterableExtensions.<DAggregate>filter(EcoreUtil2.<DAggregate>eAllOfType(model, DAggregate.class), _function);
     final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
-      return Boolean.valueOf((!(it instanceof SAssociationDeduction)));
+      return Boolean.valueOf((!(it instanceof TAssociationTransposition)));
     };
     final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(model, DAssociation.class), _function_1);
     final Function1<DAssociation, Boolean> _function_2 = (DAssociation it) -> {
@@ -70,7 +70,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     };
     final Iterable<String> allReferencedDomains = IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_2), _function_3);
     final Function1<DAttribute, Boolean> _function_4 = (DAttribute it) -> {
-      return Boolean.valueOf(((!(it instanceof SAttributeDeduction)) && (!(it.eContainer() instanceof SComplexTypeDeduction))));
+      return Boolean.valueOf(((!(it instanceof TAttributeTransposition)) && (!(it.eContainer() instanceof TComplexTypeTransposition))));
     };
     final Iterable<DAttribute> allComplexAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(model, DAttribute.class), _function_4);
     final Function1<DComplexType, Boolean> _function_5 = (DComplexType it) -> {
@@ -111,7 +111,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     _builder.newLine();
     {
       final Function1<DType, Boolean> _function_6 = (DType it) -> {
-        return Boolean.valueOf((!(it instanceof STypeDeduction)));
+        return Boolean.valueOf((!(it instanceof TTypeTransposition)));
       };
       Iterable<DType> _filter = IterableExtensions.<DType>filter(model.getTypes(), _function_6);
       for(final DType t : _filter) {
@@ -139,7 +139,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         _builder.newLineIfNotEmpty();
         {
           final Function1<DType, Boolean> _function_7 = (DType it) -> {
-            return Boolean.valueOf((!(it instanceof STypeDeduction)));
+            return Boolean.valueOf((!(it instanceof TTypeTransposition)));
           };
           Iterable<DType> _filter_1 = IterableExtensions.<DType>filter(a.getTypes(), _function_7);
           for(final DType t_1 : _filter_1) {
@@ -276,7 +276,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     _builder.append("\t");
     {
       final Function1<DFeature, Boolean> _function = (DFeature it) -> {
-        return Boolean.valueOf((!(it instanceof SFeatureDeduction)));
+        return Boolean.valueOf((!(it instanceof TFeatureTransposition)));
       };
       Iterable<DFeature> _filter = IterableExtensions.<DFeature>filter(c.getFeatures(), _function);
       for(final DFeature f : _filter) {

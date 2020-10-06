@@ -4,23 +4,23 @@
 package com.mimacom.ddd.dm.dmx.validation
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.base.DComplexType
+import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DFeature
+import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DRichText
+import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
-import com.mimacom.ddd.dm.dmx.DmxUtil
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
-import org.eclipse.xtext.validation.Check
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxUrlLiteral
-import java.net.URL
+import com.mimacom.ddd.dm.dmx.DmxUtil
 import java.net.MalformedURLException
+import java.net.URL
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 

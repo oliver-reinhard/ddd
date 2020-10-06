@@ -3,8 +3,8 @@
 
 package com.mimacom.ddd.pub.proto
 
-import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.dm.base.base.DExpression
+import com.mimacom.ddd.dm.base.base.DRichText
 
 class PublicationClass {
 	String name  // id

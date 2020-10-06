@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.DModel;
-import com.mimacom.ddd.dm.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
 import org.eclipse.emf.common.util.EList;
 
