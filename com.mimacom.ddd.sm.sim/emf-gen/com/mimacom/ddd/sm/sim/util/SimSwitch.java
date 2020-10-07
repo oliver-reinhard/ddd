@@ -2,12 +2,16 @@
  */
 package com.mimacom.ddd.sm.sim.util;
 
+import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
+
+import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 
 import com.mimacom.ddd.sm.sim.*;
 
@@ -83,11 +87,14 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
 				T result = caseSInformationModel(sInformationModel);
+				if (result == null) result = caseTInformationModel(sInformationModel);
+				if (result == null) result = caseDInformationModel(sInformationModel);
 				if (result == null) result = caseDModel(sInformationModel);
-				if (result == null) result = caseIDiagramRoot(sInformationModel);
 				if (result == null) result = caseIAggregateContainer(sInformationModel);
 				if (result == null) result = caseITypeContainer(sInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(sInformationModel);
+				if (result == null) result = caseITransposableElement(sInformationModel);
+				if (result == null) result = caseIDiagramRoot(sInformationModel);
 				if (result == null) result = caseDNamedElement(sInformationModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -145,22 +152,6 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIDiagramRoot(IDiagramRoot object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IAggregate Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -204,6 +195,70 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITransposableElement(ITransposableElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDiagramRoot(IDiagramRoot object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DInformation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DInformation Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDInformationModel(DInformationModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>TInformation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>TInformation Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTInformationModel(TInformationModel object)
 	{
 		return null;
 	}

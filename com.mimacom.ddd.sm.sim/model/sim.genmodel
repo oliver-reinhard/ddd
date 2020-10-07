@@ -15,9 +15,8 @@
       <genEnumLiterals ecoreEnumLiteral="sim.ecore#//SInformationModelKind/CORE"/>
     </genEnums>
     <genClasses ecoreClass="sim.ecore#//SInformationModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/generate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/kind"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/indexingHelper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/generate"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

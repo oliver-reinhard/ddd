@@ -1,4 +1,4 @@
-package com.mimacom.ddd.sm.sim.derivedState
+package com.mimacom.ddd.dm.base.transpose
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.BaseFactory
@@ -23,13 +23,6 @@ import com.mimacom.ddd.dm.base.base.ITransposition
 import com.mimacom.ddd.dm.base.base.ITypeContainer
 import com.mimacom.ddd.dm.base.base.TImplicitTransposition
 import com.mimacom.ddd.dm.base.base.TTranspositionRule
-import com.mimacom.ddd.dm.base.transpose.TMorphRule
-import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule
-import com.mimacom.ddd.dm.base.transpose.TTristate
-import com.mimacom.ddd.dm.base.transpose.TransposeFactory
-import com.mimacom.ddd.dm.base.transpose.TypeMappingUtil
-import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.SInformationModelKind
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 
@@ -40,43 +33,42 @@ class SyntheticModelElementsFactory {
 
 	@Inject extension TypeMappingUtil
 
-	def DAggregate addSyntheticAggregate(SInformationModel container, String name,
-		ITransposition deductionDefinition) {
+	def DAggregate addSyntheticAggregate(TInformationModel container, String name, ITransposition recipe) {
 		val syntheticAggregate = BASE.createDAggregate
 		syntheticAggregate.name = name
 		syntheticAggregate.synthetic = true
-		syntheticAggregate.transposedBy = deductionDefinition
+		syntheticAggregate.transposedBy = recipe
 		container.aggregates.add(syntheticAggregate)
 		return syntheticAggregate
 	}
 
 	def dispatch DPrimitive addSyntheticType(ITypeContainer container, String name, DPrimitive source /*dispatch*/ ,
-		ITransposition deductionDefinition) {
+		ITransposition recipe) {
 		val syntheticPrimitive = BASE.createDPrimitive
-		syntheticPrimitive.initSyntheticType(container, name, source, deductionDefinition)
+		syntheticPrimitive.initSyntheticType(container, name, source, recipe)
 		syntheticPrimitive.redefines = source.redefines
 		return syntheticPrimitive
 	}
 
 	def dispatch DEnumeration addSyntheticType(ITypeContainer container, String name, DEnumeration source /*dispatch*/ ,
-		ITransposition deductionDefinition) {
+		ITransposition recipe) {
 		val syntheticEnumeration = BASE.createDEnumeration
-		syntheticEnumeration.initSyntheticType(container, name, source, deductionDefinition)
+		syntheticEnumeration.initSyntheticType(container, name, source, recipe)
 		return syntheticEnumeration
 	}
 
 	def dispatch DComplexType addSyntheticType(ITypeContainer container, String name, DComplexType source /*dispatch*/ ,
-		ITransposition deductionDefinition) {
-		val isCoreModel = EcoreUtil2.getContainerOfType(container, SInformationModel).kind == SInformationModelKind.CORE
-		val syntheticComplexType = if (!isCoreModel || deductionDefinition.getTranspositionRule.makeDetailType(source)) {
+		ITransposition recipe) {
+		val allowsIdentityTypes = EcoreUtil2.getContainerOfType(container, TInformationModel).allowsIdentityTypes
+		val syntheticComplexType = if (!allowsIdentityTypes || recipe.getTranspositionRule.makeDetailType(source)) {
 				BASE.createDDetailType
 			} else {
 				BASE.createDEntityType
 			}
-		syntheticComplexType.initSyntheticType(container, name, source, deductionDefinition)
-		syntheticComplexType.abstract = deductionDefinition.getTranspositionRule.makeAbstract(source)
+		syntheticComplexType.initSyntheticType(container, name, source, recipe)
+		syntheticComplexType.abstract = recipe.getTranspositionRule.makeAbstract(source)
 		if (syntheticComplexType instanceof DEntityType) {
-			syntheticComplexType.root = deductionDefinition.getTranspositionRule.makeRoot(source)
+			syntheticComplexType.root = recipe.getTranspositionRule.makeRoot(source)
 		}
 		container.types.add(syntheticComplexType)
 		return syntheticComplexType
@@ -118,21 +110,20 @@ class SyntheticModelElementsFactory {
 	}
 
 	protected def void initSyntheticType(DType syntheticType, ITypeContainer container, String name, DType original,
-		ITransposition deductionDefinition) {
+		ITransposition recipe) {
 		syntheticType.name = name
 		syntheticType.aliases.addAll(original.aliases)
 		syntheticType.synthetic = true
-		syntheticType.transposedBy = deductionDefinition
+		syntheticType.transposedBy = recipe
 		container.types.add(syntheticType)
 	}
 
-	def DFeature addSyntheticFeature(IFeatureContainer container, String name, DFeature source,
-		ITransposition deductionDefinition) {
+	def DFeature addSyntheticFeature(IFeatureContainer container, String name, DFeature source, ITransposition recipe) {
 		val sourceFeatureType = source.getType
 		if (sourceFeatureType === null) { // the domain model is (temporarily incomplete => don't add synthetic feature now)
 			return null
 		}
-		val featureTypeProxy = getSystemTypeProxy(deductionDefinition, sourceFeatureType) // may be null
+		val featureTypeProxy = getTransposedTypeProxy(recipe, sourceFeatureType) // may be null
 		// Now create the actual feature with correct type:
 		val syntheticFeature = switch source {
 			DQuery: {
@@ -163,7 +154,7 @@ class SyntheticModelElementsFactory {
 		syntheticFeature.type = featureTypeProxy // may be null -> there is a validation catching this case
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.synthetic = true
-		syntheticFeature.transposedBy = deductionDefinition
+		syntheticFeature.transposedBy = recipe
 		container.features.add(syntheticFeature)
 		return syntheticFeature
 	}
@@ -201,17 +192,17 @@ class SyntheticModelElementsFactory {
 	}
 
 	def DQueryParameter addSyntheticQueryParameter(DQuery container, String name, DQueryParameter source,
-		ITransposition deductionDefinition) {
+		ITransposition recipe) {
 		val sourceParameterType = source.getType
 		if (sourceParameterType === null) { // the domain model is (temporarily incomplete => don't add sFeature now
 			return null
 		}
 		val syntheticParameter = BASE.createDQueryParameter
 		syntheticParameter.name = name
-		syntheticParameter.type = getSystemTypeProxy(deductionDefinition, sourceParameterType)
+		syntheticParameter.type = getTransposedTypeProxy(recipe, sourceParameterType)
 		syntheticParameter.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticParameter.synthetic = true
-		syntheticParameter.transposedBy = deductionDefinition
+		syntheticParameter.transposedBy = recipe
 		container.parameters.add(syntheticParameter)
 		return syntheticParameter
 	}
@@ -227,13 +218,12 @@ class SyntheticModelElementsFactory {
 		return syntheticParameter
 	}
 
-	def void addSyntheticLiteral(DEnumeration container, String name, DLiteral source,
-		ITransposition deductionDefinition) {
+	def void addSyntheticLiteral(DEnumeration container, String name, DLiteral source, ITransposition recipe) {
 		val syntheticLiteral = BASE.createDLiteral
 		syntheticLiteral.name = name
 		syntheticLiteral.aliases.addAll(source.aliases)
 		syntheticLiteral.synthetic = true
-		syntheticLiteral.transposedBy = deductionDefinition
+		syntheticLiteral.transposedBy = recipe
 		container.literals.add(syntheticLiteral)
 	}
 
@@ -282,15 +272,15 @@ class SyntheticModelElementsFactory {
 
 	protected def DType findLocalTypeMappingFor(EObject context, DType source) {
 		val types = context.eResource.allContents.filter(DType).filter[! (it instanceof ITransposition)]
-		val candidates = types.filter[getTransposedBy?.getTranspositionRule?.getSource === source]
+		val candidates = types.filter[transposedBy?.transpositionRule?.getSource === source]
 		return candidates.head
 	}
 
-	def TImplicitTransposition createImplicitElementCopyDeduction(ITransposition originalDeductionDefinition,
+	def TImplicitTransposition createImplicitTranspositionAsCopy(ITransposition originalRecipe,
 		ITransposableElement source) {
 		val implicitDeduction = BASE.createTImplicitTransposition
-		originalDeductionDefinition.impliedTranspositions.add(implicitDeduction)
-		implicitDeduction.originalDeductionDefinition = originalDeductionDefinition
+		originalRecipe.impliedTranspositions.add(implicitDeduction)
+		implicitDeduction.originalDeductionDefinition = originalRecipe
 		val grabRule = TRANSPOSE.createTGrabRule
 		grabRule.source = source
 		implicitDeduction.transpositionRule = grabRule // add to container

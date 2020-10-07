@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://www.mimacom.com/ddd/sm/sim" nsPrefix="sim">
-  <eClassifiers xsi:type="ecore:EClass" name="SInformationModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot ../../com.mimacom.ddd.dm.base/model/base.ecore#//IAggregateContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//ITypeContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SInformationModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/transpose.ecore#//TInformationModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//SInformationModelKind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="indexingHelper" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//TTypeMapping"
-        transient="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SInformationModelKind">
     <eLiterals name="BASE"/>

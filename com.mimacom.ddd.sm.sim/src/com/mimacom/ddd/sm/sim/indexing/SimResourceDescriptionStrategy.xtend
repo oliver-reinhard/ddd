@@ -3,7 +3,6 @@ package com.mimacom.ddd.sm.sim.indexing
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.base.base.ITransposition
-import com.mimacom.ddd.dm.base.transpose.TransposeUtil
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.apache.log4j.Level
@@ -15,6 +14,7 @@ import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.IReferenceDescription
 import org.eclipse.xtext.util.IAcceptor
+import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
 
 @Singleton
 class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
@@ -77,8 +77,8 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 					val deduction = typeToIndex.getTransposedBy
 					val model = EcoreUtil2.getContainerOfType(deduction, SInformationModel)
 					val typeMappingType = model.indexingHelper
-					val userData = TransposeUtil.createEObjectDescriptionUserData(targetQN)
-					val sourceQNForIndex = TransposeUtil.getDeductionSourceQNForIndex(sourceQN)
+					val userData = TranspositionUtil.createEObjectDescriptionUserData(targetQN)
+					val sourceQNForIndex = TranspositionUtil.getTranspositionSourceQNForIndex(sourceQN)
 					val mappingDesc = EObjectDescription.create(sourceQNForIndex, typeMappingType, userData)
 					acceptor.accept(mappingDesc);
 

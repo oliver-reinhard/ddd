@@ -2,13 +2,12 @@
  */
 package com.mimacom.ddd.sm.sim;
 
-import com.mimacom.ddd.dm.base.base.BasePackage;
+import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +76,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__NAME = BasePackage.DMODEL__NAME;
+	int SINFORMATION_MODEL__NAME = TransposePackage.TINFORMATION_MODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -86,7 +85,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int SINFORMATION_MODEL__ALIASES = TransposePackage.TINFORMATION_MODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -95,7 +94,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+	int SINFORMATION_MODEL__DESCRIPTION = TransposePackage.TINFORMATION_MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -104,7 +103,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__AGGREGATES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int SINFORMATION_MODEL__AGGREGATES = TransposePackage.TINFORMATION_MODEL__AGGREGATES;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -113,25 +112,25 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__TYPES = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int SINFORMATION_MODEL__TYPES = TransposePackage.TINFORMATION_MODEL__TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Generate</b></em>' attribute.
+	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__GENERATE = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int SINFORMATION_MODEL__TRANSPOSED_BY = TransposePackage.TINFORMATION_MODEL__TRANSPOSED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__KIND = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int SINFORMATION_MODEL__SYNTHETIC = TransposePackage.TINFORMATION_MODEL__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Indexing Helper</b></em>' containment reference.
@@ -140,7 +139,25 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__INDEXING_HELPER = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int SINFORMATION_MODEL__INDEXING_HELPER = TransposePackage.TINFORMATION_MODEL__INDEXING_HELPER;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__KIND = TransposePackage.TINFORMATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Generate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__GENERATE = TransposePackage.TINFORMATION_MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
@@ -149,7 +166,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 5;
+	int SINFORMATION_MODEL_FEATURE_COUNT = TransposePackage.TINFORMATION_MODEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Allows Identity Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = TransposePackage.TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES;
 
 	/**
 	 * The number of operations of the '<em>SInformation Model</em>' class.
@@ -158,7 +184,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
+	int SINFORMATION_MODEL_OPERATION_COUNT = TransposePackage.TINFORMATION_MODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.
@@ -182,17 +208,6 @@ public interface SimPackage extends EPackage
 	EClass getSInformationModel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#isGenerate <em>Generate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Generate</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel#isGenerate()
-	 * @see #getSInformationModel()
-	 * @generated
-	 */
-	EAttribute getSInformationModel_Generate();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#getKind <em>Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,15 +219,15 @@ public interface SimPackage extends EPackage
 	EAttribute getSInformationModel_Kind();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sim.SInformationModel#getIndexingHelper <em>Indexing Helper</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#isGenerate <em>Generate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Indexing Helper</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getIndexingHelper()
+	 * @return the meta object for the attribute '<em>Generate</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#isGenerate()
 	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EReference getSInformationModel_IndexingHelper();
+	EAttribute getSInformationModel_Generate();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}'.
@@ -259,14 +274,6 @@ public interface SimPackage extends EPackage
 		EClass SINFORMATION_MODEL = eINSTANCE.getSInformationModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SINFORMATION_MODEL__GENERATE = eINSTANCE.getSInformationModel_Generate();
-
-		/**
 		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -275,12 +282,12 @@ public interface SimPackage extends EPackage
 		EAttribute SINFORMATION_MODEL__KIND = eINSTANCE.getSInformationModel_Kind();
 
 		/**
-		 * The meta object literal for the '<em><b>Indexing Helper</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Generate</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SINFORMATION_MODEL__INDEXING_HELPER = eINSTANCE.getSInformationModel_IndexingHelper();
+		EAttribute SINFORMATION_MODEL__GENERATE = eINSTANCE.getSInformationModel_Generate();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.

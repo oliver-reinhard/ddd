@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.ParagraphStyle;
 import com.mimacom.ddd.pub.pub.PubPackage;
@@ -85,6 +85,7 @@ public class RichTextParagraphImpl extends ParagraphImpl implements RichTextPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParagraphStyle getStyle() {
 		return style;
 	}
@@ -94,6 +95,7 @@ public class RichTextParagraphImpl extends ParagraphImpl implements RichTextPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(ParagraphStyle newStyle) {
 		ParagraphStyle oldStyle = style;
 		style = newStyle == null ? STYLE_EDEFAULT : newStyle;
@@ -106,6 +108,7 @@ public class RichTextParagraphImpl extends ParagraphImpl implements RichTextPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getText() {
 		return text;
 	}
@@ -130,6 +133,7 @@ public class RichTextParagraphImpl extends ParagraphImpl implements RichTextPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setText(DRichText newText) {
 		if (newText != text) {
 			NotificationChain msgs = null;

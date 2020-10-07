@@ -2,9 +2,9 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
-import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+import com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl;
 
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Symbol;
@@ -65,6 +65,7 @@ public class SymbolImpl extends DNamedElementImpl implements Symbol {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getValue() {
 		return value;
 	}
@@ -89,6 +90,7 @@ public class SymbolImpl extends DNamedElementImpl implements Symbol {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(DRichText newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;

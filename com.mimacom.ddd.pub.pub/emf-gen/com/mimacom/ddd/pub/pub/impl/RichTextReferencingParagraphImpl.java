@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.RichTextReferencingParagraph;
@@ -62,6 +62,7 @@ public class RichTextReferencingParagraphImpl extends ContentBlockImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getText() {
 		if (text != null && text.eIsProxy()) {
 			InternalEObject oldText = (InternalEObject)text;
@@ -88,6 +89,7 @@ public class RichTextReferencingParagraphImpl extends ContentBlockImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setText(DRichText newText) {
 		DRichText oldText = text;
 		text = newText;

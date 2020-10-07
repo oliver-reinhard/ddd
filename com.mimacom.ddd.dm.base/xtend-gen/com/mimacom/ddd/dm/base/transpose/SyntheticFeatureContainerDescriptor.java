@@ -1,4 +1,4 @@
-package com.mimacom.ddd.sm.sim.derivedState;
+package com.mimacom.ddd.dm.base.transpose;
 
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.ITransposition;
@@ -10,13 +10,13 @@ public class SyntheticFeatureContainerDescriptor {
   /**
    * Is null if the synthetic container is a COPY of the source
    */
-  public final ITransposition deductionDefinition;
+  public final ITransposition recipe;
   
   public final IFeatureContainer source;
   
-  public SyntheticFeatureContainerDescriptor(final IFeatureContainer syntheticType, final ITransposition deductionDefinition, final IFeatureContainer source) {
+  public SyntheticFeatureContainerDescriptor(final IFeatureContainer syntheticType, final ITransposition recipe, final IFeatureContainer source) {
     this.syntheticType = syntheticType;
-    this.deductionDefinition = deductionDefinition;
+    this.recipe = recipe;
     this.source = source;
   }
 }

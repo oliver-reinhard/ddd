@@ -26,7 +26,6 @@ import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex
-import com.mimacom.ddd.dm.base.transpose.TransposeUtil
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxModel
@@ -41,6 +40,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
+import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
@@ -217,9 +217,9 @@ class SimTranspositionTest {
 		val visibleDescs = index.getVisibleDTypeDescriptions(st).toList
 		assertEquals(4, visibleDescs.size)
 		assertEquals(SM_SM1_ST, visibleDescs.get(3).qualifiedName)
-		val visibleMapings = index.getVisibleTTypeMappingDescriptions(st, TransposeUtil.getDeductionSourceQNForIndex(DM_DT)).toList
+		val visibleMapings = index.getVisibleTTypeMappingDescriptions(st, TranspositionUtil.getTranspositionSourceQNForIndex(DM_DT)).toList
 		assertEquals(1, visibleMapings.size)
-		assertEquals(SM_SM1_ST, TransposeUtil.getDeductionTargetQN(visibleMapings.get(0)))
+		assertEquals(SM_SM1_ST, TranspositionUtil.getTranspositionTargetQN(visibleMapings.get(0)))
 	}
 
 	@Test

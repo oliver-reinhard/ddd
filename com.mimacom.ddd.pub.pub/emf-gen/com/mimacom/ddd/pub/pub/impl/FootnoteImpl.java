@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.Chapter;
 import com.mimacom.ddd.pub.pub.Footnote;
@@ -173,6 +173,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -182,6 +183,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -194,6 +196,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -203,6 +206,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getLevel() {
 		return level;
 	}
@@ -212,6 +216,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLevel(int newLevel) {
 		int oldLevel = level;
 		level = newLevel;
@@ -224,6 +229,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSequenceNumber() {
 		return sequenceNumber;
 	}
@@ -233,6 +239,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSequenceNumber(int newSequenceNumber) {
 		int oldSequenceNumber = sequenceNumber;
 		sequenceNumber = newSequenceNumber;
@@ -245,6 +252,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Chapter getLogicalContainer() {
 		if (logicalContainer != null && logicalContainer.eIsProxy()) {
 			InternalEObject oldLogicalContainer = (InternalEObject)logicalContainer;
@@ -271,6 +279,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLogicalContainer(Chapter newLogicalContainer) {
 		Chapter oldLogicalContainer = logicalContainer;
 		logicalContainer = newLogicalContainer;
@@ -283,6 +292,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSequenceNumberInChapter() {
 		return sequenceNumberInChapter;
 	}
@@ -292,6 +302,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSequenceNumberInChapter(int newSequenceNumberInChapter) {
 		int oldSequenceNumberInChapter = sequenceNumberInChapter;
 		sequenceNumberInChapter = newSequenceNumberInChapter;
@@ -304,6 +315,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getText() {
 		return text;
 	}
@@ -328,6 +340,7 @@ public class FootnoteImpl extends ContentBlockImpl implements Footnote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setText(DRichText newText) {
 		if (newText != text) {
 			NotificationChain msgs = null;

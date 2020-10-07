@@ -33,7 +33,7 @@ import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex;
-import com.mimacom.ddd.dm.base.transpose.TransposeUtil;
+import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxModel;
@@ -275,9 +275,9 @@ public class SimTranspositionTest {
       final List<IEObjectDescription> visibleDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(st));
       Assertions.assertEquals(4, visibleDescs.size());
       Assertions.assertEquals(SimTranspositionTest.SM_SM1_ST, visibleDescs.get(3).getQualifiedName());
-      final List<IEObjectDescription> visibleMapings = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleTTypeMappingDescriptions(st, TransposeUtil.getDeductionSourceQNForIndex(SimTranspositionTest.DM_DT)));
+      final List<IEObjectDescription> visibleMapings = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleTTypeMappingDescriptions(st, TranspositionUtil.getTranspositionSourceQNForIndex(SimTranspositionTest.DM_DT)));
       Assertions.assertEquals(1, visibleMapings.size());
-      Assertions.assertEquals(SimTranspositionTest.SM_SM1_ST, TransposeUtil.getDeductionTargetQN(visibleMapings.get(0)));
+      Assertions.assertEquals(SimTranspositionTest.SM_SM1_ST, TranspositionUtil.getTranspositionTargetQN(visibleMapings.get(0)));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

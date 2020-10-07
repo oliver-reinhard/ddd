@@ -65,6 +65,7 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 	{
 		switch (eClass.getClassifierID())
 		{
+			case TransposePackage.TINFORMATION_MODEL: return createTInformationModel();
 			case TransposePackage.TTYPE_MAPPING: return createTTypeMapping();
 			case TransposePackage.TAGGREGATE_TRANSPOSITION: return createTAggregateTransposition();
 			case TransposePackage.TPRIMITIVE_TRANSPOSITION: return createTPrimitiveTransposition();
@@ -118,6 +119,18 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TInformationModel createTInformationModel()
+	{
+		TInformationModelImplCustom tInformationModel = new TInformationModelImplCustom();
+		return tInformationModel;
 	}
 
 	/**

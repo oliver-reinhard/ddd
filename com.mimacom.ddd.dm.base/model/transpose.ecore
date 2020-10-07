@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="transpose" nsURI="http://www.mimacom.com/ddd/dm/transpose" nsPrefix="transpose">
+  <eClassifiers xsi:type="ecore:EClass" name="TInformationModel" eSuperTypes="base.ecore#//DInformationModel">
+    <eOperations name="allowsIdentityTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="indexingHelper" eType="#//TTypeMapping"
+        transient="true" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TTypeMapping"/>
   <eClassifiers xsi:type="ecore:EClass" name="TAggregateTransposition" eSuperTypes="base.ecore#//DAggregate base.ecore#//ITransposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="TTypeTransposition" abstract="true"

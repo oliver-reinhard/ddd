@@ -28,6 +28,7 @@ import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.validation.AbstractDimValidator;
@@ -54,20 +55,20 @@ public class DimValidator extends AbstractDimValidator {
   @Extension
   private DimUtil _dimUtil;
   
-  private final String NAME_ALL_UPPERCASE = "Name should be all upercase";
+  private final String NAME_ALL_UPPERCASE = "Name should be all uppercase";
   
   @Check
   public void checkDomainDeclaresOnlyValueTypes(final DInformationModel d) {
     EList<DType> _types = d.getTypes();
     for (final DType vt : _types) {
-      if ((!(vt instanceof IValueType))) {
+      if ((!((vt instanceof IValueType) || (vt instanceof ITransposition)))) {
         this.error("Declared type is not a value type", vt, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       } else {
         if ((vt instanceof DComplexType)) {
           final DComplexType ct = ((DComplexType) vt);
           EList<DFeature> _features = ct.getFeatures();
           for (final DFeature f : _features) {
-            if ((f instanceof DAssociation)) {
+            if (((f instanceof DAssociation) && (!(f instanceof ITransposition)))) {
               this.error("Declared feature cannot be an association", f, BasePackage.Literals.DNAMED_ELEMENT__NAME);
             }
           }

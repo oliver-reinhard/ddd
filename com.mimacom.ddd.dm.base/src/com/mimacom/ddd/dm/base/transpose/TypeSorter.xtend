@@ -1,4 +1,4 @@
-package com.mimacom.ddd.sm.sim.derivedState
+package com.mimacom.ddd.dm.base.transpose
 
 import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
@@ -7,7 +7,7 @@ import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import java.util.Comparator
 
 /*
- * Sorts DTypes in this order:
+ * Sorts TTypeTransposition in this order:
  * 1 – Archetypes
  * 2 – Primitives
  * 3 – Enumerations

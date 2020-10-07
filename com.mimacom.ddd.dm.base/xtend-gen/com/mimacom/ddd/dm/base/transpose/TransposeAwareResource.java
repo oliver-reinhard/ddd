@@ -35,7 +35,7 @@ public class TransposeAwareResource extends DerivedStateAwareResource {
    * IDeductionAwareResource
    */
   public EObject deduceTargetObject(final QualifiedName sourceObjectQN, final EObject objectContext) {
-    final Iterable<IEObjectDescription> descriptions = this._typeMappingUtil.getSystemTypeDescriptions(objectContext, sourceObjectQN);
+    final Iterable<IEObjectDescription> descriptions = this._typeMappingUtil.getTransposedTypeDescriptions(objectContext, sourceObjectQN);
     final Iterable<IEObjectDescription> importedDescriptions = this.scopeProvider.filterByImportedNamespaces(objectContext, descriptions, false);
     boolean _isEmpty = IterableExtensions.isEmpty(importedDescriptions);
     boolean _not = (!_isEmpty);

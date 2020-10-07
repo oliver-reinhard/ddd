@@ -2,8 +2,6 @@
  */
 package com.mimacom.ddd.pub.proto.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
-
 import com.mimacom.ddd.pub.proto.ProtoDivision;
 import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.proto.ProtoPackage;
@@ -127,7 +125,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected DRichText laTeXPreamble;
+	protected com.mimacom.ddd.dm.base.base.DRichText laTeXPreamble;
 
 	/**
 	 * The cached value of the '{@link #getHtmlPreamble() <em>Html Preamble</em>}' containment reference.
@@ -137,7 +135,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected DRichText htmlPreamble;
+	protected com.mimacom.ddd.dm.base.base.DRichText htmlPreamble;
 
 	/**
 	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' containment reference list.
@@ -183,6 +181,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -192,6 +191,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -204,6 +204,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PublicationNature getNature() {
 		return nature;
 	}
@@ -213,6 +214,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNature(PublicationNature newNature) {
 		PublicationNature oldNature = nature;
 		nature = newNature == null ? NATURE_EDEFAULT : newNature;
@@ -225,6 +227,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLaTeXClass() {
 		return laTeXClass;
 	}
@@ -234,6 +237,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLaTeXClass(String newLaTeXClass) {
 		String oldLaTeXClass = laTeXClass;
 		laTeXClass = newLaTeXClass;
@@ -246,6 +250,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProtoSymbol> getSymbols() {
 		if (symbols == null) {
 			symbols = new EObjectContainmentEList<ProtoSymbol>(ProtoSymbol.class, this, ProtoPackage.PUBLICATION_CLASS__SYMBOLS);
@@ -258,7 +263,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DRichText getLaTeXPreamble() {
+	@Override
+	public com.mimacom.ddd.dm.base.base.DRichText getLaTeXPreamble() {
 		return laTeXPreamble;
 	}
 
@@ -267,8 +273,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLaTeXPreamble(DRichText newLaTeXPreamble, NotificationChain msgs) {
-		DRichText oldLaTeXPreamble = laTeXPreamble;
+	public NotificationChain basicSetLaTeXPreamble(com.mimacom.ddd.dm.base.base.DRichText newLaTeXPreamble, NotificationChain msgs) {
+		com.mimacom.ddd.dm.base.base.DRichText oldLaTeXPreamble = laTeXPreamble;
 		laTeXPreamble = newLaTeXPreamble;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE, oldLaTeXPreamble, newLaTeXPreamble);
@@ -282,7 +288,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLaTeXPreamble(DRichText newLaTeXPreamble) {
+	@Override
+	public void setLaTeXPreamble(com.mimacom.ddd.dm.base.base.DRichText newLaTeXPreamble) {
 		if (newLaTeXPreamble != laTeXPreamble) {
 			NotificationChain msgs = null;
 			if (laTeXPreamble != null)
@@ -301,7 +308,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DRichText getHtmlPreamble() {
+	@Override
+	public com.mimacom.ddd.dm.base.base.DRichText getHtmlPreamble() {
 		return htmlPreamble;
 	}
 
@@ -310,8 +318,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHtmlPreamble(DRichText newHtmlPreamble, NotificationChain msgs) {
-		DRichText oldHtmlPreamble = htmlPreamble;
+	public NotificationChain basicSetHtmlPreamble(com.mimacom.ddd.dm.base.base.DRichText newHtmlPreamble, NotificationChain msgs) {
+		com.mimacom.ddd.dm.base.base.DRichText oldHtmlPreamble = htmlPreamble;
 		htmlPreamble = newHtmlPreamble;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE, oldHtmlPreamble, newHtmlPreamble);
@@ -325,7 +333,8 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHtmlPreamble(DRichText newHtmlPreamble) {
+	@Override
+	public void setHtmlPreamble(com.mimacom.ddd.dm.base.base.DRichText newHtmlPreamble) {
 		if (newHtmlPreamble != htmlPreamble) {
 			NotificationChain msgs = null;
 			if (htmlPreamble != null)
@@ -344,6 +353,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProtoDocumentSegment> getSegments() {
 		if (segments == null) {
 			segments = new EObjectContainmentWithInverseEList<ProtoDocumentSegment>(ProtoDocumentSegment.class, this, ProtoPackage.PUBLICATION_CLASS__SEGMENTS, ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT);
@@ -356,6 +366,7 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProtoDivision> getDivisions() {
 		if (divisions == null) {
 			divisions = new EObjectContainmentEList<ProtoDivision>(ProtoDivision.class, this, ProtoPackage.PUBLICATION_CLASS__DIVISIONS);
@@ -451,10 +462,10 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				getSymbols().addAll((Collection<? extends ProtoSymbol>)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
-				setLaTeXPreamble((DRichText)newValue);
+				setLaTeXPreamble((com.mimacom.ddd.dm.base.base.DRichText)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
-				setHtmlPreamble((DRichText)newValue);
+				setHtmlPreamble((com.mimacom.ddd.dm.base.base.DRichText)newValue);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();
@@ -489,10 +500,10 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 				getSymbols().clear();
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__LA_TE_XPREAMBLE:
-				setLaTeXPreamble((DRichText)null);
+				setLaTeXPreamble((com.mimacom.ddd.dm.base.base.DRichText)null);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__HTML_PREAMBLE:
-				setHtmlPreamble((DRichText)null);
+				setHtmlPreamble((com.mimacom.ddd.dm.base.base.DRichText)null);
 				return;
 			case ProtoPackage.PUBLICATION_CLASS__SEGMENTS:
 				getSegments().clear();

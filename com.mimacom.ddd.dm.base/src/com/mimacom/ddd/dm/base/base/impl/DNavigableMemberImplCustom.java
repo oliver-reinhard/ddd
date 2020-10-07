@@ -7,7 +7,7 @@ import org.eclipse.xtext.naming.QualifiedName;
 
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
-import com.mimacom.ddd.dm.base.transpose.TransposeUtil;
+import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
 
 public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
 
@@ -24,7 +24,7 @@ public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
 	}
 
 	public EObject eResolveProxy(InternalEObject proxy) {
-		final QualifiedName sourceQN = TransposeUtil.getDeductionSourceQN(proxy.eProxyURI());
+		final QualifiedName sourceQN = TranspositionUtil.getTranspositionSourceQN(proxy.eProxyURI());
 		if (sourceQN != null && !sourceQN.isEmpty()) {
 			final Resource resource = eResource();
 			if (resource instanceof TransposeAwareResource) {

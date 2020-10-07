@@ -22,7 +22,7 @@ class TransposeAwareResource extends DerivedStateAwareResource {
 
 	/* IDeductionAwareResource */
 	def EObject deduceTargetObject(QualifiedName sourceObjectQN, EObject objectContext) {
-		val descriptions = getSystemTypeDescriptions(objectContext, sourceObjectQN)
+		val descriptions = getTransposedTypeDescriptions(objectContext, sourceObjectQN)
 		val importedDescriptions = scopeProvider.filterByImportedNamespaces(objectContext, descriptions, false)
 		if (! importedDescriptions.empty) {
 			val systemTypeDesc = importedDescriptions.head // consider only the first element

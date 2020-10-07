@@ -23,6 +23,15 @@ public interface TransposeFactory extends EFactory
 	TransposeFactory eINSTANCE = com.mimacom.ddd.dm.base.transpose.impl.TransposeFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>TInformation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TInformation Model</em>'.
+	 * @generated
+	 */
+	TInformationModel createTInformationModel();
+
+	/**
 	 * Returns a new object of class '<em>TType Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

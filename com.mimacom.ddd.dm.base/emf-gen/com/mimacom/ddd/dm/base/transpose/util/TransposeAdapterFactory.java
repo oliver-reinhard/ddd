@@ -10,7 +10,9 @@ import com.mimacom.ddd.dm.base.base.DDetailType;
 import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
@@ -18,6 +20,7 @@ import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DSimpleType;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
@@ -101,6 +104,11 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	protected TransposeSwitch<Adapter> modelSwitch =
 		new TransposeSwitch<Adapter>()
 		{
+			@Override
+			public Adapter caseTInformationModel(TInformationModel object)
+			{
+				return createTInformationModelAdapter();
+			}
 			@Override
 			public Adapter caseTTypeMapping(TTypeMapping object)
 			{
@@ -212,19 +220,19 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
+			public Adapter caseDModel(DModel object)
+			{
+				return createDModelAdapter();
+			}
+			@Override
+			public Adapter caseIAggregateContainer(IAggregateContainer object)
+			{
+				return createIAggregateContainerAdapter();
+			}
+			@Override
 			public Adapter caseITypeContainer(ITypeContainer object)
 			{
 				return createITypeContainerAdapter();
-			}
-			@Override
-			public Adapter caseIFeatureContainer(IFeatureContainer object)
-			{
-				return createIFeatureContainerAdapter();
-			}
-			@Override
-			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
-			{
-				return createINavigableMemberContainerAdapter();
 			}
 			@Override
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
@@ -240,6 +248,21 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIDiagramRoot(IDiagramRoot object)
 			{
 				return createIDiagramRootAdapter();
+			}
+			@Override
+			public Adapter caseDInformationModel(DInformationModel object)
+			{
+				return createDInformationModelAdapter();
+			}
+			@Override
+			public Adapter caseIFeatureContainer(IFeatureContainer object)
+			{
+				return createIFeatureContainerAdapter();
+			}
+			@Override
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			{
+				return createINavigableMemberContainerAdapter();
 			}
 			@Override
 			public Adapter caseDAggregate(DAggregate object)
@@ -357,6 +380,21 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel <em>TInformation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.TInformationModel
+	 * @generated
+	 */
+	public Adapter createTInformationModelAdapter()
+	{
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TTypeMapping <em>TType Mapping</em>}'.
@@ -689,6 +727,36 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DModel <em>DModel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.DModel
+	 * @generated
+	 */
+	public Adapter createDModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IAggregateContainer <em>IAggregate Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.IAggregateContainer
+	 * @generated
+	 */
+	public Adapter createIAggregateContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITypeContainer <em>IType Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -699,36 +767,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createITypeContainerAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IFeatureContainer <em>IFeature Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.IFeatureContainer
-	 * @generated
-	 */
-	public Adapter createIFeatureContainerAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.INavigableMemberContainer
-	 * @generated
-	 */
-	public Adapter createINavigableMemberContainerAdapter()
 	{
 		return null;
 	}
@@ -774,6 +812,51 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIDiagramRootAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DInformationModel <em>DInformation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.DInformationModel
+	 * @generated
+	 */
+	public Adapter createDInformationModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IFeatureContainer <em>IFeature Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.IFeatureContainer
+	 * @generated
+	 */
+	public Adapter createIFeatureContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.INavigableMemberContainer
+	 * @generated
+	 */
+	public Adapter createINavigableMemberContainerAdapter()
 	{
 		return null;
 	}

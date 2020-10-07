@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.sm.sus.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 
 import com.mimacom.ddd.dm.dem.DemPackage;
 
@@ -109,6 +109,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUserStory() {
 		return userStoryEClass;
 	}
@@ -118,6 +119,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUserStory_Event() {
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -127,6 +129,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUserStory_Goal() {
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(1);
 	}
@@ -136,6 +139,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUserStory_Sections() {
 		return (EReference)userStoryEClass.getEStructuralFeatures().get(2);
 	}
@@ -145,6 +149,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUserStory_JiraKey() {
 		return (EAttribute)userStoryEClass.getEStructuralFeatures().get(3);
 	}
@@ -154,6 +159,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SusFactory getSusFactory() {
 		return (SusFactory)getEFactoryInstance();
 	}

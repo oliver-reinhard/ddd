@@ -26,6 +26,7 @@ import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.DState
 import com.mimacom.ddd.dm.base.base.DStateEvent
 import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.ITransposition
 import com.mimacom.ddd.dm.base.base.IValueType
 import com.mimacom.ddd.dm.dim.DimUtil
 import java.util.List
@@ -43,17 +44,17 @@ class DimValidator extends AbstractDimValidator {
 
 	@Inject extension DimUtil
 
-	val NAME_ALL_UPPERCASE = "Name should be all upercase"
+	val NAME_ALL_UPPERCASE = "Name should be all uppercase"
 
 	@Check
 	def checkDomainDeclaresOnlyValueTypes(DInformationModel d) {
 		for (vt : d.types) {
-			if (! (vt instanceof IValueType)) {
+			if (! (vt instanceof IValueType || vt instanceof ITransposition)) {
 				error('Declared type is not a value type', vt, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			} else if (vt instanceof DComplexType) {
 				val ct = vt as DComplexType
 				for (f : ct.features) {
-					if (f instanceof DAssociation) {
+					if (f instanceof DAssociation && ! ( f instanceof ITransposition)) {
 						error('Declared feature cannot be an association', f, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 					}
 				}

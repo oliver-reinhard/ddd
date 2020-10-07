@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
@@ -157,6 +157,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLevel(int newLevel) {
 		int oldLevel = level;
 		level = newLevel;
@@ -178,6 +179,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSequenceNumber(int newSequenceNumber) {
 		int oldSequenceNumber = sequenceNumber;
 		sequenceNumber = newSequenceNumber;
@@ -190,6 +192,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -199,6 +202,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -211,6 +215,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -220,6 +225,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getTitle() {
 		return title;
 	}
@@ -244,6 +250,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(DRichText newTitle) {
 		if (newTitle != title) {
 			NotificationChain msgs = null;
@@ -263,6 +270,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List getList() {
 		if (eContainerFeatureID() != PubPackage.LIST_ITEM__LIST) return null;
 		return (List)eContainer();
@@ -293,6 +301,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setList(List newList) {
 		if (newList != eInternalContainer() || (eContainerFeatureID() != PubPackage.LIST_ITEM__LIST && newList != null)) {
 			if (EcoreUtil.isAncestor(this, newList))
@@ -314,6 +323,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getLevel() {
 		EObject _eContainer = this.eContainer();
 		if ((_eContainer instanceof List)) {
@@ -327,6 +337,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSequenceNumber() {
 		return this.getList().getItems().indexOf(this);
 	}

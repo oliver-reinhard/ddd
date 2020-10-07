@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFuseRule;
 import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule;
 import com.mimacom.ddd.dm.base.transpose.TGrabRule;
+import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
 import com.mimacom.ddd.dm.base.transpose.TMorphRule;
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
@@ -46,6 +47,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class TransposePackageImpl extends EPackageImpl implements TransposePackage
 {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tInformationModelEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +272,39 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(TransposePackage.eNS_URI, theTransposePackage);
 		return theTransposePackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTInformationModel()
+	{
+		return tInformationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTInformationModel_IndexingHelper()
+	{
+		return (EReference)tInformationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTInformationModel__AllowsIdentityTypes()
+	{
+		return tInformationModelEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -649,6 +690,10 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		isCreated = true;
 
 		// Create classes and their features
+		tInformationModelEClass = createEClass(TINFORMATION_MODEL);
+		createEReference(tInformationModelEClass, TINFORMATION_MODEL__INDEXING_HELPER);
+		createEOperation(tInformationModelEClass, TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES);
+
 		tTypeMappingEClass = createEClass(TTYPE_MAPPING);
 
 		tAggregateTranspositionEClass = createEClass(TAGGREGATE_TRANSPOSITION);
@@ -737,6 +782,7 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		tInformationModelEClass.getESuperTypes().add(theBasePackage.getDInformationModel());
 		tAggregateTranspositionEClass.getESuperTypes().add(theBasePackage.getDAggregate());
 		tAggregateTranspositionEClass.getESuperTypes().add(theBasePackage.getITransposition());
 		tTypeTranspositionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
@@ -770,6 +816,11 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		tGrabAggregateRuleEClass.getESuperTypes().add(this.getTRenameRule());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(tInformationModelEClass, TInformationModel.class, "TInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTInformationModel_IndexingHelper(), this.getTTypeMapping(), null, "indexingHelper", null, 0, 1, TInformationModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTInformationModel__AllowsIdentityTypes(), ecorePackage.getEBoolean(), "allowsIdentityTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(tTypeMappingEClass, TTypeMapping.class, "TTypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(tAggregateTranspositionEClass, TAggregateTransposition.class, "TAggregateTransposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

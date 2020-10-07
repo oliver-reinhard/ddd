@@ -2,12 +2,16 @@
  */
 package com.mimacom.ddd.sm.sim.util;
 
+import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
+
+import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 
 import com.mimacom.ddd.sm.sim.*;
 
@@ -97,11 +101,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createDModelAdapter();
 			}
 			@Override
-			public Adapter caseIDiagramRoot(IDiagramRoot object)
-			{
-				return createIDiagramRootAdapter();
-			}
-			@Override
 			public Adapter caseIAggregateContainer(IAggregateContainer object)
 			{
 				return createIAggregateContainerAdapter();
@@ -115,6 +114,26 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
 				return createIStaticReferenceTargetAdapter();
+			}
+			@Override
+			public Adapter caseITransposableElement(ITransposableElement object)
+			{
+				return createITransposableElementAdapter();
+			}
+			@Override
+			public Adapter caseIDiagramRoot(IDiagramRoot object)
+			{
+				return createIDiagramRootAdapter();
+			}
+			@Override
+			public Adapter caseDInformationModel(DInformationModel object)
+			{
+				return createDInformationModelAdapter();
+			}
+			@Override
+			public Adapter caseTInformationModel(TInformationModel object)
+			{
+				return createTInformationModelAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -184,21 +203,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.IDiagramRoot
-	 * @generated
-	 */
-	public Adapter createIDiagramRootAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IAggregateContainer <em>IAggregate Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -239,6 +243,66 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIStaticReferenceTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
+	 * @generated
+	 */
+	public Adapter createITransposableElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.IDiagramRoot
+	 * @generated
+	 */
+	public Adapter createIDiagramRootAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DInformationModel <em>DInformation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.DInformationModel
+	 * @generated
+	 */
+	public Adapter createDInformationModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel <em>TInformation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.TInformationModel
+	 * @generated
+	 */
+	public Adapter createTInformationModelAdapter()
 	{
 		return null;
 	}

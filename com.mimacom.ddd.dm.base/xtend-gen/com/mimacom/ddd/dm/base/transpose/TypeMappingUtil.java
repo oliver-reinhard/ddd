@@ -8,7 +8,7 @@ import com.mimacom.ddd.dm.base.base.BaseFactory;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex;
-import com.mimacom.ddd.dm.base.transpose.TransposeUtil;
+import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
 import java.util.ArrayList;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -37,56 +37,56 @@ public class TypeMappingUtil {
   }
   
   /**
-   * Returns a proxy object with a URL that will resolve to the actual system type by ways of the SimIndex.
+   * Returns a proxy object with a URL that will resolve to the actual system type by ways of the TransposeIndex.
    * 
    * @param context used to derive the relevant eResource.
    * @return null if context is null or domainType has no fully qualified name
    */
-  public DType getSystemTypeProxy(final EObject context, final DType domainType) {
-    final QualifiedName domainTypeQN = this.qualifiedNameProvider.getFullyQualifiedName(domainType);
-    if (((context == null) || (domainTypeQN == null))) {
+  public DType getTransposedTypeProxy(final EObject context, final DType sourceType) {
+    final QualifiedName sourceTypeQN = this.qualifiedNameProvider.getFullyQualifiedName(sourceType);
+    if (((context == null) || (sourceTypeQN == null))) {
       return null;
     }
     final URI resourceURI = context.eResource().getURI();
     String _string = resourceURI.toString();
     String _plus = (_string + "#");
-    String _deductionProxyUriFragment = TransposeUtil.getDeductionProxyUriFragment(domainTypeQN);
-    String _plus_1 = (_plus + _deductionProxyUriFragment);
+    String _transposedTypeProxyUriFragment = TranspositionUtil.getTransposedTypeProxyUriFragment(sourceTypeQN);
+    String _plus_1 = (_plus + _transposedTypeProxyUriFragment);
     final URI uri = URI.createURI(_plus_1);
-    final DPrimitive systemType = TypeMappingUtil.BASE.createDPrimitive();
-    ((BasicEObjectImpl) systemType).eSetProxyURI(uri);
+    final DPrimitive proxy = TypeMappingUtil.BASE.createDPrimitive();
+    ((BasicEObjectImpl) proxy).eSetProxyURI(uri);
     boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
-      TypeMappingUtil.LOGGER.debug(((("getSystemTypeProxy for " + domainTypeQN) + " -> ") + uri));
+      TypeMappingUtil.LOGGER.debug(((("getSystemTypeProxy for " + sourceTypeQN) + " -> ") + uri));
     }
-    return systemType;
+    return proxy;
   }
   
   /**
    * Returns the descriptions of all visible mapped types for a domain type given by its qualified name.
    * 
    * @param context used to derive the relevant eResource.
-   * @param domainTypeQN cannot be null
+   * @param sourceTypeQN cannot be null
    * @return never null but may be an empty collection.
    */
-  public Iterable<IEObjectDescription> getSystemTypeDescriptions(final EObject context, final QualifiedName domainTypeQN) {
-    if ((domainTypeQN == null)) {
+  public Iterable<IEObjectDescription> getTransposedTypeDescriptions(final EObject context, final QualifiedName sourceTypeQN) {
+    if ((sourceTypeQN == null)) {
       String _string = context.toString();
       String _plus = ("context: " + _string);
       throw new NullPointerException(_plus);
     }
-    final Iterable<IEObjectDescription> typeDeductionDescriptions = this.index.getVisibleTTypeMappingDescriptions(context, domainTypeQN);
-    final ArrayList<IEObjectDescription> sTypes = Lists.<IEObjectDescription>newArrayList();
-    for (final IEObjectDescription desc : typeDeductionDescriptions) {
+    final Iterable<IEObjectDescription> transposedTypeDescriptions = this.index.getVisibleTTypeMappingDescriptions(context, sourceTypeQN);
+    final ArrayList<IEObjectDescription> typeDescriptions = Lists.<IEObjectDescription>newArrayList();
+    for (final IEObjectDescription desc : transposedTypeDescriptions) {
       {
-        final QualifiedName systemTypeQN = TransposeUtil.getDeductionTargetQN(desc);
-        Iterables.<IEObjectDescription>addAll(sTypes, this.index.getVisibleDTypeDescriptions(context, systemTypeQN));
+        final QualifiedName systemTypeQN = TranspositionUtil.getTranspositionTargetQN(desc);
+        Iterables.<IEObjectDescription>addAll(typeDescriptions, this.index.getVisibleDTypeDescriptions(context, systemTypeQN));
       }
     }
     boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
-      TypeMappingUtil.LOGGER.debug(((("getSystemTypeDescriptions for " + domainTypeQN) + " -> ") + sTypes));
+      TypeMappingUtil.LOGGER.debug(((("getSystemTypeDescriptions for " + sourceTypeQN) + " -> ") + typeDescriptions));
     }
-    return sTypes;
+    return typeDescriptions;
   }
 }

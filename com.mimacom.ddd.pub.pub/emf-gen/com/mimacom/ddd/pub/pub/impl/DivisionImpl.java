@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.base.DRichText;
 
 import com.mimacom.ddd.pub.pub.BlockContainer;
 import com.mimacom.ddd.pub.pub.ContentBlock;
@@ -218,6 +218,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Division> getDivisions() {
 		if (divisions == null) {
 			divisions = new EObjectContainmentEList<Division>(Division.class, this, PubPackage.DIVISION__DIVISIONS);
@@ -230,6 +231,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContentBlock> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList<ContentBlock>(ContentBlock.class, this, PubPackage.DIVISION__CONTENTS);
@@ -242,6 +244,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getLevel() {
 		return level;
 	}
@@ -251,6 +254,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLevel(int newLevel) {
 		int oldLevel = level;
 		level = newLevel;
@@ -263,6 +267,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSequenceNumber() {
 		return sequenceNumber;
 	}
@@ -272,6 +277,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSequenceNumber(int newSequenceNumber) {
 		int oldSequenceNumber = sequenceNumber;
 		sequenceNumber = newSequenceNumber;
@@ -284,6 +290,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -293,6 +300,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -305,6 +313,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		if (((this.getName() == null) || this.getName().isEmpty())) {
 			final StringBuilder b = new StringBuilder();
@@ -327,6 +336,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getStartNumberingAt() {
 		return startNumberingAt;
 	}
@@ -336,6 +346,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartNumberingAt(int newStartNumberingAt) {
 		int oldStartNumberingAt = startNumberingAt;
 		startNumberingAt = newStartNumberingAt;
@@ -348,6 +359,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getTitle() {
 		return title;
 	}
@@ -372,6 +384,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(DRichText newTitle) {
 		if (newTitle != title) {
 			NotificationChain msgs = null;
@@ -391,6 +404,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Division getInclude() {
 		if (include != null && include.eIsProxy()) {
 			InternalEObject oldInclude = (InternalEObject)include;
@@ -417,6 +431,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInclude(Division newInclude) {
 		Division oldInclude = include;
 		include = newInclude;
@@ -429,6 +444,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Division getLogicalContainer() {
 		if (logicalContainer != null && logicalContainer.eIsProxy()) {
 			InternalEObject oldLogicalContainer = (InternalEObject)logicalContainer;
@@ -455,6 +471,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLogicalContainer(Division newLogicalContainer) {
 		Division oldLogicalContainer = logicalContainer;
 		logicalContainer = newLogicalContainer;
@@ -467,6 +484,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Division parent() {
 		Division _logicalContainer = this.getLogicalContainer();
 		boolean _tripleNotEquals = (_logicalContainer != null);
@@ -488,6 +506,7 @@ public abstract class DivisionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Document getDocument() {
 		EObject parent = this.eContainer();
 		while (((parent != null) && (!(parent instanceof Document)))) {

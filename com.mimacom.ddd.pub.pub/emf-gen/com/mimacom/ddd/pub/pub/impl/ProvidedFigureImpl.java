@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.ProvidedDiagramType;
@@ -88,6 +88,7 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IDiagramRoot getDiagramRoot() {
 		if (diagramRoot != null && diagramRoot.eIsProxy()) {
 			InternalEObject oldDiagramRoot = (InternalEObject)diagramRoot;
@@ -114,6 +115,7 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDiagramRoot(IDiagramRoot newDiagramRoot) {
 		IDiagramRoot oldDiagramRoot = diagramRoot;
 		diagramRoot = newDiagramRoot;
@@ -126,6 +128,7 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedDiagramType getDiagramType() {
 		if (diagramType != null && diagramType.eIsProxy()) {
 			InternalEObject oldDiagramType = (InternalEObject)diagramType;
@@ -152,6 +155,7 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDiagramType(ProvidedDiagramType newDiagramType) {
 		ProvidedDiagramType oldDiagramType = diagramType;
 		diagramType = newDiagramType;
@@ -164,6 +168,7 @@ public class ProvidedFigureImpl extends AbstractFigureImpl implements ProvidedFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPreferRasterDiagram() {
 		final Document doc = EcoreUtil2.<Document>getContainerOfType(this, Document.class);
 		if ((doc != null)) {

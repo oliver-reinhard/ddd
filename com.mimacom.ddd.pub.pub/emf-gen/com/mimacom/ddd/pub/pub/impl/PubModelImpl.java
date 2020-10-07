@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.base.DImport;
 
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.ProvidedDiagramType;
@@ -107,6 +107,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DImport> getImports() {
 		if (imports == null) {
 			imports = new EObjectContainmentEList<DImport>(DImport.class, this, PubPackage.PUB_MODEL__IMPORTS);
@@ -119,6 +120,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Document getDocument() {
 		return document;
 	}
@@ -143,6 +145,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDocument(Document newDocument) {
 		if (newDocument != document) {
 			NotificationChain msgs = null;
@@ -162,6 +165,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProvidedDiagramType> getProvidedDiagramTypes() {
 		if (providedDiagramTypes == null) {
 			providedDiagramTypes = new EObjectContainmentEList<ProvidedDiagramType>(ProvidedDiagramType.class, this, PubPackage.PUB_MODEL__PROVIDED_DIAGRAM_TYPES);
@@ -174,6 +178,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProvidedTableType> getProvidedTableTypes() {
 		if (providedTableTypes == null) {
 			providedTableTypes = new EObjectContainmentEList<ProvidedTableType>(ProvidedTableType.class, this, PubPackage.PUB_MODEL__PROVIDED_TABLE_TYPES);

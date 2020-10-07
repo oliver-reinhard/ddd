@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub.impl;
 
-import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
+import com.mimacom.ddd.dm.base.base.impl.DExpressionImpl;
 
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Reference;
@@ -106,6 +106,7 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReferenceScope getScope() {
 		return scope;
 	}
@@ -115,6 +116,7 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setScope(ReferenceScope newScope) {
 		ReferenceScope oldScope = scope;
 		scope = newScope == null ? SCOPE_EDEFAULT : newScope;
@@ -127,6 +129,7 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReferenceTarget getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -153,6 +156,7 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(ReferenceTarget newTarget) {
 		ReferenceTarget oldTarget = target;
 		target = newTarget;
@@ -165,6 +169,7 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPageReference() {
 		return pageReference;
 	}
@@ -174,6 +179,7 @@ public class ReferenceImpl extends DExpressionImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPageReference(boolean newPageReference) {
 		boolean oldPageReference = pageReference;
 		pageReference = newPageReference;

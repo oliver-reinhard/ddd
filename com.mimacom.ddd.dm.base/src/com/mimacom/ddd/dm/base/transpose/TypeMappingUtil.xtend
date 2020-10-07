@@ -29,47 +29,47 @@ class TypeMappingUtil {
 	}
 	
 	/**
-	 * Returns a proxy object with a URL that will resolve to the actual system type by ways of the SimIndex.
+	 * Returns a proxy object with a URL that will resolve to the actual system type by ways of the TransposeIndex.
 	 * 
 	 * @param context used to derive the relevant eResource.
 	 * @return null if context is null or domainType has no fully qualified name
 	 */
-	def DType getSystemTypeProxy(EObject context, DType domainType) {
-		val domainTypeQN = qualifiedNameProvider.getFullyQualifiedName(domainType)
-		if (context === null || domainTypeQN === null) {
+	def DType getTransposedTypeProxy(EObject context, DType sourceType) {
+		val sourceTypeQN = qualifiedNameProvider.getFullyQualifiedName(sourceType)
+		if (context === null || sourceTypeQN === null) {
 			return null
 		}
 		val resourceURI = context.eResource.URI
-		val uri = URI.createURI(resourceURI.toString + "#" + TransposeUtil.getDeductionProxyUriFragment(domainTypeQN))
-		val systemType = BASE.createDPrimitive() // any concrete DType will do here
-		(systemType as BasicEObjectImpl).eSetProxyURI(uri)
+		val uri = URI.createURI(resourceURI.toString + "#" + TranspositionUtil.getTransposedTypeProxyUriFragment(sourceTypeQN))
+		val proxy = BASE.createDPrimitive() // any concrete DType will do here
+		(proxy as BasicEObjectImpl).eSetProxyURI(uri)
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
-			LOGGER.debug("getSystemTypeProxy for " + domainTypeQN + " -> " + uri)
+			LOGGER.debug("getSystemTypeProxy for " + sourceTypeQN + " -> " + uri)
 		}
-		return systemType
+		return proxy
 	}
 
 	/**
 	 * Returns the descriptions of all visible mapped types for a domain type given by its qualified name.
 	 * 
 	 * @param context used to derive the relevant eResource.
-	 * @param domainTypeQN cannot be null
+	 * @param sourceTypeQN cannot be null
 	 * @return never null but may be an empty collection.
 	 */
-	def Iterable<IEObjectDescription> getSystemTypeDescriptions(EObject context, QualifiedName domainTypeQN) {
-		if (domainTypeQN === null) {
+	def Iterable<IEObjectDescription> getTransposedTypeDescriptions(EObject context, QualifiedName sourceTypeQN) {
+		if (sourceTypeQN === null) {
 			throw new NullPointerException("context: " + context.toString)
 		}
-		val Iterable<IEObjectDescription> typeDeductionDescriptions = index.
-			getVisibleTTypeMappingDescriptions(context, domainTypeQN)
-		val sTypes = Lists.newArrayList
-		for (desc : typeDeductionDescriptions) {
-			val systemTypeQN = TransposeUtil.getDeductionTargetQN(desc)
-			sTypes.addAll(index.getVisibleDTypeDescriptions(context, systemTypeQN));
+		val Iterable<IEObjectDescription> transposedTypeDescriptions = index.
+			getVisibleTTypeMappingDescriptions(context, sourceTypeQN)
+		val typeDescriptions = Lists.newArrayList
+		for (desc : transposedTypeDescriptions) {
+			val systemTypeQN = TranspositionUtil.getTranspositionTargetQN(desc)
+			typeDescriptions.addAll(index.getVisibleDTypeDescriptions(context, systemTypeQN));
 		}
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
-			LOGGER.debug("getSystemTypeDescriptions for " + domainTypeQN + " -> " + sTypes)
+			LOGGER.debug("getSystemTypeDescriptions for " + sourceTypeQN + " -> " + typeDescriptions)
 		}
-		return sTypes
+		return typeDescriptions
 	}
 }

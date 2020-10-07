@@ -62,6 +62,115 @@ public interface TransposePackage extends EPackage
 	TransposePackage eINSTANCE = com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImpl <em>TInformation Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImpl
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTInformationModel()
+	 * @generated
+	 */
+	int TINFORMATION_MODEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__NAME = BasePackage.DINFORMATION_MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__ALIASES = BasePackage.DINFORMATION_MODEL__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__DESCRIPTION = BasePackage.DINFORMATION_MODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__AGGREGATES = BasePackage.DINFORMATION_MODEL__AGGREGATES;
+
+	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__TYPES = BasePackage.DINFORMATION_MODEL__TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__TRANSPOSED_BY = BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__SYNTHETIC = BasePackage.DINFORMATION_MODEL__SYNTHETIC;
+
+	/**
+	 * The feature id for the '<em><b>Indexing Helper</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__INDEXING_HELPER = BasePackage.DINFORMATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>TInformation Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL_FEATURE_COUNT = BasePackage.DINFORMATION_MODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Allows Identity Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = BasePackage.DINFORMATION_MODEL_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>TInformation Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL_OPERATION_COUNT = BasePackage.DINFORMATION_MODEL_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TTypeMappingImpl <em>TType Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,7 +178,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTypeMapping()
 	 * @generated
 	 */
-	int TTYPE_MAPPING = 0;
+	int TTYPE_MAPPING = 1;
 
 	/**
 	 * The number of structural features of the '<em>TType Mapping</em>' class.
@@ -97,7 +206,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTAggregateTransposition()
 	 * @generated
 	 */
-	int TAGGREGATE_TRANSPOSITION = 1;
+	int TAGGREGATE_TRANSPOSITION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -224,7 +333,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTypeTransposition()
 	 * @generated
 	 */
-	int TTYPE_TRANSPOSITION = 2;
+	int TTYPE_TRANSPOSITION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -297,7 +406,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTPrimitiveTransposition()
 	 * @generated
 	 */
-	int TPRIMITIVE_TRANSPOSITION = 3;
+	int TPRIMITIVE_TRANSPOSITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -415,7 +524,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTEnumerationTransposition()
 	 * @generated
 	 */
-	int TENUMERATION_TRANSPOSITION = 4;
+	int TENUMERATION_TRANSPOSITION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -542,7 +651,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTLiteralTransposition()
 	 * @generated
 	 */
-	int TLITERAL_TRANSPOSITION = 5;
+	int TLITERAL_TRANSPOSITION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -669,7 +778,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTComplexTypeTransposition()
 	 * @generated
 	 */
-	int TCOMPLEX_TYPE_TRANSPOSITION = 6;
+	int TCOMPLEX_TYPE_TRANSPOSITION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -742,7 +851,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDetailTypeTransposition()
 	 * @generated
 	 */
-	int TDETAIL_TYPE_TRANSPOSITION = 7;
+	int TDETAIL_TYPE_TRANSPOSITION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -887,7 +996,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTEntityTypeTransposition()
 	 * @generated
 	 */
-	int TENTITY_TYPE_TRANSPOSITION = 8;
+	int TENTITY_TYPE_TRANSPOSITION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1068,7 +1177,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFeatureTransposition()
 	 * @generated
 	 */
-	int TFEATURE_TRANSPOSITION = 9;
+	int TFEATURE_TRANSPOSITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
@@ -1114,7 +1223,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTAssociationTransposition()
 	 * @generated
 	 */
-	int TASSOCIATION_TRANSPOSITION = 10;
+	int TASSOCIATION_TRANSPOSITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1277,7 +1386,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTAttributeTransposition()
 	 * @generated
 	 */
-	int TATTRIBUTE_TRANSPOSITION = 11;
+	int TATTRIBUTE_TRANSPOSITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1422,7 +1531,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTQueryTransposition()
 	 * @generated
 	 */
-	int TQUERY_TRANSPOSITION = 12;
+	int TQUERY_TRANSPOSITION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1576,7 +1685,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTQueryParameterTransposition()
 	 * @generated
 	 */
-	int TQUERY_PARAMETER_TRANSPOSITION = 13;
+	int TQUERY_PARAMETER_TRANSPOSITION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1703,7 +1812,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTRenameRule()
 	 * @generated
 	 */
-	int TRENAME_RULE = 14;
+	int TRENAME_RULE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1758,7 +1867,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTGrabRule()
 	 * @generated
 	 */
-	int TGRAB_RULE = 15;
+	int TGRAB_RULE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1813,7 +1922,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
 	 * @generated
 	 */
-	int TDITCH_RULE = 16;
+	int TDITCH_RULE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1859,7 +1968,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTStructureChangingRule()
 	 * @generated
 	 */
-	int TSTRUCTURE_CHANGING_RULE = 17;
+	int TSTRUCTURE_CHANGING_RULE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1950,7 +2059,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTMorphRule()
 	 * @generated
 	 */
-	int TMORPH_RULE = 18;
+	int TMORPH_RULE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2059,7 +2168,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
 	 * @generated
 	 */
-	int TFUSE_RULE = 19;
+	int TFUSE_RULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2159,7 +2268,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTGrabAggregateRule()
 	 * @generated
 	 */
-	int TGRAB_AGGREGATE_RULE = 20;
+	int TGRAB_AGGREGATE_RULE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2223,8 +2332,39 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTristate()
 	 * @generated
 	 */
-	int TTRISTATE = 21;
+	int TTRISTATE = 22;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel <em>TInformation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TInformation Model</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TInformationModel
+	 * @generated
+	 */
+	EClass getTInformationModel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel#getIndexingHelper <em>Indexing Helper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Indexing Helper</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TInformationModel#getIndexingHelper()
+	 * @see #getTInformationModel()
+	 * @generated
+	 */
+	EReference getTInformationModel_IndexingHelper();
+
+	/**
+	 * Returns the meta object for the '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel#allowsIdentityTypes() <em>Allows Identity Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Allows Identity Types</em>' operation.
+	 * @see com.mimacom.ddd.dm.base.transpose.TInformationModel#allowsIdentityTypes()
+	 * @generated
+	 */
+	EOperation getTInformationModel__AllowsIdentityTypes();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TTypeMapping <em>TType Mapping</em>}'.
@@ -2579,6 +2719,32 @@ public interface TransposePackage extends EPackage
 	 */
 	interface Literals
 	{
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImpl <em>TInformation Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImpl
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTInformationModel()
+		 * @generated
+		 */
+		EClass TINFORMATION_MODEL = eINSTANCE.getTInformationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Indexing Helper</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TINFORMATION_MODEL__INDEXING_HELPER = eINSTANCE.getTInformationModel_IndexingHelper();
+
+		/**
+		 * The meta object literal for the '<em><b>Allows Identity Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = eINSTANCE.getTInformationModel__AllowsIdentityTypes();
+
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TTypeMappingImpl <em>TType Mapping</em>}' class.
 		 * <!-- begin-user-doc -->

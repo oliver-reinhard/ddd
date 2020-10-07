@@ -1,4 +1,4 @@
-package com.mimacom.ddd.sm.sim.derivedState;
+package com.mimacom.ddd.dm.base.transpose;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
@@ -17,6 +17,8 @@ import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.TImplicitTransposition;
 import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
+import com.mimacom.ddd.dm.base.transpose.SyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TDitchRule;
@@ -29,9 +31,7 @@ import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TRenameRule;
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
-import com.mimacom.ddd.sm.sim.derivedState.SyntheticFeatureContainerDescriptor;
-import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
-import com.mimacom.ddd.sm.sim.derivedState.TypeSorter;
+import com.mimacom.ddd.dm.base.transpose.TypeSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -43,20 +43,20 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class STypeTranspositionRuleProcessor {
+public class TTypeTranspositionRuleProcessor {
   @Inject
   @Extension
   private SyntheticModelElementsFactory _syntheticModelElementsFactory;
   
   private static final String UNDEFINED = "UNDEFINED";
   
-  protected void addImplicitSyntheticTypes(final ITypeContainer container, final TAggregateTransposition deductionDefinition, final DAggregate source, final List<SyntheticFeatureContainerDescriptor> acceptor) {
-    final Iterable<ITransposition> typeDeductionDefinitions = Iterables.<ITransposition>filter(deductionDefinition.getTypes(), ITransposition.class);
+  protected void addImplicitSyntheticTypes(final ITypeContainer container, final TAggregateTransposition recipe, final DAggregate source, final List<SyntheticFeatureContainerDescriptor> acceptor) {
+    final Iterable<ITransposition> typeRecipes = Iterables.<ITransposition>filter(recipe.getTypes(), ITransposition.class);
     final Function1<ITransposition, Boolean> _function = (ITransposition it) -> {
       TTranspositionRule _transpositionRule = it.getTranspositionRule();
       return Boolean.valueOf((_transpositionRule instanceof TGrabRule));
     };
-    boolean _exists = IterableExtensions.<ITransposition>exists(typeDeductionDefinitions, _function);
+    boolean _exists = IterableExtensions.<ITransposition>exists(typeRecipes, _function);
     boolean _not = (!_exists);
     if (_not) {
       final ArrayList<DType> implicitlyGrabbedSourceTypes = Lists.<DType>newArrayList(source.getTypes());
@@ -68,17 +68,17 @@ public class STypeTranspositionRuleProcessor {
         ITransposableElement _source = it.getTranspositionRule().getSource();
         return ((DType) _source);
       };
-      final Iterable<DType> sourceTypesAffectedByRule = IterableExtensions.<ITransposition, DType>map(IterableExtensions.<ITransposition>filter(typeDeductionDefinitions, _function_1), _function_2);
+      final Iterable<DType> sourceTypesAffectedByRule = IterableExtensions.<ITransposition, DType>map(IterableExtensions.<ITransposition>filter(typeRecipes, _function_1), _function_2);
       CollectionExtensions.<DType>removeAll(implicitlyGrabbedSourceTypes, sourceTypesAffectedByRule);
       for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
-          final TImplicitTransposition implicitTypeDeduction = this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType);
-          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeDeduction);
+          final TImplicitTransposition implicitTypeRecipes = this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, sourceType);
+          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeRecipes);
           if ((syntheticType instanceof DEnumeration)) {
-            this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), implicitTypeDeduction);
+            this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), implicitTypeRecipes);
           } else {
             if ((syntheticType instanceof DComplexType)) {
-              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), implicitTypeDeduction, ((DComplexType) sourceType));
+              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), implicitTypeRecipes, ((DComplexType) sourceType));
               acceptor.add(_syntheticFeatureContainerDescriptor);
             }
           }
@@ -91,17 +91,17 @@ public class STypeTranspositionRuleProcessor {
    * Add synthetic types for which there is an explicit STypeDeduction rule in the aggregate:
    */
   protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor) {
-    final List<TTypeTransposition> typeDeductionDefinitions = IterableExtensions.<TTypeTransposition>toList(Iterables.<TTypeTransposition>filter(origin.getTypes(), TTypeTransposition.class));
+    final List<TTypeTransposition> typeRecipes = IterableExtensions.<TTypeTransposition>toList(Iterables.<TTypeTransposition>filter(origin.getTypes(), TTypeTransposition.class));
     TypeSorter _typeSorter = new TypeSorter();
-    Collections.<TTypeTransposition>sort(typeDeductionDefinitions, _typeSorter);
-    for (final TTypeTransposition definition : typeDeductionDefinitions) {
+    Collections.<TTypeTransposition>sort(typeRecipes, _typeSorter);
+    for (final TTypeTransposition r : typeRecipes) {
       {
-        final TTranspositionRule rule = definition.getTranspositionRule();
+        final TTranspositionRule rule = r.getTranspositionRule();
         final ITransposableElement source = rule.getSource();
         if ((source instanceof DType)) {
-          final DType syntheticType = this.processTypeDeduction(container, definition, rule);
+          final DType syntheticType = this.transposeType(container, r, rule);
           if ((syntheticType instanceof DComplexType)) {
-            SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((TComplexTypeTransposition) definition), ((DComplexType) source));
+            SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((TComplexTypeTransposition) r), ((DComplexType) source));
             acceptor.add(_syntheticFeatureContainerDescriptor);
           }
         }
@@ -116,8 +116,8 @@ public class STypeTranspositionRuleProcessor {
     final Function1<DType, Boolean> _function = (DType it) -> {
       return Boolean.valueOf((!(it instanceof TTypeTransposition)));
     };
-    final List<DType> typeDefinitions = IterableExtensions.<DType>toList(IterableExtensions.<DType>filter(origin.getTypes(), _function));
-    for (final DType original : typeDefinitions) {
+    final List<DType> typeRecipes = IterableExtensions.<DType>toList(IterableExtensions.<DType>filter(origin.getTypes(), _function));
+    for (final DType original : typeRecipes) {
       {
         final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticTypeAsCopy(container, original);
         if ((syntheticType instanceof DComplexType)) {
@@ -128,7 +128,7 @@ public class STypeTranspositionRuleProcessor {
     }
   }
   
-  protected DPrimitive _processTypeDeduction(final ITypeContainer container, final TPrimitiveTransposition deductionDefinition, final TGrabRule rule) {
+  protected DPrimitive _transposeType(final ITypeContainer container, final TPrimitiveTransposition recipe, final TGrabRule rule) {
     final ITransposableElement source = rule.getSource();
     if ((source instanceof DPrimitive)) {
       String _xifexpression = null;
@@ -140,14 +140,14 @@ public class STypeTranspositionRuleProcessor {
         _xifexpression = ((DPrimitive)source).getName();
       }
       final String name = _xifexpression;
-      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), recipe);
       final DPrimitive syntheticType = ((DPrimitive) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  protected DEnumeration _processTypeDeduction(final ITypeContainer container, final TEnumerationTransposition deductionDefinition, final TGrabRule rule) {
+  protected DEnumeration _transposeType(final ITypeContainer container, final TEnumerationTransposition recipe, final TGrabRule rule) {
     final ITransposableElement source = rule.getSource();
     if ((source instanceof DEnumeration)) {
       String _xifexpression = null;
@@ -159,40 +159,40 @@ public class STypeTranspositionRuleProcessor {
         _xifexpression = ((DEnumeration)source).getName();
       }
       final String name = _xifexpression;
-      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), recipe);
       final DEnumeration syntheticEnum = ((DEnumeration) _addSyntheticType);
-      this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), deductionDefinition);
-      this.addSyntheticLiterals(syntheticEnum, deductionDefinition);
+      this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), recipe);
+      this.addSyntheticLiterals(syntheticEnum, recipe);
       return syntheticEnum;
     }
     return null;
   }
   
-  protected DComplexType _processTypeDeduction(final ITypeContainer container, final TComplexTypeTransposition deductionDefinition, final TGrabRule rule) {
-    return this.grabComplexType(container, deductionDefinition, rule);
+  protected DComplexType _transposeType(final ITypeContainer container, final TComplexTypeTransposition recipe, final TGrabRule rule) {
+    return this.grabComplexType(container, recipe, rule);
   }
   
-  protected DComplexType _processTypeDeduction(final ITypeContainer container, final TComplexTypeTransposition deductionDefinition, final TMorphRule rule) {
-    final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule);
+  protected DComplexType _transposeType(final ITypeContainer container, final TComplexTypeTransposition recipe, final TMorphRule rule) {
+    final DComplexType syntheticType = this.grabComplexType(container, recipe, rule);
     this.extendsComplexType(syntheticType, rule);
     return syntheticType;
   }
   
-  protected DComplexType _processTypeDeduction(final ITypeContainer container, final TComplexTypeTransposition deductionDefinition, final TFuseRule rule) {
-    final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule);
+  protected DComplexType _transposeType(final ITypeContainer container, final TComplexTypeTransposition recipe, final TFuseRule rule) {
+    final DComplexType syntheticType = this.grabComplexType(container, recipe, rule);
     this.extendsComplexType(syntheticType, rule);
     return syntheticType;
   }
   
-  protected DComplexType _processTypeDeduction(final EObject container, final TTypeTransposition deductionDefinition, final TDitchRule rule) {
+  protected DComplexType _transposeType(final EObject container, final TTypeTransposition recipe, final TDitchRule rule) {
     return null;
   }
   
-  protected DType _processTypeDeduction(final EObject container, final TTypeTransposition deductionDefinition, final TTranspositionRule rule) {
+  protected DType _transposeType(final EObject container, final TTypeTransposition recipe, final TTranspositionRule rule) {
     throw new UnsupportedOperationException();
   }
   
-  public DComplexType grabComplexType(final ITypeContainer container, final TComplexTypeTransposition deductionDefinition, final TRenameRule rule) {
+  public DComplexType grabComplexType(final ITypeContainer container, final TComplexTypeTransposition recipe, final TRenameRule rule) {
     final ITransposableElement source = rule.getSource();
     if ((source instanceof DComplexType)) {
       String _xifexpression = null;
@@ -204,7 +204,7 @@ public class STypeTranspositionRuleProcessor {
         _xifexpression = ((DComplexType)source).getName();
       }
       final String name = _xifexpression;
-      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), deductionDefinition);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DType)source), recipe);
       final DComplexType syntheticType = ((DComplexType) _addSyntheticType);
       return syntheticType;
     }
@@ -218,16 +218,16 @@ public class STypeTranspositionRuleProcessor {
     }
   }
   
-  public void addImplicitSyntheticLiterals(final DEnumeration syntheticEnum, final DEnumeration source, final ITransposition deductionDefinition) {
-    Iterable<TLiteralTransposition> literalDeductionDefinitions = Lists.<TLiteralTransposition>newArrayList();
-    if ((deductionDefinition instanceof TEnumerationTransposition)) {
-      literalDeductionDefinitions = Iterables.<TLiteralTransposition>filter(((TEnumerationTransposition)deductionDefinition).getLiterals(), TLiteralTransposition.class);
+  public void addImplicitSyntheticLiterals(final DEnumeration syntheticEnum, final DEnumeration source, final ITransposition recipe) {
+    Iterable<TLiteralTransposition> literalRecipes = Lists.<TLiteralTransposition>newArrayList();
+    if ((recipe instanceof TEnumerationTransposition)) {
+      literalRecipes = Iterables.<TLiteralTransposition>filter(((TEnumerationTransposition)recipe).getLiterals(), TLiteralTransposition.class);
     }
     final Function1<TLiteralTransposition, Boolean> _function = (TLiteralTransposition it) -> {
       TTranspositionRule _transpositionRule = it.getTranspositionRule();
       return Boolean.valueOf((_transpositionRule instanceof TGrabRule));
     };
-    boolean _exists = IterableExtensions.<TLiteralTransposition>exists(literalDeductionDefinitions, _function);
+    boolean _exists = IterableExtensions.<TLiteralTransposition>exists(literalRecipes, _function);
     boolean _not = (!_exists);
     if (_not) {
       final ArrayList<DLiteral> implicitlyGrabbedSourceLiterals = Lists.<DLiteral>newArrayList(source.getLiterals());
@@ -239,17 +239,17 @@ public class STypeTranspositionRuleProcessor {
         ITransposableElement _source = it.getTranspositionRule().getSource();
         return ((DLiteral) _source);
       };
-      final Iterable<DLiteral> sourceLiteralsAffectedByRule = IterableExtensions.<TLiteralTransposition, DLiteral>map(IterableExtensions.<TLiteralTransposition>filter(literalDeductionDefinitions, _function_1), _function_2);
+      final Iterable<DLiteral> sourceLiteralsAffectedByRule = IterableExtensions.<TLiteralTransposition, DLiteral>map(IterableExtensions.<TLiteralTransposition>filter(literalRecipes, _function_1), _function_2);
       CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedSourceLiterals, sourceLiteralsAffectedByRule);
       for (final DLiteral sourceLiteral : implicitlyGrabbedSourceLiterals) {
-        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), sourceLiteral, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceLiteral));
+        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), sourceLiteral, this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, sourceLiteral));
       }
     }
   }
   
-  public void addSyntheticLiterals(final DEnumeration syntheticEnum, final TEnumerationTransposition deductionDefinition) {
-    final List<TLiteralTransposition> literalDeductionDefinitions = IterableExtensions.<TLiteralTransposition>toList(Iterables.<TLiteralTransposition>filter(deductionDefinition.getLiterals(), TLiteralTransposition.class));
-    for (final TLiteralTransposition definition : literalDeductionDefinitions) {
+  public void addSyntheticLiterals(final DEnumeration syntheticEnum, final TEnumerationTransposition recipe) {
+    final List<TLiteralTransposition> literalRecipes = IterableExtensions.<TLiteralTransposition>toList(Iterables.<TLiteralTransposition>filter(recipe.getLiterals(), TLiteralTransposition.class));
+    for (final TLiteralTransposition definition : literalRecipes) {
       {
         final TTranspositionRule rule = definition.getTranspositionRule();
         if ((rule instanceof TGrabRule)) {
@@ -265,7 +265,7 @@ public class STypeTranspositionRuleProcessor {
             if (_tripleNotEquals_1) {
               _xifexpression_1 = ((TGrabRule)rule).getNamedSource().getName();
             } else {
-              _xifexpression_1 = STypeTranspositionRuleProcessor.UNDEFINED;
+              _xifexpression_1 = TTypeTranspositionRuleProcessor.UNDEFINED;
             }
             _xifexpression = _xifexpression_1;
           }
@@ -278,44 +278,44 @@ public class STypeTranspositionRuleProcessor {
     final Function1<DLiteral, Boolean> _function = (DLiteral it) -> {
       return Boolean.valueOf((!((it instanceof TLiteralTransposition) || it.isSynthetic())));
     };
-    final Iterable<DLiteral> genuineLiterals = IterableExtensions.<DLiteral>filter(deductionDefinition.getLiterals(), _function);
+    final Iterable<DLiteral> genuineLiterals = IterableExtensions.<DLiteral>filter(recipe.getLiterals(), _function);
     for (final DLiteral literal : genuineLiterals) {
       this._syntheticModelElementsFactory.addSyntheticLiteralAsCopy(syntheticEnum, literal.getName(), literal);
     }
   }
   
-  public DType processTypeDeduction(final EObject container, final TTypeTransposition deductionDefinition, final TTranspositionRule rule) {
+  public DType transposeType(final EObject container, final TTypeTransposition recipe, final TTranspositionRule rule) {
     if (container instanceof ITypeContainer
-         && deductionDefinition instanceof TEnumerationTransposition
+         && recipe instanceof TEnumerationTransposition
          && rule instanceof TGrabRule) {
-      return _processTypeDeduction((ITypeContainer)container, (TEnumerationTransposition)deductionDefinition, (TGrabRule)rule);
+      return _transposeType((ITypeContainer)container, (TEnumerationTransposition)recipe, (TGrabRule)rule);
     } else if (container instanceof ITypeContainer
-         && deductionDefinition instanceof TPrimitiveTransposition
+         && recipe instanceof TPrimitiveTransposition
          && rule instanceof TGrabRule) {
-      return _processTypeDeduction((ITypeContainer)container, (TPrimitiveTransposition)deductionDefinition, (TGrabRule)rule);
+      return _transposeType((ITypeContainer)container, (TPrimitiveTransposition)recipe, (TGrabRule)rule);
     } else if (container instanceof ITypeContainer
-         && deductionDefinition instanceof TComplexTypeTransposition
+         && recipe instanceof TComplexTypeTransposition
          && rule instanceof TFuseRule) {
-      return _processTypeDeduction((ITypeContainer)container, (TComplexTypeTransposition)deductionDefinition, (TFuseRule)rule);
+      return _transposeType((ITypeContainer)container, (TComplexTypeTransposition)recipe, (TFuseRule)rule);
     } else if (container instanceof ITypeContainer
-         && deductionDefinition instanceof TComplexTypeTransposition
+         && recipe instanceof TComplexTypeTransposition
          && rule instanceof TMorphRule) {
-      return _processTypeDeduction((ITypeContainer)container, (TComplexTypeTransposition)deductionDefinition, (TMorphRule)rule);
+      return _transposeType((ITypeContainer)container, (TComplexTypeTransposition)recipe, (TMorphRule)rule);
     } else if (container instanceof ITypeContainer
-         && deductionDefinition instanceof TComplexTypeTransposition
+         && recipe instanceof TComplexTypeTransposition
          && rule instanceof TGrabRule) {
-      return _processTypeDeduction((ITypeContainer)container, (TComplexTypeTransposition)deductionDefinition, (TGrabRule)rule);
+      return _transposeType((ITypeContainer)container, (TComplexTypeTransposition)recipe, (TGrabRule)rule);
     } else if (container != null
-         && deductionDefinition != null
+         && recipe != null
          && rule instanceof TDitchRule) {
-      return _processTypeDeduction(container, deductionDefinition, (TDitchRule)rule);
+      return _transposeType(container, recipe, (TDitchRule)rule);
     } else if (container != null
-         && deductionDefinition != null
+         && recipe != null
          && rule != null) {
-      return _processTypeDeduction(container, deductionDefinition, rule);
+      return _transposeType(container, recipe, rule);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, deductionDefinition, rule).toString());
+        Arrays.<Object>asList(container, recipe, rule).toString());
     }
   }
 }

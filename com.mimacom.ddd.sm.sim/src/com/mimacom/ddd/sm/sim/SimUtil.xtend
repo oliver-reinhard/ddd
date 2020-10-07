@@ -74,11 +74,11 @@ class SimUtil extends DimUtil {
 	
 	def String label(TTranspositionRule rule) {
 		return switch rule {
-			TMorphRule : "Morph "  + rule.getSource.label + if (rule.getRenameTo !== null) " as " + rule.getRenameTo else ""
-			TFuseRule:  "Fuse "  + rule.getSource.label
-			TGrabRule : "Grab "  + rule.getSource.label + if (rule.getRenameTo !== null) " as " + rule.getRenameTo else ""
-			TDitchRule : "Ditch "  + rule.getSource.label
-			TGrabAggregateRule: "Grab aggregate " + rule.getSource.label
+			TMorphRule : "Morph "  + rule.source.label + if (rule.getRenameTo !== null) " as " + rule.getRenameTo else ""
+			TFuseRule:  "Fuse "  + rule.source.label
+			TGrabRule : "Grab "  + rule.source.label + if (rule.getRenameTo !== null) " as " + rule.getRenameTo else ""
+			TDitchRule : "Ditch "  + rule.source.label
+			TGrabAggregateRule: "Grab aggregate " + rule.source.label
 			default: rule.class.simpleName
 		}
 	}

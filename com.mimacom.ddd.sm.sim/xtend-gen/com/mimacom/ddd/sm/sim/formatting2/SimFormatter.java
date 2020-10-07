@@ -169,11 +169,11 @@ public class SimFormatter extends AbstractFormatter2 {
     } else if (en instanceof TMorphRule) {
       _format((TMorphRule)en, document);
       return;
-    } else if (en instanceof TComplexTypeTransposition) {
-      _format((TComplexTypeTransposition)en, document);
-      return;
     } else if (en instanceof SInformationModel) {
       _format((SInformationModel)en, document);
+      return;
+    } else if (en instanceof TComplexTypeTransposition) {
+      _format((TComplexTypeTransposition)en, document);
       return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);

@@ -110,9 +110,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SInformationModel createSInformationModel()
 	{
-		SInformationModelImpl sInformationModel = new SInformationModelImpl();
+		SInformationModelImplCustom sInformationModel = new SInformationModelImplCustom();
 		return sInformationModel;
 	}
 
@@ -143,6 +144,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimPackage getSimPackage()
 	{
 		return (SimPackage)getEPackage();
