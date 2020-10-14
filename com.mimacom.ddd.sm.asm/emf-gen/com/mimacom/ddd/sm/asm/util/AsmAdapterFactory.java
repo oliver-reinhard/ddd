@@ -83,49 +83,49 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 		new AsmSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseAsmModel(AsmModel object)
+			public Adapter caseApplicationServiceModel(ApplicationServiceModel object)
 			{
-				return createAsmModelAdapter();
+				return createApplicationServiceModelAdapter();
 			}
 			@Override
-			public Adapter caseSApplication(SApplication object)
+			public Adapter caseAsmApplication(AsmApplication object)
 			{
-				return createSApplicationAdapter();
+				return createAsmApplicationAdapter();
 			}
 			@Override
-			public Adapter caseSServiceInterface(SServiceInterface object)
+			public Adapter caseAsmServiceInterface(AsmServiceInterface object)
 			{
-				return createSServiceInterfaceAdapter();
+				return createAsmServiceInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseSException(SException object)
+			public Adapter caseAsmException(AsmException object)
 			{
-				return createSExceptionAdapter();
+				return createAsmExceptionAdapter();
 			}
 			@Override
-			public Adapter caseSActor(SActor object)
+			public Adapter caseAsmActor(AsmActor object)
 			{
-				return createSActorAdapter();
+				return createAsmActorAdapter();
 			}
 			@Override
-			public Adapter caseSWatchdog(SWatchdog object)
+			public Adapter caseAsmWatchdog(AsmWatchdog object)
 			{
-				return createSWatchdogAdapter();
+				return createAsmWatchdogAdapter();
 			}
 			@Override
-			public Adapter caseSHuman(SHuman object)
+			public Adapter caseAsmHuman(AsmHuman object)
 			{
-				return createSHumanAdapter();
+				return createAsmHumanAdapter();
 			}
 			@Override
-			public Adapter caseSServiceOperation(SServiceOperation object)
+			public Adapter caseAsmServiceOperation(AsmServiceOperation object)
 			{
-				return createSServiceOperationAdapter();
+				return createAsmServiceOperationAdapter();
 			}
 			@Override
-			public Adapter caseSServiceParameter(SServiceParameter object)
+			public Adapter caseAsmServiceParameter(AsmServiceParameter object)
 			{
-				return createSServiceParameterAdapter();
+				return createAsmServiceParameterAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -180,136 +180,136 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmModel <em>Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.ApplicationServiceModel <em>Application Service Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.AsmModel
+	 * @see com.mimacom.ddd.sm.asm.ApplicationServiceModel
 	 * @generated
 	 */
-	public Adapter createAsmModelAdapter()
+	public Adapter createApplicationServiceModelAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SApplication <em>SApplication</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SApplication
+	 * @see com.mimacom.ddd.sm.asm.AsmApplication
 	 * @generated
 	 */
-	public Adapter createSApplicationAdapter()
+	public Adapter createAsmApplicationAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SServiceInterface <em>SService Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmServiceInterface <em>Service Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceInterface
 	 * @generated
 	 */
-	public Adapter createSServiceInterfaceAdapter()
+	public Adapter createAsmServiceInterfaceAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SException <em>SException</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmException <em>Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SException
+	 * @see com.mimacom.ddd.sm.asm.AsmException
 	 * @generated
 	 */
-	public Adapter createSExceptionAdapter()
+	public Adapter createAsmExceptionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SActor <em>SActor</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SActor
+	 * @see com.mimacom.ddd.sm.asm.AsmActor
 	 * @generated
 	 */
-	public Adapter createSActorAdapter()
+	public Adapter createAsmActorAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SWatchdog <em>SWatchdog</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmWatchdog <em>Watchdog</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SWatchdog
+	 * @see com.mimacom.ddd.sm.asm.AsmWatchdog
 	 * @generated
 	 */
-	public Adapter createSWatchdogAdapter()
+	public Adapter createAsmWatchdogAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SHuman <em>SHuman</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmHuman <em>Human</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SHuman
+	 * @see com.mimacom.ddd.sm.asm.AsmHuman
 	 * @generated
 	 */
-	public Adapter createSHumanAdapter()
+	public Adapter createAsmHumanAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SServiceOperation <em>SService Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation <em>Service Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation
 	 * @generated
 	 */
-	public Adapter createSServiceOperationAdapter()
+	public Adapter createAsmServiceOperationAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SServiceParameter <em>SService Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.AsmServiceParameter <em>Service Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.asm.SServiceParameter
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceParameter
 	 * @generated
 	 */
-	public Adapter createSServiceParameterAdapter()
+	public Adapter createAsmServiceParameterAdapter()
 	{
 		return null;
 	}

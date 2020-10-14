@@ -65,7 +65,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
+			case SimPackage.SYSTEM_INFORMATION_MODEL: return createSystemInformationModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,8 +81,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
-			case SimPackage.SINFORMATION_MODEL_KIND:
-				return createSInformationModelKindFromString(eDataType, initialValue);
+			case SimPackage.SYSTEM_INFORMATION_MODEL_KIND:
+				return createSystemInformationModelKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -98,8 +98,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
-			case SimPackage.SINFORMATION_MODEL_KIND:
-				return convertSInformationModelKindToString(eDataType, instanceValue);
+			case SimPackage.SYSTEM_INFORMATION_MODEL_KIND:
+				return convertSystemInformationModelKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -110,11 +110,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public SInformationModel createSInformationModel()
+	public SystemInformationModel createSystemInformationModel()
 	{
-		SInformationModelImplCustom sInformationModel = new SInformationModelImplCustom();
-		return sInformationModel;
+		SystemInformationModelImpl systemInformationModel = new SystemInformationModelImpl();
+		return systemInformationModel;
 	}
 
 	/**
@@ -122,9 +121,9 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModelKind createSInformationModelKindFromString(EDataType eDataType, String initialValue)
+	public SystemInformationModelKind createSystemInformationModelKindFromString(EDataType eDataType, String initialValue)
 	{
-		SInformationModelKind result = SInformationModelKind.get(initialValue);
+		SystemInformationModelKind result = SystemInformationModelKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -134,7 +133,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertSInformationModelKindToString(EDataType eDataType, Object instanceValue)
+	public String convertSystemInformationModelKindToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}
@@ -144,7 +143,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SimPackage getSimPackage()
 	{
 		return (SimPackage)getEPackage();

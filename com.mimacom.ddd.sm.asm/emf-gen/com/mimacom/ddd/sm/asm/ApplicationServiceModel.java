@@ -9,14 +9,14 @@ import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Model</b></em>'.
+ * A representation of the model object '<em><b>Application Service Model</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmModel()
+ * @see com.mimacom.ddd.sm.asm.AsmPackage#getApplicationServiceModel()
  * @model abstract="true"
  * @generated
  */
-public interface AsmModel extends DModel, IDiagramRoot, IStaticReferenceTarget
+public interface ApplicationServiceModel extends DModel, IDiagramRoot, IStaticReferenceTarget
 {
-} // AsmModel
+} // ApplicationServiceModel

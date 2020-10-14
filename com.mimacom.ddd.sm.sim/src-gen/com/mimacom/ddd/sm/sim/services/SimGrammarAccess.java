@@ -37,17 +37,17 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
 		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cModelSInformationModelParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
+		private final RuleCall cModelSystemInformationModelParserRuleCall_3_0 = (RuleCall)cModelAssignment_3.eContents().get(0);
 		
 		//@Override
 		//DNamespace:
 		//	'system'
 		//	name=DQualifiedName
 		//	imports+=DImport*
-		//	model=SInformationModel;
+		//	model=SystemInformationModel;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'system' name=DQualifiedName imports+=DImport* model=SInformationModel
+		//'system' name=DQualifiedName imports+=DImport* model=SystemInformationModel
 		public Group getGroup() { return cGroup; }
 		
 		//'system'
@@ -65,14 +65,14 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//DImport
 		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
 		
-		//model=SInformationModel
+		//model=SystemInformationModel
 		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
 		
-		//SInformationModel
-		public RuleCall getModelSInformationModelParserRuleCall_3_0() { return cModelSInformationModelParserRuleCall_3_0; }
+		//SystemInformationModel
+		public RuleCall getModelSystemInformationModelParserRuleCall_3_0() { return cModelSystemInformationModelParserRuleCall_3_0; }
 	}
-	public class SInformationModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModel");
+	public class SystemInformationModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SystemInformationModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
@@ -82,7 +82,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cModelKeyword_0_0_2 = (Keyword)cGroup_0_0.eContents().get(2);
 		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
 		private final Assignment cKindAssignment_0_1_0 = (Assignment)cGroup_0_1.eContents().get(0);
-		private final RuleCall cKindSInformationModelKindEnumRuleCall_0_1_0_0 = (RuleCall)cKindAssignment_0_1_0.eContents().get(0);
+		private final RuleCall cKindSystemInformationModelKindEnumRuleCall_0_1_0_0 = (RuleCall)cKindAssignment_0_1_0.eContents().get(0);
 		private final Keyword cInformationKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
 		private final Keyword cModelKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -99,20 +99,20 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAggregatesSimAggregateParserRuleCall_5_1_0 = (RuleCall)cAggregatesAssignment_5_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//SInformationModel:
+		//SystemInformationModel:
 		//	(kind=STypeModelKind 'type' 'model'
-		//	| kind=SInformationModelKind 'information' 'model') name=ID
+		//	| kind=SystemInformationModelKind 'information' 'model') name=ID
 		//	^generate?='generate'?
 		//	description=DRichText?
 		//	'{' (types+=SimType | aggregates+=SimAggregate)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(kind=STypeModelKind 'type' 'model' | kind=SInformationModelKind 'information' 'model') name=ID ^generate?='generate'?
-		//description=DRichText? '{' (types+=SimType | aggregates+=SimAggregate)* '}'
+		//(kind=STypeModelKind 'type' 'model' | kind=SystemInformationModelKind 'information' 'model') name=ID
+		//^generate?='generate'? description=DRichText? '{' (types+=SimType | aggregates+=SimAggregate)* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//(kind=STypeModelKind 'type' 'model' | kind=SInformationModelKind 'information' 'model')
+		//(kind=STypeModelKind 'type' 'model' | kind=SystemInformationModelKind 'information' 'model')
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//kind=STypeModelKind 'type' 'model'
@@ -130,14 +130,14 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'model'
 		public Keyword getModelKeyword_0_0_2() { return cModelKeyword_0_0_2; }
 		
-		//kind=SInformationModelKind 'information' 'model'
+		//kind=SystemInformationModelKind 'information' 'model'
 		public Group getGroup_0_1() { return cGroup_0_1; }
 		
-		//kind=SInformationModelKind
+		//kind=SystemInformationModelKind
 		public Assignment getKindAssignment_0_1_0() { return cKindAssignment_0_1_0; }
 		
-		//SInformationModelKind
-		public RuleCall getKindSInformationModelKindEnumRuleCall_0_1_0_0() { return cKindSInformationModelKindEnumRuleCall_0_1_0_0; }
+		//SystemInformationModelKind
+		public RuleCall getKindSystemInformationModelKindEnumRuleCall_0_1_0_0() { return cKindSystemInformationModelKindEnumRuleCall_0_1_0_0; }
 		
 		//'information'
 		public Keyword getInformationKeyword_0_1_1() { return cInformationKeyword_0_1_1; }
@@ -2324,7 +2324,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cBASEEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
 		private final Keyword cBASEBaseKeyword_0 = (Keyword)cBASEEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum STypeModelKind returns SInformationModelKind:
+		//enum STypeModelKind returns SystemInformationModelKind:
 		//	BASE='base';
 		public EnumRule getRule() { return rule; }
 		
@@ -2334,15 +2334,15 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'base'
 		public Keyword getBASEBaseKeyword_0() { return cBASEBaseKeyword_0; }
 	}
-	public class SInformationModelKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
+	public class SystemInformationModelKindElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SystemInformationModelKind");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cINTERFACEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cINTERFACEInterfaceKeyword_0_0 = (Keyword)cINTERFACEEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cCOREEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cCORECoreKeyword_1_0 = (Keyword)cCOREEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum SInformationModelKind:
+		//enum SystemInformationModelKind:
 		//	INTERFACE='interface' | CORE='core';
 		public EnumRule getRule() { return rule; }
 		
@@ -2447,9 +2447,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final DNamespaceElements pDNamespace;
-	private final SInformationModelElements pSInformationModel;
+	private final SystemInformationModelElements pSystemInformationModel;
 	private final STypeModelKindElements eSTypeModelKind;
-	private final SInformationModelKindElements eSInformationModelKind;
+	private final SystemInformationModelKindElements eSystemInformationModelKind;
 	private final SimGrabAggregateRuleElements pSimGrabAggregateRule;
 	private final SimGrabPrimitiveRuleElements pSimGrabPrimitiveRule;
 	private final SimDitchPrimitiveRuleElements pSimDitchPrimitiveRule;
@@ -2505,9 +2505,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaDim = gaDim;
 		this.gaDmx = gaDmx;
 		this.pDNamespace = new DNamespaceElements();
-		this.pSInformationModel = new SInformationModelElements();
+		this.pSystemInformationModel = new SystemInformationModelElements();
 		this.eSTypeModelKind = new STypeModelKindElements();
-		this.eSInformationModelKind = new SInformationModelKindElements();
+		this.eSystemInformationModelKind = new SystemInformationModelKindElements();
 		this.pSimGrabAggregateRule = new SimGrabAggregateRuleElements();
 		this.pSimGrabPrimitiveRule = new SimGrabPrimitiveRuleElements();
 		this.pSimDitchPrimitiveRule = new SimDitchPrimitiveRuleElements();
@@ -2586,7 +2586,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//	'system'
 	//	name=DQualifiedName
 	//	imports+=DImport*
-	//	model=SInformationModel;
+	//	model=SystemInformationModel;
 	public DNamespaceElements getDNamespaceAccess() {
 		return pDNamespace;
 	}
@@ -2595,22 +2595,22 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDNamespaceAccess().getRule();
 	}
 	
-	//SInformationModel:
+	//SystemInformationModel:
 	//	(kind=STypeModelKind 'type' 'model'
-	//	| kind=SInformationModelKind 'information' 'model') name=ID
+	//	| kind=SystemInformationModelKind 'information' 'model') name=ID
 	//	^generate?='generate'?
 	//	description=DRichText?
 	//	'{' (types+=SimType | aggregates+=SimAggregate)*
 	//	'}';
-	public SInformationModelElements getSInformationModelAccess() {
-		return pSInformationModel;
+	public SystemInformationModelElements getSystemInformationModelAccess() {
+		return pSystemInformationModel;
 	}
 	
-	public ParserRule getSInformationModelRule() {
-		return getSInformationModelAccess().getRule();
+	public ParserRule getSystemInformationModelRule() {
+		return getSystemInformationModelAccess().getRule();
 	}
 	
-	//enum STypeModelKind returns SInformationModelKind:
+	//enum STypeModelKind returns SystemInformationModelKind:
 	//	BASE='base';
 	public STypeModelKindElements getSTypeModelKindAccess() {
 		return eSTypeModelKind;
@@ -2620,14 +2620,14 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getSTypeModelKindAccess().getRule();
 	}
 	
-	//enum SInformationModelKind:
+	//enum SystemInformationModelKind:
 	//	INTERFACE='interface' | CORE='core';
-	public SInformationModelKindElements getSInformationModelKindAccess() {
-		return eSInformationModelKind;
+	public SystemInformationModelKindElements getSystemInformationModelKindAccess() {
+		return eSystemInformationModelKind;
 	}
 	
-	public EnumRule getSInformationModelKindRule() {
-		return getSInformationModelKindAccess().getRule();
+	public EnumRule getSystemInformationModelKindRule() {
+		return getSystemInformationModelKindAccess().getRule();
 	}
 	
 	///*

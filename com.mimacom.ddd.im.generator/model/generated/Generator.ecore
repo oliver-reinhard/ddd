@@ -20,7 +20,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExceptionMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SException"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//AsmException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -33,7 +33,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="EndpointDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//HttpVerb"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//SServiceOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/com.mimacom.ddd.sm.asm/model/asm.ecore#//AsmServiceOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Path" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path">

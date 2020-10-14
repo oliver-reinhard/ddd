@@ -11,59 +11,59 @@ DNamespace:
 	'system'
 	name=DQualifiedName
 	(imports+=DImport)*
-	model=(SApplication | SServiceInterface);
+	model=(AsmApplication | AsmServiceInterface);
 
 
-SApplication:
+AsmApplication:
 	'application'
 	name=ID
-	'information' 'model' model=[SInformationModel|DQualifiedName]
-	(actors+=SActor)*;
+	'information' 'model' model=[SystemInformationModel|DQualifiedName]
+	(actors+=AsmActor)*;
 
-SServiceInterface:
+AsmServiceInterface:
 	'service' 'interface'
 	name=ID
-	'interface' 'model' interface=[SInformationModel|DQualifiedName]
-	'core' 'model' core=[SInformationModel|DQualifiedName]
-	(exceptions+=SException)*
-	(operations+=SServiceOperation)*;
+	'interface' 'model' interface=[SystemInformationModel|DQualifiedName]
+	'core' 'model' core=[SystemInformationModel|DQualifiedName]
+	(exceptions+=AsmException)*
+	(operations+=AsmServiceOperation)*;
 
-SActor:
-	SWatchdog | SHuman;
+AsmActor:
+	AsmWatchdog | AsmHuman;
 
-SWatchdog:
+AsmWatchdog:
 	'watchdog'
 	name=ID;
 
-SHuman:
+AsmHuman:
 	'human'
 	name=ID;
 
-SServiceOperation:
+AsmServiceOperation:
 	'operation'
 	name=ID
-	'(' 	(parameters+=SServiceParameter ( "," parameters+=SServiceParameter)*)?
+	'(' 	(parameters+=AsmServiceParameter ( "," parameters+=AsmServiceParameter)*)?
 	')'
-	('raises' raises+=[SException|ID]  ( "," raises+=[SException|ID])* )?
+	('raises' raises+=[AsmException|ID]  ( "," raises+=[AsmException|ID])* )?
 	'{'
 	('guard' guards+=DExpression)*
 	('effect' effects+=DExpression)*
 	'}';
 
-SServiceParameter:
-	direction=SDirection
+AsmServiceParameter:
+	direction=AsmParameterDirection
 	name=ID
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
-SException:
+AsmException:
 	'exception'
 	name=ID
 	(description=DRichText)?;
 	
-enum SServiceKind:
+enum AsmServiceKind:
 				SYNCHRONOUS = 'synchronous' | ASYNCHRONOUS = 'async';
 
-enum SDirection:
+enum AsmParameterDirection:
 				INBOUND = 'in' | OUTBOUND = 'out';

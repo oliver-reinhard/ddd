@@ -30,7 +30,6 @@ import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup
-import com.mimacom.ddd.sm.sim.SInformationModel
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.testing.InjectWith
@@ -41,6 +40,7 @@ import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
@@ -196,7 +196,7 @@ class SimTranspositionTest {
 			}
 		''', resourceSet)
 		assertNoParseErrors(smNS, "sm")
-		val sm = smNS.model as SInformationModel
+		val sm = smNS.model as SystemInformationModel
 		assertNotNull(sm)
 		//
 		assertEquals(2, sm.types.size)
@@ -242,7 +242,7 @@ class SimTranspositionTest {
 			}
 		''', resourceSet)
 		assertNoParseErrors(smNS, "sm")
-		val sm = smNS.model as SInformationModel
+		val sm = smNS.model as SystemInformationModel
 		assertNotNull(sm)
 		//
 		assertEquals(4, sm.types.size)
@@ -313,7 +313,7 @@ class SimTranspositionTest {
 			}
 		''', resourceSet)
 		assertNoParseErrors(smNS, "sm")
-		val sm = smNS.model as SInformationModel
+		val sm = smNS.model as SystemInformationModel
 		assertNotNull(sm)
 		//
 		assertEquals(6, sm.types.size)
@@ -408,7 +408,7 @@ class SimTranspositionTest {
 			}
 		''', resourceSet)
 		assertNoParseErrors(smNS, "sm")
-		val sm = smNS.model as SInformationModel
+		val sm = smNS.model as SystemInformationModel
 		assertNotNull(sm)
 		//
 		assertEquals(2, sm.types.size)
@@ -495,7 +495,7 @@ class SimTranspositionTest {
 			}
 		''', resourceSet)
 		assertNoParseErrors(smNS, "sm")
-		val sm = smNS.model as SInformationModel
+		val sm = smNS.model as SystemInformationModel
 		assertNotNull(sm)
 		//
 		assertEquals(2, sm.types.size)

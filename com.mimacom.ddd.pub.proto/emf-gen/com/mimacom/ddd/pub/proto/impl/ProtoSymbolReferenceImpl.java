@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.pub.proto.impl;
 
+import com.mimacom.ddd.dm.base.base.impl.DExpressionImpl;
+
 import com.mimacom.ddd.pub.proto.ProtoPackage;
 import com.mimacom.ddd.pub.proto.ProtoSymbol;
 import com.mimacom.ddd.pub.proto.ProtoSymbolReference;
@@ -26,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ProtoSymbolReferenceImpl extends com.mimacom.ddd.dm.base.base.impl.DExpressionImpl implements ProtoSymbolReference {
+public class ProtoSymbolReferenceImpl extends DExpressionImpl implements ProtoSymbolReference {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -61,7 +63,6 @@ public class ProtoSymbolReferenceImpl extends com.mimacom.ddd.dm.base.base.impl.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ProtoSymbol getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -88,7 +89,6 @@ public class ProtoSymbolReferenceImpl extends com.mimacom.ddd.dm.base.base.impl.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTarget(ProtoSymbol newTarget) {
 		ProtoSymbol oldTarget = target;
 		target = newTarget;

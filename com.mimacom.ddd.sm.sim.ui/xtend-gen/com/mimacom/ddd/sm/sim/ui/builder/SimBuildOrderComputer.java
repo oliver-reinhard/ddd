@@ -7,7 +7,7 @@ import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -107,8 +107,8 @@ public class SimBuildOrderComputer {
         final EObject namespace = _xifexpression;
         if ((namespace instanceof DNamespace)) {
           final DModel model = ((DNamespace)namespace).getModel();
-          if ((model instanceof SInformationModel)) {
-            String _name = ((SInformationModel)model).getName();
+          if ((model instanceof SystemInformationModel)) {
+            String _name = ((SystemInformationModel)model).getName();
             final SimBuildOrderComputer.SimModelDescriptor modelDescriptor = new SimBuildOrderComputer.SimModelDescriptor(uri, ((DNamespace)namespace), _name);
             this.simModelMap.put(modelDescriptor.name, modelDescriptor);
           }

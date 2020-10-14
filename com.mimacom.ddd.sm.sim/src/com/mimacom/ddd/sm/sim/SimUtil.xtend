@@ -52,7 +52,7 @@ class SimUtil extends DimUtil {
 	
 	def List<DType> syntheticTypes(TAggregateTransposition a) {
 		// get synthetic aggregate that was created for 'aggregate' rule:
-		val model = a.eContainer as SInformationModel
+		val model = a.eContainer as SystemInformationModel
 		val syntheticAggregates = model.aggregates.filter[isSynthetic && getTransposedBy == a]
 		if (syntheticAggregates.size == 1) {
 			return syntheticAggregates.head.types

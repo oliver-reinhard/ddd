@@ -55354,13 +55354,13 @@ public class InternalGeneratorParser extends AbstractInternalContentAssistParser
             // InternalGenerator.g:16820:3: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExceptionMappingAccess().getTypeSExceptionCrossReference_3_0()); 
+               before(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionCrossReference_3_0()); 
             }
             // InternalGenerator.g:16821:3: ( ruleQualifiedName )
             // InternalGenerator.g:16822:4: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExceptionMappingAccess().getTypeSExceptionQualifiedNameParserRuleCall_3_0_1()); 
+               before(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1()); 
             }
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
@@ -55368,13 +55368,13 @@ public class InternalGeneratorParser extends AbstractInternalContentAssistParser
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExceptionMappingAccess().getTypeSExceptionQualifiedNameParserRuleCall_3_0_1()); 
+               after(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExceptionMappingAccess().getTypeSExceptionCrossReference_3_0()); 
+               after(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionCrossReference_3_0()); 
             }
 
             }
@@ -55734,13 +55734,13 @@ public class InternalGeneratorParser extends AbstractInternalContentAssistParser
             // InternalGenerator.g:16948:3: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationCrossReference_3_0()); 
+               before(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationCrossReference_3_0()); 
             }
             // InternalGenerator.g:16949:3: ( ruleQualifiedName )
             // InternalGenerator.g:16950:4: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1()); 
+               before(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1()); 
             }
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
@@ -55748,13 +55748,13 @@ public class InternalGeneratorParser extends AbstractInternalContentAssistParser
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1()); 
+               after(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationCrossReference_3_0()); 
+               after(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationCrossReference_3_0()); 
             }
 
             }

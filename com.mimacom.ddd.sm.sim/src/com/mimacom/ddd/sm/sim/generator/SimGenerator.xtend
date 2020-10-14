@@ -6,7 +6,6 @@ package com.mimacom.ddd.sm.sim.generator
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.ITransposableElement
 import com.mimacom.ddd.dm.base.base.ITransposition
-import com.mimacom.ddd.sm.sim.SInformationModel
 import java.io.CharArrayWriter
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.util.EcoreUtil
@@ -17,6 +16,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 /**
  * Generates code from your model files on save.
@@ -29,8 +29,8 @@ class SimGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.contents.head
-		if (model instanceof SInformationModel) {
-			if (model.generate) {
+		if (model instanceof SystemInformationModel) {
+			if (model.isGenerate) {
 				val targetRS = new XtextResourceSet
 				EcoreUtil2.clone(targetRS, resource.resourceSet)
 				val resourceCopy = targetRS.getResource(resource.URI, true)
@@ -49,7 +49,7 @@ class SimGenerator extends AbstractGenerator {
 	def boolean removeTransformationItems(Resource resource) {
 		var hadSyntheticItems = false
 		val model = resource.contents.head
-		if (model instanceof SInformationModel) {
+		if (model instanceof SystemInformationModel) {
 			model.generate = false
 			// change name space so index entries to avoid conflict with original Sim file:
 			model.name = model.name + ".generated"

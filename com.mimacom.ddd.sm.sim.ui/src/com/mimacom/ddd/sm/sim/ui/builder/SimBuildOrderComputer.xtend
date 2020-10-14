@@ -5,13 +5,13 @@ import com.google.common.collect.Maps
 import com.google.common.collect.Sets
 import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource
-import com.mimacom.ddd.sm.sim.SInformationModel
 import java.util.List
 import java.util.Map
 import java.util.Set
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.naming.QualifiedName
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 /**
  * In the context of a ClusteringBuilderState, takes a set of SIM information models (as URIs),
@@ -90,7 +90,7 @@ class SimBuildOrderComputer {
 				}
 			if (namespace instanceof DNamespace) {
 				val model = namespace.model
-				if (model instanceof SInformationModel) {
+				if (model instanceof SystemInformationModel) {
 					val modelDescriptor = new SimModelDescriptor(uri, namespace, model.name)
 					simModelMap.put(modelDescriptor.name, modelDescriptor)
 				}

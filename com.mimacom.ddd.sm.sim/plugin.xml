@@ -21,7 +21,7 @@
             id="sim.informationStructure.png"
             diagramName="System Information Structure (PNG)"
             diagramType="sim.informationStructure"
-            diagramRootClass="com.mimacom.ddd.sm.sim.SInformationModel"
+            diagramRootClass="com.mimacom.ddd.sm.sim.SystemInformationModel"
             outputFileFormat="PNG"
             rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRenderer">
       </renderer>
@@ -29,7 +29,7 @@
             id="sim.informationStructure.svg"
             diagramName="System Information Structure (SVG)"
             diagramType="sim.informationStructure"
-            diagramRootClass="com.mimacom.ddd.sm.sim.SInformationModel"
+            diagramRootClass="com.mimacom.ddd.sm.sim.SystemInformationModel"
             outputFileFormat="SVG"
             rendererClass="com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.sm.sim.diagramProvider.SimTypeDiagramRenderer">
       </renderer>

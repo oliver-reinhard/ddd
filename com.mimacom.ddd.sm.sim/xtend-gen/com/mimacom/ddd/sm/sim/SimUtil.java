@@ -31,7 +31,7 @@ import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.dim.DimUtil;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.util.Collections;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -94,7 +94,7 @@ public class SimUtil extends DimUtil {
   
   public List<DType> syntheticTypes(final TAggregateTransposition a) {
     EObject _eContainer = a.eContainer();
-    final SInformationModel model = ((SInformationModel) _eContainer);
+    final SystemInformationModel model = ((SystemInformationModel) _eContainer);
     final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
       return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getTransposedBy(), a)));
     };

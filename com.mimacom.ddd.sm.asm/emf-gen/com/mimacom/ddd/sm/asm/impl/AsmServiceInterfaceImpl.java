@@ -3,12 +3,12 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
+import com.mimacom.ddd.sm.asm.AsmException;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SException;
-import com.mimacom.ddd.sm.asm.SServiceInterface;
-import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceInterface;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
 
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 
 import java.util.Collection;
 
@@ -27,21 +27,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SService Interface</b></em>'.
+ * An implementation of the model object '<em><b>Service Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getInterface <em>Interface</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getCore <em>Core</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getExceptions <em>Exceptions</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getOperations <em>Operations</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl#getCore <em>Core</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl#getExceptions <em>Exceptions</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl#getOperations <em>Operations</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInterface
+public class AsmServiceInterfaceImpl extends ApplicationServiceModelImpl implements AsmServiceInterface
 {
 	/**
 	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
@@ -51,7 +51,7 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * @generated
 	 * @ordered
 	 */
-	protected SInformationModel interface_;
+	protected SystemInformationModel interface_;
 
 	/**
 	 * The cached value of the '{@link #getCore() <em>Core</em>}' reference.
@@ -61,7 +61,7 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * @generated
 	 * @ordered
 	 */
-	protected SInformationModel core;
+	protected SystemInformationModel core;
 
 	/**
 	 * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' containment reference list.
@@ -71,7 +71,7 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SException> exceptions;
+	protected EList<AsmException> exceptions;
 
 	/**
 	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
@@ -81,14 +81,14 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SServiceOperation> operations;
+	protected EList<AsmServiceOperation> operations;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SServiceInterfaceImpl()
+	protected AsmServiceInterfaceImpl()
 	{
 		super();
 	}
@@ -101,7 +101,7 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SSERVICE_INTERFACE;
+		return AsmPackage.Literals.ASM_SERVICE_INTERFACE;
 	}
 
 	/**
@@ -109,16 +109,16 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel getInterface()
+	public SystemInformationModel getInterface()
 	{
 		if (interface_ != null && interface_.eIsProxy())
 		{
 			InternalEObject oldInterface = (InternalEObject)interface_;
-			interface_ = (SInformationModel)eResolveProxy(oldInterface);
+			interface_ = (SystemInformationModel)eResolveProxy(oldInterface);
 			if (interface_ != oldInterface)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.SSERVICE_INTERFACE__INTERFACE, oldInterface, interface_));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.ASM_SERVICE_INTERFACE__INTERFACE, oldInterface, interface_));
 			}
 		}
 		return interface_;
@@ -129,7 +129,7 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel basicGetInterface()
+	public SystemInformationModel basicGetInterface()
 	{
 		return interface_;
 	}
@@ -139,12 +139,12 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInterface(SInformationModel newInterface)
+	public void setInterface(SystemInformationModel newInterface)
 	{
-		SInformationModel oldInterface = interface_;
+		SystemInformationModel oldInterface = interface_;
 		interface_ = newInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_INTERFACE__INTERFACE, oldInterface, interface_));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.ASM_SERVICE_INTERFACE__INTERFACE, oldInterface, interface_));
 	}
 
 	/**
@@ -152,16 +152,16 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel getCore()
+	public SystemInformationModel getCore()
 	{
 		if (core != null && core.eIsProxy())
 		{
 			InternalEObject oldCore = (InternalEObject)core;
-			core = (SInformationModel)eResolveProxy(oldCore);
+			core = (SystemInformationModel)eResolveProxy(oldCore);
 			if (core != oldCore)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.SSERVICE_INTERFACE__CORE, oldCore, core));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.ASM_SERVICE_INTERFACE__CORE, oldCore, core));
 			}
 		}
 		return core;
@@ -172,7 +172,7 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel basicGetCore()
+	public SystemInformationModel basicGetCore()
 	{
 		return core;
 	}
@@ -182,12 +182,12 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCore(SInformationModel newCore)
+	public void setCore(SystemInformationModel newCore)
 	{
-		SInformationModel oldCore = core;
+		SystemInformationModel oldCore = core;
 		core = newCore;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_INTERFACE__CORE, oldCore, core));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.ASM_SERVICE_INTERFACE__CORE, oldCore, core));
 	}
 
 	/**
@@ -195,11 +195,11 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SException> getExceptions()
+	public EList<AsmException> getExceptions()
 	{
 		if (exceptions == null)
 		{
-			exceptions = new EObjectContainmentEList<SException>(SException.class, this, AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS);
+			exceptions = new EObjectContainmentEList<AsmException>(AsmException.class, this, AsmPackage.ASM_SERVICE_INTERFACE__EXCEPTIONS);
 		}
 		return exceptions;
 	}
@@ -209,11 +209,11 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SServiceOperation> getOperations()
+	public EList<AsmServiceOperation> getOperations()
 	{
 		if (operations == null)
 		{
-			operations = new EObjectContainmentEList<SServiceOperation>(SServiceOperation.class, this, AsmPackage.SSERVICE_INTERFACE__OPERATIONS);
+			operations = new EObjectContainmentEList<AsmServiceOperation>(AsmServiceOperation.class, this, AsmPackage.ASM_SERVICE_INTERFACE__OPERATIONS);
 		}
 		return operations;
 	}
@@ -228,9 +228,9 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__EXCEPTIONS:
 				return ((InternalEList<?>)getExceptions()).basicRemove(otherEnd, msgs);
-			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__OPERATIONS:
 				return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -246,15 +246,15 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
+			case AsmPackage.ASM_SERVICE_INTERFACE__INTERFACE:
 				if (resolve) return getInterface();
 				return basicGetInterface();
-			case AsmPackage.SSERVICE_INTERFACE__CORE:
+			case AsmPackage.ASM_SERVICE_INTERFACE__CORE:
 				if (resolve) return getCore();
 				return basicGetCore();
-			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__EXCEPTIONS:
 				return getExceptions();
-			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__OPERATIONS:
 				return getOperations();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -271,19 +271,19 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
-				setInterface((SInformationModel)newValue);
+			case AsmPackage.ASM_SERVICE_INTERFACE__INTERFACE:
+				setInterface((SystemInformationModel)newValue);
 				return;
-			case AsmPackage.SSERVICE_INTERFACE__CORE:
-				setCore((SInformationModel)newValue);
+			case AsmPackage.ASM_SERVICE_INTERFACE__CORE:
+				setCore((SystemInformationModel)newValue);
 				return;
-			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__EXCEPTIONS:
 				getExceptions().clear();
-				getExceptions().addAll((Collection<? extends SException>)newValue);
+				getExceptions().addAll((Collection<? extends AsmException>)newValue);
 				return;
-			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__OPERATIONS:
 				getOperations().clear();
-				getOperations().addAll((Collection<? extends SServiceOperation>)newValue);
+				getOperations().addAll((Collection<? extends AsmServiceOperation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -299,16 +299,16 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
-				setInterface((SInformationModel)null);
+			case AsmPackage.ASM_SERVICE_INTERFACE__INTERFACE:
+				setInterface((SystemInformationModel)null);
 				return;
-			case AsmPackage.SSERVICE_INTERFACE__CORE:
-				setCore((SInformationModel)null);
+			case AsmPackage.ASM_SERVICE_INTERFACE__CORE:
+				setCore((SystemInformationModel)null);
 				return;
-			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__EXCEPTIONS:
 				getExceptions().clear();
 				return;
-			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__OPERATIONS:
 				getOperations().clear();
 				return;
 		}
@@ -325,16 +325,16 @@ public class SServiceInterfaceImpl extends AsmModelImpl implements SServiceInter
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
+			case AsmPackage.ASM_SERVICE_INTERFACE__INTERFACE:
 				return interface_ != null;
-			case AsmPackage.SSERVICE_INTERFACE__CORE:
+			case AsmPackage.ASM_SERVICE_INTERFACE__CORE:
 				return core != null;
-			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__EXCEPTIONS:
 				return exceptions != null && !exceptions.isEmpty();
-			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
+			case AsmPackage.ASM_SERVICE_INTERFACE__OPERATIONS:
 				return operations != null && !operations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SServiceInterfaceImpl
+} //AsmServiceInterfaceImpl

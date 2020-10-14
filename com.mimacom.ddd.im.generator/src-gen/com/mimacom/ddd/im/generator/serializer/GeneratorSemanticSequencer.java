@@ -365,7 +365,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     EndpointDeclaration returns EndpointDeclaration
 	 *
 	 * Constraint:
-	 *     (verb=HttpVerb name=QualifiedName type=[SServiceOperation|QualifiedName] path=Path?)
+	 *     (verb=HttpVerb name=QualifiedName type=[AsmServiceOperation|QualifiedName] path=Path?)
 	 */
 	protected void sequence_EndpointDeclaration(ISerializationContext context, EndpointDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -377,7 +377,7 @@ public class GeneratorSemanticSequencer extends XbaseSemanticSequencer {
 	 *     ExceptionMapping returns ExceptionMapping
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName type=[SException|QualifiedName] extends=[JvmType|QualifiedName]? message=STRING?)
+	 *     (name=QualifiedName type=[AsmException|QualifiedName] extends=[JvmType|QualifiedName]? message=STRING?)
 	 */
 	protected void sequence_ExceptionMapping(ISerializationContext context, ExceptionMapping semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

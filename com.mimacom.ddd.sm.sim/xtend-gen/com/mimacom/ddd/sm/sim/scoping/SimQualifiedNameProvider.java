@@ -3,7 +3,7 @@ package com.mimacom.ddd.sm.sim.scoping;
 import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamespace;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
@@ -55,7 +55,7 @@ public class SimQualifiedNameProvider extends DefaultDeclarativeQualifiedNamePro
     String _name = obj.getName();
     boolean _tripleNotEquals = (_name != null);
     if (_tripleNotEquals) {
-      final SInformationModel model = EcoreUtil2.<SInformationModel>getContainerOfType(obj, SInformationModel.class);
+      final SystemInformationModel model = EcoreUtil2.<SystemInformationModel>getContainerOfType(obj, SystemInformationModel.class);
       if ((model != null)) {
         final QualifiedName modelQN = this.getOrComputeFullyQualifiedName(model);
         return modelQN.append(obj.getName());

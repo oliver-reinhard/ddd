@@ -3,28 +3,26 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
-import com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl;
-
+import com.mimacom.ddd.sm.asm.AsmHuman;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SException;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SException</b></em>'.
+ * An implementation of the model object '<em><b>Human</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SExceptionImpl extends DNamedElementImpl implements SException
+public class AsmHumanImpl extends AsmActorImpl implements AsmHuman
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SExceptionImpl()
+	protected AsmHumanImpl()
 	{
 		super();
 	}
@@ -37,7 +35,7 @@ public class SExceptionImpl extends DNamedElementImpl implements SException
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SEXCEPTION;
+		return AsmPackage.Literals.ASM_HUMAN;
 	}
 
-} //SExceptionImpl
+} //AsmHumanImpl

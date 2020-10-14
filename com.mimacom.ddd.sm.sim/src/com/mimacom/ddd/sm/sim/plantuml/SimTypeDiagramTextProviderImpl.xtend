@@ -19,22 +19,22 @@ import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.dm.dim.DimUtil
-import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
-class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SInformationModel> {
+class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SystemInformationModel> {
 
 	@Inject extension DimUtil
 
-	override canProvide(SInformationModel model) {
+	override canProvide(SystemInformationModel model) {
 		model !== null && !(model.types.filter[!(it instanceof ITransposition)].empty && model.aggregates.filter [
 			!(it instanceof ITransposition)
 		].empty)
 	}
 
-	override String diagramText(SInformationModel model) {
+	override String diagramText(SystemInformationModel model) {
 		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof TAggregateTransposition)]
 		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof TAssociationTransposition)]
 		val allReferencedDomains = allAssociations.filter[targetType.modelName != model.name].map[targetType.modelName]
@@ -81,7 +81,7 @@ class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SIn
 	}
 
 	def String modelName(EObject obj) {
-		val d = EcoreUtil2.getContainerOfType(obj, SInformationModel)
+		val d = EcoreUtil2.getContainerOfType(obj, SystemInformationModel)
 		return if (d !== null) d.name else "undefined"
 	}
 	

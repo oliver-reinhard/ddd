@@ -11,14 +11,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>SDirection</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Parameter Direction</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.mimacom.ddd.sm.asm.AsmPackage#getSDirection()
+ * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmParameterDirection()
  * @model
  * @generated
  */
-public enum SDirection implements Enumerator
+public enum AsmParameterDirection implements Enumerator
 {
 	/**
 	 * The '<em><b>INBOUND</b></em>' literal object.
@@ -71,39 +71,39 @@ public enum SDirection implements Enumerator
 	public static final int OUTBOUND_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>SDirection</b></em>' enumerators.
+	 * An array of all the '<em><b>Parameter Direction</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final SDirection[] VALUES_ARRAY =
-		new SDirection[]
+	private static final AsmParameterDirection[] VALUES_ARRAY =
+		new AsmParameterDirection[]
 		{
 			INBOUND,
 			OUTBOUND,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>SDirection</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Parameter Direction</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<SDirection> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<AsmParameterDirection> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>SDirection</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Parameter Direction</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static SDirection get(String literal)
+	public static AsmParameterDirection get(String literal)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			SDirection result = VALUES_ARRAY[i];
+			AsmParameterDirection result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal))
 			{
 				return result;
@@ -113,18 +113,18 @@ public enum SDirection implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>SDirection</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Parameter Direction</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static SDirection getByName(String name)
+	public static AsmParameterDirection getByName(String name)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			SDirection result = VALUES_ARRAY[i];
+			AsmParameterDirection result = VALUES_ARRAY[i];
 			if (result.getName().equals(name))
 			{
 				return result;
@@ -134,14 +134,14 @@ public enum SDirection implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>SDirection</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Parameter Direction</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static SDirection get(int value)
+	public static AsmParameterDirection get(int value)
 	{
 		switch (value)
 		{
@@ -178,7 +178,7 @@ public enum SDirection implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private SDirection(int value, String name, String literal)
+	private AsmParameterDirection(int value, String name, String literal)
 	{
 		this.value = value;
 		this.name = name;
@@ -227,4 +227,4 @@ public enum SDirection implements Enumerator
 		return literal;
 	}
 	
-} //SDirection
+} //AsmParameterDirection

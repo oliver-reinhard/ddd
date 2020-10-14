@@ -1056,7 +1056,7 @@ public class InternalGeneratorParser extends AbstractInternalAntlrParser {
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getExceptionMappingAccess().getTypeSExceptionCrossReference_3_0());
+              					newCompositeNode(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionCrossReference_3_0());
               				
             }
             pushFollow(FOLLOW_16);
@@ -1633,7 +1633,7 @@ public class InternalGeneratorParser extends AbstractInternalAntlrParser {
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationCrossReference_3_0());
+              					newCompositeNode(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationCrossReference_3_0());
               				
             }
             pushFollow(FOLLOW_24);

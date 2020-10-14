@@ -10,10 +10,10 @@ import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.ITransposition;
-import com.mimacom.ddd.sm.asm.SServiceInterface;
-import com.mimacom.ddd.sm.asm.SServiceParameter;
+import com.mimacom.ddd.sm.asm.AsmServiceInterface;
+import com.mimacom.ddd.sm.asm.AsmServiceParameter;
 import com.mimacom.ddd.sm.asm.scoping.AbstractAsmScopeProvider;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -37,11 +37,11 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      if ((context instanceof SServiceParameter)) {
+      if ((context instanceof AsmServiceParameter)) {
         EReference _dNavigableMember_Type = AsmScopeProvider.BASE.getDNavigableMember_Type();
         boolean _equals = Objects.equal(reference, _dNavigableMember_Type);
         if (_equals) {
-          final SServiceInterface service = EcoreUtil2.<SServiceInterface>getContainerOfType(context, SServiceInterface.class);
+          final AsmServiceInterface service = EcoreUtil2.<AsmServiceInterface>getContainerOfType(context, AsmServiceInterface.class);
           final Function1<DType, Boolean> _function = (DType it) -> {
             return Boolean.valueOf((!(it instanceof ITransposition)));
           };
@@ -57,9 +57,9 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
   protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;
-    if (container instanceof SServiceInterface) {
+    if (container instanceof AsmServiceInterface) {
       _matched=true;
-      _switchResult = this.getServiceInterfaceCoreNavigableMembersScope(((SServiceInterface)container).getCore(), outerScope);
+      _switchResult = this.getServiceInterfaceCoreNavigableMembersScope(((AsmServiceInterface)container).getCore(), outerScope);
     }
     if (!_matched) {
       _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
@@ -68,7 +68,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
     return scope;
   }
   
-  protected IScope getServiceInterfaceCoreNavigableMembersScope(final SInformationModel core, final IScope outerScope) {
+  protected IScope getServiceInterfaceCoreNavigableMembersScope(final SystemInformationModel core, final IScope outerScope) {
     IScope _xblockexpression = null;
     {
       final List<EObject> list = Lists.<EObject>newArrayList();

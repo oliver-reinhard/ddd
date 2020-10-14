@@ -38,7 +38,7 @@ import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -255,7 +255,7 @@ public class SimTranspositionTest {
       final DNamespace smNS = this.simParseHelper.parse(_builder, resourceSet);
       this.assertNoParseErrors(smNS, "sm");
       DModel _model = smNS.getModel();
-      final SInformationModel sm = ((SInformationModel) _model);
+      final SystemInformationModel sm = ((SystemInformationModel) _model);
       Assertions.assertNotNull(sm);
       Assertions.assertEquals(2, sm.getTypes().size());
       DType _get_2 = sm.getTypes().get(0);
@@ -311,7 +311,7 @@ public class SimTranspositionTest {
       final DNamespace smNS = this.simParseHelper.parse(_builder, resourceSet);
       this.assertNoParseErrors(smNS, "sm");
       DModel _model = smNS.getModel();
-      final SInformationModel sm = ((SInformationModel) _model);
+      final SystemInformationModel sm = ((SystemInformationModel) _model);
       Assertions.assertNotNull(sm);
       Assertions.assertEquals(4, sm.getTypes().size());
       DType _get_2 = sm.getTypes().get(0);
@@ -397,7 +397,7 @@ public class SimTranspositionTest {
       final DNamespace smNS = this.simParseHelper.parse(_builder, resourceSet);
       this.assertNoParseErrors(smNS, "sm");
       DModel _model = smNS.getModel();
-      final SInformationModel sm = ((SInformationModel) _model);
+      final SystemInformationModel sm = ((SystemInformationModel) _model);
       Assertions.assertNotNull(sm);
       Assertions.assertEquals(6, sm.getTypes().size());
       DType _get_3 = sm.getTypes().get(0);
@@ -511,7 +511,7 @@ public class SimTranspositionTest {
       final DNamespace smNS = this.simParseHelper.parse(_builder, resourceSet);
       this.assertNoParseErrors(smNS, "sm");
       DModel _model = smNS.getModel();
-      final SInformationModel sm = ((SInformationModel) _model);
+      final SystemInformationModel sm = ((SystemInformationModel) _model);
       Assertions.assertNotNull(sm);
       Assertions.assertEquals(2, sm.getTypes().size());
       DType _get_3 = sm.getTypes().get(0);
@@ -620,7 +620,7 @@ public class SimTranspositionTest {
       final DNamespace smNS = this.simParseHelper.parse(_builder, resourceSet);
       this.assertNoParseErrors(smNS, "sm");
       DModel _model = smNS.getModel();
-      final SInformationModel sm = ((SInformationModel) _model);
+      final SystemInformationModel sm = ((SystemInformationModel) _model);
       Assertions.assertNotNull(sm);
       Assertions.assertEquals(2, sm.getTypes().size());
       DType _get_3 = sm.getTypes().get(0);

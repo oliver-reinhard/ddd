@@ -75,200 +75,200 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSApplication
-entryRuleSApplication
+// Entry rule entryRuleAsmApplication
+entryRuleAsmApplication
 :
-{ before(grammarAccess.getSApplicationRule()); }
-	 ruleSApplication
-{ after(grammarAccess.getSApplicationRule()); } 
+{ before(grammarAccess.getAsmApplicationRule()); }
+	 ruleAsmApplication
+{ after(grammarAccess.getAsmApplicationRule()); } 
 	 EOF 
 ;
 
-// Rule SApplication
-ruleSApplication 
+// Rule AsmApplication
+ruleAsmApplication 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSApplicationAccess().getGroup()); }
-		(rule__SApplication__Group__0)
-		{ after(grammarAccess.getSApplicationAccess().getGroup()); }
+		{ before(grammarAccess.getAsmApplicationAccess().getGroup()); }
+		(rule__AsmApplication__Group__0)
+		{ after(grammarAccess.getAsmApplicationAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSServiceInterface
-entryRuleSServiceInterface
+// Entry rule entryRuleAsmServiceInterface
+entryRuleAsmServiceInterface
 :
-{ before(grammarAccess.getSServiceInterfaceRule()); }
-	 ruleSServiceInterface
-{ after(grammarAccess.getSServiceInterfaceRule()); } 
+{ before(grammarAccess.getAsmServiceInterfaceRule()); }
+	 ruleAsmServiceInterface
+{ after(grammarAccess.getAsmServiceInterfaceRule()); } 
 	 EOF 
 ;
 
-// Rule SServiceInterface
-ruleSServiceInterface 
+// Rule AsmServiceInterface
+ruleAsmServiceInterface 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getGroup()); }
-		(rule__SServiceInterface__Group__0)
-		{ after(grammarAccess.getSServiceInterfaceAccess().getGroup()); }
+		{ before(grammarAccess.getAsmServiceInterfaceAccess().getGroup()); }
+		(rule__AsmServiceInterface__Group__0)
+		{ after(grammarAccess.getAsmServiceInterfaceAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSActor
-entryRuleSActor
+// Entry rule entryRuleAsmActor
+entryRuleAsmActor
 :
-{ before(grammarAccess.getSActorRule()); }
-	 ruleSActor
-{ after(grammarAccess.getSActorRule()); } 
+{ before(grammarAccess.getAsmActorRule()); }
+	 ruleAsmActor
+{ after(grammarAccess.getAsmActorRule()); } 
 	 EOF 
 ;
 
-// Rule SActor
-ruleSActor 
+// Rule AsmActor
+ruleAsmActor 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSActorAccess().getAlternatives()); }
-		(rule__SActor__Alternatives)
-		{ after(grammarAccess.getSActorAccess().getAlternatives()); }
+		{ before(grammarAccess.getAsmActorAccess().getAlternatives()); }
+		(rule__AsmActor__Alternatives)
+		{ after(grammarAccess.getAsmActorAccess().getAlternatives()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSWatchdog
-entryRuleSWatchdog
+// Entry rule entryRuleAsmWatchdog
+entryRuleAsmWatchdog
 :
-{ before(grammarAccess.getSWatchdogRule()); }
-	 ruleSWatchdog
-{ after(grammarAccess.getSWatchdogRule()); } 
+{ before(grammarAccess.getAsmWatchdogRule()); }
+	 ruleAsmWatchdog
+{ after(grammarAccess.getAsmWatchdogRule()); } 
 	 EOF 
 ;
 
-// Rule SWatchdog
-ruleSWatchdog 
+// Rule AsmWatchdog
+ruleAsmWatchdog 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSWatchdogAccess().getGroup()); }
-		(rule__SWatchdog__Group__0)
-		{ after(grammarAccess.getSWatchdogAccess().getGroup()); }
+		{ before(grammarAccess.getAsmWatchdogAccess().getGroup()); }
+		(rule__AsmWatchdog__Group__0)
+		{ after(grammarAccess.getAsmWatchdogAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSHuman
-entryRuleSHuman
+// Entry rule entryRuleAsmHuman
+entryRuleAsmHuman
 :
-{ before(grammarAccess.getSHumanRule()); }
-	 ruleSHuman
-{ after(grammarAccess.getSHumanRule()); } 
+{ before(grammarAccess.getAsmHumanRule()); }
+	 ruleAsmHuman
+{ after(grammarAccess.getAsmHumanRule()); } 
 	 EOF 
 ;
 
-// Rule SHuman
-ruleSHuman 
+// Rule AsmHuman
+ruleAsmHuman 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSHumanAccess().getGroup()); }
-		(rule__SHuman__Group__0)
-		{ after(grammarAccess.getSHumanAccess().getGroup()); }
+		{ before(grammarAccess.getAsmHumanAccess().getGroup()); }
+		(rule__AsmHuman__Group__0)
+		{ after(grammarAccess.getAsmHumanAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSServiceOperation
-entryRuleSServiceOperation
+// Entry rule entryRuleAsmServiceOperation
+entryRuleAsmServiceOperation
 :
-{ before(grammarAccess.getSServiceOperationRule()); }
-	 ruleSServiceOperation
-{ after(grammarAccess.getSServiceOperationRule()); } 
+{ before(grammarAccess.getAsmServiceOperationRule()); }
+	 ruleAsmServiceOperation
+{ after(grammarAccess.getAsmServiceOperationRule()); } 
 	 EOF 
 ;
 
-// Rule SServiceOperation
-ruleSServiceOperation 
+// Rule AsmServiceOperation
+ruleAsmServiceOperation 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getGroup()); }
-		(rule__SServiceOperation__Group__0)
-		{ after(grammarAccess.getSServiceOperationAccess().getGroup()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getGroup()); }
+		(rule__AsmServiceOperation__Group__0)
+		{ after(grammarAccess.getAsmServiceOperationAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSServiceParameter
-entryRuleSServiceParameter
+// Entry rule entryRuleAsmServiceParameter
+entryRuleAsmServiceParameter
 :
-{ before(grammarAccess.getSServiceParameterRule()); }
-	 ruleSServiceParameter
-{ after(grammarAccess.getSServiceParameterRule()); } 
+{ before(grammarAccess.getAsmServiceParameterRule()); }
+	 ruleAsmServiceParameter
+{ after(grammarAccess.getAsmServiceParameterRule()); } 
 	 EOF 
 ;
 
-// Rule SServiceParameter
-ruleSServiceParameter 
+// Rule AsmServiceParameter
+ruleAsmServiceParameter 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSServiceParameterAccess().getGroup()); }
-		(rule__SServiceParameter__Group__0)
-		{ after(grammarAccess.getSServiceParameterAccess().getGroup()); }
+		{ before(grammarAccess.getAsmServiceParameterAccess().getGroup()); }
+		(rule__AsmServiceParameter__Group__0)
+		{ after(grammarAccess.getAsmServiceParameterAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSException
-entryRuleSException
+// Entry rule entryRuleAsmException
+entryRuleAsmException
 :
-{ before(grammarAccess.getSExceptionRule()); }
-	 ruleSException
-{ after(grammarAccess.getSExceptionRule()); } 
+{ before(grammarAccess.getAsmExceptionRule()); }
+	 ruleAsmException
+{ after(grammarAccess.getAsmExceptionRule()); } 
 	 EOF 
 ;
 
-// Rule SException
-ruleSException 
+// Rule AsmException
+ruleAsmException 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSExceptionAccess().getGroup()); }
-		(rule__SException__Group__0)
-		{ after(grammarAccess.getSExceptionAccess().getGroup()); }
+		{ before(grammarAccess.getAsmExceptionAccess().getGroup()); }
+		(rule__AsmException__Group__0)
+		{ after(grammarAccess.getAsmExceptionAccess().getGroup()); }
 	)
 ;
 finally {
@@ -1667,16 +1667,16 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Rule SDirection
-ruleSDirection
+// Rule AsmParameterDirection
+ruleAsmParameterDirection
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSDirectionAccess().getAlternatives()); }
-		(rule__SDirection__Alternatives)
-		{ after(grammarAccess.getSDirectionAccess().getAlternatives()); }
+		{ before(grammarAccess.getAsmParameterDirectionAccess().getAlternatives()); }
+		(rule__AsmParameterDirection__Alternatives)
+		{ after(grammarAccess.getAsmParameterDirectionAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -1849,36 +1849,36 @@ rule__DNamespace__ModelAlternatives_3_0
 	}
 :
 	(
-		{ before(grammarAccess.getDNamespaceAccess().getModelSApplicationParserRuleCall_3_0_0()); }
-		ruleSApplication
-		{ after(grammarAccess.getDNamespaceAccess().getModelSApplicationParserRuleCall_3_0_0()); }
+		{ before(grammarAccess.getDNamespaceAccess().getModelAsmApplicationParserRuleCall_3_0_0()); }
+		ruleAsmApplication
+		{ after(grammarAccess.getDNamespaceAccess().getModelAsmApplicationParserRuleCall_3_0_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDNamespaceAccess().getModelSServiceInterfaceParserRuleCall_3_0_1()); }
-		ruleSServiceInterface
-		{ after(grammarAccess.getDNamespaceAccess().getModelSServiceInterfaceParserRuleCall_3_0_1()); }
+		{ before(grammarAccess.getDNamespaceAccess().getModelAsmServiceInterfaceParserRuleCall_3_0_1()); }
+		ruleAsmServiceInterface
+		{ after(grammarAccess.getDNamespaceAccess().getModelAsmServiceInterfaceParserRuleCall_3_0_1()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SActor__Alternatives
+rule__AsmActor__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSActorAccess().getSWatchdogParserRuleCall_0()); }
-		ruleSWatchdog
-		{ after(grammarAccess.getSActorAccess().getSWatchdogParserRuleCall_0()); }
+		{ before(grammarAccess.getAsmActorAccess().getAsmWatchdogParserRuleCall_0()); }
+		ruleAsmWatchdog
+		{ after(grammarAccess.getAsmActorAccess().getAsmWatchdogParserRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSActorAccess().getSHumanParserRuleCall_1()); }
-		ruleSHuman
-		{ after(grammarAccess.getSActorAccess().getSHumanParserRuleCall_1()); }
+		{ before(grammarAccess.getAsmActorAccess().getAsmHumanParserRuleCall_1()); }
+		ruleAsmHuman
+		{ after(grammarAccess.getAsmActorAccess().getAsmHumanParserRuleCall_1()); }
 	)
 ;
 finally {
@@ -2404,21 +2404,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SDirection__Alternatives
+rule__AsmParameterDirection__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSDirectionAccess().getINBOUNDEnumLiteralDeclaration_0()); }
+		{ before(grammarAccess.getAsmParameterDirectionAccess().getINBOUNDEnumLiteralDeclaration_0()); }
 		('in')
-		{ after(grammarAccess.getSDirectionAccess().getINBOUNDEnumLiteralDeclaration_0()); }
+		{ after(grammarAccess.getAsmParameterDirectionAccess().getINBOUNDEnumLiteralDeclaration_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getAsmParameterDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1()); }
 		('out')
-		{ after(grammarAccess.getSDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1()); }
+		{ after(grammarAccess.getAsmParameterDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1()); }
 	)
 ;
 finally {
@@ -2893,161 +2893,161 @@ finally {
 }
 
 
-rule__SApplication__Group__0
+rule__AsmApplication__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SApplication__Group__0__Impl
-	rule__SApplication__Group__1
+	rule__AsmApplication__Group__0__Impl
+	rule__AsmApplication__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__0__Impl
+rule__AsmApplication__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getApplicationKeyword_0()); }
+	{ before(grammarAccess.getAsmApplicationAccess().getApplicationKeyword_0()); }
 	'application'
-	{ after(grammarAccess.getSApplicationAccess().getApplicationKeyword_0()); }
+	{ after(grammarAccess.getAsmApplicationAccess().getApplicationKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__1
+rule__AsmApplication__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SApplication__Group__1__Impl
-	rule__SApplication__Group__2
+	rule__AsmApplication__Group__1__Impl
+	rule__AsmApplication__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__1__Impl
+rule__AsmApplication__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getNameAssignment_1()); }
-	(rule__SApplication__NameAssignment_1)
-	{ after(grammarAccess.getSApplicationAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getAsmApplicationAccess().getNameAssignment_1()); }
+	(rule__AsmApplication__NameAssignment_1)
+	{ after(grammarAccess.getAsmApplicationAccess().getNameAssignment_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__2
+rule__AsmApplication__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SApplication__Group__2__Impl
-	rule__SApplication__Group__3
+	rule__AsmApplication__Group__2__Impl
+	rule__AsmApplication__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__2__Impl
+rule__AsmApplication__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getInformationKeyword_2()); }
+	{ before(grammarAccess.getAsmApplicationAccess().getInformationKeyword_2()); }
 	'information'
-	{ after(grammarAccess.getSApplicationAccess().getInformationKeyword_2()); }
+	{ after(grammarAccess.getAsmApplicationAccess().getInformationKeyword_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__3
+rule__AsmApplication__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SApplication__Group__3__Impl
-	rule__SApplication__Group__4
+	rule__AsmApplication__Group__3__Impl
+	rule__AsmApplication__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__3__Impl
+rule__AsmApplication__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getModelKeyword_3()); }
+	{ before(grammarAccess.getAsmApplicationAccess().getModelKeyword_3()); }
 	'model'
-	{ after(grammarAccess.getSApplicationAccess().getModelKeyword_3()); }
+	{ after(grammarAccess.getAsmApplicationAccess().getModelKeyword_3()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__4
+rule__AsmApplication__Group__4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SApplication__Group__4__Impl
-	rule__SApplication__Group__5
+	rule__AsmApplication__Group__4__Impl
+	rule__AsmApplication__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__4__Impl
+rule__AsmApplication__Group__4__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getModelAssignment_4()); }
-	(rule__SApplication__ModelAssignment_4)
-	{ after(grammarAccess.getSApplicationAccess().getModelAssignment_4()); }
+	{ before(grammarAccess.getAsmApplicationAccess().getModelAssignment_4()); }
+	(rule__AsmApplication__ModelAssignment_4)
+	{ after(grammarAccess.getAsmApplicationAccess().getModelAssignment_4()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__5
+rule__AsmApplication__Group__5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SApplication__Group__5__Impl
+	rule__AsmApplication__Group__5__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__Group__5__Impl
+rule__AsmApplication__Group__5__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getActorsAssignment_5()); }
-	(rule__SApplication__ActorsAssignment_5)*
-	{ after(grammarAccess.getSApplicationAccess().getActorsAssignment_5()); }
+	{ before(grammarAccess.getAsmApplicationAccess().getActorsAssignment_5()); }
+	(rule__AsmApplication__ActorsAssignment_5)*
+	{ after(grammarAccess.getAsmApplicationAccess().getActorsAssignment_5()); }
 )
 ;
 finally {
@@ -3055,296 +3055,296 @@ finally {
 }
 
 
-rule__SServiceInterface__Group__0
+rule__AsmServiceInterface__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__0__Impl
-	rule__SServiceInterface__Group__1
+	rule__AsmServiceInterface__Group__0__Impl
+	rule__AsmServiceInterface__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__0__Impl
+rule__AsmServiceInterface__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_0()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getServiceKeyword_0()); }
 	'service'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_0()); }
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getServiceKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__1
+rule__AsmServiceInterface__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__1__Impl
-	rule__SServiceInterface__Group__2
+	rule__AsmServiceInterface__Group__1__Impl
+	rule__AsmServiceInterface__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__1__Impl
+rule__AsmServiceInterface__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_1()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceKeyword_1()); }
 	'interface'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_1()); }
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceKeyword_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__2
+rule__AsmServiceInterface__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__2__Impl
-	rule__SServiceInterface__Group__3
+	rule__AsmServiceInterface__Group__2__Impl
+	rule__AsmServiceInterface__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__2__Impl
+rule__AsmServiceInterface__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_2()); }
-	(rule__SServiceInterface__NameAssignment_2)
-	{ after(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_2()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getNameAssignment_2()); }
+	(rule__AsmServiceInterface__NameAssignment_2)
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getNameAssignment_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__3
+rule__AsmServiceInterface__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__3__Impl
-	rule__SServiceInterface__Group__4
+	rule__AsmServiceInterface__Group__3__Impl
+	rule__AsmServiceInterface__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__3__Impl
+rule__AsmServiceInterface__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_3()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceKeyword_3()); }
 	'interface'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_3()); }
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceKeyword_3()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__4
+rule__AsmServiceInterface__Group__4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__4__Impl
-	rule__SServiceInterface__Group__5
+	rule__AsmServiceInterface__Group__4__Impl
+	rule__AsmServiceInterface__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__4__Impl
+rule__AsmServiceInterface__Group__4__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getModelKeyword_4()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getModelKeyword_4()); }
 	'model'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getModelKeyword_4()); }
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getModelKeyword_4()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__5
+rule__AsmServiceInterface__Group__5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__5__Impl
-	rule__SServiceInterface__Group__6
+	rule__AsmServiceInterface__Group__5__Impl
+	rule__AsmServiceInterface__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__5__Impl
+rule__AsmServiceInterface__Group__5__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceAssignment_5()); }
-	(rule__SServiceInterface__InterfaceAssignment_5)
-	{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceAssignment_5()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceAssignment_5()); }
+	(rule__AsmServiceInterface__InterfaceAssignment_5)
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceAssignment_5()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__6
+rule__AsmServiceInterface__Group__6
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__6__Impl
-	rule__SServiceInterface__Group__7
+	rule__AsmServiceInterface__Group__6__Impl
+	rule__AsmServiceInterface__Group__7
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__6__Impl
+rule__AsmServiceInterface__Group__6__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getCoreKeyword_6()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getCoreKeyword_6()); }
 	'core'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getCoreKeyword_6()); }
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getCoreKeyword_6()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__7
+rule__AsmServiceInterface__Group__7
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__7__Impl
-	rule__SServiceInterface__Group__8
+	rule__AsmServiceInterface__Group__7__Impl
+	rule__AsmServiceInterface__Group__8
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__7__Impl
+rule__AsmServiceInterface__Group__7__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getModelKeyword_7()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getModelKeyword_7()); }
 	'model'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getModelKeyword_7()); }
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getModelKeyword_7()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__8
+rule__AsmServiceInterface__Group__8
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__8__Impl
-	rule__SServiceInterface__Group__9
+	rule__AsmServiceInterface__Group__8__Impl
+	rule__AsmServiceInterface__Group__9
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__8__Impl
+rule__AsmServiceInterface__Group__8__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getCoreAssignment_8()); }
-	(rule__SServiceInterface__CoreAssignment_8)
-	{ after(grammarAccess.getSServiceInterfaceAccess().getCoreAssignment_8()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getCoreAssignment_8()); }
+	(rule__AsmServiceInterface__CoreAssignment_8)
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getCoreAssignment_8()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__9
+rule__AsmServiceInterface__Group__9
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__9__Impl
-	rule__SServiceInterface__Group__10
+	rule__AsmServiceInterface__Group__9__Impl
+	rule__AsmServiceInterface__Group__10
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__9__Impl
+rule__AsmServiceInterface__Group__9__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getExceptionsAssignment_9()); }
-	(rule__SServiceInterface__ExceptionsAssignment_9)*
-	{ after(grammarAccess.getSServiceInterfaceAccess().getExceptionsAssignment_9()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getExceptionsAssignment_9()); }
+	(rule__AsmServiceInterface__ExceptionsAssignment_9)*
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getExceptionsAssignment_9()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__10
+rule__AsmServiceInterface__Group__10
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceInterface__Group__10__Impl
+	rule__AsmServiceInterface__Group__10__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__Group__10__Impl
+rule__AsmServiceInterface__Group__10__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getOperationsAssignment_10()); }
-	(rule__SServiceInterface__OperationsAssignment_10)*
-	{ after(grammarAccess.getSServiceInterfaceAccess().getOperationsAssignment_10()); }
+	{ before(grammarAccess.getAsmServiceInterfaceAccess().getOperationsAssignment_10()); }
+	(rule__AsmServiceInterface__OperationsAssignment_10)*
+	{ after(grammarAccess.getAsmServiceInterfaceAccess().getOperationsAssignment_10()); }
 )
 ;
 finally {
@@ -3352,53 +3352,53 @@ finally {
 }
 
 
-rule__SWatchdog__Group__0
+rule__AsmWatchdog__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SWatchdog__Group__0__Impl
-	rule__SWatchdog__Group__1
+	rule__AsmWatchdog__Group__0__Impl
+	rule__AsmWatchdog__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SWatchdog__Group__0__Impl
+rule__AsmWatchdog__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSWatchdogAccess().getWatchdogKeyword_0()); }
+	{ before(grammarAccess.getAsmWatchdogAccess().getWatchdogKeyword_0()); }
 	'watchdog'
-	{ after(grammarAccess.getSWatchdogAccess().getWatchdogKeyword_0()); }
+	{ after(grammarAccess.getAsmWatchdogAccess().getWatchdogKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SWatchdog__Group__1
+rule__AsmWatchdog__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SWatchdog__Group__1__Impl
+	rule__AsmWatchdog__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SWatchdog__Group__1__Impl
+rule__AsmWatchdog__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSWatchdogAccess().getNameAssignment_1()); }
-	(rule__SWatchdog__NameAssignment_1)
-	{ after(grammarAccess.getSWatchdogAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getAsmWatchdogAccess().getNameAssignment_1()); }
+	(rule__AsmWatchdog__NameAssignment_1)
+	{ after(grammarAccess.getAsmWatchdogAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -3406,53 +3406,53 @@ finally {
 }
 
 
-rule__SHuman__Group__0
+rule__AsmHuman__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SHuman__Group__0__Impl
-	rule__SHuman__Group__1
+	rule__AsmHuman__Group__0__Impl
+	rule__AsmHuman__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SHuman__Group__0__Impl
+rule__AsmHuman__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSHumanAccess().getHumanKeyword_0()); }
+	{ before(grammarAccess.getAsmHumanAccess().getHumanKeyword_0()); }
 	'human'
-	{ after(grammarAccess.getSHumanAccess().getHumanKeyword_0()); }
+	{ after(grammarAccess.getAsmHumanAccess().getHumanKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SHuman__Group__1
+rule__AsmHuman__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SHuman__Group__1__Impl
+	rule__AsmHuman__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SHuman__Group__1__Impl
+rule__AsmHuman__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSHumanAccess().getNameAssignment_1()); }
-	(rule__SHuman__NameAssignment_1)
-	{ after(grammarAccess.getSHumanAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getAsmHumanAccess().getNameAssignment_1()); }
+	(rule__AsmHuman__NameAssignment_1)
+	{ after(grammarAccess.getAsmHumanAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -3460,269 +3460,269 @@ finally {
 }
 
 
-rule__SServiceOperation__Group__0
+rule__AsmServiceOperation__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__0__Impl
-	rule__SServiceOperation__Group__1
+	rule__AsmServiceOperation__Group__0__Impl
+	rule__AsmServiceOperation__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__0__Impl
+rule__AsmServiceOperation__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getOperationKeyword_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getOperationKeyword_0()); }
 	'operation'
-	{ after(grammarAccess.getSServiceOperationAccess().getOperationKeyword_0()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getOperationKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__1
+rule__AsmServiceOperation__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__1__Impl
-	rule__SServiceOperation__Group__2
+	rule__AsmServiceOperation__Group__1__Impl
+	rule__AsmServiceOperation__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__1__Impl
+rule__AsmServiceOperation__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getNameAssignment_1()); }
-	(rule__SServiceOperation__NameAssignment_1)
-	{ after(grammarAccess.getSServiceOperationAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getNameAssignment_1()); }
+	(rule__AsmServiceOperation__NameAssignment_1)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getNameAssignment_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__2
+rule__AsmServiceOperation__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__2__Impl
-	rule__SServiceOperation__Group__3
+	rule__AsmServiceOperation__Group__2__Impl
+	rule__AsmServiceOperation__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__2__Impl
+rule__AsmServiceOperation__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getLeftParenthesisKeyword_2()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getLeftParenthesisKeyword_2()); }
 	'('
-	{ after(grammarAccess.getSServiceOperationAccess().getLeftParenthesisKeyword_2()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getLeftParenthesisKeyword_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__3
+rule__AsmServiceOperation__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__3__Impl
-	rule__SServiceOperation__Group__4
+	rule__AsmServiceOperation__Group__3__Impl
+	rule__AsmServiceOperation__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__3__Impl
+rule__AsmServiceOperation__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGroup_3()); }
-	(rule__SServiceOperation__Group_3__0)?
-	{ after(grammarAccess.getSServiceOperationAccess().getGroup_3()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGroup_3()); }
+	(rule__AsmServiceOperation__Group_3__0)?
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGroup_3()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__4
+rule__AsmServiceOperation__Group__4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__4__Impl
-	rule__SServiceOperation__Group__5
+	rule__AsmServiceOperation__Group__4__Impl
+	rule__AsmServiceOperation__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__4__Impl
+rule__AsmServiceOperation__Group__4__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getRightParenthesisKeyword_4()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getRightParenthesisKeyword_4()); }
 	')'
-	{ after(grammarAccess.getSServiceOperationAccess().getRightParenthesisKeyword_4()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getRightParenthesisKeyword_4()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__5
+rule__AsmServiceOperation__Group__5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__5__Impl
-	rule__SServiceOperation__Group__6
+	rule__AsmServiceOperation__Group__5__Impl
+	rule__AsmServiceOperation__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__5__Impl
+rule__AsmServiceOperation__Group__5__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGroup_5()); }
-	(rule__SServiceOperation__Group_5__0)?
-	{ after(grammarAccess.getSServiceOperationAccess().getGroup_5()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGroup_5()); }
+	(rule__AsmServiceOperation__Group_5__0)?
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGroup_5()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__6
+rule__AsmServiceOperation__Group__6
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__6__Impl
-	rule__SServiceOperation__Group__7
+	rule__AsmServiceOperation__Group__6__Impl
+	rule__AsmServiceOperation__Group__7
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__6__Impl
+rule__AsmServiceOperation__Group__6__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getLeftCurlyBracketKeyword_6()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getLeftCurlyBracketKeyword_6()); }
 	'{'
-	{ after(grammarAccess.getSServiceOperationAccess().getLeftCurlyBracketKeyword_6()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getLeftCurlyBracketKeyword_6()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__7
+rule__AsmServiceOperation__Group__7
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__7__Impl
-	rule__SServiceOperation__Group__8
+	rule__AsmServiceOperation__Group__7__Impl
+	rule__AsmServiceOperation__Group__8
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__7__Impl
+rule__AsmServiceOperation__Group__7__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGroup_7()); }
-	(rule__SServiceOperation__Group_7__0)*
-	{ after(grammarAccess.getSServiceOperationAccess().getGroup_7()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGroup_7()); }
+	(rule__AsmServiceOperation__Group_7__0)*
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGroup_7()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__8
+rule__AsmServiceOperation__Group__8
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__8__Impl
-	rule__SServiceOperation__Group__9
+	rule__AsmServiceOperation__Group__8__Impl
+	rule__AsmServiceOperation__Group__9
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__8__Impl
+rule__AsmServiceOperation__Group__8__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGroup_8()); }
-	(rule__SServiceOperation__Group_8__0)*
-	{ after(grammarAccess.getSServiceOperationAccess().getGroup_8()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGroup_8()); }
+	(rule__AsmServiceOperation__Group_8__0)*
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGroup_8()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__9
+rule__AsmServiceOperation__Group__9
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group__9__Impl
+	rule__AsmServiceOperation__Group__9__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group__9__Impl
+rule__AsmServiceOperation__Group__9__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getRightCurlyBracketKeyword_9()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getRightCurlyBracketKeyword_9()); }
 	'}'
-	{ after(grammarAccess.getSServiceOperationAccess().getRightCurlyBracketKeyword_9()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getRightCurlyBracketKeyword_9()); }
 )
 ;
 finally {
@@ -3730,53 +3730,53 @@ finally {
 }
 
 
-rule__SServiceOperation__Group_3__0
+rule__AsmServiceOperation__Group_3__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_3__0__Impl
-	rule__SServiceOperation__Group_3__1
+	rule__AsmServiceOperation__Group_3__0__Impl
+	rule__AsmServiceOperation__Group_3__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_3__0__Impl
+rule__AsmServiceOperation__Group_3__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getParametersAssignment_3_0()); }
-	(rule__SServiceOperation__ParametersAssignment_3_0)
-	{ after(grammarAccess.getSServiceOperationAccess().getParametersAssignment_3_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getParametersAssignment_3_0()); }
+	(rule__AsmServiceOperation__ParametersAssignment_3_0)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getParametersAssignment_3_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_3__1
+rule__AsmServiceOperation__Group_3__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_3__1__Impl
+	rule__AsmServiceOperation__Group_3__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_3__1__Impl
+rule__AsmServiceOperation__Group_3__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGroup_3_1()); }
-	(rule__SServiceOperation__Group_3_1__0)*
-	{ after(grammarAccess.getSServiceOperationAccess().getGroup_3_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGroup_3_1()); }
+	(rule__AsmServiceOperation__Group_3_1__0)*
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGroup_3_1()); }
 )
 ;
 finally {
@@ -3784,53 +3784,53 @@ finally {
 }
 
 
-rule__SServiceOperation__Group_3_1__0
+rule__AsmServiceOperation__Group_3_1__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_3_1__0__Impl
-	rule__SServiceOperation__Group_3_1__1
+	rule__AsmServiceOperation__Group_3_1__0__Impl
+	rule__AsmServiceOperation__Group_3_1__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_3_1__0__Impl
+rule__AsmServiceOperation__Group_3_1__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getCommaKeyword_3_1_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getCommaKeyword_3_1_0()); }
 	','
-	{ after(grammarAccess.getSServiceOperationAccess().getCommaKeyword_3_1_0()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getCommaKeyword_3_1_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_3_1__1
+rule__AsmServiceOperation__Group_3_1__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_3_1__1__Impl
+	rule__AsmServiceOperation__Group_3_1__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_3_1__1__Impl
+rule__AsmServiceOperation__Group_3_1__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getParametersAssignment_3_1_1()); }
-	(rule__SServiceOperation__ParametersAssignment_3_1_1)
-	{ after(grammarAccess.getSServiceOperationAccess().getParametersAssignment_3_1_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getParametersAssignment_3_1_1()); }
+	(rule__AsmServiceOperation__ParametersAssignment_3_1_1)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getParametersAssignment_3_1_1()); }
 )
 ;
 finally {
@@ -3838,80 +3838,80 @@ finally {
 }
 
 
-rule__SServiceOperation__Group_5__0
+rule__AsmServiceOperation__Group_5__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_5__0__Impl
-	rule__SServiceOperation__Group_5__1
+	rule__AsmServiceOperation__Group_5__0__Impl
+	rule__AsmServiceOperation__Group_5__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5__0__Impl
+rule__AsmServiceOperation__Group_5__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getRaisesKeyword_5_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesKeyword_5_0()); }
 	'raises'
-	{ after(grammarAccess.getSServiceOperationAccess().getRaisesKeyword_5_0()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesKeyword_5_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5__1
+rule__AsmServiceOperation__Group_5__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_5__1__Impl
-	rule__SServiceOperation__Group_5__2
+	rule__AsmServiceOperation__Group_5__1__Impl
+	rule__AsmServiceOperation__Group_5__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5__1__Impl
+rule__AsmServiceOperation__Group_5__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getRaisesAssignment_5_1()); }
-	(rule__SServiceOperation__RaisesAssignment_5_1)
-	{ after(grammarAccess.getSServiceOperationAccess().getRaisesAssignment_5_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesAssignment_5_1()); }
+	(rule__AsmServiceOperation__RaisesAssignment_5_1)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesAssignment_5_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5__2
+rule__AsmServiceOperation__Group_5__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_5__2__Impl
+	rule__AsmServiceOperation__Group_5__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5__2__Impl
+rule__AsmServiceOperation__Group_5__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGroup_5_2()); }
-	(rule__SServiceOperation__Group_5_2__0)*
-	{ after(grammarAccess.getSServiceOperationAccess().getGroup_5_2()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGroup_5_2()); }
+	(rule__AsmServiceOperation__Group_5_2__0)*
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGroup_5_2()); }
 )
 ;
 finally {
@@ -3919,53 +3919,53 @@ finally {
 }
 
 
-rule__SServiceOperation__Group_5_2__0
+rule__AsmServiceOperation__Group_5_2__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_5_2__0__Impl
-	rule__SServiceOperation__Group_5_2__1
+	rule__AsmServiceOperation__Group_5_2__0__Impl
+	rule__AsmServiceOperation__Group_5_2__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5_2__0__Impl
+rule__AsmServiceOperation__Group_5_2__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getCommaKeyword_5_2_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getCommaKeyword_5_2_0()); }
 	','
-	{ after(grammarAccess.getSServiceOperationAccess().getCommaKeyword_5_2_0()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getCommaKeyword_5_2_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5_2__1
+rule__AsmServiceOperation__Group_5_2__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_5_2__1__Impl
+	rule__AsmServiceOperation__Group_5_2__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_5_2__1__Impl
+rule__AsmServiceOperation__Group_5_2__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getRaisesAssignment_5_2_1()); }
-	(rule__SServiceOperation__RaisesAssignment_5_2_1)
-	{ after(grammarAccess.getSServiceOperationAccess().getRaisesAssignment_5_2_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesAssignment_5_2_1()); }
+	(rule__AsmServiceOperation__RaisesAssignment_5_2_1)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesAssignment_5_2_1()); }
 )
 ;
 finally {
@@ -3973,53 +3973,53 @@ finally {
 }
 
 
-rule__SServiceOperation__Group_7__0
+rule__AsmServiceOperation__Group_7__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_7__0__Impl
-	rule__SServiceOperation__Group_7__1
+	rule__AsmServiceOperation__Group_7__0__Impl
+	rule__AsmServiceOperation__Group_7__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_7__0__Impl
+rule__AsmServiceOperation__Group_7__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGuardKeyword_7_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGuardKeyword_7_0()); }
 	'guard'
-	{ after(grammarAccess.getSServiceOperationAccess().getGuardKeyword_7_0()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGuardKeyword_7_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_7__1
+rule__AsmServiceOperation__Group_7__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_7__1__Impl
+	rule__AsmServiceOperation__Group_7__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_7__1__Impl
+rule__AsmServiceOperation__Group_7__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getGuardsAssignment_7_1()); }
-	(rule__SServiceOperation__GuardsAssignment_7_1)
-	{ after(grammarAccess.getSServiceOperationAccess().getGuardsAssignment_7_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getGuardsAssignment_7_1()); }
+	(rule__AsmServiceOperation__GuardsAssignment_7_1)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getGuardsAssignment_7_1()); }
 )
 ;
 finally {
@@ -4027,53 +4027,53 @@ finally {
 }
 
 
-rule__SServiceOperation__Group_8__0
+rule__AsmServiceOperation__Group_8__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_8__0__Impl
-	rule__SServiceOperation__Group_8__1
+	rule__AsmServiceOperation__Group_8__0__Impl
+	rule__AsmServiceOperation__Group_8__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_8__0__Impl
+rule__AsmServiceOperation__Group_8__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getEffectKeyword_8_0()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getEffectKeyword_8_0()); }
 	'effect'
-	{ after(grammarAccess.getSServiceOperationAccess().getEffectKeyword_8_0()); }
+	{ after(grammarAccess.getAsmServiceOperationAccess().getEffectKeyword_8_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_8__1
+rule__AsmServiceOperation__Group_8__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceOperation__Group_8__1__Impl
+	rule__AsmServiceOperation__Group_8__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__Group_8__1__Impl
+rule__AsmServiceOperation__Group_8__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceOperationAccess().getEffectsAssignment_8_1()); }
-	(rule__SServiceOperation__EffectsAssignment_8_1)
-	{ after(grammarAccess.getSServiceOperationAccess().getEffectsAssignment_8_1()); }
+	{ before(grammarAccess.getAsmServiceOperationAccess().getEffectsAssignment_8_1()); }
+	(rule__AsmServiceOperation__EffectsAssignment_8_1)
+	{ after(grammarAccess.getAsmServiceOperationAccess().getEffectsAssignment_8_1()); }
 )
 ;
 finally {
@@ -4081,161 +4081,161 @@ finally {
 }
 
 
-rule__SServiceParameter__Group__0
+rule__AsmServiceParameter__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceParameter__Group__0__Impl
-	rule__SServiceParameter__Group__1
+	rule__AsmServiceParameter__Group__0__Impl
+	rule__AsmServiceParameter__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__0__Impl
+rule__AsmServiceParameter__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceParameterAccess().getDirectionAssignment_0()); }
-	(rule__SServiceParameter__DirectionAssignment_0)
-	{ after(grammarAccess.getSServiceParameterAccess().getDirectionAssignment_0()); }
+	{ before(grammarAccess.getAsmServiceParameterAccess().getDirectionAssignment_0()); }
+	(rule__AsmServiceParameter__DirectionAssignment_0)
+	{ after(grammarAccess.getAsmServiceParameterAccess().getDirectionAssignment_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__1
+rule__AsmServiceParameter__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceParameter__Group__1__Impl
-	rule__SServiceParameter__Group__2
+	rule__AsmServiceParameter__Group__1__Impl
+	rule__AsmServiceParameter__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__1__Impl
+rule__AsmServiceParameter__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceParameterAccess().getNameAssignment_1()); }
-	(rule__SServiceParameter__NameAssignment_1)
-	{ after(grammarAccess.getSServiceParameterAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getAsmServiceParameterAccess().getNameAssignment_1()); }
+	(rule__AsmServiceParameter__NameAssignment_1)
+	{ after(grammarAccess.getAsmServiceParameterAccess().getNameAssignment_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__2
+rule__AsmServiceParameter__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceParameter__Group__2__Impl
-	rule__SServiceParameter__Group__3
+	rule__AsmServiceParameter__Group__2__Impl
+	rule__AsmServiceParameter__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__2__Impl
+rule__AsmServiceParameter__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceParameterAccess().getColonKeyword_2()); }
+	{ before(grammarAccess.getAsmServiceParameterAccess().getColonKeyword_2()); }
 	':'
-	{ after(grammarAccess.getSServiceParameterAccess().getColonKeyword_2()); }
+	{ after(grammarAccess.getAsmServiceParameterAccess().getColonKeyword_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__3
+rule__AsmServiceParameter__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceParameter__Group__3__Impl
-	rule__SServiceParameter__Group__4
+	rule__AsmServiceParameter__Group__3__Impl
+	rule__AsmServiceParameter__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__3__Impl
+rule__AsmServiceParameter__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceParameterAccess().getTypeAssignment_3()); }
-	(rule__SServiceParameter__TypeAssignment_3)
-	{ after(grammarAccess.getSServiceParameterAccess().getTypeAssignment_3()); }
+	{ before(grammarAccess.getAsmServiceParameterAccess().getTypeAssignment_3()); }
+	(rule__AsmServiceParameter__TypeAssignment_3)
+	{ after(grammarAccess.getAsmServiceParameterAccess().getTypeAssignment_3()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__4
+rule__AsmServiceParameter__Group__4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceParameter__Group__4__Impl
-	rule__SServiceParameter__Group__5
+	rule__AsmServiceParameter__Group__4__Impl
+	rule__AsmServiceParameter__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__4__Impl
+rule__AsmServiceParameter__Group__4__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceParameterAccess().getMultiplicityAssignment_4()); }
-	(rule__SServiceParameter__MultiplicityAssignment_4)?
-	{ after(grammarAccess.getSServiceParameterAccess().getMultiplicityAssignment_4()); }
+	{ before(grammarAccess.getAsmServiceParameterAccess().getMultiplicityAssignment_4()); }
+	(rule__AsmServiceParameter__MultiplicityAssignment_4)?
+	{ after(grammarAccess.getAsmServiceParameterAccess().getMultiplicityAssignment_4()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__5
+rule__AsmServiceParameter__Group__5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SServiceParameter__Group__5__Impl
+	rule__AsmServiceParameter__Group__5__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__Group__5__Impl
+rule__AsmServiceParameter__Group__5__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSServiceParameterAccess().getDescriptionAssignment_5()); }
-	(rule__SServiceParameter__DescriptionAssignment_5)?
-	{ after(grammarAccess.getSServiceParameterAccess().getDescriptionAssignment_5()); }
+	{ before(grammarAccess.getAsmServiceParameterAccess().getDescriptionAssignment_5()); }
+	(rule__AsmServiceParameter__DescriptionAssignment_5)?
+	{ after(grammarAccess.getAsmServiceParameterAccess().getDescriptionAssignment_5()); }
 )
 ;
 finally {
@@ -4243,80 +4243,80 @@ finally {
 }
 
 
-rule__SException__Group__0
+rule__AsmException__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SException__Group__0__Impl
-	rule__SException__Group__1
+	rule__AsmException__Group__0__Impl
+	rule__AsmException__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__Group__0__Impl
+rule__AsmException__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSExceptionAccess().getExceptionKeyword_0()); }
+	{ before(grammarAccess.getAsmExceptionAccess().getExceptionKeyword_0()); }
 	'exception'
-	{ after(grammarAccess.getSExceptionAccess().getExceptionKeyword_0()); }
+	{ after(grammarAccess.getAsmExceptionAccess().getExceptionKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__Group__1
+rule__AsmException__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SException__Group__1__Impl
-	rule__SException__Group__2
+	rule__AsmException__Group__1__Impl
+	rule__AsmException__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__Group__1__Impl
+rule__AsmException__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSExceptionAccess().getNameAssignment_1()); }
-	(rule__SException__NameAssignment_1)
-	{ after(grammarAccess.getSExceptionAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getAsmExceptionAccess().getNameAssignment_1()); }
+	(rule__AsmException__NameAssignment_1)
+	{ after(grammarAccess.getAsmExceptionAccess().getNameAssignment_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__Group__2
+rule__AsmException__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SException__Group__2__Impl
+	rule__AsmException__Group__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__Group__2__Impl
+rule__AsmException__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSExceptionAccess().getDescriptionAssignment_2()); }
-	(rule__SException__DescriptionAssignment_2)?
-	{ after(grammarAccess.getSExceptionAccess().getDescriptionAssignment_2()); }
+	{ before(grammarAccess.getAsmExceptionAccess().getDescriptionAssignment_2()); }
+	(rule__AsmException__DescriptionAssignment_2)?
+	{ after(grammarAccess.getAsmExceptionAccess().getDescriptionAssignment_2()); }
 )
 ;
 finally {
@@ -11045,384 +11045,384 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__NameAssignment_1
+rule__AsmApplication__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSApplicationAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAsmApplicationAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSApplicationAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getAsmApplicationAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__ModelAssignment_4
+rule__AsmApplication__ModelAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSApplicationAccess().getModelSInformationModelCrossReference_4_0()); }
+		{ before(grammarAccess.getAsmApplicationAccess().getModelSystemInformationModelCrossReference_4_0()); }
 		(
-			{ before(grammarAccess.getSApplicationAccess().getModelSInformationModelDQualifiedNameParserRuleCall_4_0_1()); }
+			{ before(grammarAccess.getAsmApplicationAccess().getModelSystemInformationModelDQualifiedNameParserRuleCall_4_0_1()); }
 			ruleDQualifiedName
-			{ after(grammarAccess.getSApplicationAccess().getModelSInformationModelDQualifiedNameParserRuleCall_4_0_1()); }
+			{ after(grammarAccess.getAsmApplicationAccess().getModelSystemInformationModelDQualifiedNameParserRuleCall_4_0_1()); }
 		)
-		{ after(grammarAccess.getSApplicationAccess().getModelSInformationModelCrossReference_4_0()); }
+		{ after(grammarAccess.getAsmApplicationAccess().getModelSystemInformationModelCrossReference_4_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__ActorsAssignment_5
+rule__AsmApplication__ActorsAssignment_5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSApplicationAccess().getActorsSActorParserRuleCall_5_0()); }
-		ruleSActor
-		{ after(grammarAccess.getSApplicationAccess().getActorsSActorParserRuleCall_5_0()); }
+		{ before(grammarAccess.getAsmApplicationAccess().getActorsAsmActorParserRuleCall_5_0()); }
+		ruleAsmActor
+		{ after(grammarAccess.getAsmApplicationAccess().getActorsAsmActorParserRuleCall_5_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__NameAssignment_2
+rule__AsmServiceInterface__NameAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getNameIDTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getAsmServiceInterfaceAccess().getNameIDTerminalRuleCall_2_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSServiceInterfaceAccess().getNameIDTerminalRuleCall_2_0()); }
+		{ after(grammarAccess.getAsmServiceInterfaceAccess().getNameIDTerminalRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__InterfaceAssignment_5
+rule__AsmServiceInterface__InterfaceAssignment_5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelCrossReference_5_0()); }
+		{ before(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceSystemInformationModelCrossReference_5_0()); }
 		(
-			{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1()); }
+			{ before(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceSystemInformationModelDQualifiedNameParserRuleCall_5_0_1()); }
 			ruleDQualifiedName
-			{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1()); }
+			{ after(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceSystemInformationModelDQualifiedNameParserRuleCall_5_0_1()); }
 		)
-		{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelCrossReference_5_0()); }
+		{ after(grammarAccess.getAsmServiceInterfaceAccess().getInterfaceSystemInformationModelCrossReference_5_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__CoreAssignment_8
+rule__AsmServiceInterface__CoreAssignment_8
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelCrossReference_8_0()); }
+		{ before(grammarAccess.getAsmServiceInterfaceAccess().getCoreSystemInformationModelCrossReference_8_0()); }
 		(
-			{ before(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1()); }
+			{ before(grammarAccess.getAsmServiceInterfaceAccess().getCoreSystemInformationModelDQualifiedNameParserRuleCall_8_0_1()); }
 			ruleDQualifiedName
-			{ after(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1()); }
+			{ after(grammarAccess.getAsmServiceInterfaceAccess().getCoreSystemInformationModelDQualifiedNameParserRuleCall_8_0_1()); }
 		)
-		{ after(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelCrossReference_8_0()); }
+		{ after(grammarAccess.getAsmServiceInterfaceAccess().getCoreSystemInformationModelCrossReference_8_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__ExceptionsAssignment_9
+rule__AsmServiceInterface__ExceptionsAssignment_9
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getExceptionsSExceptionParserRuleCall_9_0()); }
-		ruleSException
-		{ after(grammarAccess.getSServiceInterfaceAccess().getExceptionsSExceptionParserRuleCall_9_0()); }
+		{ before(grammarAccess.getAsmServiceInterfaceAccess().getExceptionsAsmExceptionParserRuleCall_9_0()); }
+		ruleAsmException
+		{ after(grammarAccess.getAsmServiceInterfaceAccess().getExceptionsAsmExceptionParserRuleCall_9_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__OperationsAssignment_10
+rule__AsmServiceInterface__OperationsAssignment_10
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getOperationsSServiceOperationParserRuleCall_10_0()); }
-		ruleSServiceOperation
-		{ after(grammarAccess.getSServiceInterfaceAccess().getOperationsSServiceOperationParserRuleCall_10_0()); }
+		{ before(grammarAccess.getAsmServiceInterfaceAccess().getOperationsAsmServiceOperationParserRuleCall_10_0()); }
+		ruleAsmServiceOperation
+		{ after(grammarAccess.getAsmServiceInterfaceAccess().getOperationsAsmServiceOperationParserRuleCall_10_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SWatchdog__NameAssignment_1
+rule__AsmWatchdog__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSWatchdogAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAsmWatchdogAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSWatchdogAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getAsmWatchdogAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SHuman__NameAssignment_1
+rule__AsmHuman__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSHumanAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAsmHumanAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSHumanAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getAsmHumanAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__NameAssignment_1
+rule__AsmServiceOperation__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSServiceOperationAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getAsmServiceOperationAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__ParametersAssignment_3_0
+rule__AsmServiceOperation__ParametersAssignment_3_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_0_0()); }
-		ruleSServiceParameter
-		{ after(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_0_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getParametersAsmServiceParameterParserRuleCall_3_0_0()); }
+		ruleAsmServiceParameter
+		{ after(grammarAccess.getAsmServiceOperationAccess().getParametersAsmServiceParameterParserRuleCall_3_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__ParametersAssignment_3_1_1
+rule__AsmServiceOperation__ParametersAssignment_3_1_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_1_1_0()); }
-		ruleSServiceParameter
-		{ after(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_1_1_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getParametersAsmServiceParameterParserRuleCall_3_1_1_0()); }
+		ruleAsmServiceParameter
+		{ after(grammarAccess.getAsmServiceOperationAccess().getParametersAsmServiceParameterParserRuleCall_3_1_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__RaisesAssignment_5_1
+rule__AsmServiceOperation__RaisesAssignment_5_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_1_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionCrossReference_5_1_0()); }
 		(
-			{ before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionIDTerminalRuleCall_5_1_0_1()); }
+			{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionIDTerminalRuleCall_5_1_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionIDTerminalRuleCall_5_1_0_1()); }
+			{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionIDTerminalRuleCall_5_1_0_1()); }
 		)
-		{ after(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_1_0()); }
+		{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionCrossReference_5_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__RaisesAssignment_5_2_1
+rule__AsmServiceOperation__RaisesAssignment_5_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_2_1_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionCrossReference_5_2_1_0()); }
 		(
-			{ before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionIDTerminalRuleCall_5_2_1_0_1()); }
+			{ before(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionIDTerminalRuleCall_5_2_1_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionIDTerminalRuleCall_5_2_1_0_1()); }
+			{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionIDTerminalRuleCall_5_2_1_0_1()); }
 		)
-		{ after(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_2_1_0()); }
+		{ after(grammarAccess.getAsmServiceOperationAccess().getRaisesAsmExceptionCrossReference_5_2_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__GuardsAssignment_7_1
+rule__AsmServiceOperation__GuardsAssignment_7_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getGuardsDExpressionParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getGuardsDExpressionParserRuleCall_7_1_0()); }
 		ruleDExpression
-		{ after(grammarAccess.getSServiceOperationAccess().getGuardsDExpressionParserRuleCall_7_1_0()); }
+		{ after(grammarAccess.getAsmServiceOperationAccess().getGuardsDExpressionParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceOperation__EffectsAssignment_8_1
+rule__AsmServiceOperation__EffectsAssignment_8_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceOperationAccess().getEffectsDExpressionParserRuleCall_8_1_0()); }
+		{ before(grammarAccess.getAsmServiceOperationAccess().getEffectsDExpressionParserRuleCall_8_1_0()); }
 		ruleDExpression
-		{ after(grammarAccess.getSServiceOperationAccess().getEffectsDExpressionParserRuleCall_8_1_0()); }
+		{ after(grammarAccess.getAsmServiceOperationAccess().getEffectsDExpressionParserRuleCall_8_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__DirectionAssignment_0
+rule__AsmServiceParameter__DirectionAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceParameterAccess().getDirectionSDirectionEnumRuleCall_0_0()); }
-		ruleSDirection
-		{ after(grammarAccess.getSServiceParameterAccess().getDirectionSDirectionEnumRuleCall_0_0()); }
+		{ before(grammarAccess.getAsmServiceParameterAccess().getDirectionAsmParameterDirectionEnumRuleCall_0_0()); }
+		ruleAsmParameterDirection
+		{ after(grammarAccess.getAsmServiceParameterAccess().getDirectionAsmParameterDirectionEnumRuleCall_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__NameAssignment_1
+rule__AsmServiceParameter__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceParameterAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAsmServiceParameterAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSServiceParameterAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getAsmServiceParameterAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__TypeAssignment_3
+rule__AsmServiceParameter__TypeAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceParameterAccess().getTypeDTypeCrossReference_3_0()); }
+		{ before(grammarAccess.getAsmServiceParameterAccess().getTypeDTypeCrossReference_3_0()); }
 		(
-			{ before(grammarAccess.getSServiceParameterAccess().getTypeDTypeIDTerminalRuleCall_3_0_1()); }
+			{ before(grammarAccess.getAsmServiceParameterAccess().getTypeDTypeIDTerminalRuleCall_3_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getSServiceParameterAccess().getTypeDTypeIDTerminalRuleCall_3_0_1()); }
+			{ after(grammarAccess.getAsmServiceParameterAccess().getTypeDTypeIDTerminalRuleCall_3_0_1()); }
 		)
-		{ after(grammarAccess.getSServiceParameterAccess().getTypeDTypeCrossReference_3_0()); }
+		{ after(grammarAccess.getAsmServiceParameterAccess().getTypeDTypeCrossReference_3_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__MultiplicityAssignment_4
+rule__AsmServiceParameter__MultiplicityAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0()); }
+		{ before(grammarAccess.getAsmServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0()); }
 		ruleDMultiplicity
-		{ after(grammarAccess.getSServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0()); }
+		{ after(grammarAccess.getAsmServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceParameter__DescriptionAssignment_5
+rule__AsmServiceParameter__DescriptionAssignment_5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0()); }
+		{ before(grammarAccess.getAsmServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0()); }
 		ruleDRichText
-		{ after(grammarAccess.getSServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0()); }
+		{ after(grammarAccess.getAsmServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__NameAssignment_1
+rule__AsmException__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSExceptionAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAsmExceptionAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSExceptionAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getAsmExceptionAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SException__DescriptionAssignment_2
+rule__AsmException__DescriptionAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
+		{ before(grammarAccess.getAsmExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
 		ruleDRichText
-		{ after(grammarAccess.getSExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
+		{ after(grammarAccess.getAsmExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
 	)
 ;
 finally {

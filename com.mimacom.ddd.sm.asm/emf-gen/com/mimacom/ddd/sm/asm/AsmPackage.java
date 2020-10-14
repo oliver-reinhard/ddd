@@ -62,14 +62,14 @@ public interface AsmPackage extends EPackage
 	AsmPackage eINSTANCE = com.mimacom.ddd.sm.asm.impl.AsmPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmModelImpl <em>Model</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.ApplicationServiceModelImpl <em>Application Service Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmModelImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmModel()
+	 * @see com.mimacom.ddd.sm.asm.impl.ApplicationServiceModelImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getApplicationServiceModel()
 	 * @generated
 	 */
-	int ASM_MODEL = 0;
+	int APPLICATION_SERVICE_MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -78,7 +78,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_MODEL__NAME = BasePackage.DMODEL__NAME;
+	int APPLICATION_SERVICE_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -87,7 +87,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int APPLICATION_SERVICE_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -96,35 +96,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+	int APPLICATION_SERVICE_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
-	 * The number of structural features of the '<em>Model</em>' class.
+	 * The number of structural features of the '<em>Application Service Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int APPLICATION_SERVICE_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Model</em>' class.
+	 * The number of operations of the '<em>Application Service Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
+	int APPLICATION_SERVICE_MODEL_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl <em>SApplication</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl <em>Application</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SApplicationImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSApplication()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmApplication()
 	 * @generated
 	 */
-	int SAPPLICATION = 1;
+	int ASM_APPLICATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -133,7 +133,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__NAME = ASM_MODEL__NAME;
+	int ASM_APPLICATION__NAME = APPLICATION_SERVICE_MODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -142,7 +142,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__ALIASES = ASM_MODEL__ALIASES;
+	int ASM_APPLICATION__ALIASES = APPLICATION_SERVICE_MODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -151,7 +151,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__DESCRIPTION = ASM_MODEL__DESCRIPTION;
+	int ASM_APPLICATION__DESCRIPTION = APPLICATION_SERVICE_MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -160,7 +160,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__MODEL = ASM_MODEL_FEATURE_COUNT + 0;
+	int ASM_APPLICATION__MODEL = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' reference list.
@@ -169,7 +169,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__SERVICES = ASM_MODEL_FEATURE_COUNT + 1;
+	int ASM_APPLICATION__SERVICES = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -178,35 +178,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION__ACTORS = ASM_MODEL_FEATURE_COUNT + 2;
+	int ASM_APPLICATION__ACTORS = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>SApplication</em>' class.
+	 * The number of structural features of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION_FEATURE_COUNT = ASM_MODEL_FEATURE_COUNT + 3;
+	int ASM_APPLICATION_FEATURE_COUNT = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>SApplication</em>' class.
+	 * The number of operations of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAPPLICATION_OPERATION_COUNT = ASM_MODEL_OPERATION_COUNT + 0;
+	int ASM_APPLICATION_OPERATION_COUNT = APPLICATION_SERVICE_MODEL_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl <em>SService Interface</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl <em>Service Interface</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceInterface()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceInterface()
 	 * @generated
 	 */
-	int SSERVICE_INTERFACE = 2;
+	int ASM_SERVICE_INTERFACE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -215,7 +215,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__NAME = ASM_MODEL__NAME;
+	int ASM_SERVICE_INTERFACE__NAME = APPLICATION_SERVICE_MODEL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -224,7 +224,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__ALIASES = ASM_MODEL__ALIASES;
+	int ASM_SERVICE_INTERFACE__ALIASES = APPLICATION_SERVICE_MODEL__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -233,7 +233,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__DESCRIPTION = ASM_MODEL__DESCRIPTION;
+	int ASM_SERVICE_INTERFACE__DESCRIPTION = APPLICATION_SERVICE_MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Interface</b></em>' reference.
@@ -242,7 +242,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__INTERFACE = ASM_MODEL_FEATURE_COUNT + 0;
+	int ASM_SERVICE_INTERFACE__INTERFACE = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Core</b></em>' reference.
@@ -251,7 +251,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__CORE = ASM_MODEL_FEATURE_COUNT + 1;
+	int ASM_SERVICE_INTERFACE__CORE = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
@@ -260,7 +260,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__EXCEPTIONS = ASM_MODEL_FEATURE_COUNT + 2;
+	int ASM_SERVICE_INTERFACE__EXCEPTIONS = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -269,35 +269,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__OPERATIONS = ASM_MODEL_FEATURE_COUNT + 3;
+	int ASM_SERVICE_INTERFACE__OPERATIONS = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>SService Interface</em>' class.
+	 * The number of structural features of the '<em>Service Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE_FEATURE_COUNT = ASM_MODEL_FEATURE_COUNT + 4;
+	int ASM_SERVICE_INTERFACE_FEATURE_COUNT = APPLICATION_SERVICE_MODEL_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>SService Interface</em>' class.
+	 * The number of operations of the '<em>Service Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE_OPERATION_COUNT = ASM_MODEL_OPERATION_COUNT + 0;
+	int ASM_SERVICE_INTERFACE_OPERATION_COUNT = APPLICATION_SERVICE_MODEL_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmExceptionImpl <em>Exception</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SExceptionImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSException()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmExceptionImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmException()
 	 * @generated
 	 */
-	int SEXCEPTION = 3;
+	int ASM_EXCEPTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,7 +306,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SEXCEPTION__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+	int ASM_EXCEPTION__NAME = BasePackage.DNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -315,7 +315,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SEXCEPTION__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int ASM_EXCEPTION__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -324,35 +324,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SEXCEPTION__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
+	int ASM_EXCEPTION__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The number of structural features of the '<em>SException</em>' class.
+	 * The number of structural features of the '<em>Exception</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEXCEPTION_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ASM_EXCEPTION_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>SException</em>' class.
+	 * The number of operations of the '<em>Exception</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEXCEPTION_OPERATION_COUNT = BasePackage.DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ASM_EXCEPTION_OPERATION_COUNT = BasePackage.DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SActorImpl <em>SActor</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmActorImpl <em>Actor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SActorImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSActor()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmActorImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmActor()
 	 * @generated
 	 */
-	int SACTOR = 4;
+	int ASM_ACTOR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -361,35 +361,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SACTOR__NAME = 0;
+	int ASM_ACTOR__NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>SActor</em>' class.
+	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SACTOR_FEATURE_COUNT = 1;
+	int ASM_ACTOR_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>SActor</em>' class.
+	 * The number of operations of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SACTOR_OPERATION_COUNT = 0;
+	int ASM_ACTOR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SWatchdogImpl <em>SWatchdog</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmWatchdogImpl <em>Watchdog</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SWatchdogImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSWatchdog()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmWatchdogImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmWatchdog()
 	 * @generated
 	 */
-	int SWATCHDOG = 5;
+	int ASM_WATCHDOG = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -398,35 +398,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SWATCHDOG__NAME = SACTOR__NAME;
+	int ASM_WATCHDOG__NAME = ASM_ACTOR__NAME;
 
 	/**
-	 * The number of structural features of the '<em>SWatchdog</em>' class.
+	 * The number of structural features of the '<em>Watchdog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWATCHDOG_FEATURE_COUNT = SACTOR_FEATURE_COUNT + 0;
+	int ASM_WATCHDOG_FEATURE_COUNT = ASM_ACTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>SWatchdog</em>' class.
+	 * The number of operations of the '<em>Watchdog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWATCHDOG_OPERATION_COUNT = SACTOR_OPERATION_COUNT + 0;
+	int ASM_WATCHDOG_OPERATION_COUNT = ASM_ACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SHumanImpl <em>SHuman</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmHumanImpl <em>Human</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SHumanImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSHuman()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmHumanImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmHuman()
 	 * @generated
 	 */
-	int SHUMAN = 6;
+	int ASM_HUMAN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -435,35 +435,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SHUMAN__NAME = SACTOR__NAME;
+	int ASM_HUMAN__NAME = ASM_ACTOR__NAME;
 
 	/**
-	 * The number of structural features of the '<em>SHuman</em>' class.
+	 * The number of structural features of the '<em>Human</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHUMAN_FEATURE_COUNT = SACTOR_FEATURE_COUNT + 0;
+	int ASM_HUMAN_FEATURE_COUNT = ASM_ACTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>SHuman</em>' class.
+	 * The number of operations of the '<em>Human</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHUMAN_OPERATION_COUNT = SACTOR_OPERATION_COUNT + 0;
+	int ASM_HUMAN_OPERATION_COUNT = ASM_ACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl <em>SService Operation</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl <em>Service Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceOperation()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceOperation()
 	 * @generated
 	 */
-	int SSERVICE_OPERATION = 7;
+	int ASM_SERVICE_OPERATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -472,7 +472,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__NAVIGABLE_MEMBERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
+	int ASM_SERVICE_OPERATION__NAVIGABLE_MEMBERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -481,7 +481,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
+	int ASM_SERVICE_OPERATION__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -490,7 +490,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__PARAMETERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
+	int ASM_SERVICE_OPERATION__PARAMETERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Raises</b></em>' reference list.
@@ -499,7 +499,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__RAISES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
+	int ASM_SERVICE_OPERATION__RAISES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Guards</b></em>' containment reference list.
@@ -508,7 +508,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__GUARDS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 3;
+	int ASM_SERVICE_OPERATION__GUARDS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
@@ -517,35 +517,35 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__EFFECTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 4;
+	int ASM_SERVICE_OPERATION__EFFECTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>SService Operation</em>' class.
+	 * The number of structural features of the '<em>Service Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 5;
+	int ASM_SERVICE_OPERATION_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>SService Operation</em>' class.
+	 * The number of operations of the '<em>Service Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
+	int ASM_SERVICE_OPERATION_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl <em>SService Parameter</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.AsmServiceParameterImpl <em>Service Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceParameter()
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmServiceParameterImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceParameter()
 	 * @generated
 	 */
-	int SSERVICE_PARAMETER = 8;
+	int ASM_SERVICE_PARAMETER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -554,7 +554,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
+	int ASM_SERVICE_PARAMETER__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -563,7 +563,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int ASM_SERVICE_PARAMETER__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -572,7 +572,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+	int ASM_SERVICE_PARAMETER__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -581,7 +581,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
+	int ASM_SERVICE_PARAMETER__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -590,7 +590,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
+	int ASM_SERVICE_PARAMETER__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -599,7 +599,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
+	int ASM_SERVICE_PARAMETER__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -608,7 +608,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
+	int ASM_SERVICE_PARAMETER__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -617,310 +617,310 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER__DIRECTION = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+	int ASM_SERVICE_PARAMETER__DIRECTION = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>SService Parameter</em>' class.
+	 * The number of structural features of the '<em>Service Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
+	int ASM_SERVICE_PARAMETER_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>SService Parameter</em>' class.
+	 * The number of operations of the '<em>Service Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_PARAMETER_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
+	int ASM_SERVICE_PARAMETER_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.SServiceKind <em>SService Kind</em>}' enum.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.AsmServiceKind <em>Service Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.SServiceKind
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceKind()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceKind
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceKind()
 	 * @generated
 	 */
-	int SSERVICE_KIND = 9;
+	int ASM_SERVICE_KIND = 9;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.SDirection <em>SDirection</em>}' enum.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.AsmParameterDirection <em>Parameter Direction</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.SDirection
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSDirection()
+	 * @see com.mimacom.ddd.sm.asm.AsmParameterDirection
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmParameterDirection()
 	 * @generated
 	 */
-	int SDIRECTION = 10;
+	int ASM_PARAMETER_DIRECTION = 10;
 
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmModel <em>Model</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.ApplicationServiceModel <em>Application Service Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see com.mimacom.ddd.sm.asm.AsmModel
+	 * @return the meta object for class '<em>Application Service Model</em>'.
+	 * @see com.mimacom.ddd.sm.asm.ApplicationServiceModel
 	 * @generated
 	 */
-	EClass getAsmModel();
+	EClass getApplicationServiceModel();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SApplication <em>SApplication</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SApplication</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SApplication
+	 * @return the meta object for class '<em>Application</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmApplication
 	 * @generated
 	 */
-	EClass getSApplication();
+	EClass getAsmApplication();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.SApplication#getModel <em>Model</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.AsmApplication#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SApplication#getModel()
-	 * @see #getSApplication()
+	 * @see com.mimacom.ddd.sm.asm.AsmApplication#getModel()
+	 * @see #getAsmApplication()
 	 * @generated
 	 */
-	EReference getSApplication_Model();
+	EReference getAsmApplication_Model();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.asm.SApplication#getServices <em>Services</em>}'.
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.asm.AsmApplication#getServices <em>Services</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Services</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SApplication#getServices()
-	 * @see #getSApplication()
+	 * @see com.mimacom.ddd.sm.asm.AsmApplication#getServices()
+	 * @see #getAsmApplication()
 	 * @generated
 	 */
-	EReference getSApplication_Services();
+	EReference getAsmApplication_Services();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SApplication#getActors <em>Actors</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.AsmApplication#getActors <em>Actors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Actors</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SApplication#getActors()
-	 * @see #getSApplication()
+	 * @see com.mimacom.ddd.sm.asm.AsmApplication#getActors()
+	 * @see #getAsmApplication()
 	 * @generated
 	 */
-	EReference getSApplication_Actors();
+	EReference getAsmApplication_Actors();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SServiceInterface <em>SService Interface</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmServiceInterface <em>Service Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SService Interface</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface
+	 * @return the meta object for class '<em>Service Interface</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceInterface
 	 * @generated
 	 */
-	EClass getSServiceInterface();
+	EClass getAsmServiceInterface();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getInterface <em>Interface</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.AsmServiceInterface#getInterface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Interface</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getInterface()
-	 * @see #getSServiceInterface()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceInterface#getInterface()
+	 * @see #getAsmServiceInterface()
 	 * @generated
 	 */
-	EReference getSServiceInterface_Interface();
+	EReference getAsmServiceInterface_Interface();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getCore <em>Core</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.AsmServiceInterface#getCore <em>Core</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Core</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getCore()
-	 * @see #getSServiceInterface()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceInterface#getCore()
+	 * @see #getAsmServiceInterface()
 	 * @generated
 	 */
-	EReference getSServiceInterface_Core();
+	EReference getAsmServiceInterface_Core();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getExceptions <em>Exceptions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.AsmServiceInterface#getExceptions <em>Exceptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Exceptions</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getExceptions()
-	 * @see #getSServiceInterface()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceInterface#getExceptions()
+	 * @see #getAsmServiceInterface()
 	 * @generated
 	 */
-	EReference getSServiceInterface_Exceptions();
+	EReference getAsmServiceInterface_Exceptions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getOperations <em>Operations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.AsmServiceInterface#getOperations <em>Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Operations</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getOperations()
-	 * @see #getSServiceInterface()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceInterface#getOperations()
+	 * @see #getAsmServiceInterface()
 	 * @generated
 	 */
-	EReference getSServiceInterface_Operations();
+	EReference getAsmServiceInterface_Operations();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SException <em>SException</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmException <em>Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SException</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SException
+	 * @return the meta object for class '<em>Exception</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmException
 	 * @generated
 	 */
-	EClass getSException();
+	EClass getAsmException();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SActor <em>SActor</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SActor</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SActor
+	 * @return the meta object for class '<em>Actor</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmActor
 	 * @generated
 	 */
-	EClass getSActor();
+	EClass getAsmActor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.SActor#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SActor#getName()
-	 * @see #getSActor()
-	 * @generated
-	 */
-	EAttribute getSActor_Name();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SWatchdog <em>SWatchdog</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SWatchdog</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SWatchdog
-	 * @generated
-	 */
-	EClass getSWatchdog();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SHuman <em>SHuman</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SHuman</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SHuman
-	 * @generated
-	 */
-	EClass getSHuman();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SServiceOperation <em>SService Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SService Operation</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation
-	 * @generated
-	 */
-	EClass getSServiceOperation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.AsmActor#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getName()
-	 * @see #getSServiceOperation()
+	 * @see com.mimacom.ddd.sm.asm.AsmActor#getName()
+	 * @see #getAsmActor()
 	 * @generated
 	 */
-	EAttribute getSServiceOperation_Name();
+	EAttribute getAsmActor_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmWatchdog <em>Watchdog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Watchdog</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmWatchdog
+	 * @generated
+	 */
+	EClass getAsmWatchdog();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmHuman <em>Human</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Human</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmHuman
+	 * @generated
+	 */
+	EClass getAsmHuman();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation <em>Service Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Operation</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation
+	 * @generated
+	 */
+	EClass getAsmServiceOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation#getName()
+	 * @see #getAsmServiceOperation()
+	 * @generated
+	 */
+	EAttribute getAsmServiceOperation_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getParameters()
-	 * @see #getSServiceOperation()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation#getParameters()
+	 * @see #getAsmServiceOperation()
 	 * @generated
 	 */
-	EReference getSServiceOperation_Parameters();
+	EReference getAsmServiceOperation_Parameters();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getRaises <em>Raises</em>}'.
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getRaises <em>Raises</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Raises</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getRaises()
-	 * @see #getSServiceOperation()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation#getRaises()
+	 * @see #getAsmServiceOperation()
 	 * @generated
 	 */
-	EReference getSServiceOperation_Raises();
+	EReference getAsmServiceOperation_Raises();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getGuards <em>Guards</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getGuards <em>Guards</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Guards</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getGuards()
-	 * @see #getSServiceOperation()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation#getGuards()
+	 * @see #getAsmServiceOperation()
 	 * @generated
 	 */
-	EReference getSServiceOperation_Guards();
+	EReference getAsmServiceOperation_Guards();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getEffects <em>Effects</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getEffects <em>Effects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Effects</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getEffects()
-	 * @see #getSServiceOperation()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceOperation#getEffects()
+	 * @see #getAsmServiceOperation()
 	 * @generated
 	 */
-	EReference getSServiceOperation_Effects();
+	EReference getAsmServiceOperation_Effects();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SServiceParameter <em>SService Parameter</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.AsmServiceParameter <em>Service Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SService Parameter</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceParameter
+	 * @return the meta object for class '<em>Service Parameter</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceParameter
 	 * @generated
 	 */
-	EClass getSServiceParameter();
+	EClass getAsmServiceParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.SServiceParameter#getDirection <em>Direction</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.AsmServiceParameter#getDirection <em>Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Direction</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceParameter#getDirection()
-	 * @see #getSServiceParameter()
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceParameter#getDirection()
+	 * @see #getAsmServiceParameter()
 	 * @generated
 	 */
-	EAttribute getSServiceParameter_Direction();
+	EAttribute getAsmServiceParameter_Direction();
 
 	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.asm.SServiceKind <em>SService Kind</em>}'.
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.asm.AsmServiceKind <em>Service Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>SService Kind</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceKind
+	 * @return the meta object for enum '<em>Service Kind</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmServiceKind
 	 * @generated
 	 */
-	EEnum getSServiceKind();
+	EEnum getAsmServiceKind();
 
 	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.asm.SDirection <em>SDirection</em>}'.
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.asm.AsmParameterDirection <em>Parameter Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>SDirection</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SDirection
+	 * @return the meta object for enum '<em>Parameter Direction</em>'.
+	 * @see com.mimacom.ddd.sm.asm.AsmParameterDirection
 	 * @generated
 	 */
-	EEnum getSDirection();
+	EEnum getAsmParameterDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -947,24 +947,24 @@ public interface AsmPackage extends EPackage
 	interface Literals
 	{
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmModelImpl <em>Model</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.ApplicationServiceModelImpl <em>Application Service Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmModelImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmModel()
+		 * @see com.mimacom.ddd.sm.asm.impl.ApplicationServiceModelImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getApplicationServiceModel()
 		 * @generated
 		 */
-		EClass ASM_MODEL = eINSTANCE.getAsmModel();
+		EClass APPLICATION_SERVICE_MODEL = eINSTANCE.getApplicationServiceModel();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl <em>SApplication</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl <em>Application</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SApplicationImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSApplication()
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmApplication()
 		 * @generated
 		 */
-		EClass SAPPLICATION = eINSTANCE.getSApplication();
+		EClass ASM_APPLICATION = eINSTANCE.getAsmApplication();
 
 		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
@@ -972,7 +972,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SAPPLICATION__MODEL = eINSTANCE.getSApplication_Model();
+		EReference ASM_APPLICATION__MODEL = eINSTANCE.getAsmApplication_Model();
 
 		/**
 		 * The meta object literal for the '<em><b>Services</b></em>' reference list feature.
@@ -980,7 +980,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SAPPLICATION__SERVICES = eINSTANCE.getSApplication_Services();
+		EReference ASM_APPLICATION__SERVICES = eINSTANCE.getAsmApplication_Services();
 
 		/**
 		 * The meta object literal for the '<em><b>Actors</b></em>' containment reference list feature.
@@ -988,17 +988,17 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SAPPLICATION__ACTORS = eINSTANCE.getSApplication_Actors();
+		EReference ASM_APPLICATION__ACTORS = eINSTANCE.getAsmApplication_Actors();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl <em>SService Interface</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl <em>Service Interface</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceInterface()
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmServiceInterfaceImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceInterface()
 		 * @generated
 		 */
-		EClass SSERVICE_INTERFACE = eINSTANCE.getSServiceInterface();
+		EClass ASM_SERVICE_INTERFACE = eINSTANCE.getAsmServiceInterface();
 
 		/**
 		 * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
@@ -1006,7 +1006,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_INTERFACE__INTERFACE = eINSTANCE.getSServiceInterface_Interface();
+		EReference ASM_SERVICE_INTERFACE__INTERFACE = eINSTANCE.getAsmServiceInterface_Interface();
 
 		/**
 		 * The meta object literal for the '<em><b>Core</b></em>' reference feature.
@@ -1014,7 +1014,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_INTERFACE__CORE = eINSTANCE.getSServiceInterface_Core();
+		EReference ASM_SERVICE_INTERFACE__CORE = eINSTANCE.getAsmServiceInterface_Core();
 
 		/**
 		 * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
@@ -1022,7 +1022,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_INTERFACE__EXCEPTIONS = eINSTANCE.getSServiceInterface_Exceptions();
+		EReference ASM_SERVICE_INTERFACE__EXCEPTIONS = eINSTANCE.getAsmServiceInterface_Exceptions();
 
 		/**
 		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
@@ -1030,65 +1030,27 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_INTERFACE__OPERATIONS = eINSTANCE.getSServiceInterface_Operations();
+		EReference ASM_SERVICE_INTERFACE__OPERATIONS = eINSTANCE.getAsmServiceInterface_Operations();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmExceptionImpl <em>Exception</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SExceptionImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSException()
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmExceptionImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmException()
 		 * @generated
 		 */
-		EClass SEXCEPTION = eINSTANCE.getSException();
+		EClass ASM_EXCEPTION = eINSTANCE.getAsmException();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SActorImpl <em>SActor</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SActorImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSActor()
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmActorImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmActor()
 		 * @generated
 		 */
-		EClass SACTOR = eINSTANCE.getSActor();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SACTOR__NAME = eINSTANCE.getSActor_Name();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SWatchdogImpl <em>SWatchdog</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SWatchdogImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSWatchdog()
-		 * @generated
-		 */
-		EClass SWATCHDOG = eINSTANCE.getSWatchdog();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SHumanImpl <em>SHuman</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SHumanImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSHuman()
-		 * @generated
-		 */
-		EClass SHUMAN = eINSTANCE.getSHuman();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl <em>SService Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceOperation()
-		 * @generated
-		 */
-		EClass SSERVICE_OPERATION = eINSTANCE.getSServiceOperation();
+		EClass ASM_ACTOR = eINSTANCE.getAsmActor();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1096,7 +1058,45 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SSERVICE_OPERATION__NAME = eINSTANCE.getSServiceOperation_Name();
+		EAttribute ASM_ACTOR__NAME = eINSTANCE.getAsmActor_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmWatchdogImpl <em>Watchdog</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmWatchdogImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmWatchdog()
+		 * @generated
+		 */
+		EClass ASM_WATCHDOG = eINSTANCE.getAsmWatchdog();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmHumanImpl <em>Human</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmHumanImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmHuman()
+		 * @generated
+		 */
+		EClass ASM_HUMAN = eINSTANCE.getAsmHuman();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl <em>Service Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceOperation()
+		 * @generated
+		 */
+		EClass ASM_SERVICE_OPERATION = eINSTANCE.getAsmServiceOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASM_SERVICE_OPERATION__NAME = eINSTANCE.getAsmServiceOperation_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
@@ -1104,7 +1104,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_OPERATION__PARAMETERS = eINSTANCE.getSServiceOperation_Parameters();
+		EReference ASM_SERVICE_OPERATION__PARAMETERS = eINSTANCE.getAsmServiceOperation_Parameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Raises</b></em>' reference list feature.
@@ -1112,7 +1112,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_OPERATION__RAISES = eINSTANCE.getSServiceOperation_Raises();
+		EReference ASM_SERVICE_OPERATION__RAISES = eINSTANCE.getAsmServiceOperation_Raises();
 
 		/**
 		 * The meta object literal for the '<em><b>Guards</b></em>' containment reference list feature.
@@ -1120,7 +1120,7 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_OPERATION__GUARDS = eINSTANCE.getSServiceOperation_Guards();
+		EReference ASM_SERVICE_OPERATION__GUARDS = eINSTANCE.getAsmServiceOperation_Guards();
 
 		/**
 		 * The meta object literal for the '<em><b>Effects</b></em>' containment reference list feature.
@@ -1128,17 +1128,17 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_OPERATION__EFFECTS = eINSTANCE.getSServiceOperation_Effects();
+		EReference ASM_SERVICE_OPERATION__EFFECTS = eINSTANCE.getAsmServiceOperation_Effects();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl <em>SService Parameter</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.AsmServiceParameterImpl <em>Service Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceParameter()
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmServiceParameterImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceParameter()
 		 * @generated
 		 */
-		EClass SSERVICE_PARAMETER = eINSTANCE.getSServiceParameter();
+		EClass ASM_SERVICE_PARAMETER = eINSTANCE.getAsmServiceParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
@@ -1146,27 +1146,27 @@ public interface AsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SSERVICE_PARAMETER__DIRECTION = eINSTANCE.getSServiceParameter_Direction();
+		EAttribute ASM_SERVICE_PARAMETER__DIRECTION = eINSTANCE.getAsmServiceParameter_Direction();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.SServiceKind <em>SService Kind</em>}' enum.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.AsmServiceKind <em>Service Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.SServiceKind
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceKind()
+		 * @see com.mimacom.ddd.sm.asm.AsmServiceKind
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmServiceKind()
 		 * @generated
 		 */
-		EEnum SSERVICE_KIND = eINSTANCE.getSServiceKind();
+		EEnum ASM_SERVICE_KIND = eINSTANCE.getAsmServiceKind();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.SDirection <em>SDirection</em>}' enum.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.AsmParameterDirection <em>Parameter Direction</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.SDirection
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSDirection()
+		 * @see com.mimacom.ddd.sm.asm.AsmParameterDirection
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getAsmParameterDirection()
 		 * @generated
 		 */
-		EEnum SDIRECTION = eINSTANCE.getSDirection();
+		EEnum ASM_PARAMETER_DIRECTION = eINSTANCE.getAsmParameterDirection();
 
 	}
 

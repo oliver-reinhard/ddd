@@ -22,9 +22,6 @@ import com.mimacom.ddd.im.generator.generator.HttpVerb
 import com.mimacom.ddd.im.generator.generator.Model
 import com.mimacom.ddd.im.generator.generator.Path
 import com.mimacom.ddd.im.generator.generator.TypeMapping
-import com.mimacom.ddd.sm.asm.SDirection
-import com.mimacom.ddd.sm.asm.SException
-import com.mimacom.ddd.sm.asm.SServiceParameter
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.time.Duration
@@ -52,6 +49,9 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import com.mimacom.ddd.sm.asm.AsmParameterDirection
+import com.mimacom.ddd.sm.asm.AsmException
+import com.mimacom.ddd.sm.asm.AsmServiceParameter
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -117,8 +117,8 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 				val operation = endpoint.type
 
 				var JvmTypeReference operationReturnType
-				val resultParameter = operation.parameters.filter[direction === SDirection.OUTBOUND].head
-				val outboundType = operation.parameters.filter[direction === SDirection.OUTBOUND].head?.type
+				val resultParameter = operation.parameters.filter[getDirection === AsmParameterDirection.OUTBOUND].head
+				val outboundType = operation.parameters.filter[getDirection === AsmParameterDirection.OUTBOUND].head?.type
 				if (outboundType !== null) {
 					if (resultParameter.multiplicity !== null)
 						operationReturnType = typeRef(List, toType(mappings, outboundType))
@@ -128,7 +128,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 					operationReturnType = typeRef(ResponseEntity)
 				}
 
-				members += endpoint.toMethod(operation.name, operationReturnType) [
+				members += endpoint.toMethod(operation.getName, operationReturnType) [
 					documentation = endpoint.documentation
 					annotations +=
 						annotationRef(endpoint.verb.toMethodAnnotationClass, endpoint.path.getEndpointPathAsString)
@@ -137,7 +137,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 							endpoint.type.raises)
 						exceptions += me
 					}
-					for (SServiceParameter param : operation.parameters.filter[direction === SDirection.INBOUND]) {
+					for (AsmServiceParameter param : operation.parameters.filter[getDirection === AsmParameterDirection.INBOUND]) {
 						val paramTypeRef = toType(mappings, param.type)
 						val parameter = endpoint.toParameter(param.name, paramTypeRef)
 						parameter.annotations += endpoint.getParameterAnnotations(param)
@@ -323,7 +323,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		return result
 	}
 
-	private def getParameterAnnotations(EndpointDeclaration endpoint, SServiceParameter param) {
+	private def getParameterAnnotations(EndpointDeclaration endpoint, AsmServiceParameter param) {
 		val annotations = newArrayList
 		if (param.isPathParameter(endpoint.path))
 			annotations += annotationRef(PathVariable)
@@ -332,7 +332,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		annotations
 	}
 
-	private def isPathParameter(SServiceParameter param, Path path) {
+	private def isPathParameter(AsmServiceParameter param, Path path) {
 		path.segments.exists[name == param.name && variable]
 	}
 
@@ -408,7 +408,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	private def Iterable<JvmTypeReference> getMappedExceptions(IJvmDeclaredTypeAcceptor acceptor, Model model,
-		List<SException> exceptions) {
+		List<AsmException> exceptions) {
 		val mappings = model.exceptionMappings.filter[exceptions.contains(it.type)].toList
 
 		val typeRefsOfMappedExceptions = mappings.flatMap[associations.getJvmElements(it)].filter [
@@ -426,7 +426,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		return typeRefsOfMappedExceptions + typeRefsOfUnmappedExceptions
 	}
 
-	private def JvmGenericType toExceptionType(SException exception, Model model) {
+	private def JvmGenericType toExceptionType(AsmException exception, Model model) {
 		model.toClass(exception.getQualifiedName) [
 			superTypes += typeRef(Exception)
 		]

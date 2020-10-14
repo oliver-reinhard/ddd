@@ -3,12 +3,12 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
+import com.mimacom.ddd.sm.asm.AsmActor;
+import com.mimacom.ddd.sm.asm.AsmApplication;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SActor;
-import com.mimacom.ddd.sm.asm.SApplication;
-import com.mimacom.ddd.sm.asm.SServiceInterface;
+import com.mimacom.ddd.sm.asm.AsmServiceInterface;
 
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 
 import java.util.Collection;
 
@@ -28,20 +28,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SApplication</b></em>'.
+ * An implementation of the model object '<em><b>Application</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl#getModel <em>Model</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl#getServices <em>Services</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl#getActors <em>Actors</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmApplicationImpl#getActors <em>Actors</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SApplicationImpl extends AsmModelImpl implements SApplication
+public class AsmApplicationImpl extends ApplicationServiceModelImpl implements AsmApplication
 {
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
@@ -51,7 +51,7 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * @generated
 	 * @ordered
 	 */
-	protected SInformationModel model;
+	protected SystemInformationModel model;
 
 	/**
 	 * The cached value of the '{@link #getServices() <em>Services</em>}' reference list.
@@ -61,7 +61,7 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SServiceInterface> services;
+	protected EList<AsmServiceInterface> services;
 
 	/**
 	 * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference list.
@@ -71,14 +71,14 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SActor> actors;
+	protected EList<AsmActor> actors;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SApplicationImpl()
+	protected AsmApplicationImpl()
 	{
 		super();
 	}
@@ -91,7 +91,7 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SAPPLICATION;
+		return AsmPackage.Literals.ASM_APPLICATION;
 	}
 
 	/**
@@ -99,16 +99,16 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel getModel()
+	public SystemInformationModel getModel()
 	{
 		if (model != null && model.eIsProxy())
 		{
 			InternalEObject oldModel = (InternalEObject)model;
-			model = (SInformationModel)eResolveProxy(oldModel);
+			model = (SystemInformationModel)eResolveProxy(oldModel);
 			if (model != oldModel)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.SAPPLICATION__MODEL, oldModel, model));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.ASM_APPLICATION__MODEL, oldModel, model));
 			}
 		}
 		return model;
@@ -119,7 +119,7 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel basicGetModel()
+	public SystemInformationModel basicGetModel()
 	{
 		return model;
 	}
@@ -129,12 +129,12 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModel(SInformationModel newModel)
+	public void setModel(SystemInformationModel newModel)
 	{
-		SInformationModel oldModel = model;
+		SystemInformationModel oldModel = model;
 		model = newModel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SAPPLICATION__MODEL, oldModel, model));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.ASM_APPLICATION__MODEL, oldModel, model));
 	}
 
 	/**
@@ -142,11 +142,11 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SServiceInterface> getServices()
+	public EList<AsmServiceInterface> getServices()
 	{
 		if (services == null)
 		{
-			services = new EObjectResolvingEList<SServiceInterface>(SServiceInterface.class, this, AsmPackage.SAPPLICATION__SERVICES);
+			services = new EObjectResolvingEList<AsmServiceInterface>(AsmServiceInterface.class, this, AsmPackage.ASM_APPLICATION__SERVICES);
 		}
 		return services;
 	}
@@ -156,11 +156,11 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SActor> getActors()
+	public EList<AsmActor> getActors()
 	{
 		if (actors == null)
 		{
-			actors = new EObjectContainmentEList<SActor>(SActor.class, this, AsmPackage.SAPPLICATION__ACTORS);
+			actors = new EObjectContainmentEList<AsmActor>(AsmActor.class, this, AsmPackage.ASM_APPLICATION__ACTORS);
 		}
 		return actors;
 	}
@@ -175,7 +175,7 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SAPPLICATION__ACTORS:
+			case AsmPackage.ASM_APPLICATION__ACTORS:
 				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -191,12 +191,12 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SAPPLICATION__MODEL:
+			case AsmPackage.ASM_APPLICATION__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
-			case AsmPackage.SAPPLICATION__SERVICES:
+			case AsmPackage.ASM_APPLICATION__SERVICES:
 				return getServices();
-			case AsmPackage.SAPPLICATION__ACTORS:
+			case AsmPackage.ASM_APPLICATION__ACTORS:
 				return getActors();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -213,16 +213,16 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SAPPLICATION__MODEL:
-				setModel((SInformationModel)newValue);
+			case AsmPackage.ASM_APPLICATION__MODEL:
+				setModel((SystemInformationModel)newValue);
 				return;
-			case AsmPackage.SAPPLICATION__SERVICES:
+			case AsmPackage.ASM_APPLICATION__SERVICES:
 				getServices().clear();
-				getServices().addAll((Collection<? extends SServiceInterface>)newValue);
+				getServices().addAll((Collection<? extends AsmServiceInterface>)newValue);
 				return;
-			case AsmPackage.SAPPLICATION__ACTORS:
+			case AsmPackage.ASM_APPLICATION__ACTORS:
 				getActors().clear();
-				getActors().addAll((Collection<? extends SActor>)newValue);
+				getActors().addAll((Collection<? extends AsmActor>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,13 +238,13 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SAPPLICATION__MODEL:
-				setModel((SInformationModel)null);
+			case AsmPackage.ASM_APPLICATION__MODEL:
+				setModel((SystemInformationModel)null);
 				return;
-			case AsmPackage.SAPPLICATION__SERVICES:
+			case AsmPackage.ASM_APPLICATION__SERVICES:
 				getServices().clear();
 				return;
-			case AsmPackage.SAPPLICATION__ACTORS:
+			case AsmPackage.ASM_APPLICATION__ACTORS:
 				getActors().clear();
 				return;
 		}
@@ -261,14 +261,14 @@ public class SApplicationImpl extends AsmModelImpl implements SApplication
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SAPPLICATION__MODEL:
+			case AsmPackage.ASM_APPLICATION__MODEL:
 				return model != null;
-			case AsmPackage.SAPPLICATION__SERVICES:
+			case AsmPackage.ASM_APPLICATION__SERVICES:
 				return services != null && !services.isEmpty();
-			case AsmPackage.SAPPLICATION__ACTORS:
+			case AsmPackage.ASM_APPLICATION__ACTORS:
 				return actors != null && !actors.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SApplicationImpl
+} //AsmApplicationImpl

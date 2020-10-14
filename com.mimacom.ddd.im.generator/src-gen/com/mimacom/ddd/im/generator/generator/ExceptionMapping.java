@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator;
 
-import com.mimacom.ddd.sm.asm.SException;
+import com.mimacom.ddd.sm.asm.AsmException;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -65,12 +65,12 @@ public interface ExceptionMapping extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(SException)
+   * @see #setType(AsmException)
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getExceptionMapping_Type()
    * @model
    * @generated
    */
-  SException getType();
+  AsmException getType();
 
   /**
    * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.ExceptionMapping#getType <em>Type</em>}' reference.
@@ -80,7 +80,7 @@ public interface ExceptionMapping extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(SException value);
+  void setType(AsmException value);
 
   /**
    * Returns the value of the '<em><b>Extends</b></em>' reference.

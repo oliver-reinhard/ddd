@@ -6,7 +6,7 @@ package com.mimacom.ddd.im.generator.generator.impl;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
 import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 
-import com.mimacom.ddd.sm.asm.SException;
+import com.mimacom.ddd.sm.asm.AsmException;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -64,7 +64,7 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected SException type;
+  protected AsmException type;
 
   /**
    * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
@@ -145,12 +145,12 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public SException getType()
+  public AsmException getType()
   {
     if (type != null && type.eIsProxy())
     {
       InternalEObject oldType = (InternalEObject)type;
-      type = (SException)eResolveProxy(oldType);
+      type = (AsmException)eResolveProxy(oldType);
       if (type != oldType)
       {
         if (eNotificationRequired())
@@ -165,7 +165,7 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public SException basicGetType()
+  public AsmException basicGetType()
   {
     return type;
   }
@@ -175,9 +175,9 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(SException newType)
+  public void setType(AsmException newType)
   {
-    SException oldType = type;
+    AsmException oldType = type;
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.EXCEPTION_MAPPING__TYPE, oldType, type));
@@ -287,7 +287,7 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
         setName((String)newValue);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__TYPE:
-        setType((SException)newValue);
+        setType((AsmException)newValue);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__EXTENDS:
         setExtends((JvmType)newValue);
@@ -313,7 +313,7 @@ public class ExceptionMappingImpl extends MinimalEObjectImpl.Container implement
         setName(NAME_EDEFAULT);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__TYPE:
-        setType((SException)null);
+        setType((AsmException)null);
         return;
       case GeneratorPackage.EXCEPTION_MAPPING__EXTENDS:
         setExtends((JvmType)null);

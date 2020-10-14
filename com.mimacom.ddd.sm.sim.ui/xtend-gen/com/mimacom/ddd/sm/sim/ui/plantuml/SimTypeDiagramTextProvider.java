@@ -3,7 +3,7 @@ package com.mimacom.ddd.sm.sim.ui.plantuml;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;
 import java.util.Map;
@@ -57,7 +57,7 @@ public class SimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
     if ((namespace != null)) {
       DModel _model = namespace.getModel();
-      final SInformationModel model = ((SInformationModel) _model);
+      final SystemInformationModel model = ((SystemInformationModel) _model);
       boolean _canProvide = this.actualProvider.canProvide(model);
       if (_canProvide) {
         return this.actualProvider.diagramText(model);

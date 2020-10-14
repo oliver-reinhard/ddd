@@ -3,12 +3,12 @@ package com.mimacom.ddd.sm.sim.scoping
 import com.mimacom.ddd.dm.base.base.DEntityType
 import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.base.base.DNamespace
-import com.mimacom.ddd.sm.sim.SInformationModel
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
 import org.eclipse.xtext.naming.QualifiedName
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 class SimQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 
@@ -35,7 +35,7 @@ class SimQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 	 */
 	protected def QualifiedName modelWideObject(DNamedElement obj) {
 		if (obj.name !== null) {
-			val model = EcoreUtil2.getContainerOfType(obj, SInformationModel)
+			val model = EcoreUtil2.getContainerOfType(obj, SystemInformationModel)
 			if (model !== null) {
 				val modelQN = getOrComputeFullyQualifiedName(model)
 				return modelQN.append(obj.name)

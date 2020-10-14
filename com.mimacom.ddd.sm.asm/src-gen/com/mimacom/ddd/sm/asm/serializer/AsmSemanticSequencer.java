@@ -43,14 +43,14 @@ import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
+import com.mimacom.ddd.sm.asm.AsmApplication;
+import com.mimacom.ddd.sm.asm.AsmException;
+import com.mimacom.ddd.sm.asm.AsmHuman;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SApplication;
-import com.mimacom.ddd.sm.asm.SException;
-import com.mimacom.ddd.sm.asm.SHuman;
-import com.mimacom.ddd.sm.asm.SServiceInterface;
-import com.mimacom.ddd.sm.asm.SServiceOperation;
-import com.mimacom.ddd.sm.asm.SServiceParameter;
-import com.mimacom.ddd.sm.asm.SWatchdog;
+import com.mimacom.ddd.sm.asm.AsmServiceInterface;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceParameter;
+import com.mimacom.ddd.sm.asm.AsmWatchdog;
 import com.mimacom.ddd.sm.asm.services.AsmGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -76,26 +76,26 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == AsmPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case AsmPackage.SAPPLICATION:
-				sequence_SApplication(context, (SApplication) semanticObject); 
+			case AsmPackage.ASM_APPLICATION:
+				sequence_AsmApplication(context, (AsmApplication) semanticObject); 
 				return; 
-			case AsmPackage.SEXCEPTION:
-				sequence_SException(context, (SException) semanticObject); 
+			case AsmPackage.ASM_EXCEPTION:
+				sequence_AsmException(context, (AsmException) semanticObject); 
 				return; 
-			case AsmPackage.SHUMAN:
-				sequence_SHuman(context, (SHuman) semanticObject); 
+			case AsmPackage.ASM_HUMAN:
+				sequence_AsmHuman(context, (AsmHuman) semanticObject); 
 				return; 
-			case AsmPackage.SSERVICE_INTERFACE:
-				sequence_SServiceInterface(context, (SServiceInterface) semanticObject); 
+			case AsmPackage.ASM_SERVICE_INTERFACE:
+				sequence_AsmServiceInterface(context, (AsmServiceInterface) semanticObject); 
 				return; 
-			case AsmPackage.SSERVICE_OPERATION:
-				sequence_SServiceOperation(context, (SServiceOperation) semanticObject); 
+			case AsmPackage.ASM_SERVICE_OPERATION:
+				sequence_AsmServiceOperation(context, (AsmServiceOperation) semanticObject); 
 				return; 
-			case AsmPackage.SSERVICE_PARAMETER:
-				sequence_SServiceParameter(context, (SServiceParameter) semanticObject); 
+			case AsmPackage.ASM_SERVICE_PARAMETER:
+				sequence_AsmServiceParameter(context, (AsmServiceParameter) semanticObject); 
 				return; 
-			case AsmPackage.SWATCHDOG:
-				sequence_SWatchdog(context, (SWatchdog) semanticObject); 
+			case AsmPackage.ASM_WATCHDOG:
+				sequence_AsmWatchdog(context, (AsmWatchdog) semanticObject); 
 				return; 
 			}
 		else if (epackage == BasePackage.eINSTANCE)
@@ -303,123 +303,123 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DNamespace returns DNamespace
+	 *     AsmApplication returns AsmApplication
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=DImport* (model=SApplication | model=SServiceInterface))
+	 *     (name=ID model=[SystemInformationModel|DQualifiedName] actors+=AsmActor*)
 	 */
-	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
+	protected void sequence_AsmApplication(ISerializationContext context, AsmApplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SApplication returns SApplication
-	 *
-	 * Constraint:
-	 *     (name=ID model=[SInformationModel|DQualifiedName] actors+=SActor*)
-	 */
-	protected void sequence_SApplication(ISerializationContext context, SApplication semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SException returns SException
+	 *     AsmException returns AsmException
 	 *
 	 * Constraint:
 	 *     (name=ID description=DRichText?)
 	 */
-	protected void sequence_SException(ISerializationContext context, SException semanticObject) {
+	protected void sequence_AsmException(ISerializationContext context, AsmException semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SActor returns SHuman
-	 *     SHuman returns SHuman
+	 *     AsmActor returns AsmHuman
+	 *     AsmHuman returns AsmHuman
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_SHuman(ISerializationContext context, SHuman semanticObject) {
+	protected void sequence_AsmHuman(ISerializationContext context, AsmHuman semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AsmPackage.Literals.SACTOR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AsmPackage.Literals.SACTOR__NAME));
+			if (transientValues.isValueTransient(semanticObject, AsmPackage.Literals.ASM_ACTOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AsmPackage.Literals.ASM_ACTOR__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSHumanAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAsmHumanAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SServiceInterface returns SServiceInterface
+	 *     AsmServiceInterface returns AsmServiceInterface
 	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         interface=[SInformationModel|DQualifiedName] 
-	 *         core=[SInformationModel|DQualifiedName] 
-	 *         exceptions+=SException* 
-	 *         operations+=SServiceOperation*
+	 *         interface=[SystemInformationModel|DQualifiedName] 
+	 *         core=[SystemInformationModel|DQualifiedName] 
+	 *         exceptions+=AsmException* 
+	 *         operations+=AsmServiceOperation*
 	 *     )
 	 */
-	protected void sequence_SServiceInterface(ISerializationContext context, SServiceInterface semanticObject) {
+	protected void sequence_AsmServiceInterface(ISerializationContext context, AsmServiceInterface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SServiceOperation returns SServiceOperation
+	 *     AsmServiceOperation returns AsmServiceOperation
 	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         (parameters+=SServiceParameter parameters+=SServiceParameter*)? 
-	 *         (raises+=[SException|ID] raises+=[SException|ID]*)? 
+	 *         (parameters+=AsmServiceParameter parameters+=AsmServiceParameter*)? 
+	 *         (raises+=[AsmException|ID] raises+=[AsmException|ID]*)? 
 	 *         guards+=DExpression* 
 	 *         effects+=DExpression*
 	 *     )
 	 */
-	protected void sequence_SServiceOperation(ISerializationContext context, SServiceOperation semanticObject) {
+	protected void sequence_AsmServiceOperation(ISerializationContext context, AsmServiceOperation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SServiceParameter returns SServiceParameter
+	 *     AsmServiceParameter returns AsmServiceParameter
 	 *
 	 * Constraint:
-	 *     (direction=SDirection name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
+	 *     (direction=AsmParameterDirection name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
 	 */
-	protected void sequence_SServiceParameter(ISerializationContext context, SServiceParameter semanticObject) {
+	protected void sequence_AsmServiceParameter(ISerializationContext context, AsmServiceParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SActor returns SWatchdog
-	 *     SWatchdog returns SWatchdog
+	 *     AsmActor returns AsmWatchdog
+	 *     AsmWatchdog returns AsmWatchdog
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_SWatchdog(ISerializationContext context, SWatchdog semanticObject) {
+	protected void sequence_AsmWatchdog(ISerializationContext context, AsmWatchdog semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AsmPackage.Literals.SACTOR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AsmPackage.Literals.SACTOR__NAME));
+			if (transientValues.isValueTransient(semanticObject, AsmPackage.Literals.ASM_ACTOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AsmPackage.Literals.ASM_ACTOR__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSWatchdogAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAsmWatchdogAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DNamespace returns DNamespace
+	 *
+	 * Constraint:
+	 *     (name=DQualifiedName imports+=DImport* (model=AsmApplication | model=AsmServiceInterface))
+	 */
+	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -397,7 +397,7 @@ ruleExceptionMapping returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getExceptionMappingAccess().getTypeSExceptionCrossReference_3_0());
+					newCompositeNode(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionCrossReference_3_0());
 				}
 				ruleQualifiedName
 				{
@@ -618,7 +618,7 @@ ruleEndpointDeclaration returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationCrossReference_3_0());
+					newCompositeNode(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationCrossReference_3_0());
 				}
 				ruleQualifiedName
 				{

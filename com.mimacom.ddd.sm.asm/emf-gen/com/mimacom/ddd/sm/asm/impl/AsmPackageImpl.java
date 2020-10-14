@@ -5,19 +5,19 @@ package com.mimacom.ddd.sm.asm.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 
+import com.mimacom.ddd.sm.asm.ApplicationServiceModel;
+import com.mimacom.ddd.sm.asm.AsmActor;
+import com.mimacom.ddd.sm.asm.AsmApplication;
+import com.mimacom.ddd.sm.asm.AsmException;
 import com.mimacom.ddd.sm.asm.AsmFactory;
-import com.mimacom.ddd.sm.asm.AsmModel;
+import com.mimacom.ddd.sm.asm.AsmHuman;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SActor;
-import com.mimacom.ddd.sm.asm.SApplication;
-import com.mimacom.ddd.sm.asm.SDirection;
-import com.mimacom.ddd.sm.asm.SException;
-import com.mimacom.ddd.sm.asm.SHuman;
-import com.mimacom.ddd.sm.asm.SServiceInterface;
-import com.mimacom.ddd.sm.asm.SServiceKind;
-import com.mimacom.ddd.sm.asm.SServiceOperation;
-import com.mimacom.ddd.sm.asm.SServiceParameter;
-import com.mimacom.ddd.sm.asm.SWatchdog;
+import com.mimacom.ddd.sm.asm.AsmParameterDirection;
+import com.mimacom.ddd.sm.asm.AsmServiceInterface;
+import com.mimacom.ddd.sm.asm.AsmServiceKind;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceParameter;
+import com.mimacom.ddd.sm.asm.AsmWatchdog;
 
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -42,77 +42,77 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass asmModelEClass = null;
+	private EClass applicationServiceModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sApplicationEClass = null;
+	private EClass asmApplicationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sServiceInterfaceEClass = null;
+	private EClass asmServiceInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sExceptionEClass = null;
+	private EClass asmExceptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sActorEClass = null;
+	private EClass asmActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sWatchdogEClass = null;
+	private EClass asmWatchdogEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sHumanEClass = null;
+	private EClass asmHumanEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sServiceOperationEClass = null;
+	private EClass asmServiceOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sServiceParameterEClass = null;
+	private EClass asmServiceParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum sServiceKindEEnum = null;
+	private EEnum asmServiceKindEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum sDirectionEEnum = null;
+	private EEnum asmParameterDirectionEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -185,9 +185,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAsmModel()
+	public EClass getApplicationServiceModel()
 	{
-		return asmModelEClass;
+		return applicationServiceModelEClass;
 	}
 
 	/**
@@ -195,9 +195,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSApplication()
+	public EClass getAsmApplication()
 	{
-		return sApplicationEClass;
+		return asmApplicationEClass;
 	}
 
 	/**
@@ -205,9 +205,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSApplication_Model()
+	public EReference getAsmApplication_Model()
 	{
-		return (EReference)sApplicationEClass.getEStructuralFeatures().get(0);
+		return (EReference)asmApplicationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -215,9 +215,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSApplication_Services()
+	public EReference getAsmApplication_Services()
 	{
-		return (EReference)sApplicationEClass.getEStructuralFeatures().get(1);
+		return (EReference)asmApplicationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -225,9 +225,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSApplication_Actors()
+	public EReference getAsmApplication_Actors()
 	{
-		return (EReference)sApplicationEClass.getEStructuralFeatures().get(2);
+		return (EReference)asmApplicationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -235,9 +235,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSServiceInterface()
+	public EClass getAsmServiceInterface()
 	{
-		return sServiceInterfaceEClass;
+		return asmServiceInterfaceEClass;
 	}
 
 	/**
@@ -245,9 +245,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceInterface_Interface()
+	public EReference getAsmServiceInterface_Interface()
 	{
-		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EReference)asmServiceInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -255,9 +255,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceInterface_Core()
+	public EReference getAsmServiceInterface_Core()
 	{
-		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(1);
+		return (EReference)asmServiceInterfaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -265,9 +265,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceInterface_Exceptions()
+	public EReference getAsmServiceInterface_Exceptions()
 	{
-		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(2);
+		return (EReference)asmServiceInterfaceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -275,9 +275,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceInterface_Operations()
+	public EReference getAsmServiceInterface_Operations()
 	{
-		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(3);
+		return (EReference)asmServiceInterfaceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -285,9 +285,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSException()
+	public EClass getAsmException()
 	{
-		return sExceptionEClass;
+		return asmExceptionEClass;
 	}
 
 	/**
@@ -295,9 +295,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSActor()
+	public EClass getAsmActor()
 	{
-		return sActorEClass;
+		return asmActorEClass;
 	}
 
 	/**
@@ -305,9 +305,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSActor_Name()
+	public EAttribute getAsmActor_Name()
 	{
-		return (EAttribute)sActorEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)asmActorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -315,9 +315,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSWatchdog()
+	public EClass getAsmWatchdog()
 	{
-		return sWatchdogEClass;
+		return asmWatchdogEClass;
 	}
 
 	/**
@@ -325,9 +325,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSHuman()
+	public EClass getAsmHuman()
 	{
-		return sHumanEClass;
+		return asmHumanEClass;
 	}
 
 	/**
@@ -335,9 +335,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSServiceOperation()
+	public EClass getAsmServiceOperation()
 	{
-		return sServiceOperationEClass;
+		return asmServiceOperationEClass;
 	}
 
 	/**
@@ -345,9 +345,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSServiceOperation_Name()
+	public EAttribute getAsmServiceOperation_Name()
 	{
-		return (EAttribute)sServiceOperationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)asmServiceOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -355,9 +355,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceOperation_Parameters()
+	public EReference getAsmServiceOperation_Parameters()
 	{
-		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(1);
+		return (EReference)asmServiceOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -365,9 +365,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceOperation_Raises()
+	public EReference getAsmServiceOperation_Raises()
 	{
-		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(2);
+		return (EReference)asmServiceOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -375,9 +375,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceOperation_Guards()
+	public EReference getAsmServiceOperation_Guards()
 	{
-		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(3);
+		return (EReference)asmServiceOperationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -385,9 +385,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSServiceOperation_Effects()
+	public EReference getAsmServiceOperation_Effects()
 	{
-		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(4);
+		return (EReference)asmServiceOperationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -395,9 +395,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSServiceParameter()
+	public EClass getAsmServiceParameter()
 	{
-		return sServiceParameterEClass;
+		return asmServiceParameterEClass;
 	}
 
 	/**
@@ -405,9 +405,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSServiceParameter_Direction()
+	public EAttribute getAsmServiceParameter_Direction()
 	{
-		return (EAttribute)sServiceParameterEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)asmServiceParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -415,9 +415,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSServiceKind()
+	public EEnum getAsmServiceKind()
 	{
-		return sServiceKindEEnum;
+		return asmServiceKindEEnum;
 	}
 
 	/**
@@ -425,9 +425,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSDirection()
+	public EEnum getAsmParameterDirection()
 	{
-		return sDirectionEEnum;
+		return asmParameterDirectionEEnum;
 	}
 
 	/**
@@ -460,41 +460,41 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		isCreated = true;
 
 		// Create classes and their features
-		asmModelEClass = createEClass(ASM_MODEL);
+		applicationServiceModelEClass = createEClass(APPLICATION_SERVICE_MODEL);
 
-		sApplicationEClass = createEClass(SAPPLICATION);
-		createEReference(sApplicationEClass, SAPPLICATION__MODEL);
-		createEReference(sApplicationEClass, SAPPLICATION__SERVICES);
-		createEReference(sApplicationEClass, SAPPLICATION__ACTORS);
+		asmApplicationEClass = createEClass(ASM_APPLICATION);
+		createEReference(asmApplicationEClass, ASM_APPLICATION__MODEL);
+		createEReference(asmApplicationEClass, ASM_APPLICATION__SERVICES);
+		createEReference(asmApplicationEClass, ASM_APPLICATION__ACTORS);
 
-		sServiceInterfaceEClass = createEClass(SSERVICE_INTERFACE);
-		createEReference(sServiceInterfaceEClass, SSERVICE_INTERFACE__INTERFACE);
-		createEReference(sServiceInterfaceEClass, SSERVICE_INTERFACE__CORE);
-		createEReference(sServiceInterfaceEClass, SSERVICE_INTERFACE__EXCEPTIONS);
-		createEReference(sServiceInterfaceEClass, SSERVICE_INTERFACE__OPERATIONS);
+		asmServiceInterfaceEClass = createEClass(ASM_SERVICE_INTERFACE);
+		createEReference(asmServiceInterfaceEClass, ASM_SERVICE_INTERFACE__INTERFACE);
+		createEReference(asmServiceInterfaceEClass, ASM_SERVICE_INTERFACE__CORE);
+		createEReference(asmServiceInterfaceEClass, ASM_SERVICE_INTERFACE__EXCEPTIONS);
+		createEReference(asmServiceInterfaceEClass, ASM_SERVICE_INTERFACE__OPERATIONS);
 
-		sExceptionEClass = createEClass(SEXCEPTION);
+		asmExceptionEClass = createEClass(ASM_EXCEPTION);
 
-		sActorEClass = createEClass(SACTOR);
-		createEAttribute(sActorEClass, SACTOR__NAME);
+		asmActorEClass = createEClass(ASM_ACTOR);
+		createEAttribute(asmActorEClass, ASM_ACTOR__NAME);
 
-		sWatchdogEClass = createEClass(SWATCHDOG);
+		asmWatchdogEClass = createEClass(ASM_WATCHDOG);
 
-		sHumanEClass = createEClass(SHUMAN);
+		asmHumanEClass = createEClass(ASM_HUMAN);
 
-		sServiceOperationEClass = createEClass(SSERVICE_OPERATION);
-		createEAttribute(sServiceOperationEClass, SSERVICE_OPERATION__NAME);
-		createEReference(sServiceOperationEClass, SSERVICE_OPERATION__PARAMETERS);
-		createEReference(sServiceOperationEClass, SSERVICE_OPERATION__RAISES);
-		createEReference(sServiceOperationEClass, SSERVICE_OPERATION__GUARDS);
-		createEReference(sServiceOperationEClass, SSERVICE_OPERATION__EFFECTS);
+		asmServiceOperationEClass = createEClass(ASM_SERVICE_OPERATION);
+		createEAttribute(asmServiceOperationEClass, ASM_SERVICE_OPERATION__NAME);
+		createEReference(asmServiceOperationEClass, ASM_SERVICE_OPERATION__PARAMETERS);
+		createEReference(asmServiceOperationEClass, ASM_SERVICE_OPERATION__RAISES);
+		createEReference(asmServiceOperationEClass, ASM_SERVICE_OPERATION__GUARDS);
+		createEReference(asmServiceOperationEClass, ASM_SERVICE_OPERATION__EFFECTS);
 
-		sServiceParameterEClass = createEClass(SSERVICE_PARAMETER);
-		createEAttribute(sServiceParameterEClass, SSERVICE_PARAMETER__DIRECTION);
+		asmServiceParameterEClass = createEClass(ASM_SERVICE_PARAMETER);
+		createEAttribute(asmServiceParameterEClass, ASM_SERVICE_PARAMETER__DIRECTION);
 
 		// Create enums
-		sServiceKindEEnum = createEEnum(SSERVICE_KIND);
-		sDirectionEEnum = createEEnum(SDIRECTION);
+		asmServiceKindEEnum = createEEnum(ASM_SERVICE_KIND);
+		asmParameterDirectionEEnum = createEEnum(ASM_PARAMETER_DIRECTION);
 	}
 
 	/**
@@ -530,58 +530,58 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		asmModelEClass.getESuperTypes().add(theBasePackage.getDModel());
-		asmModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
-		asmModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
-		sApplicationEClass.getESuperTypes().add(this.getAsmModel());
-		sServiceInterfaceEClass.getESuperTypes().add(this.getAsmModel());
-		sExceptionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
-		sWatchdogEClass.getESuperTypes().add(this.getSActor());
-		sHumanEClass.getESuperTypes().add(this.getSActor());
-		sServiceOperationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
-		sServiceParameterEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		applicationServiceModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		applicationServiceModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
+		applicationServiceModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
+		asmApplicationEClass.getESuperTypes().add(this.getApplicationServiceModel());
+		asmServiceInterfaceEClass.getESuperTypes().add(this.getApplicationServiceModel());
+		asmExceptionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		asmWatchdogEClass.getESuperTypes().add(this.getAsmActor());
+		asmHumanEClass.getESuperTypes().add(this.getAsmActor());
+		asmServiceOperationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		asmServiceParameterEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(asmModelEClass, AsmModel.class, "AsmModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(applicationServiceModelEClass, ApplicationServiceModel.class, "ApplicationServiceModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sApplicationEClass, SApplication.class, "SApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSApplication_Model(), theSimPackage.getSInformationModel(), null, "model", null, 0, 1, SApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSApplication_Services(), this.getSServiceInterface(), null, "services", null, 0, -1, SApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSApplication_Actors(), this.getSActor(), null, "actors", null, 0, -1, SApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(asmApplicationEClass, AsmApplication.class, "AsmApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAsmApplication_Model(), theSimPackage.getSystemInformationModel(), null, "model", null, 0, 1, AsmApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmApplication_Services(), this.getAsmServiceInterface(), null, "services", null, 0, -1, AsmApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmApplication_Actors(), this.getAsmActor(), null, "actors", null, 0, -1, AsmApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sServiceInterfaceEClass, SServiceInterface.class, "SServiceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSServiceInterface_Interface(), theSimPackage.getSInformationModel(), null, "interface", null, 0, 1, SServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceInterface_Core(), theSimPackage.getSInformationModel(), null, "core", null, 0, 1, SServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceInterface_Exceptions(), this.getSException(), null, "exceptions", null, 0, -1, SServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceInterface_Operations(), this.getSServiceOperation(), null, "operations", null, 0, -1, SServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(asmServiceInterfaceEClass, AsmServiceInterface.class, "AsmServiceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAsmServiceInterface_Interface(), theSimPackage.getSystemInformationModel(), null, "interface", null, 0, 1, AsmServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceInterface_Core(), theSimPackage.getSystemInformationModel(), null, "core", null, 0, 1, AsmServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceInterface_Exceptions(), this.getAsmException(), null, "exceptions", null, 0, -1, AsmServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceInterface_Operations(), this.getAsmServiceOperation(), null, "operations", null, 0, -1, AsmServiceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sExceptionEClass, SException.class, "SException", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(asmExceptionEClass, AsmException.class, "AsmException", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sActorEClass, SActor.class, "SActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSActor_Name(), ecorePackage.getEString(), "name", null, 0, 1, SActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(asmActorEClass, AsmActor.class, "AsmActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAsmActor_Name(), ecorePackage.getEString(), "name", null, 0, 1, AsmActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sWatchdogEClass, SWatchdog.class, "SWatchdog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(asmWatchdogEClass, AsmWatchdog.class, "AsmWatchdog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sHumanEClass, SHuman.class, "SHuman", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(asmHumanEClass, AsmHuman.class, "AsmHuman", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sServiceOperationEClass, SServiceOperation.class, "SServiceOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSServiceOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, SServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceOperation_Parameters(), this.getSServiceParameter(), null, "parameters", null, 0, -1, SServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceOperation_Raises(), this.getSException(), null, "raises", null, 0, -1, SServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceOperation_Guards(), theBasePackage.getDExpression(), null, "guards", null, 0, -1, SServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSServiceOperation_Effects(), theBasePackage.getDExpression(), null, "effects", null, 0, -1, SServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(asmServiceOperationEClass, AsmServiceOperation.class, "AsmServiceOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAsmServiceOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, AsmServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceOperation_Parameters(), this.getAsmServiceParameter(), null, "parameters", null, 0, -1, AsmServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceOperation_Raises(), this.getAsmException(), null, "raises", null, 0, -1, AsmServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceOperation_Guards(), theBasePackage.getDExpression(), null, "guards", null, 0, -1, AsmServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsmServiceOperation_Effects(), theBasePackage.getDExpression(), null, "effects", null, 0, -1, AsmServiceOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sServiceParameterEClass, SServiceParameter.class, "SServiceParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSServiceParameter_Direction(), this.getSDirection(), "direction", null, 0, 1, SServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(asmServiceParameterEClass, AsmServiceParameter.class, "AsmServiceParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAsmServiceParameter_Direction(), this.getAsmParameterDirection(), "direction", null, 0, 1, AsmServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(sServiceKindEEnum, SServiceKind.class, "SServiceKind");
-		addEEnumLiteral(sServiceKindEEnum, SServiceKind.SYNCHRONOUS);
-		addEEnumLiteral(sServiceKindEEnum, SServiceKind.ASYNCHRONOUS);
+		initEEnum(asmServiceKindEEnum, AsmServiceKind.class, "AsmServiceKind");
+		addEEnumLiteral(asmServiceKindEEnum, AsmServiceKind.SYNCHRONOUS);
+		addEEnumLiteral(asmServiceKindEEnum, AsmServiceKind.ASYNCHRONOUS);
 
-		initEEnum(sDirectionEEnum, SDirection.class, "SDirection");
-		addEEnumLiteral(sDirectionEEnum, SDirection.INBOUND);
-		addEEnumLiteral(sDirectionEEnum, SDirection.OUTBOUND);
+		initEEnum(asmParameterDirectionEEnum, AsmParameterDirection.class, "AsmParameterDirection");
+		addEEnumLiteral(asmParameterDirectionEEnum, AsmParameterDirection.INBOUND);
+		addEEnumLiteral(asmParameterDirectionEEnum, AsmParameterDirection.OUTBOUND);
 
 		// Create resource
 		createResource(eNS_URI);

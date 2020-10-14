@@ -2,7 +2,6 @@ package com.mimacom.ddd.sm.sim.ui.plantuml
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DNamespace
-import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator
 import java.util.Map
@@ -12,6 +11,7 @@ import org.eclipse.ui.IEditorInput
 import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 class SimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
 
@@ -37,7 +37,7 @@ class SimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
         ]
         
         if (namespace !== null) {        	
-	        val model = namespace.model as SInformationModel
+	        val model = namespace.model as SystemInformationModel
 	        if (actualProvider.canProvide(model)) {
 	        	return actualProvider.diagramText(model)
         	}

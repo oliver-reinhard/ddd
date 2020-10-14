@@ -4,9 +4,9 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImplCustom;
 
-import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SimPackage;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModelKind;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -16,19 +16,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SInformation Model</b></em>'.
+ * An implementation of the model object '<em><b>System Information Model</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getKind <em>Kind</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#isGenerate <em>Generate</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SystemInformationModelImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SystemInformationModelImpl#isGenerate <em>Generate</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SInformationModelImpl extends TInformationModelImplCustom implements SInformationModel
+public class SystemInformationModelImpl extends TInformationModelImplCustom implements SystemInformationModel
 {
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
@@ -38,7 +38,7 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SInformationModelKind KIND_EDEFAULT = SInformationModelKind.BASE;
+	protected static final SystemInformationModelKind KIND_EDEFAULT = SystemInformationModelKind.BASE;
 
 	/**
 	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
@@ -48,7 +48,7 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * @generated
 	 * @ordered
 	 */
-	protected SInformationModelKind kind = KIND_EDEFAULT;
+	protected SystemInformationModelKind kind = KIND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isGenerate() <em>Generate</em>}' attribute.
@@ -75,7 +75,7 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SInformationModelImpl()
+	protected SystemInformationModelImpl()
 	{
 		super();
 	}
@@ -88,7 +88,7 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	@Override
 	protected EClass eStaticClass()
 	{
-		return SimPackage.Literals.SINFORMATION_MODEL;
+		return SimPackage.Literals.SYSTEM_INFORMATION_MODEL;
 	}
 
 	/**
@@ -96,8 +96,7 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public SInformationModelKind getKind()
+	public SystemInformationModelKind getKind()
 	{
 		return kind;
 	}
@@ -107,13 +106,12 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setKind(SInformationModelKind newKind)
+	public void setKind(SystemInformationModelKind newKind)
 	{
-		SInformationModelKind oldKind = kind;
+		SystemInformationModelKind oldKind = kind;
 		kind = newKind == null ? KIND_EDEFAULT : newKind;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__KIND, oldKind, kind));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SYSTEM_INFORMATION_MODEL__KIND, oldKind, kind));
 	}
 
 	/**
@@ -121,7 +119,6 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isGenerate()
 	{
 		return generate;
@@ -132,13 +129,12 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setGenerate(boolean newGenerate)
 	{
 		boolean oldGenerate = generate;
 		generate = newGenerate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__GENERATE, oldGenerate, generate));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SYSTEM_INFORMATION_MODEL__GENERATE, oldGenerate, generate));
 	}
 
 	/**
@@ -151,9 +147,9 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__KIND:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__KIND:
 				return getKind();
-			case SimPackage.SINFORMATION_MODEL__GENERATE:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__GENERATE:
 				return isGenerate();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -169,10 +165,10 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__KIND:
-				setKind((SInformationModelKind)newValue);
+			case SimPackage.SYSTEM_INFORMATION_MODEL__KIND:
+				setKind((SystemInformationModelKind)newValue);
 				return;
-			case SimPackage.SINFORMATION_MODEL__GENERATE:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__GENERATE:
 				setGenerate((Boolean)newValue);
 				return;
 		}
@@ -189,10 +185,10 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__KIND:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
-			case SimPackage.SINFORMATION_MODEL__GENERATE:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__GENERATE:
 				setGenerate(GENERATE_EDEFAULT);
 				return;
 		}
@@ -209,9 +205,9 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__KIND:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__KIND:
 				return kind != KIND_EDEFAULT;
-			case SimPackage.SINFORMATION_MODEL__GENERATE:
+			case SimPackage.SYSTEM_INFORMATION_MODEL__GENERATE:
 				return generate != GENERATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -227,7 +223,7 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (kind: ");
 		result.append(kind);
 		result.append(", generate: ");
@@ -236,4 +232,4 @@ public class SInformationModelImpl extends TInformationModelImplCustom implement
 		return result.toString();
 	}
 
-} //SInformationModelImpl
+} //SystemInformationModelImpl

@@ -8,7 +8,7 @@ import com.mimacom.ddd.im.generator.generator.GeneratorPackage;
 import com.mimacom.ddd.im.generator.generator.HttpVerb;
 import com.mimacom.ddd.im.generator.generator.Path;
 
-import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -85,7 +85,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected SServiceOperation type;
+  protected AsmServiceOperation type;
 
   /**
    * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -169,12 +169,12 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public SServiceOperation getType()
+  public AsmServiceOperation getType()
   {
     if (type != null && type.eIsProxy())
     {
       InternalEObject oldType = (InternalEObject)type;
-      type = (SServiceOperation)eResolveProxy(oldType);
+      type = (AsmServiceOperation)eResolveProxy(oldType);
       if (type != oldType)
       {
         if (eNotificationRequired())
@@ -189,7 +189,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public SServiceOperation basicGetType()
+  public AsmServiceOperation basicGetType()
   {
     return type;
   }
@@ -199,9 +199,9 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(SServiceOperation newType)
+  public void setType(AsmServiceOperation newType)
   {
-    SServiceOperation oldType = type;
+    AsmServiceOperation oldType = type;
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GeneratorPackage.ENDPOINT_DECLARATION__TYPE, oldType, type));
@@ -311,7 +311,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
         setName((String)newValue);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
-        setType((SServiceOperation)newValue);
+        setType((AsmServiceOperation)newValue);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
         setPath((Path)newValue);
@@ -337,7 +337,7 @@ public class EndpointDeclarationImpl extends MinimalEObjectImpl.Container implem
         setName(NAME_EDEFAULT);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__TYPE:
-        setType((SServiceOperation)null);
+        setType((AsmServiceOperation)null);
         return;
       case GeneratorPackage.ENDPOINT_DECLARATION__PATH:
         setPath((Path)null);

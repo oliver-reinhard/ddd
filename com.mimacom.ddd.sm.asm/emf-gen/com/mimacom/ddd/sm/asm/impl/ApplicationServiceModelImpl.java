@@ -5,26 +5,26 @@ package com.mimacom.ddd.sm.asm.impl;
 
 import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
 
-import com.mimacom.ddd.sm.asm.AsmModel;
+import com.mimacom.ddd.sm.asm.ApplicationServiceModel;
 import com.mimacom.ddd.sm.asm.AsmPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Application Service Model</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class AsmModelImpl extends DModelImpl implements AsmModel
+public abstract class ApplicationServiceModelImpl extends DModelImpl implements ApplicationServiceModel
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AsmModelImpl()
+	protected ApplicationServiceModelImpl()
 	{
 		super();
 	}
@@ -37,7 +37,7 @@ public abstract class AsmModelImpl extends DModelImpl implements AsmModel
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.ASM_MODEL;
+		return AsmPackage.Literals.APPLICATION_SERVICE_MODEL;
 	}
 
-} //AsmModelImpl
+} //ApplicationServiceModelImpl

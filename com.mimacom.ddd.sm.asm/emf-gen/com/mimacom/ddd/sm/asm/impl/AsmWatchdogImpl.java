@@ -4,25 +4,25 @@
 package com.mimacom.ddd.sm.asm.impl;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SHuman;
+import com.mimacom.ddd.sm.asm.AsmWatchdog;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SHuman</b></em>'.
+ * An implementation of the model object '<em><b>Watchdog</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SHumanImpl extends SActorImpl implements SHuman
+public class AsmWatchdogImpl extends AsmActorImpl implements AsmWatchdog
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SHumanImpl()
+	protected AsmWatchdogImpl()
 	{
 		super();
 	}
@@ -35,7 +35,7 @@ public class SHumanImpl extends SActorImpl implements SHuman
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SHUMAN;
+		return AsmPackage.Literals.ASM_WATCHDOG;
 	}
 
-} //SHumanImpl
+} //AsmWatchdogImpl

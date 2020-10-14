@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.im.generator.generator;
 
-import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -92,12 +92,12 @@ public interface EndpointDeclaration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(SServiceOperation)
+   * @see #setType(AsmServiceOperation)
    * @see com.mimacom.ddd.im.generator.generator.GeneratorPackage#getEndpointDeclaration_Type()
    * @model
    * @generated
    */
-  SServiceOperation getType();
+  AsmServiceOperation getType();
 
   /**
    * Sets the value of the '{@link com.mimacom.ddd.im.generator.generator.EndpointDeclaration#getType <em>Type</em>}' reference.
@@ -107,7 +107,7 @@ public interface EndpointDeclaration extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(SServiceOperation value);
+  void setType(AsmServiceOperation value);
 
   /**
    * Returns the value of the '<em><b>Path</b></em>' containment reference.

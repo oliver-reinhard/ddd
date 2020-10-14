@@ -4,7 +4,7 @@ import org.eclipse.emf.common.util.EList;
 
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 
-public class SServiceOperationImplCustom extends SServiceOperationImpl {
+public class AsmServiceOperationImplCustom extends AsmServiceOperationImpl {
 
 	@SuppressWarnings("unchecked")
 	@Override

@@ -281,23 +281,23 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDNamespace"
 
 
-    // $ANTLR start "entryRuleSInformationModel"
-    // InternalSim.g:79:1: entryRuleSInformationModel : ruleSInformationModel EOF ;
-    public final void entryRuleSInformationModel() throws RecognitionException {
+    // $ANTLR start "entryRuleSystemInformationModel"
+    // InternalSim.g:79:1: entryRuleSystemInformationModel : ruleSystemInformationModel EOF ;
+    public final void entryRuleSystemInformationModel() throws RecognitionException {
         try {
-            // InternalSim.g:80:1: ( ruleSInformationModel EOF )
-            // InternalSim.g:81:1: ruleSInformationModel EOF
+            // InternalSim.g:80:1: ( ruleSystemInformationModel EOF )
+            // InternalSim.g:81:1: ruleSystemInformationModel EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelRule()); 
+               before(grammarAccess.getSystemInformationModelRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleSInformationModel();
+            ruleSystemInformationModel();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelRule()); 
+               after(grammarAccess.getSystemInformationModelRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -312,30 +312,30 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleSInformationModel"
+    // $ANTLR end "entryRuleSystemInformationModel"
 
 
-    // $ANTLR start "ruleSInformationModel"
-    // InternalSim.g:88:1: ruleSInformationModel : ( ( rule__SInformationModel__Group__0 ) ) ;
-    public final void ruleSInformationModel() throws RecognitionException {
+    // $ANTLR start "ruleSystemInformationModel"
+    // InternalSim.g:88:1: ruleSystemInformationModel : ( ( rule__SystemInformationModel__Group__0 ) ) ;
+    public final void ruleSystemInformationModel() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:92:2: ( ( ( rule__SInformationModel__Group__0 ) ) )
-            // InternalSim.g:93:2: ( ( rule__SInformationModel__Group__0 ) )
+            // InternalSim.g:92:2: ( ( ( rule__SystemInformationModel__Group__0 ) ) )
+            // InternalSim.g:93:2: ( ( rule__SystemInformationModel__Group__0 ) )
             {
-            // InternalSim.g:93:2: ( ( rule__SInformationModel__Group__0 ) )
-            // InternalSim.g:94:3: ( rule__SInformationModel__Group__0 )
+            // InternalSim.g:93:2: ( ( rule__SystemInformationModel__Group__0 ) )
+            // InternalSim.g:94:3: ( rule__SystemInformationModel__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getGroup()); 
+               before(grammarAccess.getSystemInformationModelAccess().getGroup()); 
             }
-            // InternalSim.g:95:3: ( rule__SInformationModel__Group__0 )
-            // InternalSim.g:95:4: rule__SInformationModel__Group__0
+            // InternalSim.g:95:3: ( rule__SystemInformationModel__Group__0 )
+            // InternalSim.g:95:4: rule__SystemInformationModel__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__0();
+            rule__SystemInformationModel__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -343,7 +343,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getGroup()); 
+               after(grammarAccess.getSystemInformationModelAccess().getGroup()); 
             }
 
             }
@@ -363,7 +363,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleSInformationModel"
+    // $ANTLR end "ruleSystemInformationModel"
 
 
     // $ANTLR start "entryRuleSimGrabAggregateRule"
@@ -9342,27 +9342,27 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleSTypeModelKind"
 
 
-    // $ANTLR start "ruleSInformationModelKind"
-    // InternalSim.g:2763:1: ruleSInformationModelKind : ( ( rule__SInformationModelKind__Alternatives ) ) ;
-    public final void ruleSInformationModelKind() throws RecognitionException {
+    // $ANTLR start "ruleSystemInformationModelKind"
+    // InternalSim.g:2763:1: ruleSystemInformationModelKind : ( ( rule__SystemInformationModelKind__Alternatives ) ) ;
+    public final void ruleSystemInformationModelKind() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:2767:1: ( ( ( rule__SInformationModelKind__Alternatives ) ) )
-            // InternalSim.g:2768:2: ( ( rule__SInformationModelKind__Alternatives ) )
+            // InternalSim.g:2767:1: ( ( ( rule__SystemInformationModelKind__Alternatives ) ) )
+            // InternalSim.g:2768:2: ( ( rule__SystemInformationModelKind__Alternatives ) )
             {
-            // InternalSim.g:2768:2: ( ( rule__SInformationModelKind__Alternatives ) )
-            // InternalSim.g:2769:3: ( rule__SInformationModelKind__Alternatives )
+            // InternalSim.g:2768:2: ( ( rule__SystemInformationModelKind__Alternatives ) )
+            // InternalSim.g:2769:3: ( rule__SystemInformationModelKind__Alternatives )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelKindAccess().getAlternatives()); 
+               before(grammarAccess.getSystemInformationModelKindAccess().getAlternatives()); 
             }
-            // InternalSim.g:2770:3: ( rule__SInformationModelKind__Alternatives )
-            // InternalSim.g:2770:4: rule__SInformationModelKind__Alternatives
+            // InternalSim.g:2770:3: ( rule__SystemInformationModelKind__Alternatives )
+            // InternalSim.g:2770:4: rule__SystemInformationModelKind__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModelKind__Alternatives();
+            rule__SystemInformationModelKind__Alternatives();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9370,7 +9370,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelKindAccess().getAlternatives()); 
+               after(grammarAccess.getSystemInformationModelKindAccess().getAlternatives()); 
             }
 
             }
@@ -9390,7 +9390,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleSInformationModelKind"
+    // $ANTLR end "ruleSystemInformationModelKind"
 
 
     // $ANTLR start "ruleSimAbstractType"
@@ -10291,14 +10291,14 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDMultiplicityShorthand"
 
 
-    // $ANTLR start "rule__SInformationModel__Alternatives_0"
-    // InternalSim.g:3066:1: rule__SInformationModel__Alternatives_0 : ( ( ( rule__SInformationModel__Group_0_0__0 ) ) | ( ( rule__SInformationModel__Group_0_1__0 ) ) );
-    public final void rule__SInformationModel__Alternatives_0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Alternatives_0"
+    // InternalSim.g:3066:1: rule__SystemInformationModel__Alternatives_0 : ( ( ( rule__SystemInformationModel__Group_0_0__0 ) ) | ( ( rule__SystemInformationModel__Group_0_1__0 ) ) );
+    public final void rule__SystemInformationModel__Alternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:3070:1: ( ( ( rule__SInformationModel__Group_0_0__0 ) ) | ( ( rule__SInformationModel__Group_0_1__0 ) ) )
+            // InternalSim.g:3070:1: ( ( ( rule__SystemInformationModel__Group_0_0__0 ) ) | ( ( rule__SystemInformationModel__Group_0_1__0 ) ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -10317,19 +10317,19 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSim.g:3071:2: ( ( rule__SInformationModel__Group_0_0__0 ) )
+                    // InternalSim.g:3071:2: ( ( rule__SystemInformationModel__Group_0_0__0 ) )
                     {
-                    // InternalSim.g:3071:2: ( ( rule__SInformationModel__Group_0_0__0 ) )
-                    // InternalSim.g:3072:3: ( rule__SInformationModel__Group_0_0__0 )
+                    // InternalSim.g:3071:2: ( ( rule__SystemInformationModel__Group_0_0__0 ) )
+                    // InternalSim.g:3072:3: ( rule__SystemInformationModel__Group_0_0__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSInformationModelAccess().getGroup_0_0()); 
+                       before(grammarAccess.getSystemInformationModelAccess().getGroup_0_0()); 
                     }
-                    // InternalSim.g:3073:3: ( rule__SInformationModel__Group_0_0__0 )
-                    // InternalSim.g:3073:4: rule__SInformationModel__Group_0_0__0
+                    // InternalSim.g:3073:3: ( rule__SystemInformationModel__Group_0_0__0 )
+                    // InternalSim.g:3073:4: rule__SystemInformationModel__Group_0_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SInformationModel__Group_0_0__0();
+                    rule__SystemInformationModel__Group_0_0__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -10337,7 +10337,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSInformationModelAccess().getGroup_0_0()); 
+                       after(grammarAccess.getSystemInformationModelAccess().getGroup_0_0()); 
                     }
 
                     }
@@ -10346,19 +10346,19 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:3077:2: ( ( rule__SInformationModel__Group_0_1__0 ) )
+                    // InternalSim.g:3077:2: ( ( rule__SystemInformationModel__Group_0_1__0 ) )
                     {
-                    // InternalSim.g:3077:2: ( ( rule__SInformationModel__Group_0_1__0 ) )
-                    // InternalSim.g:3078:3: ( rule__SInformationModel__Group_0_1__0 )
+                    // InternalSim.g:3077:2: ( ( rule__SystemInformationModel__Group_0_1__0 ) )
+                    // InternalSim.g:3078:3: ( rule__SystemInformationModel__Group_0_1__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSInformationModelAccess().getGroup_0_1()); 
+                       before(grammarAccess.getSystemInformationModelAccess().getGroup_0_1()); 
                     }
-                    // InternalSim.g:3079:3: ( rule__SInformationModel__Group_0_1__0 )
-                    // InternalSim.g:3079:4: rule__SInformationModel__Group_0_1__0
+                    // InternalSim.g:3079:3: ( rule__SystemInformationModel__Group_0_1__0 )
+                    // InternalSim.g:3079:4: rule__SystemInformationModel__Group_0_1__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SInformationModel__Group_0_1__0();
+                    rule__SystemInformationModel__Group_0_1__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -10366,7 +10366,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSInformationModelAccess().getGroup_0_1()); 
+                       after(grammarAccess.getSystemInformationModelAccess().getGroup_0_1()); 
                     }
 
                     }
@@ -10388,17 +10388,17 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Alternatives_0"
+    // $ANTLR end "rule__SystemInformationModel__Alternatives_0"
 
 
-    // $ANTLR start "rule__SInformationModel__Alternatives_5"
-    // InternalSim.g:3087:1: rule__SInformationModel__Alternatives_5 : ( ( ( rule__SInformationModel__TypesAssignment_5_0 ) ) | ( ( rule__SInformationModel__AggregatesAssignment_5_1 ) ) );
-    public final void rule__SInformationModel__Alternatives_5() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Alternatives_5"
+    // InternalSim.g:3087:1: rule__SystemInformationModel__Alternatives_5 : ( ( ( rule__SystemInformationModel__TypesAssignment_5_0 ) ) | ( ( rule__SystemInformationModel__AggregatesAssignment_5_1 ) ) );
+    public final void rule__SystemInformationModel__Alternatives_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:3091:1: ( ( ( rule__SInformationModel__TypesAssignment_5_0 ) ) | ( ( rule__SInformationModel__AggregatesAssignment_5_1 ) ) )
+            // InternalSim.g:3091:1: ( ( ( rule__SystemInformationModel__TypesAssignment_5_0 ) ) | ( ( rule__SystemInformationModel__AggregatesAssignment_5_1 ) ) )
             int alt2=2;
             switch ( input.LA(1) ) {
             case 96:
@@ -10443,19 +10443,19 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
             switch (alt2) {
                 case 1 :
-                    // InternalSim.g:3092:2: ( ( rule__SInformationModel__TypesAssignment_5_0 ) )
+                    // InternalSim.g:3092:2: ( ( rule__SystemInformationModel__TypesAssignment_5_0 ) )
                     {
-                    // InternalSim.g:3092:2: ( ( rule__SInformationModel__TypesAssignment_5_0 ) )
-                    // InternalSim.g:3093:3: ( rule__SInformationModel__TypesAssignment_5_0 )
+                    // InternalSim.g:3092:2: ( ( rule__SystemInformationModel__TypesAssignment_5_0 ) )
+                    // InternalSim.g:3093:3: ( rule__SystemInformationModel__TypesAssignment_5_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSInformationModelAccess().getTypesAssignment_5_0()); 
+                       before(grammarAccess.getSystemInformationModelAccess().getTypesAssignment_5_0()); 
                     }
-                    // InternalSim.g:3094:3: ( rule__SInformationModel__TypesAssignment_5_0 )
-                    // InternalSim.g:3094:4: rule__SInformationModel__TypesAssignment_5_0
+                    // InternalSim.g:3094:3: ( rule__SystemInformationModel__TypesAssignment_5_0 )
+                    // InternalSim.g:3094:4: rule__SystemInformationModel__TypesAssignment_5_0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SInformationModel__TypesAssignment_5_0();
+                    rule__SystemInformationModel__TypesAssignment_5_0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -10463,7 +10463,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSInformationModelAccess().getTypesAssignment_5_0()); 
+                       after(grammarAccess.getSystemInformationModelAccess().getTypesAssignment_5_0()); 
                     }
 
                     }
@@ -10472,19 +10472,19 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:3098:2: ( ( rule__SInformationModel__AggregatesAssignment_5_1 ) )
+                    // InternalSim.g:3098:2: ( ( rule__SystemInformationModel__AggregatesAssignment_5_1 ) )
                     {
-                    // InternalSim.g:3098:2: ( ( rule__SInformationModel__AggregatesAssignment_5_1 ) )
-                    // InternalSim.g:3099:3: ( rule__SInformationModel__AggregatesAssignment_5_1 )
+                    // InternalSim.g:3098:2: ( ( rule__SystemInformationModel__AggregatesAssignment_5_1 ) )
+                    // InternalSim.g:3099:3: ( rule__SystemInformationModel__AggregatesAssignment_5_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSInformationModelAccess().getAggregatesAssignment_5_1()); 
+                       before(grammarAccess.getSystemInformationModelAccess().getAggregatesAssignment_5_1()); 
                     }
-                    // InternalSim.g:3100:3: ( rule__SInformationModel__AggregatesAssignment_5_1 )
-                    // InternalSim.g:3100:4: rule__SInformationModel__AggregatesAssignment_5_1
+                    // InternalSim.g:3100:3: ( rule__SystemInformationModel__AggregatesAssignment_5_1 )
+                    // InternalSim.g:3100:4: rule__SystemInformationModel__AggregatesAssignment_5_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SInformationModel__AggregatesAssignment_5_1();
+                    rule__SystemInformationModel__AggregatesAssignment_5_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -10492,7 +10492,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSInformationModelAccess().getAggregatesAssignment_5_1()); 
+                       after(grammarAccess.getSystemInformationModelAccess().getAggregatesAssignment_5_1()); 
                     }
 
                     }
@@ -10514,7 +10514,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Alternatives_5"
+    // $ANTLR end "rule__SystemInformationModel__Alternatives_5"
 
 
     // $ANTLR start "rule__ChangeComplexType__Alternatives_2"
@@ -16470,9 +16470,9 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DECIMAL__Alternatives_3_1"
 
 
-    // $ANTLR start "rule__SInformationModelKind__Alternatives"
-    // InternalSim.g:4428:1: rule__SInformationModelKind__Alternatives : ( ( ( 'interface' ) ) | ( ( 'core' ) ) );
-    public final void rule__SInformationModelKind__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModelKind__Alternatives"
+    // InternalSim.g:4428:1: rule__SystemInformationModelKind__Alternatives : ( ( ( 'interface' ) ) | ( ( 'core' ) ) );
+    public final void rule__SystemInformationModelKind__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -16502,7 +16502,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     // InternalSim.g:4434:3: ( 'interface' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_0()); 
+                       before(grammarAccess.getSystemInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_0()); 
                     }
                     // InternalSim.g:4435:3: ( 'interface' )
                     // InternalSim.g:4435:4: 'interface'
@@ -16512,7 +16512,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_0()); 
+                       after(grammarAccess.getSystemInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_0()); 
                     }
 
                     }
@@ -16527,7 +16527,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     // InternalSim.g:4440:3: ( 'core' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_1()); 
+                       before(grammarAccess.getSystemInformationModelKindAccess().getCOREEnumLiteralDeclaration_1()); 
                     }
                     // InternalSim.g:4441:3: ( 'core' )
                     // InternalSim.g:4441:4: 'core'
@@ -16537,7 +16537,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_1()); 
+                       after(grammarAccess.getSystemInformationModelKindAccess().getCOREEnumLiteralDeclaration_1()); 
                     }
 
                     }
@@ -16559,7 +16559,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModelKind__Alternatives"
+    // $ANTLR end "rule__SystemInformationModelKind__Alternatives"
 
 
     // $ANTLR start "rule__SimAbstractType__Alternatives"
@@ -18899,23 +18899,23 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DNamespace__Group__3__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__0"
-    // InternalSim.g:4980:1: rule__SInformationModel__Group__0 : rule__SInformationModel__Group__0__Impl rule__SInformationModel__Group__1 ;
-    public final void rule__SInformationModel__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__0"
+    // InternalSim.g:4980:1: rule__SystemInformationModel__Group__0 : rule__SystemInformationModel__Group__0__Impl rule__SystemInformationModel__Group__1 ;
+    public final void rule__SystemInformationModel__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:4984:1: ( rule__SInformationModel__Group__0__Impl rule__SInformationModel__Group__1 )
-            // InternalSim.g:4985:2: rule__SInformationModel__Group__0__Impl rule__SInformationModel__Group__1
+            // InternalSim.g:4984:1: ( rule__SystemInformationModel__Group__0__Impl rule__SystemInformationModel__Group__1 )
+            // InternalSim.g:4985:2: rule__SystemInformationModel__Group__0__Impl rule__SystemInformationModel__Group__1
             {
             pushFollow(FOLLOW_3);
-            rule__SInformationModel__Group__0__Impl();
+            rule__SystemInformationModel__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__1();
+            rule__SystemInformationModel__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18934,30 +18934,30 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__0"
+    // $ANTLR end "rule__SystemInformationModel__Group__0"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__0__Impl"
-    // InternalSim.g:4992:1: rule__SInformationModel__Group__0__Impl : ( ( rule__SInformationModel__Alternatives_0 ) ) ;
-    public final void rule__SInformationModel__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__0__Impl"
+    // InternalSim.g:4992:1: rule__SystemInformationModel__Group__0__Impl : ( ( rule__SystemInformationModel__Alternatives_0 ) ) ;
+    public final void rule__SystemInformationModel__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:4996:1: ( ( ( rule__SInformationModel__Alternatives_0 ) ) )
-            // InternalSim.g:4997:1: ( ( rule__SInformationModel__Alternatives_0 ) )
+            // InternalSim.g:4996:1: ( ( ( rule__SystemInformationModel__Alternatives_0 ) ) )
+            // InternalSim.g:4997:1: ( ( rule__SystemInformationModel__Alternatives_0 ) )
             {
-            // InternalSim.g:4997:1: ( ( rule__SInformationModel__Alternatives_0 ) )
-            // InternalSim.g:4998:2: ( rule__SInformationModel__Alternatives_0 )
+            // InternalSim.g:4997:1: ( ( rule__SystemInformationModel__Alternatives_0 ) )
+            // InternalSim.g:4998:2: ( rule__SystemInformationModel__Alternatives_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getAlternatives_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getAlternatives_0()); 
             }
-            // InternalSim.g:4999:2: ( rule__SInformationModel__Alternatives_0 )
-            // InternalSim.g:4999:3: rule__SInformationModel__Alternatives_0
+            // InternalSim.g:4999:2: ( rule__SystemInformationModel__Alternatives_0 )
+            // InternalSim.g:4999:3: rule__SystemInformationModel__Alternatives_0
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Alternatives_0();
+            rule__SystemInformationModel__Alternatives_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18965,7 +18965,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getAlternatives_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getAlternatives_0()); 
             }
 
             }
@@ -18985,26 +18985,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__0__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__0__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__1"
-    // InternalSim.g:5007:1: rule__SInformationModel__Group__1 : rule__SInformationModel__Group__1__Impl rule__SInformationModel__Group__2 ;
-    public final void rule__SInformationModel__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__1"
+    // InternalSim.g:5007:1: rule__SystemInformationModel__Group__1 : rule__SystemInformationModel__Group__1__Impl rule__SystemInformationModel__Group__2 ;
+    public final void rule__SystemInformationModel__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5011:1: ( rule__SInformationModel__Group__1__Impl rule__SInformationModel__Group__2 )
-            // InternalSim.g:5012:2: rule__SInformationModel__Group__1__Impl rule__SInformationModel__Group__2
+            // InternalSim.g:5011:1: ( rule__SystemInformationModel__Group__1__Impl rule__SystemInformationModel__Group__2 )
+            // InternalSim.g:5012:2: rule__SystemInformationModel__Group__1__Impl rule__SystemInformationModel__Group__2
             {
             pushFollow(FOLLOW_6);
-            rule__SInformationModel__Group__1__Impl();
+            rule__SystemInformationModel__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__2();
+            rule__SystemInformationModel__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19023,30 +19023,30 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__1"
+    // $ANTLR end "rule__SystemInformationModel__Group__1"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__1__Impl"
-    // InternalSim.g:5019:1: rule__SInformationModel__Group__1__Impl : ( ( rule__SInformationModel__NameAssignment_1 ) ) ;
-    public final void rule__SInformationModel__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__1__Impl"
+    // InternalSim.g:5019:1: rule__SystemInformationModel__Group__1__Impl : ( ( rule__SystemInformationModel__NameAssignment_1 ) ) ;
+    public final void rule__SystemInformationModel__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5023:1: ( ( ( rule__SInformationModel__NameAssignment_1 ) ) )
-            // InternalSim.g:5024:1: ( ( rule__SInformationModel__NameAssignment_1 ) )
+            // InternalSim.g:5023:1: ( ( ( rule__SystemInformationModel__NameAssignment_1 ) ) )
+            // InternalSim.g:5024:1: ( ( rule__SystemInformationModel__NameAssignment_1 ) )
             {
-            // InternalSim.g:5024:1: ( ( rule__SInformationModel__NameAssignment_1 ) )
-            // InternalSim.g:5025:2: ( rule__SInformationModel__NameAssignment_1 )
+            // InternalSim.g:5024:1: ( ( rule__SystemInformationModel__NameAssignment_1 ) )
+            // InternalSim.g:5025:2: ( rule__SystemInformationModel__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getNameAssignment_1()); 
+               before(grammarAccess.getSystemInformationModelAccess().getNameAssignment_1()); 
             }
-            // InternalSim.g:5026:2: ( rule__SInformationModel__NameAssignment_1 )
-            // InternalSim.g:5026:3: rule__SInformationModel__NameAssignment_1
+            // InternalSim.g:5026:2: ( rule__SystemInformationModel__NameAssignment_1 )
+            // InternalSim.g:5026:3: rule__SystemInformationModel__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__NameAssignment_1();
+            rule__SystemInformationModel__NameAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19054,7 +19054,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getNameAssignment_1()); 
+               after(grammarAccess.getSystemInformationModelAccess().getNameAssignment_1()); 
             }
 
             }
@@ -19074,26 +19074,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__1__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__1__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__2"
-    // InternalSim.g:5034:1: rule__SInformationModel__Group__2 : rule__SInformationModel__Group__2__Impl rule__SInformationModel__Group__3 ;
-    public final void rule__SInformationModel__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__2"
+    // InternalSim.g:5034:1: rule__SystemInformationModel__Group__2 : rule__SystemInformationModel__Group__2__Impl rule__SystemInformationModel__Group__3 ;
+    public final void rule__SystemInformationModel__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5038:1: ( rule__SInformationModel__Group__2__Impl rule__SInformationModel__Group__3 )
-            // InternalSim.g:5039:2: rule__SInformationModel__Group__2__Impl rule__SInformationModel__Group__3
+            // InternalSim.g:5038:1: ( rule__SystemInformationModel__Group__2__Impl rule__SystemInformationModel__Group__3 )
+            // InternalSim.g:5039:2: rule__SystemInformationModel__Group__2__Impl rule__SystemInformationModel__Group__3
             {
             pushFollow(FOLLOW_6);
-            rule__SInformationModel__Group__2__Impl();
+            rule__SystemInformationModel__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__3();
+            rule__SystemInformationModel__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19112,26 +19112,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__2"
+    // $ANTLR end "rule__SystemInformationModel__Group__2"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__2__Impl"
-    // InternalSim.g:5046:1: rule__SInformationModel__Group__2__Impl : ( ( rule__SInformationModel__GenerateAssignment_2 )? ) ;
-    public final void rule__SInformationModel__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__2__Impl"
+    // InternalSim.g:5046:1: rule__SystemInformationModel__Group__2__Impl : ( ( rule__SystemInformationModel__GenerateAssignment_2 )? ) ;
+    public final void rule__SystemInformationModel__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5050:1: ( ( ( rule__SInformationModel__GenerateAssignment_2 )? ) )
-            // InternalSim.g:5051:1: ( ( rule__SInformationModel__GenerateAssignment_2 )? )
+            // InternalSim.g:5050:1: ( ( ( rule__SystemInformationModel__GenerateAssignment_2 )? ) )
+            // InternalSim.g:5051:1: ( ( rule__SystemInformationModel__GenerateAssignment_2 )? )
             {
-            // InternalSim.g:5051:1: ( ( rule__SInformationModel__GenerateAssignment_2 )? )
-            // InternalSim.g:5052:2: ( rule__SInformationModel__GenerateAssignment_2 )?
+            // InternalSim.g:5051:1: ( ( rule__SystemInformationModel__GenerateAssignment_2 )? )
+            // InternalSim.g:5052:2: ( rule__SystemInformationModel__GenerateAssignment_2 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getGenerateAssignment_2()); 
+               before(grammarAccess.getSystemInformationModelAccess().getGenerateAssignment_2()); 
             }
-            // InternalSim.g:5053:2: ( rule__SInformationModel__GenerateAssignment_2 )?
+            // InternalSim.g:5053:2: ( rule__SystemInformationModel__GenerateAssignment_2 )?
             int alt70=2;
             int LA70_0 = input.LA(1);
 
@@ -19140,10 +19140,10 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt70) {
                 case 1 :
-                    // InternalSim.g:5053:3: rule__SInformationModel__GenerateAssignment_2
+                    // InternalSim.g:5053:3: rule__SystemInformationModel__GenerateAssignment_2
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SInformationModel__GenerateAssignment_2();
+                    rule__SystemInformationModel__GenerateAssignment_2();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -19154,7 +19154,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getGenerateAssignment_2()); 
+               after(grammarAccess.getSystemInformationModelAccess().getGenerateAssignment_2()); 
             }
 
             }
@@ -19174,26 +19174,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__2__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__2__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__3"
-    // InternalSim.g:5061:1: rule__SInformationModel__Group__3 : rule__SInformationModel__Group__3__Impl rule__SInformationModel__Group__4 ;
-    public final void rule__SInformationModel__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__3"
+    // InternalSim.g:5061:1: rule__SystemInformationModel__Group__3 : rule__SystemInformationModel__Group__3__Impl rule__SystemInformationModel__Group__4 ;
+    public final void rule__SystemInformationModel__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5065:1: ( rule__SInformationModel__Group__3__Impl rule__SInformationModel__Group__4 )
-            // InternalSim.g:5066:2: rule__SInformationModel__Group__3__Impl rule__SInformationModel__Group__4
+            // InternalSim.g:5065:1: ( rule__SystemInformationModel__Group__3__Impl rule__SystemInformationModel__Group__4 )
+            // InternalSim.g:5066:2: rule__SystemInformationModel__Group__3__Impl rule__SystemInformationModel__Group__4
             {
             pushFollow(FOLLOW_6);
-            rule__SInformationModel__Group__3__Impl();
+            rule__SystemInformationModel__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__4();
+            rule__SystemInformationModel__Group__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19212,26 +19212,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__3"
+    // $ANTLR end "rule__SystemInformationModel__Group__3"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__3__Impl"
-    // InternalSim.g:5073:1: rule__SInformationModel__Group__3__Impl : ( ( rule__SInformationModel__DescriptionAssignment_3 )? ) ;
-    public final void rule__SInformationModel__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__3__Impl"
+    // InternalSim.g:5073:1: rule__SystemInformationModel__Group__3__Impl : ( ( rule__SystemInformationModel__DescriptionAssignment_3 )? ) ;
+    public final void rule__SystemInformationModel__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5077:1: ( ( ( rule__SInformationModel__DescriptionAssignment_3 )? ) )
-            // InternalSim.g:5078:1: ( ( rule__SInformationModel__DescriptionAssignment_3 )? )
+            // InternalSim.g:5077:1: ( ( ( rule__SystemInformationModel__DescriptionAssignment_3 )? ) )
+            // InternalSim.g:5078:1: ( ( rule__SystemInformationModel__DescriptionAssignment_3 )? )
             {
-            // InternalSim.g:5078:1: ( ( rule__SInformationModel__DescriptionAssignment_3 )? )
-            // InternalSim.g:5079:2: ( rule__SInformationModel__DescriptionAssignment_3 )?
+            // InternalSim.g:5078:1: ( ( rule__SystemInformationModel__DescriptionAssignment_3 )? )
+            // InternalSim.g:5079:2: ( rule__SystemInformationModel__DescriptionAssignment_3 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getDescriptionAssignment_3()); 
+               before(grammarAccess.getSystemInformationModelAccess().getDescriptionAssignment_3()); 
             }
-            // InternalSim.g:5080:2: ( rule__SInformationModel__DescriptionAssignment_3 )?
+            // InternalSim.g:5080:2: ( rule__SystemInformationModel__DescriptionAssignment_3 )?
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -19240,10 +19240,10 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt71) {
                 case 1 :
-                    // InternalSim.g:5080:3: rule__SInformationModel__DescriptionAssignment_3
+                    // InternalSim.g:5080:3: rule__SystemInformationModel__DescriptionAssignment_3
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SInformationModel__DescriptionAssignment_3();
+                    rule__SystemInformationModel__DescriptionAssignment_3();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -19254,7 +19254,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getDescriptionAssignment_3()); 
+               after(grammarAccess.getSystemInformationModelAccess().getDescriptionAssignment_3()); 
             }
 
             }
@@ -19274,26 +19274,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__3__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__3__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__4"
-    // InternalSim.g:5088:1: rule__SInformationModel__Group__4 : rule__SInformationModel__Group__4__Impl rule__SInformationModel__Group__5 ;
-    public final void rule__SInformationModel__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__4"
+    // InternalSim.g:5088:1: rule__SystemInformationModel__Group__4 : rule__SystemInformationModel__Group__4__Impl rule__SystemInformationModel__Group__5 ;
+    public final void rule__SystemInformationModel__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5092:1: ( rule__SInformationModel__Group__4__Impl rule__SInformationModel__Group__5 )
-            // InternalSim.g:5093:2: rule__SInformationModel__Group__4__Impl rule__SInformationModel__Group__5
+            // InternalSim.g:5092:1: ( rule__SystemInformationModel__Group__4__Impl rule__SystemInformationModel__Group__5 )
+            // InternalSim.g:5093:2: rule__SystemInformationModel__Group__4__Impl rule__SystemInformationModel__Group__5
             {
             pushFollow(FOLLOW_7);
-            rule__SInformationModel__Group__4__Impl();
+            rule__SystemInformationModel__Group__4__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__5();
+            rule__SystemInformationModel__Group__5();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19312,12 +19312,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__4"
+    // $ANTLR end "rule__SystemInformationModel__Group__4"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__4__Impl"
-    // InternalSim.g:5100:1: rule__SInformationModel__Group__4__Impl : ( '{' ) ;
-    public final void rule__SInformationModel__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__4__Impl"
+    // InternalSim.g:5100:1: rule__SystemInformationModel__Group__4__Impl : ( '{' ) ;
+    public final void rule__SystemInformationModel__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19329,11 +19329,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5106:2: '{'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getLeftCurlyBracketKeyword_4()); 
+               before(grammarAccess.getSystemInformationModelAccess().getLeftCurlyBracketKeyword_4()); 
             }
             match(input,19,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getLeftCurlyBracketKeyword_4()); 
+               after(grammarAccess.getSystemInformationModelAccess().getLeftCurlyBracketKeyword_4()); 
             }
 
             }
@@ -19353,26 +19353,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__4__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__4__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__5"
-    // InternalSim.g:5115:1: rule__SInformationModel__Group__5 : rule__SInformationModel__Group__5__Impl rule__SInformationModel__Group__6 ;
-    public final void rule__SInformationModel__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__5"
+    // InternalSim.g:5115:1: rule__SystemInformationModel__Group__5 : rule__SystemInformationModel__Group__5__Impl rule__SystemInformationModel__Group__6 ;
+    public final void rule__SystemInformationModel__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5119:1: ( rule__SInformationModel__Group__5__Impl rule__SInformationModel__Group__6 )
-            // InternalSim.g:5120:2: rule__SInformationModel__Group__5__Impl rule__SInformationModel__Group__6
+            // InternalSim.g:5119:1: ( rule__SystemInformationModel__Group__5__Impl rule__SystemInformationModel__Group__6 )
+            // InternalSim.g:5120:2: rule__SystemInformationModel__Group__5__Impl rule__SystemInformationModel__Group__6
             {
             pushFollow(FOLLOW_7);
-            rule__SInformationModel__Group__5__Impl();
+            rule__SystemInformationModel__Group__5__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__6();
+            rule__SystemInformationModel__Group__6();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19391,26 +19391,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__5"
+    // $ANTLR end "rule__SystemInformationModel__Group__5"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__5__Impl"
-    // InternalSim.g:5127:1: rule__SInformationModel__Group__5__Impl : ( ( rule__SInformationModel__Alternatives_5 )* ) ;
-    public final void rule__SInformationModel__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__5__Impl"
+    // InternalSim.g:5127:1: rule__SystemInformationModel__Group__5__Impl : ( ( rule__SystemInformationModel__Alternatives_5 )* ) ;
+    public final void rule__SystemInformationModel__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5131:1: ( ( ( rule__SInformationModel__Alternatives_5 )* ) )
-            // InternalSim.g:5132:1: ( ( rule__SInformationModel__Alternatives_5 )* )
+            // InternalSim.g:5131:1: ( ( ( rule__SystemInformationModel__Alternatives_5 )* ) )
+            // InternalSim.g:5132:1: ( ( rule__SystemInformationModel__Alternatives_5 )* )
             {
-            // InternalSim.g:5132:1: ( ( rule__SInformationModel__Alternatives_5 )* )
-            // InternalSim.g:5133:2: ( rule__SInformationModel__Alternatives_5 )*
+            // InternalSim.g:5132:1: ( ( rule__SystemInformationModel__Alternatives_5 )* )
+            // InternalSim.g:5133:2: ( rule__SystemInformationModel__Alternatives_5 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getAlternatives_5()); 
+               before(grammarAccess.getSystemInformationModelAccess().getAlternatives_5()); 
             }
-            // InternalSim.g:5134:2: ( rule__SInformationModel__Alternatives_5 )*
+            // InternalSim.g:5134:2: ( rule__SystemInformationModel__Alternatives_5 )*
             loop72:
             do {
                 int alt72=2;
@@ -19423,10 +19423,10 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt72) {
             	case 1 :
-            	    // InternalSim.g:5134:3: rule__SInformationModel__Alternatives_5
+            	    // InternalSim.g:5134:3: rule__SystemInformationModel__Alternatives_5
             	    {
             	    pushFollow(FOLLOW_8);
-            	    rule__SInformationModel__Alternatives_5();
+            	    rule__SystemInformationModel__Alternatives_5();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -19440,7 +19440,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getAlternatives_5()); 
+               after(grammarAccess.getSystemInformationModelAccess().getAlternatives_5()); 
             }
 
             }
@@ -19460,21 +19460,21 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__5__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__5__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__6"
-    // InternalSim.g:5142:1: rule__SInformationModel__Group__6 : rule__SInformationModel__Group__6__Impl ;
-    public final void rule__SInformationModel__Group__6() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__6"
+    // InternalSim.g:5142:1: rule__SystemInformationModel__Group__6 : rule__SystemInformationModel__Group__6__Impl ;
+    public final void rule__SystemInformationModel__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5146:1: ( rule__SInformationModel__Group__6__Impl )
-            // InternalSim.g:5147:2: rule__SInformationModel__Group__6__Impl
+            // InternalSim.g:5146:1: ( rule__SystemInformationModel__Group__6__Impl )
+            // InternalSim.g:5147:2: rule__SystemInformationModel__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group__6__Impl();
+            rule__SystemInformationModel__Group__6__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19493,12 +19493,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__6"
+    // $ANTLR end "rule__SystemInformationModel__Group__6"
 
 
-    // $ANTLR start "rule__SInformationModel__Group__6__Impl"
-    // InternalSim.g:5153:1: rule__SInformationModel__Group__6__Impl : ( '}' ) ;
-    public final void rule__SInformationModel__Group__6__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group__6__Impl"
+    // InternalSim.g:5153:1: rule__SystemInformationModel__Group__6__Impl : ( '}' ) ;
+    public final void rule__SystemInformationModel__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19510,11 +19510,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5159:2: '}'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getRightCurlyBracketKeyword_6()); 
+               before(grammarAccess.getSystemInformationModelAccess().getRightCurlyBracketKeyword_6()); 
             }
             match(input,89,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getRightCurlyBracketKeyword_6()); 
+               after(grammarAccess.getSystemInformationModelAccess().getRightCurlyBracketKeyword_6()); 
             }
 
             }
@@ -19534,26 +19534,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group__6__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group__6__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_0__0"
-    // InternalSim.g:5169:1: rule__SInformationModel__Group_0_0__0 : rule__SInformationModel__Group_0_0__0__Impl rule__SInformationModel__Group_0_0__1 ;
-    public final void rule__SInformationModel__Group_0_0__0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_0__0"
+    // InternalSim.g:5169:1: rule__SystemInformationModel__Group_0_0__0 : rule__SystemInformationModel__Group_0_0__0__Impl rule__SystemInformationModel__Group_0_0__1 ;
+    public final void rule__SystemInformationModel__Group_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5173:1: ( rule__SInformationModel__Group_0_0__0__Impl rule__SInformationModel__Group_0_0__1 )
-            // InternalSim.g:5174:2: rule__SInformationModel__Group_0_0__0__Impl rule__SInformationModel__Group_0_0__1
+            // InternalSim.g:5173:1: ( rule__SystemInformationModel__Group_0_0__0__Impl rule__SystemInformationModel__Group_0_0__1 )
+            // InternalSim.g:5174:2: rule__SystemInformationModel__Group_0_0__0__Impl rule__SystemInformationModel__Group_0_0__1
             {
             pushFollow(FOLLOW_9);
-            rule__SInformationModel__Group_0_0__0__Impl();
+            rule__SystemInformationModel__Group_0_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group_0_0__1();
+            rule__SystemInformationModel__Group_0_0__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19572,30 +19572,30 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_0__0"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_0__0"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_0__0__Impl"
-    // InternalSim.g:5181:1: rule__SInformationModel__Group_0_0__0__Impl : ( ( rule__SInformationModel__KindAssignment_0_0_0 ) ) ;
-    public final void rule__SInformationModel__Group_0_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_0__0__Impl"
+    // InternalSim.g:5181:1: rule__SystemInformationModel__Group_0_0__0__Impl : ( ( rule__SystemInformationModel__KindAssignment_0_0_0 ) ) ;
+    public final void rule__SystemInformationModel__Group_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5185:1: ( ( ( rule__SInformationModel__KindAssignment_0_0_0 ) ) )
-            // InternalSim.g:5186:1: ( ( rule__SInformationModel__KindAssignment_0_0_0 ) )
+            // InternalSim.g:5185:1: ( ( ( rule__SystemInformationModel__KindAssignment_0_0_0 ) ) )
+            // InternalSim.g:5186:1: ( ( rule__SystemInformationModel__KindAssignment_0_0_0 ) )
             {
-            // InternalSim.g:5186:1: ( ( rule__SInformationModel__KindAssignment_0_0_0 ) )
-            // InternalSim.g:5187:2: ( rule__SInformationModel__KindAssignment_0_0_0 )
+            // InternalSim.g:5186:1: ( ( rule__SystemInformationModel__KindAssignment_0_0_0 ) )
+            // InternalSim.g:5187:2: ( rule__SystemInformationModel__KindAssignment_0_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getKindAssignment_0_0_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getKindAssignment_0_0_0()); 
             }
-            // InternalSim.g:5188:2: ( rule__SInformationModel__KindAssignment_0_0_0 )
-            // InternalSim.g:5188:3: rule__SInformationModel__KindAssignment_0_0_0
+            // InternalSim.g:5188:2: ( rule__SystemInformationModel__KindAssignment_0_0_0 )
+            // InternalSim.g:5188:3: rule__SystemInformationModel__KindAssignment_0_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__KindAssignment_0_0_0();
+            rule__SystemInformationModel__KindAssignment_0_0_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19603,7 +19603,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getKindAssignment_0_0_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getKindAssignment_0_0_0()); 
             }
 
             }
@@ -19623,26 +19623,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_0__0__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_0__0__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_0__1"
-    // InternalSim.g:5196:1: rule__SInformationModel__Group_0_0__1 : rule__SInformationModel__Group_0_0__1__Impl rule__SInformationModel__Group_0_0__2 ;
-    public final void rule__SInformationModel__Group_0_0__1() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_0__1"
+    // InternalSim.g:5196:1: rule__SystemInformationModel__Group_0_0__1 : rule__SystemInformationModel__Group_0_0__1__Impl rule__SystemInformationModel__Group_0_0__2 ;
+    public final void rule__SystemInformationModel__Group_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5200:1: ( rule__SInformationModel__Group_0_0__1__Impl rule__SInformationModel__Group_0_0__2 )
-            // InternalSim.g:5201:2: rule__SInformationModel__Group_0_0__1__Impl rule__SInformationModel__Group_0_0__2
+            // InternalSim.g:5200:1: ( rule__SystemInformationModel__Group_0_0__1__Impl rule__SystemInformationModel__Group_0_0__2 )
+            // InternalSim.g:5201:2: rule__SystemInformationModel__Group_0_0__1__Impl rule__SystemInformationModel__Group_0_0__2
             {
             pushFollow(FOLLOW_10);
-            rule__SInformationModel__Group_0_0__1__Impl();
+            rule__SystemInformationModel__Group_0_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group_0_0__2();
+            rule__SystemInformationModel__Group_0_0__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19661,12 +19661,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_0__1"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_0__1"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_0__1__Impl"
-    // InternalSim.g:5208:1: rule__SInformationModel__Group_0_0__1__Impl : ( 'type' ) ;
-    public final void rule__SInformationModel__Group_0_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_0__1__Impl"
+    // InternalSim.g:5208:1: rule__SystemInformationModel__Group_0_0__1__Impl : ( 'type' ) ;
+    public final void rule__SystemInformationModel__Group_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19678,11 +19678,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5214:2: 'type'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getTypeKeyword_0_0_1()); 
+               before(grammarAccess.getSystemInformationModelAccess().getTypeKeyword_0_0_1()); 
             }
             match(input,90,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getTypeKeyword_0_0_1()); 
+               after(grammarAccess.getSystemInformationModelAccess().getTypeKeyword_0_0_1()); 
             }
 
             }
@@ -19702,21 +19702,21 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_0__1__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_0__1__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_0__2"
-    // InternalSim.g:5223:1: rule__SInformationModel__Group_0_0__2 : rule__SInformationModel__Group_0_0__2__Impl ;
-    public final void rule__SInformationModel__Group_0_0__2() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_0__2"
+    // InternalSim.g:5223:1: rule__SystemInformationModel__Group_0_0__2 : rule__SystemInformationModel__Group_0_0__2__Impl ;
+    public final void rule__SystemInformationModel__Group_0_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5227:1: ( rule__SInformationModel__Group_0_0__2__Impl )
-            // InternalSim.g:5228:2: rule__SInformationModel__Group_0_0__2__Impl
+            // InternalSim.g:5227:1: ( rule__SystemInformationModel__Group_0_0__2__Impl )
+            // InternalSim.g:5228:2: rule__SystemInformationModel__Group_0_0__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group_0_0__2__Impl();
+            rule__SystemInformationModel__Group_0_0__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19735,12 +19735,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_0__2"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_0__2"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_0__2__Impl"
-    // InternalSim.g:5234:1: rule__SInformationModel__Group_0_0__2__Impl : ( 'model' ) ;
-    public final void rule__SInformationModel__Group_0_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_0__2__Impl"
+    // InternalSim.g:5234:1: rule__SystemInformationModel__Group_0_0__2__Impl : ( 'model' ) ;
+    public final void rule__SystemInformationModel__Group_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19752,11 +19752,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5240:2: 'model'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getModelKeyword_0_0_2()); 
+               before(grammarAccess.getSystemInformationModelAccess().getModelKeyword_0_0_2()); 
             }
             match(input,91,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getModelKeyword_0_0_2()); 
+               after(grammarAccess.getSystemInformationModelAccess().getModelKeyword_0_0_2()); 
             }
 
             }
@@ -19776,26 +19776,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_0__2__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_0__2__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_1__0"
-    // InternalSim.g:5250:1: rule__SInformationModel__Group_0_1__0 : rule__SInformationModel__Group_0_1__0__Impl rule__SInformationModel__Group_0_1__1 ;
-    public final void rule__SInformationModel__Group_0_1__0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_1__0"
+    // InternalSim.g:5250:1: rule__SystemInformationModel__Group_0_1__0 : rule__SystemInformationModel__Group_0_1__0__Impl rule__SystemInformationModel__Group_0_1__1 ;
+    public final void rule__SystemInformationModel__Group_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5254:1: ( rule__SInformationModel__Group_0_1__0__Impl rule__SInformationModel__Group_0_1__1 )
-            // InternalSim.g:5255:2: rule__SInformationModel__Group_0_1__0__Impl rule__SInformationModel__Group_0_1__1
+            // InternalSim.g:5254:1: ( rule__SystemInformationModel__Group_0_1__0__Impl rule__SystemInformationModel__Group_0_1__1 )
+            // InternalSim.g:5255:2: rule__SystemInformationModel__Group_0_1__0__Impl rule__SystemInformationModel__Group_0_1__1
             {
             pushFollow(FOLLOW_11);
-            rule__SInformationModel__Group_0_1__0__Impl();
+            rule__SystemInformationModel__Group_0_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group_0_1__1();
+            rule__SystemInformationModel__Group_0_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19814,30 +19814,30 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_1__0"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_1__0"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_1__0__Impl"
-    // InternalSim.g:5262:1: rule__SInformationModel__Group_0_1__0__Impl : ( ( rule__SInformationModel__KindAssignment_0_1_0 ) ) ;
-    public final void rule__SInformationModel__Group_0_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_1__0__Impl"
+    // InternalSim.g:5262:1: rule__SystemInformationModel__Group_0_1__0__Impl : ( ( rule__SystemInformationModel__KindAssignment_0_1_0 ) ) ;
+    public final void rule__SystemInformationModel__Group_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5266:1: ( ( ( rule__SInformationModel__KindAssignment_0_1_0 ) ) )
-            // InternalSim.g:5267:1: ( ( rule__SInformationModel__KindAssignment_0_1_0 ) )
+            // InternalSim.g:5266:1: ( ( ( rule__SystemInformationModel__KindAssignment_0_1_0 ) ) )
+            // InternalSim.g:5267:1: ( ( rule__SystemInformationModel__KindAssignment_0_1_0 ) )
             {
-            // InternalSim.g:5267:1: ( ( rule__SInformationModel__KindAssignment_0_1_0 ) )
-            // InternalSim.g:5268:2: ( rule__SInformationModel__KindAssignment_0_1_0 )
+            // InternalSim.g:5267:1: ( ( rule__SystemInformationModel__KindAssignment_0_1_0 ) )
+            // InternalSim.g:5268:2: ( rule__SystemInformationModel__KindAssignment_0_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getKindAssignment_0_1_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getKindAssignment_0_1_0()); 
             }
-            // InternalSim.g:5269:2: ( rule__SInformationModel__KindAssignment_0_1_0 )
-            // InternalSim.g:5269:3: rule__SInformationModel__KindAssignment_0_1_0
+            // InternalSim.g:5269:2: ( rule__SystemInformationModel__KindAssignment_0_1_0 )
+            // InternalSim.g:5269:3: rule__SystemInformationModel__KindAssignment_0_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__KindAssignment_0_1_0();
+            rule__SystemInformationModel__KindAssignment_0_1_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19845,7 +19845,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getKindAssignment_0_1_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getKindAssignment_0_1_0()); 
             }
 
             }
@@ -19865,26 +19865,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_1__0__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_1__0__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_1__1"
-    // InternalSim.g:5277:1: rule__SInformationModel__Group_0_1__1 : rule__SInformationModel__Group_0_1__1__Impl rule__SInformationModel__Group_0_1__2 ;
-    public final void rule__SInformationModel__Group_0_1__1() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_1__1"
+    // InternalSim.g:5277:1: rule__SystemInformationModel__Group_0_1__1 : rule__SystemInformationModel__Group_0_1__1__Impl rule__SystemInformationModel__Group_0_1__2 ;
+    public final void rule__SystemInformationModel__Group_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5281:1: ( rule__SInformationModel__Group_0_1__1__Impl rule__SInformationModel__Group_0_1__2 )
-            // InternalSim.g:5282:2: rule__SInformationModel__Group_0_1__1__Impl rule__SInformationModel__Group_0_1__2
+            // InternalSim.g:5281:1: ( rule__SystemInformationModel__Group_0_1__1__Impl rule__SystemInformationModel__Group_0_1__2 )
+            // InternalSim.g:5282:2: rule__SystemInformationModel__Group_0_1__1__Impl rule__SystemInformationModel__Group_0_1__2
             {
             pushFollow(FOLLOW_10);
-            rule__SInformationModel__Group_0_1__1__Impl();
+            rule__SystemInformationModel__Group_0_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group_0_1__2();
+            rule__SystemInformationModel__Group_0_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19903,12 +19903,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_1__1"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_1__1"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_1__1__Impl"
-    // InternalSim.g:5289:1: rule__SInformationModel__Group_0_1__1__Impl : ( 'information' ) ;
-    public final void rule__SInformationModel__Group_0_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_1__1__Impl"
+    // InternalSim.g:5289:1: rule__SystemInformationModel__Group_0_1__1__Impl : ( 'information' ) ;
+    public final void rule__SystemInformationModel__Group_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19920,11 +19920,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5295:2: 'information'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getInformationKeyword_0_1_1()); 
+               before(grammarAccess.getSystemInformationModelAccess().getInformationKeyword_0_1_1()); 
             }
             match(input,92,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getInformationKeyword_0_1_1()); 
+               after(grammarAccess.getSystemInformationModelAccess().getInformationKeyword_0_1_1()); 
             }
 
             }
@@ -19944,21 +19944,21 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_1__1__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_1__1__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_1__2"
-    // InternalSim.g:5304:1: rule__SInformationModel__Group_0_1__2 : rule__SInformationModel__Group_0_1__2__Impl ;
-    public final void rule__SInformationModel__Group_0_1__2() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_1__2"
+    // InternalSim.g:5304:1: rule__SystemInformationModel__Group_0_1__2 : rule__SystemInformationModel__Group_0_1__2__Impl ;
+    public final void rule__SystemInformationModel__Group_0_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:5308:1: ( rule__SInformationModel__Group_0_1__2__Impl )
-            // InternalSim.g:5309:2: rule__SInformationModel__Group_0_1__2__Impl
+            // InternalSim.g:5308:1: ( rule__SystemInformationModel__Group_0_1__2__Impl )
+            // InternalSim.g:5309:2: rule__SystemInformationModel__Group_0_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__SInformationModel__Group_0_1__2__Impl();
+            rule__SystemInformationModel__Group_0_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19977,12 +19977,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_1__2"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_1__2"
 
 
-    // $ANTLR start "rule__SInformationModel__Group_0_1__2__Impl"
-    // InternalSim.g:5315:1: rule__SInformationModel__Group_0_1__2__Impl : ( 'model' ) ;
-    public final void rule__SInformationModel__Group_0_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__Group_0_1__2__Impl"
+    // InternalSim.g:5315:1: rule__SystemInformationModel__Group_0_1__2__Impl : ( 'model' ) ;
+    public final void rule__SystemInformationModel__Group_0_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19994,11 +19994,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5321:2: 'model'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getModelKeyword_0_1_2()); 
+               before(grammarAccess.getSystemInformationModelAccess().getModelKeyword_0_1_2()); 
             }
             match(input,91,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getModelKeyword_0_1_2()); 
+               after(grammarAccess.getSystemInformationModelAccess().getModelKeyword_0_1_2()); 
             }
 
             }
@@ -20018,7 +20018,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__Group_0_1__2__Impl"
+    // $ANTLR end "rule__SystemInformationModel__Group_0_1__2__Impl"
 
 
     // $ANTLR start "rule__SimGrabAggregateRule__Group__0"
@@ -72525,28 +72525,28 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DNamespace__ModelAssignment_3"
-    // InternalSim.g:21690:1: rule__DNamespace__ModelAssignment_3 : ( ruleSInformationModel ) ;
+    // InternalSim.g:21690:1: rule__DNamespace__ModelAssignment_3 : ( ruleSystemInformationModel ) ;
     public final void rule__DNamespace__ModelAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:21694:1: ( ( ruleSInformationModel ) )
-            // InternalSim.g:21695:2: ( ruleSInformationModel )
+            // InternalSim.g:21694:1: ( ( ruleSystemInformationModel ) )
+            // InternalSim.g:21695:2: ( ruleSystemInformationModel )
             {
-            // InternalSim.g:21695:2: ( ruleSInformationModel )
-            // InternalSim.g:21696:3: ruleSInformationModel
+            // InternalSim.g:21695:2: ( ruleSystemInformationModel )
+            // InternalSim.g:21696:3: ruleSystemInformationModel
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDNamespaceAccess().getModelSInformationModelParserRuleCall_3_0()); 
+               before(grammarAccess.getDNamespaceAccess().getModelSystemInformationModelParserRuleCall_3_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleSInformationModel();
+            ruleSystemInformationModel();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDNamespaceAccess().getModelSInformationModelParserRuleCall_3_0()); 
+               after(grammarAccess.getDNamespaceAccess().getModelSystemInformationModelParserRuleCall_3_0()); 
             }
 
             }
@@ -72569,9 +72569,9 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DNamespace__ModelAssignment_3"
 
 
-    // $ANTLR start "rule__SInformationModel__KindAssignment_0_0_0"
-    // InternalSim.g:21705:1: rule__SInformationModel__KindAssignment_0_0_0 : ( ruleSTypeModelKind ) ;
-    public final void rule__SInformationModel__KindAssignment_0_0_0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__KindAssignment_0_0_0"
+    // InternalSim.g:21705:1: rule__SystemInformationModel__KindAssignment_0_0_0 : ( ruleSTypeModelKind ) ;
+    public final void rule__SystemInformationModel__KindAssignment_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -72583,7 +72583,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:21711:3: ruleSTypeModelKind
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getKindSTypeModelKindEnumRuleCall_0_0_0_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getKindSTypeModelKindEnumRuleCall_0_0_0_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleSTypeModelKind();
@@ -72591,7 +72591,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getKindSTypeModelKindEnumRuleCall_0_0_0_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getKindSTypeModelKindEnumRuleCall_0_0_0_0()); 
             }
 
             }
@@ -72611,32 +72611,32 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__KindAssignment_0_0_0"
+    // $ANTLR end "rule__SystemInformationModel__KindAssignment_0_0_0"
 
 
-    // $ANTLR start "rule__SInformationModel__KindAssignment_0_1_0"
-    // InternalSim.g:21720:1: rule__SInformationModel__KindAssignment_0_1_0 : ( ruleSInformationModelKind ) ;
-    public final void rule__SInformationModel__KindAssignment_0_1_0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__KindAssignment_0_1_0"
+    // InternalSim.g:21720:1: rule__SystemInformationModel__KindAssignment_0_1_0 : ( ruleSystemInformationModelKind ) ;
+    public final void rule__SystemInformationModel__KindAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:21724:1: ( ( ruleSInformationModelKind ) )
-            // InternalSim.g:21725:2: ( ruleSInformationModelKind )
+            // InternalSim.g:21724:1: ( ( ruleSystemInformationModelKind ) )
+            // InternalSim.g:21725:2: ( ruleSystemInformationModelKind )
             {
-            // InternalSim.g:21725:2: ( ruleSInformationModelKind )
-            // InternalSim.g:21726:3: ruleSInformationModelKind
+            // InternalSim.g:21725:2: ( ruleSystemInformationModelKind )
+            // InternalSim.g:21726:3: ruleSystemInformationModelKind
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_1_0_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getKindSystemInformationModelKindEnumRuleCall_0_1_0_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleSInformationModelKind();
+            ruleSystemInformationModelKind();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_1_0_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getKindSystemInformationModelKindEnumRuleCall_0_1_0_0()); 
             }
 
             }
@@ -72656,12 +72656,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__KindAssignment_0_1_0"
+    // $ANTLR end "rule__SystemInformationModel__KindAssignment_0_1_0"
 
 
-    // $ANTLR start "rule__SInformationModel__NameAssignment_1"
-    // InternalSim.g:21735:1: rule__SInformationModel__NameAssignment_1 : ( RULE_ID ) ;
-    public final void rule__SInformationModel__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__NameAssignment_1"
+    // InternalSim.g:21735:1: rule__SystemInformationModel__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__SystemInformationModel__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -72673,11 +72673,11 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:21741:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getNameIDTerminalRuleCall_1_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getNameIDTerminalRuleCall_1_0()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getNameIDTerminalRuleCall_1_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getNameIDTerminalRuleCall_1_0()); 
             }
 
             }
@@ -72697,12 +72697,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__NameAssignment_1"
+    // $ANTLR end "rule__SystemInformationModel__NameAssignment_1"
 
 
-    // $ANTLR start "rule__SInformationModel__GenerateAssignment_2"
-    // InternalSim.g:21750:1: rule__SInformationModel__GenerateAssignment_2 : ( ( 'generate' ) ) ;
-    public final void rule__SInformationModel__GenerateAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__GenerateAssignment_2"
+    // InternalSim.g:21750:1: rule__SystemInformationModel__GenerateAssignment_2 : ( ( 'generate' ) ) ;
+    public final void rule__SystemInformationModel__GenerateAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -72714,23 +72714,23 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:21756:3: ( 'generate' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
             }
             // InternalSim.g:21757:3: ( 'generate' )
             // InternalSim.g:21758:4: 'generate'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
             }
             match(input,130,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getGenerateGenerateKeyword_2_0()); 
             }
 
             }
@@ -72750,12 +72750,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__GenerateAssignment_2"
+    // $ANTLR end "rule__SystemInformationModel__GenerateAssignment_2"
 
 
-    // $ANTLR start "rule__SInformationModel__DescriptionAssignment_3"
-    // InternalSim.g:21769:1: rule__SInformationModel__DescriptionAssignment_3 : ( ruleDRichText ) ;
-    public final void rule__SInformationModel__DescriptionAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__DescriptionAssignment_3"
+    // InternalSim.g:21769:1: rule__SystemInformationModel__DescriptionAssignment_3 : ( ruleDRichText ) ;
+    public final void rule__SystemInformationModel__DescriptionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -72767,7 +72767,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:21775:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDRichText();
@@ -72775,7 +72775,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
             }
 
             }
@@ -72795,12 +72795,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__DescriptionAssignment_3"
+    // $ANTLR end "rule__SystemInformationModel__DescriptionAssignment_3"
 
 
-    // $ANTLR start "rule__SInformationModel__TypesAssignment_5_0"
-    // InternalSim.g:21784:1: rule__SInformationModel__TypesAssignment_5_0 : ( ruleSimType ) ;
-    public final void rule__SInformationModel__TypesAssignment_5_0() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__TypesAssignment_5_0"
+    // InternalSim.g:21784:1: rule__SystemInformationModel__TypesAssignment_5_0 : ( ruleSimType ) ;
+    public final void rule__SystemInformationModel__TypesAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -72812,7 +72812,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:21790:3: ruleSimType
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getTypesSimTypeParserRuleCall_5_0_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getTypesSimTypeParserRuleCall_5_0_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleSimType();
@@ -72820,7 +72820,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getTypesSimTypeParserRuleCall_5_0_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getTypesSimTypeParserRuleCall_5_0_0()); 
             }
 
             }
@@ -72840,12 +72840,12 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__TypesAssignment_5_0"
+    // $ANTLR end "rule__SystemInformationModel__TypesAssignment_5_0"
 
 
-    // $ANTLR start "rule__SInformationModel__AggregatesAssignment_5_1"
-    // InternalSim.g:21799:1: rule__SInformationModel__AggregatesAssignment_5_1 : ( ruleSimAggregate ) ;
-    public final void rule__SInformationModel__AggregatesAssignment_5_1() throws RecognitionException {
+    // $ANTLR start "rule__SystemInformationModel__AggregatesAssignment_5_1"
+    // InternalSim.g:21799:1: rule__SystemInformationModel__AggregatesAssignment_5_1 : ( ruleSimAggregate ) ;
+    public final void rule__SystemInformationModel__AggregatesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -72857,7 +72857,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:21805:3: ruleSimAggregate
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSInformationModelAccess().getAggregatesSimAggregateParserRuleCall_5_1_0()); 
+               before(grammarAccess.getSystemInformationModelAccess().getAggregatesSimAggregateParserRuleCall_5_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleSimAggregate();
@@ -72865,7 +72865,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSInformationModelAccess().getAggregatesSimAggregateParserRuleCall_5_1_0()); 
+               after(grammarAccess.getSystemInformationModelAccess().getAggregatesSimAggregateParserRuleCall_5_1_0()); 
             }
 
             }
@@ -72885,7 +72885,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__AggregatesAssignment_5_1"
+    // $ANTLR end "rule__SystemInformationModel__AggregatesAssignment_5_1"
 
 
     // $ANTLR start "rule__SimGrabAggregateRule__SourceAssignment_0"

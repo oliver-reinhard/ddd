@@ -3,12 +3,12 @@ package com.mimacom.ddd.sm.sim.diagramProvider
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer
-import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl
 import com.mimacom.ddd.util.plantuml.PlantUmlDiagramRendererUtil
 import com.mimacom.ddd.util.plantuml.PlantUmlFileFormat
 import java.io.InputStream
 import org.apache.log4j.Logger
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 class SimTypeDiagramRenderer implements IDiagramRenderer {
 	
@@ -24,13 +24,13 @@ class SimTypeDiagramRenderer implements IDiagramRenderer {
 	}
 	
 	override canRender(IDiagramRoot root) {
-		return root instanceof SInformationModel && actualProvider.canProvide(root as SInformationModel)
+		return root instanceof SystemInformationModel && actualProvider.canProvide(root as SystemInformationModel)
 	}
 	
 	override InputStream render(IDiagramRoot root) {
 		LOGGER.info(SimTypeDiagramRenderer.getName() + " for " + root)
 		
-		var plantUmlText = actualProvider.diagramText(root as SInformationModel)
+		var plantUmlText = actualProvider.diagramText(root as SystemInformationModel)
 		if (plantUmlText === null) {
 			plantUmlText = ""
 		}

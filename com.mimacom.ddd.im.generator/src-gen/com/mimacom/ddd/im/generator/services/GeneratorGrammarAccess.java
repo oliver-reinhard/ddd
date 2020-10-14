@@ -205,8 +205,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cTypeSExceptionCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
-		private final RuleCall cTypeSExceptionQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeSExceptionCrossReference_3_0.eContents().get(1);
+		private final CrossReference cTypeAsmExceptionCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeAsmExceptionCrossReference_3_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cExtendsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -218,11 +218,11 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMessageSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cMessageAssignment_5_1.eContents().get(0);
 		
 		//ExceptionMapping:
-		//	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName] ('extends'
+		//	'exception' name=QualifiedName 'is' type=[asm::AsmException|QualifiedName] ('extends'
 		//	extends=[jvmTypes::JvmType|QualifiedName])? ('message' message=STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName] ('extends'
+		//'exception' name=QualifiedName 'is' type=[asm::AsmException|QualifiedName] ('extends'
 		//extends=[jvmTypes::JvmType|QualifiedName])? ('message' message=STRING)?
 		public Group getGroup() { return cGroup; }
 		
@@ -238,14 +238,14 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//'is'
 		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
 		
-		//type=[asm::SException|QualifiedName]
+		//type=[asm::AsmException|QualifiedName]
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
-		//[asm::SException|QualifiedName]
-		public CrossReference getTypeSExceptionCrossReference_3_0() { return cTypeSExceptionCrossReference_3_0; }
+		//[asm::AsmException|QualifiedName]
+		public CrossReference getTypeAsmExceptionCrossReference_3_0() { return cTypeAsmExceptionCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeSExceptionQualifiedNameParserRuleCall_3_0_1() { return cTypeSExceptionQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1() { return cTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1; }
 		
 		//('extends' extends=[jvmTypes::JvmType|QualifiedName])?
 		public Group getGroup_4() { return cGroup_4; }
@@ -344,8 +344,8 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cTypeSServiceOperationCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
-		private final RuleCall cTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeSServiceOperationCrossReference_3_0.eContents().get(1);
+		private final CrossReference cTypeAsmServiceOperationCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cTypeAsmServiceOperationCrossReference_3_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
@@ -355,11 +355,11 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//EndpointDeclaration:
-		//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=Path)?
+		//	verb=HttpVerb name=QualifiedName 'for' type=[asm::AsmServiceOperation|QualifiedName] ('{' ('path' path=Path)?
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=Path)? '}')?
+		//verb=HttpVerb name=QualifiedName 'for' type=[asm::AsmServiceOperation|QualifiedName] ('{' ('path' path=Path)? '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//verb=HttpVerb
@@ -377,14 +377,14 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 		//'for'
 		public Keyword getForKeyword_2() { return cForKeyword_2; }
 		
-		//type=[asm::SServiceOperation|QualifiedName]
+		//type=[asm::AsmServiceOperation|QualifiedName]
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
-		//[asm::SServiceOperation|QualifiedName]
-		public CrossReference getTypeSServiceOperationCrossReference_3_0() { return cTypeSServiceOperationCrossReference_3_0; }
+		//[asm::AsmServiceOperation|QualifiedName]
+		public CrossReference getTypeAsmServiceOperationCrossReference_3_0() { return cTypeAsmServiceOperationCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1() { return cTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1() { return cTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1; }
 		
 		//('{' ('path' path=Path)? '}')?
 		public Group getGroup_4() { return cGroup_4; }
@@ -633,7 +633,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExceptionMapping:
-	//	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName] ('extends'
+	//	'exception' name=QualifiedName 'is' type=[asm::AsmException|QualifiedName] ('extends'
 	//	extends=[jvmTypes::JvmType|QualifiedName])? ('message' message=STRING)?;
 	public ExceptionMappingElements getExceptionMappingAccess() {
 		return pExceptionMapping;
@@ -656,7 +656,7 @@ public class GeneratorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EndpointDeclaration:
-	//	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName] ('{' ('path' path=Path)?
+	//	verb=HttpVerb name=QualifiedName 'for' type=[asm::AsmServiceOperation|QualifiedName] ('{' ('path' path=Path)?
 	//	'}')?;
 	public EndpointDeclarationElements getEndpointDeclarationAccess() {
 		return pEndpointDeclaration;

@@ -6,10 +6,10 @@ package com.mimacom.ddd.sm.asm.impl;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 
+import com.mimacom.ddd.sm.asm.AsmException;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SException;
-import com.mimacom.ddd.sm.asm.SServiceOperation;
-import com.mimacom.ddd.sm.asm.SServiceParameter;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceParameter;
 
 import java.util.Collection;
 
@@ -30,23 +30,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SService Operation</b></em>'.
+ * An implementation of the model object '<em><b>Service Operation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getNavigableMembers <em>Navigable Members</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getRaises <em>Raises</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getGuards <em>Guards</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getEffects <em>Effects</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl#getNavigableMembers <em>Navigable Members</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl#getRaises <em>Raises</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl#getGuards <em>Guards</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceOperationImpl#getEffects <em>Effects</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SServiceOperationImpl extends MinimalEObjectImpl.Container implements SServiceOperation
+public class AsmServiceOperationImpl extends MinimalEObjectImpl.Container implements AsmServiceOperation
 {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -76,7 +76,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SServiceParameter> parameters;
+	protected EList<AsmServiceParameter> parameters;
 
 	/**
 	 * The cached value of the '{@link #getRaises() <em>Raises</em>}' reference list.
@@ -86,7 +86,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SException> raises;
+	protected EList<AsmException> raises;
 
 	/**
 	 * The cached value of the '{@link #getGuards() <em>Guards</em>}' containment reference list.
@@ -113,7 +113,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SServiceOperationImpl()
+	protected AsmServiceOperationImpl()
 	{
 		super();
 	}
@@ -126,7 +126,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SSERVICE_OPERATION;
+		return AsmPackage.Literals.ASM_SERVICE_OPERATION;
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_OPERATION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.ASM_SERVICE_OPERATION__NAME, oldName, name));
 	}
 
 	/**
@@ -171,11 +171,11 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SServiceParameter> getParameters()
+	public EList<AsmServiceParameter> getParameters()
 	{
 		if (parameters == null)
 		{
-			parameters = new EObjectContainmentEList<SServiceParameter>(SServiceParameter.class, this, AsmPackage.SSERVICE_OPERATION__PARAMETERS);
+			parameters = new EObjectContainmentEList<AsmServiceParameter>(AsmServiceParameter.class, this, AsmPackage.ASM_SERVICE_OPERATION__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -185,11 +185,11 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SException> getRaises()
+	public EList<AsmException> getRaises()
 	{
 		if (raises == null)
 		{
-			raises = new EObjectResolvingEList<SException>(SException.class, this, AsmPackage.SSERVICE_OPERATION__RAISES);
+			raises = new EObjectResolvingEList<AsmException>(AsmException.class, this, AsmPackage.ASM_SERVICE_OPERATION__RAISES);
 		}
 		return raises;
 	}
@@ -203,7 +203,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		if (guards == null)
 		{
-			guards = new EObjectContainmentEList<DExpression>(DExpression.class, this, AsmPackage.SSERVICE_OPERATION__GUARDS);
+			guards = new EObjectContainmentEList<DExpression>(DExpression.class, this, AsmPackage.ASM_SERVICE_OPERATION__GUARDS);
 		}
 		return guards;
 	}
@@ -217,7 +217,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		if (effects == null)
 		{
-			effects = new EObjectContainmentEList<DExpression>(DExpression.class, this, AsmPackage.SSERVICE_OPERATION__EFFECTS);
+			effects = new EObjectContainmentEList<DExpression>(DExpression.class, this, AsmPackage.ASM_SERVICE_OPERATION__EFFECTS);
 		}
 		return effects;
 	}
@@ -232,11 +232,11 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-			case AsmPackage.SSERVICE_OPERATION__GUARDS:
+			case AsmPackage.ASM_SERVICE_OPERATION__GUARDS:
 				return ((InternalEList<?>)getGuards()).basicRemove(otherEnd, msgs);
-			case AsmPackage.SSERVICE_OPERATION__EFFECTS:
+			case AsmPackage.ASM_SERVICE_OPERATION__EFFECTS:
 				return ((InternalEList<?>)getEffects()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -252,17 +252,17 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAVIGABLE_MEMBERS:
 				return getNavigableMembers();
-			case AsmPackage.SSERVICE_OPERATION__NAME:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAME:
 				return getName();
-			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__PARAMETERS:
 				return getParameters();
-			case AsmPackage.SSERVICE_OPERATION__RAISES:
+			case AsmPackage.ASM_SERVICE_OPERATION__RAISES:
 				return getRaises();
-			case AsmPackage.SSERVICE_OPERATION__GUARDS:
+			case AsmPackage.ASM_SERVICE_OPERATION__GUARDS:
 				return getGuards();
-			case AsmPackage.SSERVICE_OPERATION__EFFECTS:
+			case AsmPackage.ASM_SERVICE_OPERATION__EFFECTS:
 				return getEffects();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -279,26 +279,26 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
 				return;
-			case AsmPackage.SSERVICE_OPERATION__NAME:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAME:
 				setName((String)newValue);
 				return;
-			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends SServiceParameter>)newValue);
+				getParameters().addAll((Collection<? extends AsmServiceParameter>)newValue);
 				return;
-			case AsmPackage.SSERVICE_OPERATION__RAISES:
+			case AsmPackage.ASM_SERVICE_OPERATION__RAISES:
 				getRaises().clear();
-				getRaises().addAll((Collection<? extends SException>)newValue);
+				getRaises().addAll((Collection<? extends AsmException>)newValue);
 				return;
-			case AsmPackage.SSERVICE_OPERATION__GUARDS:
+			case AsmPackage.ASM_SERVICE_OPERATION__GUARDS:
 				getGuards().clear();
 				getGuards().addAll((Collection<? extends DExpression>)newValue);
 				return;
-			case AsmPackage.SSERVICE_OPERATION__EFFECTS:
+			case AsmPackage.ASM_SERVICE_OPERATION__EFFECTS:
 				getEffects().clear();
 				getEffects().addAll((Collection<? extends DExpression>)newValue);
 				return;
@@ -316,22 +316,22 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				return;
-			case AsmPackage.SSERVICE_OPERATION__NAME:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__PARAMETERS:
 				getParameters().clear();
 				return;
-			case AsmPackage.SSERVICE_OPERATION__RAISES:
+			case AsmPackage.ASM_SERVICE_OPERATION__RAISES:
 				getRaises().clear();
 				return;
-			case AsmPackage.SSERVICE_OPERATION__GUARDS:
+			case AsmPackage.ASM_SERVICE_OPERATION__GUARDS:
 				getGuards().clear();
 				return;
-			case AsmPackage.SSERVICE_OPERATION__EFFECTS:
+			case AsmPackage.ASM_SERVICE_OPERATION__EFFECTS:
 				getEffects().clear();
 				return;
 		}
@@ -348,17 +348,17 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAVIGABLE_MEMBERS:
 				return !getNavigableMembers().isEmpty();
-			case AsmPackage.SSERVICE_OPERATION__NAME:
+			case AsmPackage.ASM_SERVICE_OPERATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
+			case AsmPackage.ASM_SERVICE_OPERATION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
-			case AsmPackage.SSERVICE_OPERATION__RAISES:
+			case AsmPackage.ASM_SERVICE_OPERATION__RAISES:
 				return raises != null && !raises.isEmpty();
-			case AsmPackage.SSERVICE_OPERATION__GUARDS:
+			case AsmPackage.ASM_SERVICE_OPERATION__GUARDS:
 				return guards != null && !guards.isEmpty();
-			case AsmPackage.SSERVICE_OPERATION__EFFECTS:
+			case AsmPackage.ASM_SERVICE_OPERATION__EFFECTS:
 				return effects != null && !effects.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -381,4 +381,4 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 		return result.toString();
 	}
 
-} //SServiceOperationImpl
+} //AsmServiceOperationImpl

@@ -73,8 +73,8 @@ import com.mimacom.ddd.dm.dmx.DmxTestContext;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUrlLiteral;
-import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SimPackage;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -341,8 +341,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			}
 		else if (epackage == SimPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SimPackage.SINFORMATION_MODEL:
-				sequence_SInformationModel(context, (SInformationModel) semanticObject); 
+			case SimPackage.SYSTEM_INFORMATION_MODEL:
+				sequence_SystemInformationModel(context, (SystemInformationModel) semanticObject); 
 				return; 
 			}
 		else if (epackage == TransposePackage.eINSTANCE)
@@ -496,27 +496,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=DImport* model=SInformationModel)
+	 *     (name=DQualifiedName imports+=DImport* model=SystemInformationModel)
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SInformationModel returns SInformationModel
-	 *
-	 * Constraint:
-	 *     (
-	 *         (kind=STypeModelKind | kind=SInformationModelKind) 
-	 *         name=ID 
-	 *         generate?='generate'? 
-	 *         description=DRichText? 
-	 *         (types+=SimType | aggregates+=SimAggregate)*
-	 *     )
-	 */
-	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -910,6 +892,24 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_SimQueryTransposition(ISerializationContext context, TQueryTransposition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SystemInformationModel returns SystemInformationModel
+	 *
+	 * Constraint:
+	 *     (
+	 *         (kind=STypeModelKind | kind=SystemInformationModelKind) 
+	 *         name=ID 
+	 *         generate?='generate'? 
+	 *         description=DRichText? 
+	 *         (types+=SimType | aggregates+=SimAggregate)*
+	 *     )
+	 */
+	protected void sequence_SystemInformationModel(ISerializationContext context, SystemInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

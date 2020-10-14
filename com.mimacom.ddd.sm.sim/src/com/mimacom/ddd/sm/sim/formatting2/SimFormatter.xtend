@@ -11,7 +11,7 @@ import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
 import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
 import com.mimacom.ddd.dm.base.transpose.TMorphRule
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
-import com.mimacom.ddd.sm.sim.SInformationModel
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
@@ -20,8 +20,8 @@ class SimFormatter extends AbstractFormatter2 {
 
 	@Inject extension SimGrammarAccess
 
-	def dispatch void format(SInformationModel model, extension IFormattableDocument document) {
-		model.regionFor.assignment(SInformationModelAccess.nameAssignment_1).append[newLines = 2]
+	def dispatch void format(SystemInformationModel model, extension IFormattableDocument document) {
+		model.regionFor.assignment(systemInformationModelAccess.nameAssignment_1).append[newLines = 2]
 
 		for (type : model.types) {
 			type.format

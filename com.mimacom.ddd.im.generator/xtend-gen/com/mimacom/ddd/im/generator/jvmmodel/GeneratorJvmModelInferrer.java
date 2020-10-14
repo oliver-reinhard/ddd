@@ -28,10 +28,10 @@ import com.mimacom.ddd.im.generator.generator.Model;
 import com.mimacom.ddd.im.generator.generator.Path;
 import com.mimacom.ddd.im.generator.generator.PathSegment;
 import com.mimacom.ddd.im.generator.generator.TypeMapping;
-import com.mimacom.ddd.sm.asm.SDirection;
-import com.mimacom.ddd.sm.asm.SException;
-import com.mimacom.ddd.sm.asm.SServiceOperation;
-import com.mimacom.ddd.sm.asm.SServiceParameter;
+import com.mimacom.ddd.sm.asm.AsmException;
+import com.mimacom.ddd.sm.asm.AsmParameterDirection;
+import com.mimacom.ddd.sm.asm.AsmServiceOperation;
+import com.mimacom.ddd.sm.asm.AsmServiceParameter;
 import java.lang.annotation.Annotation;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -170,18 +170,18 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
       Iterable<EndpointDeclaration> _filter = IterableExtensions.<EndpointDeclaration>filter(element.getEndpoints(), _function_2);
       for (final EndpointDeclaration endpoint : _filter) {
         {
-          final SServiceOperation operation = endpoint.getType();
+          final AsmServiceOperation operation = endpoint.getType();
           JvmTypeReference operationReturnType = null;
-          final Function1<SServiceParameter, Boolean> _function_3 = (SServiceParameter it_1) -> {
-            SDirection _direction = it_1.getDirection();
-            return Boolean.valueOf((_direction == SDirection.OUTBOUND));
+          final Function1<AsmServiceParameter, Boolean> _function_3 = (AsmServiceParameter it_1) -> {
+            AsmParameterDirection _direction = it_1.getDirection();
+            return Boolean.valueOf((_direction == AsmParameterDirection.OUTBOUND));
           };
-          final SServiceParameter resultParameter = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_3));
-          final Function1<SServiceParameter, Boolean> _function_4 = (SServiceParameter it_1) -> {
-            SDirection _direction = it_1.getDirection();
-            return Boolean.valueOf((_direction == SDirection.OUTBOUND));
+          final AsmServiceParameter resultParameter = IterableExtensions.<AsmServiceParameter>head(IterableExtensions.<AsmServiceParameter>filter(operation.getParameters(), _function_3));
+          final Function1<AsmServiceParameter, Boolean> _function_4 = (AsmServiceParameter it_1) -> {
+            AsmParameterDirection _direction = it_1.getDirection();
+            return Boolean.valueOf((_direction == AsmParameterDirection.OUTBOUND));
           };
-          SServiceParameter _head = IterableExtensions.<SServiceParameter>head(IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_4));
+          AsmServiceParameter _head = IterableExtensions.<AsmServiceParameter>head(IterableExtensions.<AsmServiceParameter>filter(operation.getParameters(), _function_4));
           DType _type = null;
           if (_head!=null) {
             _type=_head.getType();
@@ -204,7 +204,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
             EList<JvmAnnotationReference> _annotations_1 = it_1.getAnnotations();
             JvmAnnotationReference _annotationRef_1 = this._annotationTypesBuilder.annotationRef(this.toMethodAnnotationClass(endpoint.getVerb()), this.getEndpointPathAsString(endpoint.getPath()));
             this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, _annotationRef_1);
-            EList<SException> _raises = endpoint.getType().getRaises();
+            EList<AsmException> _raises = endpoint.getType().getRaises();
             boolean _tripleNotEquals_1 = (_raises != null);
             if (_tripleNotEquals_1) {
               final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint, Model.class), 
@@ -212,12 +212,12 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
               EList<JvmTypeReference> _exceptions = it_1.getExceptions();
               this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
             }
-            final Function1<SServiceParameter, Boolean> _function_6 = (SServiceParameter it_2) -> {
-              SDirection _direction = it_2.getDirection();
-              return Boolean.valueOf((_direction == SDirection.INBOUND));
+            final Function1<AsmServiceParameter, Boolean> _function_6 = (AsmServiceParameter it_2) -> {
+              AsmParameterDirection _direction = it_2.getDirection();
+              return Boolean.valueOf((_direction == AsmParameterDirection.INBOUND));
             };
-            Iterable<SServiceParameter> _filter_1 = IterableExtensions.<SServiceParameter>filter(operation.getParameters(), _function_6);
-            for (final SServiceParameter param : _filter_1) {
+            Iterable<AsmServiceParameter> _filter_1 = IterableExtensions.<AsmServiceParameter>filter(operation.getParameters(), _function_6);
+            for (final AsmServiceParameter param : _filter_1) {
               {
                 final JvmTypeReference paramTypeRef = this.toType(mappings, param.getType());
                 final JvmFormalParameter parameter = this._jvmTypesBuilder.toParameter(endpoint, param.getName(), paramTypeRef);
@@ -557,17 +557,17 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
    * other utility methods
    */
   private Map<String, DType> getAllReferencedEndpointTypes(final EndpointDeclarationBlock block) {
-    final Function1<EndpointDeclaration, EList<SServiceParameter>> _function = (EndpointDeclaration it) -> {
+    final Function1<EndpointDeclaration, EList<AsmServiceParameter>> _function = (EndpointDeclaration it) -> {
       return it.getType().getParameters();
     };
-    final Function1<SServiceParameter, Boolean> _function_1 = (SServiceParameter it) -> {
+    final Function1<AsmServiceParameter, Boolean> _function_1 = (AsmServiceParameter it) -> {
       DType _type = it.getType();
       return Boolean.valueOf((_type != null));
     };
-    final Function1<SServiceParameter, DType> _function_2 = (SServiceParameter it) -> {
+    final Function1<AsmServiceParameter, DType> _function_2 = (AsmServiceParameter it) -> {
       return it.getType();
     };
-    final List<DType> allParameterTypes = IterableExtensions.<DType>toList(IterableExtensions.<SServiceParameter, DType>map(IterableExtensions.<SServiceParameter>filter(IterableExtensions.<EndpointDeclaration, SServiceParameter>flatMap(block.getEndpoints(), _function), _function_1), _function_2));
+    final List<DType> allParameterTypes = IterableExtensions.<DType>toList(IterableExtensions.<AsmServiceParameter, DType>map(IterableExtensions.<AsmServiceParameter>filter(IterableExtensions.<EndpointDeclaration, AsmServiceParameter>flatMap(block.getEndpoints(), _function), _function_1), _function_2));
     final HashMap<String, DType> result = CollectionLiterals.<String, DType>newHashMap();
     final Consumer<DType> _function_3 = (DType it) -> {
       result.putAll(this.getAllReferencedTypes(it));
@@ -576,7 +576,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return result;
   }
   
-  private ArrayList<JvmAnnotationReference> getParameterAnnotations(final EndpointDeclaration endpoint, final SServiceParameter param) {
+  private ArrayList<JvmAnnotationReference> getParameterAnnotations(final EndpointDeclaration endpoint, final AsmServiceParameter param) {
     ArrayList<JvmAnnotationReference> _xblockexpression = null;
     {
       final ArrayList<JvmAnnotationReference> annotations = CollectionLiterals.<JvmAnnotationReference>newArrayList();
@@ -598,7 +598,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return _xblockexpression;
   }
   
-  private boolean isPathParameter(final SServiceParameter param, final Path path) {
+  private boolean isPathParameter(final AsmServiceParameter param, final Path path) {
     final Function1<PathSegment, Boolean> _function = (PathSegment it) -> {
       return Boolean.valueOf((Objects.equal(it.getName(), param.getName()) && it.isVariable()));
     };
@@ -770,7 +770,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return _switchResult;
   }
   
-  private Iterable<JvmTypeReference> getMappedExceptions(final IJvmDeclaredTypeAcceptor acceptor, final Model model, final List<SException> exceptions) {
+  private Iterable<JvmTypeReference> getMappedExceptions(final IJvmDeclaredTypeAcceptor acceptor, final Model model, final List<AsmException> exceptions) {
     final Function1<ExceptionMapping, Boolean> _function = (ExceptionMapping it) -> {
       return Boolean.valueOf(exceptions.contains(it.getType()));
     };
@@ -794,18 +794,18 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     if (_tripleEquals) {
       return typeRefsOfMappedExceptions;
     }
-    final Function1<SException, Boolean> _function_5 = (SException it) -> {
+    final Function1<AsmException, Boolean> _function_5 = (AsmException it) -> {
       final Function1<ExceptionMapping, Boolean> _function_6 = (ExceptionMapping e) -> {
         String _name = e.getName();
         return Boolean.valueOf(Objects.equal(it, _name));
       };
       return Boolean.valueOf(IterableExtensions.<ExceptionMapping>exists(mappings, _function_6));
     };
-    final List<SException> unmappedExceptions = IterableExtensions.<SException>toList(IterableExtensions.<SException>dropWhile(exceptions, _function_5));
-    final Function1<SException, JvmGenericType> _function_6 = (SException it) -> {
+    final List<AsmException> unmappedExceptions = IterableExtensions.<AsmException>toList(IterableExtensions.<AsmException>dropWhile(exceptions, _function_5));
+    final Function1<AsmException, JvmGenericType> _function_6 = (AsmException it) -> {
       return this.toExceptionType(it, model);
     };
-    final List<JvmGenericType> additionalExceptionTypes = ListExtensions.<SException, JvmGenericType>map(unmappedExceptions, _function_6);
+    final List<JvmGenericType> additionalExceptionTypes = ListExtensions.<AsmException, JvmGenericType>map(unmappedExceptions, _function_6);
     final Consumer<JvmGenericType> _function_7 = (JvmGenericType it) -> {
       acceptor.<JvmGenericType>accept(it);
     };
@@ -817,7 +817,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     return Iterables.<JvmTypeReference>concat(typeRefsOfMappedExceptions, typeRefsOfUnmappedExceptions);
   }
   
-  private JvmGenericType toExceptionType(final SException exception, final Model model) {
+  private JvmGenericType toExceptionType(final AsmException exception, final Model model) {
     final Procedure1<JvmGenericType> _function = (JvmGenericType it) -> {
       EList<JvmTypeReference> _superTypes = it.getSuperTypes();
       JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(Exception.class);

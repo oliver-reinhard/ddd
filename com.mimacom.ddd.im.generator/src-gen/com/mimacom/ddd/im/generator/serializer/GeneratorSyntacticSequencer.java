@@ -109,7 +109,7 @@ public class GeneratorSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     type=[SServiceOperation|QualifiedName] (ambiguity) (rule end)
+	 *     type=[AsmServiceOperation|QualifiedName] (ambiguity) (rule end)
 	 */
 	protected void emit_EndpointDeclaration___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

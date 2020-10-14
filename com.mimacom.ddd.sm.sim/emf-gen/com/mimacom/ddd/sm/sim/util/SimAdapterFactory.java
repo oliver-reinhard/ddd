@@ -86,9 +86,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 		new SimSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseSInformationModel(SInformationModel object)
+			public Adapter caseSystemInformationModel(SystemInformationModel object)
 			{
-				return createSInformationModelAdapter();
+				return createSystemInformationModelAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -158,16 +158,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SystemInformationModel <em>System Information Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel
+	 * @see com.mimacom.ddd.sm.sim.SystemInformationModel
 	 * @generated
 	 */
-	public Adapter createSInformationModelAdapter()
+	public Adapter createSystemInformationModelAdapter()
 	{
 		return null;
 	}

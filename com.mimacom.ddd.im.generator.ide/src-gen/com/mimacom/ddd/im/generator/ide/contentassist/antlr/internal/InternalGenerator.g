@@ -16817,13 +16817,13 @@ rule__ExceptionMapping__TypeAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getExceptionMappingAccess().getTypeSExceptionCrossReference_3_0()); }
+		{ before(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionCrossReference_3_0()); }
 		(
-			{ before(grammarAccess.getExceptionMappingAccess().getTypeSExceptionQualifiedNameParserRuleCall_3_0_1()); }
+			{ before(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1()); }
 			ruleQualifiedName
-			{ after(grammarAccess.getExceptionMappingAccess().getTypeSExceptionQualifiedNameParserRuleCall_3_0_1()); }
+			{ after(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionQualifiedNameParserRuleCall_3_0_1()); }
 		)
-		{ after(grammarAccess.getExceptionMappingAccess().getTypeSExceptionCrossReference_3_0()); }
+		{ after(grammarAccess.getExceptionMappingAccess().getTypeAsmExceptionCrossReference_3_0()); }
 	)
 ;
 finally {
@@ -16945,13 +16945,13 @@ rule__EndpointDeclaration__TypeAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationCrossReference_3_0()); }
+		{ before(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationCrossReference_3_0()); }
 		(
-			{ before(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1()); }
+			{ before(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1()); }
 			ruleQualifiedName
-			{ after(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationQualifiedNameParserRuleCall_3_0_1()); }
+			{ after(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationQualifiedNameParserRuleCall_3_0_1()); }
 		)
-		{ after(grammarAccess.getEndpointDeclarationAccess().getTypeSServiceOperationCrossReference_3_0()); }
+		{ after(grammarAccess.getEndpointDeclarationAccess().getTypeAsmServiceOperationCrossReference_3_0()); }
 	)
 ;
 finally {

@@ -3,8 +3,8 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
+import com.mimacom.ddd.sm.asm.AsmActor;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SActor;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,18 +15,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SActor</b></em>'.
+ * An implementation of the model object '<em><b>Actor</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SActorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmActorImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class SActorImpl extends MinimalEObjectImpl.Container implements SActor
+public abstract class AsmActorImpl extends MinimalEObjectImpl.Container implements AsmActor
 {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -53,7 +53,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SActorImpl()
+	protected AsmActorImpl()
 	{
 		super();
 	}
@@ -66,7 +66,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SACTOR;
+		return AsmPackage.Literals.ASM_ACTOR;
 	}
 
 	/**
@@ -89,7 +89,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SACTOR__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.ASM_ACTOR__NAME, oldName, name));
 	}
 
 	/**
@@ -102,7 +102,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SACTOR__NAME:
+			case AsmPackage.ASM_ACTOR__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -118,7 +118,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SACTOR__NAME:
+			case AsmPackage.ASM_ACTOR__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -135,7 +135,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SACTOR__NAME:
+			case AsmPackage.ASM_ACTOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -152,7 +152,7 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SACTOR__NAME:
+			case AsmPackage.ASM_ACTOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
@@ -175,4 +175,4 @@ public abstract class SActorImpl extends MinimalEObjectImpl.Container implements
 		return result.toString();
 	}
 
-} //SActorImpl
+} //AsmActorImpl

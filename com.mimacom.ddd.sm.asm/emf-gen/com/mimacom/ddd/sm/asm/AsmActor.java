@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>SActor</b></em>'.
+ * A representation of the model object '<em><b>Actor</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.SActor#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.AsmActor#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.sm.asm.AsmPackage#getSActor()
+ * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmActor()
  * @model abstract="true"
  * @generated
  */
-public interface SActor extends EObject
+public interface AsmActor extends EObject
 {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface SActor extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSActor_Name()
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmActor_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.SActor#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.AsmActor#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -49,4 +49,4 @@ public interface SActor extends EObject
 	 */
 	void setName(String value);
 
-} // SActor
+} // AsmActor

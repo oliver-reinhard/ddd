@@ -7,7 +7,7 @@ import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITransposition;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.io.CharArrayWriter;
 import java.util.Iterator;
 import java.util.List;
@@ -40,8 +40,8 @@ public class SimGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     try {
       final EObject model = IterableExtensions.<EObject>head(resource.getContents());
-      if ((model instanceof SInformationModel)) {
-        boolean _isGenerate = ((SInformationModel)model).isGenerate();
+      if ((model instanceof SystemInformationModel)) {
+        boolean _isGenerate = ((SystemInformationModel)model).isGenerate();
         if (_isGenerate) {
           final XtextResourceSet targetRS = new XtextResourceSet();
           EcoreUtil2.<XtextResourceSet>clone(targetRS, resource.getResourceSet());
@@ -66,11 +66,11 @@ public class SimGenerator extends AbstractGenerator {
   public boolean removeTransformationItems(final Resource resource) {
     boolean hadSyntheticItems = false;
     final EObject model = IterableExtensions.<EObject>head(resource.getContents());
-    if ((model instanceof SInformationModel)) {
-      ((SInformationModel)model).setGenerate(false);
-      String _name = ((SInformationModel)model).getName();
+    if ((model instanceof SystemInformationModel)) {
+      ((SystemInformationModel)model).setGenerate(false);
+      String _name = ((SystemInformationModel)model).getName();
       String _plus = (_name + ".generated");
-      ((SInformationModel)model).setName(_plus);
+      ((SystemInformationModel)model).setName(_plus);
       final List<ITransposition> deductionDefinitions = IteratorExtensions.<ITransposition>toList(Iterators.<ITransposition>filter(resource.getAllContents(), ITransposition.class));
       for (final ITransposition d : deductionDefinitions) {
         EcoreUtil.remove(d);

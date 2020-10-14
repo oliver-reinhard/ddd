@@ -3,7 +3,7 @@ package com.mimacom.ddd.sm.sim.diagramProvider;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.util.plantuml.PlantUmlDiagramRendererUtil;
 import com.mimacom.ddd.util.plantuml.PlantUmlFileFormat;
@@ -29,7 +29,7 @@ public class SimTypeDiagramRenderer implements IDiagramRenderer {
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
-    return ((root instanceof SInformationModel) && this.actualProvider.canProvide(((SInformationModel) root)));
+    return ((root instanceof SystemInformationModel) && this.actualProvider.canProvide(((SystemInformationModel) root)));
   }
   
   @Override
@@ -39,7 +39,7 @@ public class SimTypeDiagramRenderer implements IDiagramRenderer {
       String _plus = (_name + " for ");
       String _plus_1 = (_plus + root);
       SimTypeDiagramRenderer.LOGGER.info(_plus_1);
-      String plantUmlText = this.actualProvider.diagramText(((SInformationModel) root));
+      String plantUmlText = this.actualProvider.diagramText(((SystemInformationModel) root));
       if ((plantUmlText == null)) {
         plantUmlText = "";
       }

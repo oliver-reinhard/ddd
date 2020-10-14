@@ -36,18 +36,18 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
 		private final Assignment cModelAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Alternatives cModelAlternatives_3_0 = (Alternatives)cModelAssignment_3.eContents().get(0);
-		private final RuleCall cModelSApplicationParserRuleCall_3_0_0 = (RuleCall)cModelAlternatives_3_0.eContents().get(0);
-		private final RuleCall cModelSServiceInterfaceParserRuleCall_3_0_1 = (RuleCall)cModelAlternatives_3_0.eContents().get(1);
+		private final RuleCall cModelAsmApplicationParserRuleCall_3_0_0 = (RuleCall)cModelAlternatives_3_0.eContents().get(0);
+		private final RuleCall cModelAsmServiceInterfaceParserRuleCall_3_0_1 = (RuleCall)cModelAlternatives_3_0.eContents().get(1);
 		
 		//@Override
 		//DNamespace:
 		//	'system'
 		//	name=DQualifiedName
 		//	imports+=DImport*
-		//	model=(SApplication | SServiceInterface);
+		//	model=(AsmApplication | AsmServiceInterface);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'system' name=DQualifiedName imports+=DImport* model=(SApplication | SServiceInterface)
+		//'system' name=DQualifiedName imports+=DImport* model=(AsmApplication | AsmServiceInterface)
 		public Group getGroup() { return cGroup; }
 		
 		//'system'
@@ -65,20 +65,20 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//DImport
 		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
 		
-		//model=(SApplication | SServiceInterface)
+		//model=(AsmApplication | AsmServiceInterface)
 		public Assignment getModelAssignment_3() { return cModelAssignment_3; }
 		
-		//(SApplication | SServiceInterface)
+		//(AsmApplication | AsmServiceInterface)
 		public Alternatives getModelAlternatives_3_0() { return cModelAlternatives_3_0; }
 		
-		//SApplication
-		public RuleCall getModelSApplicationParserRuleCall_3_0_0() { return cModelSApplicationParserRuleCall_3_0_0; }
+		//AsmApplication
+		public RuleCall getModelAsmApplicationParserRuleCall_3_0_0() { return cModelAsmApplicationParserRuleCall_3_0_0; }
 		
-		//SServiceInterface
-		public RuleCall getModelSServiceInterfaceParserRuleCall_3_0_1() { return cModelSServiceInterfaceParserRuleCall_3_0_1; }
+		//AsmServiceInterface
+		public RuleCall getModelAsmServiceInterfaceParserRuleCall_3_0_1() { return cModelAsmServiceInterfaceParserRuleCall_3_0_1; }
 	}
-	public class SApplicationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SApplication");
+	public class AsmApplicationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmApplication");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -86,18 +86,18 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cInformationKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cModelKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cModelAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cModelSInformationModelCrossReference_4_0 = (CrossReference)cModelAssignment_4.eContents().get(0);
-		private final RuleCall cModelSInformationModelDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cModelSInformationModelCrossReference_4_0.eContents().get(1);
+		private final CrossReference cModelSystemInformationModelCrossReference_4_0 = (CrossReference)cModelAssignment_4.eContents().get(0);
+		private final RuleCall cModelSystemInformationModelDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cModelSystemInformationModelCrossReference_4_0.eContents().get(1);
 		private final Assignment cActorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cActorsSActorParserRuleCall_5_0 = (RuleCall)cActorsAssignment_5.eContents().get(0);
+		private final RuleCall cActorsAsmActorParserRuleCall_5_0 = (RuleCall)cActorsAssignment_5.eContents().get(0);
 		
-		//SApplication:
+		//AsmApplication:
 		//	'application'
 		//	name=ID
-		//	'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*;
+		//	'information' 'model' model=[SystemInformationModel|DQualifiedName] actors+=AsmActor*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'application' name=ID 'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*
+		//'application' name=ID 'information' 'model' model=[SystemInformationModel|DQualifiedName] actors+=AsmActor*
 		public Group getGroup() { return cGroup; }
 		
 		//'application'
@@ -115,23 +115,23 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'model'
 		public Keyword getModelKeyword_3() { return cModelKeyword_3; }
 		
-		//model=[SInformationModel|DQualifiedName]
+		//model=[SystemInformationModel|DQualifiedName]
 		public Assignment getModelAssignment_4() { return cModelAssignment_4; }
 		
-		//[SInformationModel|DQualifiedName]
-		public CrossReference getModelSInformationModelCrossReference_4_0() { return cModelSInformationModelCrossReference_4_0; }
+		//[SystemInformationModel|DQualifiedName]
+		public CrossReference getModelSystemInformationModelCrossReference_4_0() { return cModelSystemInformationModelCrossReference_4_0; }
 		
 		//DQualifiedName
-		public RuleCall getModelSInformationModelDQualifiedNameParserRuleCall_4_0_1() { return cModelSInformationModelDQualifiedNameParserRuleCall_4_0_1; }
+		public RuleCall getModelSystemInformationModelDQualifiedNameParserRuleCall_4_0_1() { return cModelSystemInformationModelDQualifiedNameParserRuleCall_4_0_1; }
 		
-		//actors+=SActor*
+		//actors+=AsmActor*
 		public Assignment getActorsAssignment_5() { return cActorsAssignment_5; }
 		
-		//SActor
-		public RuleCall getActorsSActorParserRuleCall_5_0() { return cActorsSActorParserRuleCall_5_0; }
+		//AsmActor
+		public RuleCall getActorsAsmActorParserRuleCall_5_0() { return cActorsAsmActorParserRuleCall_5_0; }
 	}
-	public class SServiceInterfaceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SServiceInterface");
+	public class AsmServiceInterfaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmServiceInterface");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cInterfaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -140,28 +140,28 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cInterfaceKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cInterfaceAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cInterfaceSInformationModelCrossReference_5_0 = (CrossReference)cInterfaceAssignment_5.eContents().get(0);
-		private final RuleCall cInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cInterfaceSInformationModelCrossReference_5_0.eContents().get(1);
+		private final CrossReference cInterfaceSystemInformationModelCrossReference_5_0 = (CrossReference)cInterfaceAssignment_5.eContents().get(0);
+		private final RuleCall cInterfaceSystemInformationModelDQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cInterfaceSystemInformationModelCrossReference_5_0.eContents().get(1);
 		private final Keyword cCoreKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cModelKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cCoreAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cCoreSInformationModelCrossReference_8_0 = (CrossReference)cCoreAssignment_8.eContents().get(0);
-		private final RuleCall cCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1 = (RuleCall)cCoreSInformationModelCrossReference_8_0.eContents().get(1);
+		private final CrossReference cCoreSystemInformationModelCrossReference_8_0 = (CrossReference)cCoreAssignment_8.eContents().get(0);
+		private final RuleCall cCoreSystemInformationModelDQualifiedNameParserRuleCall_8_0_1 = (RuleCall)cCoreSystemInformationModelCrossReference_8_0.eContents().get(1);
 		private final Assignment cExceptionsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cExceptionsSExceptionParserRuleCall_9_0 = (RuleCall)cExceptionsAssignment_9.eContents().get(0);
+		private final RuleCall cExceptionsAsmExceptionParserRuleCall_9_0 = (RuleCall)cExceptionsAssignment_9.eContents().get(0);
 		private final Assignment cOperationsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cOperationsSServiceOperationParserRuleCall_10_0 = (RuleCall)cOperationsAssignment_10.eContents().get(0);
+		private final RuleCall cOperationsAsmServiceOperationParserRuleCall_10_0 = (RuleCall)cOperationsAssignment_10.eContents().get(0);
 		
-		//SServiceInterface:
+		//AsmServiceInterface:
 		//	'service' 'interface'
 		//	name=ID
-		//	'interface' 'model' interface=[SInformationModel|DQualifiedName]
-		//	'core' 'model' core=[SInformationModel|DQualifiedName] exceptions+=SException*
-		//	operations+=SServiceOperation*;
+		//	'interface' 'model' interface=[SystemInformationModel|DQualifiedName]
+		//	'core' 'model' core=[SystemInformationModel|DQualifiedName] exceptions+=AsmException*
+		//	operations+=AsmServiceOperation*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'service' 'interface' name=ID 'interface' 'model' interface=[SInformationModel|DQualifiedName] 'core' 'model'
-		//core=[SInformationModel|DQualifiedName] exceptions+=SException* operations+=SServiceOperation*
+		//'service' 'interface' name=ID 'interface' 'model' interface=[SystemInformationModel|DQualifiedName] 'core' 'model'
+		//core=[SystemInformationModel|DQualifiedName] exceptions+=AsmException* operations+=AsmServiceOperation*
 		public Group getGroup() { return cGroup; }
 		
 		//'service'
@@ -182,14 +182,14 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'model'
 		public Keyword getModelKeyword_4() { return cModelKeyword_4; }
 		
-		//interface=[SInformationModel|DQualifiedName]
+		//interface=[SystemInformationModel|DQualifiedName]
 		public Assignment getInterfaceAssignment_5() { return cInterfaceAssignment_5; }
 		
-		//[SInformationModel|DQualifiedName]
-		public CrossReference getInterfaceSInformationModelCrossReference_5_0() { return cInterfaceSInformationModelCrossReference_5_0; }
+		//[SystemInformationModel|DQualifiedName]
+		public CrossReference getInterfaceSystemInformationModelCrossReference_5_0() { return cInterfaceSystemInformationModelCrossReference_5_0; }
 		
 		//DQualifiedName
-		public RuleCall getInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1() { return cInterfaceSInformationModelDQualifiedNameParserRuleCall_5_0_1; }
+		public RuleCall getInterfaceSystemInformationModelDQualifiedNameParserRuleCall_5_0_1() { return cInterfaceSystemInformationModelDQualifiedNameParserRuleCall_5_0_1; }
 		
 		//'core'
 		public Keyword getCoreKeyword_6() { return cCoreKeyword_6; }
@@ -197,54 +197,54 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'model'
 		public Keyword getModelKeyword_7() { return cModelKeyword_7; }
 		
-		//core=[SInformationModel|DQualifiedName]
+		//core=[SystemInformationModel|DQualifiedName]
 		public Assignment getCoreAssignment_8() { return cCoreAssignment_8; }
 		
-		//[SInformationModel|DQualifiedName]
-		public CrossReference getCoreSInformationModelCrossReference_8_0() { return cCoreSInformationModelCrossReference_8_0; }
+		//[SystemInformationModel|DQualifiedName]
+		public CrossReference getCoreSystemInformationModelCrossReference_8_0() { return cCoreSystemInformationModelCrossReference_8_0; }
 		
 		//DQualifiedName
-		public RuleCall getCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1() { return cCoreSInformationModelDQualifiedNameParserRuleCall_8_0_1; }
+		public RuleCall getCoreSystemInformationModelDQualifiedNameParserRuleCall_8_0_1() { return cCoreSystemInformationModelDQualifiedNameParserRuleCall_8_0_1; }
 		
-		//exceptions+=SException*
+		//exceptions+=AsmException*
 		public Assignment getExceptionsAssignment_9() { return cExceptionsAssignment_9; }
 		
-		//SException
-		public RuleCall getExceptionsSExceptionParserRuleCall_9_0() { return cExceptionsSExceptionParserRuleCall_9_0; }
+		//AsmException
+		public RuleCall getExceptionsAsmExceptionParserRuleCall_9_0() { return cExceptionsAsmExceptionParserRuleCall_9_0; }
 		
-		//operations+=SServiceOperation*
+		//operations+=AsmServiceOperation*
 		public Assignment getOperationsAssignment_10() { return cOperationsAssignment_10; }
 		
-		//SServiceOperation
-		public RuleCall getOperationsSServiceOperationParserRuleCall_10_0() { return cOperationsSServiceOperationParserRuleCall_10_0; }
+		//AsmServiceOperation
+		public RuleCall getOperationsAsmServiceOperationParserRuleCall_10_0() { return cOperationsAsmServiceOperationParserRuleCall_10_0; }
 	}
-	public class SActorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SActor");
+	public class AsmActorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmActor");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSWatchdogParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSHumanParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cAsmWatchdogParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAsmHumanParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//SActor:
-		//	SWatchdog | SHuman;
+		//AsmActor:
+		//	AsmWatchdog | AsmHuman;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SWatchdog | SHuman
+		//AsmWatchdog | AsmHuman
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//SWatchdog
-		public RuleCall getSWatchdogParserRuleCall_0() { return cSWatchdogParserRuleCall_0; }
+		//AsmWatchdog
+		public RuleCall getAsmWatchdogParserRuleCall_0() { return cAsmWatchdogParserRuleCall_0; }
 		
-		//SHuman
-		public RuleCall getSHumanParserRuleCall_1() { return cSHumanParserRuleCall_1; }
+		//AsmHuman
+		public RuleCall getAsmHumanParserRuleCall_1() { return cAsmHumanParserRuleCall_1; }
 	}
-	public class SWatchdogElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SWatchdog");
+	public class AsmWatchdogElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmWatchdog");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cWatchdogKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//SWatchdog:
+		//AsmWatchdog:
 		//	'watchdog'
 		//	name=ID;
 		@Override public ParserRule getRule() { return rule; }
@@ -261,14 +261,14 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
-	public class SHumanElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SHuman");
+	public class AsmHumanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmHuman");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHumanKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//SHuman:
+		//AsmHuman:
 		//	'human'
 		//	name=ID;
 		@Override public ParserRule getRule() { return rule; }
@@ -285,8 +285,8 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
-	public class SServiceOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SServiceOperation");
+	public class AsmServiceOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmServiceOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOperationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -294,22 +294,22 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cParametersSServiceParameterParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
+		private final RuleCall cParametersAsmServiceParameterParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
 		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
 		private final Assignment cParametersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cParametersSServiceParameterParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cParametersAsmServiceParameterParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cRaisesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cRaisesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cRaisesSExceptionCrossReference_5_1_0 = (CrossReference)cRaisesAssignment_5_1.eContents().get(0);
-		private final RuleCall cRaisesSExceptionIDTerminalRuleCall_5_1_0_1 = (RuleCall)cRaisesSExceptionCrossReference_5_1_0.eContents().get(1);
+		private final CrossReference cRaisesAsmExceptionCrossReference_5_1_0 = (CrossReference)cRaisesAssignment_5_1.eContents().get(0);
+		private final RuleCall cRaisesAsmExceptionIDTerminalRuleCall_5_1_0_1 = (RuleCall)cRaisesAsmExceptionCrossReference_5_1_0.eContents().get(1);
 		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
 		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
 		private final Assignment cRaisesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
-		private final CrossReference cRaisesSExceptionCrossReference_5_2_1_0 = (CrossReference)cRaisesAssignment_5_2_1.eContents().get(0);
-		private final RuleCall cRaisesSExceptionIDTerminalRuleCall_5_2_1_0_1 = (RuleCall)cRaisesSExceptionCrossReference_5_2_1_0.eContents().get(1);
+		private final CrossReference cRaisesAsmExceptionCrossReference_5_2_1_0 = (CrossReference)cRaisesAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cRaisesAsmExceptionIDTerminalRuleCall_5_2_1_0_1 = (RuleCall)cRaisesAsmExceptionCrossReference_5_2_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cGuardKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
@@ -321,18 +321,18 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEffectsDExpressionParserRuleCall_8_1_0 = (RuleCall)cEffectsAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		//SServiceOperation:
+		//AsmServiceOperation:
 		//	'operation'
 		//	name=ID
-		//	'(' (parameters+=SServiceParameter ("," parameters+=SServiceParameter)*)?
-		//	')' ('raises' raises+=[SException] ("," raises+=[SException])*)?
+		//	'(' (parameters+=AsmServiceParameter ("," parameters+=AsmServiceParameter)*)?
+		//	')' ('raises' raises+=[AsmException] ("," raises+=[AsmException])*)?
 		//	'{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'operation' name=ID '(' (parameters+=SServiceParameter ("," parameters+=SServiceParameter)*)? ')' ('raises'
-		//raises+=[SException] ("," raises+=[SException])*)? '{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
-		//'}'
+		//'operation' name=ID '(' (parameters+=AsmServiceParameter ("," parameters+=AsmServiceParameter)*)? ')' ('raises'
+		//raises+=[AsmException] ("," raises+=[AsmException])*)? '{' ('guard' guards+=DExpression)* ('effect'
+		//effects+=DExpression)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'operation'
@@ -347,59 +347,59 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 		
-		//(parameters+=SServiceParameter ("," parameters+=SServiceParameter)*)?
+		//(parameters+=AsmServiceParameter ("," parameters+=AsmServiceParameter)*)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//parameters+=SServiceParameter
+		//parameters+=AsmServiceParameter
 		public Assignment getParametersAssignment_3_0() { return cParametersAssignment_3_0; }
 		
-		//SServiceParameter
-		public RuleCall getParametersSServiceParameterParserRuleCall_3_0_0() { return cParametersSServiceParameterParserRuleCall_3_0_0; }
+		//AsmServiceParameter
+		public RuleCall getParametersAsmServiceParameterParserRuleCall_3_0_0() { return cParametersAsmServiceParameterParserRuleCall_3_0_0; }
 		
-		//("," parameters+=SServiceParameter)*
+		//("," parameters+=AsmServiceParameter)*
 		public Group getGroup_3_1() { return cGroup_3_1; }
 		
 		//","
 		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 		
-		//parameters+=SServiceParameter
+		//parameters+=AsmServiceParameter
 		public Assignment getParametersAssignment_3_1_1() { return cParametersAssignment_3_1_1; }
 		
-		//SServiceParameter
-		public RuleCall getParametersSServiceParameterParserRuleCall_3_1_1_0() { return cParametersSServiceParameterParserRuleCall_3_1_1_0; }
+		//AsmServiceParameter
+		public RuleCall getParametersAsmServiceParameterParserRuleCall_3_1_1_0() { return cParametersAsmServiceParameterParserRuleCall_3_1_1_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 		
-		//('raises' raises+=[SException] ("," raises+=[SException])*)?
+		//('raises' raises+=[AsmException] ("," raises+=[AsmException])*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'raises'
 		public Keyword getRaisesKeyword_5_0() { return cRaisesKeyword_5_0; }
 		
-		//raises+=[SException]
+		//raises+=[AsmException]
 		public Assignment getRaisesAssignment_5_1() { return cRaisesAssignment_5_1; }
 		
-		//[SException]
-		public CrossReference getRaisesSExceptionCrossReference_5_1_0() { return cRaisesSExceptionCrossReference_5_1_0; }
+		//[AsmException]
+		public CrossReference getRaisesAsmExceptionCrossReference_5_1_0() { return cRaisesAsmExceptionCrossReference_5_1_0; }
 		
 		//ID
-		public RuleCall getRaisesSExceptionIDTerminalRuleCall_5_1_0_1() { return cRaisesSExceptionIDTerminalRuleCall_5_1_0_1; }
+		public RuleCall getRaisesAsmExceptionIDTerminalRuleCall_5_1_0_1() { return cRaisesAsmExceptionIDTerminalRuleCall_5_1_0_1; }
 		
-		//("," raises+=[SException])*
+		//("," raises+=[AsmException])*
 		public Group getGroup_5_2() { return cGroup_5_2; }
 		
 		//","
 		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
 		
-		//raises+=[SException]
+		//raises+=[AsmException]
 		public Assignment getRaisesAssignment_5_2_1() { return cRaisesAssignment_5_2_1; }
 		
-		//[SException]
-		public CrossReference getRaisesSExceptionCrossReference_5_2_1_0() { return cRaisesSExceptionCrossReference_5_2_1_0; }
+		//[AsmException]
+		public CrossReference getRaisesAsmExceptionCrossReference_5_2_1_0() { return cRaisesAsmExceptionCrossReference_5_2_1_0; }
 		
 		//ID
-		public RuleCall getRaisesSExceptionIDTerminalRuleCall_5_2_1_0_1() { return cRaisesSExceptionIDTerminalRuleCall_5_2_1_0_1; }
+		public RuleCall getRaisesAsmExceptionIDTerminalRuleCall_5_2_1_0_1() { return cRaisesAsmExceptionIDTerminalRuleCall_5_2_1_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
@@ -431,11 +431,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
-	public class SServiceParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SServiceParameter");
+	public class AsmServiceParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmServiceParameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDirectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDirectionSDirectionEnumRuleCall_0_0 = (RuleCall)cDirectionAssignment_0.eContents().get(0);
+		private final RuleCall cDirectionAsmParameterDirectionEnumRuleCall_0_0 = (RuleCall)cDirectionAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -447,22 +447,22 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		
-		//SServiceParameter:
-		//	direction=SDirection
+		//AsmServiceParameter:
+		//	direction=AsmParameterDirection
 		//	name=ID
 		//	':'
 		//	type=[DType] multiplicity=DMultiplicity?
 		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//direction=SDirection name=ID ':' type=[DType] multiplicity=DMultiplicity? description=DRichText?
+		//direction=AsmParameterDirection name=ID ':' type=[DType] multiplicity=DMultiplicity? description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//direction=SDirection
+		//direction=AsmParameterDirection
 		public Assignment getDirectionAssignment_0() { return cDirectionAssignment_0; }
 		
-		//SDirection
-		public RuleCall getDirectionSDirectionEnumRuleCall_0_0() { return cDirectionSDirectionEnumRuleCall_0_0; }
+		//AsmParameterDirection
+		public RuleCall getDirectionAsmParameterDirectionEnumRuleCall_0_0() { return cDirectionAsmParameterDirectionEnumRuleCall_0_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -494,8 +494,8 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
 	}
-	public class SExceptionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SException");
+	public class AsmExceptionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmException");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExceptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -503,7 +503,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
-		//SException:
+		//AsmException:
 		//	'exception'
 		//	name=ID
 		//	description=DRichText?;
@@ -528,15 +528,15 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
 	
-	public class SServiceKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SServiceKind");
+	public class AsmServiceKindElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmServiceKind");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cSYNCHRONOUSEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cSYNCHRONOUSSynchronousKeyword_0_0 = (Keyword)cSYNCHRONOUSEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cASYNCHRONOUSEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cASYNCHRONOUSAsyncKeyword_1_0 = (Keyword)cASYNCHRONOUSEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum SServiceKind:
+		//enum AsmServiceKind:
 		//	SYNCHRONOUS='synchronous' | ASYNCHRONOUS='async';
 		public EnumRule getRule() { return rule; }
 		
@@ -555,15 +555,15 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'async'
 		public Keyword getASYNCHRONOUSAsyncKeyword_1_0() { return cASYNCHRONOUSAsyncKeyword_1_0; }
 	}
-	public class SDirectionElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SDirection");
+	public class AsmParameterDirectionElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.AsmParameterDirection");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cINBOUNDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cINBOUNDInKeyword_0_0 = (Keyword)cINBOUNDEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cOUTBOUNDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cOUTBOUNDOutKeyword_1_0 = (Keyword)cOUTBOUNDEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum SDirection:
+		//enum AsmParameterDirection:
 		//	INBOUND='in' | OUTBOUND='out';
 		public EnumRule getRule() { return rule; }
 		
@@ -584,16 +584,16 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final DNamespaceElements pDNamespace;
-	private final SApplicationElements pSApplication;
-	private final SServiceInterfaceElements pSServiceInterface;
-	private final SActorElements pSActor;
-	private final SWatchdogElements pSWatchdog;
-	private final SHumanElements pSHuman;
-	private final SServiceOperationElements pSServiceOperation;
-	private final SServiceParameterElements pSServiceParameter;
-	private final SExceptionElements pSException;
-	private final SServiceKindElements eSServiceKind;
-	private final SDirectionElements eSDirection;
+	private final AsmApplicationElements pAsmApplication;
+	private final AsmServiceInterfaceElements pAsmServiceInterface;
+	private final AsmActorElements pAsmActor;
+	private final AsmWatchdogElements pAsmWatchdog;
+	private final AsmHumanElements pAsmHuman;
+	private final AsmServiceOperationElements pAsmServiceOperation;
+	private final AsmServiceParameterElements pAsmServiceParameter;
+	private final AsmExceptionElements pAsmException;
+	private final AsmServiceKindElements eAsmServiceKind;
+	private final AsmParameterDirectionElements eAsmParameterDirection;
 	
 	private final Grammar grammar;
 	
@@ -605,16 +605,16 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
 		this.pDNamespace = new DNamespaceElements();
-		this.pSApplication = new SApplicationElements();
-		this.pSServiceInterface = new SServiceInterfaceElements();
-		this.pSActor = new SActorElements();
-		this.pSWatchdog = new SWatchdogElements();
-		this.pSHuman = new SHumanElements();
-		this.pSServiceOperation = new SServiceOperationElements();
-		this.pSServiceParameter = new SServiceParameterElements();
-		this.pSException = new SExceptionElements();
-		this.eSServiceKind = new SServiceKindElements();
-		this.eSDirection = new SDirectionElements();
+		this.pAsmApplication = new AsmApplicationElements();
+		this.pAsmServiceInterface = new AsmServiceInterfaceElements();
+		this.pAsmActor = new AsmActorElements();
+		this.pAsmWatchdog = new AsmWatchdogElements();
+		this.pAsmHuman = new AsmHumanElements();
+		this.pAsmServiceOperation = new AsmServiceOperationElements();
+		this.pAsmServiceParameter = new AsmServiceParameterElements();
+		this.pAsmException = new AsmExceptionElements();
+		this.eAsmServiceKind = new AsmServiceKindElements();
+		this.eAsmParameterDirection = new AsmParameterDirectionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -649,7 +649,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	//	'system'
 	//	name=DQualifiedName
 	//	imports+=DImport*
-	//	model=(SApplication | SServiceInterface);
+	//	model=(AsmApplication | AsmServiceInterface);
 	public DNamespaceElements getDNamespaceAccess() {
 		return pDNamespace;
 	}
@@ -658,123 +658,123 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDNamespaceAccess().getRule();
 	}
 	
-	//SApplication:
+	//AsmApplication:
 	//	'application'
 	//	name=ID
-	//	'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*;
-	public SApplicationElements getSApplicationAccess() {
-		return pSApplication;
+	//	'information' 'model' model=[SystemInformationModel|DQualifiedName] actors+=AsmActor*;
+	public AsmApplicationElements getAsmApplicationAccess() {
+		return pAsmApplication;
 	}
 	
-	public ParserRule getSApplicationRule() {
-		return getSApplicationAccess().getRule();
+	public ParserRule getAsmApplicationRule() {
+		return getAsmApplicationAccess().getRule();
 	}
 	
-	//SServiceInterface:
+	//AsmServiceInterface:
 	//	'service' 'interface'
 	//	name=ID
-	//	'interface' 'model' interface=[SInformationModel|DQualifiedName]
-	//	'core' 'model' core=[SInformationModel|DQualifiedName] exceptions+=SException*
-	//	operations+=SServiceOperation*;
-	public SServiceInterfaceElements getSServiceInterfaceAccess() {
-		return pSServiceInterface;
+	//	'interface' 'model' interface=[SystemInformationModel|DQualifiedName]
+	//	'core' 'model' core=[SystemInformationModel|DQualifiedName] exceptions+=AsmException*
+	//	operations+=AsmServiceOperation*;
+	public AsmServiceInterfaceElements getAsmServiceInterfaceAccess() {
+		return pAsmServiceInterface;
 	}
 	
-	public ParserRule getSServiceInterfaceRule() {
-		return getSServiceInterfaceAccess().getRule();
+	public ParserRule getAsmServiceInterfaceRule() {
+		return getAsmServiceInterfaceAccess().getRule();
 	}
 	
-	//SActor:
-	//	SWatchdog | SHuman;
-	public SActorElements getSActorAccess() {
-		return pSActor;
+	//AsmActor:
+	//	AsmWatchdog | AsmHuman;
+	public AsmActorElements getAsmActorAccess() {
+		return pAsmActor;
 	}
 	
-	public ParserRule getSActorRule() {
-		return getSActorAccess().getRule();
+	public ParserRule getAsmActorRule() {
+		return getAsmActorAccess().getRule();
 	}
 	
-	//SWatchdog:
+	//AsmWatchdog:
 	//	'watchdog'
 	//	name=ID;
-	public SWatchdogElements getSWatchdogAccess() {
-		return pSWatchdog;
+	public AsmWatchdogElements getAsmWatchdogAccess() {
+		return pAsmWatchdog;
 	}
 	
-	public ParserRule getSWatchdogRule() {
-		return getSWatchdogAccess().getRule();
+	public ParserRule getAsmWatchdogRule() {
+		return getAsmWatchdogAccess().getRule();
 	}
 	
-	//SHuman:
+	//AsmHuman:
 	//	'human'
 	//	name=ID;
-	public SHumanElements getSHumanAccess() {
-		return pSHuman;
+	public AsmHumanElements getAsmHumanAccess() {
+		return pAsmHuman;
 	}
 	
-	public ParserRule getSHumanRule() {
-		return getSHumanAccess().getRule();
+	public ParserRule getAsmHumanRule() {
+		return getAsmHumanAccess().getRule();
 	}
 	
-	//SServiceOperation:
+	//AsmServiceOperation:
 	//	'operation'
 	//	name=ID
-	//	'(' (parameters+=SServiceParameter ("," parameters+=SServiceParameter)*)?
-	//	')' ('raises' raises+=[SException] ("," raises+=[SException])*)?
+	//	'(' (parameters+=AsmServiceParameter ("," parameters+=AsmServiceParameter)*)?
+	//	')' ('raises' raises+=[AsmException] ("," raises+=[AsmException])*)?
 	//	'{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
 	//	'}';
-	public SServiceOperationElements getSServiceOperationAccess() {
-		return pSServiceOperation;
+	public AsmServiceOperationElements getAsmServiceOperationAccess() {
+		return pAsmServiceOperation;
 	}
 	
-	public ParserRule getSServiceOperationRule() {
-		return getSServiceOperationAccess().getRule();
+	public ParserRule getAsmServiceOperationRule() {
+		return getAsmServiceOperationAccess().getRule();
 	}
 	
-	//SServiceParameter:
-	//	direction=SDirection
+	//AsmServiceParameter:
+	//	direction=AsmParameterDirection
 	//	name=ID
 	//	':'
 	//	type=[DType] multiplicity=DMultiplicity?
 	//	description=DRichText?;
-	public SServiceParameterElements getSServiceParameterAccess() {
-		return pSServiceParameter;
+	public AsmServiceParameterElements getAsmServiceParameterAccess() {
+		return pAsmServiceParameter;
 	}
 	
-	public ParserRule getSServiceParameterRule() {
-		return getSServiceParameterAccess().getRule();
+	public ParserRule getAsmServiceParameterRule() {
+		return getAsmServiceParameterAccess().getRule();
 	}
 	
-	//SException:
+	//AsmException:
 	//	'exception'
 	//	name=ID
 	//	description=DRichText?;
-	public SExceptionElements getSExceptionAccess() {
-		return pSException;
+	public AsmExceptionElements getAsmExceptionAccess() {
+		return pAsmException;
 	}
 	
-	public ParserRule getSExceptionRule() {
-		return getSExceptionAccess().getRule();
+	public ParserRule getAsmExceptionRule() {
+		return getAsmExceptionAccess().getRule();
 	}
 	
-	//enum SServiceKind:
+	//enum AsmServiceKind:
 	//	SYNCHRONOUS='synchronous' | ASYNCHRONOUS='async';
-	public SServiceKindElements getSServiceKindAccess() {
-		return eSServiceKind;
+	public AsmServiceKindElements getAsmServiceKindAccess() {
+		return eAsmServiceKind;
 	}
 	
-	public EnumRule getSServiceKindRule() {
-		return getSServiceKindAccess().getRule();
+	public EnumRule getAsmServiceKindRule() {
+		return getAsmServiceKindAccess().getRule();
 	}
 	
-	//enum SDirection:
+	//enum AsmParameterDirection:
 	//	INBOUND='in' | OUTBOUND='out';
-	public SDirectionElements getSDirectionAccess() {
-		return eSDirection;
+	public AsmParameterDirectionElements getAsmParameterDirectionAccess() {
+		return eAsmParameterDirection;
 	}
 	
-	public EnumRule getSDirectionRule() {
-		return getSDirectionAccess().getRule();
+	public EnumRule getAsmParameterDirectionRule() {
+		return getAsmParameterDirectionAccess().getRule();
 	}
 	
 	//DmxModel:

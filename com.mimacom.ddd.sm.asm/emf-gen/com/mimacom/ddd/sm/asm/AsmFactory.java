@@ -24,67 +24,67 @@ public interface AsmFactory extends EFactory
 	AsmFactory eINSTANCE = com.mimacom.ddd.sm.asm.impl.AsmFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>SApplication</em>'.
+	 * Returns a new object of class '<em>Application</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SApplication</em>'.
+	 * @return a new object of class '<em>Application</em>'.
 	 * @generated
 	 */
-	SApplication createSApplication();
+	AsmApplication createAsmApplication();
 
 	/**
-	 * Returns a new object of class '<em>SService Interface</em>'.
+	 * Returns a new object of class '<em>Service Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SService Interface</em>'.
+	 * @return a new object of class '<em>Service Interface</em>'.
 	 * @generated
 	 */
-	SServiceInterface createSServiceInterface();
+	AsmServiceInterface createAsmServiceInterface();
 
 	/**
-	 * Returns a new object of class '<em>SException</em>'.
+	 * Returns a new object of class '<em>Exception</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SException</em>'.
+	 * @return a new object of class '<em>Exception</em>'.
 	 * @generated
 	 */
-	SException createSException();
+	AsmException createAsmException();
 
 	/**
-	 * Returns a new object of class '<em>SWatchdog</em>'.
+	 * Returns a new object of class '<em>Watchdog</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SWatchdog</em>'.
+	 * @return a new object of class '<em>Watchdog</em>'.
 	 * @generated
 	 */
-	SWatchdog createSWatchdog();
+	AsmWatchdog createAsmWatchdog();
 
 	/**
-	 * Returns a new object of class '<em>SHuman</em>'.
+	 * Returns a new object of class '<em>Human</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SHuman</em>'.
+	 * @return a new object of class '<em>Human</em>'.
 	 * @generated
 	 */
-	SHuman createSHuman();
+	AsmHuman createAsmHuman();
 
 	/**
-	 * Returns a new object of class '<em>SService Operation</em>'.
+	 * Returns a new object of class '<em>Service Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SService Operation</em>'.
+	 * @return a new object of class '<em>Service Operation</em>'.
 	 * @generated
 	 */
-	SServiceOperation createSServiceOperation();
+	AsmServiceOperation createAsmServiceOperation();
 
 	/**
-	 * Returns a new object of class '<em>SService Parameter</em>'.
+	 * Returns a new object of class '<em>Service Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SService Parameter</em>'.
+	 * @return a new object of class '<em>Service Parameter</em>'.
 	 * @generated
 	 */
-	SServiceParameter createSServiceParameter();
+	AsmServiceParameter createAsmServiceParameter();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -17,7 +17,7 @@ import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TMorphRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 import java.util.Arrays;
 import java.util.List;
@@ -38,11 +38,11 @@ public class SimFormatter extends AbstractFormatter2 {
   @Extension
   private SimGrammarAccess _simGrammarAccess;
   
-  protected void _format(final SInformationModel model, @Extension final IFormattableDocument document) {
+  protected void _format(final SystemInformationModel model, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_1()), _function);
+    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSystemInformationModelAccess().getNameAssignment_1()), _function);
     EList<DType> _types = model.getTypes();
     for (final DType type : _types) {
       document.<DType>format(type);
@@ -163,14 +163,14 @@ public class SimFormatter extends AbstractFormatter2 {
     if (en instanceof TEnumerationTransposition) {
       _format((TEnumerationTransposition)en, document);
       return;
+    } else if (en instanceof SystemInformationModel) {
+      _format((SystemInformationModel)en, document);
+      return;
     } else if (en instanceof TAggregateTransposition) {
       _format((TAggregateTransposition)en, document);
       return;
     } else if (en instanceof TMorphRule) {
       _format((TMorphRule)en, document);
-      return;
-    } else if (en instanceof SInformationModel) {
-      _format((SInformationModel)en, document);
       return;
     } else if (en instanceof TComplexTypeTransposition) {
       _format((TComplexTypeTransposition)en, document);

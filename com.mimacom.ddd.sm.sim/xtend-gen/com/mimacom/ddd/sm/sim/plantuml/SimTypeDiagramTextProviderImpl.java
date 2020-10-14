@@ -24,7 +24,7 @@ import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.dim.DimUtil;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
@@ -36,13 +36,13 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SInformationModel> {
+public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SystemInformationModel> {
   @Inject
   @Extension
   private DimUtil _dimUtil;
   
   @Override
-  public boolean canProvide(final SInformationModel model) {
+  public boolean canProvide(final SystemInformationModel model) {
     return ((model != null) && (!(IterableExtensions.isEmpty(IterableExtensions.<DType>filter(model.getTypes(), ((Function1<DType, Boolean>) (DType it) -> {
       return Boolean.valueOf((!(it instanceof ITransposition)));
     }))) && IterableExtensions.isEmpty(IterableExtensions.<DAggregate>filter(model.getAggregates(), ((Function1<DAggregate, Boolean>) (DAggregate it) -> {
@@ -51,7 +51,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   @Override
-  public String diagramText(final SInformationModel model) {
+  public String diagramText(final SystemInformationModel model) {
     final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
       return Boolean.valueOf((!(it instanceof TAggregateTransposition)));
     };
@@ -215,7 +215,7 @@ public class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   }
   
   public String modelName(final EObject obj) {
-    final SInformationModel d = EcoreUtil2.<SInformationModel>getContainerOfType(obj, SInformationModel.class);
+    final SystemInformationModel d = EcoreUtil2.<SystemInformationModel>getContainerOfType(obj, SystemInformationModel.class);
     String _xifexpression = null;
     if ((d != null)) {
       _xifexpression = d.getName();

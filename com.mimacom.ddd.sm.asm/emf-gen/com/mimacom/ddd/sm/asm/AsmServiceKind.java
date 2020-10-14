@@ -11,14 +11,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>SService Kind</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Service Kind</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceKind()
+ * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceKind()
  * @model
  * @generated
  */
-public enum SServiceKind implements Enumerator
+public enum AsmServiceKind implements Enumerator
 {
 	/**
 	 * The '<em><b>SYNCHRONOUS</b></em>' literal object.
@@ -71,39 +71,39 @@ public enum SServiceKind implements Enumerator
 	public static final int ASYNCHRONOUS_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>SService Kind</b></em>' enumerators.
+	 * An array of all the '<em><b>Service Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final SServiceKind[] VALUES_ARRAY =
-		new SServiceKind[]
+	private static final AsmServiceKind[] VALUES_ARRAY =
+		new AsmServiceKind[]
 		{
 			SYNCHRONOUS,
 			ASYNCHRONOUS,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>SService Kind</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Service Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<SServiceKind> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<AsmServiceKind> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>SService Kind</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Service Kind</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static SServiceKind get(String literal)
+	public static AsmServiceKind get(String literal)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			SServiceKind result = VALUES_ARRAY[i];
+			AsmServiceKind result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal))
 			{
 				return result;
@@ -113,18 +113,18 @@ public enum SServiceKind implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>SService Kind</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Service Kind</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static SServiceKind getByName(String name)
+	public static AsmServiceKind getByName(String name)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			SServiceKind result = VALUES_ARRAY[i];
+			AsmServiceKind result = VALUES_ARRAY[i];
 			if (result.getName().equals(name))
 			{
 				return result;
@@ -134,14 +134,14 @@ public enum SServiceKind implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>SService Kind</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Service Kind</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static SServiceKind get(int value)
+	public static AsmServiceKind get(int value)
 	{
 		switch (value)
 		{
@@ -178,7 +178,7 @@ public enum SServiceKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private SServiceKind(int value, String name, String literal)
+	private AsmServiceKind(int value, String name, String literal)
 	{
 		this.value = value;
 		this.name = name;
@@ -227,4 +227,4 @@ public enum SServiceKind implements Enumerator
 		return literal;
 	}
 	
-} //SServiceKind
+} //AsmServiceKind

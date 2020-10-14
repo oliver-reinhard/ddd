@@ -66,13 +66,13 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case AsmPackage.SAPPLICATION: return createSApplication();
-			case AsmPackage.SSERVICE_INTERFACE: return createSServiceInterface();
-			case AsmPackage.SEXCEPTION: return createSException();
-			case AsmPackage.SWATCHDOG: return createSWatchdog();
-			case AsmPackage.SHUMAN: return createSHuman();
-			case AsmPackage.SSERVICE_OPERATION: return createSServiceOperation();
-			case AsmPackage.SSERVICE_PARAMETER: return createSServiceParameter();
+			case AsmPackage.ASM_APPLICATION: return createAsmApplication();
+			case AsmPackage.ASM_SERVICE_INTERFACE: return createAsmServiceInterface();
+			case AsmPackage.ASM_EXCEPTION: return createAsmException();
+			case AsmPackage.ASM_WATCHDOG: return createAsmWatchdog();
+			case AsmPackage.ASM_HUMAN: return createAsmHuman();
+			case AsmPackage.ASM_SERVICE_OPERATION: return createAsmServiceOperation();
+			case AsmPackage.ASM_SERVICE_PARAMETER: return createAsmServiceParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,10 +88,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
-			case AsmPackage.SSERVICE_KIND:
-				return createSServiceKindFromString(eDataType, initialValue);
-			case AsmPackage.SDIRECTION:
-				return createSDirectionFromString(eDataType, initialValue);
+			case AsmPackage.ASM_SERVICE_KIND:
+				return createAsmServiceKindFromString(eDataType, initialValue);
+			case AsmPackage.ASM_PARAMETER_DIRECTION:
+				return createAsmParameterDirectionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,10 +107,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
-			case AsmPackage.SSERVICE_KIND:
-				return convertSServiceKindToString(eDataType, instanceValue);
-			case AsmPackage.SDIRECTION:
-				return convertSDirectionToString(eDataType, instanceValue);
+			case AsmPackage.ASM_SERVICE_KIND:
+				return convertAsmServiceKindToString(eDataType, instanceValue);
+			case AsmPackage.ASM_PARAMETER_DIRECTION:
+				return convertAsmParameterDirectionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -121,10 +121,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SApplication createSApplication()
+	public AsmApplication createAsmApplication()
 	{
-		SApplicationImpl sApplication = new SApplicationImpl();
-		return sApplication;
+		AsmApplicationImpl asmApplication = new AsmApplicationImpl();
+		return asmApplication;
 	}
 
 	/**
@@ -132,10 +132,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SServiceInterface createSServiceInterface()
+	public AsmServiceInterface createAsmServiceInterface()
 	{
-		SServiceInterfaceImplCustom sServiceInterface = new SServiceInterfaceImplCustom();
-		return sServiceInterface;
+		AsmServiceInterfaceImplCustom asmServiceInterface = new AsmServiceInterfaceImplCustom();
+		return asmServiceInterface;
 	}
 
 	/**
@@ -143,10 +143,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SException createSException()
+	public AsmException createAsmException()
 	{
-		SExceptionImpl sException = new SExceptionImpl();
-		return sException;
+		AsmExceptionImpl asmException = new AsmExceptionImpl();
+		return asmException;
 	}
 
 	/**
@@ -154,10 +154,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SWatchdog createSWatchdog()
+	public AsmWatchdog createAsmWatchdog()
 	{
-		SWatchdogImpl sWatchdog = new SWatchdogImpl();
-		return sWatchdog;
+		AsmWatchdogImpl asmWatchdog = new AsmWatchdogImpl();
+		return asmWatchdog;
 	}
 
 	/**
@@ -165,10 +165,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SHuman createSHuman()
+	public AsmHuman createAsmHuman()
 	{
-		SHumanImpl sHuman = new SHumanImpl();
-		return sHuman;
+		AsmHumanImpl asmHuman = new AsmHumanImpl();
+		return asmHuman;
 	}
 
 	/**
@@ -176,10 +176,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SServiceOperation createSServiceOperation()
+	public AsmServiceOperation createAsmServiceOperation()
 	{
-		SServiceOperationImplCustom sServiceOperation = new SServiceOperationImplCustom();
-		return sServiceOperation;
+		AsmServiceOperationImplCustom asmServiceOperation = new AsmServiceOperationImplCustom();
+		return asmServiceOperation;
 	}
 
 	/**
@@ -187,10 +187,10 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SServiceParameter createSServiceParameter()
+	public AsmServiceParameter createAsmServiceParameter()
 	{
-		SServiceParameterImpl sServiceParameter = new SServiceParameterImpl();
-		return sServiceParameter;
+		AsmServiceParameterImpl asmServiceParameter = new AsmServiceParameterImpl();
+		return asmServiceParameter;
 	}
 
 	/**
@@ -198,9 +198,9 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SServiceKind createSServiceKindFromString(EDataType eDataType, String initialValue)
+	public AsmServiceKind createAsmServiceKindFromString(EDataType eDataType, String initialValue)
 	{
-		SServiceKind result = SServiceKind.get(initialValue);
+		AsmServiceKind result = AsmServiceKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -210,7 +210,7 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertSServiceKindToString(EDataType eDataType, Object instanceValue)
+	public String convertAsmServiceKindToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}
@@ -220,9 +220,9 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SDirection createSDirectionFromString(EDataType eDataType, String initialValue)
+	public AsmParameterDirection createAsmParameterDirectionFromString(EDataType eDataType, String initialValue)
 	{
-		SDirection result = SDirection.get(initialValue);
+		AsmParameterDirection result = AsmParameterDirection.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -232,7 +232,7 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertSDirectionToString(EDataType eDataType, Object instanceValue)
+	public String convertAsmParameterDirectionToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

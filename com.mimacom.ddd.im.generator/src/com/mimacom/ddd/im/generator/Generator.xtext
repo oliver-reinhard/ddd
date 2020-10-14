@@ -23,7 +23,7 @@ TypeMapping:
 ;
 
 ExceptionMapping:
-	'exception' name=QualifiedName 'is' type=[asm::SException|QualifiedName]
+	'exception' name=QualifiedName 'is' type=[asm::AsmException|QualifiedName]
 	('extends' extends=[jvmTypes::JvmType|QualifiedName])?
 	('message' message=STRING)?
 ;
@@ -35,7 +35,7 @@ EndpointDeclarationBlock:
 ;
 
 EndpointDeclaration:
-	verb=HttpVerb name=QualifiedName 'for' type=[asm::SServiceOperation|QualifiedName]
+	verb=HttpVerb name=QualifiedName 'for' type=[asm::AsmServiceOperation|QualifiedName]
 	('{'
 		('path' path=Path)?
 	'}')?

@@ -3,26 +3,28 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
+import com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl;
+
+import com.mimacom.ddd.sm.asm.AsmException;
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SWatchdog;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SWatchdog</b></em>'.
+ * An implementation of the model object '<em><b>Exception</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SWatchdogImpl extends SActorImpl implements SWatchdog
+public class AsmExceptionImpl extends DNamedElementImpl implements AsmException
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SWatchdogImpl()
+	protected AsmExceptionImpl()
 	{
 		super();
 	}
@@ -35,7 +37,7 @@ public class SWatchdogImpl extends SActorImpl implements SWatchdog
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SWATCHDOG;
+		return AsmPackage.Literals.ASM_EXCEPTION;
 	}
 
-} //SWatchdogImpl
+} //AsmExceptionImpl

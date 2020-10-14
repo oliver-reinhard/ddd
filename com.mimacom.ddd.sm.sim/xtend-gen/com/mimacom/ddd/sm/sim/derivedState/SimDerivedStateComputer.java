@@ -3,8 +3,8 @@ package com.mimacom.ddd.sm.sim.derivedState;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareDerivedStateComputer;
-import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SInformationModelKind;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModelKind;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
@@ -29,9 +29,9 @@ public class SimDerivedStateComputer extends TransposeAwareDerivedStateComputer 
       EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
       final DNamespace namespace = ((DNamespace) _head);
       DModel _model = namespace.getModel();
-      final SInformationModel model = ((SInformationModel) _model);
+      final SystemInformationModel model = ((SystemInformationModel) _model);
       if ((model != null)) {
-        if ((preLinkingPhase && (model.getKind() != SInformationModelKind.BASE))) {
+        if ((preLinkingPhase && (model.getKind() != SystemInformationModelKind.BASE))) {
           URI _uRI = resource.getURI();
           String _plus = ("Derive pre-linking state SKIPPED for " + _uRI);
           SimDerivedStateComputer.LOGGER.debug(_plus);

@@ -10,25 +10,25 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>SService Operation</b></em>'.
+ * A representation of the model object '<em><b>Service Operation</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.SServiceOperation#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.SServiceOperation#getParameters <em>Parameters</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.SServiceOperation#getRaises <em>Raises</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.SServiceOperation#getGuards <em>Guards</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.asm.SServiceOperation#getEffects <em>Effects</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getRaises <em>Raises</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getGuards <em>Guards</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getEffects <em>Effects</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation()
+ * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceOperation()
  * @model
  * @generated
  */
-public interface SServiceOperation extends INavigableMemberContainer
+public interface AsmServiceOperation extends INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -40,14 +40,14 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Name()
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceOperation_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.AsmServiceOperation#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -58,7 +58,7 @@ public interface SServiceOperation extends INavigableMemberContainer
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SServiceParameter}.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.AsmServiceParameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
@@ -66,15 +66,15 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Parameters()
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceOperation_Parameters()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SServiceParameter> getParameters();
+	EList<AsmServiceParameter> getParameters();
 
 	/**
 	 * Returns the value of the '<em><b>Raises</b></em>' reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SException}.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.AsmException}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Raises</em>' reference list isn't clear,
@@ -82,11 +82,11 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raises</em>' reference list.
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Raises()
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceOperation_Raises()
 	 * @model
 	 * @generated
 	 */
-	EList<SException> getRaises();
+	EList<AsmException> getRaises();
 
 	/**
 	 * Returns the value of the '<em><b>Guards</b></em>' containment reference list.
@@ -98,7 +98,7 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Guards</em>' containment reference list.
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Guards()
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceOperation_Guards()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -114,10 +114,10 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Effects</em>' containment reference list.
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Effects()
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getAsmServiceOperation_Effects()
 	 * @model containment="true"
 	 * @generated
 	 */
 	EList<DExpression> getEffects();
 
-} // SServiceOperation
+} // AsmServiceOperation

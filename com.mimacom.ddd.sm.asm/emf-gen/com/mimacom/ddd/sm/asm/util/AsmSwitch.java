@@ -80,86 +80,86 @@ public class AsmSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case AsmPackage.ASM_MODEL:
+			case AsmPackage.APPLICATION_SERVICE_MODEL:
 			{
-				AsmModel asmModel = (AsmModel)theEObject;
-				T result = caseAsmModel(asmModel);
-				if (result == null) result = caseDModel(asmModel);
-				if (result == null) result = caseIDiagramRoot(asmModel);
-				if (result == null) result = caseIStaticReferenceTarget(asmModel);
-				if (result == null) result = caseDNamedElement(asmModel);
+				ApplicationServiceModel applicationServiceModel = (ApplicationServiceModel)theEObject;
+				T result = caseApplicationServiceModel(applicationServiceModel);
+				if (result == null) result = caseDModel(applicationServiceModel);
+				if (result == null) result = caseIDiagramRoot(applicationServiceModel);
+				if (result == null) result = caseIStaticReferenceTarget(applicationServiceModel);
+				if (result == null) result = caseDNamedElement(applicationServiceModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SAPPLICATION:
+			case AsmPackage.ASM_APPLICATION:
 			{
-				SApplication sApplication = (SApplication)theEObject;
-				T result = caseSApplication(sApplication);
-				if (result == null) result = caseAsmModel(sApplication);
-				if (result == null) result = caseDModel(sApplication);
-				if (result == null) result = caseIDiagramRoot(sApplication);
-				if (result == null) result = caseIStaticReferenceTarget(sApplication);
-				if (result == null) result = caseDNamedElement(sApplication);
+				AsmApplication asmApplication = (AsmApplication)theEObject;
+				T result = caseAsmApplication(asmApplication);
+				if (result == null) result = caseApplicationServiceModel(asmApplication);
+				if (result == null) result = caseDModel(asmApplication);
+				if (result == null) result = caseIDiagramRoot(asmApplication);
+				if (result == null) result = caseIStaticReferenceTarget(asmApplication);
+				if (result == null) result = caseDNamedElement(asmApplication);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SSERVICE_INTERFACE:
+			case AsmPackage.ASM_SERVICE_INTERFACE:
 			{
-				SServiceInterface sServiceInterface = (SServiceInterface)theEObject;
-				T result = caseSServiceInterface(sServiceInterface);
-				if (result == null) result = caseAsmModel(sServiceInterface);
-				if (result == null) result = caseDModel(sServiceInterface);
-				if (result == null) result = caseIDiagramRoot(sServiceInterface);
-				if (result == null) result = caseIStaticReferenceTarget(sServiceInterface);
-				if (result == null) result = caseDNamedElement(sServiceInterface);
+				AsmServiceInterface asmServiceInterface = (AsmServiceInterface)theEObject;
+				T result = caseAsmServiceInterface(asmServiceInterface);
+				if (result == null) result = caseApplicationServiceModel(asmServiceInterface);
+				if (result == null) result = caseDModel(asmServiceInterface);
+				if (result == null) result = caseIDiagramRoot(asmServiceInterface);
+				if (result == null) result = caseIStaticReferenceTarget(asmServiceInterface);
+				if (result == null) result = caseDNamedElement(asmServiceInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SEXCEPTION:
+			case AsmPackage.ASM_EXCEPTION:
 			{
-				SException sException = (SException)theEObject;
-				T result = caseSException(sException);
-				if (result == null) result = caseDNamedElement(sException);
+				AsmException asmException = (AsmException)theEObject;
+				T result = caseAsmException(asmException);
+				if (result == null) result = caseDNamedElement(asmException);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SACTOR:
+			case AsmPackage.ASM_ACTOR:
 			{
-				SActor sActor = (SActor)theEObject;
-				T result = caseSActor(sActor);
+				AsmActor asmActor = (AsmActor)theEObject;
+				T result = caseAsmActor(asmActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SWATCHDOG:
+			case AsmPackage.ASM_WATCHDOG:
 			{
-				SWatchdog sWatchdog = (SWatchdog)theEObject;
-				T result = caseSWatchdog(sWatchdog);
-				if (result == null) result = caseSActor(sWatchdog);
+				AsmWatchdog asmWatchdog = (AsmWatchdog)theEObject;
+				T result = caseAsmWatchdog(asmWatchdog);
+				if (result == null) result = caseAsmActor(asmWatchdog);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SHUMAN:
+			case AsmPackage.ASM_HUMAN:
 			{
-				SHuman sHuman = (SHuman)theEObject;
-				T result = caseSHuman(sHuman);
-				if (result == null) result = caseSActor(sHuman);
+				AsmHuman asmHuman = (AsmHuman)theEObject;
+				T result = caseAsmHuman(asmHuman);
+				if (result == null) result = caseAsmActor(asmHuman);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SSERVICE_OPERATION:
+			case AsmPackage.ASM_SERVICE_OPERATION:
 			{
-				SServiceOperation sServiceOperation = (SServiceOperation)theEObject;
-				T result = caseSServiceOperation(sServiceOperation);
-				if (result == null) result = caseINavigableMemberContainer(sServiceOperation);
+				AsmServiceOperation asmServiceOperation = (AsmServiceOperation)theEObject;
+				T result = caseAsmServiceOperation(asmServiceOperation);
+				if (result == null) result = caseINavigableMemberContainer(asmServiceOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SSERVICE_PARAMETER:
+			case AsmPackage.ASM_SERVICE_PARAMETER:
 			{
-				SServiceParameter sServiceParameter = (SServiceParameter)theEObject;
-				T result = caseSServiceParameter(sServiceParameter);
-				if (result == null) result = caseDNavigableMember(sServiceParameter);
-				if (result == null) result = caseDNamedElement(sServiceParameter);
+				AsmServiceParameter asmServiceParameter = (AsmServiceParameter)theEObject;
+				T result = caseAsmServiceParameter(asmServiceParameter);
+				if (result == null) result = caseDNavigableMember(asmServiceParameter);
+				if (result == null) result = caseDNamedElement(asmServiceParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,145 +168,145 @@ public class AsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Application Service Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Application Service Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAsmModel(AsmModel object)
+	public T caseApplicationServiceModel(ApplicationServiceModel object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SApplication</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SApplication</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Application</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSApplication(SApplication object)
+	public T caseAsmApplication(AsmApplication object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SService Interface</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SService Interface</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Interface</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSServiceInterface(SServiceInterface object)
+	public T caseAsmServiceInterface(AsmServiceInterface object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SException</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Exception</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SException</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Exception</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSException(SException object)
+	public T caseAsmException(AsmException object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SActor</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SActor</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Actor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSActor(SActor object)
+	public T caseAsmActor(AsmActor object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SWatchdog</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Watchdog</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SWatchdog</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Watchdog</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSWatchdog(SWatchdog object)
+	public T caseAsmWatchdog(AsmWatchdog object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SHuman</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Human</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SHuman</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Human</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSHuman(SHuman object)
+	public T caseAsmHuman(AsmHuman object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SService Operation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SService Operation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSServiceOperation(SServiceOperation object)
+	public T caseAsmServiceOperation(AsmServiceOperation object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SService Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SService Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSServiceParameter(SServiceParameter object)
+	public T caseAsmServiceParameter(AsmServiceParameter object)
 	{
 		return null;
 	}

@@ -6,8 +6,8 @@ package com.mimacom.ddd.sm.asm.impl;
 import com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImplCustom;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
-import com.mimacom.ddd.sm.asm.SDirection;
-import com.mimacom.ddd.sm.asm.SServiceParameter;
+import com.mimacom.ddd.sm.asm.AsmParameterDirection;
+import com.mimacom.ddd.sm.asm.AsmServiceParameter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -17,18 +17,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SService Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Service Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl#getDirection <em>Direction</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.AsmServiceParameterImpl#getDirection <em>Direction</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SServiceParameterImpl extends DNavigableMemberImplCustom implements SServiceParameter
+public class AsmServiceParameterImpl extends DNavigableMemberImplCustom implements AsmServiceParameter
 {
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -38,7 +38,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SDirection DIRECTION_EDEFAULT = SDirection.INBOUND;
+	protected static final AsmParameterDirection DIRECTION_EDEFAULT = AsmParameterDirection.INBOUND;
 
 	/**
 	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -48,14 +48,14 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	 * @generated
 	 * @ordered
 	 */
-	protected SDirection direction = DIRECTION_EDEFAULT;
+	protected AsmParameterDirection direction = DIRECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SServiceParameterImpl()
+	protected AsmServiceParameterImpl()
 	{
 		super();
 	}
@@ -68,7 +68,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AsmPackage.Literals.SSERVICE_PARAMETER;
+		return AsmPackage.Literals.ASM_SERVICE_PARAMETER;
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SDirection getDirection()
+	public AsmParameterDirection getDirection()
 	{
 		return direction;
 	}
@@ -86,12 +86,12 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDirection(SDirection newDirection)
+	public void setDirection(AsmParameterDirection newDirection)
 	{
-		SDirection oldDirection = direction;
+		AsmParameterDirection oldDirection = direction;
 		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_PARAMETER__DIRECTION, oldDirection, direction));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.ASM_SERVICE_PARAMETER__DIRECTION, oldDirection, direction));
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_PARAMETER__DIRECTION:
+			case AsmPackage.ASM_SERVICE_PARAMETER__DIRECTION:
 				return getDirection();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -120,8 +120,8 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_PARAMETER__DIRECTION:
-				setDirection((SDirection)newValue);
+			case AsmPackage.ASM_SERVICE_PARAMETER__DIRECTION:
+				setDirection((AsmParameterDirection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,7 +137,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_PARAMETER__DIRECTION:
+			case AsmPackage.ASM_SERVICE_PARAMETER__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
 		}
@@ -154,7 +154,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_PARAMETER__DIRECTION:
+			case AsmPackage.ASM_SERVICE_PARAMETER__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -177,4 +177,4 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 		return result.toString();
 	}
 
-} //SServiceParameterImpl
+} //AsmServiceParameterImpl

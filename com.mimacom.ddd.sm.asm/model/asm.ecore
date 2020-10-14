@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="asm" nsURI="http://www.mimacom.com/ddd/sm/asm" nsPrefix="asm">
-  <eClassifiers xsi:type="ecore:EClass" name="AsmModel" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SApplication" eSuperTypes="#//AsmModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationServiceModel" abstract="true"
+      eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmApplication" eSuperTypes="#//ApplicationServiceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SystemInformationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
-        eType="#//SServiceInterface"/>
+        eType="#//AsmServiceInterface"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//SActor" containment="true"/>
+        eType="#//AsmActor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SServiceInterface" eSuperTypes="#//AsmModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="core" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmServiceInterface" eSuperTypes="#//ApplicationServiceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SystemInformationModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="core" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SystemInformationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
-        eType="#//SException" containment="true"/>
+        eType="#//AsmException" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-        eType="#//SServiceOperation" containment="true"/>
+        eType="#//AsmServiceOperation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SException" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SActor" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AsmException" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmActor" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SWatchdog" eSuperTypes="#//SActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SHuman" eSuperTypes="#//SActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SServiceOperation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="AsmWatchdog" eSuperTypes="#//AsmActor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmHuman" eSuperTypes="#//AsmActor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmServiceOperation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//SServiceParameter" containment="true"/>
+        eType="#//AsmServiceParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="raises" upperBound="-1"
-        eType="#//SException"/>
+        eType="#//AsmException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guards" upperBound="-1"
         eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
@@ -36,14 +37,14 @@
         eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SServiceParameter" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//SDirection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmServiceParameter" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//AsmParameterDirection"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SServiceKind">
+  <eClassifiers xsi:type="ecore:EEnum" name="AsmServiceKind">
     <eLiterals name="SYNCHRONOUS"/>
     <eLiterals name="ASYNCHRONOUS" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SDirection">
+  <eClassifiers xsi:type="ecore:EEnum" name="AsmParameterDirection">
     <eLiterals name="INBOUND"/>
     <eLiterals name="OUTBOUND" value="1"/>
   </eClassifiers>

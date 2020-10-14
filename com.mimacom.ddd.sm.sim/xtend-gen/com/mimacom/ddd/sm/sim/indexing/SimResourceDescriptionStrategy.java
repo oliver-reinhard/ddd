@@ -7,7 +7,7 @@ import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.util.Map;
 import org.apache.log4j.Level;
 import org.eclipse.emf.common.util.URI;
@@ -72,7 +72,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
         final QualifiedName sourceQN = qnp.getFullyQualifiedName(source);
         if ((sourceQN != null)) {
           final ITransposition deduction = typeToIndex.getTransposedBy();
-          final SInformationModel model = EcoreUtil2.<SInformationModel>getContainerOfType(deduction, SInformationModel.class);
+          final SystemInformationModel model = EcoreUtil2.<SystemInformationModel>getContainerOfType(deduction, SystemInformationModel.class);
           final TTypeMapping typeMappingType = model.getIndexingHelper();
           final Map<String, String> userData = TranspositionUtil.createEObjectDescriptionUserData(targetQN);
           final QualifiedName sourceQNForIndex = TranspositionUtil.getTranspositionSourceQNForIndex(sourceQN);

@@ -2,14 +2,12 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
-import com.mimacom.ddd.dm.base.base.BasePackage;
-
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
-import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.SimPackage;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
+import com.mimacom.ddd.sm.sim.SystemInformationModelKind;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -31,14 +29,14 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sInformationModelEClass = null;
+	private EClass systemInformationModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum sInformationModelKindEEnum = null;
+	private EEnum systemInformationModelKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -69,7 +67,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link SimPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -84,13 +82,11 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		if (isInited) return (SimPackage)EPackage.Registry.INSTANCE.getEPackage(SimPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredSimPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		SimPackageImpl theSimPackage = registeredSimPackage instanceof SimPackageImpl ? (SimPackageImpl)registeredSimPackage : new SimPackageImpl();
+		SimPackageImpl theSimPackage = (SimPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
 		TransposePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -102,6 +98,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Mark meta-data to indicate it can't be changed
 		theSimPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimPackage.eNS_URI, theSimPackage);
 		return theSimPackage;
@@ -112,10 +109,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getSInformationModel()
+	public EClass getSystemInformationModel()
 	{
-		return sInformationModelEClass;
+		return systemInformationModelEClass;
 	}
 
 	/**
@@ -123,10 +119,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getSInformationModel_Kind()
+	public EAttribute getSystemInformationModel_Kind()
 	{
-		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)systemInformationModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -134,10 +129,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getSInformationModel_Generate()
+	public EAttribute getSystemInformationModel_Generate()
 	{
-		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)systemInformationModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -145,10 +139,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EEnum getSInformationModelKind()
+	public EEnum getSystemInformationModelKind()
 	{
-		return sInformationModelKindEEnum;
+		return systemInformationModelKindEEnum;
 	}
 
 	/**
@@ -156,7 +149,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SimFactory getSimFactory()
 	{
 		return (SimFactory)getEFactoryInstance();
@@ -182,12 +174,12 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		isCreated = true;
 
 		// Create classes and their features
-		sInformationModelEClass = createEClass(SINFORMATION_MODEL);
-		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__KIND);
-		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__GENERATE);
+		systemInformationModelEClass = createEClass(SYSTEM_INFORMATION_MODEL);
+		createEAttribute(systemInformationModelEClass, SYSTEM_INFORMATION_MODEL__KIND);
+		createEAttribute(systemInformationModelEClass, SYSTEM_INFORMATION_MODEL__GENERATE);
 
 		// Create enums
-		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
+		systemInformationModelKindEEnum = createEEnum(SYSTEM_INFORMATION_MODEL_KIND);
 	}
 
 	/**
@@ -222,18 +214,18 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sInformationModelEClass.getESuperTypes().add(theTransposePackage.getTInformationModel());
+		systemInformationModelEClass.getESuperTypes().add(theTransposePackage.getTInformationModel());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSInformationModel_Kind(), this.getSInformationModelKind(), "kind", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSInformationModel_Generate(), ecorePackage.getEBoolean(), "generate", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(systemInformationModelEClass, SystemInformationModel.class, "SystemInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSystemInformationModel_Kind(), this.getSystemInformationModelKind(), "kind", null, 0, 1, SystemInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystemInformationModel_Generate(), ecorePackage.getEBoolean(), "generate", null, 0, 1, SystemInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");
-		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.BASE);
-		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.INTERFACE);
-		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.CORE);
+		initEEnum(systemInformationModelKindEEnum, SystemInformationModelKind.class, "SystemInformationModelKind");
+		addEEnumLiteral(systemInformationModelKindEEnum, SystemInformationModelKind.BASE);
+		addEEnumLiteral(systemInformationModelKindEEnum, SystemInformationModelKind.INTERFACE);
+		addEEnumLiteral(systemInformationModelKindEEnum, SystemInformationModelKind.CORE);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -83,19 +83,19 @@ public class SimSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case SimPackage.SINFORMATION_MODEL:
+			case SimPackage.SYSTEM_INFORMATION_MODEL:
 			{
-				SInformationModel sInformationModel = (SInformationModel)theEObject;
-				T result = caseSInformationModel(sInformationModel);
-				if (result == null) result = caseTInformationModel(sInformationModel);
-				if (result == null) result = caseDInformationModel(sInformationModel);
-				if (result == null) result = caseDModel(sInformationModel);
-				if (result == null) result = caseIAggregateContainer(sInformationModel);
-				if (result == null) result = caseITypeContainer(sInformationModel);
-				if (result == null) result = caseIStaticReferenceTarget(sInformationModel);
-				if (result == null) result = caseITransposableElement(sInformationModel);
-				if (result == null) result = caseIDiagramRoot(sInformationModel);
-				if (result == null) result = caseDNamedElement(sInformationModel);
+				SystemInformationModel systemInformationModel = (SystemInformationModel)theEObject;
+				T result = caseSystemInformationModel(systemInformationModel);
+				if (result == null) result = caseTInformationModel(systemInformationModel);
+				if (result == null) result = caseDInformationModel(systemInformationModel);
+				if (result == null) result = caseDModel(systemInformationModel);
+				if (result == null) result = caseIAggregateContainer(systemInformationModel);
+				if (result == null) result = caseITypeContainer(systemInformationModel);
+				if (result == null) result = caseIStaticReferenceTarget(systemInformationModel);
+				if (result == null) result = caseITransposableElement(systemInformationModel);
+				if (result == null) result = caseIDiagramRoot(systemInformationModel);
+				if (result == null) result = caseDNamedElement(systemInformationModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,17 +104,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SInformation Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>System Information Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SInformation Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>System Information Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSInformationModel(SInformationModel object)
+	public T caseSystemInformationModel(SystemInformationModel object)
 	{
 		return null;
 	}

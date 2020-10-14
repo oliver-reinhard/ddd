@@ -10,11 +10,11 @@ DNamespace:
 	'system'
 	name=DQualifiedName
 	(imports+=DImport)*
-	model=SInformationModel;
+	model=SystemInformationModel;
 	
-SInformationModel:
+SystemInformationModel:
 	(	kind=STypeModelKind 'type' 'model'
-	|	kind=SInformationModelKind 'information' 'model'		
+	|	kind=SystemInformationModelKind 'information' 'model'		
 	)
 	name=ID
 	 (^generate?='generate')?
@@ -23,10 +23,10 @@ SInformationModel:
 	(types+=SimType | aggregates+=SimAggregate)*
 	'}';
 	
-enum STypeModelKind returns SInformationModelKind:
+enum STypeModelKind returns SystemInformationModelKind:
 	BASE='base';
 	
-enum SInformationModelKind:
+enum SystemInformationModelKind:
 	INTERFACE='interface' | CORE='core';
 
 /*

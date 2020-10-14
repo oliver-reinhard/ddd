@@ -5,7 +5,7 @@ import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.im.generator.generator.ExceptionMapping;
-import com.mimacom.ddd.sm.asm.SException;
+import com.mimacom.ddd.sm.asm.AsmException;
 import java.util.Arrays;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -33,7 +33,7 @@ public class GeneratorDocumentationProvider implements IEObjectDocumentationProv
   }
   
   protected String _doGetDocumentation(final ExceptionMapping o) {
-    SException _type = null;
+    AsmException _type = null;
     if (o!=null) {
       _type=o.getType();
     }
