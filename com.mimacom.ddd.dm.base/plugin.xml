@@ -28,4 +28,12 @@
             genModel="model/transpose.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated synthetic -->
+      <package
+            uri="http://www.mimacom.com/ddd/dm/synthetic"
+            class="com.mimacom.ddd.dm.base.synthetic.SyntheticPackage"
+            genModel="model/synthetic.genmodel"/>
+   </extension>
+
 </plugin>

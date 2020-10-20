@@ -16,7 +16,6 @@ import com.mimacom.ddd.dm.base.base.DEntityNature;
 import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
@@ -28,9 +27,9 @@ import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dim.validation.AbstractDimValidator;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import java.util.List;
@@ -58,17 +57,16 @@ public class DimValidator extends AbstractDimValidator {
   private final String NAME_ALL_UPPERCASE = "Name should be all uppercase";
   
   @Check
-  public void checkDomainDeclaresOnlyValueTypes(final DInformationModel d) {
+  public void checkDomainDeclaresOnlyValueTypes(final DomainInformationModel d) {
     EList<DType> _types = d.getTypes();
     for (final DType vt : _types) {
-      if ((!((vt instanceof IValueType) || (vt instanceof ITransposition)))) {
+      if ((!(vt instanceof IValueType))) {
         this.error("Declared type is not a value type", vt, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       } else {
         if ((vt instanceof DComplexType)) {
-          final DComplexType ct = ((DComplexType) vt);
-          EList<DFeature> _features = ct.getFeatures();
+          EList<DFeature> _features = ((DComplexType)vt).getFeatures();
           for (final DFeature f : _features) {
-            if (((f instanceof DAssociation) && (!(f instanceof ITransposition)))) {
+            if ((f instanceof DAssociation)) {
               this.error("Declared feature cannot be an association", f, BasePackage.Literals.DNAMED_ELEMENT__NAME);
             }
           }
@@ -128,8 +126,8 @@ public class DimValidator extends AbstractDimValidator {
           }
         }
       }
-      final DInformationModel tDomain = EcoreUtil2.<DInformationModel>getContainerOfType(t, DInformationModel.class);
-      final DInformationModel superTypeDomain = EcoreUtil2.<DInformationModel>getContainerOfType(t.getSuperType(), DInformationModel.class);
+      final DomainInformationModel tDomain = EcoreUtil2.<DomainInformationModel>getContainerOfType(t, DomainInformationModel.class);
+      final DomainInformationModel superTypeDomain = EcoreUtil2.<DomainInformationModel>getContainerOfType(t.getSuperType(), DomainInformationModel.class);
       if ((superTypeDomain != tDomain)) {
         this.error("Supertype must be in same domain", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
@@ -275,7 +273,7 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkTypeNameStartsWithCapital(final DInformationModel d) {
+  public void checkTypeNameStartsWithCapital(final DomainInformationModel d) {
     String _name = d.getName();
     boolean _equals = Objects.equal(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.DEFAULT_IMPORT_TYPES, _name);
     if (_equals) {

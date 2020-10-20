@@ -3,9 +3,9 @@ package com.mimacom.ddd.system.tests;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import com.mimacom.ddd.system.tests.SystemTestInjectorProvider;
@@ -126,7 +126,7 @@ public class ParsingTest {
       final DNamespace content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.BASE_TYPES_URI, null, this.resourceSet);
       Assertions.assertNotNull(content);
       DModel _model = content.getModel();
-      Assertions.assertTrue((_model instanceof DInformationModel));
+      Assertions.assertTrue((_model instanceof DomainInformationModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -177,7 +177,7 @@ public class ParsingTest {
         this.resourceSet);
       Assertions.assertNotNull(content);
       DModel _model = content.getModel();
-      Assertions.assertTrue((_model instanceof DInformationModel));
+      Assertions.assertTrue((_model instanceof DomainInformationModel));
       this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

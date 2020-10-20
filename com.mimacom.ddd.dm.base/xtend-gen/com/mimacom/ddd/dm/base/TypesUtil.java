@@ -20,7 +20,7 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -324,33 +324,9 @@ public class TypesUtil {
   public String label(final ITransposableElement e) {
     String _switchResult = null;
     boolean _matched = false;
-    if (e instanceof DAggregate) {
+    if (e instanceof DLiteral) {
       _matched=true;
-      _switchResult = this.label(((DAggregate)e));
-    }
-    if (!_matched) {
-      if (e instanceof DType) {
-        _matched=true;
-        _switchResult = this.label(((DType)e));
-      }
-    }
-    if (!_matched) {
-      if (e instanceof DFeature) {
-        _matched=true;
-        _switchResult = this.label(((DFeature)e));
-      }
-    }
-    if (!_matched) {
-      if (e instanceof DQueryParameter) {
-        _matched=true;
-        _switchResult = this.label(((DQueryParameter)e));
-      }
-    }
-    if (!_matched) {
-      if (e instanceof DLiteral) {
-        _matched=true;
-        _switchResult = ((DLiteral)e).getName();
-      }
+      _switchResult = ((DLiteral)e).getName();
     }
     if (!_matched) {
       _switchResult = e.toString();

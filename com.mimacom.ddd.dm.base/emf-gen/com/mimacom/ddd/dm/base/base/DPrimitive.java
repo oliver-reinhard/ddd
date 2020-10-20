@@ -16,7 +16,7 @@ package com.mimacom.ddd.dm.base.base;
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDPrimitive()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DPrimitive extends DSimpleType

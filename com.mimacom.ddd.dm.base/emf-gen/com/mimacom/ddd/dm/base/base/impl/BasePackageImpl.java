@@ -42,12 +42,8 @@ import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
-import com.mimacom.ddd.dm.base.base.TImplicitTransposition;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -135,34 +131,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dRichTextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iTranspositionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass tTranspositionRuleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iTransposableElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass tImplicitTranspositionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -641,130 +609,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getITransposition()
-	{
-		return iTranspositionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getITransposition_TranspositionRule()
-	{
-		return (EReference)iTranspositionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getITransposition_ImpliedTranspositions()
-	{
-		return (EReference)iTranspositionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTTranspositionRule()
-	{
-		return tTranspositionRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTTranspositionRule_Source()
-	{
-		return (EReference)tTranspositionRuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTTranspositionRule_NamedSource()
-	{
-		return (EReference)tTranspositionRuleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getITransposableElement()
-	{
-		return iTransposableElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getITransposableElement_TransposedBy()
-	{
-		return (EReference)iTransposableElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getITransposableElement_Synthetic()
-	{
-		return (EAttribute)iTransposableElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTImplicitTransposition()
-	{
-		return tImplicitTranspositionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTImplicitTransposition_OriginalDeductionDefinition()
-	{
-		return (EReference)tImplicitTranspositionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDInformationModel()
 	{
 		return dInformationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDInformationModel__AllowsIdentityTypes()
+	{
+		return dInformationModelEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1486,22 +1344,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dRichTextEClass = createEClass(DRICH_TEXT);
 		createEReference(dRichTextEClass, DRICH_TEXT__SEGMENTS);
 
-		iTranspositionEClass = createEClass(ITRANSPOSITION);
-		createEReference(iTranspositionEClass, ITRANSPOSITION__TRANSPOSITION_RULE);
-		createEReference(iTranspositionEClass, ITRANSPOSITION__IMPLIED_TRANSPOSITIONS);
-
-		tTranspositionRuleEClass = createEClass(TTRANSPOSITION_RULE);
-		createEReference(tTranspositionRuleEClass, TTRANSPOSITION_RULE__SOURCE);
-		createEReference(tTranspositionRuleEClass, TTRANSPOSITION_RULE__NAMED_SOURCE);
-
-		iTransposableElementEClass = createEClass(ITRANSPOSABLE_ELEMENT);
-		createEReference(iTransposableElementEClass, ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY);
-		createEAttribute(iTransposableElementEClass, ITRANSPOSABLE_ELEMENT__SYNTHETIC);
-
-		tImplicitTranspositionEClass = createEClass(TIMPLICIT_TRANSPOSITION);
-		createEReference(tImplicitTranspositionEClass, TIMPLICIT_TRANSPOSITION__ORIGINAL_DEDUCTION_DEFINITION);
-
 		dInformationModelEClass = createEClass(DINFORMATION_MODEL);
+		createEOperation(dInformationModelEClass, DINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES);
 
 		iAggregateContainerEClass = createEClass(IAGGREGATE_CONTAINER);
 		createEReference(iAggregateContainerEClass, IAGGREGATE_CONTAINER__AGGREGATES);
@@ -1627,24 +1471,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dRichTextEClass.getESuperTypes().add(this.getDExpression());
-		tImplicitTranspositionEClass.getESuperTypes().add(this.getITransposition());
 		dInformationModelEClass.getESuperTypes().add(this.getDModel());
 		dInformationModelEClass.getESuperTypes().add(this.getIAggregateContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getITypeContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
-		dInformationModelEClass.getESuperTypes().add(this.getITransposableElement());
 		dInformationModelEClass.getESuperTypes().add(this.getIDiagramRoot());
 		dAggregateEClass.getESuperTypes().add(this.getDNamedElement());
 		dAggregateEClass.getESuperTypes().add(this.getITypeContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIFeatureContainer());
 		dAggregateEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
-		dAggregateEClass.getESuperTypes().add(this.getITransposableElement());
 		dAggregateEClass.getESuperTypes().add(this.getIDiagramRoot());
 		dNavigableMemberEClass.getESuperTypes().add(this.getDNamedElement());
 		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dTypeEClass.getESuperTypes().add(this.getDNamedElement());
-		dTypeEClass.getESuperTypes().add(this.getITransposableElement());
 		dTypeEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dNamedPredicateEClass.getESuperTypes().add(this.getDNamedElement());
 		dSimpleTypeEClass.getESuperTypes().add(this.getDType());
@@ -1653,7 +1493,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dEnumerationEClass.getESuperTypes().add(this.getDSimpleType());
 		dEnumerationEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dLiteralEClass.getESuperTypes().add(this.getDNavigableMember());
-		dLiteralEClass.getESuperTypes().add(this.getITransposableElement());
 		dComplexTypeEClass.getESuperTypes().add(this.getDType());
 		dComplexTypeEClass.getESuperTypes().add(this.getIFeatureContainer());
 		dComplexTypeEClass.getESuperTypes().add(this.getINavigableMemberContainer());
@@ -1662,13 +1501,11 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dEntityTypeEClass.getESuperTypes().add(this.getDComplexType());
 		dEntityTypeEClass.getESuperTypes().add(this.getIIdentityType());
 		dFeatureEClass.getESuperTypes().add(this.getDNavigableMember());
-		dFeatureEClass.getESuperTypes().add(this.getITransposableElement());
 		dAssociationEClass.getESuperTypes().add(this.getDFeature());
 		dAttributeEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dQueryParameterEClass.getESuperTypes().add(this.getDNavigableMember());
-		dQueryParameterEClass.getESuperTypes().add(this.getITransposableElement());
 		dStateEClass.getESuperTypes().add(this.getDNavigableMember());
 		dStateEventEClass.getESuperTypes().add(this.getDNamedElement());
 
@@ -1701,22 +1538,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dRichTextEClass, DRichText.class, "DRichText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDRichText_Segments(), this.getIRichTextSegment(), null, "segments", null, 0, -1, DRichText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iTranspositionEClass, ITransposition.class, "ITransposition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getITransposition_TranspositionRule(), this.getTTranspositionRule(), null, "transpositionRule", null, 0, 1, ITransposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getITransposition_ImpliedTranspositions(), this.getTImplicitTransposition(), null, "impliedTranspositions", null, 0, -1, ITransposition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(tTranspositionRuleEClass, TTranspositionRule.class, "TTranspositionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTTranspositionRule_Source(), this.getITransposableElement(), null, "source", null, 0, 1, TTranspositionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTTranspositionRule_NamedSource(), this.getDNamedElement(), null, "namedSource", null, 0, 1, TTranspositionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEClass(iTransposableElementEClass, ITransposableElement.class, "ITransposableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getITransposableElement_TransposedBy(), this.getITransposition(), null, "transposedBy", null, 0, 1, ITransposableElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getITransposableElement_Synthetic(), ecorePackage.getEBoolean(), "synthetic", null, 0, 1, ITransposableElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(tImplicitTranspositionEClass, TImplicitTransposition.class, "TImplicitTransposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTImplicitTransposition_OriginalDeductionDefinition(), this.getITransposition(), null, "originalDeductionDefinition", null, 0, 1, TImplicitTransposition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(dInformationModelEClass, DInformationModel.class, "DInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getDInformationModel__AllowsIdentityTypes(), ecorePackage.getEBoolean(), "allowsIdentityTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(iAggregateContainerEClass, IAggregateContainer.class, "IAggregateContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIAggregateContainer_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, IAggregateContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1727,7 +1551,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(iFeatureContainerEClass, IFeatureContainer.class, "IFeatureContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIFeatureContainer_Features(), this.getDFeature(), null, "features", null, 0, -1, IFeatureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAggregate_Roots(), this.getDEntityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dNavigableMemberEClass, DNavigableMember.class, "DNavigableMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1759,21 +1583,21 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dSimpleTypeEClass, DSimpleType.class, "DSimpleType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dPrimitiveEClass, DPrimitive.class, "DPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dPrimitiveEClass, DPrimitive.class, "DPrimitive", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDPrimitive_Redefines(), this.getDPrimitive(), null, "redefines", null, 0, 1, DPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dEnumerationEClass, DEnumeration.class, "DEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dEnumerationEClass, DEnumeration.class, "DEnumeration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDEnumeration_Literals(), this.getDLiteral(), null, "literals", null, 0, -1, DEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dLiteralEClass, DLiteral.class, "DLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dLiteralEClass, DLiteral.class, "DLiteral", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dComplexTypeEClass, DComplexType.class, "DComplexType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDComplexType_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDComplexType_SuperType(), this.getDComplexType(), null, "superType", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dDetailTypeEClass, DDetailType.class, "DDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dDetailTypeEClass, DDetailType.class, "DDetailType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDEntityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDEntityType_Nature(), this.getDEntityNature(), "nature", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDEntityType_States(), this.getDState(), null, "states", null, 0, -1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1781,22 +1605,22 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dFeatureEClass, DFeature.class, "DFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dAssociationEClass, DAssociation.class, "DAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dAssociationEClass, DAssociation.class, "DAssociation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAssociation_Kind(), this.getDAssociationKind(), "kind", null, 0, 1, DAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDAssociation_Derived(), ecorePackage.getEBoolean(), "derived", null, 0, 1, DAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAssociation_SourceType(), this.getDComplexType(), null, "sourceType", null, 1, 1, DAssociation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDAssociation__GetTargetType(), this.getDEntityType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dQueryEClass, DQuery.class, "DQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dQueryEClass, DQuery.class, "DQuery", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDQuery_Parameters(), this.getDQueryParameter(), null, "parameters", null, 0, -1, DQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDQuery_Returns(), this.getDExpression(), null, "returns", null, 0, 1, DQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dQueryParameterEClass, DQueryParameter.class, "DQueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dQueryParameterEClass, DQueryParameter.class, "DQueryParameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dStateEClass, DState.class, "DState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

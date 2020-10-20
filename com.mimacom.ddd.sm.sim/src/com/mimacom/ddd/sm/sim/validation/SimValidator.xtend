@@ -18,10 +18,10 @@ import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.base.base.DNavigableMember
 import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.IIdentityType
-import com.mimacom.ddd.dm.base.base.ITransposableElement
-import com.mimacom.ddd.dm.base.base.ITransposition
 import com.mimacom.ddd.dm.base.base.IValueType
-import com.mimacom.ddd.dm.base.base.TImplicitTransposition
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement
+import com.mimacom.ddd.dm.base.transpose.ITransposition
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition
@@ -33,6 +33,7 @@ import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
 import com.mimacom.ddd.dm.base.transpose.TFuseRule
 import com.mimacom.ddd.dm.base.transpose.TGrabRule
+import com.mimacom.ddd.dm.base.transpose.TImplicitTransposition
 import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule
@@ -69,38 +70,38 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def checkCorrespondingAggregateType(TAggregateTransposition a) {
-		if (a.getTranspositionRule.getSource !== null && ! (a.getTranspositionRule.getSource instanceof DAggregate)) {
-			error("Deduced-aggregate rule must have a domain-model Aggregate as its source", a.getTranspositionRule,
-				BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+		if (a.rule.source !== null && ! (a.rule.source instanceof DAggregate)) {
+			error("Deduced-aggregate rule must have a domain-model Aggregate as its source", a.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
 // Types: restrictions on features and supertypes
 	@Check
 	def checkCorrespondingDEntityType(TEntityTypeTransposition t) {
-		val source = t.getTranspositionRule.getSource
+		val source = t.rule.source
 		if (source instanceof DEntityType) {
 			if (source.root !== t.root) {
-				error("Deduced-entity rule must match domain-model root property", t.getTranspositionRule,
-					BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+				error("Deduced-entity rule must match domain-model root property", t.rule,
+					TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 			}
 		} else if (source !== null) {
-			error("Deduced-entity rule must have a domain-model entity as its source", t.getTranspositionRule,
-				BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+			error("Deduced-entity rule must have a domain-model entity as its source", t.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
 	@Check
 	def checkCorrespondingDDetailType(TDetailTypeTransposition t) {
-		if (t.getTranspositionRule.getSource !== null && ! (t.getTranspositionRule.getSource instanceof DDetailType)) {
-			error("Deduced-DetailType rule must have a domain-model DetailType as its source", t.getTranspositionRule,
-				BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+		if (t.rule.source !== null && ! (t.rule.source instanceof DDetailType)) {
+			error("Deduced-DetailType rule must have a domain-model DetailType as its source", t.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
 	@Check
 	def checkRootPropertyForDetailType(TDetailTypeTransposition t) {
-		val rule = t.getTranspositionRule
+		val rule = t.rule
 		if (rule instanceof TStructureChangingRule) {
 			val setsRootProperty = rule.getRootEntity != TTristate.DONT_CARE
 			if (setsRootProperty) {
@@ -112,13 +113,13 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def void checkDeducedFeaturesCombination(TComplexTypeTransposition t) {
-		if (t.getTranspositionRule instanceof TGrabRule) {
+		if (t.rule instanceof TGrabRule) {
 			val featureDeductionDefinitions = (t as DComplexType).features.filter(TFeatureTransposition)
-			val hasDitchElements = featureDeductionDefinitions.exists[getTranspositionRule instanceof TDitchRule]
-			val hasGrabElements = featureDeductionDefinitions.exists[getTranspositionRule instanceof TGrabRule]
+			val hasDitchElements = featureDeductionDefinitions.exists[getRule instanceof TDitchRule]
+			val hasGrabElements = featureDeductionDefinitions.exists[getRule instanceof TGrabRule]
 			if (hasDitchElements && hasGrabElements) {
-				error("Cannot use both grab rule and ditch rules together.", t.getTranspositionRule,
-					BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+				error("Cannot use both grab rule and ditch rules together.", t.rule,
+					TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 			}
 		}
 	}
@@ -150,31 +151,31 @@ class SimValidator extends AbstractSimValidator {
 		if (!(container instanceof TComplexTypeTransposition || container instanceof TAggregateTransposition)) {
 			error(
 				"Features can only have a deduction rule if the containing type or aggregate also has a deduction rule.",
-				f.getTranspositionRule, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+				f.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
 	@Check
 	def checkCorrespondingDAttributeType(TAttributeTransposition a) {
-		if (a.getTranspositionRule.getSource !== null && ! (a.getTranspositionRule.getSource instanceof DAttribute)) {
-			error("Deduced attribute rule must have a domain-model attribute as its source", a.getTranspositionRule,
-				BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+		if (a.rule.source !== null && ! (a.rule.source instanceof DAttribute)) {
+			error("Deduced attribute rule must have a domain-model attribute as its source", a.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
 	@Check
 	def checkCorrespondingDQueryType(TQueryTransposition q) {
-		if (q.getTranspositionRule.getSource !== null && ! (q.getTranspositionRule.getSource instanceof DQuery)) {
-			error("Deduced query rule must have a domain-model query as its source", q.getTranspositionRule,
-				BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+		if (q.rule.source !== null && ! (q.rule.source instanceof DQuery)) {
+			error("Deduced query rule must have a domain-model query as its source", q.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
 	@Check
 	def checkCorrespondingDAssociationType(TAssociationTransposition a) {
-		if (a.getTranspositionRule.getSource !== null && ! (a.getTranspositionRule.getSource instanceof DAssociation)) {
-			error("Deduced association rule must have a domain-model association as its source", a.getTranspositionRule,
-				BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+		if (a.rule.source !== null && ! (a.rule.source instanceof DAssociation)) {
+			error("Deduced association rule must have a domain-model association as its source", a.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
@@ -183,7 +184,7 @@ class SimValidator extends AbstractSimValidator {
 		val container = literal.eContainer
 		if (! (container instanceof TEnumerationTransposition)) {
 			error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.",
-				literal.getTranspositionRule, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+				literal.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
@@ -206,7 +207,7 @@ class SimValidator extends AbstractSimValidator {
 	}
 
 	override checkFeatureTypeIsSet(DFeature f) {
-		if (! (f instanceof ITransposition || f.isSynthetic)) {
+		if (! (f instanceof ITransposition || f instanceof ISyntheticElement)) {
 			super.checkFeatureTypeIsSet(f)
 		}
 	}
@@ -216,12 +217,12 @@ class SimValidator extends AbstractSimValidator {
 		if (a instanceof ITransposition) {
 			return
 		}
-		if (! a.isSynthetic && ! (a.getType instanceof IValueType)) {
+		if (! (a instanceof ISyntheticElement) && ! (a.getType instanceof IValueType)) {
 			super.checkAttributeIsValueType(a)
-		} else if (a.isSynthetic) {
+		} else if (a instanceof ISyntheticElement) {
 			if (a.type === null) {
-				val deductionDefinition = a.getTransposedBy
-				val source = deductionDefinition?.getTranspositionRule?.getSource as DAttribute
+				val recipe = a.recipe
+				val source = recipe?.rule?.source as DAttribute
 				val sourceType = source?.type
 				errorOnStructuralElement(a, getDescription(a) + ": no type mapping for domain type '" + sourceType?.name + "'")
 			} else if (! (a.getType instanceof IValueType)) {
@@ -238,10 +239,10 @@ class SimValidator extends AbstractSimValidator {
 //		if (! a.synthetic && (! (a.getType instanceof DEntityType && (a.getType as DEntityType).root)))  {
 //			super.checkAssocitionToRootType(a)
 //		} else
-		if (a.isSynthetic) {
+		if (a instanceof ISyntheticElement) {
 			if (a.type === null) {
-				val deductionDefinition = a.getTransposedBy
-				val source = deductionDefinition?.getTranspositionRule?.getSource as DAssociation
+				val recipe = a.recipe
+				val source = recipe?.rule?.source as DAssociation
 				val sourceType = source?.type
 				errorOnStructuralElement(a,
 					getDescription(a) + ": no type mapping for association-target domain type '" + sourceType?.name + "'")
@@ -257,10 +258,10 @@ class SimValidator extends AbstractSimValidator {
 			return
 		}
 		if (p instanceof ITransposableElement) {
-			if (! p.isSynthetic) {
+			if (! (p instanceof ISyntheticElement)) {
 				super.checkMemberType(p)
 			} else if (p.getType === null) {
-				val source = p.getTransposedBy?.getTranspositionRule?.getSource
+				val source = p.transposedBy?.rule?.source
 				var sourceType = ""
 				if (source instanceof DNavigableMember) {
 					if (source.type !== null) {
@@ -288,18 +289,18 @@ class SimValidator extends AbstractSimValidator {
 	protected def String getDescription(EObject obj) {
 		var synthetic = ""
 		if (obj instanceof ITransposableElement) {
-			if (obj.isSynthetic) synthetic = "Synthetic "
+			if (obj instanceof ISyntheticElement) synthetic = "Synthetic "
 		}
 		synthetic + obj.class.simpleName + " " + qualifiedNameProvider.getFullyQualifiedName(obj)
 	}
 
 	protected def void warningOnStructuralElement(EObject e, String warningMsg) {
 		if (e instanceof ITransposableElement) {
-			if (e.isSynthetic) {
-				var definition = e.getTransposedBy
+			if (e instanceof ISyntheticElement) {
+				var definition = e.transposedBy
 				if (definition instanceof TImplicitTransposition) {
 					while (definition instanceof TImplicitTransposition) {
-						definition = definition.originalDeductionDefinition
+						definition = definition.originalTransposition
 					}
 					warningOnStructuralElementImpl(definition, warningMsg)
 				} else {
@@ -312,9 +313,9 @@ class SimValidator extends AbstractSimValidator {
 				}
 
 			} else if (e instanceof ITransposition) {
-				warning(warningMsg, e, BasePackage.Literals.ITRANSPOSITION__TRANSPOSITION_RULE)
+				warning(warningMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE)
 
-			} else if (! e.isSynthetic) {
+			} else if (! (e instanceof ISyntheticElement)) {
 				warningOnStructuralElementImpl(e, warningMsg)
 			}
 		} else {
@@ -332,11 +333,11 @@ class SimValidator extends AbstractSimValidator {
 
 	protected def void errorOnStructuralElement(EObject e, String errorMsg) {
 		if (e instanceof ITransposableElement) {
-			if (e.isSynthetic) {
-				var definition = e.getTransposedBy
+			if (e instanceof ISyntheticElement) {
+				var definition = e.transposedBy
 				if (definition instanceof TImplicitTransposition) {
 					while (definition instanceof TImplicitTransposition) {
-						definition = definition.originalDeductionDefinition
+						definition = definition.originalTransposition
 					}
 					errorOnStructuralElementImpl(definition, errorMsg)
 				} else {
@@ -349,9 +350,9 @@ class SimValidator extends AbstractSimValidator {
 				}
 
 			} else if (e instanceof ITransposition) {
-				error(errorMsg, e, BasePackage.Literals.ITRANSPOSITION__TRANSPOSITION_RULE)
+				error(errorMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE)
 
-			} else if (! e.isSynthetic) {
+			} else if (! (e instanceof ISyntheticElement)) {
 				errorOnStructuralElementImpl(e, errorMsg)
 			}
 		} else {

@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.dm.dim
 
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
@@ -12,4 +11,11 @@ class DimStandaloneSetup extends DimStandaloneSetupGenerated {
 	def static void doSetup() {
 		new DimStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
+	
+//	override register(Injector injector) {
+//		if (!EPackage.Registry.INSTANCE.containsKey(DimPackage.eNS_URI)) {
+//			EPackage.Registry.INSTANCE.put(DimPackage.eNS_URI, DimPackage.eINSTANCE);
+//		} // consider registering the subpackages as well
+//		super.register(injector)
+//	}
 }

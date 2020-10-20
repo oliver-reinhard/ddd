@@ -389,7 +389,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=DQualifiedName 
-	 *         forType=[DEntityType|DQualifiedName] 
+	 *         forType=[DimEntityType|DQualifiedName] 
 	 *         description=DRichText? 
 	 *         direction=EsmLayoutDirection? 
 	 *         states+=EsmState+ 

@@ -179,6 +179,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getLevel() {
 		return level;
 	}
@@ -188,6 +189,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLevel(int newLevel) {
 		int oldLevel = level;
 		level = newLevel;
@@ -200,6 +202,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSequenceNumber() {
 		return sequenceNumber;
 	}
@@ -209,6 +212,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSequenceNumber(int newSequenceNumber) {
 		int oldSequenceNumber = sequenceNumber;
 		sequenceNumber = newSequenceNumber;
@@ -221,6 +225,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Chapter getLogicalContainer() {
 		if (logicalContainer != null && logicalContainer.eIsProxy()) {
 			InternalEObject oldLogicalContainer = (InternalEObject)logicalContainer;
@@ -247,6 +252,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLogicalContainer(Chapter newLogicalContainer) {
 		Chapter oldLogicalContainer = logicalContainer;
 		logicalContainer = newLogicalContainer;
@@ -259,6 +265,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSequenceNumberInChapter() {
 		return sequenceNumberInChapter;
 	}
@@ -268,6 +275,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSequenceNumberInChapter(int newSequenceNumberInChapter) {
 		int oldSequenceNumberInChapter = sequenceNumberInChapter;
 		sequenceNumberInChapter = newSequenceNumberInChapter;
@@ -280,6 +288,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -289,6 +298,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -301,6 +311,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		if (((this.getName() == null) || this.getName().isEmpty())) {
 			final String blockType = this.getClass().getSimpleName().replace("Titled", "").replace("Impl", "").toLowerCase();
@@ -321,6 +332,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getTitle() {
 		return title;
 	}
@@ -345,6 +357,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(DRichText newTitle) {
 		if (newTitle != title) {
 			NotificationChain msgs = null;
@@ -364,6 +377,7 @@ public abstract class TitledBlockImpl extends ContentBlockImpl implements Titled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Division parent() {
 		Chapter _logicalContainer = this.getLogicalContainer();
 		boolean _tripleNotEquals = (_logicalContainer != null);

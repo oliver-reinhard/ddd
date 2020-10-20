@@ -5,21 +5,10 @@ package com.mimacom.ddd.sm.sim.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.BasePackage;
-import com.mimacom.ddd.dm.base.base.DAggregate;
-import com.mimacom.ddd.dm.base.base.DAssociation;
-import com.mimacom.ddd.dm.base.base.DAttribute;
-import com.mimacom.ddd.dm.base.base.DDetailType;
-import com.mimacom.ddd.dm.base.base.DEntityType;
-import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DImport;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
-import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
-import com.mimacom.ddd.dm.base.base.DPrimitive;
-import com.mimacom.ddd.dm.base.base.DQuery;
-import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
@@ -40,6 +29,18 @@ import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
+import com.mimacom.ddd.dm.dim.DimAggregate;
+import com.mimacom.ddd.dm.dim.DimAssociation;
+import com.mimacom.ddd.dm.dim.DimAttribute;
+import com.mimacom.ddd.dm.dim.DimDetailType;
+import com.mimacom.ddd.dm.dim.DimEntityType;
+import com.mimacom.ddd.dm.dim.DimEnumeration;
+import com.mimacom.ddd.dm.dim.DimLiteral;
+import com.mimacom.ddd.dm.dim.DimPackage;
+import com.mimacom.ddd.dm.dim.DimPrimitive;
+import com.mimacom.ddd.dm.dim.DimQuery;
+import com.mimacom.ddd.dm.dim.DimQueryParameter;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dim.serializer.DimSemanticSequencer;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -100,32 +101,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case BasePackage.DAGGREGATE:
-				sequence_DAggregate(context, (DAggregate) semanticObject); 
-				return; 
-			case BasePackage.DASSOCIATION:
-				sequence_DAssociation(context, (DAssociation) semanticObject); 
-				return; 
-			case BasePackage.DATTRIBUTE:
-				sequence_DAttribute(context, (DAttribute) semanticObject); 
-				return; 
-			case BasePackage.DDETAIL_TYPE:
-				sequence_DComplexType_DDetailType(context, (DDetailType) semanticObject); 
-				return; 
-			case BasePackage.DENTITY_TYPE:
-				sequence_DComplexType_DEntityType(context, (DEntityType) semanticObject); 
-				return; 
-			case BasePackage.DENUMERATION:
-				sequence_DEnumeration(context, (DEnumeration) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
-				return; 
-			case BasePackage.DINFORMATION_MODEL:
-				sequence_DInformationModel(context, (DInformationModel) semanticObject); 
-				return; 
-			case BasePackage.DLITERAL:
-				sequence_DLiteral(context, (DLiteral) semanticObject); 
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
@@ -135,15 +112,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
-				return; 
-			case BasePackage.DPRIMITIVE:
-				sequence_DPrimitive(context, (DPrimitive) semanticObject); 
-				return; 
-			case BasePackage.DQUERY:
-				sequence_DQuery(context, (DQuery) semanticObject); 
-				return; 
-			case BasePackage.DQUERY_PARAMETER:
-				sequence_DQueryParameter(context, (DQueryParameter) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -172,6 +140,42 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 					return; 
 				}
 				else break;
+			}
+		else if (epackage == DimPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case DimPackage.DIM_AGGREGATE:
+				sequence_DimAggregate(context, (DimAggregate) semanticObject); 
+				return; 
+			case DimPackage.DIM_ASSOCIATION:
+				sequence_DimAssociation(context, (DimAssociation) semanticObject); 
+				return; 
+			case DimPackage.DIM_ATTRIBUTE:
+				sequence_DimAttribute(context, (DimAttribute) semanticObject); 
+				return; 
+			case DimPackage.DIM_DETAIL_TYPE:
+				sequence_DimComplexType_DimDetailType(context, (DimDetailType) semanticObject); 
+				return; 
+			case DimPackage.DIM_ENTITY_TYPE:
+				sequence_DimComplexType_DimEntityType(context, (DimEntityType) semanticObject); 
+				return; 
+			case DimPackage.DIM_ENUMERATION:
+				sequence_DimEnumeration(context, (DimEnumeration) semanticObject); 
+				return; 
+			case DimPackage.DIM_LITERAL:
+				sequence_DimLiteral(context, (DimLiteral) semanticObject); 
+				return; 
+			case DimPackage.DIM_PRIMITIVE:
+				sequence_DimPrimitive(context, (DimPrimitive) semanticObject); 
+				return; 
+			case DimPackage.DIM_QUERY:
+				sequence_DimQuery(context, (DimQuery) semanticObject); 
+				return; 
+			case DimPackage.DIM_QUERY_PARAMETER:
+				sequence_DimQueryParameter(context, (DimQueryParameter) semanticObject); 
+				return; 
+			case DimPackage.DOMAIN_INFORMATION_MODEL:
+				sequence_DomainInformationModel(context, (DomainInformationModel) semanticObject); 
+				return; 
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -460,7 +464,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         source=[DComplexType|DQualifiedName] 
+	 *         source=[DimComplexType|DQualifiedName] 
 	 *         otherSources+=[DComplexType|DQualifiedName]+ 
 	 *         abstract=SimAbstractType? 
 	 *         (detail=SimDetailType | (rootEntity=SimRootEntity? detail=SimEntityType)) 
@@ -479,7 +483,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         source=[DComplexType|DQualifiedName] 
+	 *         source=[DimComplexType|DQualifiedName] 
 	 *         abstract=SimAbstractType? 
 	 *         (detail=SimDetailType | (rootEntity=SimRootEntity? detail=SimEntityType)) 
 	 *         renameTo=ID? 
@@ -509,7 +513,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimAggregateTransposition returns TAggregateTransposition
 	 *
 	 * Constraint:
-	 *     (transpositionRule=SimGrabAggregateRule description=DRichText? (features+=SimQueryTransposition | features+=DQuery)* types+=SimType*)
+	 *     (rule=SimGrabAggregateRule description=DRichText? (features+=SimQueryTransposition | features+=DimQuery)* types+=SimType*)
 	 */
 	protected void sequence_SimAggregateTransposition(ISerializationContext context, TAggregateTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -522,7 +526,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimAssociationTransposition returns TAssociationTransposition
 	 *
 	 * Constraint:
-	 *     ((transpositionRule=SimGrabFeatureRule | transpositionRule=SimMorphFeatureRule | transpositionRule=SimDitchFeatureRule) description=DRichText?)
+	 *     ((rule=SimGrabFeatureRule | rule=SimMorphFeatureRule | rule=SimDitchFeatureRule) description=DRichText?)
 	 */
 	protected void sequence_SimAssociationTransposition(ISerializationContext context, TAssociationTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -536,11 +540,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         (
-	 *             (detail?='detail'? transpositionRule=SimGrabFeatureRule) | 
-	 *             (detail?='detail'? transpositionRule=SimMorphFeatureRule) | 
-	 *             (detail?='detail'? transpositionRule=SimDitchFeatureRule)
-	 *         ) 
+	 *         ((detail?='detail'? rule=SimGrabFeatureRule) | (detail?='detail'? rule=SimMorphFeatureRule) | (detail?='detail'? rule=SimDitchFeatureRule)) 
 	 *         description=DRichText?
 	 *     )
 	 */
@@ -551,18 +551,13 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DType returns TDetailTypeTransposition
+	 *     DimType returns TDetailTypeTransposition
 	 *     SimType returns TDetailTypeTransposition
 	 *     SimDetailTypeTransposition returns TDetailTypeTransposition
 	 *
 	 * Constraint:
 	 *     (
-	 *         (
-	 *             transpositionRule=SimGrabComplexTypeRule | 
-	 *             transpositionRule=SimDitchComplexTypeRule | 
-	 *             transpositionRule=SimMorphComplexTypeRule | 
-	 *             transpositionRule=SimFuseComplexTypeRule
-	 *         ) 
+	 *         (rule=SimGrabComplexTypeRule | rule=SimDitchComplexTypeRule | rule=SimMorphComplexTypeRule | rule=SimFuseComplexTypeRule) 
 	 *         description=DRichText? 
 	 *         features+=SimFeature? 
 	 *         (constraints+=DConstraint? features+=SimFeature?)*
@@ -578,15 +573,15 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimDitchComplexTypeRule returns TDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DComplexType|DQualifiedName]
+	 *     source=[DimComplexType|DQualifiedName]
 	 */
 	protected void sequence_SimDitchComplexTypeRule(ISerializationContext context, TDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimDitchComplexTypeRuleAccess().getSourceDComplexTypeDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSimDitchComplexTypeRuleAccess().getSourceDimComplexTypeDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -596,15 +591,15 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimDitchEnumerationLiteralRule returns TDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DLiteral|ID]
+	 *     source=[DimLiteral|ID]
 	 */
 	protected void sequence_SimDitchEnumerationLiteralRule(ISerializationContext context, TDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimDitchEnumerationLiteralRuleAccess().getSourceDLiteralIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSimDitchEnumerationLiteralRuleAccess().getSourceDimLiteralIDTerminalRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -614,15 +609,15 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimDitchEnumerationRule returns TDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DEnumeration|DQualifiedName]
+	 *     source=[DimEnumeration|DQualifiedName]
 	 */
 	protected void sequence_SimDitchEnumerationRule(ISerializationContext context, TDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimDitchEnumerationRuleAccess().getSourceDEnumerationDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSimDitchEnumerationRuleAccess().getSourceDimEnumerationDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -632,15 +627,15 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimDitchFeatureRule returns TDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DFeature|ID]
+	 *     source=[DimFeature|ID]
 	 */
 	protected void sequence_SimDitchFeatureRule(ISerializationContext context, TDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimDitchFeatureRuleAccess().getSourceDFeatureIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSimDitchFeatureRuleAccess().getSourceDimFeatureIDTerminalRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -650,15 +645,15 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimDitchPrimitiveRule returns TDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DPrimitive|DQualifiedName]
+	 *     source=[DimPrimitive|DQualifiedName]
 	 */
 	protected void sequence_SimDitchPrimitiveRule(ISerializationContext context, TDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimDitchPrimitiveRuleAccess().getSourceDPrimitiveDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSimDitchPrimitiveRuleAccess().getSourceDimPrimitiveDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -668,32 +663,32 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimDitchQueryParameterRule returns TDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DQueryParameter|ID]
+	 *     source=[DimQueryParameter|ID]
 	 */
 	protected void sequence_SimDitchQueryParameterRule(ISerializationContext context, TDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimDitchQueryParameterRuleAccess().getSourceDQueryParameterIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSimDitchQueryParameterRuleAccess().getSourceDimQueryParameterIDTerminalRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     DType returns TEntityTypeTransposition
+	 *     DimType returns TEntityTypeTransposition
 	 *     SimType returns TEntityTypeTransposition
 	 *     SimEntityTypeTransposition returns TEntityTypeTransposition
 	 *
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             (root?='root'? transpositionRule=SimGrabComplexTypeRule) | 
-	 *             (root?='root'? transpositionRule=SimDitchComplexTypeRule) | 
-	 *             (root?='root'? transpositionRule=SimMorphComplexTypeRule) | 
-	 *             (root?='root'? transpositionRule=SimFuseComplexTypeRule)
+	 *             (root?='root'? rule=SimGrabComplexTypeRule) | 
+	 *             (root?='root'? rule=SimDitchComplexTypeRule) | 
+	 *             (root?='root'? rule=SimMorphComplexTypeRule) | 
+	 *             (root?='root'? rule=SimFuseComplexTypeRule)
 	 *         ) 
 	 *         description=DRichText? 
 	 *         (features+=SimFeature | constraints+=DConstraint)*
@@ -706,13 +701,13 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DType returns TEnumerationTransposition
+	 *     DimType returns TEnumerationTransposition
 	 *     SimType returns TEnumerationTransposition
 	 *     SimEnumerationTransposition returns TEnumerationTransposition
 	 *
 	 * Constraint:
 	 *     (
-	 *         (transpositionRule=SimGrabEnumerationRule | transpositionRule=SimDitchEnumerationRule) 
+	 *         (rule=SimGrabEnumerationRule | rule=SimDitchEnumerationRule) 
 	 *         description=DRichText? 
 	 *         (literals+=SimLiteral literals+=SimLiteral*)? 
 	 *         constraints+=DConstraint*
@@ -728,7 +723,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabAggregateRule returns TGrabAggregateRule
 	 *
 	 * Constraint:
-	 *     (source=[DAggregate|DQualifiedName] renameTo=ID?)
+	 *     (source=[DimAggregate|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabAggregateRule(ISerializationContext context, TGrabAggregateRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -740,7 +735,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabComplexTypeRule returns TGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DComplexType|DQualifiedName] renameTo=ID?)
+	 *     (source=[DimComplexType|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabComplexTypeRule(ISerializationContext context, TGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -752,7 +747,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabEnumerationLiteralRule returns TGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DLiteral|ID] renameTo=ID?)
+	 *     (source=[DimLiteral|ID] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabEnumerationLiteralRule(ISerializationContext context, TGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -764,7 +759,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabEnumerationRule returns TGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DEnumeration|DQualifiedName] renameTo=ID?)
+	 *     (source=[DimEnumeration|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabEnumerationRule(ISerializationContext context, TGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -776,7 +771,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabFeatureRule returns TGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DFeature|ID] renameTo=ID?)
+	 *     (source=[DimFeature|ID] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabFeatureRule(ISerializationContext context, TGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -788,7 +783,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabPrimitiveRule returns TGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DPrimitive|DQualifiedName] renameTo=ID?)
+	 *     (source=[DimPrimitive|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabPrimitiveRule(ISerializationContext context, TGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -800,7 +795,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimGrabQueryParameterRule returns TGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DQueryParameter|ID] renameTo=ID?)
+	 *     (source=[DimQueryParameter|ID] renameTo=ID?)
 	 */
 	protected void sequence_SimGrabQueryParameterRule(ISerializationContext context, TGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -813,7 +808,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimLiteralTransposition returns TLiteralTransposition
 	 *
 	 * Constraint:
-	 *     ((transpositionRule=SimGrabEnumerationLiteralRule | transpositionRule=SimDitchEnumerationLiteralRule) description=DRichText?)
+	 *     ((rule=SimGrabEnumerationLiteralRule | rule=SimDitchEnumerationLiteralRule) description=DRichText?)
 	 */
 	protected void sequence_SimLiteralTransposition(ISerializationContext context, TLiteralTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -825,7 +820,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimMorphFeatureRule returns TMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DFeature|ID] renameTo=ID? retypeTo=[DType|ID] remultiplyTo=DMultiplicity?)
+	 *     (source=[DimFeature|ID] renameTo=ID? retypeTo=[DType|ID] remultiplyTo=DMultiplicity?)
 	 */
 	protected void sequence_SimMorphFeatureRule(ISerializationContext context, TMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -837,7 +832,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimMorphQueryParameterRule returns TMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DQueryParameter|ID] renameTo=ID? retypeTo=[DType|ID] remultiplyTo=DMultiplicity?)
+	 *     (source=[DimQueryParameter|ID] renameTo=ID? retypeTo=[DType|ID] remultiplyTo=DMultiplicity?)
 	 */
 	protected void sequence_SimMorphQueryParameterRule(ISerializationContext context, TMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -846,12 +841,12 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DType returns TPrimitiveTransposition
+	 *     DimType returns TPrimitiveTransposition
 	 *     SimType returns TPrimitiveTransposition
 	 *     SimPrimitiveTransposition returns TPrimitiveTransposition
 	 *
 	 * Constraint:
-	 *     ((transpositionRule=SimGrabPrimitiveRule | transpositionRule=SimDitchPrimitiveRule) description=DRichText? constraints+=DConstraint*)
+	 *     ((rule=SimGrabPrimitiveRule | rule=SimDitchPrimitiveRule) description=DRichText? constraints+=DConstraint*)
 	 */
 	protected void sequence_SimPrimitiveTransposition(ISerializationContext context, TPrimitiveTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -864,10 +859,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimQueryParameterTransposition returns TQueryParameterTransposition
 	 *
 	 * Constraint:
-	 *     (
-	 *         (transpositionRule=SimGrabQueryParameterRule | transpositionRule=SimMorphQueryParameterRule | transpositionRule=SimDitchQueryParameterRule) 
-	 *         description=DRichText?
-	 *     )
+	 *     ((rule=SimGrabQueryParameterRule | rule=SimMorphQueryParameterRule | rule=SimDitchQueryParameterRule) description=DRichText?)
 	 */
 	protected void sequence_SimQueryParameterTransposition(ISerializationContext context, TQueryParameterTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -882,11 +874,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             (
-	 *                 (transpositionRule=SimGrabFeatureRule | transpositionRule=SimMorphFeatureRule) 
-	 *                 (parameters+=SimQueryParameter parameters+=SimQueryParameter*)?
-	 *             ) | 
-	 *             transpositionRule=SimDitchFeatureRule
+	 *             ((rule=SimGrabFeatureRule | rule=SimMorphFeatureRule) (parameters+=SimQueryParameter parameters+=SimQueryParameter*)?) | 
+	 *             rule=SimDitchFeatureRule
 	 *         ) 
 	 *         description=DRichText?
 	 *     )

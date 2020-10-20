@@ -69,6 +69,7 @@ public class ProtoTOCImpl extends ProtoDocumentSegmentImpl implements ProtoTOC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMaxLevel() {
 		return maxLevel;
 	}
@@ -78,6 +79,7 @@ public class ProtoTOCImpl extends ProtoDocumentSegmentImpl implements ProtoTOC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxLevel(int newMaxLevel) {
 		int oldMaxLevel = maxLevel;
 		maxLevel = newMaxLevel;

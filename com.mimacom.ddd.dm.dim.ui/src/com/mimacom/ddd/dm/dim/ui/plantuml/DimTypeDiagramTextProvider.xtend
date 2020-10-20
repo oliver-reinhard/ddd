@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dim.ui.plantuml
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator
 import java.util.Map
@@ -35,7 +35,7 @@ class DimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
         val namespace = document.readOnly[
             return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
         ]
-        val model = namespace.model as DInformationModel
+        val model = namespace.model as DomainInformationModel
         if (actualProvider.canProvide(model)) {
         	return actualProvider.diagramText(model)
         }

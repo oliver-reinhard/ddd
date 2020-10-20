@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DDetailTypeImpl extends DComplexTypeImplCustom implements DDetailType
+public abstract class DDetailTypeImpl extends DComplexTypeImplCustom implements DDetailType
 {
 	/**
 	 * <!-- begin-user-doc -->

@@ -2,7 +2,7 @@ grammar com.mimacom.ddd.dm.dim.Dim with com.mimacom.ddd.dm.dmx.Dmx
 
 import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/dm/base" 
-import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.mimacom.com/ddd/dm/dim"
 
 /*
  * MODEL STRUCTURE
@@ -13,26 +13,26 @@ DNamespace:
 	'domain'
 	name=DQualifiedName
 	(imports+=DImport)*
-	model=DInformationModel;
+	model=DomainInformationModel;
 
-DInformationModel:
+DomainInformationModel:
 	'information' 'model'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?
 	'{'
-	(types+=DType | aggregates+=DAggregate)*
+	(types+=DimType | aggregates+=DimAggregate)*
 	'}';
 
 	
-DAggregate:
-	{DAggregate}
+DimAggregate returns DAggregate:
 	DAggregateKeyword
+	{DimAggregate}
 	name=ID
 	(description=DRichText)?
 	'{'
-		('query' features+=DQuery)*
-		( types+=DType)*
+		('query' features+=DimQuery)*
+		( types+=DimType)*
 	'}';
 
 DAggregateKeyword:
@@ -40,8 +40,8 @@ DAggregateKeyword:
 /*
  * TYPES
  */
-DType:
-	DPrimitive | DEnumeration | DEntityType | DDetailType;
+DimType returns DType:
+	DimPrimitive | DimEnumeration | DimEntityType | DimDetailType;
 	
 DConstraint returns DNamedPredicate:
 	'constraint'
@@ -51,7 +51,8 @@ DConstraint returns DNamedPredicate:
 	predicate=DExpression
 	(description=DRichText)?;
 
-DPrimitive:
+DimPrimitive returns DPrimitive:
+	{DimPrimitive}
 	'primitive'
 	name=ID
 	('alias' aliases+=ID)*
@@ -63,29 +64,32 @@ DPrimitive:
 	)?;
 
 
-DEnumeration:
+DimEnumeration returns DEnumeration:
+	{DimEnumeration}
 	'enumeration'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?
 	'{'
-	 	(literals+=DLiteral (',' literals+=DLiteral)*)?
+	 	(literals+=DimLiteral (',' literals+=DimLiteral)*)?
 		(constraints+=DConstraint)*
 	 '}';
 
-DLiteral:
+DimLiteral returns DLiteral:
+	{DimLiteral}
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?;
 
-DEntityType:
+DimEntityType returns DEntityType:
+	{DimEntityType}
 	(abstract?='abstract')?
 	(root?='main')?
 	(	'entity'
 	|	nature=DEntityNatureAutonomous 'entity'	// validation: cannot be abstract
 	|	nature=DEntityNatureRelationship
 	) 
-	DComplexType
+	DimComplexType
 	'{'
 	(	'states' 
 		'{'
@@ -97,7 +101,7 @@ DEntityType:
 			'}'
 		)?
 	)?
-	(features+=DFeature | constraints+=DConstraint)*
+	(features+=DimFeature | constraints+=DConstraint)*
 	'}';
 	
 enum DEntityNatureAutonomous returns DEntityNature:
@@ -111,24 +115,26 @@ DState:
 DStateEvent:
 	name=ID;
 
-DDetailType:
+DimDetailType returns DDetailType:
+	{DimDetailType}
 	(abstract?='abstract')?
 	'detail'
-	DComplexType
+	DimComplexType
 	'{'
-	(features+=DFeature | constraints+=DConstraint)*
+	(features+=DimFeature | constraints+=DConstraint)*
 	'}';
 
-fragment DComplexType:
+fragment DimComplexType returns DComplexType:
 	name=ID
 	('alias' aliases+=ID)*
 	('extends' superType=[DComplexType|ID])?
 	(description=DRichText)?;
 	
-DFeature:
-	DAssociation |  DAttribute | DQuery;
+DimFeature returns DFeature:
+	DimAssociation |  DimAttribute | DimQuery;
 
-DAssociation:
+DimAssociation returns DAssociation:
+	{DimAssociation}
 	(derived?='derived')? 
 	name=ID
 	('alias' aliases+=ID)*
@@ -143,7 +149,8 @@ enum DAssociationKind:
 enum DAssociationKindInverse returns DAssociationKind:	
 	 INVERSE_COMPOSITE="inverse";
 	
-DAttribute:
+DimAttribute returns DAttribute:
+	{DimAttribute}
 	(detail?='detail')?
 	name=ID
 	('alias' aliases+=ID)*
@@ -153,17 +160,19 @@ DAttribute:
 	(key?='key')?
 	(description=DRichText)?;
 
-DQuery:
+DimQuery returns DQuery:
+	{DimQuery}
 	name=ID
 	('alias' aliases+=ID)*
-	'(' (parameters+=DQueryParameter ( "," parameters+=DQueryParameter)*)? ')'
+	'(' (parameters+=DimQueryParameter ( "," parameters+=DimQueryParameter)*)? ')'
 	':' 
 	(type=[DType|ID])?  // optional: allows parser to continue parsing potential targets, caught by validation
 	(multiplicity=DMultiplicity)?
 	('returns' ^returns=DExpression)?
 	(description=DRichText)?;
 
-DQueryParameter:
+DimQueryParameter returns DQueryParameter:
+	{DimQueryParameter}
 	name=ID 
 	':' 
 	(type=[DType|ID])? // optional: allows parser to continue parsing potential targets, caught by validation

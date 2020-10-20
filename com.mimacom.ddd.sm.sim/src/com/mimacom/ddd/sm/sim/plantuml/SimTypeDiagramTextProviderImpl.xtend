@@ -11,7 +11,7 @@ import com.mimacom.ddd.dm.base.base.DEnumeration
 import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.transpose.ITransposition
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition
@@ -19,10 +19,10 @@ import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
-import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 class SimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<SystemInformationModel> {
 

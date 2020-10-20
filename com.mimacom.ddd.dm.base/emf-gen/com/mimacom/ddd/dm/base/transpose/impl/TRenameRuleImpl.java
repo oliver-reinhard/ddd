@@ -2,8 +2,6 @@
  */
 package com.mimacom.ddd.dm.base.transpose.impl;
 
-import com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImplCustom;
-
 import com.mimacom.ddd.dm.base.transpose.TRenameRule;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
@@ -26,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class TRenameRuleImpl extends TTranspositionRuleImplCustom implements TRenameRule
+public abstract class TRenameRuleImpl extends TTranspositionRuleImpl implements TRenameRule
 {
 	/**
 	 * The default value of the '{@link #getRenameTo() <em>Rename To</em>}' attribute.

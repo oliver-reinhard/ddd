@@ -74,6 +74,7 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IDiagramRoot getDiagramRoot() {
 		if (diagramRoot != null && diagramRoot.eIsProxy()) {
 			InternalEObject oldDiagramRoot = (InternalEObject)diagramRoot;
@@ -100,6 +101,7 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDiagramRoot(IDiagramRoot newDiagramRoot) {
 		IDiagramRoot oldDiagramRoot = diagramRoot;
 		diagramRoot = newDiagramRoot;
@@ -112,6 +114,7 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedTableType getTableType() {
 		if (tableType != null && tableType.eIsProxy()) {
 			InternalEObject oldTableType = (InternalEObject)tableType;
@@ -138,6 +141,7 @@ public class ProvidedTableImpl extends AbstractTableImpl implements ProvidedTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTableType(ProvidedTableType newTableType) {
 		ProvidedTableType oldTableType = tableType;
 		tableType = newTableType;

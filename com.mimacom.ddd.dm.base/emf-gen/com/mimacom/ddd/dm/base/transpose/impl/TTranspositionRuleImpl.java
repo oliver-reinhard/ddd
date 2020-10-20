@@ -1,11 +1,12 @@
 /**
  */
-package com.mimacom.ddd.dm.base.base.impl;
+package com.mimacom.ddd.dm.base.transpose.impl;
 
-import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -23,8 +24,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImpl#getSource <em>Source</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImpl#getNamedSource <em>Named Source</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.transpose.impl.TTranspositionRuleImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.transpose.impl.TTranspositionRuleImpl#getNamedSource <em>Named Source</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,7 +70,7 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 	@Override
 	protected EClass eStaticClass()
 	{
-		return BasePackage.Literals.TTRANSPOSITION_RULE;
+		return TransposePackage.Literals.TTRANSPOSITION_RULE;
 	}
 
 	/**
@@ -87,7 +88,7 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 			if (source != oldSource)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.TTRANSPOSITION_RULE__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransposePackage.TTRANSPOSITION_RULE__SOURCE, oldSource, source));
 			}
 		}
 		return source;
@@ -114,7 +115,7 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 		ITransposableElement oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.TTRANSPOSITION_RULE__SOURCE, oldSource, source));
+			eNotify(new ENotificationImpl(this, Notification.SET, TransposePackage.TTRANSPOSITION_RULE__SOURCE, oldSource, source));
 	}
 
 	/**
@@ -138,10 +139,10 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 	{
 		switch (featureID)
 		{
-			case BasePackage.TTRANSPOSITION_RULE__SOURCE:
+			case TransposePackage.TTRANSPOSITION_RULE__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
-			case BasePackage.TTRANSPOSITION_RULE__NAMED_SOURCE:
+			case TransposePackage.TTRANSPOSITION_RULE__NAMED_SOURCE:
 				return getNamedSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -157,7 +158,7 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 	{
 		switch (featureID)
 		{
-			case BasePackage.TTRANSPOSITION_RULE__SOURCE:
+			case TransposePackage.TTRANSPOSITION_RULE__SOURCE:
 				setSource((ITransposableElement)newValue);
 				return;
 		}
@@ -174,7 +175,7 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 	{
 		switch (featureID)
 		{
-			case BasePackage.TTRANSPOSITION_RULE__SOURCE:
+			case TransposePackage.TTRANSPOSITION_RULE__SOURCE:
 				setSource((ITransposableElement)null);
 				return;
 		}
@@ -191,9 +192,9 @@ public abstract class TTranspositionRuleImpl extends MinimalEObjectImpl.Containe
 	{
 		switch (featureID)
 		{
-			case BasePackage.TTRANSPOSITION_RULE__SOURCE:
+			case TransposePackage.TTRANSPOSITION_RULE__SOURCE:
 				return source != null;
-			case BasePackage.TTRANSPOSITION_RULE__NAMED_SOURCE:
+			case TransposePackage.TTRANSPOSITION_RULE__NAMED_SOURCE:
 				return namedSource != null;
 		}
 		return super.eIsSet(featureID);

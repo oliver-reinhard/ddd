@@ -91,6 +91,7 @@ public class AbbreviationImpl extends MinimalEObjectImpl.Container implements Ab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -100,6 +101,7 @@ public class AbbreviationImpl extends MinimalEObjectImpl.Container implements Ab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -112,6 +114,7 @@ public class AbbreviationImpl extends MinimalEObjectImpl.Container implements Ab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLongForm() {
 		return longForm;
 	}
@@ -121,6 +124,7 @@ public class AbbreviationImpl extends MinimalEObjectImpl.Container implements Ab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLongForm(String newLongForm) {
 		String oldLongForm = longForm;
 		longForm = newLongForm;

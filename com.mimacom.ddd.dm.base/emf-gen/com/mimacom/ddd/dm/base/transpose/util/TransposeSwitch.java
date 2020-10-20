@@ -26,11 +26,8 @@ import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
 
 import com.mimacom.ddd.dm.base.transpose.*;
 
@@ -102,6 +99,43 @@ public class TransposeSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
+			case TransposePackage.ITRANSPOSITION:
+			{
+				ITransposition iTransposition = (ITransposition)theEObject;
+				T result = caseITransposition(iTransposition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TransposePackage.TTRANSPOSITION_RULE:
+			{
+				TTranspositionRule tTranspositionRule = (TTranspositionRule)theEObject;
+				T result = caseTTranspositionRule(tTranspositionRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TransposePackage.ITRANSPOSABLE_ELEMENT:
+			{
+				ITransposableElement iTransposableElement = (ITransposableElement)theEObject;
+				T result = caseITransposableElement(iTransposableElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TransposePackage.ISYNTHETIC_ELEMENT:
+			{
+				ISyntheticElement iSyntheticElement = (ISyntheticElement)theEObject;
+				T result = caseISyntheticElement(iSyntheticElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TransposePackage.TIMPLICIT_TRANSPOSITION:
+			{
+				TImplicitTransposition tImplicitTransposition = (TImplicitTransposition)theEObject;
+				T result = caseTImplicitTransposition(tImplicitTransposition);
+				if (result == null) result = caseITransposition(tImplicitTransposition);
+				if (result == null) result = caseISyntheticElement(tImplicitTransposition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TransposePackage.TINFORMATION_MODEL:
 			{
 				TInformationModel tInformationModel = (TInformationModel)theEObject;
@@ -111,7 +145,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseIAggregateContainer(tInformationModel);
 				if (result == null) result = caseITypeContainer(tInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(tInformationModel);
-				if (result == null) result = caseITransposableElement(tInformationModel);
 				if (result == null) result = caseIDiagramRoot(tInformationModel);
 				if (result == null) result = caseDNamedElement(tInformationModel);
 				if (result == null) result = defaultCase(theEObject);
@@ -134,7 +167,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(tAggregateTransposition);
 				if (result == null) result = caseINavigableMemberContainer(tAggregateTransposition);
 				if (result == null) result = caseIStaticReferenceTarget(tAggregateTransposition);
-				if (result == null) result = caseITransposableElement(tAggregateTransposition);
 				if (result == null) result = caseIDiagramRoot(tAggregateTransposition);
 				if (result == null) result = caseDNamedElement(tAggregateTransposition);
 				if (result == null) result = defaultCase(theEObject);
@@ -144,8 +176,10 @@ public class TransposeSwitch<T> extends Switch<T>
 			{
 				TTypeTransposition tTypeTransposition = (TTypeTransposition)theEObject;
 				T result = caseTTypeTransposition(tTypeTransposition);
-				if (result == null) result = caseDNamedElement(tTypeTransposition);
+				if (result == null) result = caseDType(tTypeTransposition);
 				if (result == null) result = caseITransposition(tTypeTransposition);
+				if (result == null) result = caseIStaticReferenceTarget(tTypeTransposition);
+				if (result == null) result = caseDNamedElement(tTypeTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -159,7 +193,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposition(tPrimitiveTransposition);
 				if (result == null) result = caseDType(tPrimitiveTransposition);
 				if (result == null) result = caseIValueType(tPrimitiveTransposition);
-				if (result == null) result = caseITransposableElement(tPrimitiveTransposition);
 				if (result == null) result = caseIStaticReferenceTarget(tPrimitiveTransposition);
 				if (result == null) result = caseDNamedElement(tPrimitiveTransposition);
 				if (result == null) result = defaultCase(theEObject);
@@ -176,7 +209,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposition(tEnumerationTransposition);
 				if (result == null) result = caseDType(tEnumerationTransposition);
 				if (result == null) result = caseIValueType(tEnumerationTransposition);
-				if (result == null) result = caseITransposableElement(tEnumerationTransposition);
 				if (result == null) result = caseIStaticReferenceTarget(tEnumerationTransposition);
 				if (result == null) result = caseDNamedElement(tEnumerationTransposition);
 				if (result == null) result = defaultCase(theEObject);
@@ -189,7 +221,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseDLiteral(tLiteralTransposition);
 				if (result == null) result = caseITransposition(tLiteralTransposition);
 				if (result == null) result = caseDNavigableMember(tLiteralTransposition);
-				if (result == null) result = caseITransposableElement(tLiteralTransposition);
 				if (result == null) result = caseDNamedElement(tLiteralTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -199,8 +230,10 @@ public class TransposeSwitch<T> extends Switch<T>
 				TComplexTypeTransposition tComplexTypeTransposition = (TComplexTypeTransposition)theEObject;
 				T result = caseTComplexTypeTransposition(tComplexTypeTransposition);
 				if (result == null) result = caseTTypeTransposition(tComplexTypeTransposition);
-				if (result == null) result = caseDNamedElement(tComplexTypeTransposition);
+				if (result == null) result = caseDType(tComplexTypeTransposition);
 				if (result == null) result = caseITransposition(tComplexTypeTransposition);
+				if (result == null) result = caseIStaticReferenceTarget(tComplexTypeTransposition);
+				if (result == null) result = caseDNamedElement(tComplexTypeTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -217,7 +250,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(tDetailTypeTransposition);
 				if (result == null) result = caseINavigableMemberContainer(tDetailTypeTransposition);
 				if (result == null) result = caseITransposition(tDetailTypeTransposition);
-				if (result == null) result = caseITransposableElement(tDetailTypeTransposition);
 				if (result == null) result = caseIStaticReferenceTarget(tDetailTypeTransposition);
 				if (result == null) result = caseDNamedElement(tDetailTypeTransposition);
 				if (result == null) result = defaultCase(theEObject);
@@ -236,7 +268,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(tEntityTypeTransposition);
 				if (result == null) result = caseINavigableMemberContainer(tEntityTypeTransposition);
 				if (result == null) result = caseITransposition(tEntityTypeTransposition);
-				if (result == null) result = caseITransposableElement(tEntityTypeTransposition);
 				if (result == null) result = caseIStaticReferenceTarget(tEntityTypeTransposition);
 				if (result == null) result = caseDNamedElement(tEntityTypeTransposition);
 				if (result == null) result = defaultCase(theEObject);
@@ -246,7 +277,10 @@ public class TransposeSwitch<T> extends Switch<T>
 			{
 				TFeatureTransposition tFeatureTransposition = (TFeatureTransposition)theEObject;
 				T result = caseTFeatureTransposition(tFeatureTransposition);
+				if (result == null) result = caseDFeature(tFeatureTransposition);
 				if (result == null) result = caseITransposition(tFeatureTransposition);
+				if (result == null) result = caseDNavigableMember(tFeatureTransposition);
+				if (result == null) result = caseDNamedElement(tFeatureTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -259,7 +293,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseDFeature(tAssociationTransposition);
 				if (result == null) result = caseITransposition(tAssociationTransposition);
 				if (result == null) result = caseDNavigableMember(tAssociationTransposition);
-				if (result == null) result = caseITransposableElement(tAssociationTransposition);
 				if (result == null) result = caseDNamedElement(tAssociationTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -273,7 +306,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseDFeature(tAttributeTransposition);
 				if (result == null) result = caseITransposition(tAttributeTransposition);
 				if (result == null) result = caseDNavigableMember(tAttributeTransposition);
-				if (result == null) result = caseITransposableElement(tAttributeTransposition);
 				if (result == null) result = caseDNamedElement(tAttributeTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -288,7 +320,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseINavigableMemberContainer(tQueryTransposition);
 				if (result == null) result = caseITransposition(tQueryTransposition);
 				if (result == null) result = caseDNavigableMember(tQueryTransposition);
-				if (result == null) result = caseITransposableElement(tQueryTransposition);
 				if (result == null) result = caseDNamedElement(tQueryTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -300,7 +331,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseDQueryParameter(tQueryParameterTransposition);
 				if (result == null) result = caseITransposition(tQueryParameterTransposition);
 				if (result == null) result = caseDNavigableMember(tQueryParameterTransposition);
-				if (result == null) result = caseITransposableElement(tQueryParameterTransposition);
 				if (result == null) result = caseDNamedElement(tQueryParameterTransposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -370,6 +400,86 @@ public class TransposeSwitch<T> extends Switch<T>
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITransposition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITransposition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITransposition(ITransposition object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>TTransposition Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>TTransposition Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTTranspositionRule(TTranspositionRule object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITransposableElement(ITransposableElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ISynthetic Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ISynthetic Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseISyntheticElement(ISyntheticElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>TImplicit Transposition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>TImplicit Transposition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTImplicitTransposition(TImplicitTransposition object)
+	{
+		return null;
 	}
 
 	/**
@@ -805,22 +915,6 @@ public class TransposeSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseITransposableElement(ITransposableElement object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IDiagram Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -896,22 +990,6 @@ public class TransposeSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAggregate(DAggregate object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITransposition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITransposition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseITransposition(ITransposition object)
 	{
 		return null;
 	}
@@ -1168,22 +1246,6 @@ public class TransposeSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDQueryParameter(DQueryParameter object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>TTransposition Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>TTransposition Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTTranspositionRule(TTranspositionRule object)
 	{
 		return null;
 	}

@@ -20,15 +20,28 @@ import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
-import com.mimacom.ddd.dm.base.base.TImplicitTransposition;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.synthetic.SyntheticFactory;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticAttribute;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticComplexType;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticDetailType;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticEntityType;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticEnumeration;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticFeature;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticLiteral;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticPrimitive;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticQuery;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticQueryParameter;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticType;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TGrabRule;
+import com.mimacom.ddd.dm.base.transpose.TImplicitTransposition;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 import com.mimacom.ddd.dm.base.transpose.TMorphRule;
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTristate;
 import com.mimacom.ddd.dm.base.transpose.TransposeFactory;
 import com.mimacom.ddd.dm.base.transpose.TypeMappingUtil;
@@ -47,58 +60,59 @@ public class SyntheticModelElementsFactory {
   
   private static final TransposeFactory TRANSPOSE = TransposeFactory.eINSTANCE;
   
+  private static final SyntheticFactory SYNTHETIC = SyntheticFactory.eINSTANCE;
+  
   @Inject
   @Extension
   private TypeMappingUtil _typeMappingUtil;
   
-  public DAggregate addSyntheticAggregate(final TInformationModel container, final String name, final ITransposition recipe) {
-    final DAggregate syntheticAggregate = SyntheticModelElementsFactory.BASE.createDAggregate();
+  public TSyntheticAggregate addSyntheticAggregate(final TInformationModel container, final String name, final ITransposition recipe) {
+    final TSyntheticAggregate syntheticAggregate = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAggregate();
     syntheticAggregate.setName(name);
-    syntheticAggregate.setSynthetic(true);
-    syntheticAggregate.setTransposedBy(recipe);
+    syntheticAggregate.setRecipe(recipe);
     container.getAggregates().add(syntheticAggregate);
     return syntheticAggregate;
   }
   
-  protected DPrimitive _addSyntheticType(final ITypeContainer container, final String name, final DPrimitive source, final ITransposition recipe) {
-    final DPrimitive syntheticPrimitive = SyntheticModelElementsFactory.BASE.createDPrimitive();
+  protected TSyntheticPrimitive _addSyntheticType(final ITypeContainer container, final String name, final DPrimitive source, final ITransposition recipe) {
+    final TSyntheticPrimitive syntheticPrimitive = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticPrimitive();
     this.initSyntheticType(syntheticPrimitive, container, name, source, recipe);
     syntheticPrimitive.setRedefines(source.getRedefines());
     return syntheticPrimitive;
   }
   
-  protected DEnumeration _addSyntheticType(final ITypeContainer container, final String name, final DEnumeration source, final ITransposition recipe) {
-    final DEnumeration syntheticEnumeration = SyntheticModelElementsFactory.BASE.createDEnumeration();
+  protected TSyntheticEnumeration _addSyntheticType(final ITypeContainer container, final String name, final DEnumeration source, final ITransposition recipe) {
+    final TSyntheticEnumeration syntheticEnumeration = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticEnumeration();
     this.initSyntheticType(syntheticEnumeration, container, name, source, recipe);
     return syntheticEnumeration;
   }
   
-  protected DComplexType _addSyntheticType(final ITypeContainer container, final String name, final DComplexType source, final ITransposition recipe) {
+  protected TSyntheticComplexType _addSyntheticType(final ITypeContainer container, final String name, final DComplexType source, final ITransposition recipe) {
     final boolean allowsIdentityTypes = EcoreUtil2.<TInformationModel>getContainerOfType(container, TInformationModel.class).allowsIdentityTypes();
-    DComplexType _xifexpression = null;
-    if (((!allowsIdentityTypes) || this.makeDetailType(recipe.getTranspositionRule(), source))) {
-      _xifexpression = SyntheticModelElementsFactory.BASE.createDDetailType();
+    TSyntheticComplexType _xifexpression = null;
+    if (((!allowsIdentityTypes) || this.makeDetailType(recipe.getRule(), source))) {
+      _xifexpression = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticDetailType();
     } else {
-      _xifexpression = SyntheticModelElementsFactory.BASE.createDEntityType();
+      _xifexpression = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticEntityType();
     }
-    final DComplexType syntheticComplexType = _xifexpression;
+    final TSyntheticComplexType syntheticComplexType = _xifexpression;
     this.initSyntheticType(syntheticComplexType, container, name, source, recipe);
-    syntheticComplexType.setAbstract(this.makeAbstract(recipe.getTranspositionRule(), source));
+    syntheticComplexType.setAbstract(this.makeAbstract(recipe.getRule(), source));
     if ((syntheticComplexType instanceof DEntityType)) {
-      ((DEntityType)syntheticComplexType).setRoot(this.makeRoot(recipe.getTranspositionRule(), source));
+      ((DEntityType)syntheticComplexType).setRoot(this.makeRoot(recipe.getRule(), source));
     }
     container.getTypes().add(syntheticComplexType);
     return syntheticComplexType;
   }
   
-  protected DPrimitive _addSyntheticTypeAsCopy(final ITypeContainer container, final DPrimitive original) {
-    final DPrimitive syntheticPrimitive = SyntheticModelElementsFactory.BASE.createDPrimitive();
+  protected TSyntheticPrimitive _addSyntheticTypeAsCopy(final ITypeContainer container, final DPrimitive original) {
+    final TSyntheticPrimitive syntheticPrimitive = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticPrimitive();
     this.initSyntheticType(syntheticPrimitive, container, original.getName(), original, null);
     return syntheticPrimitive;
   }
   
-  protected DEnumeration _addSyntheticTypeAsCopy(final ITypeContainer container, final DEnumeration original) {
-    final DEnumeration syntheticEnumeration = SyntheticModelElementsFactory.BASE.createDEnumeration();
+  protected TSyntheticEnumeration _addSyntheticTypeAsCopy(final ITypeContainer container, final DEnumeration original) {
+    final TSyntheticEnumeration syntheticEnumeration = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticEnumeration();
     this.initSyntheticType(syntheticEnumeration, container, original.getName(), original, null);
     EList<DLiteral> _literals = original.getLiterals();
     for (final DLiteral literal : _literals) {
@@ -107,8 +121,8 @@ public class SyntheticModelElementsFactory {
     return syntheticEnumeration;
   }
   
-  protected DEntityType _addSyntheticTypeAsCopy(final ITypeContainer container, final DEntityType original) {
-    final DEntityType syntheticEntity = SyntheticModelElementsFactory.BASE.createDEntityType();
+  protected TSyntheticEntityType _addSyntheticTypeAsCopy(final ITypeContainer container, final DEntityType original) {
+    final TSyntheticEntityType syntheticEntity = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticEntityType();
     this.initSyntheticType(syntheticEntity, container, original.getName(), original, null);
     syntheticEntity.setAbstract(original.isAbstract());
     syntheticEntity.setSuperType(original.getSuperType());
@@ -117,108 +131,105 @@ public class SyntheticModelElementsFactory {
     return syntheticEntity;
   }
   
-  protected DDetailType _addSyntheticTypeAsCopy(final ITypeContainer container, final DDetailType original) {
-    final DDetailType syntheticEntity = SyntheticModelElementsFactory.BASE.createDDetailType();
+  protected TSyntheticDetailType _addSyntheticTypeAsCopy(final ITypeContainer container, final DDetailType original) {
+    final TSyntheticDetailType syntheticEntity = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticDetailType();
     this.initSyntheticType(syntheticEntity, container, original.getName(), original, null);
     syntheticEntity.setAbstract(original.isAbstract());
     syntheticEntity.setSuperType(original.getSuperType());
     return syntheticEntity;
   }
   
-  protected void initSyntheticType(final DType syntheticType, final ITypeContainer container, final String name, final DType original, final ITransposition recipe) {
+  protected void initSyntheticType(final TSyntheticType syntheticType, final ITypeContainer container, final String name, final DType original, final ITransposition recipe) {
     syntheticType.setName(name);
     syntheticType.getAliases().addAll(original.getAliases());
-    syntheticType.setSynthetic(true);
-    syntheticType.setTransposedBy(recipe);
+    syntheticType.setRecipe(recipe);
     container.getTypes().add(syntheticType);
   }
   
-  public DFeature addSyntheticFeature(final IFeatureContainer container, final String name, final DFeature source, final ITransposition recipe) {
+  public TSyntheticFeature addSyntheticFeature(final IFeatureContainer container, final String name, final DFeature source, final ITransposition recipe) {
     final DType sourceFeatureType = source.getType();
     if ((sourceFeatureType == null)) {
       return null;
     }
     final DType featureTypeProxy = this._typeMappingUtil.getTransposedTypeProxy(recipe, sourceFeatureType);
-    DFeature _switchResult = null;
+    TSyntheticFeature _switchResult = null;
     boolean _matched = false;
     if (source instanceof DQuery) {
       _matched=true;
-      _switchResult = SyntheticModelElementsFactory.BASE.createDQuery();
+      _switchResult = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticQuery();
     }
     if (!_matched) {
       if (source instanceof DAttribute || source instanceof DAssociation) {
         _matched=true;
-        DFeature _xblockexpression = null;
+        TSyntheticFeature _xblockexpression = null;
         {
           DType featureType = this.findLocalTypeMappingFor(container, source.getType());
           if ((featureType == null)) {
-            final DAttribute tempFeature = SyntheticModelElementsFactory.BASE.createDAttribute();
+            final TSyntheticAttribute tempFeature = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAttribute();
             container.getFeatures().add(tempFeature);
             tempFeature.setType(featureTypeProxy);
             featureType = tempFeature.getType();
             container.getFeatures().remove(tempFeature);
           }
-          DFeature _xifexpression = null;
+          TSyntheticFeature _xifexpression = null;
           if (((featureType instanceof IIdentityType) || ((featureType == null) && (source instanceof DAssociation)))) {
-            _xifexpression = SyntheticModelElementsFactory.BASE.createDAssociation();
+            _xifexpression = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAssociation();
           } else {
-            _xifexpression = SyntheticModelElementsFactory.BASE.createDAttribute();
+            _xifexpression = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAttribute();
           }
           _xblockexpression = _xifexpression;
         }
         _switchResult = _xblockexpression;
       }
     }
-    final DFeature syntheticFeature = _switchResult;
+    final TSyntheticFeature syntheticFeature = _switchResult;
     syntheticFeature.setName(name);
     syntheticFeature.getAliases().addAll(source.getAliases());
     syntheticFeature.setType(featureTypeProxy);
     syntheticFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
-    syntheticFeature.setSynthetic(true);
-    syntheticFeature.setTransposedBy(recipe);
+    syntheticFeature.setRecipe(recipe);
     container.getFeatures().add(syntheticFeature);
     return syntheticFeature;
   }
   
-  public DFeature addSyntheticFeatureAsCopy(final IFeatureContainer container, final DFeature source) {
-    DFeature _switchResult = null;
+  public TSyntheticFeature addSyntheticFeatureAsCopy(final IFeatureContainer container, final DFeature source) {
+    TSyntheticFeature _switchResult = null;
     boolean _matched = false;
     if (source instanceof DAttribute) {
       _matched=true;
-      _switchResult = SyntheticModelElementsFactory.BASE.createDAttribute();
+      _switchResult = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAttribute();
     }
     if (!_matched) {
       if (source instanceof DQuery) {
         _matched=true;
-        _switchResult = SyntheticModelElementsFactory.BASE.createDQuery();
+        _switchResult = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticQuery();
       }
     }
     if (!_matched) {
       if (source instanceof DAssociation) {
         _matched=true;
-        _switchResult = SyntheticModelElementsFactory.BASE.createDAssociation();
+        _switchResult = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAssociation();
       }
     }
-    final DFeature syntheticFeature = _switchResult;
+    final TSyntheticFeature syntheticFeature = _switchResult;
     container.getFeatures().add(syntheticFeature);
     this.initSyntheticFeatureAsCopy(syntheticFeature, source);
     return syntheticFeature;
   }
   
-  public DFeature addSyntheticQueryAsCopy(final DAggregate container, final DQuery source) {
-    final DQuery syntheticFeature = SyntheticModelElementsFactory.BASE.createDQuery();
+  public TSyntheticFeature addSyntheticQueryAsCopy(final DAggregate container, final DQuery source) {
+    final TSyntheticQuery syntheticFeature = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticQuery();
     container.getFeatures().add(syntheticFeature);
     this.initSyntheticFeatureAsCopy(syntheticFeature, source);
     return syntheticFeature;
   }
   
-  private void initSyntheticFeatureAsCopy(final DFeature syntheticFeature, final DFeature source) {
+  private void initSyntheticFeatureAsCopy(final TSyntheticFeature syntheticFeature, final DFeature source) {
     syntheticFeature.setName(source.getName());
     syntheticFeature.getAliases().addAll(source.getAliases());
     syntheticFeature.setType(source.getType());
     syntheticFeature.setMultiplicity(source.getMultiplicity());
-    syntheticFeature.setSynthetic(true);
-    syntheticFeature.setTransposedBy(null);
+    syntheticFeature.setRecipe(null);
     if ((source instanceof DQuery)) {
       EList<DQueryParameter> _parameters = ((DQuery)source).getParameters();
       for (final DQueryParameter p : _parameters) {
@@ -227,38 +238,35 @@ public class SyntheticModelElementsFactory {
     }
   }
   
-  public DQueryParameter addSyntheticQueryParameter(final DQuery container, final String name, final DQueryParameter source, final ITransposition recipe) {
+  public TSyntheticQueryParameter addSyntheticQueryParameter(final DQuery container, final String name, final DQueryParameter source, final ITransposition recipe) {
     final DType sourceParameterType = source.getType();
     if ((sourceParameterType == null)) {
       return null;
     }
-    final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.BASE.createDQueryParameter();
+    final TSyntheticQueryParameter syntheticParameter = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticQueryParameter();
     syntheticParameter.setName(name);
     syntheticParameter.setType(this._typeMappingUtil.getTransposedTypeProxy(recipe, sourceParameterType));
     syntheticParameter.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
-    syntheticParameter.setSynthetic(true);
-    syntheticParameter.setTransposedBy(recipe);
+    syntheticParameter.setRecipe(recipe);
     container.getParameters().add(syntheticParameter);
     return syntheticParameter;
   }
   
-  public DQueryParameter addSyntheticQueryParameterAsCopy(final DQuery container, final DQueryParameter source) {
-    final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.BASE.createDQueryParameter();
+  public TSyntheticQueryParameter addSyntheticQueryParameterAsCopy(final DQuery container, final DQueryParameter source) {
+    final TSyntheticQueryParameter syntheticParameter = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticQueryParameter();
     syntheticParameter.setName(source.getName());
     syntheticParameter.setType(source.getType());
     syntheticParameter.setMultiplicity(source.getMultiplicity());
-    syntheticParameter.setSynthetic(true);
-    syntheticParameter.setTransposedBy(null);
+    syntheticParameter.setRecipe(null);
     container.getParameters().add(syntheticParameter);
     return syntheticParameter;
   }
   
   public void addSyntheticLiteral(final DEnumeration container, final String name, final DLiteral source, final ITransposition recipe) {
-    final DLiteral syntheticLiteral = SyntheticModelElementsFactory.BASE.createDLiteral();
+    final TSyntheticLiteral syntheticLiteral = SyntheticModelElementsFactory.SYNTHETIC.createTSyntheticLiteral();
     syntheticLiteral.setName(name);
     syntheticLiteral.getAliases().addAll(source.getAliases());
-    syntheticLiteral.setSynthetic(true);
-    syntheticLiteral.setTransposedBy(recipe);
+    syntheticLiteral.setRecipe(recipe);
     container.getLiterals().add(syntheticLiteral);
   }
   
@@ -319,37 +327,34 @@ public class SyntheticModelElementsFactory {
   }
   
   protected DType findLocalTypeMappingFor(final EObject context, final DType source) {
-    final Function1<DType, Boolean> _function = (DType it) -> {
-      return Boolean.valueOf((!(it instanceof ITransposition)));
-    };
-    final Iterator<DType> types = IteratorExtensions.<DType>filter(Iterators.<DType>filter(context.eResource().getAllContents(), DType.class), _function);
-    final Function1<DType, Boolean> _function_1 = (DType it) -> {
-      ITransposition _transposedBy = it.getTransposedBy();
-      TTranspositionRule _transpositionRule = null;
-      if (_transposedBy!=null) {
-        _transpositionRule=_transposedBy.getTranspositionRule();
+    final Iterator<TSyntheticType> types = Iterators.<TSyntheticType>filter(context.eResource().getAllContents(), TSyntheticType.class);
+    final Function1<TSyntheticType, Boolean> _function = (TSyntheticType it) -> {
+      ITransposition _recipe = it.getRecipe();
+      TTranspositionRule _rule = null;
+      if (_recipe!=null) {
+        _rule=_recipe.getRule();
       }
       ITransposableElement _source = null;
-      if (_transpositionRule!=null) {
-        _source=_transpositionRule.getSource();
+      if (_rule!=null) {
+        _source=_rule.getSource();
       }
       return Boolean.valueOf((_source == source));
     };
-    final Iterator<DType> candidates = IteratorExtensions.<DType>filter(types, _function_1);
-    return IteratorExtensions.<DType>head(candidates);
+    final Iterator<TSyntheticType> candidates = IteratorExtensions.<TSyntheticType>filter(types, _function);
+    return IteratorExtensions.<TSyntheticType>head(candidates);
   }
   
   public TImplicitTransposition createImplicitTranspositionAsCopy(final ITransposition originalRecipe, final ITransposableElement source) {
-    final TImplicitTransposition implicitDeduction = SyntheticModelElementsFactory.BASE.createTImplicitTransposition();
-    originalRecipe.getImpliedTranspositions().add(implicitDeduction);
-    implicitDeduction.setOriginalDeductionDefinition(originalRecipe);
+    final TImplicitTransposition implicitTransposition = SyntheticModelElementsFactory.TRANSPOSE.createTImplicitTransposition();
+    originalRecipe.getImpliedTranspositions().add(implicitTransposition);
+    implicitTransposition.setOriginalTransposition(originalRecipe);
     final TGrabRule grabRule = SyntheticModelElementsFactory.TRANSPOSE.createTGrabRule();
     grabRule.setSource(source);
-    implicitDeduction.setTranspositionRule(grabRule);
-    return implicitDeduction;
+    implicitTransposition.setRule(grabRule);
+    return implicitTransposition;
   }
   
-  public DType addSyntheticType(final ITypeContainer container, final String name, final DType source, final ITransposition recipe) {
+  public TSyntheticType addSyntheticType(final ITypeContainer container, final String name, final DType source, final ITransposition recipe) {
     if (source instanceof DEnumeration) {
       return _addSyntheticType(container, name, (DEnumeration)source, recipe);
     } else if (source instanceof DPrimitive) {
@@ -362,7 +367,7 @@ public class SyntheticModelElementsFactory {
     }
   }
   
-  public DType addSyntheticTypeAsCopy(final ITypeContainer container, final DType original) {
+  public TSyntheticType addSyntheticTypeAsCopy(final ITypeContainer container, final DType original) {
     if (original instanceof DDetailType) {
       return _addSyntheticTypeAsCopy(container, (DDetailType)original);
     } else if (original instanceof DEntityType) {

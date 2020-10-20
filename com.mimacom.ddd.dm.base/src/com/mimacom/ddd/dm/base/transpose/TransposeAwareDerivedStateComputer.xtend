@@ -5,7 +5,6 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.base.ITransposableElement
 import java.util.Collections
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
@@ -66,7 +65,7 @@ class TransposeAwareDerivedStateComputer implements IDerivedStateComputer {
 
 	protected def void removeAllSyntheticElements(DerivedStateAwareResource resource) {
 		// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
-		val syntheticElements = resource.allContents.filter(ITransposableElement).filter[isSynthetic]
+		val syntheticElements = resource.allContents.filter(ISyntheticElement)
 		val list = Lists.newArrayList
 		while (syntheticElements.hasNext)
 			list.add(syntheticElements.next)
@@ -82,7 +81,7 @@ class TransposeAwareDerivedStateComputer implements IDerivedStateComputer {
 			Collections.sort(typeRecipes, new TypeSorter)
 			val complexSyntheticTypes = Lists.newArrayList
 			for (r : typeRecipes) {
-				val rule = r.getTranspositionRule
+				val rule = r.getRule
 				val source = rule.getSource
 				if (source instanceof DType) {
 					val syntheticType = model.transposeType(r, rule)

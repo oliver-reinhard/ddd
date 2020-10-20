@@ -1,6 +1,7 @@
 package com.mimacom.ddd.sm.sim;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DAssociation;
@@ -9,12 +10,13 @@ import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
 import com.mimacom.ddd.dm.base.base.impl.DDetailTypeImpl;
 import com.mimacom.ddd.dm.base.base.impl.DEntityTypeImpl;
 import com.mimacom.ddd.dm.base.base.impl.DEnumerationImpl;
 import com.mimacom.ddd.dm.base.base.impl.DPrimitiveImpl;
 import com.mimacom.ddd.dm.base.base.impl.DTypeImpl;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
@@ -29,6 +31,7 @@ import com.mimacom.ddd.dm.base.transpose.TGrabRule;
 import com.mimacom.ddd.dm.base.transpose.TMorphRule;
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.sm.sim.SystemInformationModel;
@@ -95,14 +98,15 @@ public class SimUtil extends DimUtil {
   public List<DType> syntheticTypes(final TAggregateTransposition a) {
     EObject _eContainer = a.eContainer();
     final SystemInformationModel model = ((SystemInformationModel) _eContainer);
-    final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
-      return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getTransposedBy(), a)));
+    final Function1<TSyntheticAggregate, Boolean> _function = (TSyntheticAggregate it) -> {
+      ITransposition _recipe = it.getRecipe();
+      return Boolean.valueOf(Objects.equal(_recipe, a));
     };
-    final Iterable<DAggregate> syntheticAggregates = IterableExtensions.<DAggregate>filter(model.getAggregates(), _function);
+    final Iterable<TSyntheticAggregate> syntheticAggregates = IterableExtensions.<TSyntheticAggregate>filter(Iterables.<TSyntheticAggregate>filter(model.getAggregates(), TSyntheticAggregate.class), _function);
     int _size = IterableExtensions.size(syntheticAggregates);
     boolean _equals = (_size == 1);
     if (_equals) {
-      return IterableExtensions.<DAggregate>head(syntheticAggregates).getTypes();
+      return IterableExtensions.<TSyntheticAggregate>head(syntheticAggregates).getTypes();
     }
     return Collections.EMPTY_LIST;
   }

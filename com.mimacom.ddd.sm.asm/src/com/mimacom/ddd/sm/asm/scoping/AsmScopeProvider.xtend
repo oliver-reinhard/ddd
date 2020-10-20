@@ -7,16 +7,16 @@ import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.base.BasePackage
 import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer
-import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.transpose.ITransposition
+import com.mimacom.ddd.sm.asm.AsmServiceInterface
+import com.mimacom.ddd.sm.asm.AsmServiceParameter
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import com.mimacom.ddd.sm.sim.SystemInformationModel
-import com.mimacom.ddd.sm.asm.AsmServiceInterface
-import com.mimacom.ddd.sm.asm.AsmServiceParameter
 
 /**
  * This class contains custom scoping description.

@@ -2,8 +2,7 @@
  */
 package com.mimacom.ddd.dm.base.transpose;
 
-import com.mimacom.ddd.dm.base.base.DNamedElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.base.DType;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +14,6 @@ import com.mimacom.ddd.dm.base.base.ITransposition;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface TTypeTransposition extends DNamedElement, ITransposition
+public interface TTypeTransposition extends DType, ITransposition
 {
 } // TTypeTransposition

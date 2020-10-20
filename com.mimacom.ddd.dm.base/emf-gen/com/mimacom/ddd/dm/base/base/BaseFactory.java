@@ -59,15 +59,6 @@ public interface BaseFactory extends EFactory
 	DRichText createDRichText();
 
 	/**
-	 * Returns a new object of class '<em>TImplicit Transposition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>TImplicit Transposition</em>'.
-	 * @generated
-	 */
-	TImplicitTransposition createTImplicitTransposition();
-
-	/**
 	 * Returns a new object of class '<em>DInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,15 +66,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DInformationModel createDInformationModel();
-
-	/**
-	 * Returns a new object of class '<em>DAggregate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DAggregate</em>'.
-	 * @generated
-	 */
-	DAggregate createDAggregate();
 
 	/**
 	 * Returns a new object of class '<em>DContext</em>'.
@@ -111,87 +93,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DNamedPredicate createDNamedPredicate();
-
-	/**
-	 * Returns a new object of class '<em>DPrimitive</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DPrimitive</em>'.
-	 * @generated
-	 */
-	DPrimitive createDPrimitive();
-
-	/**
-	 * Returns a new object of class '<em>DEnumeration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DEnumeration</em>'.
-	 * @generated
-	 */
-	DEnumeration createDEnumeration();
-
-	/**
-	 * Returns a new object of class '<em>DLiteral</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DLiteral</em>'.
-	 * @generated
-	 */
-	DLiteral createDLiteral();
-
-	/**
-	 * Returns a new object of class '<em>DDetail Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDetail Type</em>'.
-	 * @generated
-	 */
-	DDetailType createDDetailType();
-
-	/**
-	 * Returns a new object of class '<em>DEntity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DEntity Type</em>'.
-	 * @generated
-	 */
-	DEntityType createDEntityType();
-
-	/**
-	 * Returns a new object of class '<em>DAssociation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DAssociation</em>'.
-	 * @generated
-	 */
-	DAssociation createDAssociation();
-
-	/**
-	 * Returns a new object of class '<em>DAttribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DAttribute</em>'.
-	 * @generated
-	 */
-	DAttribute createDAttribute();
-
-	/**
-	 * Returns a new object of class '<em>DQuery</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DQuery</em>'.
-	 * @generated
-	 */
-	DQuery createDQuery();
-
-	/**
-	 * Returns a new object of class '<em>DQuery Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DQuery Parameter</em>'.
-	 * @generated
-	 */
-	DQueryParameter createDQueryParameter();
 
 	/**
 	 * Returns a new object of class '<em>DState</em>'.

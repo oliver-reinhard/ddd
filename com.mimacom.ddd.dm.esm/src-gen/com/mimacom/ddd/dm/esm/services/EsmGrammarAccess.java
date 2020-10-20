@@ -78,8 +78,8 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cForKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cForTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cForTypeDEntityTypeCrossReference_4_0 = (CrossReference)cForTypeAssignment_4.eContents().get(0);
-		private final RuleCall cForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cForTypeDEntityTypeCrossReference_4_0.eContents().get(1);
+		private final CrossReference cForTypeDimEntityTypeCrossReference_4_0 = (CrossReference)cForTypeAssignment_4.eContents().get(0);
+		private final RuleCall cForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cForTypeDimEntityTypeCrossReference_4_0.eContents().get(1);
 		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
@@ -97,14 +97,14 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//	'state' 'model'
 		//	name=DQualifiedName
 		//	'for'
-		//	forType=[DEntityType|DQualifiedName] description=DRichText?
+		//	forType=[DimEntityType|DQualifiedName] description=DRichText?
 		//	'{' ('direction' direction=EsmLayoutDirection)?
 		//	states+=EsmState+
 		//	transitions+=EsmTransition+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'state' 'model' name=DQualifiedName 'for' forType=[DEntityType|DQualifiedName] description=DRichText? '{' ('direction'
+		//'state' 'model' name=DQualifiedName 'for' forType=[DimEntityType|DQualifiedName] description=DRichText? '{' ('direction'
 		//direction=EsmLayoutDirection)? states+=EsmState+ transitions+=EsmTransition+ '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -123,14 +123,14 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'for'
 		public Keyword getForKeyword_3() { return cForKeyword_3; }
 		
-		//forType=[DEntityType|DQualifiedName]
+		//forType=[DimEntityType|DQualifiedName]
 		public Assignment getForTypeAssignment_4() { return cForTypeAssignment_4; }
 		
-		//[DEntityType|DQualifiedName]
-		public CrossReference getForTypeDEntityTypeCrossReference_4_0() { return cForTypeDEntityTypeCrossReference_4_0; }
+		//[DimEntityType|DQualifiedName]
+		public CrossReference getForTypeDimEntityTypeCrossReference_4_0() { return cForTypeDimEntityTypeCrossReference_4_0; }
 		
 		//DQualifiedName
-		public RuleCall getForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1() { return cForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1; }
+		public RuleCall getForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1() { return cForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
@@ -829,7 +829,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	//	'state' 'model'
 	//	name=DQualifiedName
 	//	'for'
-	//	forType=[DEntityType|DQualifiedName] description=DRichText?
+	//	forType=[DimEntityType|DQualifiedName] description=DRichText?
 	//	'{' ('direction' direction=EsmLayoutDirection)?
 	//	states+=EsmState+
 	//	transitions+=EsmTransition+

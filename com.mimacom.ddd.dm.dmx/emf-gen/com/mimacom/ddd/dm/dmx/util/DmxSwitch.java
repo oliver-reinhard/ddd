@@ -13,9 +13,10 @@ import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
+
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -127,10 +128,10 @@ public class DmxSwitch<T> extends Switch<T>
 				DmxArchetype dmxArchetype = (DmxArchetype)theEObject;
 				T result = caseDmxArchetype(dmxArchetype);
 				if (result == null) result = caseDPrimitive(dmxArchetype);
+				if (result == null) result = caseITransposableElement(dmxArchetype);
 				if (result == null) result = caseDSimpleType(dmxArchetype);
 				if (result == null) result = caseDType(dmxArchetype);
 				if (result == null) result = caseIValueType(dmxArchetype);
-				if (result == null) result = caseITransposableElement(dmxArchetype);
 				if (result == null) result = caseIStaticReferenceTarget(dmxArchetype);
 				if (result == null) result = caseDNamedElement(dmxArchetype);
 				if (result == null) result = defaultCase(theEObject);
@@ -1017,22 +1018,6 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseITransposableElement(ITransposableElement object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1108,6 +1093,22 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDPrimitive(DPrimitive object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITransposableElement(ITransposableElement object)
 	{
 		return null;
 	}

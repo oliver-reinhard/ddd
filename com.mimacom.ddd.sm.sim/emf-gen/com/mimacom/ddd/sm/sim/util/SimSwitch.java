@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
@@ -93,7 +92,6 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIAggregateContainer(systemInformationModel);
 				if (result == null) result = caseITypeContainer(systemInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(systemInformationModel);
-				if (result == null) result = caseITransposableElement(systemInformationModel);
 				if (result == null) result = caseIDiagramRoot(systemInformationModel);
 				if (result == null) result = caseDNamedElement(systemInformationModel);
 				if (result == null) result = defaultCase(theEObject);
@@ -195,22 +193,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITransposable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseITransposableElement(ITransposableElement object)
 	{
 		return null;
 	}

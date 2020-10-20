@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.mimacom.ddd.dm.dim/emf-gen" modelPluginID="com.mimacom.ddd.dm.dim"
+    modelName="Dim" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base ../../com.mimacom.ddd.dm.base/model/transpose.genmodel#//transpose"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>dim.ecore</foreignModel>
+  <genPackages prefix="Dim" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
+      ecorePackage="dim.ecore#/">
+    <genClasses ecoreClass="dim.ecore#//DomainInformationModel"/>
+    <genClasses ecoreClass="dim.ecore#//DimAggregate"/>
+    <genClasses image="false" ecoreClass="dim.ecore#//DimType"/>
+    <genClasses image="false" ecoreClass="dim.ecore#//DimSimpleType"/>
+    <genClasses ecoreClass="dim.ecore#//DimPrimitive"/>
+    <genClasses ecoreClass="dim.ecore#//DimEnumeration"/>
+    <genClasses ecoreClass="dim.ecore#//DimLiteral"/>
+    <genClasses image="false" ecoreClass="dim.ecore#//DimComplexType"/>
+    <genClasses ecoreClass="dim.ecore#//DimDetailType"/>
+    <genClasses ecoreClass="dim.ecore#//DimEntityType"/>
+    <genClasses image="false" ecoreClass="dim.ecore#//DimFeature"/>
+    <genClasses ecoreClass="dim.ecore#//DimAssociation"/>
+    <genClasses ecoreClass="dim.ecore#//DimAttribute"/>
+    <genClasses ecoreClass="dim.ecore#//DimQuery"/>
+    <genClasses ecoreClass="dim.ecore#//DimQueryParameter"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -8,12 +8,8 @@ import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -122,19 +118,6 @@ public class TInformationModelImpl extends DInformationModelImpl implements TInf
 	 * @generated
 	 */
 	@Override
-	public boolean allowsIdentityTypes()
-	{
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -209,22 +192,6 @@ public class TInformationModelImpl extends DInformationModelImpl implements TInf
 				return indexingHelper != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException
-	{
-		switch (operationID)
-		{
-			case TransposePackage.TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES:
-				return allowsIdentityTypes();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //TInformationModelImpl

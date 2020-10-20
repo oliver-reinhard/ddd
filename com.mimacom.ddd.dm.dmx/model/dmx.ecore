@@ -40,7 +40,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="members" upperBound="-1"
         eType="#//DmxBaseType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxArchetype" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxArchetype" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//ITransposableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxFilter" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">

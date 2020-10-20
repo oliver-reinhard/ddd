@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DAssociationImpl extends DFeatureImpl implements DAssociation
+public abstract class DAssociationImpl extends DFeatureImpl implements DAssociation
 {
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.

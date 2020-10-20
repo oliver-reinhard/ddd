@@ -13,6 +13,14 @@ package com.mimacom.ddd.dm.base.base;
  * @model
  * @generated
  */
-public interface DInformationModel extends DModel, IAggregateContainer, ITypeContainer, IStaticReferenceTarget, ITransposableElement, IDiagramRoot
+public interface DInformationModel extends DModel, IAggregateContainer, ITypeContainer, IStaticReferenceTarget, IDiagramRoot
 {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean allowsIdentityTypes();
+
 } // DInformationModel

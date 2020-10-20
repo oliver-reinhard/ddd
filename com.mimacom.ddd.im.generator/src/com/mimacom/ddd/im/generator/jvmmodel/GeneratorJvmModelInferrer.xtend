@@ -13,7 +13,8 @@ import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.base.DSimpleType
 import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.base.TTranspositionRule
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock
@@ -22,6 +23,9 @@ import com.mimacom.ddd.im.generator.generator.HttpVerb
 import com.mimacom.ddd.im.generator.generator.Model
 import com.mimacom.ddd.im.generator.generator.Path
 import com.mimacom.ddd.im.generator.generator.TypeMapping
+import com.mimacom.ddd.sm.asm.AsmException
+import com.mimacom.ddd.sm.asm.AsmParameterDirection
+import com.mimacom.ddd.sm.asm.AsmServiceParameter
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.time.Duration
@@ -49,9 +53,6 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import com.mimacom.ddd.sm.asm.AsmParameterDirection
-import com.mimacom.ddd.sm.asm.AsmException
-import com.mimacom.ddd.sm.asm.AsmServiceParameter
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -93,9 +94,8 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 			]
 	}
 
-	def dispatch void infer(EndpointDeclarationBlock element, IJvmDeclaredTypeAcceptor acceptor,
-		boolean isPreIndexingPhase) {
-		if(isPreIndexingPhase) return
+	def dispatch void infer(EndpointDeclarationBlock element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		if (isPreIndexingPhase) return
 
 		/* 
 		 * Generate code for all directly and indirectly referenced types; these will be used in the acceptor below;
@@ -130,11 +130,9 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 
 				members += endpoint.toMethod(operation.getName, operationReturnType) [
 					documentation = endpoint.documentation
-					annotations +=
-						annotationRef(endpoint.verb.toMethodAnnotationClass, endpoint.path.getEndpointPathAsString)
+					annotations += annotationRef(endpoint.verb.toMethodAnnotationClass, endpoint.path.getEndpointPathAsString)
 					if (endpoint.type.raises !== null) {
-						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model),
-							endpoint.type.raises)
+						val me = getMappedExceptions(acceptor, EcoreUtil2.getContainerOfType(endpoint, Model), endpoint.type.raises)
 						exceptions += me
 					}
 					for (AsmServiceParameter param : operation.parameters.filter[getDirection === AsmParameterDirection.INBOUND]) {
@@ -157,8 +155,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		toType(mappings, element)
 	}
 
-	def dispatch JvmTypeReference generateForType(EObject container, DEnumeration element,
-		IJvmDeclaredTypeAcceptor acceptor) {
+	def dispatch JvmTypeReference generateForType(EObject container, DEnumeration element, IJvmDeclaredTypeAcceptor acceptor) {
 		val jvmType = container.toEnumerationType(element.qualifiedName)
 		acceptor.accept(jvmType) [
 			members += element.literals.map[name].map[container.toEnumerationLiteral(it)]
@@ -166,8 +163,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		typeRef(jvmType)
 	}
 
-	def dispatch JvmTypeReference generateForType(EObject container, DComplexType element,
-		IJvmDeclaredTypeAcceptor acceptor) {
+	def dispatch JvmTypeReference generateForType(EObject container, DComplexType element, IJvmDeclaredTypeAcceptor acceptor) {
 		val jvmType = container.toClass(element.qualifiedName)
 		acceptor.accept(jvmType)[generateComplexType(container, element)]
 		typeRef(jvmType)
@@ -206,8 +202,8 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 
 	private def dispatch getQualifiedName(EndpointDeclarationBlock block) {
 		val declaredTypeName = block.fullyQualifiedName.segments.last
-		val controller = declaredTypeName.endsWith('Controller') ||
-				declaredTypeName.endsWith('RestResource') ? declaredTypeName : declaredTypeName + 'Controller'
+		val controller = declaredTypeName.endsWith('Controller') || declaredTypeName.endsWith('RestResource') ? declaredTypeName : declaredTypeName +
+				'Controller'
 		block.packageName + '.' + controller
 	}
 
@@ -253,7 +249,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	 * toType
 	 */
 	def dispatch JvmTypeReference toType(Iterable<TypeMapping> mappings, DType type) {
-		if(type.name === null) typeRef(Object)
+		if (type.name === null) typeRef(Object)
 		typeRef(type.qualifiedName)
 	}
 
@@ -262,7 +258,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def dispatch JvmTypeReference toType(Iterable<TypeMapping> mappings, DComplexType complexType) {
-		if(complexType.name === null) typeRef(Object)
+		if (complexType.name === null) typeRef(Object)
 		typeRef(complexType.qualifiedName)
 	}
 
@@ -274,8 +270,10 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		if (primitive.redefines !== null) {
 			return toType(mappings, primitive.redefines)
 		}
-		if (primitive.getTransposedBy?.getTranspositionRule !== null) {
-			return toType(mappings, primitive.getTransposedBy.getTranspositionRule)
+		if (primitive instanceof ITransposableElement) {
+			if (primitive.transposedBy?.rule !== null) {
+				return toType(mappings, primitive.transposedBy.rule)
+			}
 		}
 		return typeRef(Object) // fallback
 	}
@@ -327,8 +325,10 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		val annotations = newArrayList
 		if (param.isPathParameter(endpoint.path))
 			annotations += annotationRef(PathVariable)
-		else if(endpoint.verb == HttpVerb.POST || endpoint.verb == HttpVerb.PUT) annotations +=
-			annotationRef(RequestBody) else annotations += annotationRef(RequestParam)
+		else if (endpoint.verb == HttpVerb.POST || endpoint.verb == HttpVerb.PUT)
+			annotations += annotationRef(RequestBody)
+		else
+			annotations += annotationRef(RequestParam)
 		annotations
 	}
 
@@ -379,7 +379,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 			'''
 		]
 	}
-	
+
 	private def newLine() {
 		System.getProperty('line.separator')
 	}
@@ -407,15 +407,14 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 		}
 	}
 
-	private def Iterable<JvmTypeReference> getMappedExceptions(IJvmDeclaredTypeAcceptor acceptor, Model model,
-		List<AsmException> exceptions) {
+	private def Iterable<JvmTypeReference> getMappedExceptions(IJvmDeclaredTypeAcceptor acceptor, Model model, List<AsmException> exceptions) {
 		val mappings = model.exceptionMappings.filter[exceptions.contains(it.type)].toList
 
 		val typeRefsOfMappedExceptions = mappings.flatMap[associations.getJvmElements(it)].filter [
 			it instanceof JvmDeclaredType
 		].map[it as JvmDeclaredType].map[typeRef].toList
 
-		if(exceptions.size === typeRefsOfMappedExceptions.size) return typeRefsOfMappedExceptions
+		if (exceptions.size === typeRefsOfMappedExceptions.size) return typeRefsOfMappedExceptions
 
 		// there are additional unmapped exceptions, i.e. exceptions not modeled in gen model
 		val unmappedExceptions = exceptions.dropWhile[mappings.exists[e|it == e.name]].toList
@@ -433,7 +432,7 @@ class GeneratorJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	private def getEndpointPathAsString(Path path) {
-		if(path === null) return null
+		if (path === null) return null
 		val prefix = path.leadingSlash ? '/' : ''
 		prefix + path.segments.map[isVariable ? '{' + it.name + '}' : it.name].join('/')
 	}

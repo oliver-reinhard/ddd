@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base.base;
  * @model abstract="true"
  * @generated
  */
-public interface DFeature extends DNavigableMember, ITransposableElement
+public interface DFeature extends DNavigableMember
 {
 } // DFeature

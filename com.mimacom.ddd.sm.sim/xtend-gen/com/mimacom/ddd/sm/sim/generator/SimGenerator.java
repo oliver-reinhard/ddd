@@ -5,8 +5,9 @@ package com.mimacom.ddd.sm.sim.generator;
 
 import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.io.CharArrayWriter;
 import java.util.Iterator;
@@ -80,8 +81,7 @@ public class SimGenerator extends AbstractGenerator {
         {
           final ITransposableElement e = deducibleElements.next();
           e.setTransposedBy(null);
-          hadSyntheticItems = (hadSyntheticItems || e.isSynthetic());
-          e.setSynthetic(false);
+          hadSyntheticItems = (hadSyntheticItems || (e instanceof ISyntheticElement));
         }
       }
     }

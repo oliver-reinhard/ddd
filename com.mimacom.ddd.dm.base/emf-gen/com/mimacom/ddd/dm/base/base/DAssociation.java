@@ -18,7 +18,7 @@ package com.mimacom.ddd.dm.base.base;
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDAssociation()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DAssociation extends DFeature

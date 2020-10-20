@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
+public abstract class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 {
 	/**
 	 * The cached value of the '{@link #getRedefines() <em>Redefines</em>}' reference.

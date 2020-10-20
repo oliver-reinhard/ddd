@@ -34,9 +34,10 @@ Workflow {
 		language = StandardLanguage {
 			name = "${project}.Sim"
 			fileExtensions = "sim"
-			referencedResource = "platform:/resource/${project}/model/sim.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.base/model/transpose.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
+			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dim/model/dim.genmodel"
+			referencedResource =  "${genModel}"
 
 			formatter = {
 				generateStub = true

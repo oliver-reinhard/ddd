@@ -4,6 +4,8 @@ package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 
+import com.mimacom.ddd.dm.base.transpose.TransposePackage;
+
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
@@ -361,7 +363,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
+		TransposePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDmxPackage.createPackageContents();
@@ -1570,6 +1572,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		// Obtain other dependent packages
 		BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
+		TransposePackage theTransposePackage = (TransposePackage)EPackage.Registry.INSTANCE.getEPackage(TransposePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1581,6 +1584,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxTestEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		dmxTestContextEClass.getESuperTypes().add(theBasePackage.getDContext());
 		dmxArchetypeEClass.getESuperTypes().add(theBasePackage.getDPrimitive());
+		dmxArchetypeEClass.getESuperTypes().add(theTransposePackage.getITransposableElement());
 		dmxFilterEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		dmxAssignmentEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxPredicateWithCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getDExpression());

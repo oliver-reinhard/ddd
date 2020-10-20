@@ -9,12 +9,12 @@ import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
@@ -36,9 +36,9 @@ public class DimFormatter extends DmxFormatter {
   @Extension
   private DimGrammarAccess _dimGrammarAccess;
   
-  protected void _format(final DInformationModel model, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDInformationModelAccess().getLeftCurlyBracketKeyword_5());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDInformationModelAccess().getRightCurlyBracketKeyword_7());
+  protected void _format(final DomainInformationModel model, @Extension final IFormattableDocument document) {
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDomainInformationModelAccess().getLeftCurlyBracketKeyword_5());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDomainInformationModelAccess().getRightCurlyBracketKeyword_7());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -82,8 +82,8 @@ public class DimFormatter extends DmxFormatter {
   }
   
   protected void _format(final DAggregate aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_4());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_7());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDimAggregateAccess().getLeftCurlyBracketKeyword_4());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDimAggregateAccess().getRightCurlyBracketKeyword_7());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -126,8 +126,8 @@ public class DimFormatter extends DmxFormatter {
     int _size = en.getLiterals().size();
     boolean _greaterThan = (_size > 3);
     if (_greaterThan) {
-      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDEnumerationAccess().getLeftCurlyBracketKeyword_4());
-      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDEnumerationAccess().getRightCurlyBracketKeyword_7());
+      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDimEnumerationAccess().getLeftCurlyBracketKeyword_5());
+      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDimEnumerationAccess().getRightCurlyBracketKeyword_8());
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
@@ -141,9 +141,9 @@ public class DimFormatter extends DmxFormatter {
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.noSpace();
         };
-        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._dimGrammarAccess.getDLiteralAccess().getNameAssignment_0()), _function_2);
+        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._dimGrammarAccess.getDimLiteralAccess().getNameAssignment_1()), _function_2);
       }
-      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._dimGrammarAccess.getDEnumerationAccess().getCommaKeyword_5_1_0());
+      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._dimGrammarAccess.getDimEnumerationAccess().getCommaKeyword_6_1_0());
       for (final ISemanticRegion comma : _keywords) {
         final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
           it.newLine();
@@ -158,8 +158,8 @@ public class DimFormatter extends DmxFormatter {
   }
   
   protected void _format(final DComplexType type, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_4());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_7());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDimEntityTypeAccess().getLeftCurlyBracketKeyword_5());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._dimGrammarAccess.getDimEntityTypeAccess().getRightCurlyBracketKeyword_8());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
@@ -194,11 +194,11 @@ public class DimFormatter extends DmxFormatter {
     } else if (en instanceof DComplexType) {
       _format((DComplexType)en, document);
       return;
+    } else if (en instanceof DomainInformationModel) {
+      _format((DomainInformationModel)en, document);
+      return;
     } else if (en instanceof DAggregate) {
       _format((DAggregate)en, document);
-      return;
-    } else if (en instanceof DInformationModel) {
-      _format((DInformationModel)en, document);
       return;
     } else if (en instanceof DRichText) {
       _format((DRichText)en, document);

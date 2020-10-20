@@ -12,13 +12,13 @@ import com.mimacom.ddd.dm.base.base.DEntityNature;
 import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
 import java.util.Arrays;
 import java.util.List;
@@ -31,18 +31,18 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DInformationModel> {
+public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DomainInformationModel> {
   @Inject
   @Extension
   private DimUtil _dimUtil;
   
   @Override
-  public boolean canProvide(final DInformationModel model) {
+  public boolean canProvide(final DomainInformationModel model) {
     return ((model != null) && (!(model.getTypes().isEmpty() && model.getAggregates().isEmpty())));
   }
   
   @Override
-  public String diagramText(final DInformationModel model) {
+  public String diagramText(final DomainInformationModel model) {
     final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(model, DAggregate.class);
     final Function1<DAssociation, Boolean> _function = (DAssociation it) -> {
       DType _type = it.getType();

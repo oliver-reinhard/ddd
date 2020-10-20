@@ -115,24 +115,6 @@ public interface SimPackage extends EPackage
 	int SYSTEM_INFORMATION_MODEL__TYPES = TransposePackage.TINFORMATION_MODEL__TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_INFORMATION_MODEL__TRANSPOSED_BY = TransposePackage.TINFORMATION_MODEL__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_INFORMATION_MODEL__SYNTHETIC = TransposePackage.TINFORMATION_MODEL__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Indexing Helper</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

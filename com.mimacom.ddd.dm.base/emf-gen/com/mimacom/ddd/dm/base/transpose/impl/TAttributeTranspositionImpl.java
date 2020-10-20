@@ -2,15 +2,13 @@
  */
 package com.mimacom.ddd.dm.base.transpose.impl;
 
-import com.mimacom.ddd.dm.base.base.BasePackage;
-import com.mimacom.ddd.dm.base.base.ITransposition;
-import com.mimacom.ddd.dm.base.base.TImplicitTransposition;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
-
 import com.mimacom.ddd.dm.base.base.impl.DAttributeImpl;
 
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
+import com.mimacom.ddd.dm.base.transpose.TImplicitTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
 import java.util.Collection;
@@ -36,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.transpose.impl.TAttributeTranspositionImpl#getTranspositionRule <em>Transposition Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.transpose.impl.TAttributeTranspositionImpl#getRule <em>Rule</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.transpose.impl.TAttributeTranspositionImpl#getImpliedTranspositions <em>Implied Transpositions</em>}</li>
  * </ul>
  *
@@ -45,14 +43,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttributeTransposition
 {
 	/**
-	 * The cached value of the '{@link #getTranspositionRule() <em>Transposition Rule</em>}' containment reference.
+	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTranspositionRule()
+	 * @see #getRule()
 	 * @generated
 	 * @ordered
 	 */
-	protected TTranspositionRule transpositionRule;
+	protected TTranspositionRule rule;
 
 	/**
 	 * The cached value of the '{@link #getImpliedTranspositions() <em>Implied Transpositions</em>}' containment reference list.
@@ -91,9 +89,9 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	 * @generated
 	 */
 	@Override
-	public TTranspositionRule getTranspositionRule()
+	public TTranspositionRule getRule()
 	{
-		return transpositionRule;
+		return rule;
 	}
 
 	/**
@@ -101,13 +99,13 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTranspositionRule(TTranspositionRule newTranspositionRule, NotificationChain msgs)
+	public NotificationChain basicSetRule(TTranspositionRule newRule, NotificationChain msgs)
 	{
-		TTranspositionRule oldTranspositionRule = transpositionRule;
-		transpositionRule = newTranspositionRule;
+		TTranspositionRule oldRule = rule;
+		rule = newRule;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE, oldTranspositionRule, newTranspositionRule);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE, oldRule, newRule);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -119,20 +117,20 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	 * @generated
 	 */
 	@Override
-	public void setTranspositionRule(TTranspositionRule newTranspositionRule)
+	public void setRule(TTranspositionRule newRule)
 	{
-		if (newTranspositionRule != transpositionRule)
+		if (newRule != rule)
 		{
 			NotificationChain msgs = null;
-			if (transpositionRule != null)
-				msgs = ((InternalEObject)transpositionRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE, null, msgs);
-			if (newTranspositionRule != null)
-				msgs = ((InternalEObject)newTranspositionRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE, null, msgs);
-			msgs = basicSetTranspositionRule(newTranspositionRule, msgs);
+			if (rule != null)
+				msgs = ((InternalEObject)rule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE, null, msgs);
+			if (newRule != null)
+				msgs = ((InternalEObject)newRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE, null, msgs);
+			msgs = basicSetRule(newRule, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE, newTranspositionRule, newTranspositionRule));
+			eNotify(new ENotificationImpl(this, Notification.SET, TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE, newRule, newRule));
 	}
 
 	/**
@@ -160,8 +158,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	{
 		switch (featureID)
 		{
-			case TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE:
-				return basicSetTranspositionRule(null, msgs);
+			case TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE:
+				return basicSetRule(null, msgs);
 			case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS:
 				return ((InternalEList<?>)getImpliedTranspositions()).basicRemove(otherEnd, msgs);
 		}
@@ -178,8 +176,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	{
 		switch (featureID)
 		{
-			case TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE:
-				return getTranspositionRule();
+			case TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE:
+				return getRule();
 			case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS:
 				return getImpliedTranspositions();
 		}
@@ -197,8 +195,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	{
 		switch (featureID)
 		{
-			case TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE:
-				setTranspositionRule((TTranspositionRule)newValue);
+			case TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE:
+				setRule((TTranspositionRule)newValue);
 				return;
 			case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS:
 				getImpliedTranspositions().clear();
@@ -218,8 +216,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	{
 		switch (featureID)
 		{
-			case TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE:
-				setTranspositionRule((TTranspositionRule)null);
+			case TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE:
+				setRule((TTranspositionRule)null);
 				return;
 			case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS:
 				getImpliedTranspositions().clear();
@@ -238,8 +236,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 	{
 		switch (featureID)
 		{
-			case TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE:
-				return transpositionRule != null;
+			case TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE:
+				return rule != null;
 			case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS:
 				return impliedTranspositions != null && !impliedTranspositions.isEmpty();
 		}
@@ -258,8 +256,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 		{
 			switch (derivedFeatureID)
 			{
-				case TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE: return BasePackage.ITRANSPOSITION__TRANSPOSITION_RULE;
-				case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS: return BasePackage.ITRANSPOSITION__IMPLIED_TRANSPOSITIONS;
+				case TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE: return TransposePackage.ITRANSPOSITION__RULE;
+				case TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS: return TransposePackage.ITRANSPOSITION__IMPLIED_TRANSPOSITIONS;
 				default: return -1;
 			}
 		}
@@ -285,8 +283,8 @@ public class TAttributeTranspositionImpl extends DAttributeImpl implements TAttr
 		{
 			switch (baseFeatureID)
 			{
-				case BasePackage.ITRANSPOSITION__TRANSPOSITION_RULE: return TransposePackage.TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE;
-				case BasePackage.ITRANSPOSITION__IMPLIED_TRANSPOSITIONS: return TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS;
+				case TransposePackage.ITRANSPOSITION__RULE: return TransposePackage.TATTRIBUTE_TRANSPOSITION__RULE;
+				case TransposePackage.ITRANSPOSITION__IMPLIED_TRANSPOSITIONS: return TransposePackage.TATTRIBUTE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS;
 				default: return -1;
 			}
 		}

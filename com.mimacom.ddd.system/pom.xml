@@ -35,9 +35,12 @@
             <language>
               <setup>com.mimacom.ddd.dm.dmx.DmxStandaloneSetup</setup>
             </language>
+        <!-- The following property causes the build to fail with (see https://github.com/oliver-reinhard/ddd/issues/26):
+         java.lang.IllegalStateException: Unresolved proxy http://www.mimacom.com/ddd/dm/dim#//DomainInformationModel. Make sure the EPackage has been registered.
             <language>
               <setup>com.mimacom.ddd.dm.dim.DimStandaloneSetup</setup>
             </language>
+         -->
           </languages>
         </configuration>
         <dependencies>

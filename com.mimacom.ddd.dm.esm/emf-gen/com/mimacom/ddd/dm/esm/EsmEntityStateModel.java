@@ -3,11 +3,12 @@
  */
 package com.mimacom.ddd.dm.esm;
 
-import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
+
+import com.mimacom.ddd.dm.dim.DimEntityType;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,12 +37,12 @@ public interface EsmEntityStateModel extends DModel, IEsmStateModel, INavigableM
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For Type</em>' reference.
-	 * @see #setForType(DEntityType)
+	 * @see #setForType(DimEntityType)
 	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmEntityStateModel_ForType()
 	 * @model
 	 * @generated
 	 */
-	DEntityType getForType();
+	DimEntityType getForType();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getForType <em>For Type</em>}' reference.
@@ -51,6 +52,6 @@ public interface EsmEntityStateModel extends DModel, IEsmStateModel, INavigableM
 	 * @see #getForType()
 	 * @generated
 	 */
-	void setForType(DEntityType value);
+	void setForType(DimEntityType value);
 
 } // EsmEntityStateModel

@@ -2,7 +2,7 @@
  */
 package com.mimacom.ddd.dm.base.transpose;
 
-import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.base.DFeature;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +14,6 @@ import com.mimacom.ddd.dm.base.base.ITransposition;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface TFeatureTransposition extends ITransposition
+public interface TFeatureTransposition extends DFeature, ITransposition
 {
 } // TFeatureTransposition

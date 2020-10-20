@@ -493,199 +493,6 @@ public interface BasePackage extends EPackage
 	int DRICH_TEXT_OPERATION_COUNT = DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.ITransposition <em>ITransposition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.ITransposition
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getITransposition()
-	 * @generated
-	 */
-	int ITRANSPOSITION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSITION__TRANSPOSITION_RULE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSITION__IMPLIED_TRANSPOSITIONS = 1;
-
-	/**
-	 * The number of structural features of the '<em>ITransposition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSITION_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>ITransposition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSITION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImpl <em>TTransposition Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImpl
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getTTranspositionRule()
-	 * @generated
-	 */
-	int TTRANSPOSITION_RULE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TTRANSPOSITION_RULE__SOURCE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Named Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TTRANSPOSITION_RULE__NAMED_SOURCE = 1;
-
-	/**
-	 * The number of structural features of the '<em>TTransposition Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TTRANSPOSITION_RULE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>TTransposition Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TTRANSPOSITION_RULE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getITransposableElement()
-	 * @generated
-	 */
-	int ITRANSPOSABLE_ELEMENT = 12;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSABLE_ELEMENT__SYNTHETIC = 1;
-
-	/**
-	 * The number of structural features of the '<em>ITransposable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSABLE_ELEMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>ITransposable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITRANSPOSABLE_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.TImplicitTranspositionImpl <em>TImplicit Transposition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.impl.TImplicitTranspositionImpl
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getTImplicitTransposition()
-	 * @generated
-	 */
-	int TIMPLICIT_TRANSPOSITION = 13;
-
-	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMPLICIT_TRANSPOSITION__TRANSPOSITION_RULE = ITRANSPOSITION__TRANSPOSITION_RULE;
-
-	/**
-	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMPLICIT_TRANSPOSITION__IMPLIED_TRANSPOSITIONS = ITRANSPOSITION__IMPLIED_TRANSPOSITIONS;
-
-	/**
-	 * The feature id for the '<em><b>Original Deduction Definition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMPLICIT_TRANSPOSITION__ORIGINAL_DEDUCTION_DEFINITION = ITRANSPOSITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>TImplicit Transposition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMPLICIT_TRANSPOSITION_FEATURE_COUNT = ITRANSPOSITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>TImplicit Transposition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMPLICIT_TRANSPOSITION_OPERATION_COUNT = ITRANSPOSITION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl <em>DInformation Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -693,7 +500,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDInformationModel()
 	 * @generated
 	 */
-	int DINFORMATION_MODEL = 14;
+	int DINFORMATION_MODEL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -741,31 +548,22 @@ public interface BasePackage extends EPackage
 	int DINFORMATION_MODEL__TYPES = DMODEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DINFORMATION_MODEL__TRANSPOSED_BY = DMODEL_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DINFORMATION_MODEL__SYNTHETIC = DMODEL_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>DInformation Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL_FEATURE_COUNT = DMODEL_FEATURE_COUNT + 4;
+	int DINFORMATION_MODEL_FEATURE_COUNT = DMODEL_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Allows Identity Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = DMODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DInformation Model</em>' class.
@@ -774,7 +572,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL_OPERATION_COUNT = DMODEL_OPERATION_COUNT + 0;
+	int DINFORMATION_MODEL_OPERATION_COUNT = DMODEL_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.IAggregateContainer <em>IAggregate Container</em>}' class.
@@ -784,7 +582,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIAggregateContainer()
 	 * @generated
 	 */
-	int IAGGREGATE_CONTAINER = 15;
+	int IAGGREGATE_CONTAINER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -821,7 +619,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getITypeContainer()
 	 * @generated
 	 */
-	int ITYPE_CONTAINER = 16;
+	int ITYPE_CONTAINER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -858,7 +656,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIFeatureContainer()
 	 * @generated
 	 */
-	int IFEATURE_CONTAINER = 17;
+	int IFEATURE_CONTAINER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -895,7 +693,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAggregate()
 	 * @generated
 	 */
-	int DAGGREGATE = 18;
+	int DAGGREGATE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -952,31 +750,13 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE__NAVIGABLE_MEMBERS = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAGGREGATE__TRANSPOSED_BY = DNAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAGGREGATE__SYNTHETIC = DNAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ROOTS = DNAMED_ELEMENT_FEATURE_COUNT + 5;
+	int DAGGREGATE__ROOTS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>DAggregate</em>' class.
@@ -985,7 +765,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 6;
+	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>DAggregate</em>' class.
@@ -1004,7 +784,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNavigableMember()
 	 * @generated
 	 */
-	int DNAVIGABLE_MEMBER = 19;
+	int DNAVIGABLE_MEMBER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1095,7 +875,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getINavigableMemberContainer()
 	 * @generated
 	 */
-	int INAVIGABLE_MEMBER_CONTAINER = 20;
+	int INAVIGABLE_MEMBER_CONTAINER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -1132,7 +912,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 21;
+	int DCONTEXT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1223,7 +1003,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 22;
+	int DMULTIPLICITY = 18;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -1278,7 +1058,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIIdentityType()
 	 * @generated
 	 */
-	int IIDENTITY_TYPE = 23;
+	int IIDENTITY_TYPE = 19;
 
 	/**
 	 * The number of structural features of the '<em>IIdentity Type</em>' class.
@@ -1306,7 +1086,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIValueType()
 	 * @generated
 	 */
-	int IVALUE_TYPE = 24;
+	int IVALUE_TYPE = 20;
 
 	/**
 	 * The number of structural features of the '<em>IValue Type</em>' class.
@@ -1334,7 +1114,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDType()
 	 * @generated
 	 */
-	int DTYPE = 25;
+	int DTYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1364,31 +1144,13 @@ public interface BasePackage extends EPackage
 	int DTYPE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTYPE__TRANSPOSED_BY = DNAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTYPE__SYNTHETIC = DNAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE__CONSTRAINTS = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DTYPE__CONSTRAINTS = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
@@ -1397,7 +1159,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE__PRIMITIVE = DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DTYPE__PRIMITIVE = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DType</em>' class.
@@ -1406,7 +1168,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DTYPE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DType</em>' class.
@@ -1425,7 +1187,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamedPredicate()
 	 * @generated
 	 */
-	int DNAMED_PREDICATE = 26;
+	int DNAMED_PREDICATE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1489,7 +1251,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDSimpleType()
 	 * @generated
 	 */
-	int DSIMPLE_TYPE = 27;
+	int DSIMPLE_TYPE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1517,24 +1279,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DSIMPLE_TYPE__DESCRIPTION = DTYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSIMPLE_TYPE__TRANSPOSED_BY = DTYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSIMPLE_TYPE__SYNTHETIC = DTYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1580,7 +1324,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDPrimitive()
 	 * @generated
 	 */
-	int DPRIMITIVE = 28;
+	int DPRIMITIVE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1608,24 +1352,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DPRIMITIVE__DESCRIPTION = DSIMPLE_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DPRIMITIVE__TRANSPOSED_BY = DSIMPLE_TYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DPRIMITIVE__SYNTHETIC = DSIMPLE_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1680,7 +1406,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEnumeration()
 	 * @generated
 	 */
-	int DENUMERATION = 29;
+	int DENUMERATION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1708,24 +1434,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DENUMERATION__DESCRIPTION = DSIMPLE_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DENUMERATION__TRANSPOSED_BY = DSIMPLE_TYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DENUMERATION__SYNTHETIC = DSIMPLE_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1789,7 +1497,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDLiteral()
 	 * @generated
 	 */
-	int DLITERAL = 30;
+	int DLITERAL = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1855,31 +1563,13 @@ public interface BasePackage extends EPackage
 	int DLITERAL__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DLITERAL__TRANSPOSED_BY = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DLITERAL__SYNTHETIC = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>DLiteral</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
+	int DLITERAL_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DLiteral</em>' class.
@@ -1898,7 +1588,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDComplexType()
 	 * @generated
 	 */
-	int DCOMPLEX_TYPE = 31;
+	int DCOMPLEX_TYPE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1926,24 +1616,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DCOMPLEX_TYPE__DESCRIPTION = DTYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCOMPLEX_TYPE__TRANSPOSED_BY = DTYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCOMPLEX_TYPE__SYNTHETIC = DTYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -2025,7 +1697,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDDetailType()
 	 * @generated
 	 */
-	int DDETAIL_TYPE = 32;
+	int DDETAIL_TYPE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2053,24 +1725,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDETAIL_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDETAIL_TYPE__TRANSPOSED_BY = DCOMPLEX_TYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDETAIL_TYPE__SYNTHETIC = DCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -2152,7 +1806,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DENTITY_TYPE = 33;
+	int DENTITY_TYPE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2180,24 +1834,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DENTITY_TYPE__TRANSPOSED_BY = DCOMPLEX_TYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DENTITY_TYPE__SYNTHETIC = DCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -2315,7 +1951,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 34;
+	int DFEATURE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2381,31 +2017,13 @@ public interface BasePackage extends EPackage
 	int DFEATURE__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFEATURE__TRANSPOSED_BY = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFEATURE__SYNTHETIC = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>DFeature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
+	int DFEATURE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DFeature</em>' class.
@@ -2424,7 +2042,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 35;
+	int DASSOCIATION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2490,24 +2108,6 @@ public interface BasePackage extends EPackage
 	int DASSOCIATION__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DASSOCIATION__TRANSPOSED_BY = DFEATURE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DASSOCIATION__SYNTHETIC = DFEATURE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2569,7 +2169,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 36;
+	int DATTRIBUTE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2635,24 +2235,6 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATTRIBUTE__TRANSPOSED_BY = DFEATURE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATTRIBUTE__SYNTHETIC = DFEATURE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2696,7 +2278,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 37;
+	int DQUERY = 33;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2762,24 +2344,6 @@ public interface BasePackage extends EPackage
 	int DQUERY__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DQUERY__TRANSPOSED_BY = DFEATURE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DQUERY__SYNTHETIC = DFEATURE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2832,7 +2396,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 38;
+	int DQUERY_PARAMETER = 34;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2898,31 +2462,13 @@ public interface BasePackage extends EPackage
 	int DQUERY_PARAMETER__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DQUERY_PARAMETER__TRANSPOSED_BY = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DQUERY_PARAMETER__SYNTHETIC = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>DQuery Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
+	int DQUERY_PARAMETER_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DQuery Parameter</em>' class.
@@ -2941,7 +2487,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDState()
 	 * @generated
 	 */
-	int DSTATE = 39;
+	int DSTATE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3032,7 +2578,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDStateEvent()
 	 * @generated
 	 */
-	int DSTATE_EVENT = 40;
+	int DSTATE_EVENT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3087,7 +2633,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDMultiplicityShorthand()
 	 * @generated
 	 */
-	int DMULTIPLICITY_SHORTHAND = 41;
+	int DMULTIPLICITY_SHORTHAND = 37;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DEntityNature <em>DEntity Nature</em>}' enum.
@@ -3097,7 +2643,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEntityNature()
 	 * @generated
 	 */
-	int DENTITY_NATURE = 42;
+	int DENTITY_NATURE = 38;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -3107,7 +2653,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 43;
+	int DASSOCIATION_KIND = 39;
 
 
 	/**
@@ -3299,123 +2845,6 @@ public interface BasePackage extends EPackage
 	EReference getDRichText_Segments();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.ITransposition <em>ITransposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>ITransposition</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposition
-	 * @generated
-	 */
-	EClass getITransposition();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.ITransposition#getTranspositionRule <em>Transposition Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Transposition Rule</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposition#getTranspositionRule()
-	 * @see #getITransposition()
-	 * @generated
-	 */
-	EReference getITransposition_TranspositionRule();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.base.ITransposition#getImpliedTranspositions <em>Implied Transpositions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Implied Transpositions</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposition#getImpliedTranspositions()
-	 * @see #getITransposition()
-	 * @generated
-	 */
-	EReference getITransposition_ImpliedTranspositions();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.TTranspositionRule <em>TTransposition Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>TTransposition Rule</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.TTranspositionRule
-	 * @generated
-	 */
-	EClass getTTranspositionRule();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.base.TTranspositionRule#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.TTranspositionRule#getSource()
-	 * @see #getTTranspositionRule()
-	 * @generated
-	 */
-	EReference getTTranspositionRule_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.base.TTranspositionRule#getNamedSource <em>Named Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Named Source</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.TTranspositionRule#getNamedSource()
-	 * @see #getTTranspositionRule()
-	 * @generated
-	 */
-	EReference getTTranspositionRule_NamedSource();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>ITransposable Element</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-	 * @generated
-	 */
-	EClass getITransposableElement();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.base.ITransposableElement#getTransposedBy <em>Transposed By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Transposed By</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement#getTransposedBy()
-	 * @see #getITransposableElement()
-	 * @generated
-	 */
-	EReference getITransposableElement_TransposedBy();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.ITransposableElement#isSynthetic <em>Synthetic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Synthetic</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement#isSynthetic()
-	 * @see #getITransposableElement()
-	 * @generated
-	 */
-	EAttribute getITransposableElement_Synthetic();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.TImplicitTransposition <em>TImplicit Transposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>TImplicit Transposition</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.TImplicitTransposition
-	 * @generated
-	 */
-	EClass getTImplicitTransposition();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.base.TImplicitTransposition#getOriginalDeductionDefinition <em>Original Deduction Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Original Deduction Definition</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.TImplicitTransposition#getOriginalDeductionDefinition()
-	 * @see #getTImplicitTransposition()
-	 * @generated
-	 */
-	EReference getTImplicitTransposition_OriginalDeductionDefinition();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DInformationModel <em>DInformation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3424,6 +2853,16 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getDInformationModel();
+
+	/**
+	 * Returns the meta object for the '{@link com.mimacom.ddd.dm.base.base.DInformationModel#allowsIdentityTypes() <em>Allows Identity Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Allows Identity Types</em>' operation.
+	 * @see com.mimacom.ddd.dm.base.base.DInformationModel#allowsIdentityTypes()
+	 * @generated
+	 */
+	EOperation getDInformationModel__AllowsIdentityTypes();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.IAggregateContainer <em>IAggregate Container</em>}'.
@@ -4244,102 +3683,6 @@ public interface BasePackage extends EPackage
 		EReference DRICH_TEXT__SEGMENTS = eINSTANCE.getDRichText_Segments();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.ITransposition <em>ITransposition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.ITransposition
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getITransposition()
-		 * @generated
-		 */
-		EClass ITRANSPOSITION = eINSTANCE.getITransposition();
-
-		/**
-		 * The meta object literal for the '<em><b>Transposition Rule</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITRANSPOSITION__TRANSPOSITION_RULE = eINSTANCE.getITransposition_TranspositionRule();
-
-		/**
-		 * The meta object literal for the '<em><b>Implied Transpositions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITRANSPOSITION__IMPLIED_TRANSPOSITIONS = eINSTANCE.getITransposition_ImpliedTranspositions();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImpl <em>TTransposition Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImpl
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getTTranspositionRule()
-		 * @generated
-		 */
-		EClass TTRANSPOSITION_RULE = eINSTANCE.getTTranspositionRule();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TTRANSPOSITION_RULE__SOURCE = eINSTANCE.getTTranspositionRule_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Named Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TTRANSPOSITION_RULE__NAMED_SOURCE = eINSTANCE.getTTranspositionRule_NamedSource();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getITransposableElement()
-		 * @generated
-		 */
-		EClass ITRANSPOSABLE_ELEMENT = eINSTANCE.getITransposableElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Transposed By</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY = eINSTANCE.getITransposableElement_TransposedBy();
-
-		/**
-		 * The meta object literal for the '<em><b>Synthetic</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITRANSPOSABLE_ELEMENT__SYNTHETIC = eINSTANCE.getITransposableElement_Synthetic();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.TImplicitTranspositionImpl <em>TImplicit Transposition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.impl.TImplicitTranspositionImpl
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getTImplicitTransposition()
-		 * @generated
-		 */
-		EClass TIMPLICIT_TRANSPOSITION = eINSTANCE.getTImplicitTransposition();
-
-		/**
-		 * The meta object literal for the '<em><b>Original Deduction Definition</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMPLICIT_TRANSPOSITION__ORIGINAL_DEDUCTION_DEFINITION = eINSTANCE.getTImplicitTransposition_OriginalDeductionDefinition();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl <em>DInformation Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4348,6 +3691,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DINFORMATION_MODEL = eINSTANCE.getDInformationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Allows Identity Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = eINSTANCE.getDInformationModel__AllowsIdentityTypes();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.IAggregateContainer <em>IAggregate Container</em>}' class.

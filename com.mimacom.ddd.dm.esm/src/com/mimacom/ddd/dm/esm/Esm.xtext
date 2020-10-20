@@ -3,6 +3,7 @@ grammar com.mimacom.ddd.dm.esm.Esm with com.mimacom.ddd.dm.dmx.Dmx
 import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/dm/esm"
+import "http://www.mimacom.com/ddd/dm/dim"
 
 @Override 
 DNamespace:
@@ -15,7 +16,7 @@ EsmEntityStateModel:
 	'state' 'model' 
 	name=DQualifiedName
 	'for'
-	 forType=[DEntityType|DQualifiedName]
+	 forType=[DimEntityType|DQualifiedName]
 	(description=DRichText)?
 	'{'
 	('direction' direction=EsmLayoutDirection)?

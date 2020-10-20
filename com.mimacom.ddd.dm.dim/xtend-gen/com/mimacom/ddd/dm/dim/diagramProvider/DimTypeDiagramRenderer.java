@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dim.diagramProvider;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer;
 import com.mimacom.ddd.util.plantuml.PlantUmlDiagramRendererUtil;
@@ -29,7 +29,7 @@ public class DimTypeDiagramRenderer implements IDiagramRenderer {
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
-    return ((root instanceof DInformationModel) && this.actualProvider.canProvide(((DInformationModel) root)));
+    return ((root instanceof DomainInformationModel) && this.actualProvider.canProvide(((DomainInformationModel) root)));
   }
   
   @Override
@@ -39,7 +39,7 @@ public class DimTypeDiagramRenderer implements IDiagramRenderer {
       String _plus = (_name + " for ");
       String _plus_1 = (_plus + root);
       DimTypeDiagramRenderer.LOGGER.info(_plus_1);
-      String plantUmlText = this.actualProvider.diagramText(((DInformationModel) root));
+      String plantUmlText = this.actualProvider.diagramText(((DomainInformationModel) root));
       if ((plantUmlText == null)) {
         plantUmlText = "";
       }

@@ -4,6 +4,8 @@ package com.mimacom.ddd.dm.dmx;
 
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Archetype</b></em>'.
@@ -20,7 +22,7 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
  * @model
  * @generated
  */
-public interface DmxArchetype extends DPrimitive
+public interface DmxArchetype extends DPrimitive, ITransposableElement
 {
 	/**
 	 * Returns the value of the '<em><b>Base Type</b></em>' attribute.

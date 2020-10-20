@@ -17,8 +17,9 @@ import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DSimpleType;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.ITransposition;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclaration;
 import com.mimacom.ddd.im.generator.generator.EndpointDeclarationBlock;
@@ -207,8 +208,7 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
             EList<AsmException> _raises = endpoint.getType().getRaises();
             boolean _tripleNotEquals_1 = (_raises != null);
             if (_tripleNotEquals_1) {
-              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint, Model.class), 
-                endpoint.getType().getRaises());
+              final Iterable<JvmTypeReference> me = this.getMappedExceptions(acceptor, EcoreUtil2.<Model>getContainerOfType(endpoint, Model.class), endpoint.getType().getRaises());
               EList<JvmTypeReference> _exceptions = it_1.getExceptions();
               this._jvmTypesBuilder.<JvmTypeReference>operator_add(_exceptions, me);
             }
@@ -354,11 +354,11 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     {
       final String declaredTypeName = IterableExtensions.<String>last(this._iQualifiedNameProvider.getFullyQualifiedName(block).getSegments());
       String _xifexpression = null;
-      if ((declaredTypeName.endsWith("Controller") || 
-        declaredTypeName.endsWith("RestResource"))) {
+      if ((declaredTypeName.endsWith("Controller") || declaredTypeName.endsWith("RestResource"))) {
         _xifexpression = declaredTypeName;
       } else {
-        _xifexpression = (declaredTypeName + "Controller");
+        _xifexpression = (declaredTypeName + 
+          "Controller");
       }
       final String controller = _xifexpression;
       String _packageName = this.getPackageName(block);
@@ -481,14 +481,16 @@ public class GeneratorJvmModelInferrer extends AbstractModelInferrer {
     if (_tripleNotEquals) {
       return this.toType(mappings, primitive.getRedefines());
     }
-    ITransposition _transposedBy = primitive.getTransposedBy();
-    TTranspositionRule _transpositionRule = null;
-    if (_transposedBy!=null) {
-      _transpositionRule=_transposedBy.getTranspositionRule();
-    }
-    boolean _tripleNotEquals_1 = (_transpositionRule != null);
-    if (_tripleNotEquals_1) {
-      return this.toType(mappings, primitive.getTransposedBy().getTranspositionRule());
+    if ((primitive instanceof ITransposableElement)) {
+      ITransposition _transposedBy = ((ITransposableElement)primitive).getTransposedBy();
+      TTranspositionRule _rule = null;
+      if (_transposedBy!=null) {
+        _rule=_transposedBy.getRule();
+      }
+      boolean _tripleNotEquals_1 = (_rule != null);
+      if (_tripleNotEquals_1) {
+        return this.toType(mappings, ((ITransposableElement)primitive).getTransposedBy().getRule());
+      }
     }
     return this._typeReferenceBuilder.typeRef(Object.class);
   }

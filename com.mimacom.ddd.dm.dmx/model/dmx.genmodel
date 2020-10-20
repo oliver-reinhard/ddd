@@ -3,12 +3,14 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.mimacom.ddd.dm.dmx/emf-gen" editorDirectory="/com.mimacom.ddd.dm.dmx.editor/emf-gen"
     modelPluginID="com.mimacom.ddd.dm.dmx" forceOverwrite="true" modelName="Dmx" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base" operationReflection="true">
+    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base ../../com.mimacom.ddd.dm.base/model/transpose.genmodel#//transpose"
+    operationReflection="true">
   <foreignModel>dmx.ecore</foreignModel>
   <genPackages prefix="Dmx" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
       ecorePackage="dmx.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dmx.ecore#//DmxBaseType">
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBaseType/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBaseType/AMBIGUOUS"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBaseType/VOID"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBaseType/BOOLEAN"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBaseType/NUMBER"/>
@@ -39,6 +41,7 @@
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/LESS_OR_EQUAL"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/GREATER_OR_EQUAL"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/GREATER"/>
+      <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/IN"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/UNTIL"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/SINGLE_ARROW"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxBinaryOperator/DOUBLE_ARROW"/>
@@ -48,15 +51,17 @@
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxUnaryOperator/MINUS"/>
       <genEnumLiterals ecoreEnumLiteral="dmx.ecore#//DmxUnaryOperator/NOT"/>
     </genEnums>
-    <genClasses ecoreClass="dmx.ecore#//DmxNamespace">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxNamespace/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxNamespace/filters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxNamespace/tests"/>
+    <genClasses ecoreClass="dmx.ecore#//DmxModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxModel/filters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxModel/tests"/>
     </genClasses>
     <genClasses ecoreClass="dmx.ecore#//DmxTest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxTest/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxTest/context"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxTest/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="dmx.ecore#//DmxTestContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxTestContext/value"/>
     </genClasses>
     <genClasses ecoreClass="dmx.ecore#//DmxBaseTypeSet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxBaseTypeSet/name"/>
@@ -111,11 +116,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxFunctionCall/function"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxFunctionCall/callArguments"/>
     </genClasses>
-    <genClasses ecoreClass="dmx.ecore#//DmxConstructorCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxConstructorCall/constructor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxConstructorCall/explicitConstructorCall"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxConstructorCall/callArguments"/>
-    </genClasses>
     <genClasses ecoreClass="dmx.ecore#//DmxBinaryOperation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxBinaryOperation/leftOperand"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxBinaryOperation/operator"/>
@@ -132,6 +132,9 @@
     <genClasses ecoreClass="dmx.ecore#//DmxCastExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxCastExpression/target"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxCastExpression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dmx.ecore#//DmxListExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxListExpression/elements"/>
     </genClasses>
     <genClasses ecoreClass="dmx.ecore#//DmxStaticReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxStaticReference/target"/>
@@ -164,6 +167,20 @@
     <genClasses ecoreClass="dmx.ecore#//DmxDateLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxDateLiteral/value"/>
     </genClasses>
+    <genClasses ecoreClass="dmx.ecore#//DmxUrlLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxUrlLiteral/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DmxUrlLiteral/display"/>
+    </genClasses>
     <genClasses ecoreClass="dmx.ecore#//DmxUndefinedLiteral"/>
+    <genClasses ecoreClass="dmx.ecore#//DmxComplexObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxComplexObject/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxComplexObject/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="dmx.ecore#//DmxField">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxField/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DmxField/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dmx.ecore#//DmxEntity"/>
+    <genClasses ecoreClass="dmx.ecore#//DmxDetail"/>
   </genPackages>
 </genmodel:GenModel>

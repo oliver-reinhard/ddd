@@ -5,9 +5,6 @@ package com.mimacom.ddd.dm.base.base.impl;
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 
 import java.util.Collection;
 
@@ -32,8 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#getTransposedBy <em>Transposed By</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#isPrimitive <em>Primitive</em>}</li>
  * </ul>
@@ -42,36 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class DTypeImpl extends DNamedElementImpl implements DType
 {
-	/**
-	 * The cached value of the '{@link #getTransposedBy() <em>Transposed By</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransposedBy()
-	 * @generated
-	 * @ordered
-	 */
-	protected ITransposition transposedBy;
-
-	/**
-	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSynthetic()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SYNTHETIC_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSynthetic()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean synthetic = SYNTHETIC_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -121,76 +86,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DTYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ITransposition getTransposedBy()
-	{
-		if (transposedBy != null && transposedBy.eIsProxy())
-		{
-			InternalEObject oldTransposedBy = (InternalEObject)transposedBy;
-			transposedBy = (ITransposition)eResolveProxy(oldTransposedBy);
-			if (transposedBy != oldTransposedBy)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DTYPE__TRANSPOSED_BY, oldTransposedBy, transposedBy));
-			}
-		}
-		return transposedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ITransposition basicGetTransposedBy()
-	{
-		return transposedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTransposedBy(ITransposition newTransposedBy)
-	{
-		ITransposition oldTransposedBy = transposedBy;
-		transposedBy = newTransposedBy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTYPE__TRANSPOSED_BY, oldTransposedBy, transposedBy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSynthetic()
-	{
-		return synthetic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSynthetic(boolean newSynthetic)
-	{
-		boolean oldSynthetic = synthetic;
-		synthetic = newSynthetic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTYPE__SYNTHETIC, oldSynthetic, synthetic));
 	}
 
 	/**
@@ -259,11 +154,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__TRANSPOSED_BY:
-				if (resolve) return getTransposedBy();
-				return basicGetTransposedBy();
-			case BasePackage.DTYPE__SYNTHETIC:
-				return isSynthetic();
 			case BasePackage.DTYPE__CONSTRAINTS:
 				return getConstraints();
 			case BasePackage.DTYPE__PRIMITIVE:
@@ -283,12 +173,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__TRANSPOSED_BY:
-				setTransposedBy((ITransposition)newValue);
-				return;
-			case BasePackage.DTYPE__SYNTHETIC:
-				setSynthetic((Boolean)newValue);
-				return;
 			case BasePackage.DTYPE__CONSTRAINTS:
 				getConstraints().clear();
 				getConstraints().addAll((Collection<? extends DNamedPredicate>)newValue);
@@ -310,12 +194,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__TRANSPOSED_BY:
-				setTransposedBy((ITransposition)null);
-				return;
-			case BasePackage.DTYPE__SYNTHETIC:
-				setSynthetic(SYNTHETIC_EDEFAULT);
-				return;
 			case BasePackage.DTYPE__CONSTRAINTS:
 				getConstraints().clear();
 				return;
@@ -336,10 +214,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__TRANSPOSED_BY:
-				return transposedBy != null;
-			case BasePackage.DTYPE__SYNTHETIC:
-				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DTYPE__CONSTRAINTS:
 				return constraints != null && !constraints.isEmpty();
 			case BasePackage.DTYPE__PRIMITIVE:
@@ -354,68 +228,12 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == ITransposableElement.class)
-		{
-			switch (derivedFeatureID)
-			{
-				case BasePackage.DTYPE__TRANSPOSED_BY: return BasePackage.ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY;
-				case BasePackage.DTYPE__SYNTHETIC: return BasePackage.ITRANSPOSABLE_ELEMENT__SYNTHETIC;
-				default: return -1;
-			}
-		}
-		if (baseClass == IStaticReferenceTarget.class)
-		{
-			switch (derivedFeatureID)
-			{
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == ITransposableElement.class)
-		{
-			switch (baseFeatureID)
-			{
-				case BasePackage.ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY: return BasePackage.DTYPE__TRANSPOSED_BY;
-				case BasePackage.ITRANSPOSABLE_ELEMENT__SYNTHETIC: return BasePackage.DTYPE__SYNTHETIC;
-				default: return -1;
-			}
-		}
-		if (baseClass == IStaticReferenceTarget.class)
-		{
-			switch (baseFeatureID)
-			{
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString()
 	{
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (synthetic: ");
-		result.append(synthetic);
-		result.append(", primitive: ");
+		result.append(" (primitive: ");
 		result.append(primitive);
 		result.append(')');
 		return result.toString();

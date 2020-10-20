@@ -14,7 +14,6 @@ import com.mimacom.ddd.dm.base.base.DEntityNature
 import com.mimacom.ddd.dm.base.base.DEntityType
 import com.mimacom.ddd.dm.base.base.DEnumeration
 import com.mimacom.ddd.dm.base.base.DFeature
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DLiteral
 import com.mimacom.ddd.dm.base.base.DMultiplicity
 import com.mimacom.ddd.dm.base.base.DNamedElement
@@ -26,9 +25,9 @@ import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.DState
 import com.mimacom.ddd.dm.base.base.DStateEvent
 import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.base.ITransposition
 import com.mimacom.ddd.dm.base.base.IValueType
 import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import java.util.List
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
@@ -47,14 +46,13 @@ class DimValidator extends AbstractDimValidator {
 	val NAME_ALL_UPPERCASE = "Name should be all uppercase"
 
 	@Check
-	def checkDomainDeclaresOnlyValueTypes(DInformationModel d) {
+	def checkDomainDeclaresOnlyValueTypes(DomainInformationModel d) {
 		for (vt : d.types) {
-			if (! (vt instanceof IValueType || vt instanceof ITransposition)) {
+			if (! (vt instanceof IValueType)) {
 				error('Declared type is not a value type', vt, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			} else if (vt instanceof DComplexType) {
-				val ct = vt as DComplexType
-				for (f : ct.features) {
-					if (f instanceof DAssociation && ! ( f instanceof ITransposition)) {
+				for (f : vt.features) {
+					if (f instanceof DAssociation) {
 						error('Declared feature cannot be an association', f, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 					}
 				}
@@ -98,8 +96,8 @@ class DimValidator extends AbstractDimValidator {
 						BasePackage.Literals.DNAMED_ELEMENT__NAME)
 				}
 			}
-			val tDomain = EcoreUtil2.getContainerOfType(t, DInformationModel)
-			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DInformationModel)
+			val tDomain = EcoreUtil2.getContainerOfType(t, DomainInformationModel)
+			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DomainInformationModel)
 			if (superTypeDomain !== tDomain) {
 				error('Supertype must be in same domain', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
@@ -227,7 +225,7 @@ class DimValidator extends AbstractDimValidator {
 	}
 
 	@Check
-	def void checkTypeNameStartsWithCapital(DInformationModel d) {
+	def void checkTypeNameStartsWithCapital(DomainInformationModel d) {
 		if (DEFAULT_IMPORT_TYPES == d.name) {
 			return
 		} else if (d.name.startsWith(PREFIX + ".")) {

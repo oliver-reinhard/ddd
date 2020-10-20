@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.dim.diagramProvider
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.IDiagramRoot
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl
 import com.mimacom.ddd.pub.pub.diagramProvider.IDiagramRenderer
 import com.mimacom.ddd.util.plantuml.PlantUmlDiagramRendererUtil
@@ -24,13 +24,13 @@ class DimTypeDiagramRenderer implements IDiagramRenderer {
 	}
 	
 	override canRender(IDiagramRoot root) {
-		return root instanceof DInformationModel && actualProvider.canProvide(root as DInformationModel)
+		return root instanceof DomainInformationModel && actualProvider.canProvide(root as DomainInformationModel)
 	}
 	
 	override InputStream render(IDiagramRoot root) {
 		LOGGER.info(DimTypeDiagramRenderer.getName() + " for " + root)
 		
-		var plantUmlText = actualProvider.diagramText(root as DInformationModel)
+		var plantUmlText = actualProvider.diagramText(root as DomainInformationModel)
 		if (plantUmlText === null) {
 			plantUmlText = ""
 		}

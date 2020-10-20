@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DAttributeImpl extends DFeatureImpl implements DAttribute
+public abstract class DAttributeImpl extends DFeatureImpl implements DAttribute
 {
 	/**
 	 * The default value of the '{@link #isDetail() <em>Detail</em>}' attribute.

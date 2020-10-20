@@ -69,21 +69,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DNAMESPACE: return createDNamespace();
 			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
 			case BasePackage.DRICH_TEXT: return createDRichText();
-			case BasePackage.TIMPLICIT_TRANSPOSITION: return createTImplicitTransposition();
 			case BasePackage.DINFORMATION_MODEL: return createDInformationModel();
-			case BasePackage.DAGGREGATE: return createDAggregate();
 			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
 			case BasePackage.DNAMED_PREDICATE: return createDNamedPredicate();
-			case BasePackage.DPRIMITIVE: return createDPrimitive();
-			case BasePackage.DENUMERATION: return createDEnumeration();
-			case BasePackage.DLITERAL: return createDLiteral();
-			case BasePackage.DDETAIL_TYPE: return createDDetailType();
-			case BasePackage.DENTITY_TYPE: return createDEntityType();
-			case BasePackage.DASSOCIATION: return createDAssociation();
-			case BasePackage.DATTRIBUTE: return createDAttribute();
-			case BasePackage.DQUERY: return createDQuery();
-			case BasePackage.DQUERY_PARAMETER: return createDQueryParameter();
 			case BasePackage.DSTATE: return createDState();
 			case BasePackage.DSTATE_EVENT: return createDStateEvent();
 			default:
@@ -187,34 +176,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public TImplicitTransposition createTImplicitTransposition()
-	{
-		TImplicitTranspositionImpl tImplicitTransposition = new TImplicitTranspositionImpl();
-		return tImplicitTransposition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public DInformationModel createDInformationModel()
 	{
 		DInformationModelImpl dInformationModel = new DInformationModelImpl();
 		return dInformationModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DAggregate createDAggregate()
-	{
-		DAggregateImplCustom dAggregate = new DAggregateImplCustom();
-		return dAggregate;
 	}
 
 	/**
@@ -251,114 +216,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
 		return dNamedPredicate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DPrimitive createDPrimitive()
-	{
-		DPrimitiveImpl dPrimitive = new DPrimitiveImpl();
-		return dPrimitive;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DEnumeration createDEnumeration()
-	{
-		DEnumerationImplCustom dEnumeration = new DEnumerationImplCustom();
-		return dEnumeration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DLiteral createDLiteral()
-	{
-		DLiteralImplCustom dLiteral = new DLiteralImplCustom();
-		return dLiteral;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DDetailType createDDetailType()
-	{
-		DDetailTypeImpl dDetailType = new DDetailTypeImpl();
-		return dDetailType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DEntityType createDEntityType()
-	{
-		DEntityTypeImpl dEntityType = new DEntityTypeImpl();
-		return dEntityType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DAssociation createDAssociation()
-	{
-		DAssociationImplCustom dAssociation = new DAssociationImplCustom();
-		return dAssociation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DAttribute createDAttribute()
-	{
-		DAttributeImpl dAttribute = new DAttributeImpl();
-		return dAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DQuery createDQuery()
-	{
-		DQueryImplCustom dQuery = new DQueryImplCustom();
-		return dQuery;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DQueryParameter createDQueryParameter()
-	{
-		DQueryParameterImpl dQueryParameter = new DQueryParameterImpl();
-		return dQueryParameter;
 	}
 
 	/**

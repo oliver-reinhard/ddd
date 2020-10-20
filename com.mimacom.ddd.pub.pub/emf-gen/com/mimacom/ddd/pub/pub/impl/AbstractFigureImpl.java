@@ -70,6 +70,7 @@ public abstract class AbstractFigureImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getWidthPercent() {
 		return widthPercent;
 	}
@@ -79,6 +80,7 @@ public abstract class AbstractFigureImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWidthPercent(int newWidthPercent) {
 		int oldWidthPercent = widthPercent;
 		widthPercent = newWidthPercent;

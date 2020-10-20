@@ -10,7 +10,7 @@ package com.mimacom.ddd.dm.base.base;
  *
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDDetailType()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DDetailType extends DComplexType, IValueType

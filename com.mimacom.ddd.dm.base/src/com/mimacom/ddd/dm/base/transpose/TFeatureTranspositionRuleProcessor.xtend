@@ -7,26 +7,17 @@ import com.mimacom.ddd.dm.base.base.DFeature
 import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.IFeatureContainer
-import com.mimacom.ddd.dm.base.transpose.TDitchRule
-import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
-import com.mimacom.ddd.dm.base.transpose.TGrabRule
-import com.mimacom.ddd.dm.base.transpose.TMorphRule
-import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
-import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
-import com.mimacom.ddd.dm.base.transpose.TRenameRule
 
 class TFeatureTranspositionRuleProcessor {
 
 	@Inject extension TypesUtil
 	@Inject extension SyntheticModelElementsFactory
 
-	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe,
-		TGrabRule rule /*dispatch*/ ) {
+	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe, TGrabRule rule /*dispatch*/ ) {
 		grabFeature(container, recipe, rule)
 	}
 
-	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe,
-		TMorphRule rule /*dispatch*/ ) {
+	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe, TMorphRule rule /*dispatch*/ ) {
 		val syntheticFeature = grabFeature(container, recipe, rule)
 		if (syntheticFeature !== null) {
 			if (rule.getRetypeTo !== null) {
@@ -38,40 +29,36 @@ class TFeatureTranspositionRuleProcessor {
 		}
 	}
 
-	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe,
-		TDitchRule rule /*dispatch*/ ) {
+	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe, TDitchRule rule /*dispatch*/ ) {
 		// do nothing (has been taken care of by DComplexType
 	}
 
 	def DFeature grabFeature(IFeatureContainer container, TFeatureTransposition recipe, TRenameRule rule) {
-		val source = rule.getSource
+		val source = rule.source
 		if (source instanceof DFeature) {
-			val syntheticFeature = container.addSyntheticFeature(
-				if (rule.getRenameTo !== null) rule.getRenameTo else source.name, source, recipe)
+			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, recipe)
 
 			if (recipe instanceof TQueryTransposition) {
 				val syntheticQuery = syntheticFeature as DQuery
 				val parameterRecipes = recipe.parameters.filter(TQueryParameterTransposition)
 				var explicitParameters = recipe.parameters.filter [
-					! (it instanceof TQueryParameterTransposition || it.isSynthetic)
+					! (it instanceof TQueryParameterTransposition || it instanceof ISyntheticElement)
 				]
 				if (! parameterRecipes.exists[recipe instanceof TGrabRule]) {
-					// there are not explicit grabs, so implicitly grab all features without a rule:
-					val implicitlyGrabbedSourceParameters = Lists.newArrayList((source as DQuery).parameters)
-					val sourceParametersAffectedByRule = parameterRecipes.filter [
-						getTranspositionRule.getSource instanceof DQueryParameter
-					].map[getTranspositionRule.getSource as DQueryParameter]
-					implicitlyGrabbedSourceParameters.removeAll(sourceParametersAffectedByRule)
+					// there are no explicit grabs, so implicitly grab ALL SOURCE PARAMETERS for which there is NO EXPLICIT Transposition:
+					val implicitlyGrabbedSourceParameters = Lists.newArrayList((source as DQuery).parameters.filter[it instanceof ITransposableElement])
+					val sourceParametersWithTransposition = parameterRecipes.map[rule.source].filter (DQueryParameter)
+					implicitlyGrabbedSourceParameters.removeAll(sourceParametersWithTransposition)
 					// create synthetic SFeatures for implicit features:
 					for (sourceParameter : implicitlyGrabbedSourceParameters) {
 						syntheticQuery.addSyntheticQueryParameter(sourceParameter.name, sourceParameter,
-							createImplicitTranspositionAsCopy(recipe, sourceParameter))
+							createImplicitTranspositionAsCopy(recipe, sourceParameter as ITransposableElement))
 					}
 				}
 
 				val parameterRecipesList = parameterRecipes.toList // cannot change iterable while iterating
 				for (r : parameterRecipesList) {
-					syntheticQuery.transposeQueryParameter(r, r.getTranspositionRule)
+					syntheticQuery.transposeQueryParameter(r, r.rule)
 				}
 
 				// add explicit parameters (= parameters added without rule):
@@ -96,27 +83,25 @@ class TFeatureTranspositionRuleProcessor {
 				val featureContainer = desc.recipe as IFeatureContainer
 				featureRecipes = featureContainer.features.filter(TFeatureTransposition)
 				explicitFeatures = featureContainer.features.filter [
-					! (it instanceof TFeatureTransposition || it.isSynthetic)
+					! (it instanceof TFeatureTransposition || it instanceof ISyntheticElement)
 				]
 			}
-			if (! featureRecipes.exists[getTranspositionRule instanceof TGrabRule]) {
-				// there are no explicit grabs, so implicitly grab all features without a rule:
-				val implicitlyGrabbedSourceFeatures = Lists.newArrayList(desc.source.allFeatures)
-				val sourceFeaturesAffectedByRule = featureRecipes.filter [
-					getTranspositionRule.getSource instanceof DFeature
-				].map[getTranspositionRule.getSource as DFeature]
-				implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesAffectedByRule)
+			if (! featureRecipes.exists[rule instanceof TGrabRule]) {
+			// there are no explicit grabs, so implicitly grab ALL SOURCE FEATURES for which there is NO EXPLICIT Transposition:
+				val implicitlyGrabbedSourceFeatures = Lists.newArrayList(desc.source.allFeatures.filter[it instanceof ITransposableElement])
+				val sourceFeaturesWithTransposition = featureRecipes.map[rule.source].filter (DFeature)
+				implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesWithTransposition)
 				// create synthetic DFeatures for implicit features:
 				for (sourceFeature : implicitlyGrabbedSourceFeatures) {
 					desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature,
-						createImplicitTranspositionAsCopy(desc.recipe, sourceFeature))
+						createImplicitTranspositionAsCopy(desc.recipe, sourceFeature as ITransposableElement))
 				}
 			}
 
 			// add explicit features (added via rule):
 			val featureRecipesList = featureRecipes.toList // cannot change iterable while iterating => create new list
 			for (r : featureRecipesList) {
-				desc.syntheticType.transposeFeature(r, r.getTranspositionRule)
+				desc.syntheticType.transposeFeature(r, r.rule)
 			}
 		}
 
@@ -147,10 +132,10 @@ class TFeatureTranspositionRuleProcessor {
 	}
 
 	def DQueryParameter grabQueryParameter(DQuery container, TQueryParameterTransposition recipe, TRenameRule rule) {
-		val source = rule.getSource
+		val source = rule.source
 		if (source instanceof DQueryParameter) {
-			val syntheticParameter = container.addSyntheticQueryParameter(
-				if (rule.getRenameTo !== null) rule.getRenameTo else source.name, source, recipe)
+			val syntheticParameter = container.addSyntheticQueryParameter(if (rule.getRenameTo !== null) rule.getRenameTo else source.name, source,
+				recipe)
 			return syntheticParameter
 		}
 	}

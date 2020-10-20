@@ -2,8 +2,8 @@ package com.mimacom.ddd.system.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider
 import java.net.URL
@@ -55,7 +55,7 @@ class ParsingTest {
   def void parseBaseTypes() {
     val content = dimParseHelper.parse(new URL(BASE_TYPES_URI.toString).openStream, BASE_TYPES_URI, null, resourceSet)
     assertNotNull(content)
-    assertTrue(content.model instanceof DInformationModel)
+    assertTrue(content.model instanceof DomainInformationModel)
     assertNoErrorsOnResource(content.eResource)
   }
 
@@ -90,7 +90,7 @@ class ParsingTest {
     val content = dimParseHelper.parse(new URL(CUSTOM_TYPES_URI.toString).openStream, CUSTOM_TYPES_URI, null,
       resourceSet)
     assertNotNull(content)
-    assertTrue(content.model instanceof DInformationModel)
+    assertTrue(content.model instanceof DomainInformationModel)
     assertNoErrorsOnResource(content.eResource)
   }
 

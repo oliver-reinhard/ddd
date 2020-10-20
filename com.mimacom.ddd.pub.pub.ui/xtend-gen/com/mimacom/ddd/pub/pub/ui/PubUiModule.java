@@ -40,7 +40,7 @@ public class PubUiModule extends AbstractPubUiModule {
     return DmxDoubleClickStrategyProvider.class;
   }
   
-  public PubUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public PubUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

@@ -4,13 +4,14 @@
 package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
-import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
+
+import com.mimacom.ddd.dm.dim.DimEntityType;
 
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmLayoutDirection;
@@ -102,7 +103,7 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	 * @generated
 	 * @ordered
 	 */
-	protected DEntityType forType;
+	protected DimEntityType forType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,12 +196,12 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DEntityType getForType()
+	public DimEntityType getForType()
 	{
 		if (forType != null && forType.eIsProxy())
 		{
 			InternalEObject oldForType = (InternalEObject)forType;
-			forType = (DEntityType)eResolveProxy(oldForType);
+			forType = (DimEntityType)eResolveProxy(oldForType);
 			if (forType != oldForType)
 			{
 				if (eNotificationRequired())
@@ -215,7 +216,7 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DEntityType basicGetForType()
+	public DimEntityType basicGetForType()
 	{
 		return forType;
 	}
@@ -225,9 +226,9 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setForType(DEntityType newForType)
+	public void setForType(DimEntityType newForType)
 	{
-		DEntityType oldForType = forType;
+		DimEntityType oldForType = forType;
 		forType = newForType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE, oldForType, forType));
@@ -303,7 +304,7 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
 				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
-				setForType((DEntityType)newValue);
+				setForType((DimEntityType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -332,7 +333,7 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 				getNavigableMembers().clear();
 				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
-				setForType((DEntityType)null);
+				setForType((DimEntityType)null);
 				return;
 		}
 		super.eUnset(featureID);

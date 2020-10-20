@@ -38,7 +38,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DAggregate a) {
     if ((a instanceof TAggregateTransposition)) {
-      String _label = this._simUtil.label(((TAggregateTransposition)a).getTranspositionRule());
+      String _label = this._simUtil.label(((TAggregateTransposition)a).getRule());
       return (">" + _label);
     }
     return this._simUtil.label(a);
@@ -46,7 +46,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DType t) {
     if ((t instanceof TTypeTransposition)) {
-      String _label = this._simUtil.label(((TTypeTransposition)t).getTranspositionRule());
+      String _label = this._simUtil.label(((TTypeTransposition)t).getRule());
       return (">" + _label);
     }
     return this._simUtil.label(t);
@@ -54,7 +54,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DFeature f) {
     if ((f instanceof TFeatureTransposition)) {
-      String _label = this._simUtil.label(((TFeatureTransposition)f).getTranspositionRule());
+      String _label = this._simUtil.label(((TFeatureTransposition)f).getRule());
       return (">" + _label);
     }
     return this._simUtil.label(f);
@@ -62,7 +62,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DQueryParameter p) {
     if ((p instanceof TQueryParameterTransposition)) {
-      String _label = this._simUtil.label(((TQueryParameterTransposition)p).getTranspositionRule());
+      String _label = this._simUtil.label(((TQueryParameterTransposition)p).getRule());
       return (">" + _label);
     }
     return this._simUtil.label(p);
@@ -74,7 +74,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DLiteral literal) {
     if ((literal instanceof TLiteralTransposition)) {
-      String _label = this._simUtil.label(((TLiteralTransposition)literal).getTranspositionRule());
+      String _label = this._simUtil.label(((TLiteralTransposition)literal).getRule());
       return (">" + _label);
     }
     return literal.getName();

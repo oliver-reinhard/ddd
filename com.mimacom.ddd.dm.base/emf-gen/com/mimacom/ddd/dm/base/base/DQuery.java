@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDQuery()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DQuery extends DFeature, INavigableMemberContainer

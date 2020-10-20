@@ -1,9 +1,9 @@
 package com.mimacom.ddd.dm.dim.ui.plantuml;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dim.plantuml.DimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Map;
@@ -56,7 +56,7 @@ public class DimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
     DModel _model = namespace.getModel();
-    final DInformationModel model = ((DInformationModel) _model);
+    final DomainInformationModel model = ((DomainInformationModel) _model);
     boolean _canProvide = this.actualProvider.canProvide(model);
     if (_canProvide) {
       return this.actualProvider.diagramText(model);

@@ -12,21 +12,16 @@ import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -42,14 +37,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getNavigableMembers <em>Navigable Members</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getTransposedBy <em>Transposed By</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getRoots <em>Roots</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DAggregateImpl extends DNamedElementImpl implements DAggregate
+public abstract class DAggregateImpl extends DNamedElementImpl implements DAggregate
 {
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -70,36 +63,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * @ordered
 	 */
 	protected EList<DFeature> features;
-
-	/**
-	 * The cached value of the '{@link #getTransposedBy() <em>Transposed By</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransposedBy()
-	 * @generated
-	 * @ordered
-	 */
-	protected ITransposition transposedBy;
-
-	/**
-	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSynthetic()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SYNTHETIC_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSynthetic()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean synthetic = SYNTHETIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,76 +136,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * @generated
 	 */
 	@Override
-	public ITransposition getTransposedBy()
-	{
-		if (transposedBy != null && transposedBy.eIsProxy())
-		{
-			InternalEObject oldTransposedBy = (InternalEObject)transposedBy;
-			transposedBy = (ITransposition)eResolveProxy(oldTransposedBy);
-			if (transposedBy != oldTransposedBy)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DAGGREGATE__TRANSPOSED_BY, oldTransposedBy, transposedBy));
-			}
-		}
-		return transposedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ITransposition basicGetTransposedBy()
-	{
-		return transposedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTransposedBy(ITransposition newTransposedBy)
-	{
-		ITransposition oldTransposedBy = transposedBy;
-		transposedBy = newTransposedBy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__TRANSPOSED_BY, oldTransposedBy, transposedBy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSynthetic()
-	{
-		return synthetic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSynthetic(boolean newSynthetic)
-	{
-		boolean oldSynthetic = synthetic;
-		synthetic = newSynthetic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__SYNTHETIC, oldSynthetic, synthetic));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DEntityType> getRoots()
 	{
 		// TODO: implement this method to return the 'Roots' reference list
@@ -286,11 +179,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				return getFeatures();
 			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
 				return getNavigableMembers();
-			case BasePackage.DAGGREGATE__TRANSPOSED_BY:
-				if (resolve) return getTransposedBy();
-				return basicGetTransposedBy();
-			case BasePackage.DAGGREGATE__SYNTHETIC:
-				return isSynthetic();
 			case BasePackage.DAGGREGATE__ROOTS:
 				return getRoots();
 		}
@@ -320,12 +208,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				getNavigableMembers().clear();
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
 				return;
-			case BasePackage.DAGGREGATE__TRANSPOSED_BY:
-				setTransposedBy((ITransposition)newValue);
-				return;
-			case BasePackage.DAGGREGATE__SYNTHETIC:
-				setSynthetic((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -349,12 +231,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				return;
-			case BasePackage.DAGGREGATE__TRANSPOSED_BY:
-				setTransposedBy((ITransposition)null);
-				return;
-			case BasePackage.DAGGREGATE__SYNTHETIC:
-				setSynthetic(SYNTHETIC_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -375,10 +251,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				return features != null && !features.isEmpty();
 			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
 				return !getNavigableMembers().isEmpty();
-			case BasePackage.DAGGREGATE__TRANSPOSED_BY:
-				return transposedBy != null;
-			case BasePackage.DAGGREGATE__SYNTHETIC:
-				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DAGGREGATE__ROOTS:
 				return !getRoots().isEmpty();
 		}
@@ -421,15 +293,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 		{
 			switch (derivedFeatureID)
 			{
-				default: return -1;
-			}
-		}
-		if (baseClass == ITransposableElement.class)
-		{
-			switch (derivedFeatureID)
-			{
-				case BasePackage.DAGGREGATE__TRANSPOSED_BY: return BasePackage.ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY;
-				case BasePackage.DAGGREGATE__SYNTHETIC: return BasePackage.ITRANSPOSABLE_ELEMENT__SYNTHETIC;
 				default: return -1;
 			}
 		}
@@ -482,15 +345,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				default: return -1;
 			}
 		}
-		if (baseClass == ITransposableElement.class)
-		{
-			switch (baseFeatureID)
-			{
-				case BasePackage.ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY: return BasePackage.DAGGREGATE__TRANSPOSED_BY;
-				case BasePackage.ITRANSPOSABLE_ELEMENT__SYNTHETIC: return BasePackage.DAGGREGATE__SYNTHETIC;
-				default: return -1;
-			}
-		}
 		if (baseClass == IDiagramRoot.class)
 		{
 			switch (baseFeatureID)
@@ -499,23 +353,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (synthetic: ");
-		result.append(synthetic);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DAggregateImpl

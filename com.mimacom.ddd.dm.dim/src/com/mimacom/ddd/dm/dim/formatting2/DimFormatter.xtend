@@ -7,8 +7,8 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DAggregate
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DEnumeration
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
 import org.eclipse.xtext.formatting2.IFormattableDocument
@@ -17,9 +17,9 @@ class DimFormatter extends DmxFormatter {
 
 	@Inject extension DimGrammarAccess
 
-	def dispatch void format(DInformationModel model, extension IFormattableDocument document) {
-		val open = model.regionFor.keyword(DInformationModelAccess.leftCurlyBracketKeyword_5)
-		val close = model.regionFor.keyword(DInformationModelAccess.rightCurlyBracketKeyword_7)
+	def dispatch void format(DomainInformationModel model, extension IFormattableDocument document) {
+		val open = model.regionFor.keyword(domainInformationModelAccess.leftCurlyBracketKeyword_5)
+		val close = model.regionFor.keyword(domainInformationModelAccess.rightCurlyBracketKeyword_7)
 		open.append[newLines = 2]
 		interior(open, close)[indent]
 		close.append[newLines = 2]
@@ -35,8 +35,8 @@ class DimFormatter extends DmxFormatter {
 	}
 
 	def dispatch void format(DAggregate aggregate, extension IFormattableDocument document) {
-		val open = aggregate.regionFor.keyword(DAggregateAccess.leftCurlyBracketKeyword_4)
-		val close = aggregate.regionFor.keyword(DAggregateAccess.rightCurlyBracketKeyword_7)
+		val open = aggregate.regionFor.keyword(dimAggregateAccess.leftCurlyBracketKeyword_4)
+		val close = aggregate.regionFor.keyword(dimAggregateAccess.rightCurlyBracketKeyword_7)
 		open.append[newLines = 2]
 		interior(open, close)[indent]
 
@@ -53,15 +53,15 @@ class DimFormatter extends DmxFormatter {
 
 	def dispatch void format(DEnumeration en, extension IFormattableDocument document) {
 		if (en.literals.size > 3) {
-			val open = en.regionFor.keyword(DEnumerationAccess.leftCurlyBracketKeyword_4)
-			val close = en.regionFor.keyword(DEnumerationAccess.rightCurlyBracketKeyword_7)
+			val open = en.regionFor.keyword(dimEnumerationAccess.leftCurlyBracketKeyword_5)
+			val close = en.regionFor.keyword(dimEnumerationAccess.rightCurlyBracketKeyword_8)
 			open.append[newLine]
 			interior(open, close)[indent]
 
 			for (literal : en.literals) {
-				literal.regionFor.assignment(DLiteralAccess.nameAssignment_0).surround[noSpace]
+				literal.regionFor.assignment(dimLiteralAccess.nameAssignment_1).surround[noSpace]
 			}
-			for (comma : en.regionFor.keywords(DEnumerationAccess.commaKeyword_5_1_0)) {
+			for (comma : en.regionFor.keywords(dimEnumerationAccess.commaKeyword_6_1_0)) {
 				comma.append[newLine]
 			}
 			en.literals.last.append[newLine]
@@ -69,8 +69,8 @@ class DimFormatter extends DmxFormatter {
 	}
 
 	def dispatch void format(DComplexType type, extension IFormattableDocument document) {
-		val open = type.regionFor.keyword(DEntityTypeAccess.leftCurlyBracketKeyword_4)
-		val close = type.regionFor.keyword(DEntityTypeAccess.rightCurlyBracketKeyword_7)
+		val open = type.regionFor.keyword(dimEntityTypeAccess.leftCurlyBracketKeyword_5)
+		val close = type.regionFor.keyword(dimEntityTypeAccess.rightCurlyBracketKeyword_8)
 		open.append[newLine]
 		interior(open, close)[indent]
 

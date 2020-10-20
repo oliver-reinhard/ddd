@@ -67,6 +67,7 @@ public class SusFactoryImpl extends EFactoryImpl implements SusFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UserStory createUserStory() {
 		UserStoryImpl userStory = new UserStoryImpl();
 		return userStory;
@@ -77,6 +78,7 @@ public class SusFactoryImpl extends EFactoryImpl implements SusFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SusPackage getSusPackage() {
 		return (SusPackage)getEPackage();
 	}

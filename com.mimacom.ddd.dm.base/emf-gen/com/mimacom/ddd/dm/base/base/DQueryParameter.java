@@ -10,9 +10,9 @@ package com.mimacom.ddd.dm.base.base;
  *
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDQueryParameter()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface DQueryParameter extends DNavigableMember, ITransposableElement
+public interface DQueryParameter extends DNavigableMember
 {
 } // DQueryParameter

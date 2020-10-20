@@ -5,9 +5,9 @@ package com.mimacom.ddd.dm.esm.validation;
 
 import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.base.BasePackage;
-import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
+import com.mimacom.ddd.dm.dim.DimEntityType;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmTransition;
@@ -45,7 +45,7 @@ public class EsmValidator extends AbstractEsmValidator {
         }
       }
     }
-    DEntityType _forType = model.getForType();
+    DimEntityType _forType = model.getForType();
     boolean _tripleNotEquals_1 = (_forType != null);
     if (_tripleNotEquals_1) {
       final List<DState> entityStates = Lists.<DState>newLinkedList();
@@ -79,7 +79,7 @@ public class EsmValidator extends AbstractEsmValidator {
   
   @Check
   public void checkEntityEventsMapping(final EsmEntityStateModel model) {
-    DEntityType _forType = model.getForType();
+    DimEntityType _forType = model.getForType();
     boolean _tripleNotEquals = (_forType != null);
     if (_tripleNotEquals) {
       final List<EsmTransition> allTransitions = EcoreUtil2.<EsmTransition>eAllOfType(model, EsmTransition.class);

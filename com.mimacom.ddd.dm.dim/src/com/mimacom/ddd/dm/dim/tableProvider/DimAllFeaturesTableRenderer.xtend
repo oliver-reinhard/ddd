@@ -4,9 +4,9 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DAggregate
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DFeature
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.IDiagramRoot
 import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.pub.pub.PubTableUtil
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer
@@ -21,7 +21,7 @@ class DimAllFeaturesTableRenderer implements ITableRenderer {
 	@Inject extension PubTableUtil
 
 	override canRender(IDiagramRoot root) {
-		if (root instanceof DInformationModel || root instanceof DAggregate) {
+		if (root instanceof DomainInformationModel || root instanceof DAggregate) {
 			val allFeatures = EcoreUtil2.eAllOfType(root, DFeature)
 			return ! allFeatures.empty
 		}
@@ -31,7 +31,7 @@ class DimAllFeaturesTableRenderer implements ITableRenderer {
 	override Table render(IDiagramRoot root) {
 		LOGGER.info(" for " + root)
 		val t = createTableWithHeader("Type", "Feature Name", "Feature Type", "Description")
-		if (root instanceof DInformationModel || root instanceof DAggregate) {
+		if (root instanceof DomainInformationModel || root instanceof DAggregate) {
 			val allTypes = EcoreUtil2.eAllOfType(root, DComplexType)
 			for (type : allTypes) {
 				val typeLabel = type.label

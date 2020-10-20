@@ -10684,13 +10684,13 @@ rule__EsmEntityStateModel__ForTypeAssignment_4
 	}
 :
 	(
-		{ before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); }
+		{ before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeCrossReference_4_0()); }
 		(
-			{ before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1()); }
+			{ before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1()); }
 			ruleDQualifiedName
-			{ after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1()); }
+			{ after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1()); }
 		)
-		{ after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); }
+		{ after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeCrossReference_4_0()); }
 	)
 ;
 finally {

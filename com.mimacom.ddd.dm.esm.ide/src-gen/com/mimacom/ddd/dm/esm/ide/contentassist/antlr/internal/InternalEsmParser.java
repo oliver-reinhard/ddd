@@ -35932,13 +35932,13 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             // InternalEsm.g:10687:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); 
+               before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeCrossReference_4_0()); 
             }
             // InternalEsm.g:10688:3: ( ruleDQualifiedName )
             // InternalEsm.g:10689:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1()); 
+               before(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1()); 
             }
             pushFollow(FOLLOW_2);
             ruleDQualifiedName();
@@ -35946,13 +35946,13 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1()); 
+               after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); 
+               after(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeCrossReference_4_0()); 
             }
 
             }

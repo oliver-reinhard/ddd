@@ -532,7 +532,7 @@ public class InternalEsmParser extends AbstractInternalAntlrParser {
             }
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0());
+              					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getForTypeDimEntityTypeCrossReference_4_0());
               				
             }
             pushFollow(FOLLOW_7);

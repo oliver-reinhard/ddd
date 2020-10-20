@@ -258,7 +258,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
-	 *     transpositionRule=SimGrabAggregateRule (ambiguity) (rule end)
+	 *     rule=SimGrabAggregateRule (ambiguity) (rule end)
 	 */
 	protected void emit_SimAggregateTransposition___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -269,7 +269,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'reference' | 'composite'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'grab' (ambiguity) transpositionRule=SimGrabFeatureRule
+	 *     (rule start) 'grab' (ambiguity) rule=SimGrabFeatureRule
 	 */
 	protected void emit_SimAssociationTransposition_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -280,7 +280,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'reference' | 'composite'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'morph' (ambiguity) transpositionRule=SimMorphFeatureRule
+	 *     (rule start) 'morph' (ambiguity) rule=SimMorphFeatureRule
 	 */
 	protected void emit_SimAssociationTransposition_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -291,7 +291,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'reference' | 'composite'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'ditch' (ambiguity) transpositionRule=SimDitchFeatureRule
+	 *     (rule start) 'ditch' (ambiguity) rule=SimDitchFeatureRule
 	 */
 	protected void emit_SimAssociationTransposition_CompositeKeyword_1_2_1_1_or_ReferenceKeyword_1_2_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -302,7 +302,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'attribute'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'grab' (ambiguity) transpositionRule=SimGrabFeatureRule
+	 *     (rule start) 'grab' (ambiguity) rule=SimGrabFeatureRule
 	 */
 	protected void emit_SimAttributeTransposition_AttributeKeyword_1_0_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -313,7 +313,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'attribute'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'morph' (ambiguity) transpositionRule=SimMorphFeatureRule
+	 *     (rule start) 'morph' (ambiguity) rule=SimMorphFeatureRule
 	 */
 	protected void emit_SimAttributeTransposition_AttributeKeyword_1_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -324,7 +324,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'attribute'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'ditch' (ambiguity) transpositionRule=SimDitchFeatureRule
+	 *     (rule start) 'ditch' (ambiguity) rule=SimDitchFeatureRule
 	 */
 	protected void emit_SimAttributeTransposition_AttributeKeyword_1_2_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -336,8 +336,8 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
-	 *     transpositionRule=SimDitchEnumerationRule (ambiguity) (rule end)
-	 *     transpositionRule=SimGrabEnumerationRule (ambiguity) (rule end)
+	 *     rule=SimDitchEnumerationRule (ambiguity) (rule end)
+	 *     rule=SimGrabEnumerationRule (ambiguity) (rule end)
 	 */
 	protected void emit_SimEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -349,8 +349,8 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
-	 *     transpositionRule=SimDitchPrimitiveRule (ambiguity) (rule end)
-	 *     transpositionRule=SimGrabPrimitiveRule (ambiguity) (rule end)
+	 *     rule=SimDitchPrimitiveRule (ambiguity) (rule end)
+	 *     rule=SimGrabPrimitiveRule (ambiguity) (rule end)
 	 */
 	protected void emit_SimPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

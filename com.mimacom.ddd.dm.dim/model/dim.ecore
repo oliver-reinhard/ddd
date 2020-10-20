@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dim" nsURI="http://www.mimacom.com/ddd/dm/dim" nsPrefix="dim">
+  <eClassifiers xsi:type="ecore:EClass" name="DomainInformationModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DInformationModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimAggregate" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//ITransposableElement ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimType" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DType ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//ITransposableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimSimpleType" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DSimpleType #//DimType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimPrimitive" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive #//DimSimpleType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimEnumeration" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DEnumeration #//DimSimpleType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DLiteral ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//ITransposableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimComplexType" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType #//DimType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimDetailType" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DDetailType #//DimComplexType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimEntityType" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DEntityType #//DimComplexType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimFeature" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DFeature ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//ITransposableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimAssociation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAssociation #//DimFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimAttribute" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAttribute #//DimFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimQuery" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DQuery #//DimFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimQueryParameter" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DQueryParameter ../../com.mimacom.ddd.dm.base/model/transpose.ecore#//ITransposableElement"/>
+</ecore:EPackage>

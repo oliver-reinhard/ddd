@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
+public abstract class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
 {
 	/**
 	 * The cached value of the '{@link #getLiterals() <em>Literals</em>}' containment reference list.

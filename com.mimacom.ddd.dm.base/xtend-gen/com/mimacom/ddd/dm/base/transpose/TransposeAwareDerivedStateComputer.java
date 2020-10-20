@@ -9,13 +9,14 @@ import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TransposeFactory;
@@ -32,7 +33,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
@@ -113,15 +113,12 @@ public class TransposeAwareDerivedStateComputer implements IDerivedStateComputer
   }
   
   protected void removeAllSyntheticElements(final DerivedStateAwareResource resource) {
-    final Function1<ITransposableElement, Boolean> _function = (ITransposableElement it) -> {
-      return Boolean.valueOf(it.isSynthetic());
-    };
-    final Iterator<ITransposableElement> syntheticElements = IteratorExtensions.<ITransposableElement>filter(Iterators.<ITransposableElement>filter(resource.getAllContents(), ITransposableElement.class), _function);
-    final ArrayList<ITransposableElement> list = Lists.<ITransposableElement>newArrayList();
+    final Iterator<ISyntheticElement> syntheticElements = Iterators.<ISyntheticElement>filter(resource.getAllContents(), ISyntheticElement.class);
+    final ArrayList<ISyntheticElement> list = Lists.<ISyntheticElement>newArrayList();
     while (syntheticElements.hasNext()) {
       list.add(syntheticElements.next());
     }
-    for (final ITransposableElement e : list) {
+    for (final ISyntheticElement e : list) {
       EcoreUtil.remove(e);
     }
   }
@@ -141,7 +138,7 @@ public class TransposeAwareDerivedStateComputer implements IDerivedStateComputer
       final ArrayList<SyntheticFeatureContainerDescriptor> complexSyntheticTypes = Lists.<SyntheticFeatureContainerDescriptor>newArrayList();
       for (final TTypeTransposition r : typeRecipes) {
         {
-          final TTranspositionRule rule = r.getTranspositionRule();
+          final TTranspositionRule rule = r.getRule();
           final ITransposableElement source = rule.getSource();
           if ((source instanceof DType)) {
             final DType syntheticType = this._tTypeTranspositionRuleProcessor.transposeType(model, r, rule);

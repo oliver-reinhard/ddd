@@ -1,6 +1,8 @@
 /**
  */
-package com.mimacom.ddd.dm.base.base;
+package com.mimacom.ddd.dm.base.transpose;
+
+import com.mimacom.ddd.dm.base.base.DNamedElement;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.base.TTranspositionRule#getSource <em>Source</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.TTranspositionRule#getNamedSource <em>Named Source</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getSource <em>Source</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getNamedSource <em>Named Source</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.dm.base.base.BasePackage#getTTranspositionRule()
+ * @see com.mimacom.ddd.dm.base.transpose.TransposePackage#getTTranspositionRule()
  * @model abstract="true"
  * @generated
  */
@@ -29,14 +31,14 @@ public interface TTranspositionRule extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(ITransposableElement)
-	 * @see com.mimacom.ddd.dm.base.base.BasePackage#getTTranspositionRule_Source()
+	 * @see com.mimacom.ddd.dm.base.transpose.TransposePackage#getTTranspositionRule_Source()
 	 * @model
 	 * @generated
 	 */
 	ITransposableElement getSource();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.base.TTranspositionRule#getSource <em>Source</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source</em>' reference.
@@ -50,7 +52,7 @@ public interface TTranspositionRule extends EObject
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Named Source</em>' reference.
-	 * @see com.mimacom.ddd.dm.base.base.BasePackage#getTTranspositionRule_NamedSource()
+	 * @see com.mimacom.ddd.dm.base.transpose.TransposePackage#getTTranspositionRule_NamedSource()
 	 * @model resolveProxies="false" transient="true" changeable="false" derived="true"
 	 * @generated
 	 */

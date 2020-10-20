@@ -2,11 +2,11 @@ package com.mimacom.ddd.dm.dim.tableProvider;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DAggregate;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer;
@@ -30,7 +30,7 @@ public class DimAllTypesTableRenderer implements ITableRenderer {
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
-    if (((root instanceof DInformationModel) || (root instanceof DAggregate))) {
+    if (((root instanceof DomainInformationModel) || (root instanceof DAggregate))) {
       final List<DType> allTypes = EcoreUtil2.<DType>eAllOfType(root, DType.class);
       boolean _isEmpty = allTypes.isEmpty();
       return (!_isEmpty);
@@ -42,7 +42,7 @@ public class DimAllTypesTableRenderer implements ITableRenderer {
   public Table render(final IDiagramRoot root) {
     DimAllTypesTableRenderer.LOGGER.info((" for " + root));
     final Table t = this._pubTableUtil.createTableWithHeader("Type", "Description");
-    if (((root instanceof DInformationModel) || (root instanceof DAggregate))) {
+    if (((root instanceof DomainInformationModel) || (root instanceof DAggregate))) {
       final List<DType> allTypes = EcoreUtil2.<DType>eAllOfType(root, DType.class);
       for (final DType type : allTypes) {
         this.describe(t, type);

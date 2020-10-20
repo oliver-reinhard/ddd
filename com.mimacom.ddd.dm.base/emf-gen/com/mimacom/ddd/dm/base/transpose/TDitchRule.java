@@ -2,7 +2,6 @@
  */
 package com.mimacom.ddd.dm.base.transpose;
 
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
 
 /**
  * <!-- begin-user-doc -->

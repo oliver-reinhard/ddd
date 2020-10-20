@@ -5,6 +5,8 @@ package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 
+import com.mimacom.ddd.dm.dim.DimPackage;
+
 import com.mimacom.ddd.dm.esm.EsmCompositeState;
 import com.mimacom.ddd.dm.esm.EsmConcurrentState;
 import com.mimacom.ddd.dm.esm.EsmDerivedState;
@@ -169,7 +171,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
+		DimPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEsmPackage.createPackageContents();
@@ -530,6 +532,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 		// Obtain other dependent packages
 		BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
+		DimPackage theDimPackage = (DimPackage)EPackage.Registry.INSTANCE.getEPackage(DimPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -552,7 +555,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esmEntityStateModelEClass, EsmEntityStateModel.class, "EsmEntityStateModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEsmEntityStateModel_ForType(), theBasePackage.getDEntityType(), null, "forType", null, 0, 1, EsmEntityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEsmEntityStateModel_ForType(), theDimPackage.getDimEntityType(), null, "forType", null, 0, 1, EsmEntityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iEsmLayoutEClass, IEsmLayout.class, "IEsmLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIEsmLayout_Direction(), this.getEsmLayoutDirection(), "direction", null, 0, 1, IEsmLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

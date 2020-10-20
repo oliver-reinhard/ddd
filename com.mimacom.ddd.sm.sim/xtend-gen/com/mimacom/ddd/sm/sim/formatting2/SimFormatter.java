@@ -163,6 +163,9 @@ public class SimFormatter extends AbstractFormatter2 {
     if (en instanceof TEnumerationTransposition) {
       _format((TEnumerationTransposition)en, document);
       return;
+    } else if (en instanceof TComplexTypeTransposition) {
+      _format((TComplexTypeTransposition)en, document);
+      return;
     } else if (en instanceof SystemInformationModel) {
       _format((SystemInformationModel)en, document);
       return;
@@ -172,14 +175,11 @@ public class SimFormatter extends AbstractFormatter2 {
     } else if (en instanceof TMorphRule) {
       _format((TMorphRule)en, document);
       return;
-    } else if (en instanceof TComplexTypeTransposition) {
-      _format((TComplexTypeTransposition)en, document);
+    } else if (en instanceof TTypeTransposition) {
+      _format((TTypeTransposition)en, document);
       return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
-      return;
-    } else if (en instanceof TTypeTransposition) {
-      _format((TTypeTransposition)en, document);
       return;
     } else if (en instanceof DImport) {
       _format((DImport)en, document);

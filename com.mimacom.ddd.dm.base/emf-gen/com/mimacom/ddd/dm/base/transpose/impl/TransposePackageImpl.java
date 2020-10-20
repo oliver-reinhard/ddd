@@ -4,6 +4,9 @@ package com.mimacom.ddd.dm.base.transpose.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
@@ -16,6 +19,7 @@ import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFuseRule;
 import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule;
 import com.mimacom.ddd.dm.base.transpose.TGrabRule;
+import com.mimacom.ddd.dm.base.transpose.TImplicitTransposition;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
 import com.mimacom.ddd.dm.base.transpose.TMorphRule;
@@ -24,6 +28,7 @@ import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TRenameRule;
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTristate;
 import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
@@ -47,6 +52,41 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class TransposePackageImpl extends EPackageImpl implements TransposePackage
 {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iTranspositionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tTranspositionRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iTransposableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iSyntheticElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tImplicitTranspositionEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,6 +320,138 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 	 * @generated
 	 */
 	@Override
+	public EClass getITransposition()
+	{
+		return iTranspositionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getITransposition_Rule()
+	{
+		return (EReference)iTranspositionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getITransposition_ImpliedTranspositions()
+	{
+		return (EReference)iTranspositionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTTranspositionRule()
+	{
+		return tTranspositionRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTTranspositionRule_Source()
+	{
+		return (EReference)tTranspositionRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTTranspositionRule_NamedSource()
+	{
+		return (EReference)tTranspositionRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getITransposableElement()
+	{
+		return iTransposableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getITransposableElement_TransposedBy()
+	{
+		return (EReference)iTransposableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getISyntheticElement()
+	{
+		return iSyntheticElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getISyntheticElement_Recipe()
+	{
+		return (EReference)iSyntheticElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTImplicitTransposition()
+	{
+		return tImplicitTranspositionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTImplicitTransposition_OriginalTransposition()
+	{
+		return (EReference)tImplicitTranspositionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTInformationModel()
 	{
 		return tInformationModelEClass;
@@ -294,17 +466,6 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 	public EReference getTInformationModel_IndexingHelper()
 	{
 		return (EReference)tInformationModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getTInformationModel__AllowsIdentityTypes()
-	{
-		return tInformationModelEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -690,9 +851,25 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		isCreated = true;
 
 		// Create classes and their features
+		iTranspositionEClass = createEClass(ITRANSPOSITION);
+		createEReference(iTranspositionEClass, ITRANSPOSITION__RULE);
+		createEReference(iTranspositionEClass, ITRANSPOSITION__IMPLIED_TRANSPOSITIONS);
+
+		tTranspositionRuleEClass = createEClass(TTRANSPOSITION_RULE);
+		createEReference(tTranspositionRuleEClass, TTRANSPOSITION_RULE__SOURCE);
+		createEReference(tTranspositionRuleEClass, TTRANSPOSITION_RULE__NAMED_SOURCE);
+
+		iTransposableElementEClass = createEClass(ITRANSPOSABLE_ELEMENT);
+		createEReference(iTransposableElementEClass, ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY);
+
+		iSyntheticElementEClass = createEClass(ISYNTHETIC_ELEMENT);
+		createEReference(iSyntheticElementEClass, ISYNTHETIC_ELEMENT__RECIPE);
+
+		tImplicitTranspositionEClass = createEClass(TIMPLICIT_TRANSPOSITION);
+		createEReference(tImplicitTranspositionEClass, TIMPLICIT_TRANSPOSITION__ORIGINAL_TRANSPOSITION);
+
 		tInformationModelEClass = createEClass(TINFORMATION_MODEL);
 		createEReference(tInformationModelEClass, TINFORMATION_MODEL__INDEXING_HELPER);
-		createEOperation(tInformationModelEClass, TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES);
 
 		tTypeMappingEClass = createEClass(TTYPE_MAPPING);
 
@@ -782,23 +959,26 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		tImplicitTranspositionEClass.getESuperTypes().add(this.getITransposition());
+		tImplicitTranspositionEClass.getESuperTypes().add(this.getISyntheticElement());
 		tInformationModelEClass.getESuperTypes().add(theBasePackage.getDInformationModel());
 		tAggregateTranspositionEClass.getESuperTypes().add(theBasePackage.getDAggregate());
-		tAggregateTranspositionEClass.getESuperTypes().add(theBasePackage.getITransposition());
-		tTypeTranspositionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
-		tTypeTranspositionEClass.getESuperTypes().add(theBasePackage.getITransposition());
+		tAggregateTranspositionEClass.getESuperTypes().add(this.getITransposition());
+		tTypeTranspositionEClass.getESuperTypes().add(theBasePackage.getDType());
+		tTypeTranspositionEClass.getESuperTypes().add(this.getITransposition());
 		tPrimitiveTranspositionEClass.getESuperTypes().add(theBasePackage.getDPrimitive());
 		tPrimitiveTranspositionEClass.getESuperTypes().add(this.getTTypeTransposition());
 		tEnumerationTranspositionEClass.getESuperTypes().add(theBasePackage.getDEnumeration());
 		tEnumerationTranspositionEClass.getESuperTypes().add(this.getTTypeTransposition());
 		tLiteralTranspositionEClass.getESuperTypes().add(theBasePackage.getDLiteral());
-		tLiteralTranspositionEClass.getESuperTypes().add(theBasePackage.getITransposition());
+		tLiteralTranspositionEClass.getESuperTypes().add(this.getITransposition());
 		tComplexTypeTranspositionEClass.getESuperTypes().add(this.getTTypeTransposition());
 		tDetailTypeTranspositionEClass.getESuperTypes().add(theBasePackage.getDDetailType());
 		tDetailTypeTranspositionEClass.getESuperTypes().add(this.getTComplexTypeTransposition());
 		tEntityTypeTranspositionEClass.getESuperTypes().add(theBasePackage.getDEntityType());
 		tEntityTypeTranspositionEClass.getESuperTypes().add(this.getTComplexTypeTransposition());
-		tFeatureTranspositionEClass.getESuperTypes().add(theBasePackage.getITransposition());
+		tFeatureTranspositionEClass.getESuperTypes().add(theBasePackage.getDFeature());
+		tFeatureTranspositionEClass.getESuperTypes().add(this.getITransposition());
 		tAssociationTranspositionEClass.getESuperTypes().add(theBasePackage.getDAssociation());
 		tAssociationTranspositionEClass.getESuperTypes().add(this.getTFeatureTransposition());
 		tAttributeTranspositionEClass.getESuperTypes().add(theBasePackage.getDAttribute());
@@ -806,20 +986,35 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		tQueryTranspositionEClass.getESuperTypes().add(theBasePackage.getDQuery());
 		tQueryTranspositionEClass.getESuperTypes().add(this.getTFeatureTransposition());
 		tQueryParameterTranspositionEClass.getESuperTypes().add(theBasePackage.getDQueryParameter());
-		tQueryParameterTranspositionEClass.getESuperTypes().add(theBasePackage.getITransposition());
-		tRenameRuleEClass.getESuperTypes().add(theBasePackage.getTTranspositionRule());
+		tQueryParameterTranspositionEClass.getESuperTypes().add(this.getITransposition());
+		tRenameRuleEClass.getESuperTypes().add(this.getTTranspositionRule());
 		tGrabRuleEClass.getESuperTypes().add(this.getTRenameRule());
-		tDitchRuleEClass.getESuperTypes().add(theBasePackage.getTTranspositionRule());
+		tDitchRuleEClass.getESuperTypes().add(this.getTTranspositionRule());
 		tStructureChangingRuleEClass.getESuperTypes().add(this.getTRenameRule());
 		tMorphRuleEClass.getESuperTypes().add(this.getTStructureChangingRule());
 		tFuseRuleEClass.getESuperTypes().add(this.getTStructureChangingRule());
 		tGrabAggregateRuleEClass.getESuperTypes().add(this.getTRenameRule());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(iTranspositionEClass, ITransposition.class, "ITransposition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getITransposition_Rule(), this.getTTranspositionRule(), null, "rule", null, 0, 1, ITransposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getITransposition_ImpliedTranspositions(), this.getTImplicitTransposition(), null, "impliedTranspositions", null, 0, -1, ITransposition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tTranspositionRuleEClass, TTranspositionRule.class, "TTranspositionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTTranspositionRule_Source(), this.getITransposableElement(), null, "source", null, 0, 1, TTranspositionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTTranspositionRule_NamedSource(), theBasePackage.getDNamedElement(), null, "namedSource", null, 0, 1, TTranspositionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(iTransposableElementEClass, ITransposableElement.class, "ITransposableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getITransposableElement_TransposedBy(), this.getITransposition(), null, "transposedBy", null, 0, 1, ITransposableElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iSyntheticElementEClass, ISyntheticElement.class, "ISyntheticElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getISyntheticElement_Recipe(), this.getITransposition(), null, "recipe", null, 0, 1, ISyntheticElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tImplicitTranspositionEClass, TImplicitTransposition.class, "TImplicitTransposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTImplicitTransposition_OriginalTransposition(), this.getITransposition(), null, "originalTransposition", null, 0, 1, TImplicitTransposition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(tInformationModelEClass, TInformationModel.class, "TInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTInformationModel_IndexingHelper(), this.getTTypeMapping(), null, "indexingHelper", null, 0, 1, TInformationModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getTInformationModel__AllowsIdentityTypes(), ecorePackage.getEBoolean(), "allowsIdentityTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tTypeMappingEClass, TTypeMapping.class, "TTypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

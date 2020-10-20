@@ -2,8 +2,9 @@ package com.mimacom.ddd.sm.sim.indexing;
 
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticType;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeMapping;
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
@@ -37,18 +38,20 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
     if ((obj instanceof ITransposition)) {
       return false;
     }
-    if ((obj instanceof DType)) {
-      if ((((DType)obj).isSynthetic() && (((DType)obj).getTransposedBy() != null))) {
-        final ITransposableElement source = ((DType)obj).getTransposedBy().getTranspositionRule().getSource();
+    if ((obj instanceof TSyntheticType)) {
+      ITransposition _recipe = ((TSyntheticType)obj).getRecipe();
+      boolean _tripleNotEquals = (_recipe != null);
+      if (_tripleNotEquals) {
+        final ITransposableElement source = ((TSyntheticType)obj).getRecipe().getRule().getSource();
         if ((source instanceof DType)) {
-          return this.createSTypeDeductionDescription(((DType)obj), ((DType)source), acceptor);
+          return this.createTTypeTranspositionDescription(((TSyntheticType)obj), ((DType)source), acceptor);
         }
       }
     }
     return super.createEObjectDescriptions(obj, acceptor);
   }
   
-  public boolean createSTypeDeductionDescription(final DType typeToIndex, final DType source, final IAcceptor<IEObjectDescription> acceptor) {
+  public boolean createTTypeTranspositionDescription(final TSyntheticType typeToIndex, final DType source, final IAcceptor<IEObjectDescription> acceptor) {
     final IQualifiedNameProvider qnp = this.getQualifiedNameProvider();
     if ((qnp == null)) {
       return false;
@@ -71,8 +74,8 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
         }
         final QualifiedName sourceQN = qnp.getFullyQualifiedName(source);
         if ((sourceQN != null)) {
-          final ITransposition deduction = typeToIndex.getTransposedBy();
-          final SystemInformationModel model = EcoreUtil2.<SystemInformationModel>getContainerOfType(deduction, SystemInformationModel.class);
+          final ITransposition recipe = typeToIndex.getRecipe();
+          final SystemInformationModel model = EcoreUtil2.<SystemInformationModel>getContainerOfType(recipe, SystemInformationModel.class);
           final TTypeMapping typeMappingType = model.getIndexingHelper();
           final Map<String, String> userData = TranspositionUtil.createEObjectDescriptionUserData(targetQN);
           final QualifiedName sourceQNForIndex = TranspositionUtil.getTranspositionSourceQNForIndex(sourceQN);
@@ -80,7 +83,7 @@ public class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrate
           acceptor.accept(mappingDesc);
           boolean _isDebugEnabled_1 = DmxResourceDescriptionStrategy.LOGGER.isDebugEnabled();
           if (_isDebugEnabled_1) {
-            String _path_1 = deduction.eResource().getURI().path();
+            String _path_1 = recipe.eResource().getURI().path();
             String _plus_5 = ("OBJ " + _path_1);
             String _plus_6 = (_plus_5 + " - ");
             String _plus_7 = (_plus_6 + sourceQNForIndex);

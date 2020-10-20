@@ -245,6 +245,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -254,6 +255,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -266,6 +268,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -275,6 +278,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -284,6 +288,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -296,6 +301,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerateHtml() {
 		return generateHtml;
 	}
@@ -305,6 +311,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerateHtml(boolean newGenerateHtml) {
 		boolean oldGenerateHtml = generateHtml;
 		generateHtml = newGenerateHtml;
@@ -317,6 +324,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerateLaTeX() {
 		return generateLaTeX;
 	}
@@ -326,6 +334,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerateLaTeX(boolean newGenerateLaTeX) {
 		boolean oldGenerateLaTeX = generateLaTeX;
 		generateLaTeX = newGenerateLaTeX;
@@ -338,6 +347,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerateMarkdown() {
 		return generateMarkdown;
 	}
@@ -347,6 +357,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerateMarkdown(boolean newGenerateMarkdown) {
 		boolean oldGenerateMarkdown = generateMarkdown;
 		generateMarkdown = newGenerateMarkdown;
@@ -359,6 +370,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerateAsciiDoc() {
 		return generateAsciiDoc;
 	}
@@ -368,6 +380,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerateAsciiDoc(boolean newGenerateAsciiDoc) {
 		boolean oldGenerateAsciiDoc = generateAsciiDoc;
 		generateAsciiDoc = newGenerateAsciiDoc;
@@ -380,6 +393,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPreferRasterDiagrams() {
 		return preferRasterDiagrams;
 	}
@@ -389,6 +403,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPreferRasterDiagrams(boolean newPreferRasterDiagrams) {
 		boolean oldPreferRasterDiagrams = preferRasterDiagrams;
 		preferRasterDiagrams = newPreferRasterDiagrams;
@@ -401,6 +416,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Symbol> getSymbols() {
 		if (symbols == null) {
 			symbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, PubPackage.DOCUMENT__SYMBOLS);
@@ -413,6 +429,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PublicationClass getPublicationClass() {
 		if (publicationClass != null && publicationClass.eIsProxy()) {
 			InternalEObject oldPublicationClass = (InternalEObject)publicationClass;
@@ -439,6 +456,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPublicationClass(PublicationClass newPublicationClass) {
 		PublicationClass oldPublicationClass = publicationClass;
 		publicationClass = newPublicationClass;
@@ -451,6 +469,7 @@ public abstract class DocumentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Symbol getSymbol(final String name) {
 		EList<Symbol> _symbols = this.getSymbols();
 		for (final Symbol sym : _symbols) {

@@ -2,8 +2,11 @@ package com.mimacom.ddd.sm.sim.indexing
 
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticType
+import com.mimacom.ddd.dm.base.transpose.ITransposition
+import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 import org.apache.log4j.Level
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
@@ -13,8 +16,6 @@ import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.IReferenceDescription
 import org.eclipse.xtext.util.IAcceptor
-import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
-import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 @Singleton
 class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
@@ -32,12 +33,12 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 			// Don't index IDeductionDefinition and its children
 			return false // don't index child objects either
 		}
-		if (obj instanceof DType) {
-			if (obj.isSynthetic && obj.getTransposedBy !== null) {
-				val source = obj.getTransposedBy.getTranspositionRule.getSource
+		if (obj instanceof TSyntheticType) {
+			if (obj.recipe !== null) {
+				val source = obj.recipe.getRule.getSource
 				if (source instanceof DType) {
 					// create custom index entry with reference to source
-					return createSTypeDeductionDescription(obj, source, acceptor)
+					return createTTypeTranspositionDescription(obj, source, acceptor)
 				}
 			}
 		}
@@ -53,7 +54,7 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 	}
 
 	// Adapted copy of DefaultResourceDescriptionStrategy.createEObjectDescriptions(obj, acceptor)
-	def boolean createSTypeDeductionDescription(DType typeToIndex, DType source,
+	def boolean createTTypeTranspositionDescription(TSyntheticType typeToIndex, DType source,
 		IAcceptor<IEObjectDescription> acceptor) {
 		val qnp = getQualifiedNameProvider()
 		if (qnp === null)
@@ -74,8 +75,8 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 				// create mapping description:
 				val sourceQN = qnp.getFullyQualifiedName(source);
 				if (sourceQN !== null) {
-					val deduction = typeToIndex.getTransposedBy
-					val model = EcoreUtil2.getContainerOfType(deduction, SystemInformationModel)
+					val recipe = typeToIndex.recipe
+					val model = EcoreUtil2.getContainerOfType(recipe, SystemInformationModel)
 					val typeMappingType = model.indexingHelper
 					val userData = TranspositionUtil.createEObjectDescriptionUserData(targetQN)
 					val sourceQNForIndex = TranspositionUtil.getTranspositionSourceQNForIndex(sourceQN)
@@ -84,7 +85,7 @@ class SimResourceDescriptionStrategy extends DmxResourceDescriptionStrategy {
 
 					if (LOGGER.debugEnabled) {
 						LOGGER.debug(
-							"OBJ " + deduction.eResource.URI.path + " - " + sourceQNForIndex + ": " +
+							"OBJ " + recipe.eResource.URI.path + " - " + sourceQNForIndex + ": " +
 								typeMappingType.eClass.name + " -> " + targetQN)
 					}
 				}

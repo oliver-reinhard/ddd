@@ -334,8 +334,7 @@ PubTableRow returns TableRow:
 		)
 	|	(	isHeading?='|||' | 	'||')
 		cells+=PubTableSimpleCell*
-	)
-;
+	);
 
 PubTableCell returns TableCell:
 	{TableCell}
@@ -348,8 +347,7 @@ PubTableCell returns TableCell:
 
 PubTableSimpleCell returns TableCell:
 	{TableCell}
-	contents+=PubParagraphTextOnly '|'
-;
+	contents+=PubParagraphTextOnly '|';
 
 ProvidedTable:
 	('widthPercent:' widthPercent=NATURAL)?

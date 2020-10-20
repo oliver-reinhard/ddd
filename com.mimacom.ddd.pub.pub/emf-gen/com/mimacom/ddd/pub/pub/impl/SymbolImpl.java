@@ -65,6 +65,7 @@ public class SymbolImpl extends DNamedElementImpl implements Symbol {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getValue() {
 		return value;
 	}
@@ -89,6 +90,7 @@ public class SymbolImpl extends DNamedElementImpl implements Symbol {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(DRichText newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;

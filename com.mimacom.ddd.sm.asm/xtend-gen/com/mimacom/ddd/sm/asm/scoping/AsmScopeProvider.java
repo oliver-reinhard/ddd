@@ -9,7 +9,7 @@ import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.sm.asm.AsmServiceInterface;
 import com.mimacom.ddd.sm.asm.AsmServiceParameter;
 import com.mimacom.ddd.sm.asm.scoping.AbstractAsmScopeProvider;

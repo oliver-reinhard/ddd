@@ -391,24 +391,6 @@ public interface DmxPackage extends EPackage
 	int DMX_ARCHETYPE__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ARCHETYPE__TRANSPOSED_BY = BasePackage.DPRIMITIVE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ARCHETYPE__SYNTHETIC = BasePackage.DPRIMITIVE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,13 +418,22 @@ public interface DmxPackage extends EPackage
 	int DMX_ARCHETYPE__REDEFINES = BasePackage.DPRIMITIVE__REDEFINES;
 
 	/**
+	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ARCHETYPE__TRANSPOSED_BY = BasePackage.DPRIMITIVE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_ARCHETYPE__BASE_TYPE = BasePackage.DPRIMITIVE_FEATURE_COUNT + 0;
+	int DMX_ARCHETYPE__BASE_TYPE = BasePackage.DPRIMITIVE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Archetype</em>' class.
@@ -451,7 +442,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_ARCHETYPE_FEATURE_COUNT = BasePackage.DPRIMITIVE_FEATURE_COUNT + 1;
+	int DMX_ARCHETYPE_FEATURE_COUNT = BasePackage.DPRIMITIVE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Archetype</em>' class.

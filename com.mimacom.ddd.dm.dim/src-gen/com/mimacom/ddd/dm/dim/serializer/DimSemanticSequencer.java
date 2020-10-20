@@ -5,25 +5,26 @@ package com.mimacom.ddd.dm.dim.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.BasePackage;
-import com.mimacom.ddd.dm.base.base.DAggregate;
-import com.mimacom.ddd.dm.base.base.DAssociation;
-import com.mimacom.ddd.dm.base.base.DAttribute;
-import com.mimacom.ddd.dm.base.base.DDetailType;
-import com.mimacom.ddd.dm.base.base.DEntityType;
-import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DImport;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
-import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
-import com.mimacom.ddd.dm.base.base.DPrimitive;
-import com.mimacom.ddd.dm.base.base.DQuery;
-import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
 import com.mimacom.ddd.dm.base.base.DTextSegment;
+import com.mimacom.ddd.dm.dim.DimAggregate;
+import com.mimacom.ddd.dm.dim.DimAssociation;
+import com.mimacom.ddd.dm.dim.DimAttribute;
+import com.mimacom.ddd.dm.dim.DimDetailType;
+import com.mimacom.ddd.dm.dim.DimEntityType;
+import com.mimacom.ddd.dm.dim.DimEnumeration;
+import com.mimacom.ddd.dm.dim.DimLiteral;
+import com.mimacom.ddd.dm.dim.DimPackage;
+import com.mimacom.ddd.dm.dim.DimPrimitive;
+import com.mimacom.ddd.dm.dim.DimQuery;
+import com.mimacom.ddd.dm.dim.DimQueryParameter;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -82,32 +83,8 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case BasePackage.DAGGREGATE:
-				sequence_DAggregate(context, (DAggregate) semanticObject); 
-				return; 
-			case BasePackage.DASSOCIATION:
-				sequence_DAssociation(context, (DAssociation) semanticObject); 
-				return; 
-			case BasePackage.DATTRIBUTE:
-				sequence_DAttribute(context, (DAttribute) semanticObject); 
-				return; 
-			case BasePackage.DDETAIL_TYPE:
-				sequence_DComplexType_DDetailType(context, (DDetailType) semanticObject); 
-				return; 
-			case BasePackage.DENTITY_TYPE:
-				sequence_DComplexType_DEntityType(context, (DEntityType) semanticObject); 
-				return; 
-			case BasePackage.DENUMERATION:
-				sequence_DEnumeration(context, (DEnumeration) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
-				return; 
-			case BasePackage.DINFORMATION_MODEL:
-				sequence_DInformationModel(context, (DInformationModel) semanticObject); 
-				return; 
-			case BasePackage.DLITERAL:
-				sequence_DLiteral(context, (DLiteral) semanticObject); 
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
@@ -117,15 +94,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
-				return; 
-			case BasePackage.DPRIMITIVE:
-				sequence_DPrimitive(context, (DPrimitive) semanticObject); 
-				return; 
-			case BasePackage.DQUERY:
-				sequence_DQuery(context, (DQuery) semanticObject); 
-				return; 
-			case BasePackage.DQUERY_PARAMETER:
-				sequence_DQueryParameter(context, (DQueryParameter) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -154,6 +122,42 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 					return; 
 				}
 				else break;
+			}
+		else if (epackage == DimPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case DimPackage.DIM_AGGREGATE:
+				sequence_DimAggregate(context, (DimAggregate) semanticObject); 
+				return; 
+			case DimPackage.DIM_ASSOCIATION:
+				sequence_DimAssociation(context, (DimAssociation) semanticObject); 
+				return; 
+			case DimPackage.DIM_ATTRIBUTE:
+				sequence_DimAttribute(context, (DimAttribute) semanticObject); 
+				return; 
+			case DimPackage.DIM_DETAIL_TYPE:
+				sequence_DimComplexType_DimDetailType(context, (DimDetailType) semanticObject); 
+				return; 
+			case DimPackage.DIM_ENTITY_TYPE:
+				sequence_DimComplexType_DimEntityType(context, (DimEntityType) semanticObject); 
+				return; 
+			case DimPackage.DIM_ENUMERATION:
+				sequence_DimEnumeration(context, (DimEnumeration) semanticObject); 
+				return; 
+			case DimPackage.DIM_LITERAL:
+				sequence_DimLiteral(context, (DimLiteral) semanticObject); 
+				return; 
+			case DimPackage.DIM_PRIMITIVE:
+				sequence_DimPrimitive(context, (DimPrimitive) semanticObject); 
+				return; 
+			case DimPackage.DIM_QUERY:
+				sequence_DimQuery(context, (DimQuery) semanticObject); 
+				return; 
+			case DimPackage.DIM_QUERY_PARAMETER:
+				sequence_DimQueryParameter(context, (DimQueryParameter) semanticObject); 
+				return; 
+			case DimPackage.DOMAIN_INFORMATION_MODEL:
+				sequence_DomainInformationModel(context, (DomainInformationModel) semanticObject); 
+				return; 
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -327,103 +331,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DAggregate returns DAggregate
-	 *
-	 * Constraint:
-	 *     (name=ID description=DRichText? features+=DQuery* types+=DType*)
-	 */
-	protected void sequence_DAggregate(ISerializationContext context, DAggregate semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DFeature returns DAssociation
-	 *     DAssociation returns DAssociation
-	 *
-	 * Constraint:
-	 *     (
-	 *         derived?='derived'? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
-	 *         type=[DEntityType|ID]? 
-	 *         multiplicity=DMultiplicity? 
-	 *         description=DRichText?
-	 *     )
-	 */
-	protected void sequence_DAssociation(ISerializationContext context, DAssociation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DFeature returns DAttribute
-	 *     DAttribute returns DAttribute
-	 *
-	 * Constraint:
-	 *     (
-	 *         detail?='detail'? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         type=[DType|ID]? 
-	 *         multiplicity=DMultiplicity? 
-	 *         key?='key'? 
-	 *         description=DRichText?
-	 *     )
-	 */
-	protected void sequence_DAttribute(ISerializationContext context, DAttribute semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DType returns DDetailType
-	 *     DDetailType returns DDetailType
-	 *
-	 * Constraint:
-	 *     (
-	 *         abstract?='abstract'? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         superType=[DComplexType|ID]? 
-	 *         description=DRichText? 
-	 *         (features+=DFeature | constraints+=DConstraint)*
-	 *     )
-	 */
-	protected void sequence_DComplexType_DDetailType(ISerializationContext context, DDetailType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DType returns DEntityType
-	 *     DEntityType returns DEntityType
-	 *
-	 * Constraint:
-	 *     (
-	 *         abstract?='abstract'? 
-	 *         root?='main'? 
-	 *         (nature=DEntityNatureAutonomous | nature=DEntityNatureRelationship)? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         superType=[DComplexType|ID]? 
-	 *         description=DRichText? 
-	 *         (states+=DState states+=DState* (events+=DStateEvent events+=DStateEvent*)?)? 
-	 *         (features+=DFeature | constraints+=DConstraint)*
-	 *     )
-	 */
-	protected void sequence_DComplexType_DEntityType(ISerializationContext context, DEntityType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DConstraint returns DNamedPredicate
 	 *
 	 * Constraint:
@@ -436,95 +343,12 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DType returns DEnumeration
-	 *     DEnumeration returns DEnumeration
-	 *
-	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? (literals+=DLiteral literals+=DLiteral*)? constraints+=DConstraint*)
-	 */
-	protected void sequence_DEnumeration(ISerializationContext context, DEnumeration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DInformationModel returns DInformationModel
-	 *
-	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? (types+=DType | aggregates+=DAggregate)*)
-	 */
-	protected void sequence_DInformationModel(ISerializationContext context, DInformationModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DLiteral returns DLiteral
-	 *
-	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText?)
-	 */
-	protected void sequence_DLiteral(ISerializationContext context, DLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=DImport* model=DInformationModel)
+	 *     (name=DQualifiedName imports+=DImport* model=DomainInformationModel)
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DType returns DPrimitive
-	 *     DPrimitive returns DPrimitive
-	 *
-	 * Constraint:
-	 *     (name=ID aliases+=ID* redefines=[DmxArchetype|ID] description=DRichText? constraints+=DConstraint*)
-	 */
-	protected void sequence_DPrimitive(ISerializationContext context, DPrimitive semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DQueryParameter returns DQueryParameter
-	 *
-	 * Constraint:
-	 *     (name=ID type=[DType|ID]? multiplicity=DMultiplicity? description=DRichText?)
-	 */
-	protected void sequence_DQueryParameter(ISerializationContext context, DQueryParameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DFeature returns DQuery
-	 *     DQuery returns DQuery
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         (parameters+=DQueryParameter parameters+=DQueryParameter*)? 
-	 *         type=[DType|ID]? 
-	 *         multiplicity=DMultiplicity? 
-	 *         returns=DExpression? 
-	 *         description=DRichText?
-	 *     )
-	 */
-	protected void sequence_DQuery(ISerializationContext context, DQuery semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -562,6 +386,186 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDStateAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimAggregate returns DimAggregate
+	 *
+	 * Constraint:
+	 *     (name=ID description=DRichText? features+=DimQuery* types+=DimType*)
+	 */
+	protected void sequence_DimAggregate(ISerializationContext context, DimAggregate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimFeature returns DimAssociation
+	 *     DimAssociation returns DimAssociation
+	 *
+	 * Constraint:
+	 *     (
+	 *         derived?='derived'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
+	 *         type=[DEntityType|ID]? 
+	 *         multiplicity=DMultiplicity? 
+	 *         description=DRichText?
+	 *     )
+	 */
+	protected void sequence_DimAssociation(ISerializationContext context, DimAssociation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimFeature returns DimAttribute
+	 *     DimAttribute returns DimAttribute
+	 *
+	 * Constraint:
+	 *     (
+	 *         detail?='detail'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         type=[DType|ID]? 
+	 *         multiplicity=DMultiplicity? 
+	 *         key?='key'? 
+	 *         description=DRichText?
+	 *     )
+	 */
+	protected void sequence_DimAttribute(ISerializationContext context, DimAttribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimType returns DimDetailType
+	 *     DimDetailType returns DimDetailType
+	 *
+	 * Constraint:
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         superType=[DComplexType|ID]? 
+	 *         description=DRichText? 
+	 *         (features+=DimFeature | constraints+=DConstraint)*
+	 *     )
+	 */
+	protected void sequence_DimComplexType_DimDetailType(ISerializationContext context, DimDetailType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimType returns DimEntityType
+	 *     DimEntityType returns DimEntityType
+	 *
+	 * Constraint:
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         root?='main'? 
+	 *         (nature=DEntityNatureAutonomous | nature=DEntityNatureRelationship)? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         superType=[DComplexType|ID]? 
+	 *         description=DRichText? 
+	 *         (states+=DState states+=DState* (events+=DStateEvent events+=DStateEvent*)?)? 
+	 *         (features+=DimFeature | constraints+=DConstraint)*
+	 *     )
+	 */
+	protected void sequence_DimComplexType_DimEntityType(ISerializationContext context, DimEntityType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimType returns DimEnumeration
+	 *     DimEnumeration returns DimEnumeration
+	 *
+	 * Constraint:
+	 *     (name=ID aliases+=ID* description=DRichText? (literals+=DimLiteral literals+=DimLiteral*)? constraints+=DConstraint*)
+	 */
+	protected void sequence_DimEnumeration(ISerializationContext context, DimEnumeration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimLiteral returns DimLiteral
+	 *
+	 * Constraint:
+	 *     (name=ID aliases+=ID* description=DRichText?)
+	 */
+	protected void sequence_DimLiteral(ISerializationContext context, DimLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimType returns DimPrimitive
+	 *     DimPrimitive returns DimPrimitive
+	 *
+	 * Constraint:
+	 *     (name=ID aliases+=ID* redefines=[DmxArchetype|ID] description=DRichText? constraints+=DConstraint*)
+	 */
+	protected void sequence_DimPrimitive(ISerializationContext context, DimPrimitive semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimQueryParameter returns DimQueryParameter
+	 *
+	 * Constraint:
+	 *     (name=ID type=[DType|ID]? multiplicity=DMultiplicity? description=DRichText?)
+	 */
+	protected void sequence_DimQueryParameter(ISerializationContext context, DimQueryParameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DimFeature returns DimQuery
+	 *     DimQuery returns DimQuery
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         (parameters+=DimQueryParameter parameters+=DimQueryParameter*)? 
+	 *         type=[DType|ID]? 
+	 *         multiplicity=DMultiplicity? 
+	 *         returns=DExpression? 
+	 *         description=DRichText?
+	 *     )
+	 */
+	protected void sequence_DimQuery(ISerializationContext context, DimQuery semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DomainInformationModel returns DomainInformationModel
+	 *
+	 * Constraint:
+	 *     (name=ID aliases+=ID* description=DRichText? (types+=DimType | aggregates+=DimAggregate)*)
+	 */
+	protected void sequence_DomainInformationModel(ISerializationContext context, DomainInformationModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

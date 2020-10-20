@@ -4,8 +4,10 @@
 package com.mimacom.ddd.sm.sim.generator
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.base.ITransposableElement
-import com.mimacom.ddd.dm.base.base.ITransposition
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement
+import com.mimacom.ddd.dm.base.transpose.ITransposition
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 import java.io.CharArrayWriter
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.util.EcoreUtil
@@ -16,7 +18,6 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
-import com.mimacom.ddd.sm.sim.SystemInformationModel
 
 /**
  * Generates code from your model files on save.
@@ -63,8 +64,7 @@ class SimGenerator extends AbstractGenerator {
 			while (deducibleElements.hasNext) {
 				val e = deducibleElements.next
 				e.transposedBy = null
-				hadSyntheticItems = hadSyntheticItems || (e.isSynthetic)
-				e.synthetic = false
+				hadSyntheticItems = hadSyntheticItems || (e instanceof ISyntheticElement)
 			}
 		}
 		return hadSyntheticItems

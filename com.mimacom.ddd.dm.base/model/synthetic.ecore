@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="synthetic" nsURI="http://www.mimacom.com/ddd/dm/synthetic" nsPrefix="synthetic">
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticAggregate" eSuperTypes="base.ecore#//DAggregate transpose.ecore#//ISyntheticElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticType" abstract="true" eSuperTypes="base.ecore#//DType transpose.ecore#//ISyntheticElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticPrimitive" eSuperTypes="base.ecore#//DPrimitive #//TSyntheticType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticEnumeration" eSuperTypes="base.ecore#//DEnumeration #//TSyntheticType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticLiteral" eSuperTypes="base.ecore#//DLiteral transpose.ecore#//ISyntheticElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticComplexType" abstract="true"
+      eSuperTypes="base.ecore#//DComplexType #//TSyntheticType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticDetailType" eSuperTypes="base.ecore#//DDetailType #//TSyntheticComplexType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticEntityType" eSuperTypes="base.ecore#//DEntityType #//TSyntheticComplexType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticFeature" abstract="true" eSuperTypes="base.ecore#//DFeature transpose.ecore#//ISyntheticElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticAssociation" eSuperTypes="base.ecore#//DAssociation #//TSyntheticFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticAttribute" eSuperTypes="base.ecore#//DAttribute #//TSyntheticFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticQuery" eSuperTypes="base.ecore#//DQuery #//TSyntheticFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TSyntheticQueryParameter" eSuperTypes="base.ecore#//DQueryParameter transpose.ecore#//ISyntheticElement"/>
+</ecore:EPackage>

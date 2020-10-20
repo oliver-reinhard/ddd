@@ -4,6 +4,7 @@ var rootPath = ".."
 var project="com.mimacom.ddd.dm.base"
 var genModelBase="platform:/resource/${project}/model/base.genmodel"
 var genModelTranspose="platform:/resource/${project}/model/transpose.genmodel"
+var genModelSynthetic="platform:/resource/${project}/model/synthetic.genmodel"
 var genModelStyledText="platform:/resource/${project}/model/styledText.genmodel"
 
 Workflow {
@@ -24,6 +25,10 @@ Workflow {
 		genModel = "${genModelTranspose}"
 		srcPath = "platform:/resource/${project}/src"
 	}
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "${genModelSynthetic}"
+		srcPath = "platform:/resource/${project}/src"
+	}
 //	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
 //	    platformUri = "${rootPath}"
 //	    scanClassPath = true
@@ -38,6 +43,7 @@ Workflow {
 	    scanClassPath = true
 	    registerGenModelFile = "${genModelBase}"
 	    registerGenModelFile = "${genModelTranspose}"
+	    registerGenModelFile = "${genModelSynthetic}"
 	    registerGenModelFile = "${genModelStyledText}"
 	}
 }

@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esm" nsURI="http://www.mimacom.com/ddd/dm/esm" nsPrefix="esm">
   <eClassifiers xsi:type="ecore:EClass" name="EsmEntityStateModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel #//IEsmStateModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DEntityType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="ecore:EClass ../../com.mimacom.ddd.dm.dim/model/dim.ecore#//DimEntityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IEsmLayout" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//EsmLayoutDirection"/>

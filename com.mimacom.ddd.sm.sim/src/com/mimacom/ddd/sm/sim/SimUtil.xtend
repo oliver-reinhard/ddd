@@ -7,11 +7,11 @@ import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DFeature
 import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.base.TTranspositionRule
 import com.mimacom.ddd.dm.base.base.impl.DDetailTypeImpl
 import com.mimacom.ddd.dm.base.base.impl.DEntityTypeImpl
 import com.mimacom.ddd.dm.base.base.impl.DEnumerationImpl
 import com.mimacom.ddd.dm.base.base.impl.DPrimitiveImpl
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition
@@ -26,6 +26,7 @@ import com.mimacom.ddd.dm.base.transpose.TGrabRule
 import com.mimacom.ddd.dm.base.transpose.TMorphRule
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.dm.dim.DimUtil
 import java.util.Collections
@@ -53,7 +54,7 @@ class SimUtil extends DimUtil {
 	def List<DType> syntheticTypes(TAggregateTransposition a) {
 		// get synthetic aggregate that was created for 'aggregate' rule:
 		val model = a.eContainer as SystemInformationModel
-		val syntheticAggregates = model.aggregates.filter[isSynthetic && getTransposedBy == a]
+		val syntheticAggregates = model.aggregates.filter(TSyntheticAggregate).filter[recipe == a]
 		if (syntheticAggregates.size == 1) {
 			return syntheticAggregates.head.types
 		}

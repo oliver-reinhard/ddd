@@ -10,6 +10,7 @@ Bundle-SymbolicName: com.mimacom.ddd.dm.esm;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  com.mimacom.ddd.dm.dmx;visibility:=reexport,
+ com.mimacom.ddd.dm.dim;visibility:=reexport,
  com.mimacom.ddd.pub.pub,
  com.mimacom.ddd.util;visibility:=reexport,
  org.eclipse.xtext,

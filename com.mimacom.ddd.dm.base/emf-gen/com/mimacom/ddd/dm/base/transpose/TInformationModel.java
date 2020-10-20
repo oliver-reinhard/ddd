@@ -44,12 +44,4 @@ public interface TInformationModel extends DInformationModel
 	 */
 	void setIndexingHelper(TTypeMapping value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean allowsIdentityTypes();
-
 } // TInformationModel

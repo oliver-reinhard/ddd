@@ -10,8 +10,10 @@ import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticFeature;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticQueryParameter;
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.dm.base.transpose.SyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TDitchRule;
@@ -21,6 +23,7 @@ import com.mimacom.ddd.dm.base.transpose.TMorphRule;
 import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TRenameRule;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,12 +76,12 @@ public class TFeatureTranspositionRuleProcessor {
       } else {
         _xifexpression = ((DFeature)source).getName();
       }
-      final DFeature syntheticFeature = this._syntheticModelElementsFactory.addSyntheticFeature(container, _xifexpression, ((DFeature)source), recipe);
+      final TSyntheticFeature syntheticFeature = this._syntheticModelElementsFactory.addSyntheticFeature(container, _xifexpression, ((DFeature)source), recipe);
       if ((recipe instanceof TQueryTransposition)) {
         final DQuery syntheticQuery = ((DQuery) syntheticFeature);
         final Iterable<TQueryParameterTransposition> parameterRecipes = Iterables.<TQueryParameterTransposition>filter(((TQueryTransposition)recipe).getParameters(), TQueryParameterTransposition.class);
         final Function1<DQueryParameter, Boolean> _function = (DQueryParameter it) -> {
-          return Boolean.valueOf((!((it instanceof TQueryParameterTransposition) || it.isSynthetic())));
+          return Boolean.valueOf((!((it instanceof TQueryParameterTransposition) || (it instanceof ISyntheticElement))));
         };
         Iterable<DQueryParameter> explicitParameters = IterableExtensions.<DQueryParameter>filter(((TQueryTransposition)recipe).getParameters(), _function);
         final Function1<TQueryParameterTransposition, Boolean> _function_1 = (TQueryParameterTransposition it) -> {
@@ -87,25 +90,23 @@ public class TFeatureTranspositionRuleProcessor {
         boolean _exists = IterableExtensions.<TQueryParameterTransposition>exists(parameterRecipes, _function_1);
         boolean _not = (!_exists);
         if (_not) {
-          final ArrayList<DQueryParameter> implicitlyGrabbedSourceParameters = Lists.<DQueryParameter>newArrayList(((DQuery) source).getParameters());
-          final Function1<TQueryParameterTransposition, Boolean> _function_2 = (TQueryParameterTransposition it) -> {
-            ITransposableElement _source = it.getTranspositionRule().getSource();
-            return Boolean.valueOf((_source instanceof DQueryParameter));
+          final Function1<DQueryParameter, Boolean> _function_2 = (DQueryParameter it) -> {
+            return Boolean.valueOf((it instanceof ITransposableElement));
           };
-          final Function1<TQueryParameterTransposition, DQueryParameter> _function_3 = (TQueryParameterTransposition it) -> {
-            ITransposableElement _source = it.getTranspositionRule().getSource();
-            return ((DQueryParameter) _source);
+          final ArrayList<DQueryParameter> implicitlyGrabbedSourceParameters = Lists.<DQueryParameter>newArrayList(IterableExtensions.<DQueryParameter>filter(((DQuery) source).getParameters(), _function_2));
+          final Function1<TQueryParameterTransposition, ITransposableElement> _function_3 = (TQueryParameterTransposition it) -> {
+            return rule.getSource();
           };
-          final Iterable<DQueryParameter> sourceParametersAffectedByRule = IterableExtensions.<TQueryParameterTransposition, DQueryParameter>map(IterableExtensions.<TQueryParameterTransposition>filter(parameterRecipes, _function_2), _function_3);
-          CollectionExtensions.<DQueryParameter>removeAll(implicitlyGrabbedSourceParameters, sourceParametersAffectedByRule);
+          final Iterable<DQueryParameter> sourceParametersWithTransposition = Iterables.<DQueryParameter>filter(IterableExtensions.<TQueryParameterTransposition, ITransposableElement>map(parameterRecipes, _function_3), DQueryParameter.class);
+          CollectionExtensions.<DQueryParameter>removeAll(implicitlyGrabbedSourceParameters, sourceParametersWithTransposition);
           for (final DQueryParameter sourceParameter : implicitlyGrabbedSourceParameters) {
             this._syntheticModelElementsFactory.addSyntheticQueryParameter(syntheticQuery, sourceParameter.getName(), sourceParameter, 
-              this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, sourceParameter));
+              this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, ((ITransposableElement) sourceParameter)));
           }
         }
         final List<TQueryParameterTransposition> parameterRecipesList = IterableExtensions.<TQueryParameterTransposition>toList(parameterRecipes);
         for (final TQueryParameterTransposition r : parameterRecipesList) {
-          this.transposeQueryParameter(syntheticQuery, r, r.getTranspositionRule());
+          this.transposeQueryParameter(syntheticQuery, r, r.getRule());
         }
         for (final DQueryParameter p : explicitParameters) {
           this._syntheticModelElementsFactory.addSyntheticQueryParameterAsCopy(syntheticQuery, p);
@@ -126,36 +127,34 @@ public class TFeatureTranspositionRuleProcessor {
         final IFeatureContainer featureContainer = ((IFeatureContainer) desc.recipe);
         featureRecipes = Iterables.<TFeatureTransposition>filter(featureContainer.getFeatures(), TFeatureTransposition.class);
         final Function1<DFeature, Boolean> _function = (DFeature it) -> {
-          return Boolean.valueOf((!((it instanceof TFeatureTransposition) || it.isSynthetic())));
+          return Boolean.valueOf((!((it instanceof TFeatureTransposition) || (it instanceof ISyntheticElement))));
         };
         explicitFeatures = IterableExtensions.<DFeature>filter(featureContainer.getFeatures(), _function);
       }
       final Function1<TFeatureTransposition, Boolean> _function_1 = (TFeatureTransposition it) -> {
-        TTranspositionRule _transpositionRule = it.getTranspositionRule();
-        return Boolean.valueOf((_transpositionRule instanceof TGrabRule));
+        TTranspositionRule _rule = it.getRule();
+        return Boolean.valueOf((_rule instanceof TGrabRule));
       };
       boolean _exists = IterableExtensions.<TFeatureTransposition>exists(featureRecipes, _function_1);
       boolean _not = (!_exists);
       if (_not) {
-        final ArrayList<DFeature> implicitlyGrabbedSourceFeatures = Lists.<DFeature>newArrayList(this._typesUtil.allFeatures(desc.source));
-        final Function1<TFeatureTransposition, Boolean> _function_2 = (TFeatureTransposition it) -> {
-          ITransposableElement _source = it.getTranspositionRule().getSource();
-          return Boolean.valueOf((_source instanceof DFeature));
+        final Function1<DFeature, Boolean> _function_2 = (DFeature it) -> {
+          return Boolean.valueOf((it instanceof ITransposableElement));
         };
-        final Function1<TFeatureTransposition, DFeature> _function_3 = (TFeatureTransposition it) -> {
-          ITransposableElement _source = it.getTranspositionRule().getSource();
-          return ((DFeature) _source);
+        final ArrayList<DFeature> implicitlyGrabbedSourceFeatures = Lists.<DFeature>newArrayList(IterableExtensions.<DFeature>filter(this._typesUtil.allFeatures(desc.source), _function_2));
+        final Function1<TFeatureTransposition, ITransposableElement> _function_3 = (TFeatureTransposition it) -> {
+          return it.getRule().getSource();
         };
-        final Iterable<DFeature> sourceFeaturesAffectedByRule = IterableExtensions.<TFeatureTransposition, DFeature>map(IterableExtensions.<TFeatureTransposition>filter(featureRecipes, _function_2), _function_3);
-        CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedSourceFeatures, sourceFeaturesAffectedByRule);
+        final Iterable<DFeature> sourceFeaturesWithTransposition = Iterables.<DFeature>filter(IterableExtensions.<TFeatureTransposition, ITransposableElement>map(featureRecipes, _function_3), DFeature.class);
+        CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedSourceFeatures, sourceFeaturesWithTransposition);
         for (final DFeature sourceFeature : implicitlyGrabbedSourceFeatures) {
           this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, 
-            this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(desc.recipe, sourceFeature));
+            this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(desc.recipe, ((ITransposableElement) sourceFeature)));
         }
       }
       final List<TFeatureTransposition> featureRecipesList = IterableExtensions.<TFeatureTransposition>toList(featureRecipes);
       for (final TFeatureTransposition r : featureRecipesList) {
-        this.transposeFeature(desc.syntheticType, r, r.getTranspositionRule());
+        this.transposeFeature(desc.syntheticType, r, r.getRule());
       }
     }
     for (final DFeature f : explicitFeatures) {
@@ -197,7 +196,7 @@ public class TFeatureTranspositionRuleProcessor {
       } else {
         _xifexpression = ((DQueryParameter)source).getName();
       }
-      final DQueryParameter syntheticParameter = this._syntheticModelElementsFactory.addSyntheticQueryParameter(container, _xifexpression, ((DQueryParameter)source), recipe);
+      final TSyntheticQueryParameter syntheticParameter = this._syntheticModelElementsFactory.addSyntheticQueryParameter(container, _xifexpression, ((DQueryParameter)source), recipe);
       return syntheticParameter;
     }
     return null;

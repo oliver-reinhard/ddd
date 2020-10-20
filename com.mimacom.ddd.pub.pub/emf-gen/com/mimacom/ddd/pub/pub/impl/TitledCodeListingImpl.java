@@ -99,6 +99,7 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isNumbered() {
 		return numbered;
 	}
@@ -108,6 +109,7 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNumbered(boolean newNumbered) {
 		boolean oldNumbered = numbered;
 		numbered = newNumbered;
@@ -120,6 +122,7 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getCodeLines() {
 		if (codeLines == null) {
 			codeLines = new EDataTypeEList<String>(String.class, this, PubPackage.TITLED_CODE_LISTING__CODE_LINES);
@@ -132,6 +135,7 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getInclude() {
 		if (include != null && include.eIsProxy()) {
 			InternalEObject oldInclude = (InternalEObject)include;
@@ -158,6 +162,7 @@ public class TitledCodeListingImpl extends TitledBlockImpl implements TitledCode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInclude(EObject newInclude) {
 		EObject oldInclude = include;
 		include = newInclude;

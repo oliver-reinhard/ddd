@@ -4,9 +4,9 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.mimacom.ddd.dm.base.base.BaseFactory;
-import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.synthetic.SyntheticFactory;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticPrimitive;
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex;
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 public class TypeMappingUtil {
   private static final Logger LOGGER = Logger.getLogger(TypeMappingUtil.class);
   
-  private static final BaseFactory BASE = BaseFactory.eINSTANCE;
+  private static final SyntheticFactory SYNTHETIC = SyntheticFactory.eINSTANCE;
   
   @Inject
   private TransposeIndex index;
@@ -53,7 +53,7 @@ public class TypeMappingUtil {
     String _transposedTypeProxyUriFragment = TranspositionUtil.getTransposedTypeProxyUriFragment(sourceTypeQN);
     String _plus_1 = (_plus + _transposedTypeProxyUriFragment);
     final URI uri = URI.createURI(_plus_1);
-    final DPrimitive proxy = TypeMappingUtil.BASE.createDPrimitive();
+    final TSyntheticPrimitive proxy = TypeMappingUtil.SYNTHETIC.createTSyntheticPrimitive();
     ((BasicEObjectImpl) proxy).eSetProxyURI(uri);
     boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {

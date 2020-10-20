@@ -26,11 +26,8 @@ import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
 
 import com.mimacom.ddd.dm.base.transpose.*;
 
@@ -104,6 +101,31 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	protected TransposeSwitch<Adapter> modelSwitch =
 		new TransposeSwitch<Adapter>()
 		{
+			@Override
+			public Adapter caseITransposition(ITransposition object)
+			{
+				return createITranspositionAdapter();
+			}
+			@Override
+			public Adapter caseTTranspositionRule(TTranspositionRule object)
+			{
+				return createTTranspositionRuleAdapter();
+			}
+			@Override
+			public Adapter caseITransposableElement(ITransposableElement object)
+			{
+				return createITransposableElementAdapter();
+			}
+			@Override
+			public Adapter caseISyntheticElement(ISyntheticElement object)
+			{
+				return createISyntheticElementAdapter();
+			}
+			@Override
+			public Adapter caseTImplicitTransposition(TImplicitTransposition object)
+			{
+				return createTImplicitTranspositionAdapter();
+			}
 			@Override
 			public Adapter caseTInformationModel(TInformationModel object)
 			{
@@ -240,11 +262,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
-			public Adapter caseITransposableElement(ITransposableElement object)
-			{
-				return createITransposableElementAdapter();
-			}
-			@Override
 			public Adapter caseIDiagramRoot(IDiagramRoot object)
 			{
 				return createIDiagramRootAdapter();
@@ -268,11 +285,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDAggregate(DAggregate object)
 			{
 				return createDAggregateAdapter();
-			}
-			@Override
-			public Adapter caseITransposition(ITransposition object)
-			{
-				return createITranspositionAdapter();
 			}
 			@Override
 			public Adapter caseDType(DType object)
@@ -355,11 +367,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 				return createDQueryParameterAdapter();
 			}
 			@Override
-			public Adapter caseTTranspositionRule(TTranspositionRule object)
-			{
-				return createTTranspositionRuleAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object)
 			{
 				return createEObjectAdapter();
@@ -380,6 +387,81 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.ITransposition <em>ITransposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposition
+	 * @generated
+	 */
+	public Adapter createITranspositionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule <em>TTransposition Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.TTranspositionRule
+	 * @generated
+	 */
+	public Adapter createTTranspositionRuleAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.ITransposableElement <em>ITransposable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposableElement
+	 * @generated
+	 */
+	public Adapter createITransposableElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.ISyntheticElement <em>ISynthetic Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.ISyntheticElement
+	 * @generated
+	 */
+	public Adapter createISyntheticElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TImplicitTransposition <em>TImplicit Transposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.TImplicitTransposition
+	 * @generated
+	 */
+	public Adapter createTImplicitTranspositionAdapter()
+	{
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel <em>TInformation Model</em>}'.
@@ -787,21 +869,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-	 * @generated
-	 */
-	public Adapter createITransposableElementAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -872,21 +939,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAggregateAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposition <em>ITransposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposition
-	 * @generated
-	 */
-	public Adapter createITranspositionAdapter()
 	{
 		return null;
 	}
@@ -1127,21 +1179,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDQueryParameterAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.TTranspositionRule <em>TTransposition Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.TTranspositionRule
-	 * @generated
-	 */
-	public Adapter createTTranspositionRuleAdapter()
 	{
 		return null;
 	}

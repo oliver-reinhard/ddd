@@ -1,7 +1,6 @@
 package com.mimacom.ddd.dm.base.transpose
 
 import com.mimacom.ddd.dm.base.base.IFeatureContainer
-import com.mimacom.ddd.dm.base.base.ITransposition
 
 class SyntheticFeatureContainerDescriptor {
 		

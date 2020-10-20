@@ -16,7 +16,7 @@ import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.base.base.IFeatureContainer
-import com.mimacom.ddd.dm.base.base.ITransposableElement
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement
 import java.util.Collections
 import java.util.LinkedHashSet
 import java.util.List
@@ -196,10 +196,6 @@ class TypesUtil {
 
 	def String label(ITransposableElement e) {
 		switch e {
-			DAggregate: e.label
-			DType: e.label
-			DFeature: e.label
-			DQueryParameter: e.label
 			DLiteral: e.name
 			default: e.toString
 		}

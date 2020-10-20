@@ -1,18 +1,20 @@
 package com.mimacom.ddd.dm.base.transpose;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.dm.base.transpose.SyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTranspositionRuleProcessor;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
@@ -45,7 +47,7 @@ public class TAggregateTranspositionRuleProcessor {
     ITypeContainer syntheticTypesContainer = ((ITypeContainer)_xifexpression);
     if ((aggregate instanceof TAggregateTransposition)) {
       final TAggregateTransposition recipe = ((TAggregateTransposition)aggregate);
-      final TTranspositionRule rule = recipe.getTranspositionRule();
+      final TTranspositionRule rule = recipe.getRule();
       if ((rule instanceof TGrabAggregateRule)) {
         ITransposableElement source = ((TGrabAggregateRule)rule).getSource();
         if ((source instanceof DAggregate)) {
@@ -73,15 +75,15 @@ public class TAggregateTranspositionRuleProcessor {
   public void transposeAggregateQueries(final DAggregate aggregate, final TInformationModel model) {
     if ((aggregate instanceof TAggregateTransposition)) {
       final TAggregateTransposition recipe = ((TAggregateTransposition)aggregate);
-      final TTranspositionRule rule = recipe.getTranspositionRule();
-      final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
-        return Boolean.valueOf((it.isSynthetic() && Objects.equal(it.getTransposedBy(), aggregate)));
+      final TTranspositionRule rule = recipe.getRule();
+      final Function1<TSyntheticAggregate, Boolean> _function = (TSyntheticAggregate it) -> {
+        return Boolean.valueOf(Objects.equal(recipe, aggregate));
       };
-      final Iterable<DAggregate> syntheticAggregates = IterableExtensions.<DAggregate>filter(model.getAggregates(), _function);
+      final Iterable<TSyntheticAggregate> syntheticAggregates = IterableExtensions.<TSyntheticAggregate>filter(Iterables.<TSyntheticAggregate>filter(model.getAggregates(), TSyntheticAggregate.class), _function);
       int _size = IterableExtensions.size(syntheticAggregates);
       boolean _equals = (_size == 1);
       if (_equals) {
-        final DAggregate syntheticAggregate = IterableExtensions.<DAggregate>head(syntheticAggregates);
+        final TSyntheticAggregate syntheticAggregate = IterableExtensions.<TSyntheticAggregate>head(syntheticAggregates);
         boolean _allowsIdentityTypes = model.allowsIdentityTypes();
         if (_allowsIdentityTypes) {
           ITransposableElement _source = rule.getSource();

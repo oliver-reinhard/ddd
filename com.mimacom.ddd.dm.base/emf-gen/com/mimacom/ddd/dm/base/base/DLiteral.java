@@ -10,9 +10,9 @@ package com.mimacom.ddd.dm.base.base;
  *
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDLiteral()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface DLiteral extends DNavigableMember, ITransposableElement
+public interface DLiteral extends DNavigableMember
 {
 } // DLiteral

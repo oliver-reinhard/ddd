@@ -4,9 +4,9 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer;
@@ -30,7 +30,7 @@ public class DimAllFeaturesTableRenderer implements ITableRenderer {
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
-    if (((root instanceof DInformationModel) || (root instanceof DAggregate))) {
+    if (((root instanceof DomainInformationModel) || (root instanceof DAggregate))) {
       final List<DFeature> allFeatures = EcoreUtil2.<DFeature>eAllOfType(root, DFeature.class);
       boolean _isEmpty = allFeatures.isEmpty();
       return (!_isEmpty);
@@ -42,7 +42,7 @@ public class DimAllFeaturesTableRenderer implements ITableRenderer {
   public Table render(final IDiagramRoot root) {
     DimAllFeaturesTableRenderer.LOGGER.info((" for " + root));
     final Table t = this._pubTableUtil.createTableWithHeader("Type", "Feature Name", "Feature Type", "Description");
-    if (((root instanceof DInformationModel) || (root instanceof DAggregate))) {
+    if (((root instanceof DomainInformationModel) || (root instanceof DAggregate))) {
       final List<DComplexType> allTypes = EcoreUtil2.<DComplexType>eAllOfType(root, DComplexType.class);
       for (final DComplexType type : allTypes) {
         {

@@ -21,11 +21,10 @@ import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.IValueType;
-import com.mimacom.ddd.dm.base.base.TImplicitTransposition;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
@@ -37,9 +36,11 @@ import com.mimacom.ddd.dm.base.transpose.TEnumerationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFuseRule;
 import com.mimacom.ddd.dm.base.transpose.TGrabRule;
+import com.mimacom.ddd.dm.base.transpose.TImplicitTransposition;
 import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTristate;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
@@ -94,42 +95,42 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkCorrespondingAggregateType(final TAggregateTransposition a) {
-    if (((a.getTranspositionRule().getSource() != null) && (!(a.getTranspositionRule().getSource() instanceof DAggregate)))) {
-      this.error("Deduced-aggregate rule must have a domain-model Aggregate as its source", a.getTranspositionRule(), 
-        BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+    if (((a.getRule().getSource() != null) && (!(a.getRule().getSource() instanceof DAggregate)))) {
+      this.error("Deduced-aggregate rule must have a domain-model Aggregate as its source", a.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
   @Check
   public void checkCorrespondingDEntityType(final TEntityTypeTransposition t) {
-    final ITransposableElement source = t.getTranspositionRule().getSource();
+    final ITransposableElement source = t.getRule().getSource();
     if ((source instanceof DEntityType)) {
       boolean _isRoot = ((DEntityType)source).isRoot();
       boolean _isRoot_1 = t.isRoot();
       boolean _tripleNotEquals = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
       if (_tripleNotEquals) {
-        this.error("Deduced-entity rule must match domain-model root property", t.getTranspositionRule(), 
-          BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        this.error("Deduced-entity rule must match domain-model root property", t.getRule(), 
+          TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
       }
     } else {
       if ((source != null)) {
-        this.error("Deduced-entity rule must have a domain-model entity as its source", t.getTranspositionRule(), 
-          BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        this.error("Deduced-entity rule must have a domain-model entity as its source", t.getRule(), 
+          TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
       }
     }
   }
   
   @Check
   public void checkCorrespondingDDetailType(final TDetailTypeTransposition t) {
-    if (((t.getTranspositionRule().getSource() != null) && (!(t.getTranspositionRule().getSource() instanceof DDetailType)))) {
-      this.error("Deduced-DetailType rule must have a domain-model DetailType as its source", t.getTranspositionRule(), 
-        BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+    if (((t.getRule().getSource() != null) && (!(t.getRule().getSource() instanceof DDetailType)))) {
+      this.error("Deduced-DetailType rule must have a domain-model DetailType as its source", t.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
   @Check
   public void checkRootPropertyForDetailType(final TDetailTypeTransposition t) {
-    final TTranspositionRule rule = t.getTranspositionRule();
+    final TTranspositionRule rule = t.getRule();
     if ((rule instanceof TStructureChangingRule)) {
       TTristate _rootEntity = ((TStructureChangingRule)rule).getRootEntity();
       final boolean setsRootProperty = (!Objects.equal(_rootEntity, TTristate.DONT_CARE));
@@ -142,22 +143,22 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkDeducedFeaturesCombination(final TComplexTypeTransposition t) {
-    TTranspositionRule _transpositionRule = t.getTranspositionRule();
-    if ((_transpositionRule instanceof TGrabRule)) {
+    TTranspositionRule _rule = t.getRule();
+    if ((_rule instanceof TGrabRule)) {
       final Iterable<TFeatureTransposition> featureDeductionDefinitions = Iterables.<TFeatureTransposition>filter(((DComplexType) t).getFeatures(), TFeatureTransposition.class);
       final Function1<TFeatureTransposition, Boolean> _function = (TFeatureTransposition it) -> {
-        TTranspositionRule _transpositionRule_1 = it.getTranspositionRule();
-        return Boolean.valueOf((_transpositionRule_1 instanceof TDitchRule));
+        TTranspositionRule _rule_1 = it.getRule();
+        return Boolean.valueOf((_rule_1 instanceof TDitchRule));
       };
       final boolean hasDitchElements = IterableExtensions.<TFeatureTransposition>exists(featureDeductionDefinitions, _function);
       final Function1<TFeatureTransposition, Boolean> _function_1 = (TFeatureTransposition it) -> {
-        TTranspositionRule _transpositionRule_1 = it.getTranspositionRule();
-        return Boolean.valueOf((_transpositionRule_1 instanceof TGrabRule));
+        TTranspositionRule _rule_1 = it.getRule();
+        return Boolean.valueOf((_rule_1 instanceof TGrabRule));
       };
       final boolean hasGrabElements = IterableExtensions.<TFeatureTransposition>exists(featureDeductionDefinitions, _function_1);
       if ((hasDitchElements && hasGrabElements)) {
-        this.error("Cannot use both grab rule and ditch rules together.", t.getTranspositionRule(), 
-          BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        this.error("Cannot use both grab rule and ditch rules together.", t.getRule(), 
+          TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
       }
     }
   }
@@ -195,31 +196,31 @@ public class SimValidator extends AbstractSimValidator {
     if ((!((container instanceof TComplexTypeTransposition) || (container instanceof TAggregateTransposition)))) {
       this.error(
         "Features can only have a deduction rule if the containing type or aggregate also has a deduction rule.", 
-        f.getTranspositionRule(), BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        f.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
   @Check
   public void checkCorrespondingDAttributeType(final TAttributeTransposition a) {
-    if (((a.getTranspositionRule().getSource() != null) && (!(a.getTranspositionRule().getSource() instanceof DAttribute)))) {
-      this.error("Deduced attribute rule must have a domain-model attribute as its source", a.getTranspositionRule(), 
-        BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+    if (((a.getRule().getSource() != null) && (!(a.getRule().getSource() instanceof DAttribute)))) {
+      this.error("Deduced attribute rule must have a domain-model attribute as its source", a.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
   @Check
   public void checkCorrespondingDQueryType(final TQueryTransposition q) {
-    if (((q.getTranspositionRule().getSource() != null) && (!(q.getTranspositionRule().getSource() instanceof DQuery)))) {
-      this.error("Deduced query rule must have a domain-model query as its source", q.getTranspositionRule(), 
-        BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+    if (((q.getRule().getSource() != null) && (!(q.getRule().getSource() instanceof DQuery)))) {
+      this.error("Deduced query rule must have a domain-model query as its source", q.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
   @Check
   public void checkCorrespondingDAssociationType(final TAssociationTransposition a) {
-    if (((a.getTranspositionRule().getSource() != null) && (!(a.getTranspositionRule().getSource() instanceof DAssociation)))) {
-      this.error("Deduced association rule must have a domain-model association as its source", a.getTranspositionRule(), 
-        BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+    if (((a.getRule().getSource() != null) && (!(a.getRule().getSource() instanceof DAssociation)))) {
+      this.error("Deduced association rule must have a domain-model association as its source", a.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
@@ -228,7 +229,7 @@ public class SimValidator extends AbstractSimValidator {
     final EObject container = literal.eContainer();
     if ((!(container instanceof TEnumerationTransposition))) {
       this.error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.", 
-        literal.getTranspositionRule(), BasePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        literal.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
@@ -257,8 +258,7 @@ public class SimValidator extends AbstractSimValidator {
   
   @Override
   public void checkFeatureTypeIsSet(final DFeature f) {
-    boolean _not = (!((f instanceof ITransposition) || f.isSynthetic()));
-    if (_not) {
+    if ((!((f instanceof ITransposition) || (f instanceof ISyntheticElement)))) {
       super.checkFeatureTypeIsSet(f);
     }
   }
@@ -269,22 +269,21 @@ public class SimValidator extends AbstractSimValidator {
     if ((a instanceof ITransposition)) {
       return;
     }
-    if (((!a.isSynthetic()) && (!(a.getType() instanceof IValueType)))) {
+    if (((!(a instanceof ISyntheticElement)) && (!(a.getType() instanceof IValueType)))) {
       super.checkAttributeIsValueType(a);
     } else {
-      boolean _isSynthetic = a.isSynthetic();
-      if (_isSynthetic) {
+      if ((a instanceof ISyntheticElement)) {
         DType _type = a.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
-          final ITransposition deductionDefinition = a.getTransposedBy();
-          TTranspositionRule _transpositionRule = null;
-          if (deductionDefinition!=null) {
-            _transpositionRule=deductionDefinition.getTranspositionRule();
+          final ITransposition recipe = ((ISyntheticElement)a).getRecipe();
+          TTranspositionRule _rule = null;
+          if (recipe!=null) {
+            _rule=recipe.getRule();
           }
           ITransposableElement _source = null;
-          if (_transpositionRule!=null) {
-            _source=_transpositionRule.getSource();
+          if (_rule!=null) {
+            _source=_rule.getSource();
           }
           final DAttribute source = ((DAttribute) _source);
           DType _type_1 = null;
@@ -320,19 +319,18 @@ public class SimValidator extends AbstractSimValidator {
     if ((a instanceof ITransposition)) {
       return;
     }
-    boolean _isSynthetic = a.isSynthetic();
-    if (_isSynthetic) {
+    if ((a instanceof ISyntheticElement)) {
       DType _type = a.getType();
       boolean _tripleEquals = (_type == null);
       if (_tripleEquals) {
-        final ITransposition deductionDefinition = a.getTransposedBy();
-        TTranspositionRule _transpositionRule = null;
-        if (deductionDefinition!=null) {
-          _transpositionRule=deductionDefinition.getTranspositionRule();
+        final ITransposition recipe = ((ISyntheticElement)a).getRecipe();
+        TTranspositionRule _rule = null;
+        if (recipe!=null) {
+          _rule=recipe.getRule();
         }
         ITransposableElement _source = null;
-        if (_transpositionRule!=null) {
-          _source=_transpositionRule.getSource();
+        if (_rule!=null) {
+          _source=_rule.getSource();
         }
         final DAssociation source = ((DAssociation) _source);
         DType _type_1 = null;
@@ -367,22 +365,20 @@ public class SimValidator extends AbstractSimValidator {
       return;
     }
     if ((p instanceof ITransposableElement)) {
-      boolean _isSynthetic = ((ITransposableElement)p).isSynthetic();
-      boolean _not = (!_isSynthetic);
-      if (_not) {
+      if ((!(p instanceof ISyntheticElement))) {
         super.checkMemberType(p);
       } else {
         DType _type = p.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
           ITransposition _transposedBy = ((ITransposableElement)p).getTransposedBy();
-          TTranspositionRule _transpositionRule = null;
+          TTranspositionRule _rule = null;
           if (_transposedBy!=null) {
-            _transpositionRule=_transposedBy.getTranspositionRule();
+            _rule=_transposedBy.getRule();
           }
           ITransposableElement _source = null;
-          if (_transpositionRule!=null) {
-            _source=_transpositionRule.getSource();
+          if (_rule!=null) {
+            _source=_rule.getSource();
           }
           final ITransposableElement source = _source;
           String sourceType = "";
@@ -402,8 +398,8 @@ public class SimValidator extends AbstractSimValidator {
           this.errorOnStructuralElement(p, _plus_3);
         } else {
           boolean _isAllowedMemberType = this.isAllowedMemberType(p);
-          boolean _not_1 = (!_isAllowedMemberType);
-          if (_not_1) {
+          boolean _not = (!_isAllowedMemberType);
+          if (_not) {
             String _description_1 = this.getDescription(p);
             String _plus_4 = (_description_1 + ": ");
             String _plus_5 = (_plus_4 + DimValidator.ILLEGAL_MEMBER_TYPE_MSG);
@@ -419,8 +415,7 @@ public class SimValidator extends AbstractSimValidator {
     {
       String synthetic = "";
       if ((obj instanceof ITransposableElement)) {
-        boolean _isSynthetic = ((ITransposableElement)obj).isSynthetic();
-        if (_isSynthetic) {
+        if ((obj instanceof ISyntheticElement)) {
           synthetic = "Synthetic ";
         }
       }
@@ -435,16 +430,15 @@ public class SimValidator extends AbstractSimValidator {
   
   protected void warningOnStructuralElement(final EObject e, final String warningMsg) {
     if ((e instanceof ITransposableElement)) {
-      boolean _isSynthetic = ((ITransposableElement)e).isSynthetic();
-      if (_isSynthetic) {
+      if ((e instanceof ISyntheticElement)) {
         ITransposition definition = ((ITransposableElement)e).getTransposedBy();
         if ((definition instanceof TImplicitTransposition)) {
           while ((definition instanceof TImplicitTransposition)) {
-            definition = ((TImplicitTransposition)definition).getOriginalDeductionDefinition();
+            definition = ((TImplicitTransposition)definition).getOriginalTransposition();
           }
           this.warningOnStructuralElementImpl(definition, warningMsg);
         } else {
-          final EObject container = ((ITransposableElement)e).eContainer();
+          final EObject container = e.eContainer();
           if ((container instanceof ITransposableElement)) {
             this.warningOnStructuralElement(container, warningMsg);
           } else {
@@ -453,11 +447,9 @@ public class SimValidator extends AbstractSimValidator {
         }
       } else {
         if ((e instanceof ITransposition)) {
-          this.warning(warningMsg, e, BasePackage.Literals.ITRANSPOSITION__TRANSPOSITION_RULE);
+          this.warning(warningMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE);
         } else {
-          boolean _isSynthetic_1 = ((ITransposableElement)e).isSynthetic();
-          boolean _not = (!_isSynthetic_1);
-          if (_not) {
+          if ((!(e instanceof ISyntheticElement))) {
             this.warningOnStructuralElementImpl(e, warningMsg);
           }
         }
@@ -477,16 +469,15 @@ public class SimValidator extends AbstractSimValidator {
   
   protected void errorOnStructuralElement(final EObject e, final String errorMsg) {
     if ((e instanceof ITransposableElement)) {
-      boolean _isSynthetic = ((ITransposableElement)e).isSynthetic();
-      if (_isSynthetic) {
+      if ((e instanceof ISyntheticElement)) {
         ITransposition definition = ((ITransposableElement)e).getTransposedBy();
         if ((definition instanceof TImplicitTransposition)) {
           while ((definition instanceof TImplicitTransposition)) {
-            definition = ((TImplicitTransposition)definition).getOriginalDeductionDefinition();
+            definition = ((TImplicitTransposition)definition).getOriginalTransposition();
           }
           this.errorOnStructuralElementImpl(definition, errorMsg);
         } else {
-          final EObject container = ((ITransposableElement)e).eContainer();
+          final EObject container = e.eContainer();
           if ((container instanceof ITransposableElement)) {
             this.errorOnStructuralElement(container, errorMsg);
           } else {
@@ -495,11 +486,9 @@ public class SimValidator extends AbstractSimValidator {
         }
       } else {
         if ((e instanceof ITransposition)) {
-          this.error(errorMsg, e, BasePackage.Literals.ITRANSPOSITION__TRANSPOSITION_RULE);
+          this.error(errorMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE);
         } else {
-          boolean _isSynthetic_1 = ((ITransposableElement)e).isSynthetic();
-          boolean _not = (!_isSynthetic_1);
-          if (_not) {
+          if ((!(e instanceof ISyntheticElement))) {
             this.errorOnStructuralElementImpl(e, errorMsg);
           }
         }

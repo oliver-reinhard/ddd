@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDEnumeration()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DEnumeration extends DSimpleType, INavigableMemberContainer

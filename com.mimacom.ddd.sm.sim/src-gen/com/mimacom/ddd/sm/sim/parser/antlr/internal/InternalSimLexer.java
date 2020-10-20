@@ -2682,10 +2682,10 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9848:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
-            // InternalSim.g:9848:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalSim.g:9911:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
+            // InternalSim.g:9911:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
             {
-            // InternalSim.g:9848:11: ( '^' )?
+            // InternalSim.g:9911:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2694,7 +2694,7 @@ public class InternalSimLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSim.g:9848:11: '^'
+                    // InternalSim.g:9911:11: '^'
                     {
                     match('^'); 
 
@@ -2712,7 +2712,7 @@ public class InternalSimLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalSim.g:9848:34: ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalSim.g:9911:34: ( RULE_LETTER | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -2761,11 +2761,11 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9850:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalSim.g:9850:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalSim.g:9913:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalSim.g:9913:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalSim.g:9850:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalSim.g:9913:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -2781,7 +2781,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSim.g:9850:20: '\\\\' .
+            	    // InternalSim.g:9913:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -2789,7 +2789,7 @@ public class InternalSimLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalSim.g:9850:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalSim.g:9913:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2826,10 +2826,10 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_NATURAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9852:14: ( ( ( '0' .. '9' )+ | '\\u221E' ) )
-            // InternalSim.g:9852:16: ( ( '0' .. '9' )+ | '\\u221E' )
+            // InternalSim.g:9915:14: ( ( ( '0' .. '9' )+ | '\\u221E' ) )
+            // InternalSim.g:9915:16: ( ( '0' .. '9' )+ | '\\u221E' )
             {
-            // InternalSim.g:9852:16: ( ( '0' .. '9' )+ | '\\u221E' )
+            // InternalSim.g:9915:16: ( ( '0' .. '9' )+ | '\\u221E' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2847,9 +2847,9 @@ public class InternalSimLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalSim.g:9852:17: ( '0' .. '9' )+
+                    // InternalSim.g:9915:17: ( '0' .. '9' )+
                     {
-                    // InternalSim.g:9852:17: ( '0' .. '9' )+
+                    // InternalSim.g:9915:17: ( '0' .. '9' )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -2863,7 +2863,7 @@ public class InternalSimLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalSim.g:9852:18: '0' .. '9'
+                    	    // InternalSim.g:9915:18: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2883,7 +2883,7 @@ public class InternalSimLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:9852:29: '\\u221E'
+                    // InternalSim.g:9915:29: '\\u221E'
                     {
                     match('\u221E'); 
 
@@ -2906,8 +2906,8 @@ public class InternalSimLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalSim.g:9854:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
-            // InternalSim.g:9854:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
+            // InternalSim.g:9917:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
+            // InternalSim.g:9917:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u00FF') ) {
                 input.consume();
@@ -2930,8 +2930,8 @@ public class InternalSimLexer extends Lexer {
     // $ANTLR start "RULE_PLAIN_TEXT"
     public final void mRULE_PLAIN_TEXT() throws RecognitionException {
         try {
-            // InternalSim.g:9856:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
-            // InternalSim.g:9856:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
+            // InternalSim.g:9919:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
+            // InternalSim.g:9919:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='Z')||input.LA(1)=='\\'||(input.LA(1)>='^' && input.LA(1)<='\u00BA')||(input.LA(1)>='\u00BC' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -2956,11 +2956,11 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_ONLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9858:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalSim.g:9858:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalSim.g:9921:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalSim.g:9921:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match('\u00AB'); 
-            // InternalSim.g:9858:33: ( RULE_PLAIN_TEXT )*
+            // InternalSim.g:9921:33: ( RULE_PLAIN_TEXT )*
             loop6:
             do {
                 int alt6=2;
@@ -2973,7 +2973,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalSim.g:9858:33: RULE_PLAIN_TEXT
+            	    // InternalSim.g:9921:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -3002,11 +3002,11 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_RICH_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9860:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalSim.g:9860:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalSim.g:9923:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalSim.g:9923:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalSim.g:9860:33: ( RULE_PLAIN_TEXT )*
+            // InternalSim.g:9923:33: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -3019,7 +3019,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalSim.g:9860:33: RULE_PLAIN_TEXT
+            	    // InternalSim.g:9923:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -3048,11 +3048,11 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_RICH_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9862:23: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalSim.g:9862:25: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalSim.g:9925:23: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalSim.g:9925:25: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalSim.g:9862:29: ( RULE_PLAIN_TEXT )*
+            // InternalSim.g:9925:29: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -3065,7 +3065,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalSim.g:9862:29: RULE_PLAIN_TEXT
+            	    // InternalSim.g:9925:29: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -3094,11 +3094,11 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_RICH_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9864:20: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalSim.g:9864:22: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalSim.g:9927:20: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalSim.g:9927:22: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalSim.g:9864:26: ( RULE_PLAIN_TEXT )*
+            // InternalSim.g:9927:26: ( RULE_PLAIN_TEXT )*
             loop9:
             do {
                 int alt9=2;
@@ -3111,7 +3111,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalSim.g:9864:26: RULE_PLAIN_TEXT
+            	    // InternalSim.g:9927:26: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -3140,12 +3140,12 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9866:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSim.g:9866:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalSim.g:9929:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSim.g:9929:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalSim.g:9866:24: ( options {greedy=false; } : . )*
+            // InternalSim.g:9929:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -3170,7 +3170,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalSim.g:9866:52: .
+            	    // InternalSim.g:9929:52: .
             	    {
             	    matchAny(); 
 
@@ -3200,12 +3200,12 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9868:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSim.g:9868:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSim.g:9931:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSim.g:9931:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalSim.g:9868:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalSim.g:9931:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -3218,7 +3218,7 @@ public class InternalSimLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalSim.g:9868:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSim.g:9931:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3238,7 +3238,7 @@ public class InternalSimLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalSim.g:9868:40: ( ( '\\r' )? '\\n' )?
+            // InternalSim.g:9931:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -3247,9 +3247,9 @@ public class InternalSimLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalSim.g:9868:41: ( '\\r' )? '\\n'
+                    // InternalSim.g:9931:41: ( '\\r' )? '\\n'
                     {
-                    // InternalSim.g:9868:41: ( '\\r' )?
+                    // InternalSim.g:9931:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -3258,7 +3258,7 @@ public class InternalSimLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // InternalSim.g:9868:41: '\\r'
+                            // InternalSim.g:9931:41: '\\r'
                             {
                             match('\r'); 
 
@@ -3290,10 +3290,10 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9870:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSim.g:9870:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSim.g:9933:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSim.g:9933:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSim.g:9870:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSim.g:9933:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -3347,8 +3347,8 @@ public class InternalSimLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSim.g:9872:16: ( . )
-            // InternalSim.g:9872:18: .
+            // InternalSim.g:9935:16: ( . )
+            // InternalSim.g:9935:18: .
             {
             matchAny(); 
 

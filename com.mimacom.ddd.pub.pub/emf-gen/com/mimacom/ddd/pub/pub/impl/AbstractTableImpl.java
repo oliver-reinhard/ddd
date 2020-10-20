@@ -92,6 +92,7 @@ public abstract class AbstractTableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getWidthPercent() {
 		return widthPercent;
 	}
@@ -101,6 +102,7 @@ public abstract class AbstractTableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWidthPercent(int newWidthPercent) {
 		int oldWidthPercent = widthPercent;
 		widthPercent = newWidthPercent;
@@ -113,6 +115,7 @@ public abstract class AbstractTableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GridLines getGridlines() {
 		return gridlines;
 	}
@@ -122,6 +125,7 @@ public abstract class AbstractTableImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGridlines(GridLines newGridlines) {
 		GridLines oldGridlines = gridlines;
 		gridlines = newGridlines == null ? GRIDLINES_EDEFAULT : newGridlines;

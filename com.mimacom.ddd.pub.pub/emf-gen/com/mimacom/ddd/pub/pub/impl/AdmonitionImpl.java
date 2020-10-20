@@ -138,6 +138,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContentBlock> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList<ContentBlock>(ContentBlock.class, this, PubPackage.ADMONITION__CONTENTS);
@@ -150,6 +151,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -159,6 +161,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -171,6 +174,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -180,6 +184,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdmonitionKind getKind() {
 		return kind;
 	}
@@ -189,6 +194,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(AdmonitionKind newKind) {
 		AdmonitionKind oldKind = kind;
 		kind = newKind == null ? KIND_EDEFAULT : newKind;
@@ -201,6 +207,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getTitle() {
 		return title;
 	}
@@ -225,6 +232,7 @@ public class AdmonitionImpl extends ContentBlockImpl implements Admonition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(DRichText newTitle) {
 		if (newTitle != title) {
 			NotificationChain msgs = null;

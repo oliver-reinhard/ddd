@@ -34,28 +34,28 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	
 	def text(DAggregate a) {
 		if (a instanceof TAggregateTransposition) {
-			return ">" + a.getTranspositionRule.label
+			return ">" + a.getRule.label
 		}
 		return a.label
 	}
 	
 	def text(DType t) {
 		if (t instanceof TTypeTransposition) {
-			return ">" + t.getTranspositionRule.label
+			return ">" + t.getRule.label
 		}
 		return t.label
 	}
 	
 	def text(DFeature f) {
 		if (f instanceof TFeatureTransposition) {
-			return ">" + f.getTranspositionRule.label
+			return ">" + f.getRule.label
 		}
 		return f.label
 	}
 	
 	def text(DQueryParameter p) {
 		if (p instanceof TQueryParameterTransposition) {
-			return ">" + p.getTranspositionRule.label
+			return ">" + p.getRule.label
 		}
 		return p.label
 	}
@@ -66,7 +66,7 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	
 	def text(DLiteral literal) {
 		if (literal instanceof TLiteralTransposition) {
-			return ">" + literal.getTranspositionRule.label
+			return ">" + literal.getRule.label
 		}
 		return literal.name
 	}

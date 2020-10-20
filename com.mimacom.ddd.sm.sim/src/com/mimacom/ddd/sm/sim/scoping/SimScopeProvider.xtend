@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.base.DEnumeration
 import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.ITypeContainer
-import com.mimacom.ddd.dm.base.base.TTranspositionRule
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
 import com.mimacom.ddd.dm.base.transpose.TDetailTypeTransposition
@@ -22,6 +21,8 @@ import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule
+import com.mimacom.ddd.dm.base.transpose.TransposePackage
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
@@ -35,10 +36,11 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 	@Inject extension SimUtil
 
 	static val BASE = BasePackage.eINSTANCE
+	static val TRANSPOSE = TransposePackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
 
-		if (reference == BASE.TTranspositionRule_Source) {
+		if (reference == TRANSPOSE.TTranspositionRule_Source) {
 			val decduction = context instanceof TTranspositionRule ? context.eContainer : context
 			val container = decduction.eContainer
 			
@@ -56,7 +58,7 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 
 			} else if (decduction instanceof TLiteralTransposition) {
 				if (container instanceof TEnumerationTransposition) {
-					val sourceType = container.getTranspositionRule?.getSource
+					val sourceType = container.getRule?.getSource
 					if (sourceType instanceof DEnumeration) {
 						return Scopes.scopeFor(sourceType.literals)
 					}
@@ -65,13 +67,13 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 
 			} else if (decduction instanceof TFeatureTransposition) {
 				if (container instanceof TComplexTypeTransposition) {
-					val sourceType = container.getTranspositionRule?.getSource
+					val sourceType = container.getRule?.getSource
 					if (sourceType instanceof DComplexType) {
 						val requiredFeatureType = decduction.baseClass
 						return getInheritedFeaturesScope(sourceType, requiredFeatureType, IScope.NULLSCOPE)
 					}
 				} else if (container instanceof TAggregateTransposition) {
-					val source = container.getTranspositionRule?.getSource
+					val source = container.getRule?.getSource
 					if (source instanceof DAggregate) {
 						return Scopes.scopeFor(source.features.filter(DQuery))
 					}
@@ -80,7 +82,7 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 
 			} else if (decduction instanceof TQueryParameterTransposition) {
 				if (container instanceof TQueryTransposition) {
-					val source = container.getTranspositionRule?.getSource
+					val source = container.getRule?.getSource
 					if (source instanceof DQuery) {
 						return Scopes.scopeFor(source.parameters)
 					}

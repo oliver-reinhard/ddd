@@ -122,6 +122,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PublicationClass createPublicationClass() {
 		PublicationClassImpl publicationClass = new PublicationClassImpl();
 		return publicationClass;
@@ -132,6 +133,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoSymbol createProtoSymbol() {
 		ProtoSymbolImpl protoSymbol = new ProtoSymbolImpl();
 		return protoSymbol;
@@ -142,6 +144,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoSymbolReference createProtoSymbolReference() {
 		ProtoSymbolReferenceImpl protoSymbolReference = new ProtoSymbolReferenceImpl();
 		return protoSymbolReference;
@@ -152,6 +155,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoAbstract createProtoAbstract() {
 		ProtoAbstractImpl protoAbstract = new ProtoAbstractImpl();
 		return protoAbstract;
@@ -162,6 +166,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoPreface createProtoPreface() {
 		ProtoPrefaceImpl protoPreface = new ProtoPrefaceImpl();
 		return protoPreface;
@@ -172,6 +177,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoEpilogue createProtoEpilogue() {
 		ProtoEpilogueImpl protoEpilogue = new ProtoEpilogueImpl();
 		return protoEpilogue;
@@ -182,6 +188,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoPublicationBody createProtoPublicationBody() {
 		ProtoPublicationBodyImpl protoPublicationBody = new ProtoPublicationBodyImpl();
 		return protoPublicationBody;
@@ -192,6 +199,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoChangeHistory createProtoChangeHistory() {
 		ProtoChangeHistoryImpl protoChangeHistory = new ProtoChangeHistoryImpl();
 		return protoChangeHistory;
@@ -202,6 +210,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoTOC createProtoTOC() {
 		ProtoTOCImpl protoTOC = new ProtoTOCImpl();
 		return protoTOC;
@@ -212,6 +221,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoAbbreviations createProtoAbbreviations() {
 		ProtoAbbreviationsImpl protoAbbreviations = new ProtoAbbreviationsImpl();
 		return protoAbbreviations;
@@ -222,6 +232,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoListOfTables createProtoListOfTables() {
 		ProtoListOfTablesImpl protoListOfTables = new ProtoListOfTablesImpl();
 		return protoListOfTables;
@@ -232,6 +243,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoListOfFigures createProtoListOfFigures() {
 		ProtoListOfFiguresImpl protoListOfFigures = new ProtoListOfFiguresImpl();
 		return protoListOfFigures;
@@ -242,6 +254,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoBibliography createProtoBibliography() {
 		ProtoBibliographyImpl protoBibliography = new ProtoBibliographyImpl();
 		return protoBibliography;
@@ -252,6 +265,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoGlossary createProtoGlossary() {
 		ProtoGlossaryImpl protoGlossary = new ProtoGlossaryImpl();
 		return protoGlossary;
@@ -262,6 +276,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoIndex createProtoIndex() {
 		ProtoIndexImpl protoIndex = new ProtoIndexImpl();
 		return protoIndex;
@@ -272,6 +287,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoPart createProtoPart() {
 		ProtoPartImpl protoPart = new ProtoPartImpl();
 		return protoPart;
@@ -282,6 +298,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoAppendix createProtoAppendix() {
 		ProtoAppendixImpl protoAppendix = new ProtoAppendixImpl();
 		return protoAppendix;
@@ -292,6 +309,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoChapter createProtoChapter() {
 		ProtoChapterImpl protoChapter = new ProtoChapterImpl();
 		return protoChapter;
@@ -302,6 +320,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoSection createProtoSection() {
 		ProtoSectionImpl protoSection = new ProtoSectionImpl();
 		return protoSection;
@@ -312,6 +331,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoSubsection createProtoSubsection() {
 		ProtoSubsectionImpl protoSubsection = new ProtoSubsectionImpl();
 		return protoSubsection;
@@ -322,6 +342,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoSubsubsection createProtoSubsubsection() {
 		ProtoSubsubsectionImpl protoSubsubsection = new ProtoSubsubsectionImpl();
 		return protoSubsubsection;
@@ -372,6 +393,7 @@ public class ProtoFactoryImpl extends EFactoryImpl implements ProtoFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProtoPackage getProtoPackage() {
 		return (ProtoPackage)getEPackage();
 	}

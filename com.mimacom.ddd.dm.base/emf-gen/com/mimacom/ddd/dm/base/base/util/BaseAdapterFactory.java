@@ -125,26 +125,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDRichTextAdapter();
 			}
 			@Override
-			public Adapter caseITransposition(ITransposition object)
-			{
-				return createITranspositionAdapter();
-			}
-			@Override
-			public Adapter caseTTranspositionRule(TTranspositionRule object)
-			{
-				return createTTranspositionRuleAdapter();
-			}
-			@Override
-			public Adapter caseITransposableElement(ITransposableElement object)
-			{
-				return createITransposableElementAdapter();
-			}
-			@Override
-			public Adapter caseTImplicitTransposition(TImplicitTransposition object)
-			{
-				return createTImplicitTranspositionAdapter();
-			}
-			@Override
 			public Adapter caseDInformationModel(DInformationModel object)
 			{
 				return createDInformationModelAdapter();
@@ -447,66 +427,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDRichTextAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposition <em>ITransposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposition
-	 * @generated
-	 */
-	public Adapter createITranspositionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.TTranspositionRule <em>TTransposition Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.TTranspositionRule
-	 * @generated
-	 */
-	public Adapter createTTranspositionRuleAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-	 * @generated
-	 */
-	public Adapter createITransposableElementAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.TImplicitTransposition <em>TImplicit Transposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.TImplicitTransposition
-	 * @generated
-	 */
-	public Adapter createTImplicitTranspositionAdapter()
 	{
 		return null;
 	}

@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dmx.tests
 
 import com.mimacom.ddd.dm.base.base.BaseFactory
+import com.mimacom.ddd.dm.dim.DimFactory
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
 import java.util.Arrays
 import org.eclipse.emf.ecore.EObject
@@ -12,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*
 class DmxQualifiedNameProviderTest {
 	
 	val BASE = BaseFactory.eINSTANCE
+	val DIM = DimFactory.eINSTANCE
 	val DFLT_QN_PROVIDER = new IQualifiedNameConverter.DefaultImpl()
 	val DMX_QN_PROVIDER = new DmxQualifiedNameProvider
 	
@@ -20,54 +22,54 @@ class DmxQualifiedNameProviderTest {
 		val namespace = BASE.createDNamespace
 		namespace.name = "a.b"
 		
-		val model = BASE.createDInformationModel
+		val model = DIM.createDomainInformationModel
 		model.name = "model"
 		namespace.model = model
 		
-		val primitive1 = BASE.createDPrimitive
+		val primitive1 = DIM.createDimPrimitive
 		primitive1.name = "primitive1"
 		model.types.add(primitive1)
 		
-		val aggregate = BASE.createDAggregate
+		val aggregate = DIM.createDimAggregate
 		aggregate.name = "aggr"
 		model.aggregates.add(aggregate)
 		
-		val root = BASE.createDEntityType
+		val root = DIM.createDimEntityType
 		root.root = true
 		root.name = "root"
 		aggregate.types.add(root)
-		val attr1 = BASE.createDAttribute
+		val attr1 = DIM.createDimAttribute
 		attr1.name = "attr1"
 		root.features.add(attr1)
-		val query1 = BASE.createDQuery
+		val query1 = DIM.createDimQuery
 		query1.name = "query1"
 		root.features.add(query1)
-		val queryParam1 = BASE.createDQueryParameter
+		val queryParam1 = DIM.createDimQueryParameter
 		queryParam1.name = "queryParam1"
 		query1.parameters.add(queryParam1)
 		
-		val entity = BASE.createDEntityType
+		val entity = DIM.createDimEntityType
 		entity.name = "entity"
 		aggregate.types.add(entity)
-		val attr2 = BASE.createDAttribute
+		val attr2 = DIM.createDimAttribute
 		attr2.name = "attr2"
 		entity.features.add(attr2)
 		entity.features.add(attr2)
-		val query2 = BASE.createDQuery
+		val query2 = DIM.createDimQuery
 		query2.name = "query1"
 		entity.features.add(query2)
-		val queryParam2 = BASE.createDQueryParameter
+		val queryParam2 = DIM.createDimQueryParameter
 		queryParam2.name = "queryParam1"
 		query2.parameters.add(queryParam2)
 		
-		val primitive2 = BASE.createDPrimitive
+		val primitive2 = DIM.createDimPrimitive
 		primitive2.name = "primitive2"
 		aggregate.types.add(primitive2)
 		
-		val enumeration = BASE.createDEnumeration
+		val enumeration = DIM.createDimEnumeration
 		enumeration.name = "enumeration"
 		aggregate.types.add(enumeration)
-		val literal = BASE.createDLiteral
+		val literal = DIM.createDimLiteral
 		literal.name = "literal"
 		enumeration.literals.add(literal)
 		

@@ -224,7 +224,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDNamespace"
-    // InternalDim.g:72:1: ruleDNamespace returns [EObject current=null] : (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDInformationModel ) ) ) ;
+    // InternalDim.g:72:1: ruleDNamespace returns [EObject current=null] : (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDomainInformationModel ) ) ) ;
     public final EObject ruleDNamespace() throws RecognitionException {
         EObject current = null;
 
@@ -240,11 +240,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:78:2: ( (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDInformationModel ) ) ) )
-            // InternalDim.g:79:2: (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDInformationModel ) ) )
+            // InternalDim.g:78:2: ( (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDomainInformationModel ) ) ) )
+            // InternalDim.g:79:2: (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDomainInformationModel ) ) )
             {
-            // InternalDim.g:79:2: (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDInformationModel ) ) )
-            // InternalDim.g:80:3: otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDInformationModel ) )
+            // InternalDim.g:79:2: (otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDomainInformationModel ) ) )
+            // InternalDim.g:80:3: otherlv_0= 'domain' ( (lv_name_1_0= ruleDQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* ( (lv_model_3_0= ruleDomainInformationModel ) )
             {
             otherlv_0=(Token)match(input,17,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -340,19 +340,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalDim.g:122:3: ( (lv_model_3_0= ruleDInformationModel ) )
-            // InternalDim.g:123:4: (lv_model_3_0= ruleDInformationModel )
+            // InternalDim.g:122:3: ( (lv_model_3_0= ruleDomainInformationModel ) )
+            // InternalDim.g:123:4: (lv_model_3_0= ruleDomainInformationModel )
             {
-            // InternalDim.g:123:4: (lv_model_3_0= ruleDInformationModel )
-            // InternalDim.g:124:5: lv_model_3_0= ruleDInformationModel
+            // InternalDim.g:123:4: (lv_model_3_0= ruleDomainInformationModel )
+            // InternalDim.g:124:5: lv_model_3_0= ruleDomainInformationModel
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDNamespaceAccess().getModelDInformationModelParserRuleCall_3_0());
+              					newCompositeNode(grammarAccess.getDNamespaceAccess().getModelDomainInformationModelParserRuleCall_3_0());
               				
             }
             pushFollow(FOLLOW_2);
-            lv_model_3_0=ruleDInformationModel();
+            lv_model_3_0=ruleDomainInformationModel();
 
             state._fsp--;
             if (state.failed) return current;
@@ -365,7 +365,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               						current,
               						"model",
               						lv_model_3_0,
-              						"com.mimacom.ddd.dm.dim.Dim.DInformationModel");
+              						"com.mimacom.ddd.dm.dim.Dim.DomainInformationModel");
               					afterParserOrEnumRuleCall();
               				
             }
@@ -399,28 +399,28 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDNamespace"
 
 
-    // $ANTLR start "entryRuleDInformationModel"
-    // InternalDim.g:145:1: entryRuleDInformationModel returns [EObject current=null] : iv_ruleDInformationModel= ruleDInformationModel EOF ;
-    public final EObject entryRuleDInformationModel() throws RecognitionException {
+    // $ANTLR start "entryRuleDomainInformationModel"
+    // InternalDim.g:145:1: entryRuleDomainInformationModel returns [EObject current=null] : iv_ruleDomainInformationModel= ruleDomainInformationModel EOF ;
+    public final EObject entryRuleDomainInformationModel() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDInformationModel = null;
+        EObject iv_ruleDomainInformationModel = null;
 
 
         try {
-            // InternalDim.g:145:58: (iv_ruleDInformationModel= ruleDInformationModel EOF )
-            // InternalDim.g:146:2: iv_ruleDInformationModel= ruleDInformationModel EOF
+            // InternalDim.g:145:63: (iv_ruleDomainInformationModel= ruleDomainInformationModel EOF )
+            // InternalDim.g:146:2: iv_ruleDomainInformationModel= ruleDomainInformationModel EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDInformationModelRule()); 
+               newCompositeNode(grammarAccess.getDomainInformationModelRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDInformationModel=ruleDInformationModel();
+            iv_ruleDomainInformationModel=ruleDomainInformationModel();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDInformationModel; 
+               current =iv_ruleDomainInformationModel; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -436,12 +436,12 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDInformationModel"
+    // $ANTLR end "entryRuleDomainInformationModel"
 
 
-    // $ANTLR start "ruleDInformationModel"
-    // InternalDim.g:152:1: ruleDInformationModel returns [EObject current=null] : (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDType ) ) | ( (lv_aggregates_8_0= ruleDAggregate ) ) )* otherlv_9= '}' ) ;
-    public final EObject ruleDInformationModel() throws RecognitionException {
+    // $ANTLR start "ruleDomainInformationModel"
+    // InternalDim.g:152:1: ruleDomainInformationModel returns [EObject current=null] : (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDimType ) ) | ( (lv_aggregates_8_0= ruleDimAggregate ) ) )* otherlv_9= '}' ) ;
+    public final EObject ruleDomainInformationModel() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -462,22 +462,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:158:2: ( (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDType ) ) | ( (lv_aggregates_8_0= ruleDAggregate ) ) )* otherlv_9= '}' ) )
-            // InternalDim.g:159:2: (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDType ) ) | ( (lv_aggregates_8_0= ruleDAggregate ) ) )* otherlv_9= '}' )
+            // InternalDim.g:158:2: ( (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDimType ) ) | ( (lv_aggregates_8_0= ruleDimAggregate ) ) )* otherlv_9= '}' ) )
+            // InternalDim.g:159:2: (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDimType ) ) | ( (lv_aggregates_8_0= ruleDimAggregate ) ) )* otherlv_9= '}' )
             {
-            // InternalDim.g:159:2: (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDType ) ) | ( (lv_aggregates_8_0= ruleDAggregate ) ) )* otherlv_9= '}' )
-            // InternalDim.g:160:3: otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDType ) ) | ( (lv_aggregates_8_0= ruleDAggregate ) ) )* otherlv_9= '}'
+            // InternalDim.g:159:2: (otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDimType ) ) | ( (lv_aggregates_8_0= ruleDimAggregate ) ) )* otherlv_9= '}' )
+            // InternalDim.g:160:3: otherlv_0= 'information' otherlv_1= 'model' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_types_7_0= ruleDimType ) ) | ( (lv_aggregates_8_0= ruleDimAggregate ) ) )* otherlv_9= '}'
             {
             otherlv_0=(Token)match(input,18,FOLLOW_5); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_0, grammarAccess.getDInformationModelAccess().getInformationKeyword_0());
+              			newLeafNode(otherlv_0, grammarAccess.getDomainInformationModelAccess().getInformationKeyword_0());
               		
             }
             otherlv_1=(Token)match(input,19,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getDInformationModelAccess().getModelKeyword_1());
+              			newLeafNode(otherlv_1, grammarAccess.getDomainInformationModelAccess().getModelKeyword_1());
               		
             }
             // InternalDim.g:168:3: ( (lv_name_2_0= RULE_ID ) )
@@ -489,13 +489,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_2_0, grammarAccess.getDInformationModelAccess().getNameIDTerminalRuleCall_2_0());
+              					newLeafNode(lv_name_2_0, grammarAccess.getDomainInformationModelAccess().getNameIDTerminalRuleCall_2_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDInformationModelRule());
+              						current = createModelElement(grammarAccess.getDomainInformationModelRule());
               					}
               					setWithLastConsumed(
               						current,
@@ -528,7 +528,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    otherlv_3=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_3, grammarAccess.getDInformationModelAccess().getAliasKeyword_3_0());
+            	      				newLeafNode(otherlv_3, grammarAccess.getDomainInformationModelAccess().getAliasKeyword_3_0());
             	      			
             	    }
             	    // InternalDim.g:191:4: ( (lv_aliases_4_0= RULE_ID ) )
@@ -540,13 +540,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    lv_aliases_4_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_4_0, grammarAccess.getDInformationModelAccess().getAliasesIDTerminalRuleCall_3_1_0());
+            	      						newLeafNode(lv_aliases_4_0, grammarAccess.getDomainInformationModelAccess().getAliasesIDTerminalRuleCall_3_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDInformationModelRule());
+            	      							current = createModelElement(grammarAccess.getDomainInformationModelRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
@@ -586,7 +586,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDInformationModelAccess().getDescriptionDRichTextParserRuleCall_4_0());
+                      					newCompositeNode(grammarAccess.getDomainInformationModelAccess().getDescriptionDRichTextParserRuleCall_4_0());
                       				
                     }
                     pushFollow(FOLLOW_7);
@@ -597,7 +597,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDInformationModelRule());
+                      						current = createModelElementForParent(grammarAccess.getDomainInformationModelRule());
                       					}
                       					set(
                       						current,
@@ -619,10 +619,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             otherlv_6=(Token)match(input,21,FOLLOW_8); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_6, grammarAccess.getDInformationModelAccess().getLeftCurlyBracketKeyword_5());
+              			newLeafNode(otherlv_6, grammarAccess.getDomainInformationModelAccess().getLeftCurlyBracketKeyword_5());
               		
             }
-            // InternalDim.g:233:3: ( ( (lv_types_7_0= ruleDType ) ) | ( (lv_aggregates_8_0= ruleDAggregate ) ) )*
+            // InternalDim.g:233:3: ( ( (lv_types_7_0= ruleDimType ) ) | ( (lv_aggregates_8_0= ruleDimAggregate ) ) )*
             loop4:
             do {
                 int alt4=3;
@@ -638,34 +638,34 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalDim.g:234:4: ( (lv_types_7_0= ruleDType ) )
+            	    // InternalDim.g:234:4: ( (lv_types_7_0= ruleDimType ) )
             	    {
-            	    // InternalDim.g:234:4: ( (lv_types_7_0= ruleDType ) )
-            	    // InternalDim.g:235:5: (lv_types_7_0= ruleDType )
+            	    // InternalDim.g:234:4: ( (lv_types_7_0= ruleDimType ) )
+            	    // InternalDim.g:235:5: (lv_types_7_0= ruleDimType )
             	    {
-            	    // InternalDim.g:235:5: (lv_types_7_0= ruleDType )
-            	    // InternalDim.g:236:6: lv_types_7_0= ruleDType
+            	    // InternalDim.g:235:5: (lv_types_7_0= ruleDimType )
+            	    // InternalDim.g:236:6: lv_types_7_0= ruleDimType
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDInformationModelAccess().getTypesDTypeParserRuleCall_6_0_0());
+            	      						newCompositeNode(grammarAccess.getDomainInformationModelAccess().getTypesDimTypeParserRuleCall_6_0_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_8);
-            	    lv_types_7_0=ruleDType();
+            	    lv_types_7_0=ruleDimType();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDInformationModelRule());
+            	      							current = createModelElementForParent(grammarAccess.getDomainInformationModelRule());
             	      						}
             	      						add(
             	      							current,
             	      							"types",
             	      							lv_types_7_0,
-            	      							"com.mimacom.ddd.dm.dim.Dim.DType");
+            	      							"com.mimacom.ddd.dm.dim.Dim.DimType");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -679,34 +679,34 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDim.g:254:4: ( (lv_aggregates_8_0= ruleDAggregate ) )
+            	    // InternalDim.g:254:4: ( (lv_aggregates_8_0= ruleDimAggregate ) )
             	    {
-            	    // InternalDim.g:254:4: ( (lv_aggregates_8_0= ruleDAggregate ) )
-            	    // InternalDim.g:255:5: (lv_aggregates_8_0= ruleDAggregate )
+            	    // InternalDim.g:254:4: ( (lv_aggregates_8_0= ruleDimAggregate ) )
+            	    // InternalDim.g:255:5: (lv_aggregates_8_0= ruleDimAggregate )
             	    {
-            	    // InternalDim.g:255:5: (lv_aggregates_8_0= ruleDAggregate )
-            	    // InternalDim.g:256:6: lv_aggregates_8_0= ruleDAggregate
+            	    // InternalDim.g:255:5: (lv_aggregates_8_0= ruleDimAggregate )
+            	    // InternalDim.g:256:6: lv_aggregates_8_0= ruleDimAggregate
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDInformationModelAccess().getAggregatesDAggregateParserRuleCall_6_1_0());
+            	      						newCompositeNode(grammarAccess.getDomainInformationModelAccess().getAggregatesDimAggregateParserRuleCall_6_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_8);
-            	    lv_aggregates_8_0=ruleDAggregate();
+            	    lv_aggregates_8_0=ruleDimAggregate();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDInformationModelRule());
+            	      							current = createModelElementForParent(grammarAccess.getDomainInformationModelRule());
             	      						}
             	      						add(
             	      							current,
             	      							"aggregates",
             	      							lv_aggregates_8_0,
-            	      							"com.mimacom.ddd.dm.dim.Dim.DAggregate");
+            	      							"com.mimacom.ddd.dm.dim.Dim.DimAggregate");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -728,7 +728,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             otherlv_9=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_9, grammarAccess.getDInformationModelAccess().getRightCurlyBracketKeyword_7());
+              			newLeafNode(otherlv_9, grammarAccess.getDomainInformationModelAccess().getRightCurlyBracketKeyword_7());
               		
             }
 
@@ -752,31 +752,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDInformationModel"
+    // $ANTLR end "ruleDomainInformationModel"
 
 
-    // $ANTLR start "entryRuleDAggregate"
-    // InternalDim.g:282:1: entryRuleDAggregate returns [EObject current=null] : iv_ruleDAggregate= ruleDAggregate EOF ;
-    public final EObject entryRuleDAggregate() throws RecognitionException {
+    // $ANTLR start "entryRuleDimAggregate"
+    // InternalDim.g:282:1: entryRuleDimAggregate returns [EObject current=null] : iv_ruleDimAggregate= ruleDimAggregate EOF ;
+    public final EObject entryRuleDimAggregate() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDAggregate = null;
+        EObject iv_ruleDimAggregate = null;
 
 
         try {
-            // InternalDim.g:282:51: (iv_ruleDAggregate= ruleDAggregate EOF )
-            // InternalDim.g:283:2: iv_ruleDAggregate= ruleDAggregate EOF
+            // InternalDim.g:282:53: (iv_ruleDimAggregate= ruleDimAggregate EOF )
+            // InternalDim.g:283:2: iv_ruleDimAggregate= ruleDimAggregate EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDAggregateRule()); 
+               newCompositeNode(grammarAccess.getDimAggregateRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDAggregate=ruleDAggregate();
+            iv_ruleDimAggregate=ruleDimAggregate();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDAggregate; 
+               current =iv_ruleDimAggregate; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -792,12 +792,12 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDAggregate"
+    // $ANTLR end "entryRuleDimAggregate"
 
 
-    // $ANTLR start "ruleDAggregate"
-    // InternalDim.g:289:1: ruleDAggregate returns [EObject current=null] : ( () ruleDAggregateKeyword ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' ) ;
-    public final EObject ruleDAggregate() throws RecognitionException {
+    // $ANTLR start "ruleDimAggregate"
+    // InternalDim.g:289:1: ruleDimAggregate returns [EObject current=null] : ( ruleDAggregateKeyword () ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) ) )* ( (lv_types_7_0= ruleDimType ) )* otherlv_8= '}' ) ;
+    public final EObject ruleDimAggregate() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_2_0=null;
@@ -815,28 +815,15 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:295:2: ( ( () ruleDAggregateKeyword ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' ) )
-            // InternalDim.g:296:2: ( () ruleDAggregateKeyword ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' )
+            // InternalDim.g:295:2: ( ( ruleDAggregateKeyword () ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) ) )* ( (lv_types_7_0= ruleDimType ) )* otherlv_8= '}' ) )
+            // InternalDim.g:296:2: ( ruleDAggregateKeyword () ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) ) )* ( (lv_types_7_0= ruleDimType ) )* otherlv_8= '}' )
             {
-            // InternalDim.g:296:2: ( () ruleDAggregateKeyword ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' )
-            // InternalDim.g:297:3: () ruleDAggregateKeyword ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}'
-            {
-            // InternalDim.g:297:3: ()
-            // InternalDim.g:298:4: 
+            // InternalDim.g:296:2: ( ruleDAggregateKeyword () ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) ) )* ( (lv_types_7_0= ruleDimType ) )* otherlv_8= '}' )
+            // InternalDim.g:297:3: ruleDAggregateKeyword () ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) ) )* ( (lv_types_7_0= ruleDimType ) )* otherlv_8= '}'
             {
             if ( state.backtracking==0 ) {
 
-              				current = forceCreateModelElement(
-              					grammarAccess.getDAggregateAccess().getDAggregateAction_0(),
-              					current);
-              			
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              			newCompositeNode(grammarAccess.getDAggregateAccess().getDAggregateKeywordParserRuleCall_1());
+              			newCompositeNode(grammarAccess.getDimAggregateAccess().getDAggregateKeywordParserRuleCall_0());
               		
             }
             pushFollow(FOLLOW_3);
@@ -849,6 +836,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
+            // InternalDim.g:304:3: ()
+            // InternalDim.g:305:4: 
+            {
+            if ( state.backtracking==0 ) {
+
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimAggregateAccess().getDimAggregateAction_1(),
+              					current);
+              			
+            }
+
+            }
+
             // InternalDim.g:311:3: ( (lv_name_2_0= RULE_ID ) )
             // InternalDim.g:312:4: (lv_name_2_0= RULE_ID )
             {
@@ -858,13 +858,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_2_0, grammarAccess.getDAggregateAccess().getNameIDTerminalRuleCall_2_0());
+              					newLeafNode(lv_name_2_0, grammarAccess.getDimAggregateAccess().getNameIDTerminalRuleCall_2_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDAggregateRule());
+              						current = createModelElement(grammarAccess.getDimAggregateRule());
               					}
               					setWithLastConsumed(
               						current,
@@ -895,7 +895,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDAggregateAccess().getDescriptionDRichTextParserRuleCall_3_0());
+                      					newCompositeNode(grammarAccess.getDimAggregateAccess().getDescriptionDRichTextParserRuleCall_3_0());
                       				
                     }
                     pushFollow(FOLLOW_7);
@@ -906,7 +906,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDAggregateRule());
+                      						current = createModelElementForParent(grammarAccess.getDimAggregateRule());
                       					}
                       					set(
                       						current,
@@ -928,10 +928,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             otherlv_4=(Token)match(input,21,FOLLOW_10); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_4, grammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_4());
+              			newLeafNode(otherlv_4, grammarAccess.getDimAggregateAccess().getLeftCurlyBracketKeyword_4());
               		
             }
-            // InternalDim.g:352:3: (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )*
+            // InternalDim.g:352:3: (otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) ) )*
             loop6:
             do {
                 int alt6=2;
@@ -944,40 +944,40 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalDim.g:353:4: otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) )
+            	    // InternalDim.g:353:4: otherlv_5= 'query' ( (lv_features_6_0= ruleDimQuery ) )
             	    {
             	    otherlv_5=(Token)match(input,23,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_5, grammarAccess.getDAggregateAccess().getQueryKeyword_5_0());
+            	      				newLeafNode(otherlv_5, grammarAccess.getDimAggregateAccess().getQueryKeyword_5_0());
             	      			
             	    }
-            	    // InternalDim.g:357:4: ( (lv_features_6_0= ruleDQuery ) )
-            	    // InternalDim.g:358:5: (lv_features_6_0= ruleDQuery )
+            	    // InternalDim.g:357:4: ( (lv_features_6_0= ruleDimQuery ) )
+            	    // InternalDim.g:358:5: (lv_features_6_0= ruleDimQuery )
             	    {
-            	    // InternalDim.g:358:5: (lv_features_6_0= ruleDQuery )
-            	    // InternalDim.g:359:6: lv_features_6_0= ruleDQuery
+            	    // InternalDim.g:358:5: (lv_features_6_0= ruleDimQuery )
+            	    // InternalDim.g:359:6: lv_features_6_0= ruleDimQuery
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0());
+            	      						newCompositeNode(grammarAccess.getDimAggregateAccess().getFeaturesDimQueryParserRuleCall_5_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_10);
-            	    lv_features_6_0=ruleDQuery();
+            	    lv_features_6_0=ruleDimQuery();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDAggregateRule());
+            	      							current = createModelElementForParent(grammarAccess.getDimAggregateRule());
             	      						}
             	      						add(
             	      							current,
             	      							"features",
             	      							lv_features_6_0,
-            	      							"com.mimacom.ddd.dm.dim.Dim.DQuery");
+            	      							"com.mimacom.ddd.dm.dim.Dim.DimQuery");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -996,7 +996,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalDim.g:377:3: ( (lv_types_7_0= ruleDType ) )*
+            // InternalDim.g:377:3: ( (lv_types_7_0= ruleDimType ) )*
             loop7:
             do {
                 int alt7=2;
@@ -1009,31 +1009,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalDim.g:378:4: (lv_types_7_0= ruleDType )
+            	    // InternalDim.g:378:4: (lv_types_7_0= ruleDimType )
             	    {
-            	    // InternalDim.g:378:4: (lv_types_7_0= ruleDType )
-            	    // InternalDim.g:379:5: lv_types_7_0= ruleDType
+            	    // InternalDim.g:378:4: (lv_types_7_0= ruleDimType )
+            	    // InternalDim.g:379:5: lv_types_7_0= ruleDimType
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      					newCompositeNode(grammarAccess.getDAggregateAccess().getTypesDTypeParserRuleCall_6_0());
+            	      					newCompositeNode(grammarAccess.getDimAggregateAccess().getTypesDimTypeParserRuleCall_6_0());
             	      				
             	    }
             	    pushFollow(FOLLOW_11);
-            	    lv_types_7_0=ruleDType();
+            	    lv_types_7_0=ruleDimType();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      					if (current==null) {
-            	      						current = createModelElementForParent(grammarAccess.getDAggregateRule());
+            	      						current = createModelElementForParent(grammarAccess.getDimAggregateRule());
             	      					}
             	      					add(
             	      						current,
             	      						"types",
             	      						lv_types_7_0,
-            	      						"com.mimacom.ddd.dm.dim.Dim.DType");
+            	      						"com.mimacom.ddd.dm.dim.Dim.DimType");
             	      					afterParserOrEnumRuleCall();
             	      				
             	    }
@@ -1052,7 +1052,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             otherlv_8=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_8, grammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_7());
+              			newLeafNode(otherlv_8, grammarAccess.getDimAggregateAccess().getRightCurlyBracketKeyword_7());
               		
             }
 
@@ -1076,7 +1076,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDAggregate"
+    // $ANTLR end "ruleDimAggregate"
 
 
     // $ANTLR start "entryRuleDAggregateKeyword"
@@ -1161,28 +1161,28 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDAggregateKeyword"
 
 
-    // $ANTLR start "entryRuleDType"
-    // InternalDim.g:426:1: entryRuleDType returns [EObject current=null] : iv_ruleDType= ruleDType EOF ;
-    public final EObject entryRuleDType() throws RecognitionException {
+    // $ANTLR start "entryRuleDimType"
+    // InternalDim.g:426:1: entryRuleDimType returns [EObject current=null] : iv_ruleDimType= ruleDimType EOF ;
+    public final EObject entryRuleDimType() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDType = null;
+        EObject iv_ruleDimType = null;
 
 
         try {
-            // InternalDim.g:426:46: (iv_ruleDType= ruleDType EOF )
-            // InternalDim.g:427:2: iv_ruleDType= ruleDType EOF
+            // InternalDim.g:426:48: (iv_ruleDimType= ruleDimType EOF )
+            // InternalDim.g:427:2: iv_ruleDimType= ruleDimType EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDTypeRule()); 
+               newCompositeNode(grammarAccess.getDimTypeRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDType=ruleDType();
+            iv_ruleDimType=ruleDimType();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDType; 
+               current =iv_ruleDimType; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1198,31 +1198,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDType"
+    // $ANTLR end "entryRuleDimType"
 
 
-    // $ANTLR start "ruleDType"
-    // InternalDim.g:433:1: ruleDType returns [EObject current=null] : (this_DPrimitive_0= ruleDPrimitive | this_DEnumeration_1= ruleDEnumeration | this_DEntityType_2= ruleDEntityType | this_DDetailType_3= ruleDDetailType ) ;
-    public final EObject ruleDType() throws RecognitionException {
+    // $ANTLR start "ruleDimType"
+    // InternalDim.g:433:1: ruleDimType returns [EObject current=null] : (this_DimPrimitive_0= ruleDimPrimitive | this_DimEnumeration_1= ruleDimEnumeration | this_DimEntityType_2= ruleDimEntityType | this_DimDetailType_3= ruleDimDetailType ) ;
+    public final EObject ruleDimType() throws RecognitionException {
         EObject current = null;
 
-        EObject this_DPrimitive_0 = null;
+        EObject this_DimPrimitive_0 = null;
 
-        EObject this_DEnumeration_1 = null;
+        EObject this_DimEnumeration_1 = null;
 
-        EObject this_DEntityType_2 = null;
+        EObject this_DimEntityType_2 = null;
 
-        EObject this_DDetailType_3 = null;
+        EObject this_DimDetailType_3 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:439:2: ( (this_DPrimitive_0= ruleDPrimitive | this_DEnumeration_1= ruleDEnumeration | this_DEntityType_2= ruleDEntityType | this_DDetailType_3= ruleDDetailType ) )
-            // InternalDim.g:440:2: (this_DPrimitive_0= ruleDPrimitive | this_DEnumeration_1= ruleDEnumeration | this_DEntityType_2= ruleDEntityType | this_DDetailType_3= ruleDDetailType )
+            // InternalDim.g:439:2: ( (this_DimPrimitive_0= ruleDimPrimitive | this_DimEnumeration_1= ruleDimEnumeration | this_DimEntityType_2= ruleDimEntityType | this_DimDetailType_3= ruleDimDetailType ) )
+            // InternalDim.g:440:2: (this_DimPrimitive_0= ruleDimPrimitive | this_DimEnumeration_1= ruleDimEnumeration | this_DimEntityType_2= ruleDimEntityType | this_DimDetailType_3= ruleDimDetailType )
             {
-            // InternalDim.g:440:2: (this_DPrimitive_0= ruleDPrimitive | this_DEnumeration_1= ruleDEnumeration | this_DEntityType_2= ruleDEntityType | this_DDetailType_3= ruleDDetailType )
+            // InternalDim.g:440:2: (this_DimPrimitive_0= ruleDimPrimitive | this_DimEnumeration_1= ruleDimEnumeration | this_DimEntityType_2= ruleDimEntityType | this_DimDetailType_3= ruleDimDetailType )
             int alt8=4;
             switch ( input.LA(1) ) {
             case 27:
@@ -1239,11 +1239,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 {
                 int LA8_3 = input.LA(2);
 
-                if ( (LA8_3==36) ) {
-                    alt8=4;
-                }
-                else if ( ((LA8_3>=32 && LA8_3<=33)||(LA8_3>=82 && LA8_3<=83)) ) {
+                if ( ((LA8_3>=32 && LA8_3<=33)||(LA8_3>=82 && LA8_3<=83)) ) {
                     alt8=3;
+                }
+                else if ( (LA8_3==36) ) {
+                    alt8=4;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -1277,21 +1277,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt8) {
                 case 1 :
-                    // InternalDim.g:441:3: this_DPrimitive_0= ruleDPrimitive
+                    // InternalDim.g:441:3: this_DimPrimitive_0= ruleDimPrimitive
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getDPrimitiveParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getDimTypeAccess().getDimPrimitiveParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DPrimitive_0=ruleDPrimitive();
+                    this_DimPrimitive_0=ruleDimPrimitive();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DPrimitive_0;
+                      			current = this_DimPrimitive_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -1299,21 +1299,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:450:3: this_DEnumeration_1= ruleDEnumeration
+                    // InternalDim.g:450:3: this_DimEnumeration_1= ruleDimEnumeration
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getDEnumerationParserRuleCall_1());
+                      			newCompositeNode(grammarAccess.getDimTypeAccess().getDimEnumerationParserRuleCall_1());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DEnumeration_1=ruleDEnumeration();
+                    this_DimEnumeration_1=ruleDimEnumeration();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DEnumeration_1;
+                      			current = this_DimEnumeration_1;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -1321,21 +1321,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:459:3: this_DEntityType_2= ruleDEntityType
+                    // InternalDim.g:459:3: this_DimEntityType_2= ruleDimEntityType
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getDEntityTypeParserRuleCall_2());
+                      			newCompositeNode(grammarAccess.getDimTypeAccess().getDimEntityTypeParserRuleCall_2());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DEntityType_2=ruleDEntityType();
+                    this_DimEntityType_2=ruleDimEntityType();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DEntityType_2;
+                      			current = this_DimEntityType_2;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -1343,21 +1343,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:468:3: this_DDetailType_3= ruleDDetailType
+                    // InternalDim.g:468:3: this_DimDetailType_3= ruleDimDetailType
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDTypeAccess().getDDetailTypeParserRuleCall_3());
+                      			newCompositeNode(grammarAccess.getDimTypeAccess().getDimDetailTypeParserRuleCall_3());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DDetailType_3=ruleDDetailType();
+                    this_DimDetailType_3=ruleDimDetailType();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DDetailType_3;
+                      			current = this_DimDetailType_3;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -1385,7 +1385,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDType"
+    // $ANTLR end "ruleDimType"
 
 
     // $ANTLR start "entryRuleDConstraint"
@@ -1660,28 +1660,28 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDConstraint"
 
 
-    // $ANTLR start "entryRuleDPrimitive"
-    // InternalDim.g:587:1: entryRuleDPrimitive returns [EObject current=null] : iv_ruleDPrimitive= ruleDPrimitive EOF ;
-    public final EObject entryRuleDPrimitive() throws RecognitionException {
+    // $ANTLR start "entryRuleDimPrimitive"
+    // InternalDim.g:587:1: entryRuleDimPrimitive returns [EObject current=null] : iv_ruleDimPrimitive= ruleDimPrimitive EOF ;
+    public final EObject entryRuleDimPrimitive() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDPrimitive = null;
+        EObject iv_ruleDimPrimitive = null;
 
 
         try {
-            // InternalDim.g:587:51: (iv_ruleDPrimitive= ruleDPrimitive EOF )
-            // InternalDim.g:588:2: iv_ruleDPrimitive= ruleDPrimitive EOF
+            // InternalDim.g:587:53: (iv_ruleDimPrimitive= ruleDimPrimitive EOF )
+            // InternalDim.g:588:2: iv_ruleDimPrimitive= ruleDimPrimitive EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDPrimitiveRule()); 
+               newCompositeNode(grammarAccess.getDimPrimitiveRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDPrimitive=ruleDPrimitive();
+            iv_ruleDimPrimitive=ruleDimPrimitive();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDPrimitive; 
+               current =iv_ruleDimPrimitive; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1697,64 +1697,77 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDPrimitive"
+    // $ANTLR end "entryRuleDimPrimitive"
 
 
-    // $ANTLR start "ruleDPrimitive"
-    // InternalDim.g:594:1: ruleDPrimitive returns [EObject current=null] : (otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? (otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}' )? ) ;
-    public final EObject ruleDPrimitive() throws RecognitionException {
+    // $ANTLR start "ruleDimPrimitive"
+    // InternalDim.g:594:1: ruleDimPrimitive returns [EObject current=null] : ( () otherlv_1= 'primitive' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= 'redefines' ( (otherlv_6= RULE_ID ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}' )? ) ;
+    public final EObject ruleDimPrimitive() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token lv_aliases_3_0=null;
-        Token otherlv_4=null;
+        Token otherlv_1=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token lv_aliases_4_0=null;
         Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        EObject lv_description_6_0 = null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token otherlv_10=null;
+        EObject lv_description_7_0 = null;
 
-        EObject lv_constraints_8_0 = null;
+        EObject lv_constraints_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:600:2: ( (otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? (otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}' )? ) )
-            // InternalDim.g:601:2: (otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? (otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}' )? )
+            // InternalDim.g:600:2: ( ( () otherlv_1= 'primitive' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= 'redefines' ( (otherlv_6= RULE_ID ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}' )? ) )
+            // InternalDim.g:601:2: ( () otherlv_1= 'primitive' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= 'redefines' ( (otherlv_6= RULE_ID ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}' )? )
             {
-            // InternalDim.g:601:2: (otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? (otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}' )? )
-            // InternalDim.g:602:3: otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? (otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}' )?
+            // InternalDim.g:601:2: ( () otherlv_1= 'primitive' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= 'redefines' ( (otherlv_6= RULE_ID ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}' )? )
+            // InternalDim.g:602:3: () otherlv_1= 'primitive' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= 'redefines' ( (otherlv_6= RULE_ID ) ) ( (lv_description_7_0= ruleDRichText ) )? (otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}' )?
             {
-            otherlv_0=(Token)match(input,27,FOLLOW_3); if (state.failed) return current;
+            // InternalDim.g:602:3: ()
+            // InternalDim.g:603:4: 
+            {
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_0, grammarAccess.getDPrimitiveAccess().getPrimitiveKeyword_0());
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimPrimitiveAccess().getDimPrimitiveAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            otherlv_1=(Token)match(input,27,FOLLOW_3); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(otherlv_1, grammarAccess.getDimPrimitiveAccess().getPrimitiveKeyword_1());
               		
             }
-            // InternalDim.g:606:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:607:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:613:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalDim.g:614:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalDim.g:607:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:608:5: lv_name_1_0= RULE_ID
+            // InternalDim.g:614:4: (lv_name_2_0= RULE_ID )
+            // InternalDim.g:615:5: lv_name_2_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_15); if (state.failed) return current;
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_15); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_1_0, grammarAccess.getDPrimitiveAccess().getNameIDTerminalRuleCall_1_0());
+              					newLeafNode(lv_name_2_0, grammarAccess.getDimPrimitiveAccess().getNameIDTerminalRuleCall_2_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDPrimitiveRule());
+              						current = createModelElement(grammarAccess.getDimPrimitiveRule());
               					}
               					setWithLastConsumed(
               						current,
               						"name",
-              						lv_name_1_0,
+              						lv_name_2_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.ID");
               				
             }
@@ -1764,7 +1777,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:624:3: (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )*
+            // InternalDim.g:631:3: (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -1777,35 +1790,35 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalDim.g:625:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
+            	    // InternalDim.g:632:4: otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_2, grammarAccess.getDPrimitiveAccess().getAliasKeyword_2_0());
+            	      				newLeafNode(otherlv_3, grammarAccess.getDimPrimitiveAccess().getAliasKeyword_3_0());
             	      			
             	    }
-            	    // InternalDim.g:629:4: ( (lv_aliases_3_0= RULE_ID ) )
-            	    // InternalDim.g:630:5: (lv_aliases_3_0= RULE_ID )
+            	    // InternalDim.g:636:4: ( (lv_aliases_4_0= RULE_ID ) )
+            	    // InternalDim.g:637:5: (lv_aliases_4_0= RULE_ID )
             	    {
-            	    // InternalDim.g:630:5: (lv_aliases_3_0= RULE_ID )
-            	    // InternalDim.g:631:6: lv_aliases_3_0= RULE_ID
+            	    // InternalDim.g:637:5: (lv_aliases_4_0= RULE_ID )
+            	    // InternalDim.g:638:6: lv_aliases_4_0= RULE_ID
             	    {
-            	    lv_aliases_3_0=(Token)match(input,RULE_ID,FOLLOW_15); if (state.failed) return current;
+            	    lv_aliases_4_0=(Token)match(input,RULE_ID,FOLLOW_15); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_3_0, grammarAccess.getDPrimitiveAccess().getAliasesIDTerminalRuleCall_2_1_0());
+            	      						newLeafNode(lv_aliases_4_0, grammarAccess.getDimPrimitiveAccess().getAliasesIDTerminalRuleCall_3_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDPrimitiveRule());
+            	      							current = createModelElement(grammarAccess.getDimPrimitiveRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
             	      							"aliases",
-            	      							lv_aliases_3_0,
+            	      							lv_aliases_4_0,
             	      							"com.mimacom.ddd.dm.dmx.Dmx.ID");
             	      					
             	    }
@@ -1824,29 +1837,29 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,28,FOLLOW_3); if (state.failed) return current;
+            otherlv_5=(Token)match(input,28,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_4, grammarAccess.getDPrimitiveAccess().getRedefinesKeyword_3());
+              			newLeafNode(otherlv_5, grammarAccess.getDimPrimitiveAccess().getRedefinesKeyword_4());
               		
             }
-            // InternalDim.g:652:3: ( (otherlv_5= RULE_ID ) )
-            // InternalDim.g:653:4: (otherlv_5= RULE_ID )
+            // InternalDim.g:659:3: ( (otherlv_6= RULE_ID ) )
+            // InternalDim.g:660:4: (otherlv_6= RULE_ID )
             {
-            // InternalDim.g:653:4: (otherlv_5= RULE_ID )
-            // InternalDim.g:654:5: otherlv_5= RULE_ID
+            // InternalDim.g:660:4: (otherlv_6= RULE_ID )
+            // InternalDim.g:661:5: otherlv_6= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDPrimitiveRule());
+              						current = createModelElement(grammarAccess.getDimPrimitiveRule());
               					}
               				
             }
-            otherlv_5=(Token)match(input,RULE_ID,FOLLOW_16); if (state.failed) return current;
+            otherlv_6=(Token)match(input,RULE_ID,FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_5, grammarAccess.getDPrimitiveAccess().getRedefinesDmxArchetypeCrossReference_4_0());
+              					newLeafNode(otherlv_6, grammarAccess.getDimPrimitiveAccess().getRedefinesDmxArchetypeCrossReference_5_0());
               				
             }
 
@@ -1855,7 +1868,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:665:3: ( (lv_description_6_0= ruleDRichText ) )?
+            // InternalDim.g:672:3: ( (lv_description_7_0= ruleDRichText ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1864,30 +1877,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalDim.g:666:4: (lv_description_6_0= ruleDRichText )
+                    // InternalDim.g:673:4: (lv_description_7_0= ruleDRichText )
                     {
-                    // InternalDim.g:666:4: (lv_description_6_0= ruleDRichText )
-                    // InternalDim.g:667:5: lv_description_6_0= ruleDRichText
+                    // InternalDim.g:673:4: (lv_description_7_0= ruleDRichText )
+                    // InternalDim.g:674:5: lv_description_7_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDPrimitiveAccess().getDescriptionDRichTextParserRuleCall_5_0());
+                      					newCompositeNode(grammarAccess.getDimPrimitiveAccess().getDescriptionDRichTextParserRuleCall_6_0());
                       				
                     }
                     pushFollow(FOLLOW_17);
-                    lv_description_6_0=ruleDRichText();
+                    lv_description_7_0=ruleDRichText();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDPrimitiveRule());
+                      						current = createModelElementForParent(grammarAccess.getDimPrimitiveRule());
                       					}
                       					set(
                       						current,
                       						"description",
-                      						lv_description_6_0,
+                      						lv_description_7_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
                       					afterParserOrEnumRuleCall();
                       				
@@ -1901,7 +1914,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:684:3: (otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}' )?
+            // InternalDim.g:691:3: (otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1910,15 +1923,15 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalDim.g:685:4: otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )+ otherlv_9= '}'
+                    // InternalDim.g:692:4: otherlv_8= '{' ( (lv_constraints_9_0= ruleDConstraint ) )+ otherlv_10= '}'
                     {
-                    otherlv_7=(Token)match(input,21,FOLLOW_18); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,21,FOLLOW_18); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_7, grammarAccess.getDPrimitiveAccess().getLeftCurlyBracketKeyword_6_0());
+                      				newLeafNode(otherlv_8, grammarAccess.getDimPrimitiveAccess().getLeftCurlyBracketKeyword_7_0());
                       			
                     }
-                    // InternalDim.g:689:4: ( (lv_constraints_8_0= ruleDConstraint ) )+
+                    // InternalDim.g:696:4: ( (lv_constraints_9_0= ruleDConstraint ) )+
                     int cnt13=0;
                     loop13:
                     do {
@@ -1932,30 +1945,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // InternalDim.g:690:5: (lv_constraints_8_0= ruleDConstraint )
+                    	    // InternalDim.g:697:5: (lv_constraints_9_0= ruleDConstraint )
                     	    {
-                    	    // InternalDim.g:690:5: (lv_constraints_8_0= ruleDConstraint )
-                    	    // InternalDim.g:691:6: lv_constraints_8_0= ruleDConstraint
+                    	    // InternalDim.g:697:5: (lv_constraints_9_0= ruleDConstraint )
+                    	    // InternalDim.g:698:6: lv_constraints_9_0= ruleDConstraint
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      						newCompositeNode(grammarAccess.getDPrimitiveAccess().getConstraintsDConstraintParserRuleCall_6_1_0());
+                    	      						newCompositeNode(grammarAccess.getDimPrimitiveAccess().getConstraintsDConstraintParserRuleCall_7_1_0());
                     	      					
                     	    }
                     	    pushFollow(FOLLOW_19);
-                    	    lv_constraints_8_0=ruleDConstraint();
+                    	    lv_constraints_9_0=ruleDConstraint();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      						if (current==null) {
-                    	      							current = createModelElementForParent(grammarAccess.getDPrimitiveRule());
+                    	      							current = createModelElementForParent(grammarAccess.getDimPrimitiveRule());
                     	      						}
                     	      						add(
                     	      							current,
                     	      							"constraints",
-                    	      							lv_constraints_8_0,
+                    	      							lv_constraints_9_0,
                     	      							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
                     	      						afterParserOrEnumRuleCall();
                     	      					
@@ -1977,10 +1990,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         cnt13++;
                     } while (true);
 
-                    otherlv_9=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
+                    otherlv_10=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_9, grammarAccess.getDPrimitiveAccess().getRightCurlyBracketKeyword_6_2());
+                      				newLeafNode(otherlv_10, grammarAccess.getDimPrimitiveAccess().getRightCurlyBracketKeyword_7_2());
                       			
                     }
 
@@ -2010,31 +2023,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDPrimitive"
+    // $ANTLR end "ruleDimPrimitive"
 
 
-    // $ANTLR start "entryRuleDEnumeration"
-    // InternalDim.g:717:1: entryRuleDEnumeration returns [EObject current=null] : iv_ruleDEnumeration= ruleDEnumeration EOF ;
-    public final EObject entryRuleDEnumeration() throws RecognitionException {
+    // $ANTLR start "entryRuleDimEnumeration"
+    // InternalDim.g:724:1: entryRuleDimEnumeration returns [EObject current=null] : iv_ruleDimEnumeration= ruleDimEnumeration EOF ;
+    public final EObject entryRuleDimEnumeration() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDEnumeration = null;
+        EObject iv_ruleDimEnumeration = null;
 
 
         try {
-            // InternalDim.g:717:53: (iv_ruleDEnumeration= ruleDEnumeration EOF )
-            // InternalDim.g:718:2: iv_ruleDEnumeration= ruleDEnumeration EOF
+            // InternalDim.g:724:55: (iv_ruleDimEnumeration= ruleDimEnumeration EOF )
+            // InternalDim.g:725:2: iv_ruleDimEnumeration= ruleDimEnumeration EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDEnumerationRule()); 
+               newCompositeNode(grammarAccess.getDimEnumerationRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDEnumeration=ruleDEnumeration();
+            iv_ruleDimEnumeration=ruleDimEnumeration();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDEnumeration; 
+               current =iv_ruleDimEnumeration; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2050,67 +2063,80 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDEnumeration"
+    // $ANTLR end "entryRuleDimEnumeration"
 
 
-    // $ANTLR start "ruleDEnumeration"
-    // InternalDim.g:724:1: ruleDEnumeration returns [EObject current=null] : (otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}' ) ;
-    public final EObject ruleDEnumeration() throws RecognitionException {
+    // $ANTLR start "ruleDimEnumeration"
+    // InternalDim.g:731:1: ruleDimEnumeration returns [EObject current=null] : ( () otherlv_1= 'enumeration' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )* )? ( (lv_constraints_10_0= ruleDConstraint ) )* otherlv_11= '}' ) ;
+    public final EObject ruleDimEnumeration() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token lv_aliases_3_0=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_10=null;
-        EObject lv_description_4_0 = null;
+        Token otherlv_1=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token lv_aliases_4_0=null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token otherlv_11=null;
+        EObject lv_description_5_0 = null;
 
-        EObject lv_literals_6_0 = null;
+        EObject lv_literals_7_0 = null;
 
-        EObject lv_literals_8_0 = null;
+        EObject lv_literals_9_0 = null;
 
-        EObject lv_constraints_9_0 = null;
+        EObject lv_constraints_10_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:730:2: ( (otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}' ) )
-            // InternalDim.g:731:2: (otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}' )
+            // InternalDim.g:737:2: ( ( () otherlv_1= 'enumeration' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )* )? ( (lv_constraints_10_0= ruleDConstraint ) )* otherlv_11= '}' ) )
+            // InternalDim.g:738:2: ( () otherlv_1= 'enumeration' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )* )? ( (lv_constraints_10_0= ruleDConstraint ) )* otherlv_11= '}' )
             {
-            // InternalDim.g:731:2: (otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}' )
-            // InternalDim.g:732:3: otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}'
+            // InternalDim.g:738:2: ( () otherlv_1= 'enumeration' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )* )? ( (lv_constraints_10_0= ruleDConstraint ) )* otherlv_11= '}' )
+            // InternalDim.g:739:3: () otherlv_1= 'enumeration' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( (lv_description_5_0= ruleDRichText ) )? otherlv_6= '{' ( ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )* )? ( (lv_constraints_10_0= ruleDConstraint ) )* otherlv_11= '}'
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_3); if (state.failed) return current;
+            // InternalDim.g:739:3: ()
+            // InternalDim.g:740:4: 
+            {
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_0, grammarAccess.getDEnumerationAccess().getEnumerationKeyword_0());
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimEnumerationAccess().getDimEnumerationAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            otherlv_1=(Token)match(input,29,FOLLOW_3); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(otherlv_1, grammarAccess.getDimEnumerationAccess().getEnumerationKeyword_1());
               		
             }
-            // InternalDim.g:736:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:737:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:750:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalDim.g:751:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalDim.g:737:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:738:5: lv_name_1_0= RULE_ID
+            // InternalDim.g:751:4: (lv_name_2_0= RULE_ID )
+            // InternalDim.g:752:5: lv_name_2_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_1_0, grammarAccess.getDEnumerationAccess().getNameIDTerminalRuleCall_1_0());
+              					newLeafNode(lv_name_2_0, grammarAccess.getDimEnumerationAccess().getNameIDTerminalRuleCall_2_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDEnumerationRule());
+              						current = createModelElement(grammarAccess.getDimEnumerationRule());
               					}
               					setWithLastConsumed(
               						current,
               						"name",
-              						lv_name_1_0,
+              						lv_name_2_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.ID");
               				
             }
@@ -2120,7 +2146,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:754:3: (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )*
+            // InternalDim.g:768:3: (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -2133,35 +2159,35 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt15) {
             	case 1 :
-            	    // InternalDim.g:755:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
+            	    // InternalDim.g:769:4: otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_2, grammarAccess.getDEnumerationAccess().getAliasKeyword_2_0());
+            	      				newLeafNode(otherlv_3, grammarAccess.getDimEnumerationAccess().getAliasKeyword_3_0());
             	      			
             	    }
-            	    // InternalDim.g:759:4: ( (lv_aliases_3_0= RULE_ID ) )
-            	    // InternalDim.g:760:5: (lv_aliases_3_0= RULE_ID )
+            	    // InternalDim.g:773:4: ( (lv_aliases_4_0= RULE_ID ) )
+            	    // InternalDim.g:774:5: (lv_aliases_4_0= RULE_ID )
             	    {
-            	    // InternalDim.g:760:5: (lv_aliases_3_0= RULE_ID )
-            	    // InternalDim.g:761:6: lv_aliases_3_0= RULE_ID
+            	    // InternalDim.g:774:5: (lv_aliases_4_0= RULE_ID )
+            	    // InternalDim.g:775:6: lv_aliases_4_0= RULE_ID
             	    {
-            	    lv_aliases_3_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
+            	    lv_aliases_4_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_3_0, grammarAccess.getDEnumerationAccess().getAliasesIDTerminalRuleCall_2_1_0());
+            	      						newLeafNode(lv_aliases_4_0, grammarAccess.getDimEnumerationAccess().getAliasesIDTerminalRuleCall_3_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDEnumerationRule());
+            	      							current = createModelElement(grammarAccess.getDimEnumerationRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
             	      							"aliases",
-            	      							lv_aliases_3_0,
+            	      							lv_aliases_4_0,
             	      							"com.mimacom.ddd.dm.dmx.Dmx.ID");
             	      					
             	    }
@@ -2180,7 +2206,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalDim.g:778:3: ( (lv_description_4_0= ruleDRichText ) )?
+            // InternalDim.g:792:3: ( (lv_description_5_0= ruleDRichText ) )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -2189,30 +2215,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // InternalDim.g:779:4: (lv_description_4_0= ruleDRichText )
+                    // InternalDim.g:793:4: (lv_description_5_0= ruleDRichText )
                     {
-                    // InternalDim.g:779:4: (lv_description_4_0= ruleDRichText )
-                    // InternalDim.g:780:5: lv_description_4_0= ruleDRichText
+                    // InternalDim.g:793:4: (lv_description_5_0= ruleDRichText )
+                    // InternalDim.g:794:5: lv_description_5_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDEnumerationAccess().getDescriptionDRichTextParserRuleCall_3_0());
+                      					newCompositeNode(grammarAccess.getDimEnumerationAccess().getDescriptionDRichTextParserRuleCall_4_0());
                       				
                     }
                     pushFollow(FOLLOW_7);
-                    lv_description_4_0=ruleDRichText();
+                    lv_description_5_0=ruleDRichText();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDEnumerationRule());
+                      						current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
                       					}
                       					set(
                       						current,
                       						"description",
-                      						lv_description_4_0,
+                      						lv_description_5_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
                       					afterParserOrEnumRuleCall();
                       				
@@ -2226,13 +2252,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,21,FOLLOW_20); if (state.failed) return current;
+            otherlv_6=(Token)match(input,21,FOLLOW_20); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_5, grammarAccess.getDEnumerationAccess().getLeftCurlyBracketKeyword_4());
+              			newLeafNode(otherlv_6, grammarAccess.getDimEnumerationAccess().getLeftCurlyBracketKeyword_5());
               		
             }
-            // InternalDim.g:801:3: ( ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )* )?
+            // InternalDim.g:815:3: ( ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )* )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -2241,34 +2267,34 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt18) {
                 case 1 :
-                    // InternalDim.g:802:4: ( (lv_literals_6_0= ruleDLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )*
+                    // InternalDim.g:816:4: ( (lv_literals_7_0= ruleDimLiteral ) ) (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )*
                     {
-                    // InternalDim.g:802:4: ( (lv_literals_6_0= ruleDLiteral ) )
-                    // InternalDim.g:803:5: (lv_literals_6_0= ruleDLiteral )
+                    // InternalDim.g:816:4: ( (lv_literals_7_0= ruleDimLiteral ) )
+                    // InternalDim.g:817:5: (lv_literals_7_0= ruleDimLiteral )
                     {
-                    // InternalDim.g:803:5: (lv_literals_6_0= ruleDLiteral )
-                    // InternalDim.g:804:6: lv_literals_6_0= ruleDLiteral
+                    // InternalDim.g:817:5: (lv_literals_7_0= ruleDimLiteral )
+                    // InternalDim.g:818:6: lv_literals_7_0= ruleDimLiteral
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getDEnumerationAccess().getLiteralsDLiteralParserRuleCall_5_0_0());
+                      						newCompositeNode(grammarAccess.getDimEnumerationAccess().getLiteralsDimLiteralParserRuleCall_6_0_0());
                       					
                     }
                     pushFollow(FOLLOW_21);
-                    lv_literals_6_0=ruleDLiteral();
+                    lv_literals_7_0=ruleDimLiteral();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElementForParent(grammarAccess.getDEnumerationRule());
+                      							current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
                       						}
                       						add(
                       							current,
                       							"literals",
-                      							lv_literals_6_0,
-                      							"com.mimacom.ddd.dm.dim.Dim.DLiteral");
+                      							lv_literals_7_0,
+                      							"com.mimacom.ddd.dm.dim.Dim.DimLiteral");
                       						afterParserOrEnumRuleCall();
                       					
                     }
@@ -2278,7 +2304,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:821:4: (otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) ) )*
+                    // InternalDim.g:835:4: (otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) ) )*
                     loop17:
                     do {
                         int alt17=2;
@@ -2291,40 +2317,40 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // InternalDim.g:822:5: otherlv_7= ',' ( (lv_literals_8_0= ruleDLiteral ) )
+                    	    // InternalDim.g:836:5: otherlv_8= ',' ( (lv_literals_9_0= ruleDimLiteral ) )
                     	    {
-                    	    otherlv_7=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
+                    	    otherlv_8=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      					newLeafNode(otherlv_7, grammarAccess.getDEnumerationAccess().getCommaKeyword_5_1_0());
+                    	      					newLeafNode(otherlv_8, grammarAccess.getDimEnumerationAccess().getCommaKeyword_6_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:826:5: ( (lv_literals_8_0= ruleDLiteral ) )
-                    	    // InternalDim.g:827:6: (lv_literals_8_0= ruleDLiteral )
+                    	    // InternalDim.g:840:5: ( (lv_literals_9_0= ruleDimLiteral ) )
+                    	    // InternalDim.g:841:6: (lv_literals_9_0= ruleDimLiteral )
                     	    {
-                    	    // InternalDim.g:827:6: (lv_literals_8_0= ruleDLiteral )
-                    	    // InternalDim.g:828:7: lv_literals_8_0= ruleDLiteral
+                    	    // InternalDim.g:841:6: (lv_literals_9_0= ruleDimLiteral )
+                    	    // InternalDim.g:842:7: lv_literals_9_0= ruleDimLiteral
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getDEnumerationAccess().getLiteralsDLiteralParserRuleCall_5_1_1_0());
+                    	      							newCompositeNode(grammarAccess.getDimEnumerationAccess().getLiteralsDimLiteralParserRuleCall_6_1_1_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_21);
-                    	    lv_literals_8_0=ruleDLiteral();
+                    	    lv_literals_9_0=ruleDimLiteral();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      							if (current==null) {
-                    	      								current = createModelElementForParent(grammarAccess.getDEnumerationRule());
+                    	      								current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
                     	      							}
                     	      							add(
                     	      								current,
                     	      								"literals",
-                    	      								lv_literals_8_0,
-                    	      								"com.mimacom.ddd.dm.dim.Dim.DLiteral");
+                    	      								lv_literals_9_0,
+                    	      								"com.mimacom.ddd.dm.dim.Dim.DimLiteral");
                     	      							afterParserOrEnumRuleCall();
                     	      						
                     	    }
@@ -2349,7 +2375,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:847:3: ( (lv_constraints_9_0= ruleDConstraint ) )*
+            // InternalDim.g:861:3: ( (lv_constraints_10_0= ruleDConstraint ) )*
             loop19:
             do {
                 int alt19=2;
@@ -2362,30 +2388,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt19) {
             	case 1 :
-            	    // InternalDim.g:848:4: (lv_constraints_9_0= ruleDConstraint )
+            	    // InternalDim.g:862:4: (lv_constraints_10_0= ruleDConstraint )
             	    {
-            	    // InternalDim.g:848:4: (lv_constraints_9_0= ruleDConstraint )
-            	    // InternalDim.g:849:5: lv_constraints_9_0= ruleDConstraint
+            	    // InternalDim.g:862:4: (lv_constraints_10_0= ruleDConstraint )
+            	    // InternalDim.g:863:5: lv_constraints_10_0= ruleDConstraint
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      					newCompositeNode(grammarAccess.getDEnumerationAccess().getConstraintsDConstraintParserRuleCall_6_0());
+            	      					newCompositeNode(grammarAccess.getDimEnumerationAccess().getConstraintsDConstraintParserRuleCall_7_0());
             	      				
             	    }
             	    pushFollow(FOLLOW_19);
-            	    lv_constraints_9_0=ruleDConstraint();
+            	    lv_constraints_10_0=ruleDConstraint();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      					if (current==null) {
-            	      						current = createModelElementForParent(grammarAccess.getDEnumerationRule());
+            	      						current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
             	      					}
             	      					add(
             	      						current,
             	      						"constraints",
-            	      						lv_constraints_9_0,
+            	      						lv_constraints_10_0,
             	      						"com.mimacom.ddd.dm.dim.Dim.DConstraint");
             	      					afterParserOrEnumRuleCall();
             	      				
@@ -2402,10 +2428,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
+            otherlv_11=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_10, grammarAccess.getDEnumerationAccess().getRightCurlyBracketKeyword_7());
+              			newLeafNode(otherlv_11, grammarAccess.getDimEnumerationAccess().getRightCurlyBracketKeyword_8());
               		
             }
 
@@ -2429,31 +2455,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDEnumeration"
+    // $ANTLR end "ruleDimEnumeration"
 
 
-    // $ANTLR start "entryRuleDLiteral"
-    // InternalDim.g:874:1: entryRuleDLiteral returns [EObject current=null] : iv_ruleDLiteral= ruleDLiteral EOF ;
-    public final EObject entryRuleDLiteral() throws RecognitionException {
+    // $ANTLR start "entryRuleDimLiteral"
+    // InternalDim.g:888:1: entryRuleDimLiteral returns [EObject current=null] : iv_ruleDimLiteral= ruleDimLiteral EOF ;
+    public final EObject entryRuleDimLiteral() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDLiteral = null;
+        EObject iv_ruleDimLiteral = null;
 
 
         try {
-            // InternalDim.g:874:49: (iv_ruleDLiteral= ruleDLiteral EOF )
-            // InternalDim.g:875:2: iv_ruleDLiteral= ruleDLiteral EOF
+            // InternalDim.g:888:51: (iv_ruleDimLiteral= ruleDimLiteral EOF )
+            // InternalDim.g:889:2: iv_ruleDimLiteral= ruleDimLiteral EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDLiteralRule()); 
+               newCompositeNode(grammarAccess.getDimLiteralRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDLiteral=ruleDLiteral();
+            iv_ruleDimLiteral=ruleDimLiteral();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDLiteral; 
+               current =iv_ruleDimLiteral; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2469,51 +2495,64 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDLiteral"
+    // $ANTLR end "entryRuleDimLiteral"
 
 
-    // $ANTLR start "ruleDLiteral"
-    // InternalDim.g:881:1: ruleDLiteral returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* ( (lv_description_3_0= ruleDRichText ) )? ) ;
-    public final EObject ruleDLiteral() throws RecognitionException {
+    // $ANTLR start "ruleDimLiteral"
+    // InternalDim.g:895:1: ruleDimLiteral returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? ) ;
+    public final EObject ruleDimLiteral() throws RecognitionException {
         EObject current = null;
 
-        Token lv_name_0_0=null;
-        Token otherlv_1=null;
-        Token lv_aliases_2_0=null;
-        EObject lv_description_3_0 = null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token lv_aliases_3_0=null;
+        EObject lv_description_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:887:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* ( (lv_description_3_0= ruleDRichText ) )? ) )
-            // InternalDim.g:888:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* ( (lv_description_3_0= ruleDRichText ) )? )
+            // InternalDim.g:901:2: ( ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? ) )
+            // InternalDim.g:902:2: ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? )
             {
-            // InternalDim.g:888:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* ( (lv_description_3_0= ruleDRichText ) )? )
-            // InternalDim.g:889:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* ( (lv_description_3_0= ruleDRichText ) )?
+            // InternalDim.g:902:2: ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? )
+            // InternalDim.g:903:3: () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )?
             {
-            // InternalDim.g:889:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:890:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:903:3: ()
+            // InternalDim.g:904:4: 
             {
-            // InternalDim.g:890:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:891:5: lv_name_0_0= RULE_ID
-            {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_22); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_0_0, grammarAccess.getDLiteralAccess().getNameIDTerminalRuleCall_0_0());
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimLiteralAccess().getDimLiteralAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:910:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDim.g:911:4: (lv_name_1_0= RULE_ID )
+            {
+            // InternalDim.g:911:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:912:5: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_22); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					newLeafNode(lv_name_1_0, grammarAccess.getDimLiteralAccess().getNameIDTerminalRuleCall_1_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDLiteralRule());
+              						current = createModelElement(grammarAccess.getDimLiteralRule());
               					}
               					setWithLastConsumed(
               						current,
               						"name",
-              						lv_name_0_0,
+              						lv_name_1_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.ID");
               				
             }
@@ -2523,7 +2562,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:907:3: (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )*
+            // InternalDim.g:928:3: (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )*
             loop20:
             do {
                 int alt20=2;
@@ -2536,35 +2575,35 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt20) {
             	case 1 :
-            	    // InternalDim.g:908:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
+            	    // InternalDim.g:929:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_1=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_1, grammarAccess.getDLiteralAccess().getAliasKeyword_1_0());
+            	      				newLeafNode(otherlv_2, grammarAccess.getDimLiteralAccess().getAliasKeyword_2_0());
             	      			
             	    }
-            	    // InternalDim.g:912:4: ( (lv_aliases_2_0= RULE_ID ) )
-            	    // InternalDim.g:913:5: (lv_aliases_2_0= RULE_ID )
+            	    // InternalDim.g:933:4: ( (lv_aliases_3_0= RULE_ID ) )
+            	    // InternalDim.g:934:5: (lv_aliases_3_0= RULE_ID )
             	    {
-            	    // InternalDim.g:913:5: (lv_aliases_2_0= RULE_ID )
-            	    // InternalDim.g:914:6: lv_aliases_2_0= RULE_ID
+            	    // InternalDim.g:934:5: (lv_aliases_3_0= RULE_ID )
+            	    // InternalDim.g:935:6: lv_aliases_3_0= RULE_ID
             	    {
-            	    lv_aliases_2_0=(Token)match(input,RULE_ID,FOLLOW_22); if (state.failed) return current;
+            	    lv_aliases_3_0=(Token)match(input,RULE_ID,FOLLOW_22); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_2_0, grammarAccess.getDLiteralAccess().getAliasesIDTerminalRuleCall_1_1_0());
+            	      						newLeafNode(lv_aliases_3_0, grammarAccess.getDimLiteralAccess().getAliasesIDTerminalRuleCall_2_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDLiteralRule());
+            	      							current = createModelElement(grammarAccess.getDimLiteralRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
             	      							"aliases",
-            	      							lv_aliases_2_0,
+            	      							lv_aliases_3_0,
             	      							"com.mimacom.ddd.dm.dmx.Dmx.ID");
             	      					
             	    }
@@ -2583,7 +2622,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalDim.g:931:3: ( (lv_description_3_0= ruleDRichText ) )?
+            // InternalDim.g:952:3: ( (lv_description_4_0= ruleDRichText ) )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -2592,30 +2631,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt21) {
                 case 1 :
-                    // InternalDim.g:932:4: (lv_description_3_0= ruleDRichText )
+                    // InternalDim.g:953:4: (lv_description_4_0= ruleDRichText )
                     {
-                    // InternalDim.g:932:4: (lv_description_3_0= ruleDRichText )
-                    // InternalDim.g:933:5: lv_description_3_0= ruleDRichText
+                    // InternalDim.g:953:4: (lv_description_4_0= ruleDRichText )
+                    // InternalDim.g:954:5: lv_description_4_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDLiteralAccess().getDescriptionDRichTextParserRuleCall_2_0());
+                      					newCompositeNode(grammarAccess.getDimLiteralAccess().getDescriptionDRichTextParserRuleCall_3_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
-                    lv_description_3_0=ruleDRichText();
+                    lv_description_4_0=ruleDRichText();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDLiteralRule());
+                      						current = createModelElementForParent(grammarAccess.getDimLiteralRule());
                       					}
                       					set(
                       						current,
                       						"description",
-                      						lv_description_3_0,
+                      						lv_description_4_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
                       					afterParserOrEnumRuleCall();
                       				
@@ -2650,31 +2689,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDLiteral"
+    // $ANTLR end "ruleDimLiteral"
 
 
-    // $ANTLR start "entryRuleDEntityType"
-    // InternalDim.g:954:1: entryRuleDEntityType returns [EObject current=null] : iv_ruleDEntityType= ruleDEntityType EOF ;
-    public final EObject entryRuleDEntityType() throws RecognitionException {
+    // $ANTLR start "entryRuleDimEntityType"
+    // InternalDim.g:975:1: entryRuleDimEntityType returns [EObject current=null] : iv_ruleDimEntityType= ruleDimEntityType EOF ;
+    public final EObject entryRuleDimEntityType() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDEntityType = null;
+        EObject iv_ruleDimEntityType = null;
 
 
         try {
-            // InternalDim.g:954:52: (iv_ruleDEntityType= ruleDEntityType EOF )
-            // InternalDim.g:955:2: iv_ruleDEntityType= ruleDEntityType EOF
+            // InternalDim.g:975:54: (iv_ruleDimEntityType= ruleDimEntityType EOF )
+            // InternalDim.g:976:2: iv_ruleDimEntityType= ruleDimEntityType EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDEntityTypeRule()); 
+               newCompositeNode(grammarAccess.getDimEntityTypeRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDEntityType=ruleDEntityType();
+            iv_ruleDimEntityType=ruleDimEntityType();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDEntityType; 
+               current =iv_ruleDimEntityType; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -2690,58 +2729,71 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDEntityType"
+    // $ANTLR end "entryRuleDimEntityType"
 
 
-    // $ANTLR start "ruleDEntityType"
-    // InternalDim.g:961:1: ruleDEntityType returns [EObject current=null] : ( ( (lv_abstract_0_0= 'abstract' ) )? ( (lv_root_1_0= 'main' ) )? (otherlv_2= 'entity' | ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' ) | ( (lv_nature_5_0= ruleDEntityNatureRelationship ) ) ) this_DComplexType_6= ruleDComplexType[$current] otherlv_7= '{' (otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )? )? ( ( (lv_features_20_0= ruleDFeature ) ) | ( (lv_constraints_21_0= ruleDConstraint ) ) )* otherlv_22= '}' ) ;
-    public final EObject ruleDEntityType() throws RecognitionException {
+    // $ANTLR start "ruleDimEntityType"
+    // InternalDim.g:982:1: ruleDimEntityType returns [EObject current=null] : ( () ( (lv_abstract_1_0= 'abstract' ) )? ( (lv_root_2_0= 'main' ) )? (otherlv_3= 'entity' | ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' ) | ( (lv_nature_6_0= ruleDEntityNatureRelationship ) ) ) this_DimComplexType_7= ruleDimComplexType[$current] otherlv_8= '{' (otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )? )? ( ( (lv_features_21_0= ruleDimFeature ) ) | ( (lv_constraints_22_0= ruleDConstraint ) ) )* otherlv_23= '}' ) ;
+    public final EObject ruleDimEntityType() throws RecognitionException {
         EObject current = null;
 
-        Token lv_abstract_0_0=null;
-        Token lv_root_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_7=null;
+        Token lv_abstract_1_0=null;
+        Token lv_root_2_0=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
         Token otherlv_8=null;
         Token otherlv_9=null;
-        Token otherlv_11=null;
-        Token otherlv_13=null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
         Token otherlv_14=null;
         Token otherlv_15=null;
-        Token otherlv_17=null;
-        Token otherlv_19=null;
-        Token otherlv_22=null;
-        Enumerator lv_nature_3_0 = null;
+        Token otherlv_16=null;
+        Token otherlv_18=null;
+        Token otherlv_20=null;
+        Token otherlv_23=null;
+        Enumerator lv_nature_4_0 = null;
 
-        Enumerator lv_nature_5_0 = null;
+        Enumerator lv_nature_6_0 = null;
 
-        EObject this_DComplexType_6 = null;
+        EObject this_DimComplexType_7 = null;
 
-        EObject lv_states_10_0 = null;
+        EObject lv_states_11_0 = null;
 
-        EObject lv_states_12_0 = null;
+        EObject lv_states_13_0 = null;
 
-        EObject lv_events_16_0 = null;
+        EObject lv_events_17_0 = null;
 
-        EObject lv_events_18_0 = null;
+        EObject lv_events_19_0 = null;
 
-        EObject lv_features_20_0 = null;
+        EObject lv_features_21_0 = null;
 
-        EObject lv_constraints_21_0 = null;
+        EObject lv_constraints_22_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:967:2: ( ( ( (lv_abstract_0_0= 'abstract' ) )? ( (lv_root_1_0= 'main' ) )? (otherlv_2= 'entity' | ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' ) | ( (lv_nature_5_0= ruleDEntityNatureRelationship ) ) ) this_DComplexType_6= ruleDComplexType[$current] otherlv_7= '{' (otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )? )? ( ( (lv_features_20_0= ruleDFeature ) ) | ( (lv_constraints_21_0= ruleDConstraint ) ) )* otherlv_22= '}' ) )
-            // InternalDim.g:968:2: ( ( (lv_abstract_0_0= 'abstract' ) )? ( (lv_root_1_0= 'main' ) )? (otherlv_2= 'entity' | ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' ) | ( (lv_nature_5_0= ruleDEntityNatureRelationship ) ) ) this_DComplexType_6= ruleDComplexType[$current] otherlv_7= '{' (otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )? )? ( ( (lv_features_20_0= ruleDFeature ) ) | ( (lv_constraints_21_0= ruleDConstraint ) ) )* otherlv_22= '}' )
+            // InternalDim.g:988:2: ( ( () ( (lv_abstract_1_0= 'abstract' ) )? ( (lv_root_2_0= 'main' ) )? (otherlv_3= 'entity' | ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' ) | ( (lv_nature_6_0= ruleDEntityNatureRelationship ) ) ) this_DimComplexType_7= ruleDimComplexType[$current] otherlv_8= '{' (otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )? )? ( ( (lv_features_21_0= ruleDimFeature ) ) | ( (lv_constraints_22_0= ruleDConstraint ) ) )* otherlv_23= '}' ) )
+            // InternalDim.g:989:2: ( () ( (lv_abstract_1_0= 'abstract' ) )? ( (lv_root_2_0= 'main' ) )? (otherlv_3= 'entity' | ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' ) | ( (lv_nature_6_0= ruleDEntityNatureRelationship ) ) ) this_DimComplexType_7= ruleDimComplexType[$current] otherlv_8= '{' (otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )? )? ( ( (lv_features_21_0= ruleDimFeature ) ) | ( (lv_constraints_22_0= ruleDConstraint ) ) )* otherlv_23= '}' )
             {
-            // InternalDim.g:968:2: ( ( (lv_abstract_0_0= 'abstract' ) )? ( (lv_root_1_0= 'main' ) )? (otherlv_2= 'entity' | ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' ) | ( (lv_nature_5_0= ruleDEntityNatureRelationship ) ) ) this_DComplexType_6= ruleDComplexType[$current] otherlv_7= '{' (otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )? )? ( ( (lv_features_20_0= ruleDFeature ) ) | ( (lv_constraints_21_0= ruleDConstraint ) ) )* otherlv_22= '}' )
-            // InternalDim.g:969:3: ( (lv_abstract_0_0= 'abstract' ) )? ( (lv_root_1_0= 'main' ) )? (otherlv_2= 'entity' | ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' ) | ( (lv_nature_5_0= ruleDEntityNatureRelationship ) ) ) this_DComplexType_6= ruleDComplexType[$current] otherlv_7= '{' (otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )? )? ( ( (lv_features_20_0= ruleDFeature ) ) | ( (lv_constraints_21_0= ruleDConstraint ) ) )* otherlv_22= '}'
+            // InternalDim.g:989:2: ( () ( (lv_abstract_1_0= 'abstract' ) )? ( (lv_root_2_0= 'main' ) )? (otherlv_3= 'entity' | ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' ) | ( (lv_nature_6_0= ruleDEntityNatureRelationship ) ) ) this_DimComplexType_7= ruleDimComplexType[$current] otherlv_8= '{' (otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )? )? ( ( (lv_features_21_0= ruleDimFeature ) ) | ( (lv_constraints_22_0= ruleDConstraint ) ) )* otherlv_23= '}' )
+            // InternalDim.g:990:3: () ( (lv_abstract_1_0= 'abstract' ) )? ( (lv_root_2_0= 'main' ) )? (otherlv_3= 'entity' | ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' ) | ( (lv_nature_6_0= ruleDEntityNatureRelationship ) ) ) this_DimComplexType_7= ruleDimComplexType[$current] otherlv_8= '{' (otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )? )? ( ( (lv_features_21_0= ruleDimFeature ) ) | ( (lv_constraints_22_0= ruleDConstraint ) ) )* otherlv_23= '}'
             {
-            // InternalDim.g:969:3: ( (lv_abstract_0_0= 'abstract' ) )?
+            // InternalDim.g:990:3: ()
+            // InternalDim.g:991:4: 
+            {
+            if ( state.backtracking==0 ) {
+
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimEntityTypeAccess().getDimEntityTypeAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:997:3: ( (lv_abstract_1_0= 'abstract' ) )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -2750,21 +2802,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt22) {
                 case 1 :
-                    // InternalDim.g:970:4: (lv_abstract_0_0= 'abstract' )
+                    // InternalDim.g:998:4: (lv_abstract_1_0= 'abstract' )
                     {
-                    // InternalDim.g:970:4: (lv_abstract_0_0= 'abstract' )
-                    // InternalDim.g:971:5: lv_abstract_0_0= 'abstract'
+                    // InternalDim.g:998:4: (lv_abstract_1_0= 'abstract' )
+                    // InternalDim.g:999:5: lv_abstract_1_0= 'abstract'
                     {
-                    lv_abstract_0_0=(Token)match(input,31,FOLLOW_23); if (state.failed) return current;
+                    lv_abstract_1_0=(Token)match(input,31,FOLLOW_23); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_abstract_0_0, grammarAccess.getDEntityTypeAccess().getAbstractAbstractKeyword_0_0());
+                      					newLeafNode(lv_abstract_1_0, grammarAccess.getDimEntityTypeAccess().getAbstractAbstractKeyword_1_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDEntityTypeRule());
+                      						current = createModelElement(grammarAccess.getDimEntityTypeRule());
                       					}
                       					setWithLastConsumed(current, "abstract", true, "abstract");
                       				
@@ -2778,7 +2830,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:983:3: ( (lv_root_1_0= 'main' ) )?
+            // InternalDim.g:1011:3: ( (lv_root_2_0= 'main' ) )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -2787,21 +2839,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt23) {
                 case 1 :
-                    // InternalDim.g:984:4: (lv_root_1_0= 'main' )
+                    // InternalDim.g:1012:4: (lv_root_2_0= 'main' )
                     {
-                    // InternalDim.g:984:4: (lv_root_1_0= 'main' )
-                    // InternalDim.g:985:5: lv_root_1_0= 'main'
+                    // InternalDim.g:1012:4: (lv_root_2_0= 'main' )
+                    // InternalDim.g:1013:5: lv_root_2_0= 'main'
                     {
-                    lv_root_1_0=(Token)match(input,32,FOLLOW_23); if (state.failed) return current;
+                    lv_root_2_0=(Token)match(input,32,FOLLOW_23); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_root_1_0, grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_0());
+                      					newLeafNode(lv_root_2_0, grammarAccess.getDimEntityTypeAccess().getRootMainKeyword_2_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDEntityTypeRule());
+                      						current = createModelElement(grammarAccess.getDimEntityTypeRule());
                       					}
                       					setWithLastConsumed(current, "root", true, "main");
                       				
@@ -2815,7 +2867,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:997:3: (otherlv_2= 'entity' | ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' ) | ( (lv_nature_5_0= ruleDEntityNatureRelationship ) ) )
+            // InternalDim.g:1025:3: (otherlv_3= 'entity' | ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' ) | ( (lv_nature_6_0= ruleDEntityNatureRelationship ) ) )
             int alt24=3;
             switch ( input.LA(1) ) {
             case 33:
@@ -2843,48 +2895,48 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt24) {
                 case 1 :
-                    // InternalDim.g:998:4: otherlv_2= 'entity'
+                    // InternalDim.g:1026:4: otherlv_3= 'entity'
                     {
-                    otherlv_2=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_2, grammarAccess.getDEntityTypeAccess().getEntityKeyword_2_0());
+                      				newLeafNode(otherlv_3, grammarAccess.getDimEntityTypeAccess().getEntityKeyword_3_0());
                       			
                     }
 
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:1003:4: ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' )
+                    // InternalDim.g:1031:4: ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' )
                     {
-                    // InternalDim.g:1003:4: ( ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity' )
-                    // InternalDim.g:1004:5: ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) ) otherlv_4= 'entity'
+                    // InternalDim.g:1031:4: ( ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity' )
+                    // InternalDim.g:1032:5: ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) ) otherlv_5= 'entity'
                     {
-                    // InternalDim.g:1004:5: ( (lv_nature_3_0= ruleDEntityNatureAutonomous ) )
-                    // InternalDim.g:1005:6: (lv_nature_3_0= ruleDEntityNatureAutonomous )
+                    // InternalDim.g:1032:5: ( (lv_nature_4_0= ruleDEntityNatureAutonomous ) )
+                    // InternalDim.g:1033:6: (lv_nature_4_0= ruleDEntityNatureAutonomous )
                     {
-                    // InternalDim.g:1005:6: (lv_nature_3_0= ruleDEntityNatureAutonomous )
-                    // InternalDim.g:1006:7: lv_nature_3_0= ruleDEntityNatureAutonomous
+                    // InternalDim.g:1033:6: (lv_nature_4_0= ruleDEntityNatureAutonomous )
+                    // InternalDim.g:1034:7: lv_nature_4_0= ruleDEntityNatureAutonomous
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getDEntityTypeAccess().getNatureDEntityNatureAutonomousEnumRuleCall_2_1_0_0());
+                      							newCompositeNode(grammarAccess.getDimEntityTypeAccess().getNatureDEntityNatureAutonomousEnumRuleCall_3_1_0_0());
                       						
                     }
                     pushFollow(FOLLOW_24);
-                    lv_nature_3_0=ruleDEntityNatureAutonomous();
+                    lv_nature_4_0=ruleDEntityNatureAutonomous();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+                      								current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
                       							}
                       							set(
                       								current,
                       								"nature",
-                      								lv_nature_3_0,
+                      								lv_nature_4_0,
                       								"com.mimacom.ddd.dm.dim.Dim.DEntityNatureAutonomous");
                       							afterParserOrEnumRuleCall();
                       						
@@ -2895,10 +2947,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_4, grammarAccess.getDEntityTypeAccess().getEntityKeyword_2_1_1());
+                      					newLeafNode(otherlv_5, grammarAccess.getDimEntityTypeAccess().getEntityKeyword_3_1_1());
                       				
                     }
 
@@ -2908,33 +2960,33 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:1029:4: ( (lv_nature_5_0= ruleDEntityNatureRelationship ) )
+                    // InternalDim.g:1057:4: ( (lv_nature_6_0= ruleDEntityNatureRelationship ) )
                     {
-                    // InternalDim.g:1029:4: ( (lv_nature_5_0= ruleDEntityNatureRelationship ) )
-                    // InternalDim.g:1030:5: (lv_nature_5_0= ruleDEntityNatureRelationship )
+                    // InternalDim.g:1057:4: ( (lv_nature_6_0= ruleDEntityNatureRelationship ) )
+                    // InternalDim.g:1058:5: (lv_nature_6_0= ruleDEntityNatureRelationship )
                     {
-                    // InternalDim.g:1030:5: (lv_nature_5_0= ruleDEntityNatureRelationship )
-                    // InternalDim.g:1031:6: lv_nature_5_0= ruleDEntityNatureRelationship
+                    // InternalDim.g:1058:5: (lv_nature_6_0= ruleDEntityNatureRelationship )
+                    // InternalDim.g:1059:6: lv_nature_6_0= ruleDEntityNatureRelationship
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getDEntityTypeAccess().getNatureDEntityNatureRelationshipEnumRuleCall_2_2_0());
+                      						newCompositeNode(grammarAccess.getDimEntityTypeAccess().getNatureDEntityNatureRelationshipEnumRuleCall_3_2_0());
                       					
                     }
                     pushFollow(FOLLOW_3);
-                    lv_nature_5_0=ruleDEntityNatureRelationship();
+                    lv_nature_6_0=ruleDEntityNatureRelationship();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+                      							current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
                       						}
                       						set(
                       							current,
                       							"nature",
-                      							lv_nature_5_0,
+                      							lv_nature_6_0,
                       							"com.mimacom.ddd.dm.dim.Dim.DEntityNatureRelationship");
                       						afterParserOrEnumRuleCall();
                       					
@@ -2954,29 +3006,29 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               			if (current==null) {
-              				current = createModelElement(grammarAccess.getDEntityTypeRule());
+              				current = createModelElement(grammarAccess.getDimEntityTypeRule());
               			}
-              			newCompositeNode(grammarAccess.getDEntityTypeAccess().getDComplexTypeParserRuleCall_3());
+              			newCompositeNode(grammarAccess.getDimEntityTypeAccess().getDimComplexTypeParserRuleCall_4());
               		
             }
             pushFollow(FOLLOW_7);
-            this_DComplexType_6=ruleDComplexType(current);
+            this_DimComplexType_7=ruleDimComplexType(current);
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_DComplexType_6;
+              			current = this_DimComplexType_7;
               			afterParserOrEnumRuleCall();
               		
             }
-            otherlv_7=(Token)match(input,21,FOLLOW_25); if (state.failed) return current;
+            otherlv_8=(Token)match(input,21,FOLLOW_25); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_7, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_4());
+              			newLeafNode(otherlv_8, grammarAccess.getDimEntityTypeAccess().getLeftCurlyBracketKeyword_5());
               		
             }
-            // InternalDim.g:1064:3: (otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )? )?
+            // InternalDim.g:1092:3: (otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )? )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -2985,45 +3037,45 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt28) {
                 case 1 :
-                    // InternalDim.g:1065:4: otherlv_8= 'states' otherlv_9= '{' ( (lv_states_10_0= ruleDState ) ) (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )* otherlv_13= '}' (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )?
+                    // InternalDim.g:1093:4: otherlv_9= 'states' otherlv_10= '{' ( (lv_states_11_0= ruleDState ) ) (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )* otherlv_14= '}' (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )?
                     {
-                    otherlv_8=(Token)match(input,34,FOLLOW_7); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,34,FOLLOW_7); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_8, grammarAccess.getDEntityTypeAccess().getStatesKeyword_5_0());
+                      				newLeafNode(otherlv_9, grammarAccess.getDimEntityTypeAccess().getStatesKeyword_6_0());
                       			
                     }
-                    otherlv_9=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
+                    otherlv_10=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_9, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_5_1());
+                      				newLeafNode(otherlv_10, grammarAccess.getDimEntityTypeAccess().getLeftCurlyBracketKeyword_6_1());
                       			
                     }
-                    // InternalDim.g:1073:4: ( (lv_states_10_0= ruleDState ) )
-                    // InternalDim.g:1074:5: (lv_states_10_0= ruleDState )
+                    // InternalDim.g:1101:4: ( (lv_states_11_0= ruleDState ) )
+                    // InternalDim.g:1102:5: (lv_states_11_0= ruleDState )
                     {
-                    // InternalDim.g:1074:5: (lv_states_10_0= ruleDState )
-                    // InternalDim.g:1075:6: lv_states_10_0= ruleDState
+                    // InternalDim.g:1102:5: (lv_states_11_0= ruleDState )
+                    // InternalDim.g:1103:6: lv_states_11_0= ruleDState
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getDEntityTypeAccess().getStatesDStateParserRuleCall_5_2_0());
+                      						newCompositeNode(grammarAccess.getDimEntityTypeAccess().getStatesDStateParserRuleCall_6_2_0());
                       					
                     }
                     pushFollow(FOLLOW_26);
-                    lv_states_10_0=ruleDState();
+                    lv_states_11_0=ruleDState();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+                      							current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
                       						}
                       						add(
                       							current,
                       							"states",
-                      							lv_states_10_0,
+                      							lv_states_11_0,
                       							"com.mimacom.ddd.dm.dim.Dim.DState");
                       						afterParserOrEnumRuleCall();
                       					
@@ -3034,7 +3086,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:1092:4: (otherlv_11= ',' ( (lv_states_12_0= ruleDState ) ) )*
+                    // InternalDim.g:1120:4: (otherlv_12= ',' ( (lv_states_13_0= ruleDState ) ) )*
                     loop25:
                     do {
                         int alt25=2;
@@ -3047,39 +3099,39 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt25) {
                     	case 1 :
-                    	    // InternalDim.g:1093:5: otherlv_11= ',' ( (lv_states_12_0= ruleDState ) )
+                    	    // InternalDim.g:1121:5: otherlv_12= ',' ( (lv_states_13_0= ruleDState ) )
                     	    {
-                    	    otherlv_11=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
+                    	    otherlv_12=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      					newLeafNode(otherlv_11, grammarAccess.getDEntityTypeAccess().getCommaKeyword_5_3_0());
+                    	      					newLeafNode(otherlv_12, grammarAccess.getDimEntityTypeAccess().getCommaKeyword_6_3_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:1097:5: ( (lv_states_12_0= ruleDState ) )
-                    	    // InternalDim.g:1098:6: (lv_states_12_0= ruleDState )
+                    	    // InternalDim.g:1125:5: ( (lv_states_13_0= ruleDState ) )
+                    	    // InternalDim.g:1126:6: (lv_states_13_0= ruleDState )
                     	    {
-                    	    // InternalDim.g:1098:6: (lv_states_12_0= ruleDState )
-                    	    // InternalDim.g:1099:7: lv_states_12_0= ruleDState
+                    	    // InternalDim.g:1126:6: (lv_states_13_0= ruleDState )
+                    	    // InternalDim.g:1127:7: lv_states_13_0= ruleDState
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getDEntityTypeAccess().getStatesDStateParserRuleCall_5_3_1_0());
+                    	      							newCompositeNode(grammarAccess.getDimEntityTypeAccess().getStatesDStateParserRuleCall_6_3_1_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_26);
-                    	    lv_states_12_0=ruleDState();
+                    	    lv_states_13_0=ruleDState();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      							if (current==null) {
-                    	      								current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+                    	      								current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
                     	      							}
                     	      							add(
                     	      								current,
                     	      								"states",
-                    	      								lv_states_12_0,
+                    	      								lv_states_13_0,
                     	      								"com.mimacom.ddd.dm.dim.Dim.DState");
                     	      							afterParserOrEnumRuleCall();
                     	      						
@@ -3099,13 +3151,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_13=(Token)match(input,22,FOLLOW_27); if (state.failed) return current;
+                    otherlv_14=(Token)match(input,22,FOLLOW_27); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_13, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_5_4());
+                      				newLeafNode(otherlv_14, grammarAccess.getDimEntityTypeAccess().getRightCurlyBracketKeyword_6_4());
                       			
                     }
-                    // InternalDim.g:1121:4: (otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}' )?
+                    // InternalDim.g:1149:4: (otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}' )?
                     int alt27=2;
                     int LA27_0 = input.LA(1);
 
@@ -3114,45 +3166,45 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt27) {
                         case 1 :
-                            // InternalDim.g:1122:5: otherlv_14= 'events' otherlv_15= '{' ( (lv_events_16_0= ruleDStateEvent ) ) (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )* otherlv_19= '}'
+                            // InternalDim.g:1150:5: otherlv_15= 'events' otherlv_16= '{' ( (lv_events_17_0= ruleDStateEvent ) ) (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )* otherlv_20= '}'
                             {
-                            otherlv_14=(Token)match(input,35,FOLLOW_7); if (state.failed) return current;
+                            otherlv_15=(Token)match(input,35,FOLLOW_7); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              					newLeafNode(otherlv_14, grammarAccess.getDEntityTypeAccess().getEventsKeyword_5_5_0());
+                              					newLeafNode(otherlv_15, grammarAccess.getDimEntityTypeAccess().getEventsKeyword_6_5_0());
                               				
                             }
-                            otherlv_15=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
+                            otherlv_16=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              					newLeafNode(otherlv_15, grammarAccess.getDEntityTypeAccess().getLeftCurlyBracketKeyword_5_5_1());
+                              					newLeafNode(otherlv_16, grammarAccess.getDimEntityTypeAccess().getLeftCurlyBracketKeyword_6_5_1());
                               				
                             }
-                            // InternalDim.g:1130:5: ( (lv_events_16_0= ruleDStateEvent ) )
-                            // InternalDim.g:1131:6: (lv_events_16_0= ruleDStateEvent )
+                            // InternalDim.g:1158:5: ( (lv_events_17_0= ruleDStateEvent ) )
+                            // InternalDim.g:1159:6: (lv_events_17_0= ruleDStateEvent )
                             {
-                            // InternalDim.g:1131:6: (lv_events_16_0= ruleDStateEvent )
-                            // InternalDim.g:1132:7: lv_events_16_0= ruleDStateEvent
+                            // InternalDim.g:1159:6: (lv_events_17_0= ruleDStateEvent )
+                            // InternalDim.g:1160:7: lv_events_17_0= ruleDStateEvent
                             {
                             if ( state.backtracking==0 ) {
 
-                              							newCompositeNode(grammarAccess.getDEntityTypeAccess().getEventsDStateEventParserRuleCall_5_5_2_0());
+                              							newCompositeNode(grammarAccess.getDimEntityTypeAccess().getEventsDStateEventParserRuleCall_6_5_2_0());
                               						
                             }
                             pushFollow(FOLLOW_26);
-                            lv_events_16_0=ruleDStateEvent();
+                            lv_events_17_0=ruleDStateEvent();
 
                             state._fsp--;
                             if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							if (current==null) {
-                              								current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+                              								current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
                               							}
                               							add(
                               								current,
                               								"events",
-                              								lv_events_16_0,
+                              								lv_events_17_0,
                               								"com.mimacom.ddd.dm.dim.Dim.DStateEvent");
                               							afterParserOrEnumRuleCall();
                               						
@@ -3163,7 +3215,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalDim.g:1149:5: (otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) ) )*
+                            // InternalDim.g:1177:5: (otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) ) )*
                             loop26:
                             do {
                                 int alt26=2;
@@ -3176,39 +3228,39 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                                 switch (alt26) {
                             	case 1 :
-                            	    // InternalDim.g:1150:6: otherlv_17= ',' ( (lv_events_18_0= ruleDStateEvent ) )
+                            	    // InternalDim.g:1178:6: otherlv_18= ',' ( (lv_events_19_0= ruleDStateEvent ) )
                             	    {
-                            	    otherlv_17=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
+                            	    otherlv_18=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
-                            	      						newLeafNode(otherlv_17, grammarAccess.getDEntityTypeAccess().getCommaKeyword_5_5_3_0());
+                            	      						newLeafNode(otherlv_18, grammarAccess.getDimEntityTypeAccess().getCommaKeyword_6_5_3_0());
                             	      					
                             	    }
-                            	    // InternalDim.g:1154:6: ( (lv_events_18_0= ruleDStateEvent ) )
-                            	    // InternalDim.g:1155:7: (lv_events_18_0= ruleDStateEvent )
+                            	    // InternalDim.g:1182:6: ( (lv_events_19_0= ruleDStateEvent ) )
+                            	    // InternalDim.g:1183:7: (lv_events_19_0= ruleDStateEvent )
                             	    {
-                            	    // InternalDim.g:1155:7: (lv_events_18_0= ruleDStateEvent )
-                            	    // InternalDim.g:1156:8: lv_events_18_0= ruleDStateEvent
+                            	    // InternalDim.g:1183:7: (lv_events_19_0= ruleDStateEvent )
+                            	    // InternalDim.g:1184:8: lv_events_19_0= ruleDStateEvent
                             	    {
                             	    if ( state.backtracking==0 ) {
 
-                            	      								newCompositeNode(grammarAccess.getDEntityTypeAccess().getEventsDStateEventParserRuleCall_5_5_3_1_0());
+                            	      								newCompositeNode(grammarAccess.getDimEntityTypeAccess().getEventsDStateEventParserRuleCall_6_5_3_1_0());
                             	      							
                             	    }
                             	    pushFollow(FOLLOW_26);
-                            	    lv_events_18_0=ruleDStateEvent();
+                            	    lv_events_19_0=ruleDStateEvent();
 
                             	    state._fsp--;
                             	    if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	      								if (current==null) {
-                            	      									current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+                            	      									current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
                             	      								}
                             	      								add(
                             	      									current,
                             	      									"events",
-                            	      									lv_events_18_0,
+                            	      									lv_events_19_0,
                             	      									"com.mimacom.ddd.dm.dim.Dim.DStateEvent");
                             	      								afterParserOrEnumRuleCall();
                             	      							
@@ -3228,10 +3280,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                                 }
                             } while (true);
 
-                            otherlv_19=(Token)match(input,22,FOLLOW_28); if (state.failed) return current;
+                            otherlv_20=(Token)match(input,22,FOLLOW_28); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              					newLeafNode(otherlv_19, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_5_5_4());
+                              					newLeafNode(otherlv_20, grammarAccess.getDimEntityTypeAccess().getRightCurlyBracketKeyword_6_5_4());
                               				
                             }
 
@@ -3246,7 +3298,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1180:3: ( ( (lv_features_20_0= ruleDFeature ) ) | ( (lv_constraints_21_0= ruleDConstraint ) ) )*
+            // InternalDim.g:1208:3: ( ( (lv_features_21_0= ruleDimFeature ) ) | ( (lv_constraints_22_0= ruleDConstraint ) ) )*
             loop29:
             do {
                 int alt29=3;
@@ -3262,34 +3314,34 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt29) {
             	case 1 :
-            	    // InternalDim.g:1181:4: ( (lv_features_20_0= ruleDFeature ) )
+            	    // InternalDim.g:1209:4: ( (lv_features_21_0= ruleDimFeature ) )
             	    {
-            	    // InternalDim.g:1181:4: ( (lv_features_20_0= ruleDFeature ) )
-            	    // InternalDim.g:1182:5: (lv_features_20_0= ruleDFeature )
+            	    // InternalDim.g:1209:4: ( (lv_features_21_0= ruleDimFeature ) )
+            	    // InternalDim.g:1210:5: (lv_features_21_0= ruleDimFeature )
             	    {
-            	    // InternalDim.g:1182:5: (lv_features_20_0= ruleDFeature )
-            	    // InternalDim.g:1183:6: lv_features_20_0= ruleDFeature
+            	    // InternalDim.g:1210:5: (lv_features_21_0= ruleDimFeature )
+            	    // InternalDim.g:1211:6: lv_features_21_0= ruleDimFeature
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDEntityTypeAccess().getFeaturesDFeatureParserRuleCall_6_0_0());
+            	      						newCompositeNode(grammarAccess.getDimEntityTypeAccess().getFeaturesDimFeatureParserRuleCall_7_0_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_28);
-            	    lv_features_20_0=ruleDFeature();
+            	    lv_features_21_0=ruleDimFeature();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+            	      							current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
             	      						}
             	      						add(
             	      							current,
             	      							"features",
-            	      							lv_features_20_0,
-            	      							"com.mimacom.ddd.dm.dim.Dim.DFeature");
+            	      							lv_features_21_0,
+            	      							"com.mimacom.ddd.dm.dim.Dim.DimFeature");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -3303,33 +3355,33 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDim.g:1201:4: ( (lv_constraints_21_0= ruleDConstraint ) )
+            	    // InternalDim.g:1229:4: ( (lv_constraints_22_0= ruleDConstraint ) )
             	    {
-            	    // InternalDim.g:1201:4: ( (lv_constraints_21_0= ruleDConstraint ) )
-            	    // InternalDim.g:1202:5: (lv_constraints_21_0= ruleDConstraint )
+            	    // InternalDim.g:1229:4: ( (lv_constraints_22_0= ruleDConstraint ) )
+            	    // InternalDim.g:1230:5: (lv_constraints_22_0= ruleDConstraint )
             	    {
-            	    // InternalDim.g:1202:5: (lv_constraints_21_0= ruleDConstraint )
-            	    // InternalDim.g:1203:6: lv_constraints_21_0= ruleDConstraint
+            	    // InternalDim.g:1230:5: (lv_constraints_22_0= ruleDConstraint )
+            	    // InternalDim.g:1231:6: lv_constraints_22_0= ruleDConstraint
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDEntityTypeAccess().getConstraintsDConstraintParserRuleCall_6_1_0());
+            	      						newCompositeNode(grammarAccess.getDimEntityTypeAccess().getConstraintsDConstraintParserRuleCall_7_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_28);
-            	    lv_constraints_21_0=ruleDConstraint();
+            	    lv_constraints_22_0=ruleDConstraint();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDEntityTypeRule());
+            	      							current = createModelElementForParent(grammarAccess.getDimEntityTypeRule());
             	      						}
             	      						add(
             	      							current,
             	      							"constraints",
-            	      							lv_constraints_21_0,
+            	      							lv_constraints_22_0,
             	      							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
             	      						afterParserOrEnumRuleCall();
             	      					
@@ -3349,10 +3401,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_22=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
+            otherlv_23=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_22, grammarAccess.getDEntityTypeAccess().getRightCurlyBracketKeyword_7());
+              			newLeafNode(otherlv_23, grammarAccess.getDimEntityTypeAccess().getRightCurlyBracketKeyword_8());
               		
             }
 
@@ -3376,11 +3428,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDEntityType"
+    // $ANTLR end "ruleDimEntityType"
 
 
     // $ANTLR start "entryRuleDState"
-    // InternalDim.g:1229:1: entryRuleDState returns [EObject current=null] : iv_ruleDState= ruleDState EOF ;
+    // InternalDim.g:1257:1: entryRuleDState returns [EObject current=null] : iv_ruleDState= ruleDState EOF ;
     public final EObject entryRuleDState() throws RecognitionException {
         EObject current = null;
 
@@ -3388,8 +3440,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:1229:47: (iv_ruleDState= ruleDState EOF )
-            // InternalDim.g:1230:2: iv_ruleDState= ruleDState EOF
+            // InternalDim.g:1257:47: (iv_ruleDState= ruleDState EOF )
+            // InternalDim.g:1258:2: iv_ruleDState= ruleDState EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDStateRule()); 
@@ -3420,7 +3472,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDState"
-    // InternalDim.g:1236:1: ruleDState returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalDim.g:1264:1: ruleDState returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleDState() throws RecognitionException {
         EObject current = null;
 
@@ -3430,14 +3482,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:1242:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalDim.g:1243:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:1270:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalDim.g:1271:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalDim.g:1243:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:1244:3: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:1271:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:1272:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:1244:3: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:1245:4: lv_name_0_0= RULE_ID
+            // InternalDim.g:1272:3: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:1273:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -3485,7 +3537,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDStateEvent"
-    // InternalDim.g:1264:1: entryRuleDStateEvent returns [EObject current=null] : iv_ruleDStateEvent= ruleDStateEvent EOF ;
+    // InternalDim.g:1292:1: entryRuleDStateEvent returns [EObject current=null] : iv_ruleDStateEvent= ruleDStateEvent EOF ;
     public final EObject entryRuleDStateEvent() throws RecognitionException {
         EObject current = null;
 
@@ -3493,8 +3545,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:1264:52: (iv_ruleDStateEvent= ruleDStateEvent EOF )
-            // InternalDim.g:1265:2: iv_ruleDStateEvent= ruleDStateEvent EOF
+            // InternalDim.g:1292:52: (iv_ruleDStateEvent= ruleDStateEvent EOF )
+            // InternalDim.g:1293:2: iv_ruleDStateEvent= ruleDStateEvent EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDStateEventRule()); 
@@ -3525,7 +3577,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDStateEvent"
-    // InternalDim.g:1271:1: ruleDStateEvent returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalDim.g:1299:1: ruleDStateEvent returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleDStateEvent() throws RecognitionException {
         EObject current = null;
 
@@ -3535,14 +3587,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:1277:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalDim.g:1278:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:1305:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalDim.g:1306:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalDim.g:1278:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:1279:3: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:1306:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:1307:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:1279:3: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:1280:4: lv_name_0_0= RULE_ID
+            // InternalDim.g:1307:3: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:1308:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -3589,28 +3641,28 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDStateEvent"
 
 
-    // $ANTLR start "entryRuleDDetailType"
-    // InternalDim.g:1299:1: entryRuleDDetailType returns [EObject current=null] : iv_ruleDDetailType= ruleDDetailType EOF ;
-    public final EObject entryRuleDDetailType() throws RecognitionException {
+    // $ANTLR start "entryRuleDimDetailType"
+    // InternalDim.g:1327:1: entryRuleDimDetailType returns [EObject current=null] : iv_ruleDimDetailType= ruleDimDetailType EOF ;
+    public final EObject entryRuleDimDetailType() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDDetailType = null;
+        EObject iv_ruleDimDetailType = null;
 
 
         try {
-            // InternalDim.g:1299:52: (iv_ruleDDetailType= ruleDDetailType EOF )
-            // InternalDim.g:1300:2: iv_ruleDDetailType= ruleDDetailType EOF
+            // InternalDim.g:1327:54: (iv_ruleDimDetailType= ruleDimDetailType EOF )
+            // InternalDim.g:1328:2: iv_ruleDimDetailType= ruleDimDetailType EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDDetailTypeRule()); 
+               newCompositeNode(grammarAccess.getDimDetailTypeRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDDetailType=ruleDDetailType();
+            iv_ruleDimDetailType=ruleDimDetailType();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDDetailType; 
+               current =iv_ruleDimDetailType; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -3626,36 +3678,49 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDDetailType"
+    // $ANTLR end "entryRuleDimDetailType"
 
 
-    // $ANTLR start "ruleDDetailType"
-    // InternalDim.g:1306:1: ruleDDetailType returns [EObject current=null] : ( ( (lv_abstract_0_0= 'abstract' ) )? otherlv_1= 'detail' this_DComplexType_2= ruleDComplexType[$current] otherlv_3= '{' ( ( (lv_features_4_0= ruleDFeature ) ) | ( (lv_constraints_5_0= ruleDConstraint ) ) )* otherlv_6= '}' ) ;
-    public final EObject ruleDDetailType() throws RecognitionException {
+    // $ANTLR start "ruleDimDetailType"
+    // InternalDim.g:1334:1: ruleDimDetailType returns [EObject current=null] : ( () ( (lv_abstract_1_0= 'abstract' ) )? otherlv_2= 'detail' this_DimComplexType_3= ruleDimComplexType[$current] otherlv_4= '{' ( ( (lv_features_5_0= ruleDimFeature ) ) | ( (lv_constraints_6_0= ruleDConstraint ) ) )* otherlv_7= '}' ) ;
+    public final EObject ruleDimDetailType() throws RecognitionException {
         EObject current = null;
 
-        Token lv_abstract_0_0=null;
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_6=null;
-        EObject this_DComplexType_2 = null;
+        Token lv_abstract_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_4=null;
+        Token otherlv_7=null;
+        EObject this_DimComplexType_3 = null;
 
-        EObject lv_features_4_0 = null;
+        EObject lv_features_5_0 = null;
 
-        EObject lv_constraints_5_0 = null;
+        EObject lv_constraints_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:1312:2: ( ( ( (lv_abstract_0_0= 'abstract' ) )? otherlv_1= 'detail' this_DComplexType_2= ruleDComplexType[$current] otherlv_3= '{' ( ( (lv_features_4_0= ruleDFeature ) ) | ( (lv_constraints_5_0= ruleDConstraint ) ) )* otherlv_6= '}' ) )
-            // InternalDim.g:1313:2: ( ( (lv_abstract_0_0= 'abstract' ) )? otherlv_1= 'detail' this_DComplexType_2= ruleDComplexType[$current] otherlv_3= '{' ( ( (lv_features_4_0= ruleDFeature ) ) | ( (lv_constraints_5_0= ruleDConstraint ) ) )* otherlv_6= '}' )
+            // InternalDim.g:1340:2: ( ( () ( (lv_abstract_1_0= 'abstract' ) )? otherlv_2= 'detail' this_DimComplexType_3= ruleDimComplexType[$current] otherlv_4= '{' ( ( (lv_features_5_0= ruleDimFeature ) ) | ( (lv_constraints_6_0= ruleDConstraint ) ) )* otherlv_7= '}' ) )
+            // InternalDim.g:1341:2: ( () ( (lv_abstract_1_0= 'abstract' ) )? otherlv_2= 'detail' this_DimComplexType_3= ruleDimComplexType[$current] otherlv_4= '{' ( ( (lv_features_5_0= ruleDimFeature ) ) | ( (lv_constraints_6_0= ruleDConstraint ) ) )* otherlv_7= '}' )
             {
-            // InternalDim.g:1313:2: ( ( (lv_abstract_0_0= 'abstract' ) )? otherlv_1= 'detail' this_DComplexType_2= ruleDComplexType[$current] otherlv_3= '{' ( ( (lv_features_4_0= ruleDFeature ) ) | ( (lv_constraints_5_0= ruleDConstraint ) ) )* otherlv_6= '}' )
-            // InternalDim.g:1314:3: ( (lv_abstract_0_0= 'abstract' ) )? otherlv_1= 'detail' this_DComplexType_2= ruleDComplexType[$current] otherlv_3= '{' ( ( (lv_features_4_0= ruleDFeature ) ) | ( (lv_constraints_5_0= ruleDConstraint ) ) )* otherlv_6= '}'
+            // InternalDim.g:1341:2: ( () ( (lv_abstract_1_0= 'abstract' ) )? otherlv_2= 'detail' this_DimComplexType_3= ruleDimComplexType[$current] otherlv_4= '{' ( ( (lv_features_5_0= ruleDimFeature ) ) | ( (lv_constraints_6_0= ruleDConstraint ) ) )* otherlv_7= '}' )
+            // InternalDim.g:1342:3: () ( (lv_abstract_1_0= 'abstract' ) )? otherlv_2= 'detail' this_DimComplexType_3= ruleDimComplexType[$current] otherlv_4= '{' ( ( (lv_features_5_0= ruleDimFeature ) ) | ( (lv_constraints_6_0= ruleDConstraint ) ) )* otherlv_7= '}'
             {
-            // InternalDim.g:1314:3: ( (lv_abstract_0_0= 'abstract' ) )?
+            // InternalDim.g:1342:3: ()
+            // InternalDim.g:1343:4: 
+            {
+            if ( state.backtracking==0 ) {
+
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimDetailTypeAccess().getDimDetailTypeAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:1349:3: ( (lv_abstract_1_0= 'abstract' ) )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -3664,21 +3729,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt30) {
                 case 1 :
-                    // InternalDim.g:1315:4: (lv_abstract_0_0= 'abstract' )
+                    // InternalDim.g:1350:4: (lv_abstract_1_0= 'abstract' )
                     {
-                    // InternalDim.g:1315:4: (lv_abstract_0_0= 'abstract' )
-                    // InternalDim.g:1316:5: lv_abstract_0_0= 'abstract'
+                    // InternalDim.g:1350:4: (lv_abstract_1_0= 'abstract' )
+                    // InternalDim.g:1351:5: lv_abstract_1_0= 'abstract'
                     {
-                    lv_abstract_0_0=(Token)match(input,31,FOLLOW_29); if (state.failed) return current;
+                    lv_abstract_1_0=(Token)match(input,31,FOLLOW_29); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_abstract_0_0, grammarAccess.getDDetailTypeAccess().getAbstractAbstractKeyword_0_0());
+                      					newLeafNode(lv_abstract_1_0, grammarAccess.getDimDetailTypeAccess().getAbstractAbstractKeyword_1_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDDetailTypeRule());
+                      						current = createModelElement(grammarAccess.getDimDetailTypeRule());
                       					}
                       					setWithLastConsumed(current, "abstract", true, "abstract");
                       				
@@ -3692,38 +3757,38 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,36,FOLLOW_3); if (state.failed) return current;
+            otherlv_2=(Token)match(input,36,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getDDetailTypeAccess().getDetailKeyword_1());
+              			newLeafNode(otherlv_2, grammarAccess.getDimDetailTypeAccess().getDetailKeyword_2());
               		
             }
             if ( state.backtracking==0 ) {
 
               			if (current==null) {
-              				current = createModelElement(grammarAccess.getDDetailTypeRule());
+              				current = createModelElement(grammarAccess.getDimDetailTypeRule());
               			}
-              			newCompositeNode(grammarAccess.getDDetailTypeAccess().getDComplexTypeParserRuleCall_2());
+              			newCompositeNode(grammarAccess.getDimDetailTypeAccess().getDimComplexTypeParserRuleCall_3());
               		
             }
             pushFollow(FOLLOW_7);
-            this_DComplexType_2=ruleDComplexType(current);
+            this_DimComplexType_3=ruleDimComplexType(current);
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_DComplexType_2;
+              			current = this_DimComplexType_3;
               			afterParserOrEnumRuleCall();
               		
             }
-            otherlv_3=(Token)match(input,21,FOLLOW_28); if (state.failed) return current;
+            otherlv_4=(Token)match(input,21,FOLLOW_28); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_3, grammarAccess.getDDetailTypeAccess().getLeftCurlyBracketKeyword_3());
+              			newLeafNode(otherlv_4, grammarAccess.getDimDetailTypeAccess().getLeftCurlyBracketKeyword_4());
               		
             }
-            // InternalDim.g:1347:3: ( ( (lv_features_4_0= ruleDFeature ) ) | ( (lv_constraints_5_0= ruleDConstraint ) ) )*
+            // InternalDim.g:1382:3: ( ( (lv_features_5_0= ruleDimFeature ) ) | ( (lv_constraints_6_0= ruleDConstraint ) ) )*
             loop31:
             do {
                 int alt31=3;
@@ -3739,34 +3804,34 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt31) {
             	case 1 :
-            	    // InternalDim.g:1348:4: ( (lv_features_4_0= ruleDFeature ) )
+            	    // InternalDim.g:1383:4: ( (lv_features_5_0= ruleDimFeature ) )
             	    {
-            	    // InternalDim.g:1348:4: ( (lv_features_4_0= ruleDFeature ) )
-            	    // InternalDim.g:1349:5: (lv_features_4_0= ruleDFeature )
+            	    // InternalDim.g:1383:4: ( (lv_features_5_0= ruleDimFeature ) )
+            	    // InternalDim.g:1384:5: (lv_features_5_0= ruleDimFeature )
             	    {
-            	    // InternalDim.g:1349:5: (lv_features_4_0= ruleDFeature )
-            	    // InternalDim.g:1350:6: lv_features_4_0= ruleDFeature
+            	    // InternalDim.g:1384:5: (lv_features_5_0= ruleDimFeature )
+            	    // InternalDim.g:1385:6: lv_features_5_0= ruleDimFeature
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDDetailTypeAccess().getFeaturesDFeatureParserRuleCall_4_0_0());
+            	      						newCompositeNode(grammarAccess.getDimDetailTypeAccess().getFeaturesDimFeatureParserRuleCall_5_0_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_28);
-            	    lv_features_4_0=ruleDFeature();
+            	    lv_features_5_0=ruleDimFeature();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDDetailTypeRule());
+            	      							current = createModelElementForParent(grammarAccess.getDimDetailTypeRule());
             	      						}
             	      						add(
             	      							current,
             	      							"features",
-            	      							lv_features_4_0,
-            	      							"com.mimacom.ddd.dm.dim.Dim.DFeature");
+            	      							lv_features_5_0,
+            	      							"com.mimacom.ddd.dm.dim.Dim.DimFeature");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -3780,33 +3845,33 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDim.g:1368:4: ( (lv_constraints_5_0= ruleDConstraint ) )
+            	    // InternalDim.g:1403:4: ( (lv_constraints_6_0= ruleDConstraint ) )
             	    {
-            	    // InternalDim.g:1368:4: ( (lv_constraints_5_0= ruleDConstraint ) )
-            	    // InternalDim.g:1369:5: (lv_constraints_5_0= ruleDConstraint )
+            	    // InternalDim.g:1403:4: ( (lv_constraints_6_0= ruleDConstraint ) )
+            	    // InternalDim.g:1404:5: (lv_constraints_6_0= ruleDConstraint )
             	    {
-            	    // InternalDim.g:1369:5: (lv_constraints_5_0= ruleDConstraint )
-            	    // InternalDim.g:1370:6: lv_constraints_5_0= ruleDConstraint
+            	    // InternalDim.g:1404:5: (lv_constraints_6_0= ruleDConstraint )
+            	    // InternalDim.g:1405:6: lv_constraints_6_0= ruleDConstraint
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDDetailTypeAccess().getConstraintsDConstraintParserRuleCall_4_1_0());
+            	      						newCompositeNode(grammarAccess.getDimDetailTypeAccess().getConstraintsDConstraintParserRuleCall_5_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_28);
-            	    lv_constraints_5_0=ruleDConstraint();
+            	    lv_constraints_6_0=ruleDConstraint();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getDDetailTypeRule());
+            	      							current = createModelElementForParent(grammarAccess.getDimDetailTypeRule());
             	      						}
             	      						add(
             	      							current,
             	      							"constraints",
-            	      							lv_constraints_5_0,
+            	      							lv_constraints_6_0,
             	      							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
             	      						afterParserOrEnumRuleCall();
             	      					
@@ -3826,10 +3891,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
+            otherlv_7=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_6, grammarAccess.getDDetailTypeAccess().getRightCurlyBracketKeyword_5());
+              			newLeafNode(otherlv_7, grammarAccess.getDimDetailTypeAccess().getRightCurlyBracketKeyword_6());
               		
             }
 
@@ -3853,12 +3918,12 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDDetailType"
+    // $ANTLR end "ruleDimDetailType"
 
 
-    // $ANTLR start "ruleDComplexType"
-    // InternalDim.g:1397:1: ruleDComplexType[EObject in_current] returns [EObject current=in_current] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? ) ;
-    public final EObject ruleDComplexType(EObject in_current) throws RecognitionException {
+    // $ANTLR start "ruleDimComplexType"
+    // InternalDim.g:1432:1: ruleDimComplexType[EObject in_current] returns [EObject current=in_current] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? ) ;
+    public final EObject ruleDimComplexType(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
         Token lv_name_0_0=null;
@@ -3873,28 +3938,28 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:1403:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? ) )
-            // InternalDim.g:1404:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? )
+            // InternalDim.g:1438:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? ) )
+            // InternalDim.g:1439:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? )
             {
-            // InternalDim.g:1404:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? )
-            // InternalDim.g:1405:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )?
+            // InternalDim.g:1439:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )? )
+            // InternalDim.g:1440:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_description_5_0= ruleDRichText ) )?
             {
-            // InternalDim.g:1405:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:1406:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:1440:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:1441:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:1406:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:1407:5: lv_name_0_0= RULE_ID
+            // InternalDim.g:1441:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:1442:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_30); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_0_0, grammarAccess.getDComplexTypeAccess().getNameIDTerminalRuleCall_0_0());
+              					newLeafNode(lv_name_0_0, grammarAccess.getDimComplexTypeAccess().getNameIDTerminalRuleCall_0_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDComplexTypeRule());
+              						current = createModelElement(grammarAccess.getDimComplexTypeRule());
               					}
               					setWithLastConsumed(
               						current,
@@ -3909,7 +3974,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1423:3: (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )*
+            // InternalDim.g:1458:3: (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )*
             loop32:
             do {
                 int alt32=2;
@@ -3922,30 +3987,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt32) {
             	case 1 :
-            	    // InternalDim.g:1424:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
+            	    // InternalDim.g:1459:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
             	    {
             	    otherlv_1=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_1, grammarAccess.getDComplexTypeAccess().getAliasKeyword_1_0());
+            	      				newLeafNode(otherlv_1, grammarAccess.getDimComplexTypeAccess().getAliasKeyword_1_0());
             	      			
             	    }
-            	    // InternalDim.g:1428:4: ( (lv_aliases_2_0= RULE_ID ) )
-            	    // InternalDim.g:1429:5: (lv_aliases_2_0= RULE_ID )
+            	    // InternalDim.g:1463:4: ( (lv_aliases_2_0= RULE_ID ) )
+            	    // InternalDim.g:1464:5: (lv_aliases_2_0= RULE_ID )
             	    {
-            	    // InternalDim.g:1429:5: (lv_aliases_2_0= RULE_ID )
-            	    // InternalDim.g:1430:6: lv_aliases_2_0= RULE_ID
+            	    // InternalDim.g:1464:5: (lv_aliases_2_0= RULE_ID )
+            	    // InternalDim.g:1465:6: lv_aliases_2_0= RULE_ID
             	    {
             	    lv_aliases_2_0=(Token)match(input,RULE_ID,FOLLOW_30); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_2_0, grammarAccess.getDComplexTypeAccess().getAliasesIDTerminalRuleCall_1_1_0());
+            	      						newLeafNode(lv_aliases_2_0, grammarAccess.getDimComplexTypeAccess().getAliasesIDTerminalRuleCall_1_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDComplexTypeRule());
+            	      							current = createModelElement(grammarAccess.getDimComplexTypeRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
@@ -3969,7 +4034,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalDim.g:1447:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
+            // InternalDim.g:1482:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
@@ -3978,31 +4043,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt33) {
                 case 1 :
-                    // InternalDim.g:1448:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
+                    // InternalDim.g:1483:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
                     {
                     otherlv_3=(Token)match(input,37,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_3, grammarAccess.getDComplexTypeAccess().getExtendsKeyword_2_0());
+                      				newLeafNode(otherlv_3, grammarAccess.getDimComplexTypeAccess().getExtendsKeyword_2_0());
                       			
                     }
-                    // InternalDim.g:1452:4: ( (otherlv_4= RULE_ID ) )
-                    // InternalDim.g:1453:5: (otherlv_4= RULE_ID )
+                    // InternalDim.g:1487:4: ( (otherlv_4= RULE_ID ) )
+                    // InternalDim.g:1488:5: (otherlv_4= RULE_ID )
                     {
-                    // InternalDim.g:1453:5: (otherlv_4= RULE_ID )
-                    // InternalDim.g:1454:6: otherlv_4= RULE_ID
+                    // InternalDim.g:1488:5: (otherlv_4= RULE_ID )
+                    // InternalDim.g:1489:6: otherlv_4= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElement(grammarAccess.getDComplexTypeRule());
+                      							current = createModelElement(grammarAccess.getDimComplexTypeRule());
                       						}
                       					
                     }
                     otherlv_4=(Token)match(input,RULE_ID,FOLLOW_14); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(otherlv_4, grammarAccess.getDComplexTypeAccess().getSuperTypeDComplexTypeCrossReference_2_1_0());
+                      						newLeafNode(otherlv_4, grammarAccess.getDimComplexTypeAccess().getSuperTypeDComplexTypeCrossReference_2_1_0());
                       					
                     }
 
@@ -4017,7 +4082,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1466:3: ( (lv_description_5_0= ruleDRichText ) )?
+            // InternalDim.g:1501:3: ( (lv_description_5_0= ruleDRichText ) )?
             int alt34=2;
             int LA34_0 = input.LA(1);
 
@@ -4026,14 +4091,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt34) {
                 case 1 :
-                    // InternalDim.g:1467:4: (lv_description_5_0= ruleDRichText )
+                    // InternalDim.g:1502:4: (lv_description_5_0= ruleDRichText )
                     {
-                    // InternalDim.g:1467:4: (lv_description_5_0= ruleDRichText )
-                    // InternalDim.g:1468:5: lv_description_5_0= ruleDRichText
+                    // InternalDim.g:1502:4: (lv_description_5_0= ruleDRichText )
+                    // InternalDim.g:1503:5: lv_description_5_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDComplexTypeAccess().getDescriptionDRichTextParserRuleCall_3_0());
+                      					newCompositeNode(grammarAccess.getDimComplexTypeAccess().getDescriptionDRichTextParserRuleCall_3_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -4044,7 +4109,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDComplexTypeRule());
+                      						current = createModelElementForParent(grammarAccess.getDimComplexTypeRule());
                       					}
                       					set(
                       						current,
@@ -4084,31 +4149,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDComplexType"
+    // $ANTLR end "ruleDimComplexType"
 
 
-    // $ANTLR start "entryRuleDFeature"
-    // InternalDim.g:1489:1: entryRuleDFeature returns [EObject current=null] : iv_ruleDFeature= ruleDFeature EOF ;
-    public final EObject entryRuleDFeature() throws RecognitionException {
+    // $ANTLR start "entryRuleDimFeature"
+    // InternalDim.g:1524:1: entryRuleDimFeature returns [EObject current=null] : iv_ruleDimFeature= ruleDimFeature EOF ;
+    public final EObject entryRuleDimFeature() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDFeature = null;
+        EObject iv_ruleDimFeature = null;
 
 
         try {
-            // InternalDim.g:1489:49: (iv_ruleDFeature= ruleDFeature EOF )
-            // InternalDim.g:1490:2: iv_ruleDFeature= ruleDFeature EOF
+            // InternalDim.g:1524:51: (iv_ruleDimFeature= ruleDimFeature EOF )
+            // InternalDim.g:1525:2: iv_ruleDimFeature= ruleDimFeature EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDFeatureRule()); 
+               newCompositeNode(grammarAccess.getDimFeatureRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDFeature=ruleDFeature();
+            iv_ruleDimFeature=ruleDimFeature();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDFeature; 
+               current =iv_ruleDimFeature; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -4124,48 +4189,48 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDFeature"
+    // $ANTLR end "entryRuleDimFeature"
 
 
-    // $ANTLR start "ruleDFeature"
-    // InternalDim.g:1496:1: ruleDFeature returns [EObject current=null] : (this_DAssociation_0= ruleDAssociation | this_DAttribute_1= ruleDAttribute | this_DQuery_2= ruleDQuery ) ;
-    public final EObject ruleDFeature() throws RecognitionException {
+    // $ANTLR start "ruleDimFeature"
+    // InternalDim.g:1531:1: ruleDimFeature returns [EObject current=null] : (this_DimAssociation_0= ruleDimAssociation | this_DimAttribute_1= ruleDimAttribute | this_DimQuery_2= ruleDimQuery ) ;
+    public final EObject ruleDimFeature() throws RecognitionException {
         EObject current = null;
 
-        EObject this_DAssociation_0 = null;
+        EObject this_DimAssociation_0 = null;
 
-        EObject this_DAttribute_1 = null;
+        EObject this_DimAttribute_1 = null;
 
-        EObject this_DQuery_2 = null;
+        EObject this_DimQuery_2 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:1502:2: ( (this_DAssociation_0= ruleDAssociation | this_DAttribute_1= ruleDAttribute | this_DQuery_2= ruleDQuery ) )
-            // InternalDim.g:1503:2: (this_DAssociation_0= ruleDAssociation | this_DAttribute_1= ruleDAttribute | this_DQuery_2= ruleDQuery )
+            // InternalDim.g:1537:2: ( (this_DimAssociation_0= ruleDimAssociation | this_DimAttribute_1= ruleDimAttribute | this_DimQuery_2= ruleDimQuery ) )
+            // InternalDim.g:1538:2: (this_DimAssociation_0= ruleDimAssociation | this_DimAttribute_1= ruleDimAttribute | this_DimQuery_2= ruleDimQuery )
             {
-            // InternalDim.g:1503:2: (this_DAssociation_0= ruleDAssociation | this_DAttribute_1= ruleDAttribute | this_DQuery_2= ruleDQuery )
+            // InternalDim.g:1538:2: (this_DimAssociation_0= ruleDimAssociation | this_DimAttribute_1= ruleDimAttribute | this_DimQuery_2= ruleDimQuery )
             int alt35=3;
             alt35 = dfa35.predict(input);
             switch (alt35) {
                 case 1 :
-                    // InternalDim.g:1504:3: this_DAssociation_0= ruleDAssociation
+                    // InternalDim.g:1539:3: this_DimAssociation_0= ruleDimAssociation
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDFeatureAccess().getDAssociationParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getDimFeatureAccess().getDimAssociationParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DAssociation_0=ruleDAssociation();
+                    this_DimAssociation_0=ruleDimAssociation();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DAssociation_0;
+                      			current = this_DimAssociation_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4173,21 +4238,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:1513:3: this_DAttribute_1= ruleDAttribute
+                    // InternalDim.g:1548:3: this_DimAttribute_1= ruleDimAttribute
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDFeatureAccess().getDAttributeParserRuleCall_1());
+                      			newCompositeNode(grammarAccess.getDimFeatureAccess().getDimAttributeParserRuleCall_1());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DAttribute_1=ruleDAttribute();
+                    this_DimAttribute_1=ruleDimAttribute();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DAttribute_1;
+                      			current = this_DimAttribute_1;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4195,21 +4260,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:1522:3: this_DQuery_2= ruleDQuery
+                    // InternalDim.g:1557:3: this_DimQuery_2= ruleDimQuery
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getDFeatureAccess().getDQueryParserRuleCall_2());
+                      			newCompositeNode(grammarAccess.getDimFeatureAccess().getDimQueryParserRuleCall_2());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_DQuery_2=ruleDQuery();
+                    this_DimQuery_2=ruleDimQuery();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_DQuery_2;
+                      			current = this_DimQuery_2;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -4237,31 +4302,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDFeature"
+    // $ANTLR end "ruleDimFeature"
 
 
-    // $ANTLR start "entryRuleDAssociation"
-    // InternalDim.g:1534:1: entryRuleDAssociation returns [EObject current=null] : iv_ruleDAssociation= ruleDAssociation EOF ;
-    public final EObject entryRuleDAssociation() throws RecognitionException {
+    // $ANTLR start "entryRuleDimAssociation"
+    // InternalDim.g:1569:1: entryRuleDimAssociation returns [EObject current=null] : iv_ruleDimAssociation= ruleDimAssociation EOF ;
+    public final EObject entryRuleDimAssociation() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDAssociation = null;
+        EObject iv_ruleDimAssociation = null;
 
 
         try {
-            // InternalDim.g:1534:53: (iv_ruleDAssociation= ruleDAssociation EOF )
-            // InternalDim.g:1535:2: iv_ruleDAssociation= ruleDAssociation EOF
+            // InternalDim.g:1569:55: (iv_ruleDimAssociation= ruleDimAssociation EOF )
+            // InternalDim.g:1570:2: iv_ruleDimAssociation= ruleDimAssociation EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDAssociationRule()); 
+               newCompositeNode(grammarAccess.getDimAssociationRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDAssociation=ruleDAssociation();
+            iv_ruleDimAssociation=ruleDimAssociation();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDAssociation; 
+               current =iv_ruleDimAssociation; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -4277,40 +4342,53 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDAssociation"
+    // $ANTLR end "entryRuleDimAssociation"
 
 
-    // $ANTLR start "ruleDAssociation"
-    // InternalDim.g:1541:1: ruleDAssociation returns [EObject current=null] : ( ( (lv_derived_0_0= 'derived' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( ( (lv_kind_4_0= ruleDAssociationKind ) ) | ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' ) ) ( (otherlv_7= RULE_ID ) )? ( (lv_multiplicity_8_0= ruleDMultiplicity ) )? ( (lv_description_9_0= ruleDRichText ) )? ) ;
-    public final EObject ruleDAssociation() throws RecognitionException {
+    // $ANTLR start "ruleDimAssociation"
+    // InternalDim.g:1576:1: ruleDimAssociation returns [EObject current=null] : ( () ( (lv_derived_1_0= 'derived' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( ( (lv_kind_5_0= ruleDAssociationKind ) ) | ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' ) ) ( (otherlv_8= RULE_ID ) )? ( (lv_multiplicity_9_0= ruleDMultiplicity ) )? ( (lv_description_10_0= ruleDRichText ) )? ) ;
+    public final EObject ruleDimAssociation() throws RecognitionException {
         EObject current = null;
 
-        Token lv_derived_0_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token lv_aliases_3_0=null;
-        Token otherlv_6=null;
+        Token lv_derived_1_0=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token lv_aliases_4_0=null;
         Token otherlv_7=null;
-        Enumerator lv_kind_4_0 = null;
-
+        Token otherlv_8=null;
         Enumerator lv_kind_5_0 = null;
 
-        EObject lv_multiplicity_8_0 = null;
+        Enumerator lv_kind_6_0 = null;
 
-        EObject lv_description_9_0 = null;
+        EObject lv_multiplicity_9_0 = null;
+
+        EObject lv_description_10_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:1547:2: ( ( ( (lv_derived_0_0= 'derived' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( ( (lv_kind_4_0= ruleDAssociationKind ) ) | ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' ) ) ( (otherlv_7= RULE_ID ) )? ( (lv_multiplicity_8_0= ruleDMultiplicity ) )? ( (lv_description_9_0= ruleDRichText ) )? ) )
-            // InternalDim.g:1548:2: ( ( (lv_derived_0_0= 'derived' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( ( (lv_kind_4_0= ruleDAssociationKind ) ) | ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' ) ) ( (otherlv_7= RULE_ID ) )? ( (lv_multiplicity_8_0= ruleDMultiplicity ) )? ( (lv_description_9_0= ruleDRichText ) )? )
+            // InternalDim.g:1582:2: ( ( () ( (lv_derived_1_0= 'derived' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( ( (lv_kind_5_0= ruleDAssociationKind ) ) | ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' ) ) ( (otherlv_8= RULE_ID ) )? ( (lv_multiplicity_9_0= ruleDMultiplicity ) )? ( (lv_description_10_0= ruleDRichText ) )? ) )
+            // InternalDim.g:1583:2: ( () ( (lv_derived_1_0= 'derived' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( ( (lv_kind_5_0= ruleDAssociationKind ) ) | ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' ) ) ( (otherlv_8= RULE_ID ) )? ( (lv_multiplicity_9_0= ruleDMultiplicity ) )? ( (lv_description_10_0= ruleDRichText ) )? )
             {
-            // InternalDim.g:1548:2: ( ( (lv_derived_0_0= 'derived' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( ( (lv_kind_4_0= ruleDAssociationKind ) ) | ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' ) ) ( (otherlv_7= RULE_ID ) )? ( (lv_multiplicity_8_0= ruleDMultiplicity ) )? ( (lv_description_9_0= ruleDRichText ) )? )
-            // InternalDim.g:1549:3: ( (lv_derived_0_0= 'derived' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( ( (lv_kind_4_0= ruleDAssociationKind ) ) | ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' ) ) ( (otherlv_7= RULE_ID ) )? ( (lv_multiplicity_8_0= ruleDMultiplicity ) )? ( (lv_description_9_0= ruleDRichText ) )?
+            // InternalDim.g:1583:2: ( () ( (lv_derived_1_0= 'derived' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( ( (lv_kind_5_0= ruleDAssociationKind ) ) | ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' ) ) ( (otherlv_8= RULE_ID ) )? ( (lv_multiplicity_9_0= ruleDMultiplicity ) )? ( (lv_description_10_0= ruleDRichText ) )? )
+            // InternalDim.g:1584:3: () ( (lv_derived_1_0= 'derived' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* ( ( (lv_kind_5_0= ruleDAssociationKind ) ) | ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' ) ) ( (otherlv_8= RULE_ID ) )? ( (lv_multiplicity_9_0= ruleDMultiplicity ) )? ( (lv_description_10_0= ruleDRichText ) )?
             {
-            // InternalDim.g:1549:3: ( (lv_derived_0_0= 'derived' ) )?
+            // InternalDim.g:1584:3: ()
+            // InternalDim.g:1585:4: 
+            {
+            if ( state.backtracking==0 ) {
+
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimAssociationAccess().getDimAssociationAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:1591:3: ( (lv_derived_1_0= 'derived' ) )?
             int alt36=2;
             int LA36_0 = input.LA(1);
 
@@ -4319,21 +4397,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt36) {
                 case 1 :
-                    // InternalDim.g:1550:4: (lv_derived_0_0= 'derived' )
+                    // InternalDim.g:1592:4: (lv_derived_1_0= 'derived' )
                     {
-                    // InternalDim.g:1550:4: (lv_derived_0_0= 'derived' )
-                    // InternalDim.g:1551:5: lv_derived_0_0= 'derived'
+                    // InternalDim.g:1592:4: (lv_derived_1_0= 'derived' )
+                    // InternalDim.g:1593:5: lv_derived_1_0= 'derived'
                     {
-                    lv_derived_0_0=(Token)match(input,38,FOLLOW_3); if (state.failed) return current;
+                    lv_derived_1_0=(Token)match(input,38,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_derived_0_0, grammarAccess.getDAssociationAccess().getDerivedDerivedKeyword_0_0());
+                      					newLeafNode(lv_derived_1_0, grammarAccess.getDimAssociationAccess().getDerivedDerivedKeyword_1_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDAssociationRule());
+                      						current = createModelElement(grammarAccess.getDimAssociationRule());
                       					}
                       					setWithLastConsumed(current, "derived", true, "derived");
                       				
@@ -4347,27 +4425,27 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1563:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:1564:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:1605:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalDim.g:1606:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalDim.g:1564:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:1565:5: lv_name_1_0= RULE_ID
+            // InternalDim.g:1606:4: (lv_name_2_0= RULE_ID )
+            // InternalDim.g:1607:5: lv_name_2_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_1_0, grammarAccess.getDAssociationAccess().getNameIDTerminalRuleCall_1_0());
+              					newLeafNode(lv_name_2_0, grammarAccess.getDimAssociationAccess().getNameIDTerminalRuleCall_2_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDAssociationRule());
+              						current = createModelElement(grammarAccess.getDimAssociationRule());
               					}
               					setWithLastConsumed(
               						current,
               						"name",
-              						lv_name_1_0,
+              						lv_name_2_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.ID");
               				
             }
@@ -4377,7 +4455,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1581:3: (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )*
+            // InternalDim.g:1623:3: (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )*
             loop37:
             do {
                 int alt37=2;
@@ -4390,35 +4468,35 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt37) {
             	case 1 :
-            	    // InternalDim.g:1582:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
+            	    // InternalDim.g:1624:4: otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_2, grammarAccess.getDAssociationAccess().getAliasKeyword_2_0());
+            	      				newLeafNode(otherlv_3, grammarAccess.getDimAssociationAccess().getAliasKeyword_3_0());
             	      			
             	    }
-            	    // InternalDim.g:1586:4: ( (lv_aliases_3_0= RULE_ID ) )
-            	    // InternalDim.g:1587:5: (lv_aliases_3_0= RULE_ID )
+            	    // InternalDim.g:1628:4: ( (lv_aliases_4_0= RULE_ID ) )
+            	    // InternalDim.g:1629:5: (lv_aliases_4_0= RULE_ID )
             	    {
-            	    // InternalDim.g:1587:5: (lv_aliases_3_0= RULE_ID )
-            	    // InternalDim.g:1588:6: lv_aliases_3_0= RULE_ID
+            	    // InternalDim.g:1629:5: (lv_aliases_4_0= RULE_ID )
+            	    // InternalDim.g:1630:6: lv_aliases_4_0= RULE_ID
             	    {
-            	    lv_aliases_3_0=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
+            	    lv_aliases_4_0=(Token)match(input,RULE_ID,FOLLOW_31); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_3_0, grammarAccess.getDAssociationAccess().getAliasesIDTerminalRuleCall_2_1_0());
+            	      						newLeafNode(lv_aliases_4_0, grammarAccess.getDimAssociationAccess().getAliasesIDTerminalRuleCall_3_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDAssociationRule());
+            	      							current = createModelElement(grammarAccess.getDimAssociationRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
             	      							"aliases",
-            	      							lv_aliases_3_0,
+            	      							lv_aliases_4_0,
             	      							"com.mimacom.ddd.dm.dmx.Dmx.ID");
             	      					
             	    }
@@ -4437,7 +4515,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalDim.g:1605:3: ( ( (lv_kind_4_0= ruleDAssociationKind ) ) | ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' ) )
+            // InternalDim.g:1647:3: ( ( (lv_kind_5_0= ruleDAssociationKind ) ) | ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' ) )
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -4456,33 +4534,33 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt38) {
                 case 1 :
-                    // InternalDim.g:1606:4: ( (lv_kind_4_0= ruleDAssociationKind ) )
+                    // InternalDim.g:1648:4: ( (lv_kind_5_0= ruleDAssociationKind ) )
                     {
-                    // InternalDim.g:1606:4: ( (lv_kind_4_0= ruleDAssociationKind ) )
-                    // InternalDim.g:1607:5: (lv_kind_4_0= ruleDAssociationKind )
+                    // InternalDim.g:1648:4: ( (lv_kind_5_0= ruleDAssociationKind ) )
+                    // InternalDim.g:1649:5: (lv_kind_5_0= ruleDAssociationKind )
                     {
-                    // InternalDim.g:1607:5: (lv_kind_4_0= ruleDAssociationKind )
-                    // InternalDim.g:1608:6: lv_kind_4_0= ruleDAssociationKind
+                    // InternalDim.g:1649:5: (lv_kind_5_0= ruleDAssociationKind )
+                    // InternalDim.g:1650:6: lv_kind_5_0= ruleDAssociationKind
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindEnumRuleCall_3_0_0());
+                      						newCompositeNode(grammarAccess.getDimAssociationAccess().getKindDAssociationKindEnumRuleCall_4_0_0());
                       					
                     }
                     pushFollow(FOLLOW_32);
-                    lv_kind_4_0=ruleDAssociationKind();
+                    lv_kind_5_0=ruleDAssociationKind();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElementForParent(grammarAccess.getDAssociationRule());
+                      							current = createModelElementForParent(grammarAccess.getDimAssociationRule());
                       						}
                       						set(
                       							current,
                       							"kind",
-                      							lv_kind_4_0,
+                      							lv_kind_5_0,
                       							"com.mimacom.ddd.dm.dim.Dim.DAssociationKind");
                       						afterParserOrEnumRuleCall();
                       					
@@ -4497,36 +4575,36 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:1626:4: ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' )
+                    // InternalDim.g:1668:4: ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' )
                     {
-                    // InternalDim.g:1626:4: ( ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains' )
-                    // InternalDim.g:1627:5: ( (lv_kind_5_0= ruleDAssociationKindInverse ) ) otherlv_6= 'contains'
+                    // InternalDim.g:1668:4: ( ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains' )
+                    // InternalDim.g:1669:5: ( (lv_kind_6_0= ruleDAssociationKindInverse ) ) otherlv_7= 'contains'
                     {
-                    // InternalDim.g:1627:5: ( (lv_kind_5_0= ruleDAssociationKindInverse ) )
-                    // InternalDim.g:1628:6: (lv_kind_5_0= ruleDAssociationKindInverse )
+                    // InternalDim.g:1669:5: ( (lv_kind_6_0= ruleDAssociationKindInverse ) )
+                    // InternalDim.g:1670:6: (lv_kind_6_0= ruleDAssociationKindInverse )
                     {
-                    // InternalDim.g:1628:6: (lv_kind_5_0= ruleDAssociationKindInverse )
-                    // InternalDim.g:1629:7: lv_kind_5_0= ruleDAssociationKindInverse
+                    // InternalDim.g:1670:6: (lv_kind_6_0= ruleDAssociationKindInverse )
+                    // InternalDim.g:1671:7: lv_kind_6_0= ruleDAssociationKindInverse
                     {
                     if ( state.backtracking==0 ) {
 
-                      							newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindInverseEnumRuleCall_3_1_0_0());
+                      							newCompositeNode(grammarAccess.getDimAssociationAccess().getKindDAssociationKindInverseEnumRuleCall_4_1_0_0());
                       						
                     }
                     pushFollow(FOLLOW_33);
-                    lv_kind_5_0=ruleDAssociationKindInverse();
+                    lv_kind_6_0=ruleDAssociationKindInverse();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       							if (current==null) {
-                      								current = createModelElementForParent(grammarAccess.getDAssociationRule());
+                      								current = createModelElementForParent(grammarAccess.getDimAssociationRule());
                       							}
                       							set(
                       								current,
                       								"kind",
-                      								lv_kind_5_0,
+                      								lv_kind_6_0,
                       								"com.mimacom.ddd.dm.dim.Dim.DAssociationKindInverse");
                       							afterParserOrEnumRuleCall();
                       						
@@ -4537,10 +4615,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,39,FOLLOW_32); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,39,FOLLOW_32); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_6, grammarAccess.getDAssociationAccess().getContainsKeyword_3_1_1());
+                      					newLeafNode(otherlv_7, grammarAccess.getDimAssociationAccess().getContainsKeyword_4_1_1());
                       				
                     }
 
@@ -4552,7 +4630,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1652:3: ( (otherlv_7= RULE_ID ) )?
+            // InternalDim.g:1694:3: ( (otherlv_8= RULE_ID ) )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -4572,22 +4650,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt39) {
                 case 1 :
-                    // InternalDim.g:1653:4: (otherlv_7= RULE_ID )
+                    // InternalDim.g:1695:4: (otherlv_8= RULE_ID )
                     {
-                    // InternalDim.g:1653:4: (otherlv_7= RULE_ID )
-                    // InternalDim.g:1654:5: otherlv_7= RULE_ID
+                    // InternalDim.g:1695:4: (otherlv_8= RULE_ID )
+                    // InternalDim.g:1696:5: otherlv_8= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDAssociationRule());
+                      						current = createModelElement(grammarAccess.getDimAssociationRule());
                       					}
                       				
                     }
-                    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_34); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_34); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_7, grammarAccess.getDAssociationAccess().getTypeDEntityTypeCrossReference_4_0());
+                      					newLeafNode(otherlv_8, grammarAccess.getDimAssociationAccess().getTypeDEntityTypeCrossReference_5_0());
                       				
                     }
 
@@ -4599,7 +4677,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1665:3: ( (lv_multiplicity_8_0= ruleDMultiplicity ) )?
+            // InternalDim.g:1707:3: ( (lv_multiplicity_9_0= ruleDMultiplicity ) )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -4608,30 +4686,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt40) {
                 case 1 :
-                    // InternalDim.g:1666:4: (lv_multiplicity_8_0= ruleDMultiplicity )
+                    // InternalDim.g:1708:4: (lv_multiplicity_9_0= ruleDMultiplicity )
                     {
-                    // InternalDim.g:1666:4: (lv_multiplicity_8_0= ruleDMultiplicity )
-                    // InternalDim.g:1667:5: lv_multiplicity_8_0= ruleDMultiplicity
+                    // InternalDim.g:1708:4: (lv_multiplicity_9_0= ruleDMultiplicity )
+                    // InternalDim.g:1709:5: lv_multiplicity_9_0= ruleDMultiplicity
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDAssociationAccess().getMultiplicityDMultiplicityParserRuleCall_5_0());
+                      					newCompositeNode(grammarAccess.getDimAssociationAccess().getMultiplicityDMultiplicityParserRuleCall_6_0());
                       				
                     }
                     pushFollow(FOLLOW_14);
-                    lv_multiplicity_8_0=ruleDMultiplicity();
+                    lv_multiplicity_9_0=ruleDMultiplicity();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDAssociationRule());
+                      						current = createModelElementForParent(grammarAccess.getDimAssociationRule());
                       					}
                       					set(
                       						current,
                       						"multiplicity",
-                      						lv_multiplicity_8_0,
+                      						lv_multiplicity_9_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
                       					afterParserOrEnumRuleCall();
                       				
@@ -4645,7 +4723,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1684:3: ( (lv_description_9_0= ruleDRichText ) )?
+            // InternalDim.g:1726:3: ( (lv_description_10_0= ruleDRichText ) )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
@@ -4654,14 +4732,427 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt41) {
                 case 1 :
-                    // InternalDim.g:1685:4: (lv_description_9_0= ruleDRichText )
+                    // InternalDim.g:1727:4: (lv_description_10_0= ruleDRichText )
                     {
-                    // InternalDim.g:1685:4: (lv_description_9_0= ruleDRichText )
-                    // InternalDim.g:1686:5: lv_description_9_0= ruleDRichText
+                    // InternalDim.g:1727:4: (lv_description_10_0= ruleDRichText )
+                    // InternalDim.g:1728:5: lv_description_10_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDAssociationAccess().getDescriptionDRichTextParserRuleCall_6_0());
+                      					newCompositeNode(grammarAccess.getDimAssociationAccess().getDescriptionDRichTextParserRuleCall_7_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_2);
+                    lv_description_10_0=ruleDRichText();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getDimAssociationRule());
+                      					}
+                      					set(
+                      						current,
+                      						"description",
+                      						lv_description_10_0,
+                      						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDimAssociation"
+
+
+    // $ANTLR start "entryRuleDimAttribute"
+    // InternalDim.g:1749:1: entryRuleDimAttribute returns [EObject current=null] : iv_ruleDimAttribute= ruleDimAttribute EOF ;
+    public final EObject entryRuleDimAttribute() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDimAttribute = null;
+
+
+        try {
+            // InternalDim.g:1749:53: (iv_ruleDimAttribute= ruleDimAttribute EOF )
+            // InternalDim.g:1750:2: iv_ruleDimAttribute= ruleDimAttribute EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getDimAttributeRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleDimAttribute=ruleDimAttribute();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleDimAttribute; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDimAttribute"
+
+
+    // $ANTLR start "ruleDimAttribute"
+    // InternalDim.g:1756:1: ruleDimAttribute returns [EObject current=null] : ( () ( (lv_detail_1_0= 'detail' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= ':' ( (otherlv_6= RULE_ID ) )? ( (lv_multiplicity_7_0= ruleDMultiplicity ) )? ( (lv_key_8_0= 'key' ) )? ( (lv_description_9_0= ruleDRichText ) )? ) ;
+    public final EObject ruleDimAttribute() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_detail_1_0=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token lv_aliases_4_0=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token lv_key_8_0=null;
+        EObject lv_multiplicity_7_0 = null;
+
+        EObject lv_description_9_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalDim.g:1762:2: ( ( () ( (lv_detail_1_0= 'detail' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= ':' ( (otherlv_6= RULE_ID ) )? ( (lv_multiplicity_7_0= ruleDMultiplicity ) )? ( (lv_key_8_0= 'key' ) )? ( (lv_description_9_0= ruleDRichText ) )? ) )
+            // InternalDim.g:1763:2: ( () ( (lv_detail_1_0= 'detail' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= ':' ( (otherlv_6= RULE_ID ) )? ( (lv_multiplicity_7_0= ruleDMultiplicity ) )? ( (lv_key_8_0= 'key' ) )? ( (lv_description_9_0= ruleDRichText ) )? )
+            {
+            // InternalDim.g:1763:2: ( () ( (lv_detail_1_0= 'detail' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= ':' ( (otherlv_6= RULE_ID ) )? ( (lv_multiplicity_7_0= ruleDMultiplicity ) )? ( (lv_key_8_0= 'key' ) )? ( (lv_description_9_0= ruleDRichText ) )? )
+            // InternalDim.g:1764:3: () ( (lv_detail_1_0= 'detail' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )* otherlv_5= ':' ( (otherlv_6= RULE_ID ) )? ( (lv_multiplicity_7_0= ruleDMultiplicity ) )? ( (lv_key_8_0= 'key' ) )? ( (lv_description_9_0= ruleDRichText ) )?
+            {
+            // InternalDim.g:1764:3: ()
+            // InternalDim.g:1765:4: 
+            {
+            if ( state.backtracking==0 ) {
+
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimAttributeAccess().getDimAttributeAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:1771:3: ( (lv_detail_1_0= 'detail' ) )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
+
+            if ( (LA42_0==36) ) {
+                alt42=1;
+            }
+            switch (alt42) {
+                case 1 :
+                    // InternalDim.g:1772:4: (lv_detail_1_0= 'detail' )
+                    {
+                    // InternalDim.g:1772:4: (lv_detail_1_0= 'detail' )
+                    // InternalDim.g:1773:5: lv_detail_1_0= 'detail'
+                    {
+                    lv_detail_1_0=(Token)match(input,36,FOLLOW_3); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_detail_1_0, grammarAccess.getDimAttributeAccess().getDetailDetailKeyword_1_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getDimAttributeRule());
+                      					}
+                      					setWithLastConsumed(current, "detail", true, "detail");
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalDim.g:1785:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalDim.g:1786:4: (lv_name_2_0= RULE_ID )
+            {
+            // InternalDim.g:1786:4: (lv_name_2_0= RULE_ID )
+            // InternalDim.g:1787:5: lv_name_2_0= RULE_ID
+            {
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					newLeafNode(lv_name_2_0, grammarAccess.getDimAttributeAccess().getNameIDTerminalRuleCall_2_0());
+              				
+            }
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElement(grammarAccess.getDimAttributeRule());
+              					}
+              					setWithLastConsumed(
+              						current,
+              						"name",
+              						lv_name_2_0,
+              						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+              				
+            }
+
+            }
+
+
+            }
+
+            // InternalDim.g:1803:3: (otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) ) )*
+            loop43:
+            do {
+                int alt43=2;
+                int LA43_0 = input.LA(1);
+
+                if ( (LA43_0==20) ) {
+                    alt43=1;
+                }
+
+
+                switch (alt43) {
+            	case 1 :
+            	    // InternalDim.g:1804:4: otherlv_3= 'alias' ( (lv_aliases_4_0= RULE_ID ) )
+            	    {
+            	    otherlv_3=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(otherlv_3, grammarAccess.getDimAttributeAccess().getAliasKeyword_3_0());
+            	      			
+            	    }
+            	    // InternalDim.g:1808:4: ( (lv_aliases_4_0= RULE_ID ) )
+            	    // InternalDim.g:1809:5: (lv_aliases_4_0= RULE_ID )
+            	    {
+            	    // InternalDim.g:1809:5: (lv_aliases_4_0= RULE_ID )
+            	    // InternalDim.g:1810:6: lv_aliases_4_0= RULE_ID
+            	    {
+            	    lv_aliases_4_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						newLeafNode(lv_aliases_4_0, grammarAccess.getDimAttributeAccess().getAliasesIDTerminalRuleCall_3_1_0());
+            	      					
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElement(grammarAccess.getDimAttributeRule());
+            	      						}
+            	      						addWithLastConsumed(
+            	      							current,
+            	      							"aliases",
+            	      							lv_aliases_4_0,
+            	      							"com.mimacom.ddd.dm.dmx.Dmx.ID");
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop43;
+                }
+            } while (true);
+
+            otherlv_5=(Token)match(input,26,FOLLOW_35); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(otherlv_5, grammarAccess.getDimAttributeAccess().getColonKeyword_4());
+              		
+            }
+            // InternalDim.g:1831:3: ( (otherlv_6= RULE_ID ) )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
+
+            if ( (LA44_0==RULE_ID) ) {
+                int LA44_1 = input.LA(2);
+
+                if ( (LA44_1==EOF||(LA44_1>=RULE_ID && LA44_1<=RULE_RICH_TEXT_START)||LA44_1==22||LA44_1==25||LA44_1==36||LA44_1==38||LA44_1==40||LA44_1==53||LA44_1==79||LA44_1==120) ) {
+                    alt44=1;
+                }
+                else if ( (LA44_1==41) ) {
+                    int LA44_4 = input.LA(3);
+
+                    if ( (LA44_4==RULE_NATURAL) ) {
+                        alt44=1;
+                    }
+                }
+            }
+            switch (alt44) {
+                case 1 :
+                    // InternalDim.g:1832:4: (otherlv_6= RULE_ID )
+                    {
+                    // InternalDim.g:1832:4: (otherlv_6= RULE_ID )
+                    // InternalDim.g:1833:5: otherlv_6= RULE_ID
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getDimAttributeRule());
+                      					}
+                      				
+                    }
+                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_36); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(otherlv_6, grammarAccess.getDimAttributeAccess().getTypeDTypeCrossReference_5_0());
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalDim.g:1844:3: ( (lv_multiplicity_7_0= ruleDMultiplicity ) )?
+            int alt45=2;
+            int LA45_0 = input.LA(1);
+
+            if ( (LA45_0==41||LA45_0==53||LA45_0==79||LA45_0==120) ) {
+                alt45=1;
+            }
+            switch (alt45) {
+                case 1 :
+                    // InternalDim.g:1845:4: (lv_multiplicity_7_0= ruleDMultiplicity )
+                    {
+                    // InternalDim.g:1845:4: (lv_multiplicity_7_0= ruleDMultiplicity )
+                    // InternalDim.g:1846:5: lv_multiplicity_7_0= ruleDMultiplicity
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getDimAttributeAccess().getMultiplicityDMultiplicityParserRuleCall_6_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_37);
+                    lv_multiplicity_7_0=ruleDMultiplicity();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getDimAttributeRule());
+                      					}
+                      					set(
+                      						current,
+                      						"multiplicity",
+                      						lv_multiplicity_7_0,
+                      						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalDim.g:1863:3: ( (lv_key_8_0= 'key' ) )?
+            int alt46=2;
+            int LA46_0 = input.LA(1);
+
+            if ( (LA46_0==40) ) {
+                alt46=1;
+            }
+            switch (alt46) {
+                case 1 :
+                    // InternalDim.g:1864:4: (lv_key_8_0= 'key' )
+                    {
+                    // InternalDim.g:1864:4: (lv_key_8_0= 'key' )
+                    // InternalDim.g:1865:5: lv_key_8_0= 'key'
+                    {
+                    lv_key_8_0=(Token)match(input,40,FOLLOW_14); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_key_8_0, grammarAccess.getDimAttributeAccess().getKeyKeyKeyword_7_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getDimAttributeRule());
+                      					}
+                      					setWithLastConsumed(current, "key", true, "key");
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalDim.g:1877:3: ( (lv_description_9_0= ruleDRichText ) )?
+            int alt47=2;
+            int LA47_0 = input.LA(1);
+
+            if ( ((LA47_0>=RULE_PLAIN_TEXT_ONLY && LA47_0<=RULE_RICH_TEXT_START)) ) {
+                alt47=1;
+            }
+            switch (alt47) {
+                case 1 :
+                    // InternalDim.g:1878:4: (lv_description_9_0= ruleDRichText )
+                    {
+                    // InternalDim.g:1878:4: (lv_description_9_0= ruleDRichText )
+                    // InternalDim.g:1879:5: lv_description_9_0= ruleDRichText
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getDimAttributeAccess().getDescriptionDRichTextParserRuleCall_8_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
@@ -4672,7 +5163,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDAssociationRule());
+                      						current = createModelElementForParent(grammarAccess.getDimAttributeRule());
                       					}
                       					set(
                       						current,
@@ -4712,31 +5203,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDAssociation"
+    // $ANTLR end "ruleDimAttribute"
 
 
-    // $ANTLR start "entryRuleDAttribute"
-    // InternalDim.g:1707:1: entryRuleDAttribute returns [EObject current=null] : iv_ruleDAttribute= ruleDAttribute EOF ;
-    public final EObject entryRuleDAttribute() throws RecognitionException {
+    // $ANTLR start "entryRuleDimQuery"
+    // InternalDim.g:1900:1: entryRuleDimQuery returns [EObject current=null] : iv_ruleDimQuery= ruleDimQuery EOF ;
+    public final EObject entryRuleDimQuery() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDAttribute = null;
+        EObject iv_ruleDimQuery = null;
 
 
         try {
-            // InternalDim.g:1707:51: (iv_ruleDAttribute= ruleDAttribute EOF )
-            // InternalDim.g:1708:2: iv_ruleDAttribute= ruleDAttribute EOF
+            // InternalDim.g:1900:49: (iv_ruleDimQuery= ruleDimQuery EOF )
+            // InternalDim.g:1901:2: iv_ruleDimQuery= ruleDimQuery EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDAttributeRule()); 
+               newCompositeNode(grammarAccess.getDimQueryRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDAttribute=ruleDAttribute();
+            iv_ruleDimQuery=ruleDimQuery();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDAttribute; 
+               current =iv_ruleDimQuery; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -4752,89 +5243,73 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDAttribute"
+    // $ANTLR end "entryRuleDimQuery"
 
 
-    // $ANTLR start "ruleDAttribute"
-    // InternalDim.g:1714:1: ruleDAttribute returns [EObject current=null] : ( ( (lv_detail_0_0= 'detail' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (otherlv_5= RULE_ID ) )? ( (lv_multiplicity_6_0= ruleDMultiplicity ) )? ( (lv_key_7_0= 'key' ) )? ( (lv_description_8_0= ruleDRichText ) )? ) ;
-    public final EObject ruleDAttribute() throws RecognitionException {
+    // $ANTLR start "ruleDimQuery"
+    // InternalDim.g:1907:1: ruleDimQuery returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) )? ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )? ) ;
+    public final EObject ruleDimQuery() throws RecognitionException {
         EObject current = null;
 
-        Token lv_detail_0_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
         Token lv_aliases_3_0=null;
         Token otherlv_4=null;
-        Token otherlv_5=null;
-        Token lv_key_7_0=null;
-        EObject lv_multiplicity_6_0 = null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
+        EObject lv_parameters_5_0 = null;
 
-        EObject lv_description_8_0 = null;
+        EObject lv_parameters_7_0 = null;
+
+        EObject lv_multiplicity_11_0 = null;
+
+        EObject lv_returns_13_0 = null;
+
+        EObject lv_description_14_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:1720:2: ( ( ( (lv_detail_0_0= 'detail' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (otherlv_5= RULE_ID ) )? ( (lv_multiplicity_6_0= ruleDMultiplicity ) )? ( (lv_key_7_0= 'key' ) )? ( (lv_description_8_0= ruleDRichText ) )? ) )
-            // InternalDim.g:1721:2: ( ( (lv_detail_0_0= 'detail' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (otherlv_5= RULE_ID ) )? ( (lv_multiplicity_6_0= ruleDMultiplicity ) )? ( (lv_key_7_0= 'key' ) )? ( (lv_description_8_0= ruleDRichText ) )? )
+            // InternalDim.g:1913:2: ( ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) )? ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )? ) )
+            // InternalDim.g:1914:2: ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) )? ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )? )
             {
-            // InternalDim.g:1721:2: ( ( (lv_detail_0_0= 'detail' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (otherlv_5= RULE_ID ) )? ( (lv_multiplicity_6_0= ruleDMultiplicity ) )? ( (lv_key_7_0= 'key' ) )? ( (lv_description_8_0= ruleDRichText ) )? )
-            // InternalDim.g:1722:3: ( (lv_detail_0_0= 'detail' ) )? ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (otherlv_5= RULE_ID ) )? ( (lv_multiplicity_6_0= ruleDMultiplicity ) )? ( (lv_key_7_0= 'key' ) )? ( (lv_description_8_0= ruleDRichText ) )?
+            // InternalDim.g:1914:2: ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) )? ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )? )
+            // InternalDim.g:1915:3: () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) )? ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )?
             {
-            // InternalDim.g:1722:3: ( (lv_detail_0_0= 'detail' ) )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
-
-            if ( (LA42_0==36) ) {
-                alt42=1;
-            }
-            switch (alt42) {
-                case 1 :
-                    // InternalDim.g:1723:4: (lv_detail_0_0= 'detail' )
-                    {
-                    // InternalDim.g:1723:4: (lv_detail_0_0= 'detail' )
-                    // InternalDim.g:1724:5: lv_detail_0_0= 'detail'
-                    {
-                    lv_detail_0_0=(Token)match(input,36,FOLLOW_3); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_detail_0_0, grammarAccess.getDAttributeAccess().getDetailDetailKeyword_0_0());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDAttributeRule());
-                      					}
-                      					setWithLastConsumed(current, "detail", true, "detail");
-                      				
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalDim.g:1736:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:1737:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:1915:3: ()
+            // InternalDim.g:1916:4: 
             {
-            // InternalDim.g:1737:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:1738:5: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_1_0, grammarAccess.getDAttributeAccess().getNameIDTerminalRuleCall_1_0());
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimQueryAccess().getDimQueryAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:1922:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDim.g:1923:4: (lv_name_1_0= RULE_ID )
+            {
+            // InternalDim.g:1923:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:1924:5: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_38); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					newLeafNode(lv_name_1_0, grammarAccess.getDimQueryAccess().getNameIDTerminalRuleCall_1_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDAttributeRule());
+              						current = createModelElement(grammarAccess.getDimQueryRule());
               					}
               					setWithLastConsumed(
               						current,
@@ -4849,43 +5324,43 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1754:3: (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )*
-            loop43:
+            // InternalDim.g:1940:3: (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )*
+            loop48:
             do {
-                int alt43=2;
-                int LA43_0 = input.LA(1);
+                int alt48=2;
+                int LA48_0 = input.LA(1);
 
-                if ( (LA43_0==20) ) {
-                    alt43=1;
+                if ( (LA48_0==20) ) {
+                    alt48=1;
                 }
 
 
-                switch (alt43) {
+                switch (alt48) {
             	case 1 :
-            	    // InternalDim.g:1755:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
+            	    // InternalDim.g:1941:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
             	    otherlv_2=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_2, grammarAccess.getDAttributeAccess().getAliasKeyword_2_0());
+            	      				newLeafNode(otherlv_2, grammarAccess.getDimQueryAccess().getAliasKeyword_2_0());
             	      			
             	    }
-            	    // InternalDim.g:1759:4: ( (lv_aliases_3_0= RULE_ID ) )
-            	    // InternalDim.g:1760:5: (lv_aliases_3_0= RULE_ID )
+            	    // InternalDim.g:1945:4: ( (lv_aliases_3_0= RULE_ID ) )
+            	    // InternalDim.g:1946:5: (lv_aliases_3_0= RULE_ID )
             	    {
-            	    // InternalDim.g:1760:5: (lv_aliases_3_0= RULE_ID )
-            	    // InternalDim.g:1761:6: lv_aliases_3_0= RULE_ID
+            	    // InternalDim.g:1946:5: (lv_aliases_3_0= RULE_ID )
+            	    // InternalDim.g:1947:6: lv_aliases_3_0= RULE_ID
             	    {
-            	    lv_aliases_3_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
+            	    lv_aliases_3_0=(Token)match(input,RULE_ID,FOLLOW_38); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(lv_aliases_3_0, grammarAccess.getDAttributeAccess().getAliasesIDTerminalRuleCall_2_1_0());
+            	      						newLeafNode(lv_aliases_3_0, grammarAccess.getDimQueryAccess().getAliasesIDTerminalRuleCall_2_1_0());
             	      					
             	    }
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDAttributeRule());
+            	      							current = createModelElement(grammarAccess.getDimQueryRule());
             	      						}
             	      						addWithLastConsumed(
             	      							current,
@@ -4905,388 +5380,17 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop43;
-                }
-            } while (true);
-
-            otherlv_4=(Token)match(input,26,FOLLOW_35); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			newLeafNode(otherlv_4, grammarAccess.getDAttributeAccess().getColonKeyword_3());
-              		
-            }
-            // InternalDim.g:1782:3: ( (otherlv_5= RULE_ID ) )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
-
-            if ( (LA44_0==RULE_ID) ) {
-                int LA44_1 = input.LA(2);
-
-                if ( (LA44_1==41) ) {
-                    int LA44_3 = input.LA(3);
-
-                    if ( (LA44_3==RULE_NATURAL) ) {
-                        alt44=1;
-                    }
-                }
-                else if ( (LA44_1==EOF||(LA44_1>=RULE_ID && LA44_1<=RULE_RICH_TEXT_START)||LA44_1==22||LA44_1==25||LA44_1==36||LA44_1==38||LA44_1==40||LA44_1==53||LA44_1==79||LA44_1==120) ) {
-                    alt44=1;
-                }
-            }
-            switch (alt44) {
-                case 1 :
-                    // InternalDim.g:1783:4: (otherlv_5= RULE_ID )
-                    {
-                    // InternalDim.g:1783:4: (otherlv_5= RULE_ID )
-                    // InternalDim.g:1784:5: otherlv_5= RULE_ID
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDAttributeRule());
-                      					}
-                      				
-                    }
-                    otherlv_5=(Token)match(input,RULE_ID,FOLLOW_36); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(otherlv_5, grammarAccess.getDAttributeAccess().getTypeDTypeCrossReference_4_0());
-                      				
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalDim.g:1795:3: ( (lv_multiplicity_6_0= ruleDMultiplicity ) )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
-
-            if ( (LA45_0==41||LA45_0==53||LA45_0==79||LA45_0==120) ) {
-                alt45=1;
-            }
-            switch (alt45) {
-                case 1 :
-                    // InternalDim.g:1796:4: (lv_multiplicity_6_0= ruleDMultiplicity )
-                    {
-                    // InternalDim.g:1796:4: (lv_multiplicity_6_0= ruleDMultiplicity )
-                    // InternalDim.g:1797:5: lv_multiplicity_6_0= ruleDMultiplicity
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      					newCompositeNode(grammarAccess.getDAttributeAccess().getMultiplicityDMultiplicityParserRuleCall_5_0());
-                      				
-                    }
-                    pushFollow(FOLLOW_37);
-                    lv_multiplicity_6_0=ruleDMultiplicity();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDAttributeRule());
-                      					}
-                      					set(
-                      						current,
-                      						"multiplicity",
-                      						lv_multiplicity_6_0,
-                      						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
-                      					afterParserOrEnumRuleCall();
-                      				
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalDim.g:1814:3: ( (lv_key_7_0= 'key' ) )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
-
-            if ( (LA46_0==40) ) {
-                alt46=1;
-            }
-            switch (alt46) {
-                case 1 :
-                    // InternalDim.g:1815:4: (lv_key_7_0= 'key' )
-                    {
-                    // InternalDim.g:1815:4: (lv_key_7_0= 'key' )
-                    // InternalDim.g:1816:5: lv_key_7_0= 'key'
-                    {
-                    lv_key_7_0=(Token)match(input,40,FOLLOW_14); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_key_7_0, grammarAccess.getDAttributeAccess().getKeyKeyKeyword_6_0());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDAttributeRule());
-                      					}
-                      					setWithLastConsumed(current, "key", true, "key");
-                      				
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalDim.g:1828:3: ( (lv_description_8_0= ruleDRichText ) )?
-            int alt47=2;
-            int LA47_0 = input.LA(1);
-
-            if ( ((LA47_0>=RULE_PLAIN_TEXT_ONLY && LA47_0<=RULE_RICH_TEXT_START)) ) {
-                alt47=1;
-            }
-            switch (alt47) {
-                case 1 :
-                    // InternalDim.g:1829:4: (lv_description_8_0= ruleDRichText )
-                    {
-                    // InternalDim.g:1829:4: (lv_description_8_0= ruleDRichText )
-                    // InternalDim.g:1830:5: lv_description_8_0= ruleDRichText
-                    {
-                    if ( state.backtracking==0 ) {
-
-                      					newCompositeNode(grammarAccess.getDAttributeAccess().getDescriptionDRichTextParserRuleCall_7_0());
-                      				
-                    }
-                    pushFollow(FOLLOW_2);
-                    lv_description_8_0=ruleDRichText();
-
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDAttributeRule());
-                      					}
-                      					set(
-                      						current,
-                      						"description",
-                      						lv_description_8_0,
-                      						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
-                      					afterParserOrEnumRuleCall();
-                      				
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleDAttribute"
-
-
-    // $ANTLR start "entryRuleDQuery"
-    // InternalDim.g:1851:1: entryRuleDQuery returns [EObject current=null] : iv_ruleDQuery= ruleDQuery EOF ;
-    public final EObject entryRuleDQuery() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleDQuery = null;
-
-
-        try {
-            // InternalDim.g:1851:47: (iv_ruleDQuery= ruleDQuery EOF )
-            // InternalDim.g:1852:2: iv_ruleDQuery= ruleDQuery EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDQueryRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleDQuery=ruleDQuery();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleDQuery; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleDQuery"
-
-
-    // $ANTLR start "ruleDQuery"
-    // InternalDim.g:1858:1: ruleDQuery returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* otherlv_3= '(' ( ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )* )? otherlv_7= ')' otherlv_8= ':' ( (otherlv_9= RULE_ID ) )? ( (lv_multiplicity_10_0= ruleDMultiplicity ) )? (otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) ) )? ( (lv_description_13_0= ruleDRichText ) )? ) ;
-    public final EObject ruleDQuery() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_name_0_0=null;
-        Token otherlv_1=null;
-        Token lv_aliases_2_0=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_8=null;
-        Token otherlv_9=null;
-        Token otherlv_11=null;
-        EObject lv_parameters_4_0 = null;
-
-        EObject lv_parameters_6_0 = null;
-
-        EObject lv_multiplicity_10_0 = null;
-
-        EObject lv_returns_12_0 = null;
-
-        EObject lv_description_13_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalDim.g:1864:2: ( ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* otherlv_3= '(' ( ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )* )? otherlv_7= ')' otherlv_8= ':' ( (otherlv_9= RULE_ID ) )? ( (lv_multiplicity_10_0= ruleDMultiplicity ) )? (otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) ) )? ( (lv_description_13_0= ruleDRichText ) )? ) )
-            // InternalDim.g:1865:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* otherlv_3= '(' ( ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )* )? otherlv_7= ')' otherlv_8= ':' ( (otherlv_9= RULE_ID ) )? ( (lv_multiplicity_10_0= ruleDMultiplicity ) )? (otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) ) )? ( (lv_description_13_0= ruleDRichText ) )? )
-            {
-            // InternalDim.g:1865:2: ( ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* otherlv_3= '(' ( ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )* )? otherlv_7= ')' otherlv_8= ':' ( (otherlv_9= RULE_ID ) )? ( (lv_multiplicity_10_0= ruleDMultiplicity ) )? (otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) ) )? ( (lv_description_13_0= ruleDRichText ) )? )
-            // InternalDim.g:1866:3: ( (lv_name_0_0= RULE_ID ) ) (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )* otherlv_3= '(' ( ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )* )? otherlv_7= ')' otherlv_8= ':' ( (otherlv_9= RULE_ID ) )? ( (lv_multiplicity_10_0= ruleDMultiplicity ) )? (otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) ) )? ( (lv_description_13_0= ruleDRichText ) )?
-            {
-            // InternalDim.g:1866:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:1867:4: (lv_name_0_0= RULE_ID )
-            {
-            // InternalDim.g:1867:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:1868:5: lv_name_0_0= RULE_ID
-            {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_38); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              					newLeafNode(lv_name_0_0, grammarAccess.getDQueryAccess().getNameIDTerminalRuleCall_0_0());
-              				
-            }
-            if ( state.backtracking==0 ) {
-
-              					if (current==null) {
-              						current = createModelElement(grammarAccess.getDQueryRule());
-              					}
-              					setWithLastConsumed(
-              						current,
-              						"name",
-              						lv_name_0_0,
-              						"com.mimacom.ddd.dm.dmx.Dmx.ID");
-              				
-            }
-
-            }
-
-
-            }
-
-            // InternalDim.g:1884:3: (otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) ) )*
-            loop48:
-            do {
-                int alt48=2;
-                int LA48_0 = input.LA(1);
-
-                if ( (LA48_0==20) ) {
-                    alt48=1;
-                }
-
-
-                switch (alt48) {
-            	case 1 :
-            	    // InternalDim.g:1885:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
-            	    {
-            	    otherlv_1=(Token)match(input,20,FOLLOW_3); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      				newLeafNode(otherlv_1, grammarAccess.getDQueryAccess().getAliasKeyword_1_0());
-            	      			
-            	    }
-            	    // InternalDim.g:1889:4: ( (lv_aliases_2_0= RULE_ID ) )
-            	    // InternalDim.g:1890:5: (lv_aliases_2_0= RULE_ID )
-            	    {
-            	    // InternalDim.g:1890:5: (lv_aliases_2_0= RULE_ID )
-            	    // InternalDim.g:1891:6: lv_aliases_2_0= RULE_ID
-            	    {
-            	    lv_aliases_2_0=(Token)match(input,RULE_ID,FOLLOW_38); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						newLeafNode(lv_aliases_2_0, grammarAccess.getDQueryAccess().getAliasesIDTerminalRuleCall_1_1_0());
-            	      					
-            	    }
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getDQueryRule());
-            	      						}
-            	      						addWithLastConsumed(
-            	      							current,
-            	      							"aliases",
-            	      							lv_aliases_2_0,
-            	      							"com.mimacom.ddd.dm.dmx.Dmx.ID");
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
             	    break loop48;
                 }
             } while (true);
 
-            otherlv_3=(Token)match(input,41,FOLLOW_39); if (state.failed) return current;
+            otherlv_4=(Token)match(input,41,FOLLOW_39); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_3, grammarAccess.getDQueryAccess().getLeftParenthesisKeyword_2());
+              			newLeafNode(otherlv_4, grammarAccess.getDimQueryAccess().getLeftParenthesisKeyword_3());
               		
             }
-            // InternalDim.g:1912:3: ( ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )* )?
+            // InternalDim.g:1968:3: ( ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )* )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -5295,34 +5399,34 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt50) {
                 case 1 :
-                    // InternalDim.g:1913:4: ( (lv_parameters_4_0= ruleDQueryParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )*
+                    // InternalDim.g:1969:4: ( (lv_parameters_5_0= ruleDimQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )*
                     {
-                    // InternalDim.g:1913:4: ( (lv_parameters_4_0= ruleDQueryParameter ) )
-                    // InternalDim.g:1914:5: (lv_parameters_4_0= ruleDQueryParameter )
+                    // InternalDim.g:1969:4: ( (lv_parameters_5_0= ruleDimQueryParameter ) )
+                    // InternalDim.g:1970:5: (lv_parameters_5_0= ruleDimQueryParameter )
                     {
-                    // InternalDim.g:1914:5: (lv_parameters_4_0= ruleDQueryParameter )
-                    // InternalDim.g:1915:6: lv_parameters_4_0= ruleDQueryParameter
+                    // InternalDim.g:1970:5: (lv_parameters_5_0= ruleDimQueryParameter )
+                    // InternalDim.g:1971:6: lv_parameters_5_0= ruleDimQueryParameter
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getDQueryAccess().getParametersDQueryParameterParserRuleCall_3_0_0());
+                      						newCompositeNode(grammarAccess.getDimQueryAccess().getParametersDimQueryParameterParserRuleCall_4_0_0());
                       					
                     }
                     pushFollow(FOLLOW_40);
-                    lv_parameters_4_0=ruleDQueryParameter();
+                    lv_parameters_5_0=ruleDimQueryParameter();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElementForParent(grammarAccess.getDQueryRule());
+                      							current = createModelElementForParent(grammarAccess.getDimQueryRule());
                       						}
                       						add(
                       							current,
                       							"parameters",
-                      							lv_parameters_4_0,
-                      							"com.mimacom.ddd.dm.dim.Dim.DQueryParameter");
+                      							lv_parameters_5_0,
+                      							"com.mimacom.ddd.dm.dim.Dim.DimQueryParameter");
                       						afterParserOrEnumRuleCall();
                       					
                     }
@@ -5332,7 +5436,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:1932:4: (otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) ) )*
+                    // InternalDim.g:1988:4: (otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) ) )*
                     loop49:
                     do {
                         int alt49=2;
@@ -5345,40 +5449,40 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt49) {
                     	case 1 :
-                    	    // InternalDim.g:1933:5: otherlv_5= ',' ( (lv_parameters_6_0= ruleDQueryParameter ) )
+                    	    // InternalDim.g:1989:5: otherlv_6= ',' ( (lv_parameters_7_0= ruleDimQueryParameter ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
+                    	    otherlv_6=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      					newLeafNode(otherlv_5, grammarAccess.getDQueryAccess().getCommaKeyword_3_1_0());
+                    	      					newLeafNode(otherlv_6, grammarAccess.getDimQueryAccess().getCommaKeyword_4_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:1937:5: ( (lv_parameters_6_0= ruleDQueryParameter ) )
-                    	    // InternalDim.g:1938:6: (lv_parameters_6_0= ruleDQueryParameter )
+                    	    // InternalDim.g:1993:5: ( (lv_parameters_7_0= ruleDimQueryParameter ) )
+                    	    // InternalDim.g:1994:6: (lv_parameters_7_0= ruleDimQueryParameter )
                     	    {
-                    	    // InternalDim.g:1938:6: (lv_parameters_6_0= ruleDQueryParameter )
-                    	    // InternalDim.g:1939:7: lv_parameters_6_0= ruleDQueryParameter
+                    	    // InternalDim.g:1994:6: (lv_parameters_7_0= ruleDimQueryParameter )
+                    	    // InternalDim.g:1995:7: lv_parameters_7_0= ruleDimQueryParameter
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getDQueryAccess().getParametersDQueryParameterParserRuleCall_3_1_1_0());
+                    	      							newCompositeNode(grammarAccess.getDimQueryAccess().getParametersDimQueryParameterParserRuleCall_4_1_1_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_40);
-                    	    lv_parameters_6_0=ruleDQueryParameter();
+                    	    lv_parameters_7_0=ruleDimQueryParameter();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      							if (current==null) {
-                    	      								current = createModelElementForParent(grammarAccess.getDQueryRule());
+                    	      								current = createModelElementForParent(grammarAccess.getDimQueryRule());
                     	      							}
                     	      							add(
                     	      								current,
                     	      								"parameters",
-                    	      								lv_parameters_6_0,
-                    	      								"com.mimacom.ddd.dm.dim.Dim.DQueryParameter");
+                    	      								lv_parameters_7_0,
+                    	      								"com.mimacom.ddd.dm.dim.Dim.DimQueryParameter");
                     	      							afterParserOrEnumRuleCall();
                     	      						
                     	    }
@@ -5403,54 +5507,54 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,42,FOLLOW_41); if (state.failed) return current;
+            otherlv_8=(Token)match(input,42,FOLLOW_41); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_7, grammarAccess.getDQueryAccess().getRightParenthesisKeyword_4());
+              			newLeafNode(otherlv_8, grammarAccess.getDimQueryAccess().getRightParenthesisKeyword_5());
               		
             }
-            otherlv_8=(Token)match(input,26,FOLLOW_42); if (state.failed) return current;
+            otherlv_9=(Token)match(input,26,FOLLOW_42); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_8, grammarAccess.getDQueryAccess().getColonKeyword_5());
+              			newLeafNode(otherlv_9, grammarAccess.getDimQueryAccess().getColonKeyword_6());
               		
             }
-            // InternalDim.g:1966:3: ( (otherlv_9= RULE_ID ) )?
+            // InternalDim.g:2022:3: ( (otherlv_10= RULE_ID ) )?
             int alt51=2;
             int LA51_0 = input.LA(1);
 
             if ( (LA51_0==RULE_ID) ) {
                 int LA51_1 = input.LA(2);
 
-                if ( (LA51_1==EOF||(LA51_1>=RULE_ID && LA51_1<=RULE_RICH_TEXT_START)||(LA51_1>=22 && LA51_1<=23)||LA51_1==25||LA51_1==27||LA51_1==29||(LA51_1>=31 && LA51_1<=33)||LA51_1==36||LA51_1==38||LA51_1==43||LA51_1==53||LA51_1==79||(LA51_1>=82 && LA51_1<=83)||LA51_1==120) ) {
-                    alt51=1;
-                }
-                else if ( (LA51_1==41) ) {
-                    int LA51_4 = input.LA(3);
+                if ( (LA51_1==41) ) {
+                    int LA51_3 = input.LA(3);
 
-                    if ( (LA51_4==RULE_NATURAL) ) {
+                    if ( (LA51_3==RULE_NATURAL) ) {
                         alt51=1;
                     }
+                }
+                else if ( (LA51_1==EOF||(LA51_1>=RULE_ID && LA51_1<=RULE_RICH_TEXT_START)||(LA51_1>=22 && LA51_1<=23)||LA51_1==25||LA51_1==27||LA51_1==29||(LA51_1>=31 && LA51_1<=33)||LA51_1==36||LA51_1==38||LA51_1==43||LA51_1==53||LA51_1==79||(LA51_1>=82 && LA51_1<=83)||LA51_1==120) ) {
+                    alt51=1;
                 }
             }
             switch (alt51) {
                 case 1 :
-                    // InternalDim.g:1967:4: (otherlv_9= RULE_ID )
+                    // InternalDim.g:2023:4: (otherlv_10= RULE_ID )
                     {
-                    // InternalDim.g:1967:4: (otherlv_9= RULE_ID )
-                    // InternalDim.g:1968:5: otherlv_9= RULE_ID
+                    // InternalDim.g:2023:4: (otherlv_10= RULE_ID )
+                    // InternalDim.g:2024:5: otherlv_10= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDQueryRule());
+                      						current = createModelElement(grammarAccess.getDimQueryRule());
                       					}
                       				
                     }
-                    otherlv_9=(Token)match(input,RULE_ID,FOLLOW_43); if (state.failed) return current;
+                    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_43); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_9, grammarAccess.getDQueryAccess().getTypeDTypeCrossReference_6_0());
+                      					newLeafNode(otherlv_10, grammarAccess.getDimQueryAccess().getTypeDTypeCrossReference_7_0());
                       				
                     }
 
@@ -5462,7 +5566,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1979:3: ( (lv_multiplicity_10_0= ruleDMultiplicity ) )?
+            // InternalDim.g:2035:3: ( (lv_multiplicity_11_0= ruleDMultiplicity ) )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -5471,30 +5575,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt52) {
                 case 1 :
-                    // InternalDim.g:1980:4: (lv_multiplicity_10_0= ruleDMultiplicity )
+                    // InternalDim.g:2036:4: (lv_multiplicity_11_0= ruleDMultiplicity )
                     {
-                    // InternalDim.g:1980:4: (lv_multiplicity_10_0= ruleDMultiplicity )
-                    // InternalDim.g:1981:5: lv_multiplicity_10_0= ruleDMultiplicity
+                    // InternalDim.g:2036:4: (lv_multiplicity_11_0= ruleDMultiplicity )
+                    // InternalDim.g:2037:5: lv_multiplicity_11_0= ruleDMultiplicity
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDQueryAccess().getMultiplicityDMultiplicityParserRuleCall_7_0());
+                      					newCompositeNode(grammarAccess.getDimQueryAccess().getMultiplicityDMultiplicityParserRuleCall_8_0());
                       				
                     }
                     pushFollow(FOLLOW_44);
-                    lv_multiplicity_10_0=ruleDMultiplicity();
+                    lv_multiplicity_11_0=ruleDMultiplicity();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDQueryRule());
+                      						current = createModelElementForParent(grammarAccess.getDimQueryRule());
                       					}
                       					set(
                       						current,
                       						"multiplicity",
-                      						lv_multiplicity_10_0,
+                      						lv_multiplicity_11_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
                       					afterParserOrEnumRuleCall();
                       				
@@ -5508,7 +5612,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:1998:3: (otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) ) )?
+            // InternalDim.g:2054:3: (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )?
             int alt53=2;
             int LA53_0 = input.LA(1);
 
@@ -5517,39 +5621,39 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt53) {
                 case 1 :
-                    // InternalDim.g:1999:4: otherlv_11= 'returns' ( (lv_returns_12_0= ruleDExpression ) )
+                    // InternalDim.g:2055:4: otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) )
                     {
-                    otherlv_11=(Token)match(input,43,FOLLOW_13); if (state.failed) return current;
+                    otherlv_12=(Token)match(input,43,FOLLOW_13); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_11, grammarAccess.getDQueryAccess().getReturnsKeyword_8_0());
+                      				newLeafNode(otherlv_12, grammarAccess.getDimQueryAccess().getReturnsKeyword_9_0());
                       			
                     }
-                    // InternalDim.g:2003:4: ( (lv_returns_12_0= ruleDExpression ) )
-                    // InternalDim.g:2004:5: (lv_returns_12_0= ruleDExpression )
+                    // InternalDim.g:2059:4: ( (lv_returns_13_0= ruleDExpression ) )
+                    // InternalDim.g:2060:5: (lv_returns_13_0= ruleDExpression )
                     {
-                    // InternalDim.g:2004:5: (lv_returns_12_0= ruleDExpression )
-                    // InternalDim.g:2005:6: lv_returns_12_0= ruleDExpression
+                    // InternalDim.g:2060:5: (lv_returns_13_0= ruleDExpression )
+                    // InternalDim.g:2061:6: lv_returns_13_0= ruleDExpression
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getDQueryAccess().getReturnsDExpressionParserRuleCall_8_1_0());
+                      						newCompositeNode(grammarAccess.getDimQueryAccess().getReturnsDExpressionParserRuleCall_9_1_0());
                       					
                     }
                     pushFollow(FOLLOW_14);
-                    lv_returns_12_0=ruleDExpression();
+                    lv_returns_13_0=ruleDExpression();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						if (current==null) {
-                      							current = createModelElementForParent(grammarAccess.getDQueryRule());
+                      							current = createModelElementForParent(grammarAccess.getDimQueryRule());
                       						}
                       						set(
                       							current,
                       							"returns",
-                      							lv_returns_12_0,
+                      							lv_returns_13_0,
                       							"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
                       						afterParserOrEnumRuleCall();
                       					
@@ -5566,7 +5670,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2023:3: ( (lv_description_13_0= ruleDRichText ) )?
+            // InternalDim.g:2079:3: ( (lv_description_14_0= ruleDRichText ) )?
             int alt54=2;
             int LA54_0 = input.LA(1);
 
@@ -5575,30 +5679,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt54) {
                 case 1 :
-                    // InternalDim.g:2024:4: (lv_description_13_0= ruleDRichText )
+                    // InternalDim.g:2080:4: (lv_description_14_0= ruleDRichText )
                     {
-                    // InternalDim.g:2024:4: (lv_description_13_0= ruleDRichText )
-                    // InternalDim.g:2025:5: lv_description_13_0= ruleDRichText
+                    // InternalDim.g:2080:4: (lv_description_14_0= ruleDRichText )
+                    // InternalDim.g:2081:5: lv_description_14_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDQueryAccess().getDescriptionDRichTextParserRuleCall_9_0());
+                      					newCompositeNode(grammarAccess.getDimQueryAccess().getDescriptionDRichTextParserRuleCall_10_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
-                    lv_description_13_0=ruleDRichText();
+                    lv_description_14_0=ruleDRichText();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDQueryRule());
+                      						current = createModelElementForParent(grammarAccess.getDimQueryRule());
                       					}
                       					set(
                       						current,
                       						"description",
-                      						lv_description_13_0,
+                      						lv_description_14_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
                       					afterParserOrEnumRuleCall();
                       				
@@ -5633,31 +5737,31 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDQuery"
+    // $ANTLR end "ruleDimQuery"
 
 
-    // $ANTLR start "entryRuleDQueryParameter"
-    // InternalDim.g:2046:1: entryRuleDQueryParameter returns [EObject current=null] : iv_ruleDQueryParameter= ruleDQueryParameter EOF ;
-    public final EObject entryRuleDQueryParameter() throws RecognitionException {
+    // $ANTLR start "entryRuleDimQueryParameter"
+    // InternalDim.g:2102:1: entryRuleDimQueryParameter returns [EObject current=null] : iv_ruleDimQueryParameter= ruleDimQueryParameter EOF ;
+    public final EObject entryRuleDimQueryParameter() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDQueryParameter = null;
+        EObject iv_ruleDimQueryParameter = null;
 
 
         try {
-            // InternalDim.g:2046:56: (iv_ruleDQueryParameter= ruleDQueryParameter EOF )
-            // InternalDim.g:2047:2: iv_ruleDQueryParameter= ruleDQueryParameter EOF
+            // InternalDim.g:2102:58: (iv_ruleDimQueryParameter= ruleDimQueryParameter EOF )
+            // InternalDim.g:2103:2: iv_ruleDimQueryParameter= ruleDimQueryParameter EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDQueryParameterRule()); 
+               newCompositeNode(grammarAccess.getDimQueryParameterRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDQueryParameter=ruleDQueryParameter();
+            iv_ruleDimQueryParameter=ruleDimQueryParameter();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDQueryParameter; 
+               current =iv_ruleDimQueryParameter; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -5673,53 +5777,66 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDQueryParameter"
+    // $ANTLR end "entryRuleDimQueryParameter"
 
 
-    // $ANTLR start "ruleDQueryParameter"
-    // InternalDim.g:2053:1: ruleDQueryParameter returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) )? ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? ( (lv_description_4_0= ruleDRichText ) )? ) ;
-    public final EObject ruleDQueryParameter() throws RecognitionException {
+    // $ANTLR start "ruleDimQueryParameter"
+    // InternalDim.g:2109:1: ruleDimQueryParameter returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )? ( (lv_multiplicity_4_0= ruleDMultiplicity ) )? ( (lv_description_5_0= ruleDRichText ) )? ) ;
+    public final EObject ruleDimQueryParameter() throws RecognitionException {
         EObject current = null;
 
-        Token lv_name_0_0=null;
-        Token otherlv_1=null;
+        Token lv_name_1_0=null;
         Token otherlv_2=null;
-        EObject lv_multiplicity_3_0 = null;
+        Token otherlv_3=null;
+        EObject lv_multiplicity_4_0 = null;
 
-        EObject lv_description_4_0 = null;
+        EObject lv_description_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDim.g:2059:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) )? ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? ( (lv_description_4_0= ruleDRichText ) )? ) )
-            // InternalDim.g:2060:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) )? ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? ( (lv_description_4_0= ruleDRichText ) )? )
+            // InternalDim.g:2115:2: ( ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )? ( (lv_multiplicity_4_0= ruleDMultiplicity ) )? ( (lv_description_5_0= ruleDRichText ) )? ) )
+            // InternalDim.g:2116:2: ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )? ( (lv_multiplicity_4_0= ruleDMultiplicity ) )? ( (lv_description_5_0= ruleDRichText ) )? )
             {
-            // InternalDim.g:2060:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) )? ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? ( (lv_description_4_0= ruleDRichText ) )? )
-            // InternalDim.g:2061:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) )? ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? ( (lv_description_4_0= ruleDRichText ) )?
+            // InternalDim.g:2116:2: ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )? ( (lv_multiplicity_4_0= ruleDMultiplicity ) )? ( (lv_description_5_0= ruleDRichText ) )? )
+            // InternalDim.g:2117:3: () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )? ( (lv_multiplicity_4_0= ruleDMultiplicity ) )? ( (lv_description_5_0= ruleDRichText ) )?
             {
-            // InternalDim.g:2061:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:2062:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2117:3: ()
+            // InternalDim.g:2118:4: 
             {
-            // InternalDim.g:2062:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:2063:5: lv_name_0_0= RULE_ID
-            {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_41); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(lv_name_0_0, grammarAccess.getDQueryParameterAccess().getNameIDTerminalRuleCall_0_0());
+              				current = forceCreateModelElement(
+              					grammarAccess.getDimQueryParameterAccess().getDimQueryParameterAction_0(),
+              					current);
+              			
+            }
+
+            }
+
+            // InternalDim.g:2124:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDim.g:2125:4: (lv_name_1_0= RULE_ID )
+            {
+            // InternalDim.g:2125:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2126:5: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_41); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					newLeafNode(lv_name_1_0, grammarAccess.getDimQueryParameterAccess().getNameIDTerminalRuleCall_1_0());
               				
             }
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDQueryParameterRule());
+              						current = createModelElement(grammarAccess.getDimQueryParameterRule());
               					}
               					setWithLastConsumed(
               						current,
               						"name",
-              						lv_name_0_0,
+              						lv_name_1_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.ID");
               				
             }
@@ -5729,13 +5846,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,26,FOLLOW_32); if (state.failed) return current;
+            otherlv_2=(Token)match(input,26,FOLLOW_32); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getDQueryParameterAccess().getColonKeyword_1());
+              			newLeafNode(otherlv_2, grammarAccess.getDimQueryParameterAccess().getColonKeyword_2());
               		
             }
-            // InternalDim.g:2083:3: ( (otherlv_2= RULE_ID ) )?
+            // InternalDim.g:2146:3: ( (otherlv_3= RULE_ID ) )?
             int alt55=2;
             int LA55_0 = input.LA(1);
 
@@ -5744,22 +5861,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt55) {
                 case 1 :
-                    // InternalDim.g:2084:4: (otherlv_2= RULE_ID )
+                    // InternalDim.g:2147:4: (otherlv_3= RULE_ID )
                     {
-                    // InternalDim.g:2084:4: (otherlv_2= RULE_ID )
-                    // InternalDim.g:2085:5: otherlv_2= RULE_ID
+                    // InternalDim.g:2147:4: (otherlv_3= RULE_ID )
+                    // InternalDim.g:2148:5: otherlv_3= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getDQueryParameterRule());
+                      						current = createModelElement(grammarAccess.getDimQueryParameterRule());
                       					}
                       				
                     }
-                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_34); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_34); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(otherlv_2, grammarAccess.getDQueryParameterAccess().getTypeDTypeCrossReference_2_0());
+                      					newLeafNode(otherlv_3, grammarAccess.getDimQueryParameterAccess().getTypeDTypeCrossReference_3_0());
                       				
                     }
 
@@ -5771,7 +5888,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2096:3: ( (lv_multiplicity_3_0= ruleDMultiplicity ) )?
+            // InternalDim.g:2159:3: ( (lv_multiplicity_4_0= ruleDMultiplicity ) )?
             int alt56=2;
             int LA56_0 = input.LA(1);
 
@@ -5780,30 +5897,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt56) {
                 case 1 :
-                    // InternalDim.g:2097:4: (lv_multiplicity_3_0= ruleDMultiplicity )
+                    // InternalDim.g:2160:4: (lv_multiplicity_4_0= ruleDMultiplicity )
                     {
-                    // InternalDim.g:2097:4: (lv_multiplicity_3_0= ruleDMultiplicity )
-                    // InternalDim.g:2098:5: lv_multiplicity_3_0= ruleDMultiplicity
+                    // InternalDim.g:2160:4: (lv_multiplicity_4_0= ruleDMultiplicity )
+                    // InternalDim.g:2161:5: lv_multiplicity_4_0= ruleDMultiplicity
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDQueryParameterAccess().getMultiplicityDMultiplicityParserRuleCall_3_0());
+                      					newCompositeNode(grammarAccess.getDimQueryParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0());
                       				
                     }
                     pushFollow(FOLLOW_14);
-                    lv_multiplicity_3_0=ruleDMultiplicity();
+                    lv_multiplicity_4_0=ruleDMultiplicity();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDQueryParameterRule());
+                      						current = createModelElementForParent(grammarAccess.getDimQueryParameterRule());
                       					}
                       					set(
                       						current,
                       						"multiplicity",
-                      						lv_multiplicity_3_0,
+                      						lv_multiplicity_4_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
                       					afterParserOrEnumRuleCall();
                       				
@@ -5817,7 +5934,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2115:3: ( (lv_description_4_0= ruleDRichText ) )?
+            // InternalDim.g:2178:3: ( (lv_description_5_0= ruleDRichText ) )?
             int alt57=2;
             int LA57_0 = input.LA(1);
 
@@ -5826,30 +5943,30 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt57) {
                 case 1 :
-                    // InternalDim.g:2116:4: (lv_description_4_0= ruleDRichText )
+                    // InternalDim.g:2179:4: (lv_description_5_0= ruleDRichText )
                     {
-                    // InternalDim.g:2116:4: (lv_description_4_0= ruleDRichText )
-                    // InternalDim.g:2117:5: lv_description_4_0= ruleDRichText
+                    // InternalDim.g:2179:4: (lv_description_5_0= ruleDRichText )
+                    // InternalDim.g:2180:5: lv_description_5_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getDQueryParameterAccess().getDescriptionDRichTextParserRuleCall_4_0());
+                      					newCompositeNode(grammarAccess.getDimQueryParameterAccess().getDescriptionDRichTextParserRuleCall_5_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
-                    lv_description_4_0=ruleDRichText();
+                    lv_description_5_0=ruleDRichText();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElementForParent(grammarAccess.getDQueryParameterRule());
+                      						current = createModelElementForParent(grammarAccess.getDimQueryParameterRule());
                       					}
                       					set(
                       						current,
                       						"description",
-                      						lv_description_4_0,
+                      						lv_description_5_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
                       					afterParserOrEnumRuleCall();
                       				
@@ -5884,11 +6001,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDQueryParameter"
+    // $ANTLR end "ruleDimQueryParameter"
 
 
     // $ANTLR start "entryRuleDImport"
-    // InternalDim.g:2138:1: entryRuleDImport returns [EObject current=null] : iv_ruleDImport= ruleDImport EOF ;
+    // InternalDim.g:2201:1: entryRuleDImport returns [EObject current=null] : iv_ruleDImport= ruleDImport EOF ;
     public final EObject entryRuleDImport() throws RecognitionException {
         EObject current = null;
 
@@ -5896,8 +6013,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2138:48: (iv_ruleDImport= ruleDImport EOF )
-            // InternalDim.g:2139:2: iv_ruleDImport= ruleDImport EOF
+            // InternalDim.g:2201:48: (iv_ruleDImport= ruleDImport EOF )
+            // InternalDim.g:2202:2: iv_ruleDImport= ruleDImport EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDImportRule()); 
@@ -5928,7 +6045,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDImport"
-    // InternalDim.g:2145:1: ruleDImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) ) ;
+    // InternalDim.g:2208:1: ruleDImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) ) ;
     public final EObject ruleDImport() throws RecognitionException {
         EObject current = null;
 
@@ -5940,11 +6057,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2151:2: ( (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) ) )
-            // InternalDim.g:2152:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) )
+            // InternalDim.g:2214:2: ( (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) ) )
+            // InternalDim.g:2215:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) )
             {
-            // InternalDim.g:2152:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) )
-            // InternalDim.g:2153:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) )
+            // InternalDim.g:2215:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) )
+            // InternalDim.g:2216:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) )
             {
             otherlv_0=(Token)match(input,44,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -5952,11 +6069,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
               		
             }
-            // InternalDim.g:2157:3: ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) )
-            // InternalDim.g:2158:4: (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard )
+            // InternalDim.g:2220:3: ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) )
+            // InternalDim.g:2221:4: (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard )
             {
-            // InternalDim.g:2158:4: (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard )
-            // InternalDim.g:2159:5: lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard
+            // InternalDim.g:2221:4: (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard )
+            // InternalDim.g:2222:5: lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard
             {
             if ( state.backtracking==0 ) {
 
@@ -6012,7 +6129,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxTest"
-    // InternalDim.g:2180:1: entryRuleDmxTest returns [EObject current=null] : iv_ruleDmxTest= ruleDmxTest EOF ;
+    // InternalDim.g:2243:1: entryRuleDmxTest returns [EObject current=null] : iv_ruleDmxTest= ruleDmxTest EOF ;
     public final EObject entryRuleDmxTest() throws RecognitionException {
         EObject current = null;
 
@@ -6020,8 +6137,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2180:48: (iv_ruleDmxTest= ruleDmxTest EOF )
-            // InternalDim.g:2181:2: iv_ruleDmxTest= ruleDmxTest EOF
+            // InternalDim.g:2243:48: (iv_ruleDmxTest= ruleDmxTest EOF )
+            // InternalDim.g:2244:2: iv_ruleDmxTest= ruleDmxTest EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxTestRule()); 
@@ -6052,7 +6169,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTest"
-    // InternalDim.g:2187:1: ruleDmxTest returns [EObject current=null] : (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' ) ;
+    // InternalDim.g:2250:1: ruleDmxTest returns [EObject current=null] : (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' ) ;
     public final EObject ruleDmxTest() throws RecognitionException {
         EObject current = null;
 
@@ -6073,11 +6190,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2193:2: ( (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' ) )
-            // InternalDim.g:2194:2: (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' )
+            // InternalDim.g:2256:2: ( (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' ) )
+            // InternalDim.g:2257:2: (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' )
             {
-            // InternalDim.g:2194:2: (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' )
-            // InternalDim.g:2195:3: otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}'
+            // InternalDim.g:2257:2: (otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}' )
+            // InternalDim.g:2258:3: otherlv_0= 'test' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )? otherlv_6= '{' ( (lv_expr_7_0= ruleDExpression ) ) otherlv_8= '}'
             {
             otherlv_0=(Token)match(input,45,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6085,11 +6202,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getDmxTestAccess().getTestKeyword_0());
               		
             }
-            // InternalDim.g:2199:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:2200:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2262:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDim.g:2263:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalDim.g:2200:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:2201:5: lv_name_1_0= RULE_ID
+            // InternalDim.g:2263:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2264:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_45); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6115,7 +6232,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2217:3: (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )?
+            // InternalDim.g:2280:3: (otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )* )?
             int alt59=2;
             int LA59_0 = input.LA(1);
 
@@ -6124,7 +6241,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt59) {
                 case 1 :
-                    // InternalDim.g:2218:4: otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )*
+                    // InternalDim.g:2281:4: otherlv_2= 'context' ( (lv_context_3_0= ruleDmxTestContext ) ) (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )*
                     {
                     otherlv_2=(Token)match(input,46,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -6132,11 +6249,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_2, grammarAccess.getDmxTestAccess().getContextKeyword_2_0());
                       			
                     }
-                    // InternalDim.g:2222:4: ( (lv_context_3_0= ruleDmxTestContext ) )
-                    // InternalDim.g:2223:5: (lv_context_3_0= ruleDmxTestContext )
+                    // InternalDim.g:2285:4: ( (lv_context_3_0= ruleDmxTestContext ) )
+                    // InternalDim.g:2286:5: (lv_context_3_0= ruleDmxTestContext )
                     {
-                    // InternalDim.g:2223:5: (lv_context_3_0= ruleDmxTestContext )
-                    // InternalDim.g:2224:6: lv_context_3_0= ruleDmxTestContext
+                    // InternalDim.g:2286:5: (lv_context_3_0= ruleDmxTestContext )
+                    // InternalDim.g:2287:6: lv_context_3_0= ruleDmxTestContext
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6167,7 +6284,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:2241:4: (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )*
+                    // InternalDim.g:2304:4: (otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) ) )*
                     loop58:
                     do {
                         int alt58=2;
@@ -6180,7 +6297,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt58) {
                     	case 1 :
-                    	    // InternalDim.g:2242:5: otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) )
+                    	    // InternalDim.g:2305:5: otherlv_4= ',' ( (lv_context_5_0= ruleDmxTestContext ) )
                     	    {
                     	    otherlv_4=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -6188,11 +6305,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     	      					newLeafNode(otherlv_4, grammarAccess.getDmxTestAccess().getCommaKeyword_2_2_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:2246:5: ( (lv_context_5_0= ruleDmxTestContext ) )
-                    	    // InternalDim.g:2247:6: (lv_context_5_0= ruleDmxTestContext )
+                    	    // InternalDim.g:2309:5: ( (lv_context_5_0= ruleDmxTestContext ) )
+                    	    // InternalDim.g:2310:6: (lv_context_5_0= ruleDmxTestContext )
                     	    {
-                    	    // InternalDim.g:2247:6: (lv_context_5_0= ruleDmxTestContext )
-                    	    // InternalDim.g:2248:7: lv_context_5_0= ruleDmxTestContext
+                    	    // InternalDim.g:2310:6: (lv_context_5_0= ruleDmxTestContext )
+                    	    // InternalDim.g:2311:7: lv_context_5_0= ruleDmxTestContext
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -6244,11 +6361,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_6, grammarAccess.getDmxTestAccess().getLeftCurlyBracketKeyword_3());
               		
             }
-            // InternalDim.g:2271:3: ( (lv_expr_7_0= ruleDExpression ) )
-            // InternalDim.g:2272:4: (lv_expr_7_0= ruleDExpression )
+            // InternalDim.g:2334:3: ( (lv_expr_7_0= ruleDExpression ) )
+            // InternalDim.g:2335:4: (lv_expr_7_0= ruleDExpression )
             {
-            // InternalDim.g:2272:4: (lv_expr_7_0= ruleDExpression )
-            // InternalDim.g:2273:5: lv_expr_7_0= ruleDExpression
+            // InternalDim.g:2335:4: (lv_expr_7_0= ruleDExpression )
+            // InternalDim.g:2336:5: lv_expr_7_0= ruleDExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -6310,7 +6427,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxTestContext"
-    // InternalDim.g:2298:1: entryRuleDmxTestContext returns [EObject current=null] : iv_ruleDmxTestContext= ruleDmxTestContext EOF ;
+    // InternalDim.g:2361:1: entryRuleDmxTestContext returns [EObject current=null] : iv_ruleDmxTestContext= ruleDmxTestContext EOF ;
     public final EObject entryRuleDmxTestContext() throws RecognitionException {
         EObject current = null;
 
@@ -6318,8 +6435,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2298:55: (iv_ruleDmxTestContext= ruleDmxTestContext EOF )
-            // InternalDim.g:2299:2: iv_ruleDmxTestContext= ruleDmxTestContext EOF
+            // InternalDim.g:2361:55: (iv_ruleDmxTestContext= ruleDmxTestContext EOF )
+            // InternalDim.g:2362:2: iv_ruleDmxTestContext= ruleDmxTestContext EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxTestContextRule()); 
@@ -6350,7 +6467,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTestContext"
-    // InternalDim.g:2305:1: ruleDmxTestContext returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? ) ;
+    // InternalDim.g:2368:1: ruleDmxTestContext returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? ) ;
     public final EObject ruleDmxTestContext() throws RecognitionException {
         EObject current = null;
 
@@ -6369,17 +6486,17 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2311:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? ) )
-            // InternalDim.g:2312:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? )
+            // InternalDim.g:2374:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? ) )
+            // InternalDim.g:2375:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? )
             {
-            // InternalDim.g:2312:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? )
-            // InternalDim.g:2313:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )?
+            // InternalDim.g:2375:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )? )
+            // InternalDim.g:2376:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (otherlv_2= RULE_ID ) ) ( (lv_multiplicity_3_0= ruleDMultiplicity ) )? (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )?
             {
-            // InternalDim.g:2313:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:2314:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2376:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:2377:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:2314:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:2315:5: lv_name_0_0= RULE_ID
+            // InternalDim.g:2377:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2378:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_41); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6411,11 +6528,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxTestContextAccess().getColonKeyword_1());
               		
             }
-            // InternalDim.g:2335:3: ( (otherlv_2= RULE_ID ) )
-            // InternalDim.g:2336:4: (otherlv_2= RULE_ID )
+            // InternalDim.g:2398:3: ( (otherlv_2= RULE_ID ) )
+            // InternalDim.g:2399:4: (otherlv_2= RULE_ID )
             {
-            // InternalDim.g:2336:4: (otherlv_2= RULE_ID )
-            // InternalDim.g:2337:5: otherlv_2= RULE_ID
+            // InternalDim.g:2399:4: (otherlv_2= RULE_ID )
+            // InternalDim.g:2400:5: otherlv_2= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -6436,7 +6553,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2348:3: ( (lv_multiplicity_3_0= ruleDMultiplicity ) )?
+            // InternalDim.g:2411:3: ( (lv_multiplicity_3_0= ruleDMultiplicity ) )?
             int alt60=2;
             int LA60_0 = input.LA(1);
 
@@ -6445,10 +6562,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt60) {
                 case 1 :
-                    // InternalDim.g:2349:4: (lv_multiplicity_3_0= ruleDMultiplicity )
+                    // InternalDim.g:2412:4: (lv_multiplicity_3_0= ruleDMultiplicity )
                     {
-                    // InternalDim.g:2349:4: (lv_multiplicity_3_0= ruleDMultiplicity )
-                    // InternalDim.g:2350:5: lv_multiplicity_3_0= ruleDMultiplicity
+                    // InternalDim.g:2412:4: (lv_multiplicity_3_0= ruleDMultiplicity )
+                    // InternalDim.g:2413:5: lv_multiplicity_3_0= ruleDMultiplicity
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6482,7 +6599,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2367:3: (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )?
+            // InternalDim.g:2430:3: (otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) ) )?
             int alt62=2;
             int LA62_0 = input.LA(1);
 
@@ -6491,7 +6608,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt62) {
                 case 1 :
-                    // InternalDim.g:2368:4: otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) )
+                    // InternalDim.g:2431:4: otherlv_4= ':=' ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) )
                     {
                     otherlv_4=(Token)match(input,47,FOLLOW_50); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -6499,7 +6616,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_4, grammarAccess.getDmxTestContextAccess().getColonEqualsSignKeyword_4_0());
                       			
                     }
-                    // InternalDim.g:2372:4: ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) )
+                    // InternalDim.g:2435:4: ( ( (lv_value_5_0= ruleDmxLiteralExpression ) ) | ( (lv_value_6_0= ruleDmxLiteralListExpression ) ) )
                     int alt61=2;
                     int LA61_0 = input.LA(1);
 
@@ -6518,13 +6635,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt61) {
                         case 1 :
-                            // InternalDim.g:2373:5: ( (lv_value_5_0= ruleDmxLiteralExpression ) )
+                            // InternalDim.g:2436:5: ( (lv_value_5_0= ruleDmxLiteralExpression ) )
                             {
-                            // InternalDim.g:2373:5: ( (lv_value_5_0= ruleDmxLiteralExpression ) )
-                            // InternalDim.g:2374:6: (lv_value_5_0= ruleDmxLiteralExpression )
+                            // InternalDim.g:2436:5: ( (lv_value_5_0= ruleDmxLiteralExpression ) )
+                            // InternalDim.g:2437:6: (lv_value_5_0= ruleDmxLiteralExpression )
                             {
-                            // InternalDim.g:2374:6: (lv_value_5_0= ruleDmxLiteralExpression )
-                            // InternalDim.g:2375:7: lv_value_5_0= ruleDmxLiteralExpression
+                            // InternalDim.g:2437:6: (lv_value_5_0= ruleDmxLiteralExpression )
+                            // InternalDim.g:2438:7: lv_value_5_0= ruleDmxLiteralExpression
                             {
                             if ( state.backtracking==0 ) {
 
@@ -6559,13 +6676,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalDim.g:2393:5: ( (lv_value_6_0= ruleDmxLiteralListExpression ) )
+                            // InternalDim.g:2456:5: ( (lv_value_6_0= ruleDmxLiteralListExpression ) )
                             {
-                            // InternalDim.g:2393:5: ( (lv_value_6_0= ruleDmxLiteralListExpression ) )
-                            // InternalDim.g:2394:6: (lv_value_6_0= ruleDmxLiteralListExpression )
+                            // InternalDim.g:2456:5: ( (lv_value_6_0= ruleDmxLiteralListExpression ) )
+                            // InternalDim.g:2457:6: (lv_value_6_0= ruleDmxLiteralListExpression )
                             {
-                            // InternalDim.g:2394:6: (lv_value_6_0= ruleDmxLiteralListExpression )
-                            // InternalDim.g:2395:7: lv_value_6_0= ruleDmxLiteralListExpression
+                            // InternalDim.g:2457:6: (lv_value_6_0= ruleDmxLiteralListExpression )
+                            // InternalDim.g:2458:7: lv_value_6_0= ruleDmxLiteralListExpression
                             {
                             if ( state.backtracking==0 ) {
 
@@ -6633,7 +6750,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxBaseTypeSet"
-    // InternalDim.g:2418:1: entryRuleDmxBaseTypeSet returns [EObject current=null] : iv_ruleDmxBaseTypeSet= ruleDmxBaseTypeSet EOF ;
+    // InternalDim.g:2481:1: entryRuleDmxBaseTypeSet returns [EObject current=null] : iv_ruleDmxBaseTypeSet= ruleDmxBaseTypeSet EOF ;
     public final EObject entryRuleDmxBaseTypeSet() throws RecognitionException {
         EObject current = null;
 
@@ -6641,8 +6758,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2418:55: (iv_ruleDmxBaseTypeSet= ruleDmxBaseTypeSet EOF )
-            // InternalDim.g:2419:2: iv_ruleDmxBaseTypeSet= ruleDmxBaseTypeSet EOF
+            // InternalDim.g:2481:55: (iv_ruleDmxBaseTypeSet= ruleDmxBaseTypeSet EOF )
+            // InternalDim.g:2482:2: iv_ruleDmxBaseTypeSet= ruleDmxBaseTypeSet EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxBaseTypeSetRule()); 
@@ -6673,7 +6790,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxBaseTypeSet"
-    // InternalDim.g:2425:1: ruleDmxBaseTypeSet returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' ) ;
+    // InternalDim.g:2488:1: ruleDmxBaseTypeSet returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' ) ;
     public final EObject ruleDmxBaseTypeSet() throws RecognitionException {
         EObject current = null;
 
@@ -6691,17 +6808,17 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2431:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' ) )
-            // InternalDim.g:2432:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' )
+            // InternalDim.g:2494:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' ) )
+            // InternalDim.g:2495:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' )
             {
-            // InternalDim.g:2432:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' )
-            // InternalDim.g:2433:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')'
+            // InternalDim.g:2495:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')' )
+            // InternalDim.g:2496:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'in' otherlv_2= '(' ( (lv_members_3_0= ruleDmxBaseType ) ) (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+ otherlv_6= ')'
             {
-            // InternalDim.g:2433:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:2434:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2496:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:2497:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:2434:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:2435:5: lv_name_0_0= RULE_ID
+            // InternalDim.g:2497:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2498:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_51); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6739,11 +6856,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDmxBaseTypeSetAccess().getLeftParenthesisKeyword_2());
               		
             }
-            // InternalDim.g:2459:3: ( (lv_members_3_0= ruleDmxBaseType ) )
-            // InternalDim.g:2460:4: (lv_members_3_0= ruleDmxBaseType )
+            // InternalDim.g:2522:3: ( (lv_members_3_0= ruleDmxBaseType ) )
+            // InternalDim.g:2523:4: (lv_members_3_0= ruleDmxBaseType )
             {
-            // InternalDim.g:2460:4: (lv_members_3_0= ruleDmxBaseType )
-            // InternalDim.g:2461:5: lv_members_3_0= ruleDmxBaseType
+            // InternalDim.g:2523:4: (lv_members_3_0= ruleDmxBaseType )
+            // InternalDim.g:2524:5: lv_members_3_0= ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
 
@@ -6774,7 +6891,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2478:3: (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+
+            // InternalDim.g:2541:3: (otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) ) )+
             int cnt63=0;
             loop63:
             do {
@@ -6788,7 +6905,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt63) {
             	case 1 :
-            	    // InternalDim.g:2479:4: otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) )
+            	    // InternalDim.g:2542:4: otherlv_4= ',' ( (lv_members_5_0= ruleDmxBaseType ) )
             	    {
             	    otherlv_4=(Token)match(input,30,FOLLOW_53); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -6796,11 +6913,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	      				newLeafNode(otherlv_4, grammarAccess.getDmxBaseTypeSetAccess().getCommaKeyword_4_0());
             	      			
             	    }
-            	    // InternalDim.g:2483:4: ( (lv_members_5_0= ruleDmxBaseType ) )
-            	    // InternalDim.g:2484:5: (lv_members_5_0= ruleDmxBaseType )
+            	    // InternalDim.g:2546:4: ( (lv_members_5_0= ruleDmxBaseType ) )
+            	    // InternalDim.g:2547:5: (lv_members_5_0= ruleDmxBaseType )
             	    {
-            	    // InternalDim.g:2484:5: (lv_members_5_0= ruleDmxBaseType )
-            	    // InternalDim.g:2485:6: lv_members_5_0= ruleDmxBaseType
+            	    // InternalDim.g:2547:5: (lv_members_5_0= ruleDmxBaseType )
+            	    // InternalDim.g:2548:6: lv_members_5_0= ruleDmxBaseType
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -6876,7 +6993,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxArchetype"
-    // InternalDim.g:2511:1: entryRuleDmxArchetype returns [EObject current=null] : iv_ruleDmxArchetype= ruleDmxArchetype EOF ;
+    // InternalDim.g:2574:1: entryRuleDmxArchetype returns [EObject current=null] : iv_ruleDmxArchetype= ruleDmxArchetype EOF ;
     public final EObject entryRuleDmxArchetype() throws RecognitionException {
         EObject current = null;
 
@@ -6884,8 +7001,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2511:53: (iv_ruleDmxArchetype= ruleDmxArchetype EOF )
-            // InternalDim.g:2512:2: iv_ruleDmxArchetype= ruleDmxArchetype EOF
+            // InternalDim.g:2574:53: (iv_ruleDmxArchetype= ruleDmxArchetype EOF )
+            // InternalDim.g:2575:2: iv_ruleDmxArchetype= ruleDmxArchetype EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxArchetypeRule()); 
@@ -6916,7 +7033,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxArchetype"
-    // InternalDim.g:2518:1: ruleDmxArchetype returns [EObject current=null] : (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) ;
+    // InternalDim.g:2581:1: ruleDmxArchetype returns [EObject current=null] : (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) ;
     public final EObject ruleDmxArchetype() throws RecognitionException {
         EObject current = null;
 
@@ -6932,11 +7049,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2524:2: ( (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) )
-            // InternalDim.g:2525:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
+            // InternalDim.g:2587:2: ( (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) )
+            // InternalDim.g:2588:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
             {
-            // InternalDim.g:2525:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
-            // InternalDim.g:2526:3: otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )?
+            // InternalDim.g:2588:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
+            // InternalDim.g:2589:3: otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )?
             {
             otherlv_0=(Token)match(input,49,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6944,11 +7061,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getDmxArchetypeAccess().getArchetypeKeyword_0());
               		
             }
-            // InternalDim.g:2530:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:2531:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2593:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDim.g:2594:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalDim.g:2531:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:2532:5: lv_name_1_0= RULE_ID
+            // InternalDim.g:2594:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2595:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_55); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6980,11 +7097,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDmxArchetypeAccess().getIsKeyword_2());
               		
             }
-            // InternalDim.g:2552:3: ( (lv_baseType_3_0= ruleDmxBaseType ) )
-            // InternalDim.g:2553:4: (lv_baseType_3_0= ruleDmxBaseType )
+            // InternalDim.g:2615:3: ( (lv_baseType_3_0= ruleDmxBaseType ) )
+            // InternalDim.g:2616:4: (lv_baseType_3_0= ruleDmxBaseType )
             {
-            // InternalDim.g:2553:4: (lv_baseType_3_0= ruleDmxBaseType )
-            // InternalDim.g:2554:5: lv_baseType_3_0= ruleDmxBaseType
+            // InternalDim.g:2616:4: (lv_baseType_3_0= ruleDmxBaseType )
+            // InternalDim.g:2617:5: lv_baseType_3_0= ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
 
@@ -7015,7 +7132,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2571:3: ( (lv_description_4_0= ruleDRichText ) )?
+            // InternalDim.g:2634:3: ( (lv_description_4_0= ruleDRichText ) )?
             int alt64=2;
             int LA64_0 = input.LA(1);
 
@@ -7024,10 +7141,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt64) {
                 case 1 :
-                    // InternalDim.g:2572:4: (lv_description_4_0= ruleDRichText )
+                    // InternalDim.g:2635:4: (lv_description_4_0= ruleDRichText )
                     {
-                    // InternalDim.g:2572:4: (lv_description_4_0= ruleDRichText )
-                    // InternalDim.g:2573:5: lv_description_4_0= ruleDRichText
+                    // InternalDim.g:2635:4: (lv_description_4_0= ruleDRichText )
+                    // InternalDim.g:2636:5: lv_description_4_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7086,7 +7203,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxFilter"
-    // InternalDim.g:2594:1: entryRuleDmxFilter returns [EObject current=null] : iv_ruleDmxFilter= ruleDmxFilter EOF ;
+    // InternalDim.g:2657:1: entryRuleDmxFilter returns [EObject current=null] : iv_ruleDmxFilter= ruleDmxFilter EOF ;
     public final EObject entryRuleDmxFilter() throws RecognitionException {
         EObject current = null;
 
@@ -7094,8 +7211,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2594:50: (iv_ruleDmxFilter= ruleDmxFilter EOF )
-            // InternalDim.g:2595:2: iv_ruleDmxFilter= ruleDmxFilter EOF
+            // InternalDim.g:2657:50: (iv_ruleDmxFilter= ruleDmxFilter EOF )
+            // InternalDim.g:2658:2: iv_ruleDmxFilter= ruleDmxFilter EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxFilterRule()); 
@@ -7126,7 +7243,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFilter"
-    // InternalDim.g:2601:1: ruleDmxFilter returns [EObject current=null] : (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? ) ;
+    // InternalDim.g:2664:1: ruleDmxFilter returns [EObject current=null] : (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? ) ;
     public final EObject ruleDmxFilter() throws RecognitionException {
         EObject current = null;
 
@@ -7150,11 +7267,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2607:2: ( (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? ) )
-            // InternalDim.g:2608:2: (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? )
+            // InternalDim.g:2670:2: ( (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? ) )
+            // InternalDim.g:2671:2: (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? )
             {
-            // InternalDim.g:2608:2: (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? )
-            // InternalDim.g:2609:3: otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )?
+            // InternalDim.g:2671:2: (otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )? )
+            // InternalDim.g:2672:3: otherlv_0= 'filter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) ) (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )?
             {
             otherlv_0=(Token)match(input,51,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -7162,11 +7279,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getDmxFilterAccess().getFilterKeyword_0());
               		
             }
-            // InternalDim.g:2613:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDim.g:2614:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2676:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDim.g:2677:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalDim.g:2614:4: (lv_name_1_0= RULE_ID )
-            // InternalDim.g:2615:5: lv_name_1_0= RULE_ID
+            // InternalDim.g:2677:4: (lv_name_1_0= RULE_ID )
+            // InternalDim.g:2678:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_52); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -7198,7 +7315,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDmxFilterAccess().getLeftParenthesisKeyword_2());
               		
             }
-            // InternalDim.g:2635:3: ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )?
+            // InternalDim.g:2698:3: ( ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )* )?
             int alt66=2;
             int LA66_0 = input.LA(1);
 
@@ -7207,13 +7324,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt66) {
                 case 1 :
-                    // InternalDim.g:2636:4: ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )*
+                    // InternalDim.g:2699:4: ( (lv_parameters_3_0= ruleDmxFilterParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )*
                     {
-                    // InternalDim.g:2636:4: ( (lv_parameters_3_0= ruleDmxFilterParameter ) )
-                    // InternalDim.g:2637:5: (lv_parameters_3_0= ruleDmxFilterParameter )
+                    // InternalDim.g:2699:4: ( (lv_parameters_3_0= ruleDmxFilterParameter ) )
+                    // InternalDim.g:2700:5: (lv_parameters_3_0= ruleDmxFilterParameter )
                     {
-                    // InternalDim.g:2637:5: (lv_parameters_3_0= ruleDmxFilterParameter )
-                    // InternalDim.g:2638:6: lv_parameters_3_0= ruleDmxFilterParameter
+                    // InternalDim.g:2700:5: (lv_parameters_3_0= ruleDmxFilterParameter )
+                    // InternalDim.g:2701:6: lv_parameters_3_0= ruleDmxFilterParameter
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7244,7 +7361,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:2655:4: (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )*
+                    // InternalDim.g:2718:4: (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) ) )*
                     loop65:
                     do {
                         int alt65=2;
@@ -7257,7 +7374,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt65) {
                     	case 1 :
-                    	    // InternalDim.g:2656:5: otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) )
+                    	    // InternalDim.g:2719:5: otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFilterParameter ) )
                     	    {
                     	    otherlv_4=(Token)match(input,30,FOLLOW_3); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -7265,11 +7382,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     	      					newLeafNode(otherlv_4, grammarAccess.getDmxFilterAccess().getCommaKeyword_3_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:2660:5: ( (lv_parameters_5_0= ruleDmxFilterParameter ) )
-                    	    // InternalDim.g:2661:6: (lv_parameters_5_0= ruleDmxFilterParameter )
+                    	    // InternalDim.g:2723:5: ( (lv_parameters_5_0= ruleDmxFilterParameter ) )
+                    	    // InternalDim.g:2724:6: (lv_parameters_5_0= ruleDmxFilterParameter )
                     	    {
-                    	    // InternalDim.g:2661:6: (lv_parameters_5_0= ruleDmxFilterParameter )
-                    	    // InternalDim.g:2662:7: lv_parameters_5_0= ruleDmxFilterParameter
+                    	    // InternalDim.g:2724:6: (lv_parameters_5_0= ruleDmxFilterParameter )
+                    	    // InternalDim.g:2725:7: lv_parameters_5_0= ruleDmxFilterParameter
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -7327,11 +7444,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_7, grammarAccess.getDmxFilterAccess().getColonKeyword_5());
               		
             }
-            // InternalDim.g:2689:3: ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) )
-            // InternalDim.g:2690:4: (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor )
+            // InternalDim.g:2752:3: ( (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor ) )
+            // InternalDim.g:2753:4: (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor )
             {
-            // InternalDim.g:2690:4: (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor )
-            // InternalDim.g:2691:5: lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor
+            // InternalDim.g:2753:4: (lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor )
+            // InternalDim.g:2754:5: lv_typeDesc_8_0= ruleDmxFilterTypeDescriptor
             {
             if ( state.backtracking==0 ) {
 
@@ -7362,7 +7479,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2708:3: (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )?
+            // InternalDim.g:2771:3: (otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) ) )?
             int alt67=2;
             int LA67_0 = input.LA(1);
 
@@ -7371,7 +7488,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt67) {
                 case 1 :
-                    // InternalDim.g:2709:4: otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) )
+                    // InternalDim.g:2772:4: otherlv_9= 'with' ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) )
                     {
                     otherlv_9=(Token)match(input,52,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -7379,11 +7496,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_9, grammarAccess.getDmxFilterAccess().getWithKeyword_7_0());
                       			
                     }
-                    // InternalDim.g:2713:4: ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) )
-                    // InternalDim.g:2714:5: (lv_withTypeSet_10_0= ruleDmxBaseTypeSet )
+                    // InternalDim.g:2776:4: ( (lv_withTypeSet_10_0= ruleDmxBaseTypeSet ) )
+                    // InternalDim.g:2777:5: (lv_withTypeSet_10_0= ruleDmxBaseTypeSet )
                     {
-                    // InternalDim.g:2714:5: (lv_withTypeSet_10_0= ruleDmxBaseTypeSet )
-                    // InternalDim.g:2715:6: lv_withTypeSet_10_0= ruleDmxBaseTypeSet
+                    // InternalDim.g:2777:5: (lv_withTypeSet_10_0= ruleDmxBaseTypeSet )
+                    // InternalDim.g:2778:6: lv_withTypeSet_10_0= ruleDmxBaseTypeSet
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7445,7 +7562,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxFilterTypeDescriptor"
-    // InternalDim.g:2737:1: entryRuleDmxFilterTypeDescriptor returns [EObject current=null] : iv_ruleDmxFilterTypeDescriptor= ruleDmxFilterTypeDescriptor EOF ;
+    // InternalDim.g:2800:1: entryRuleDmxFilterTypeDescriptor returns [EObject current=null] : iv_ruleDmxFilterTypeDescriptor= ruleDmxFilterTypeDescriptor EOF ;
     public final EObject entryRuleDmxFilterTypeDescriptor() throws RecognitionException {
         EObject current = null;
 
@@ -7453,8 +7570,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2737:64: (iv_ruleDmxFilterTypeDescriptor= ruleDmxFilterTypeDescriptor EOF )
-            // InternalDim.g:2738:2: iv_ruleDmxFilterTypeDescriptor= ruleDmxFilterTypeDescriptor EOF
+            // InternalDim.g:2800:64: (iv_ruleDmxFilterTypeDescriptor= ruleDmxFilterTypeDescriptor EOF )
+            // InternalDim.g:2801:2: iv_ruleDmxFilterTypeDescriptor= ruleDmxFilterTypeDescriptor EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxFilterTypeDescriptorRule()); 
@@ -7485,7 +7602,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFilterTypeDescriptor"
-    // InternalDim.g:2744:1: ruleDmxFilterTypeDescriptor returns [EObject current=null] : ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? ) ;
+    // InternalDim.g:2807:1: ruleDmxFilterTypeDescriptor returns [EObject current=null] : ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? ) ;
     public final EObject ruleDmxFilterTypeDescriptor() throws RecognitionException {
         EObject current = null;
 
@@ -7498,13 +7615,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2750:2: ( ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? ) )
-            // InternalDim.g:2751:2: ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? )
+            // InternalDim.g:2813:2: ( ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? ) )
+            // InternalDim.g:2814:2: ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? )
             {
-            // InternalDim.g:2751:2: ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? )
-            // InternalDim.g:2752:3: ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )?
+            // InternalDim.g:2814:2: ( ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )? )
+            // InternalDim.g:2815:3: ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) ) ( (lv_collection_2_0= '*' ) )?
             {
-            // InternalDim.g:2752:3: ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) )
+            // InternalDim.g:2815:3: ( ( (lv_single_0_0= ruleDmxBaseType ) ) | ( (otherlv_1= RULE_ID ) ) )
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -7523,13 +7640,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt68) {
                 case 1 :
-                    // InternalDim.g:2753:4: ( (lv_single_0_0= ruleDmxBaseType ) )
+                    // InternalDim.g:2816:4: ( (lv_single_0_0= ruleDmxBaseType ) )
                     {
-                    // InternalDim.g:2753:4: ( (lv_single_0_0= ruleDmxBaseType ) )
-                    // InternalDim.g:2754:5: (lv_single_0_0= ruleDmxBaseType )
+                    // InternalDim.g:2816:4: ( (lv_single_0_0= ruleDmxBaseType ) )
+                    // InternalDim.g:2817:5: (lv_single_0_0= ruleDmxBaseType )
                     {
-                    // InternalDim.g:2754:5: (lv_single_0_0= ruleDmxBaseType )
-                    // InternalDim.g:2755:6: lv_single_0_0= ruleDmxBaseType
+                    // InternalDim.g:2817:5: (lv_single_0_0= ruleDmxBaseType )
+                    // InternalDim.g:2818:6: lv_single_0_0= ruleDmxBaseType
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7564,13 +7681,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:2773:4: ( (otherlv_1= RULE_ID ) )
+                    // InternalDim.g:2836:4: ( (otherlv_1= RULE_ID ) )
                     {
-                    // InternalDim.g:2773:4: ( (otherlv_1= RULE_ID ) )
-                    // InternalDim.g:2774:5: (otherlv_1= RULE_ID )
+                    // InternalDim.g:2836:4: ( (otherlv_1= RULE_ID ) )
+                    // InternalDim.g:2837:5: (otherlv_1= RULE_ID )
                     {
-                    // InternalDim.g:2774:5: (otherlv_1= RULE_ID )
-                    // InternalDim.g:2775:6: otherlv_1= RULE_ID
+                    // InternalDim.g:2837:5: (otherlv_1= RULE_ID )
+                    // InternalDim.g:2838:6: otherlv_1= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7597,7 +7714,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:2787:3: ( (lv_collection_2_0= '*' ) )?
+            // InternalDim.g:2850:3: ( (lv_collection_2_0= '*' ) )?
             int alt69=2;
             int LA69_0 = input.LA(1);
 
@@ -7606,10 +7723,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt69) {
                 case 1 :
-                    // InternalDim.g:2788:4: (lv_collection_2_0= '*' )
+                    // InternalDim.g:2851:4: (lv_collection_2_0= '*' )
                     {
-                    // InternalDim.g:2788:4: (lv_collection_2_0= '*' )
-                    // InternalDim.g:2789:5: lv_collection_2_0= '*'
+                    // InternalDim.g:2851:4: (lv_collection_2_0= '*' )
+                    // InternalDim.g:2852:5: lv_collection_2_0= '*'
                     {
                     lv_collection_2_0=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -7659,7 +7776,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxFilterParameter"
-    // InternalDim.g:2805:1: entryRuleDmxFilterParameter returns [EObject current=null] : iv_ruleDmxFilterParameter= ruleDmxFilterParameter EOF ;
+    // InternalDim.g:2868:1: entryRuleDmxFilterParameter returns [EObject current=null] : iv_ruleDmxFilterParameter= ruleDmxFilterParameter EOF ;
     public final EObject entryRuleDmxFilterParameter() throws RecognitionException {
         EObject current = null;
 
@@ -7667,8 +7784,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2805:59: (iv_ruleDmxFilterParameter= ruleDmxFilterParameter EOF )
-            // InternalDim.g:2806:2: iv_ruleDmxFilterParameter= ruleDmxFilterParameter EOF
+            // InternalDim.g:2868:59: (iv_ruleDmxFilterParameter= ruleDmxFilterParameter EOF )
+            // InternalDim.g:2869:2: iv_ruleDmxFilterParameter= ruleDmxFilterParameter EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxFilterParameterRule()); 
@@ -7699,7 +7816,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFilterParameter"
-    // InternalDim.g:2812:1: ruleDmxFilterParameter returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) ) ;
+    // InternalDim.g:2875:1: ruleDmxFilterParameter returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) ) ;
     public final EObject ruleDmxFilterParameter() throws RecognitionException {
         EObject current = null;
 
@@ -7712,17 +7829,17 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2818:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) ) )
-            // InternalDim.g:2819:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) )
+            // InternalDim.g:2881:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) ) )
+            // InternalDim.g:2882:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) )
             {
-            // InternalDim.g:2819:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) )
-            // InternalDim.g:2820:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) )
+            // InternalDim.g:2882:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) ) )
+            // InternalDim.g:2883:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) )
             {
-            // InternalDim.g:2820:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:2821:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2883:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:2884:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:2821:4: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:2822:5: lv_name_0_0= RULE_ID
+            // InternalDim.g:2884:4: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:2885:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_41); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -7754,11 +7871,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxFilterParameterAccess().getColonKeyword_1());
               		
             }
-            // InternalDim.g:2842:3: ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) )
-            // InternalDim.g:2843:4: (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor )
+            // InternalDim.g:2905:3: ( (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor ) )
+            // InternalDim.g:2906:4: (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor )
             {
-            // InternalDim.g:2843:4: (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor )
-            // InternalDim.g:2844:5: lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor
+            // InternalDim.g:2906:4: (lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor )
+            // InternalDim.g:2907:5: lv_typeDesc_2_0= ruleDmxFilterTypeDescriptor
             {
             if ( state.backtracking==0 ) {
 
@@ -7814,7 +7931,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDExpression"
-    // InternalDim.g:2865:1: entryRuleDExpression returns [EObject current=null] : iv_ruleDExpression= ruleDExpression EOF ;
+    // InternalDim.g:2928:1: entryRuleDExpression returns [EObject current=null] : iv_ruleDExpression= ruleDExpression EOF ;
     public final EObject entryRuleDExpression() throws RecognitionException {
         EObject current = null;
 
@@ -7822,8 +7939,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2865:52: (iv_ruleDExpression= ruleDExpression EOF )
-            // InternalDim.g:2866:2: iv_ruleDExpression= ruleDExpression EOF
+            // InternalDim.g:2928:52: (iv_ruleDExpression= ruleDExpression EOF )
+            // InternalDim.g:2929:2: iv_ruleDExpression= ruleDExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDExpressionRule()); 
@@ -7854,7 +7971,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDExpression"
-    // InternalDim.g:2872:1: ruleDExpression returns [EObject current=null] : (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText ) ;
+    // InternalDim.g:2935:1: ruleDExpression returns [EObject current=null] : (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText ) ;
     public final EObject ruleDExpression() throws RecognitionException {
         EObject current = null;
 
@@ -7869,10 +7986,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2878:2: ( (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText ) )
-            // InternalDim.g:2879:2: (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText )
+            // InternalDim.g:2941:2: ( (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText ) )
+            // InternalDim.g:2942:2: (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText )
             {
-            // InternalDim.g:2879:2: (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText )
+            // InternalDim.g:2942:2: (this_DmxAssignment_0= ruleDmxAssignment | this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable | this_DRichText_2= ruleDRichText )
             int alt70=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -7933,7 +8050,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt70) {
                 case 1 :
-                    // InternalDim.g:2880:3: this_DmxAssignment_0= ruleDmxAssignment
+                    // InternalDim.g:2943:3: this_DmxAssignment_0= ruleDmxAssignment
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7955,7 +8072,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:2889:3: this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable
+                    // InternalDim.g:2952:3: this_DmxPredicateWithCorrelationVariable_1= ruleDmxPredicateWithCorrelationVariable
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7977,7 +8094,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:2898:3: this_DRichText_2= ruleDRichText
+                    // InternalDim.g:2961:3: this_DRichText_2= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
@@ -8023,7 +8140,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDRichText"
-    // InternalDim.g:2910:1: entryRuleDRichText returns [EObject current=null] : iv_ruleDRichText= ruleDRichText EOF ;
+    // InternalDim.g:2973:1: entryRuleDRichText returns [EObject current=null] : iv_ruleDRichText= ruleDRichText EOF ;
     public final EObject entryRuleDRichText() throws RecognitionException {
         EObject current = null;
 
@@ -8031,8 +8148,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:2910:50: (iv_ruleDRichText= ruleDRichText EOF )
-            // InternalDim.g:2911:2: iv_ruleDRichText= ruleDRichText EOF
+            // InternalDim.g:2973:50: (iv_ruleDRichText= ruleDRichText EOF )
+            // InternalDim.g:2974:2: iv_ruleDRichText= ruleDRichText EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDRichTextRule()); 
@@ -8063,7 +8180,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDRichText"
-    // InternalDim.g:2917:1: ruleDRichText returns [EObject current=null] : ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) ) ;
+    // InternalDim.g:2980:1: ruleDRichText returns [EObject current=null] : ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) ) ;
     public final EObject ruleDRichText() throws RecognitionException {
         EObject current = null;
 
@@ -8084,10 +8201,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:2923:2: ( ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) ) )
-            // InternalDim.g:2924:2: ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) )
+            // InternalDim.g:2986:2: ( ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) ) )
+            // InternalDim.g:2987:2: ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) )
             {
-            // InternalDim.g:2924:2: ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) )
+            // InternalDim.g:2987:2: ( ( (lv_segments_0_0= ruleDmxTextOnly ) ) | ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) ) )
             int alt72=2;
             int LA72_0 = input.LA(1);
 
@@ -8106,13 +8223,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt72) {
                 case 1 :
-                    // InternalDim.g:2925:3: ( (lv_segments_0_0= ruleDmxTextOnly ) )
+                    // InternalDim.g:2988:3: ( (lv_segments_0_0= ruleDmxTextOnly ) )
                     {
-                    // InternalDim.g:2925:3: ( (lv_segments_0_0= ruleDmxTextOnly ) )
-                    // InternalDim.g:2926:4: (lv_segments_0_0= ruleDmxTextOnly )
+                    // InternalDim.g:2988:3: ( (lv_segments_0_0= ruleDmxTextOnly ) )
+                    // InternalDim.g:2989:4: (lv_segments_0_0= ruleDmxTextOnly )
                     {
-                    // InternalDim.g:2926:4: (lv_segments_0_0= ruleDmxTextOnly )
-                    // InternalDim.g:2927:5: lv_segments_0_0= ruleDmxTextOnly
+                    // InternalDim.g:2989:4: (lv_segments_0_0= ruleDmxTextOnly )
+                    // InternalDim.g:2990:5: lv_segments_0_0= ruleDmxTextOnly
                     {
                     if ( state.backtracking==0 ) {
 
@@ -8147,16 +8264,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:2945:3: ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) )
+                    // InternalDim.g:3008:3: ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) )
                     {
-                    // InternalDim.g:2945:3: ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) )
-                    // InternalDim.g:2946:4: ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) )
+                    // InternalDim.g:3008:3: ( ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) ) )
+                    // InternalDim.g:3009:4: ( (lv_segments_1_0= ruleDmxTextStart ) ) ( (lv_segments_2_0= ruleDExpression ) ) ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )* ( (lv_segments_5_0= ruleDmxTextEnd ) )
                     {
-                    // InternalDim.g:2946:4: ( (lv_segments_1_0= ruleDmxTextStart ) )
-                    // InternalDim.g:2947:5: (lv_segments_1_0= ruleDmxTextStart )
+                    // InternalDim.g:3009:4: ( (lv_segments_1_0= ruleDmxTextStart ) )
+                    // InternalDim.g:3010:5: (lv_segments_1_0= ruleDmxTextStart )
                     {
-                    // InternalDim.g:2947:5: (lv_segments_1_0= ruleDmxTextStart )
-                    // InternalDim.g:2948:6: lv_segments_1_0= ruleDmxTextStart
+                    // InternalDim.g:3010:5: (lv_segments_1_0= ruleDmxTextStart )
+                    // InternalDim.g:3011:6: lv_segments_1_0= ruleDmxTextStart
                     {
                     if ( state.backtracking==0 ) {
 
@@ -8187,11 +8304,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:2965:4: ( (lv_segments_2_0= ruleDExpression ) )
-                    // InternalDim.g:2966:5: (lv_segments_2_0= ruleDExpression )
+                    // InternalDim.g:3028:4: ( (lv_segments_2_0= ruleDExpression ) )
+                    // InternalDim.g:3029:5: (lv_segments_2_0= ruleDExpression )
                     {
-                    // InternalDim.g:2966:5: (lv_segments_2_0= ruleDExpression )
-                    // InternalDim.g:2967:6: lv_segments_2_0= ruleDExpression
+                    // InternalDim.g:3029:5: (lv_segments_2_0= ruleDExpression )
+                    // InternalDim.g:3030:6: lv_segments_2_0= ruleDExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -8222,7 +8339,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:2984:4: ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )*
+                    // InternalDim.g:3047:4: ( ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) ) )*
                     loop71:
                     do {
                         int alt71=2;
@@ -8235,13 +8352,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt71) {
                     	case 1 :
-                    	    // InternalDim.g:2985:5: ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) )
+                    	    // InternalDim.g:3048:5: ( (lv_segments_3_0= ruleDmxTextMiddle ) ) ( (lv_segments_4_0= ruleDExpression ) )
                     	    {
-                    	    // InternalDim.g:2985:5: ( (lv_segments_3_0= ruleDmxTextMiddle ) )
-                    	    // InternalDim.g:2986:6: (lv_segments_3_0= ruleDmxTextMiddle )
+                    	    // InternalDim.g:3048:5: ( (lv_segments_3_0= ruleDmxTextMiddle ) )
+                    	    // InternalDim.g:3049:6: (lv_segments_3_0= ruleDmxTextMiddle )
                     	    {
-                    	    // InternalDim.g:2986:6: (lv_segments_3_0= ruleDmxTextMiddle )
-                    	    // InternalDim.g:2987:7: lv_segments_3_0= ruleDmxTextMiddle
+                    	    // InternalDim.g:3049:6: (lv_segments_3_0= ruleDmxTextMiddle )
+                    	    // InternalDim.g:3050:7: lv_segments_3_0= ruleDmxTextMiddle
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -8272,11 +8389,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // InternalDim.g:3004:5: ( (lv_segments_4_0= ruleDExpression ) )
-                    	    // InternalDim.g:3005:6: (lv_segments_4_0= ruleDExpression )
+                    	    // InternalDim.g:3067:5: ( (lv_segments_4_0= ruleDExpression ) )
+                    	    // InternalDim.g:3068:6: (lv_segments_4_0= ruleDExpression )
                     	    {
-                    	    // InternalDim.g:3005:6: (lv_segments_4_0= ruleDExpression )
-                    	    // InternalDim.g:3006:7: lv_segments_4_0= ruleDExpression
+                    	    // InternalDim.g:3068:6: (lv_segments_4_0= ruleDExpression )
+                    	    // InternalDim.g:3069:7: lv_segments_4_0= ruleDExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -8316,11 +8433,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalDim.g:3024:4: ( (lv_segments_5_0= ruleDmxTextEnd ) )
-                    // InternalDim.g:3025:5: (lv_segments_5_0= ruleDmxTextEnd )
+                    // InternalDim.g:3087:4: ( (lv_segments_5_0= ruleDmxTextEnd ) )
+                    // InternalDim.g:3088:5: (lv_segments_5_0= ruleDmxTextEnd )
                     {
-                    // InternalDim.g:3025:5: (lv_segments_5_0= ruleDmxTextEnd )
-                    // InternalDim.g:3026:6: lv_segments_5_0= ruleDmxTextEnd
+                    // InternalDim.g:3088:5: (lv_segments_5_0= ruleDmxTextEnd )
+                    // InternalDim.g:3089:6: lv_segments_5_0= ruleDmxTextEnd
                     {
                     if ( state.backtracking==0 ) {
 
@@ -8382,7 +8499,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxTextOnly"
-    // InternalDim.g:3048:1: entryRuleDmxTextOnly returns [EObject current=null] : iv_ruleDmxTextOnly= ruleDmxTextOnly EOF ;
+    // InternalDim.g:3111:1: entryRuleDmxTextOnly returns [EObject current=null] : iv_ruleDmxTextOnly= ruleDmxTextOnly EOF ;
     public final EObject entryRuleDmxTextOnly() throws RecognitionException {
         EObject current = null;
 
@@ -8390,8 +8507,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3048:52: (iv_ruleDmxTextOnly= ruleDmxTextOnly EOF )
-            // InternalDim.g:3049:2: iv_ruleDmxTextOnly= ruleDmxTextOnly EOF
+            // InternalDim.g:3111:52: (iv_ruleDmxTextOnly= ruleDmxTextOnly EOF )
+            // InternalDim.g:3112:2: iv_ruleDmxTextOnly= ruleDmxTextOnly EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxTextOnlyRule()); 
@@ -8422,7 +8539,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextOnly"
-    // InternalDim.g:3055:1: ruleDmxTextOnly returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) ) ;
+    // InternalDim.g:3118:1: ruleDmxTextOnly returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) ) ;
     public final EObject ruleDmxTextOnly() throws RecognitionException {
         EObject current = null;
 
@@ -8432,14 +8549,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3061:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) ) )
-            // InternalDim.g:3062:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) )
+            // InternalDim.g:3124:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) ) )
+            // InternalDim.g:3125:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) )
             {
-            // InternalDim.g:3062:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) )
-            // InternalDim.g:3063:3: (lv_value_0_0= RULE_PLAIN_TEXT_ONLY )
+            // InternalDim.g:3125:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_ONLY ) )
+            // InternalDim.g:3126:3: (lv_value_0_0= RULE_PLAIN_TEXT_ONLY )
             {
-            // InternalDim.g:3063:3: (lv_value_0_0= RULE_PLAIN_TEXT_ONLY )
-            // InternalDim.g:3064:4: lv_value_0_0= RULE_PLAIN_TEXT_ONLY
+            // InternalDim.g:3126:3: (lv_value_0_0= RULE_PLAIN_TEXT_ONLY )
+            // InternalDim.g:3127:4: lv_value_0_0= RULE_PLAIN_TEXT_ONLY
             {
             lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_ONLY,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -8487,7 +8604,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxTextStart"
-    // InternalDim.g:3083:1: entryRuleDmxTextStart returns [EObject current=null] : iv_ruleDmxTextStart= ruleDmxTextStart EOF ;
+    // InternalDim.g:3146:1: entryRuleDmxTextStart returns [EObject current=null] : iv_ruleDmxTextStart= ruleDmxTextStart EOF ;
     public final EObject entryRuleDmxTextStart() throws RecognitionException {
         EObject current = null;
 
@@ -8495,8 +8612,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3083:53: (iv_ruleDmxTextStart= ruleDmxTextStart EOF )
-            // InternalDim.g:3084:2: iv_ruleDmxTextStart= ruleDmxTextStart EOF
+            // InternalDim.g:3146:53: (iv_ruleDmxTextStart= ruleDmxTextStart EOF )
+            // InternalDim.g:3147:2: iv_ruleDmxTextStart= ruleDmxTextStart EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxTextStartRule()); 
@@ -8527,7 +8644,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextStart"
-    // InternalDim.g:3090:1: ruleDmxTextStart returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) ;
+    // InternalDim.g:3153:1: ruleDmxTextStart returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) ;
     public final EObject ruleDmxTextStart() throws RecognitionException {
         EObject current = null;
 
@@ -8537,14 +8654,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3096:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) )
-            // InternalDim.g:3097:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
+            // InternalDim.g:3159:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) )
+            // InternalDim.g:3160:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
             {
-            // InternalDim.g:3097:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
-            // InternalDim.g:3098:3: (lv_value_0_0= RULE_RICH_TEXT_START )
+            // InternalDim.g:3160:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
+            // InternalDim.g:3161:3: (lv_value_0_0= RULE_RICH_TEXT_START )
             {
-            // InternalDim.g:3098:3: (lv_value_0_0= RULE_RICH_TEXT_START )
-            // InternalDim.g:3099:4: lv_value_0_0= RULE_RICH_TEXT_START
+            // InternalDim.g:3161:3: (lv_value_0_0= RULE_RICH_TEXT_START )
+            // InternalDim.g:3162:4: lv_value_0_0= RULE_RICH_TEXT_START
             {
             lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_START,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -8592,7 +8709,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxTextMiddle"
-    // InternalDim.g:3118:1: entryRuleDmxTextMiddle returns [EObject current=null] : iv_ruleDmxTextMiddle= ruleDmxTextMiddle EOF ;
+    // InternalDim.g:3181:1: entryRuleDmxTextMiddle returns [EObject current=null] : iv_ruleDmxTextMiddle= ruleDmxTextMiddle EOF ;
     public final EObject entryRuleDmxTextMiddle() throws RecognitionException {
         EObject current = null;
 
@@ -8600,8 +8717,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3118:54: (iv_ruleDmxTextMiddle= ruleDmxTextMiddle EOF )
-            // InternalDim.g:3119:2: iv_ruleDmxTextMiddle= ruleDmxTextMiddle EOF
+            // InternalDim.g:3181:54: (iv_ruleDmxTextMiddle= ruleDmxTextMiddle EOF )
+            // InternalDim.g:3182:2: iv_ruleDmxTextMiddle= ruleDmxTextMiddle EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxTextMiddleRule()); 
@@ -8632,7 +8749,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextMiddle"
-    // InternalDim.g:3125:1: ruleDmxTextMiddle returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) ;
+    // InternalDim.g:3188:1: ruleDmxTextMiddle returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) ;
     public final EObject ruleDmxTextMiddle() throws RecognitionException {
         EObject current = null;
 
@@ -8642,14 +8759,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3131:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) )
-            // InternalDim.g:3132:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
+            // InternalDim.g:3194:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) )
+            // InternalDim.g:3195:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
             {
-            // InternalDim.g:3132:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
-            // InternalDim.g:3133:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
+            // InternalDim.g:3195:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
+            // InternalDim.g:3196:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
             {
-            // InternalDim.g:3133:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
-            // InternalDim.g:3134:4: lv_value_0_0= RULE_RICH_TEXT_MIDDLE
+            // InternalDim.g:3196:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
+            // InternalDim.g:3197:4: lv_value_0_0= RULE_RICH_TEXT_MIDDLE
             {
             lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -8697,7 +8814,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxTextEnd"
-    // InternalDim.g:3153:1: entryRuleDmxTextEnd returns [EObject current=null] : iv_ruleDmxTextEnd= ruleDmxTextEnd EOF ;
+    // InternalDim.g:3216:1: entryRuleDmxTextEnd returns [EObject current=null] : iv_ruleDmxTextEnd= ruleDmxTextEnd EOF ;
     public final EObject entryRuleDmxTextEnd() throws RecognitionException {
         EObject current = null;
 
@@ -8705,8 +8822,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3153:51: (iv_ruleDmxTextEnd= ruleDmxTextEnd EOF )
-            // InternalDim.g:3154:2: iv_ruleDmxTextEnd= ruleDmxTextEnd EOF
+            // InternalDim.g:3216:51: (iv_ruleDmxTextEnd= ruleDmxTextEnd EOF )
+            // InternalDim.g:3217:2: iv_ruleDmxTextEnd= ruleDmxTextEnd EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxTextEndRule()); 
@@ -8737,7 +8854,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextEnd"
-    // InternalDim.g:3160:1: ruleDmxTextEnd returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) ;
+    // InternalDim.g:3223:1: ruleDmxTextEnd returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) ;
     public final EObject ruleDmxTextEnd() throws RecognitionException {
         EObject current = null;
 
@@ -8747,14 +8864,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3166:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) )
-            // InternalDim.g:3167:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
+            // InternalDim.g:3229:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) )
+            // InternalDim.g:3230:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
             {
-            // InternalDim.g:3167:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
-            // InternalDim.g:3168:3: (lv_value_0_0= RULE_RICH_TEXT_END )
+            // InternalDim.g:3230:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
+            // InternalDim.g:3231:3: (lv_value_0_0= RULE_RICH_TEXT_END )
             {
-            // InternalDim.g:3168:3: (lv_value_0_0= RULE_RICH_TEXT_END )
-            // InternalDim.g:3169:4: lv_value_0_0= RULE_RICH_TEXT_END
+            // InternalDim.g:3231:3: (lv_value_0_0= RULE_RICH_TEXT_END )
+            // InternalDim.g:3232:4: lv_value_0_0= RULE_RICH_TEXT_END
             {
             lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_END,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -8802,7 +8919,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxNavigableMemberReference"
-    // InternalDim.g:3188:1: entryRuleDmxNavigableMemberReference returns [EObject current=null] : iv_ruleDmxNavigableMemberReference= ruleDmxNavigableMemberReference EOF ;
+    // InternalDim.g:3251:1: entryRuleDmxNavigableMemberReference returns [EObject current=null] : iv_ruleDmxNavigableMemberReference= ruleDmxNavigableMemberReference EOF ;
     public final EObject entryRuleDmxNavigableMemberReference() throws RecognitionException {
         EObject current = null;
 
@@ -8810,8 +8927,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3188:68: (iv_ruleDmxNavigableMemberReference= ruleDmxNavigableMemberReference EOF )
-            // InternalDim.g:3189:2: iv_ruleDmxNavigableMemberReference= ruleDmxNavigableMemberReference EOF
+            // InternalDim.g:3251:68: (iv_ruleDmxNavigableMemberReference= ruleDmxNavigableMemberReference EOF )
+            // InternalDim.g:3252:2: iv_ruleDmxNavigableMemberReference= ruleDmxNavigableMemberReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxNavigableMemberReferenceRule()); 
@@ -8842,7 +8959,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxNavigableMemberReference"
-    // InternalDim.g:3195:1: ruleDmxNavigableMemberReference returns [EObject current=null] : (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* ) ;
+    // InternalDim.g:3258:1: ruleDmxNavigableMemberReference returns [EObject current=null] : (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* ) ;
     public final EObject ruleDmxNavigableMemberReference() throws RecognitionException {
         EObject current = null;
 
@@ -8864,11 +8981,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3201:2: ( (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* ) )
-            // InternalDim.g:3202:2: (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* )
+            // InternalDim.g:3264:2: ( (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* ) )
+            // InternalDim.g:3265:2: (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* )
             {
-            // InternalDim.g:3202:2: (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* )
-            // InternalDim.g:3203:3: this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )*
+            // InternalDim.g:3265:2: (this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )* )
+            // InternalDim.g:3266:3: this_DmxPrimaryExpression_0= ruleDmxPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -8886,7 +9003,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:3211:3: ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )*
+            // InternalDim.g:3274:3: ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? ) )*
             loop74:
             do {
                 int alt74=3;
@@ -8908,19 +9025,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt74) {
             	case 1 :
-            	    // InternalDim.g:3212:4: ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) )
+            	    // InternalDim.g:3275:4: ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) )
             	    {
-            	    // InternalDim.g:3212:4: ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) )
-            	    // InternalDim.g:3213:5: ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) )
+            	    // InternalDim.g:3275:4: ( ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) ) )
+            	    // InternalDim.g:3276:5: ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) ) ( (lv_value_5_0= ruleDmxOrExpression ) )
             	    {
-            	    // InternalDim.g:3213:5: ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) )
-            	    // InternalDim.g:3214:6: ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign )
+            	    // InternalDim.g:3276:5: ( ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign ) )
+            	    // InternalDim.g:3277:6: ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign )
             	    {
-            	    // InternalDim.g:3226:6: ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign )
-            	    // InternalDim.g:3227:7: () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign
+            	    // InternalDim.g:3289:6: ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign )
+            	    // InternalDim.g:3290:7: () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleDmxOpSingleAssign
             	    {
-            	    // InternalDim.g:3227:7: ()
-            	    // InternalDim.g:3228:8: 
+            	    // InternalDim.g:3290:7: ()
+            	    // InternalDim.g:3291:8: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -8938,11 +9055,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	      							newLeafNode(otherlv_2, grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1());
             	      						
             	    }
-            	    // InternalDim.g:3238:7: ( (otherlv_3= RULE_ID ) )
-            	    // InternalDim.g:3239:8: (otherlv_3= RULE_ID )
+            	    // InternalDim.g:3301:7: ( (otherlv_3= RULE_ID ) )
+            	    // InternalDim.g:3302:8: (otherlv_3= RULE_ID )
             	    {
-            	    // InternalDim.g:3239:8: (otherlv_3= RULE_ID )
-            	    // InternalDim.g:3240:9: otherlv_3= RULE_ID
+            	    // InternalDim.g:3302:8: (otherlv_3= RULE_ID )
+            	    // InternalDim.g:3303:9: otherlv_3= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -8984,11 +9101,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3260:5: ( (lv_value_5_0= ruleDmxOrExpression ) )
-            	    // InternalDim.g:3261:6: (lv_value_5_0= ruleDmxOrExpression )
+            	    // InternalDim.g:3323:5: ( (lv_value_5_0= ruleDmxOrExpression ) )
+            	    // InternalDim.g:3324:6: (lv_value_5_0= ruleDmxOrExpression )
             	    {
-            	    // InternalDim.g:3261:6: (lv_value_5_0= ruleDmxOrExpression )
-            	    // InternalDim.g:3262:7: lv_value_5_0= ruleDmxOrExpression
+            	    // InternalDim.g:3324:6: (lv_value_5_0= ruleDmxOrExpression )
+            	    // InternalDim.g:3325:7: lv_value_5_0= ruleDmxOrExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -9026,19 +9143,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDim.g:3281:4: ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? )
+            	    // InternalDim.g:3344:4: ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? )
             	    {
-            	    // InternalDim.g:3281:4: ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? )
-            	    // InternalDim.g:3282:5: ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )?
+            	    // InternalDim.g:3344:4: ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )? )
+            	    // InternalDim.g:3345:5: ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )?
             	    {
-            	    // InternalDim.g:3282:5: ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) )
-            	    // InternalDim.g:3283:6: ( ( () '.' ) )=> ( () otherlv_7= '.' )
+            	    // InternalDim.g:3345:5: ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) )
+            	    // InternalDim.g:3346:6: ( ( () '.' ) )=> ( () otherlv_7= '.' )
             	    {
-            	    // InternalDim.g:3289:6: ( () otherlv_7= '.' )
-            	    // InternalDim.g:3290:7: () otherlv_7= '.'
+            	    // InternalDim.g:3352:6: ( () otherlv_7= '.' )
+            	    // InternalDim.g:3353:7: () otherlv_7= '.'
             	    {
-            	    // InternalDim.g:3290:7: ()
-            	    // InternalDim.g:3291:8: 
+            	    // InternalDim.g:3353:7: ()
+            	    // InternalDim.g:3354:8: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -9062,11 +9179,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3303:5: ( (otherlv_8= RULE_ID ) )
-            	    // InternalDim.g:3304:6: (otherlv_8= RULE_ID )
+            	    // InternalDim.g:3366:5: ( (otherlv_8= RULE_ID ) )
+            	    // InternalDim.g:3367:6: (otherlv_8= RULE_ID )
             	    {
-            	    // InternalDim.g:3304:6: (otherlv_8= RULE_ID )
-            	    // InternalDim.g:3305:7: otherlv_8= RULE_ID
+            	    // InternalDim.g:3367:6: (otherlv_8= RULE_ID )
+            	    // InternalDim.g:3368:7: otherlv_8= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -9087,7 +9204,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3316:5: ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )?
+            	    // InternalDim.g:3379:5: ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' ) | ( (lv_before_12_0= '@before' ) ) )?
             	    int alt73=3;
             	    int LA73_0 = input.LA(1);
 
@@ -9099,16 +9216,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt73) {
             	        case 1 :
-            	            // InternalDim.g:3317:6: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' )
+            	            // InternalDim.g:3380:6: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' )
             	            {
-            	            // InternalDim.g:3317:6: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' )
-            	            // InternalDim.g:3318:7: ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')'
+            	            // InternalDim.g:3380:6: ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')' )
+            	            // InternalDim.g:3381:7: ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( (lv_callArguments_10_0= ruleDmxCallArguments ) ) otherlv_11= ')'
             	            {
-            	            // InternalDim.g:3318:7: ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) )
-            	            // InternalDim.g:3319:8: ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' )
+            	            // InternalDim.g:3381:7: ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) )
+            	            // InternalDim.g:3382:8: ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' )
             	            {
-            	            // InternalDim.g:3323:8: (lv_explicitOperationCall_9_0= '(' )
-            	            // InternalDim.g:3324:9: lv_explicitOperationCall_9_0= '('
+            	            // InternalDim.g:3386:8: (lv_explicitOperationCall_9_0= '(' )
+            	            // InternalDim.g:3387:9: lv_explicitOperationCall_9_0= '('
             	            {
             	            lv_explicitOperationCall_9_0=(Token)match(input,41,FOLLOW_64); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
@@ -9130,11 +9247,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            // InternalDim.g:3336:7: ( (lv_callArguments_10_0= ruleDmxCallArguments ) )
-            	            // InternalDim.g:3337:8: (lv_callArguments_10_0= ruleDmxCallArguments )
+            	            // InternalDim.g:3399:7: ( (lv_callArguments_10_0= ruleDmxCallArguments ) )
+            	            // InternalDim.g:3400:8: (lv_callArguments_10_0= ruleDmxCallArguments )
             	            {
-            	            // InternalDim.g:3337:8: (lv_callArguments_10_0= ruleDmxCallArguments )
-            	            // InternalDim.g:3338:9: lv_callArguments_10_0= ruleDmxCallArguments
+            	            // InternalDim.g:3400:8: (lv_callArguments_10_0= ruleDmxCallArguments )
+            	            // InternalDim.g:3401:9: lv_callArguments_10_0= ruleDmxCallArguments
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9178,13 +9295,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalDim.g:3361:6: ( (lv_before_12_0= '@before' ) )
+            	            // InternalDim.g:3424:6: ( (lv_before_12_0= '@before' ) )
             	            {
-            	            // InternalDim.g:3361:6: ( (lv_before_12_0= '@before' ) )
-            	            // InternalDim.g:3362:7: (lv_before_12_0= '@before' )
+            	            // InternalDim.g:3424:6: ( (lv_before_12_0= '@before' ) )
+            	            // InternalDim.g:3425:7: (lv_before_12_0= '@before' )
             	            {
-            	            // InternalDim.g:3362:7: (lv_before_12_0= '@before' )
-            	            // InternalDim.g:3363:8: lv_before_12_0= '@before'
+            	            // InternalDim.g:3425:7: (lv_before_12_0= '@before' )
+            	            // InternalDim.g:3426:8: lv_before_12_0= '@before'
             	            {
             	            lv_before_12_0=(Token)match(input,55,FOLLOW_60); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
@@ -9249,7 +9366,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxCallArguments"
-    // InternalDim.g:3382:1: entryRuleDmxCallArguments returns [EObject current=null] : iv_ruleDmxCallArguments= ruleDmxCallArguments EOF ;
+    // InternalDim.g:3445:1: entryRuleDmxCallArguments returns [EObject current=null] : iv_ruleDmxCallArguments= ruleDmxCallArguments EOF ;
     public final EObject entryRuleDmxCallArguments() throws RecognitionException {
         EObject current = null;
 
@@ -9257,8 +9374,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3382:57: (iv_ruleDmxCallArguments= ruleDmxCallArguments EOF )
-            // InternalDim.g:3383:2: iv_ruleDmxCallArguments= ruleDmxCallArguments EOF
+            // InternalDim.g:3445:57: (iv_ruleDmxCallArguments= ruleDmxCallArguments EOF )
+            // InternalDim.g:3446:2: iv_ruleDmxCallArguments= ruleDmxCallArguments EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxCallArgumentsRule()); 
@@ -9289,7 +9406,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxCallArguments"
-    // InternalDim.g:3389:1: ruleDmxCallArguments returns [EObject current=null] : ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? ) ;
+    // InternalDim.g:3452:1: ruleDmxCallArguments returns [EObject current=null] : ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? ) ;
     public final EObject ruleDmxCallArguments() throws RecognitionException {
         EObject current = null;
 
@@ -9303,14 +9420,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3395:2: ( ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? ) )
-            // InternalDim.g:3396:2: ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? )
+            // InternalDim.g:3458:2: ( ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? ) )
+            // InternalDim.g:3459:2: ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? )
             {
-            // InternalDim.g:3396:2: ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? )
-            // InternalDim.g:3397:3: () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )?
+            // InternalDim.g:3459:2: ( () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )? )
+            // InternalDim.g:3460:3: () ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )?
             {
-            // InternalDim.g:3397:3: ()
-            // InternalDim.g:3398:4: 
+            // InternalDim.g:3460:3: ()
+            // InternalDim.g:3461:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -9322,7 +9439,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:3404:3: ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )?
+            // InternalDim.g:3467:3: ( ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )* )?
             int alt76=2;
             int LA76_0 = input.LA(1);
 
@@ -9331,13 +9448,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt76) {
                 case 1 :
-                    // InternalDim.g:3405:4: ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )*
+                    // InternalDim.g:3468:4: ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )*
                     {
-                    // InternalDim.g:3405:4: ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) )
-                    // InternalDim.g:3406:5: (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable )
+                    // InternalDim.g:3468:4: ( (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable ) )
+                    // InternalDim.g:3469:5: (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable )
                     {
-                    // InternalDim.g:3406:5: (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable )
-                    // InternalDim.g:3407:6: lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable
+                    // InternalDim.g:3469:5: (lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable )
+                    // InternalDim.g:3470:6: lv_arguments_1_0= ruleDmxPredicateWithCorrelationVariable
                     {
                     if ( state.backtracking==0 ) {
 
@@ -9368,7 +9485,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:3424:4: (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )*
+                    // InternalDim.g:3487:4: (otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) ) )*
                     loop75:
                     do {
                         int alt75=2;
@@ -9381,7 +9498,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt75) {
                     	case 1 :
-                    	    // InternalDim.g:3425:5: otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) )
+                    	    // InternalDim.g:3488:5: otherlv_2= ',' ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) )
                     	    {
                     	    otherlv_2=(Token)match(input,30,FOLLOW_62); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -9389,11 +9506,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     	      					newLeafNode(otherlv_2, grammarAccess.getDmxCallArgumentsAccess().getCommaKeyword_1_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:3429:5: ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) )
-                    	    // InternalDim.g:3430:6: (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable )
+                    	    // InternalDim.g:3492:5: ( (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable ) )
+                    	    // InternalDim.g:3493:6: (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable )
                     	    {
-                    	    // InternalDim.g:3430:6: (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable )
-                    	    // InternalDim.g:3431:7: lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable
+                    	    // InternalDim.g:3493:6: (lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable )
+                    	    // InternalDim.g:3494:7: lv_arguments_3_0= ruleDmxPredicateWithCorrelationVariable
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -9464,7 +9581,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxAssignment"
-    // InternalDim.g:3454:1: entryRuleDmxAssignment returns [EObject current=null] : iv_ruleDmxAssignment= ruleDmxAssignment EOF ;
+    // InternalDim.g:3517:1: entryRuleDmxAssignment returns [EObject current=null] : iv_ruleDmxAssignment= ruleDmxAssignment EOF ;
     public final EObject entryRuleDmxAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -9472,8 +9589,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3454:54: (iv_ruleDmxAssignment= ruleDmxAssignment EOF )
-            // InternalDim.g:3455:2: iv_ruleDmxAssignment= ruleDmxAssignment EOF
+            // InternalDim.g:3517:54: (iv_ruleDmxAssignment= ruleDmxAssignment EOF )
+            // InternalDim.g:3518:2: iv_ruleDmxAssignment= ruleDmxAssignment EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxAssignmentRule()); 
@@ -9504,7 +9621,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxAssignment"
-    // InternalDim.g:3461:1: ruleDmxAssignment returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) ) ;
+    // InternalDim.g:3524:1: ruleDmxAssignment returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) ) ;
     public final EObject ruleDmxAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -9516,14 +9633,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3467:2: ( ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) ) )
-            // InternalDim.g:3468:2: ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) )
+            // InternalDim.g:3530:2: ( ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) ) )
+            // InternalDim.g:3531:2: ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) )
             {
-            // InternalDim.g:3468:2: ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) )
-            // InternalDim.g:3469:3: () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) )
+            // InternalDim.g:3531:2: ( () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) ) )
+            // InternalDim.g:3532:3: () ( (otherlv_1= RULE_ID ) ) ruleDmxOpSingleAssign ( (lv_value_3_0= ruleDmxOrExpression ) )
             {
-            // InternalDim.g:3469:3: ()
-            // InternalDim.g:3470:4: 
+            // InternalDim.g:3532:3: ()
+            // InternalDim.g:3533:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -9535,11 +9652,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:3476:3: ( (otherlv_1= RULE_ID ) )
-            // InternalDim.g:3477:4: (otherlv_1= RULE_ID )
+            // InternalDim.g:3539:3: ( (otherlv_1= RULE_ID ) )
+            // InternalDim.g:3540:4: (otherlv_1= RULE_ID )
             {
-            // InternalDim.g:3477:4: (otherlv_1= RULE_ID )
-            // InternalDim.g:3478:5: otherlv_1= RULE_ID
+            // InternalDim.g:3540:4: (otherlv_1= RULE_ID )
+            // InternalDim.g:3541:5: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -9575,11 +9692,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:3496:3: ( (lv_value_3_0= ruleDmxOrExpression ) )
-            // InternalDim.g:3497:4: (lv_value_3_0= ruleDmxOrExpression )
+            // InternalDim.g:3559:3: ( (lv_value_3_0= ruleDmxOrExpression ) )
+            // InternalDim.g:3560:4: (lv_value_3_0= ruleDmxOrExpression )
             {
-            // InternalDim.g:3497:4: (lv_value_3_0= ruleDmxOrExpression )
-            // InternalDim.g:3498:5: lv_value_3_0= ruleDmxOrExpression
+            // InternalDim.g:3560:4: (lv_value_3_0= ruleDmxOrExpression )
+            // InternalDim.g:3561:5: lv_value_3_0= ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -9635,7 +9752,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxOpSingleAssign"
-    // InternalDim.g:3519:1: entryRuleDmxOpSingleAssign returns [String current=null] : iv_ruleDmxOpSingleAssign= ruleDmxOpSingleAssign EOF ;
+    // InternalDim.g:3582:1: entryRuleDmxOpSingleAssign returns [String current=null] : iv_ruleDmxOpSingleAssign= ruleDmxOpSingleAssign EOF ;
     public final String entryRuleDmxOpSingleAssign() throws RecognitionException {
         String current = null;
 
@@ -9643,8 +9760,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3519:57: (iv_ruleDmxOpSingleAssign= ruleDmxOpSingleAssign EOF )
-            // InternalDim.g:3520:2: iv_ruleDmxOpSingleAssign= ruleDmxOpSingleAssign EOF
+            // InternalDim.g:3582:57: (iv_ruleDmxOpSingleAssign= ruleDmxOpSingleAssign EOF )
+            // InternalDim.g:3583:2: iv_ruleDmxOpSingleAssign= ruleDmxOpSingleAssign EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxOpSingleAssignRule()); 
@@ -9675,7 +9792,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpSingleAssign"
-    // InternalDim.g:3526:1: ruleDmxOpSingleAssign returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= ':=' ;
+    // InternalDim.g:3589:1: ruleDmxOpSingleAssign returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= ':=' ;
     public final AntlrDatatypeRuleToken ruleDmxOpSingleAssign() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9685,8 +9802,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3532:2: (kw= ':=' )
-            // InternalDim.g:3533:2: kw= ':='
+            // InternalDim.g:3595:2: (kw= ':=' )
+            // InternalDim.g:3596:2: kw= ':='
             {
             kw=(Token)match(input,47,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -9717,7 +9834,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxPredicateWithCorrelationVariable"
-    // InternalDim.g:3541:1: entryRuleDmxPredicateWithCorrelationVariable returns [EObject current=null] : iv_ruleDmxPredicateWithCorrelationVariable= ruleDmxPredicateWithCorrelationVariable EOF ;
+    // InternalDim.g:3604:1: entryRuleDmxPredicateWithCorrelationVariable returns [EObject current=null] : iv_ruleDmxPredicateWithCorrelationVariable= ruleDmxPredicateWithCorrelationVariable EOF ;
     public final EObject entryRuleDmxPredicateWithCorrelationVariable() throws RecognitionException {
         EObject current = null;
 
@@ -9725,8 +9842,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3541:76: (iv_ruleDmxPredicateWithCorrelationVariable= ruleDmxPredicateWithCorrelationVariable EOF )
-            // InternalDim.g:3542:2: iv_ruleDmxPredicateWithCorrelationVariable= ruleDmxPredicateWithCorrelationVariable EOF
+            // InternalDim.g:3604:76: (iv_ruleDmxPredicateWithCorrelationVariable= ruleDmxPredicateWithCorrelationVariable EOF )
+            // InternalDim.g:3605:2: iv_ruleDmxPredicateWithCorrelationVariable= ruleDmxPredicateWithCorrelationVariable EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxPredicateWithCorrelationVariableRule()); 
@@ -9757,7 +9874,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxPredicateWithCorrelationVariable"
-    // InternalDim.g:3548:1: ruleDmxPredicateWithCorrelationVariable returns [EObject current=null] : ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression ) ;
+    // InternalDim.g:3611:1: ruleDmxPredicateWithCorrelationVariable returns [EObject current=null] : ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression ) ;
     public final EObject ruleDmxPredicateWithCorrelationVariable() throws RecognitionException {
         EObject current = null;
 
@@ -9773,10 +9890,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3554:2: ( ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression ) )
-            // InternalDim.g:3555:2: ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression )
+            // InternalDim.g:3617:2: ( ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression ) )
+            // InternalDim.g:3618:2: ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression )
             {
-            // InternalDim.g:3555:2: ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression )
+            // InternalDim.g:3618:2: ( ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) ) | this_DmxOrExpression_4= ruleDmxOrExpression )
             int alt77=2;
             int LA77_0 = input.LA(1);
 
@@ -9809,13 +9926,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt77) {
                 case 1 :
-                    // InternalDim.g:3556:3: ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) )
+                    // InternalDim.g:3619:3: ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) )
                     {
-                    // InternalDim.g:3556:3: ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) )
-                    // InternalDim.g:3557:4: () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) )
+                    // InternalDim.g:3619:3: ( () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) ) )
+                    // InternalDim.g:3620:4: () ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) ) otherlv_2= '|' ( (lv_predicate_3_0= ruleDmxOrExpression ) )
                     {
-                    // InternalDim.g:3557:4: ()
-                    // InternalDim.g:3558:5: 
+                    // InternalDim.g:3620:4: ()
+                    // InternalDim.g:3621:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -9827,11 +9944,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:3564:4: ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) )
-                    // InternalDim.g:3565:5: (lv_correlationVariable_1_0= ruleDmxCorrelationVariable )
+                    // InternalDim.g:3627:4: ( (lv_correlationVariable_1_0= ruleDmxCorrelationVariable ) )
+                    // InternalDim.g:3628:5: (lv_correlationVariable_1_0= ruleDmxCorrelationVariable )
                     {
-                    // InternalDim.g:3565:5: (lv_correlationVariable_1_0= ruleDmxCorrelationVariable )
-                    // InternalDim.g:3566:6: lv_correlationVariable_1_0= ruleDmxCorrelationVariable
+                    // InternalDim.g:3628:5: (lv_correlationVariable_1_0= ruleDmxCorrelationVariable )
+                    // InternalDim.g:3629:6: lv_correlationVariable_1_0= ruleDmxCorrelationVariable
                     {
                     if ( state.backtracking==0 ) {
 
@@ -9868,11 +9985,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_2, grammarAccess.getDmxPredicateWithCorrelationVariableAccess().getVerticalLineKeyword_0_2());
                       			
                     }
-                    // InternalDim.g:3587:4: ( (lv_predicate_3_0= ruleDmxOrExpression ) )
-                    // InternalDim.g:3588:5: (lv_predicate_3_0= ruleDmxOrExpression )
+                    // InternalDim.g:3650:4: ( (lv_predicate_3_0= ruleDmxOrExpression ) )
+                    // InternalDim.g:3651:5: (lv_predicate_3_0= ruleDmxOrExpression )
                     {
-                    // InternalDim.g:3588:5: (lv_predicate_3_0= ruleDmxOrExpression )
-                    // InternalDim.g:3589:6: lv_predicate_3_0= ruleDmxOrExpression
+                    // InternalDim.g:3651:5: (lv_predicate_3_0= ruleDmxOrExpression )
+                    // InternalDim.g:3652:6: lv_predicate_3_0= ruleDmxOrExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -9910,7 +10027,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:3608:3: this_DmxOrExpression_4= ruleDmxOrExpression
+                    // InternalDim.g:3671:3: this_DmxOrExpression_4= ruleDmxOrExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -9956,7 +10073,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxCorrelationVariable"
-    // InternalDim.g:3620:1: entryRuleDmxCorrelationVariable returns [EObject current=null] : iv_ruleDmxCorrelationVariable= ruleDmxCorrelationVariable EOF ;
+    // InternalDim.g:3683:1: entryRuleDmxCorrelationVariable returns [EObject current=null] : iv_ruleDmxCorrelationVariable= ruleDmxCorrelationVariable EOF ;
     public final EObject entryRuleDmxCorrelationVariable() throws RecognitionException {
         EObject current = null;
 
@@ -9964,8 +10081,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3620:63: (iv_ruleDmxCorrelationVariable= ruleDmxCorrelationVariable EOF )
-            // InternalDim.g:3621:2: iv_ruleDmxCorrelationVariable= ruleDmxCorrelationVariable EOF
+            // InternalDim.g:3683:63: (iv_ruleDmxCorrelationVariable= ruleDmxCorrelationVariable EOF )
+            // InternalDim.g:3684:2: iv_ruleDmxCorrelationVariable= ruleDmxCorrelationVariable EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxCorrelationVariableRule()); 
@@ -9996,7 +10113,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxCorrelationVariable"
-    // InternalDim.g:3627:1: ruleDmxCorrelationVariable returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalDim.g:3690:1: ruleDmxCorrelationVariable returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleDmxCorrelationVariable() throws RecognitionException {
         EObject current = null;
 
@@ -10006,14 +10123,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3633:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalDim.g:3634:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:3696:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalDim.g:3697:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalDim.g:3634:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalDim.g:3635:3: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:3697:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalDim.g:3698:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalDim.g:3635:3: (lv_name_0_0= RULE_ID )
-            // InternalDim.g:3636:4: lv_name_0_0= RULE_ID
+            // InternalDim.g:3698:3: (lv_name_0_0= RULE_ID )
+            // InternalDim.g:3699:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -10061,7 +10178,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxOrExpression"
-    // InternalDim.g:3655:1: entryRuleDmxOrExpression returns [EObject current=null] : iv_ruleDmxOrExpression= ruleDmxOrExpression EOF ;
+    // InternalDim.g:3718:1: entryRuleDmxOrExpression returns [EObject current=null] : iv_ruleDmxOrExpression= ruleDmxOrExpression EOF ;
     public final EObject entryRuleDmxOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10069,8 +10186,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3655:56: (iv_ruleDmxOrExpression= ruleDmxOrExpression EOF )
-            // InternalDim.g:3656:2: iv_ruleDmxOrExpression= ruleDmxOrExpression EOF
+            // InternalDim.g:3718:56: (iv_ruleDmxOrExpression= ruleDmxOrExpression EOF )
+            // InternalDim.g:3719:2: iv_ruleDmxOrExpression= ruleDmxOrExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxOrExpressionRule()); 
@@ -10101,7 +10218,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOrExpression"
-    // InternalDim.g:3662:1: ruleDmxOrExpression returns [EObject current=null] : (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* ) ;
+    // InternalDim.g:3725:1: ruleDmxOrExpression returns [EObject current=null] : (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* ) ;
     public final EObject ruleDmxOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10116,11 +10233,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3668:2: ( (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* ) )
-            // InternalDim.g:3669:2: (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* )
+            // InternalDim.g:3731:2: ( (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* ) )
+            // InternalDim.g:3732:2: (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* )
             {
-            // InternalDim.g:3669:2: (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* )
-            // InternalDim.g:3670:3: this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )*
+            // InternalDim.g:3732:2: (this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )* )
+            // InternalDim.g:3733:3: this_DmxAndExpression_0= ruleDmxAndExpression ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -10138,7 +10255,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:3678:3: ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )*
+            // InternalDim.g:3741:3: ( ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) ) )*
             loop78:
             do {
                 int alt78=2;
@@ -10192,16 +10309,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt78) {
             	case 1 :
-            	    // InternalDim.g:3679:4: ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) )
+            	    // InternalDim.g:3742:4: ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAndExpression ) )
             	    {
-            	    // InternalDim.g:3679:4: ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) )
-            	    // InternalDim.g:3680:5: ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) )
+            	    // InternalDim.g:3742:4: ( ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) ) )
+            	    // InternalDim.g:3743:5: ( ( () ( ( ruleDmxOpOr ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) )
             	    {
-            	    // InternalDim.g:3690:5: ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) )
-            	    // InternalDim.g:3691:6: () ( (lv_operator_2_0= ruleDmxOpOr ) )
+            	    // InternalDim.g:3753:5: ( () ( (lv_operator_2_0= ruleDmxOpOr ) ) )
+            	    // InternalDim.g:3754:6: () ( (lv_operator_2_0= ruleDmxOpOr ) )
             	    {
-            	    // InternalDim.g:3691:6: ()
-            	    // InternalDim.g:3692:7: 
+            	    // InternalDim.g:3754:6: ()
+            	    // InternalDim.g:3755:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10213,11 +10330,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3698:6: ( (lv_operator_2_0= ruleDmxOpOr ) )
-            	    // InternalDim.g:3699:7: (lv_operator_2_0= ruleDmxOpOr )
+            	    // InternalDim.g:3761:6: ( (lv_operator_2_0= ruleDmxOpOr ) )
+            	    // InternalDim.g:3762:7: (lv_operator_2_0= ruleDmxOpOr )
             	    {
-            	    // InternalDim.g:3699:7: (lv_operator_2_0= ruleDmxOpOr )
-            	    // InternalDim.g:3700:8: lv_operator_2_0= ruleDmxOpOr
+            	    // InternalDim.g:3762:7: (lv_operator_2_0= ruleDmxOpOr )
+            	    // InternalDim.g:3763:8: lv_operator_2_0= ruleDmxOpOr
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10254,11 +10371,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3719:4: ( (lv_rightOperand_3_0= ruleDmxAndExpression ) )
-            	    // InternalDim.g:3720:5: (lv_rightOperand_3_0= ruleDmxAndExpression )
+            	    // InternalDim.g:3782:4: ( (lv_rightOperand_3_0= ruleDmxAndExpression ) )
+            	    // InternalDim.g:3783:5: (lv_rightOperand_3_0= ruleDmxAndExpression )
             	    {
-            	    // InternalDim.g:3720:5: (lv_rightOperand_3_0= ruleDmxAndExpression )
-            	    // InternalDim.g:3721:6: lv_rightOperand_3_0= ruleDmxAndExpression
+            	    // InternalDim.g:3783:5: (lv_rightOperand_3_0= ruleDmxAndExpression )
+            	    // InternalDim.g:3784:6: lv_rightOperand_3_0= ruleDmxAndExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10323,7 +10440,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxAndExpression"
-    // InternalDim.g:3743:1: entryRuleDmxAndExpression returns [EObject current=null] : iv_ruleDmxAndExpression= ruleDmxAndExpression EOF ;
+    // InternalDim.g:3806:1: entryRuleDmxAndExpression returns [EObject current=null] : iv_ruleDmxAndExpression= ruleDmxAndExpression EOF ;
     public final EObject entryRuleDmxAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10331,8 +10448,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3743:57: (iv_ruleDmxAndExpression= ruleDmxAndExpression EOF )
-            // InternalDim.g:3744:2: iv_ruleDmxAndExpression= ruleDmxAndExpression EOF
+            // InternalDim.g:3806:57: (iv_ruleDmxAndExpression= ruleDmxAndExpression EOF )
+            // InternalDim.g:3807:2: iv_ruleDmxAndExpression= ruleDmxAndExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxAndExpressionRule()); 
@@ -10363,7 +10480,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxAndExpression"
-    // InternalDim.g:3750:1: ruleDmxAndExpression returns [EObject current=null] : (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* ) ;
+    // InternalDim.g:3813:1: ruleDmxAndExpression returns [EObject current=null] : (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* ) ;
     public final EObject ruleDmxAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10378,11 +10495,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3756:2: ( (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* ) )
-            // InternalDim.g:3757:2: (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* )
+            // InternalDim.g:3819:2: ( (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* ) )
+            // InternalDim.g:3820:2: (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* )
             {
-            // InternalDim.g:3757:2: (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* )
-            // InternalDim.g:3758:3: this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )*
+            // InternalDim.g:3820:2: (this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )* )
+            // InternalDim.g:3821:3: this_DmxEqualityExpression_0= ruleDmxEqualityExpression ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -10400,7 +10517,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:3766:3: ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )*
+            // InternalDim.g:3829:3: ( ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) ) )*
             loop79:
             do {
                 int alt79=2;
@@ -10428,16 +10545,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt79) {
             	case 1 :
-            	    // InternalDim.g:3767:4: ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) )
+            	    // InternalDim.g:3830:4: ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) )
             	    {
-            	    // InternalDim.g:3767:4: ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) )
-            	    // InternalDim.g:3768:5: ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) )
+            	    // InternalDim.g:3830:4: ( ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) ) )
+            	    // InternalDim.g:3831:5: ( ( () ( ( ruleDmxOpAnd ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) )
             	    {
-            	    // InternalDim.g:3778:5: ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) )
-            	    // InternalDim.g:3779:6: () ( (lv_operator_2_0= ruleDmxOpAnd ) )
+            	    // InternalDim.g:3841:5: ( () ( (lv_operator_2_0= ruleDmxOpAnd ) ) )
+            	    // InternalDim.g:3842:6: () ( (lv_operator_2_0= ruleDmxOpAnd ) )
             	    {
-            	    // InternalDim.g:3779:6: ()
-            	    // InternalDim.g:3780:7: 
+            	    // InternalDim.g:3842:6: ()
+            	    // InternalDim.g:3843:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10449,11 +10566,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3786:6: ( (lv_operator_2_0= ruleDmxOpAnd ) )
-            	    // InternalDim.g:3787:7: (lv_operator_2_0= ruleDmxOpAnd )
+            	    // InternalDim.g:3849:6: ( (lv_operator_2_0= ruleDmxOpAnd ) )
+            	    // InternalDim.g:3850:7: (lv_operator_2_0= ruleDmxOpAnd )
             	    {
-            	    // InternalDim.g:3787:7: (lv_operator_2_0= ruleDmxOpAnd )
-            	    // InternalDim.g:3788:8: lv_operator_2_0= ruleDmxOpAnd
+            	    // InternalDim.g:3850:7: (lv_operator_2_0= ruleDmxOpAnd )
+            	    // InternalDim.g:3851:8: lv_operator_2_0= ruleDmxOpAnd
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10490,11 +10607,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3807:4: ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) )
-            	    // InternalDim.g:3808:5: (lv_rightOperand_3_0= ruleDmxEqualityExpression )
+            	    // InternalDim.g:3870:4: ( (lv_rightOperand_3_0= ruleDmxEqualityExpression ) )
+            	    // InternalDim.g:3871:5: (lv_rightOperand_3_0= ruleDmxEqualityExpression )
             	    {
-            	    // InternalDim.g:3808:5: (lv_rightOperand_3_0= ruleDmxEqualityExpression )
-            	    // InternalDim.g:3809:6: lv_rightOperand_3_0= ruleDmxEqualityExpression
+            	    // InternalDim.g:3871:5: (lv_rightOperand_3_0= ruleDmxEqualityExpression )
+            	    // InternalDim.g:3872:6: lv_rightOperand_3_0= ruleDmxEqualityExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10559,7 +10676,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxEqualityExpression"
-    // InternalDim.g:3831:1: entryRuleDmxEqualityExpression returns [EObject current=null] : iv_ruleDmxEqualityExpression= ruleDmxEqualityExpression EOF ;
+    // InternalDim.g:3894:1: entryRuleDmxEqualityExpression returns [EObject current=null] : iv_ruleDmxEqualityExpression= ruleDmxEqualityExpression EOF ;
     public final EObject entryRuleDmxEqualityExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10567,8 +10684,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3831:62: (iv_ruleDmxEqualityExpression= ruleDmxEqualityExpression EOF )
-            // InternalDim.g:3832:2: iv_ruleDmxEqualityExpression= ruleDmxEqualityExpression EOF
+            // InternalDim.g:3894:62: (iv_ruleDmxEqualityExpression= ruleDmxEqualityExpression EOF )
+            // InternalDim.g:3895:2: iv_ruleDmxEqualityExpression= ruleDmxEqualityExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxEqualityExpressionRule()); 
@@ -10599,7 +10716,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxEqualityExpression"
-    // InternalDim.g:3838:1: ruleDmxEqualityExpression returns [EObject current=null] : (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* ) ;
+    // InternalDim.g:3901:1: ruleDmxEqualityExpression returns [EObject current=null] : (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* ) ;
     public final EObject ruleDmxEqualityExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10614,11 +10731,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3844:2: ( (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* ) )
-            // InternalDim.g:3845:2: (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* )
+            // InternalDim.g:3907:2: ( (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* ) )
+            // InternalDim.g:3908:2: (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* )
             {
-            // InternalDim.g:3845:2: (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* )
-            // InternalDim.g:3846:3: this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )*
+            // InternalDim.g:3908:2: (this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )* )
+            // InternalDim.g:3909:3: this_DmxRelationalExpression_0= ruleDmxRelationalExpression ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -10636,7 +10753,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:3854:3: ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )*
+            // InternalDim.g:3917:3: ( ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) ) )*
             loop80:
             do {
                 int alt80=2;
@@ -10679,16 +10796,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt80) {
             	case 1 :
-            	    // InternalDim.g:3855:4: ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) )
+            	    // InternalDim.g:3918:4: ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) )
             	    {
-            	    // InternalDim.g:3855:4: ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) )
-            	    // InternalDim.g:3856:5: ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) )
+            	    // InternalDim.g:3918:4: ( ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) ) )
+            	    // InternalDim.g:3919:5: ( ( () ( ( ruleDmxOpEquality ) ) ) )=> ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) )
             	    {
-            	    // InternalDim.g:3866:5: ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) )
-            	    // InternalDim.g:3867:6: () ( (lv_operator_2_0= ruleDmxOpEquality ) )
+            	    // InternalDim.g:3929:5: ( () ( (lv_operator_2_0= ruleDmxOpEquality ) ) )
+            	    // InternalDim.g:3930:6: () ( (lv_operator_2_0= ruleDmxOpEquality ) )
             	    {
-            	    // InternalDim.g:3867:6: ()
-            	    // InternalDim.g:3868:7: 
+            	    // InternalDim.g:3930:6: ()
+            	    // InternalDim.g:3931:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10700,11 +10817,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3874:6: ( (lv_operator_2_0= ruleDmxOpEquality ) )
-            	    // InternalDim.g:3875:7: (lv_operator_2_0= ruleDmxOpEquality )
+            	    // InternalDim.g:3937:6: ( (lv_operator_2_0= ruleDmxOpEquality ) )
+            	    // InternalDim.g:3938:7: (lv_operator_2_0= ruleDmxOpEquality )
             	    {
-            	    // InternalDim.g:3875:7: (lv_operator_2_0= ruleDmxOpEquality )
-            	    // InternalDim.g:3876:8: lv_operator_2_0= ruleDmxOpEquality
+            	    // InternalDim.g:3938:7: (lv_operator_2_0= ruleDmxOpEquality )
+            	    // InternalDim.g:3939:8: lv_operator_2_0= ruleDmxOpEquality
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10741,11 +10858,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3895:4: ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) )
-            	    // InternalDim.g:3896:5: (lv_rightOperand_3_0= ruleDmxRelationalExpression )
+            	    // InternalDim.g:3958:4: ( (lv_rightOperand_3_0= ruleDmxRelationalExpression ) )
+            	    // InternalDim.g:3959:5: (lv_rightOperand_3_0= ruleDmxRelationalExpression )
             	    {
-            	    // InternalDim.g:3896:5: (lv_rightOperand_3_0= ruleDmxRelationalExpression )
-            	    // InternalDim.g:3897:6: lv_rightOperand_3_0= ruleDmxRelationalExpression
+            	    // InternalDim.g:3959:5: (lv_rightOperand_3_0= ruleDmxRelationalExpression )
+            	    // InternalDim.g:3960:6: lv_rightOperand_3_0= ruleDmxRelationalExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10810,7 +10927,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxRelationalExpression"
-    // InternalDim.g:3919:1: entryRuleDmxRelationalExpression returns [EObject current=null] : iv_ruleDmxRelationalExpression= ruleDmxRelationalExpression EOF ;
+    // InternalDim.g:3982:1: entryRuleDmxRelationalExpression returns [EObject current=null] : iv_ruleDmxRelationalExpression= ruleDmxRelationalExpression EOF ;
     public final EObject entryRuleDmxRelationalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10818,8 +10935,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:3919:64: (iv_ruleDmxRelationalExpression= ruleDmxRelationalExpression EOF )
-            // InternalDim.g:3920:2: iv_ruleDmxRelationalExpression= ruleDmxRelationalExpression EOF
+            // InternalDim.g:3982:64: (iv_ruleDmxRelationalExpression= ruleDmxRelationalExpression EOF )
+            // InternalDim.g:3983:2: iv_ruleDmxRelationalExpression= ruleDmxRelationalExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxRelationalExpressionRule()); 
@@ -10850,7 +10967,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxRelationalExpression"
-    // InternalDim.g:3926:1: ruleDmxRelationalExpression returns [EObject current=null] : (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* ) ;
+    // InternalDim.g:3989:1: ruleDmxRelationalExpression returns [EObject current=null] : (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* ) ;
     public final EObject ruleDmxRelationalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10866,11 +10983,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3932:2: ( (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* ) )
-            // InternalDim.g:3933:2: (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* )
+            // InternalDim.g:3995:2: ( (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* ) )
+            // InternalDim.g:3996:2: (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* )
             {
-            // InternalDim.g:3933:2: (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* )
-            // InternalDim.g:3934:3: this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )*
+            // InternalDim.g:3996:2: (this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )* )
+            // InternalDim.g:3997:3: this_DmxOtherOperatorExpression_0= ruleDmxOtherOperatorExpression ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -10888,26 +11005,26 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:3942:3: ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )*
+            // InternalDim.g:4005:3: ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )*
             loop81:
             do {
                 int alt81=3;
                 alt81 = dfa81.predict(input);
                 switch (alt81) {
             	case 1 :
-            	    // InternalDim.g:3943:4: ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) )
+            	    // InternalDim.g:4006:4: ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) )
             	    {
-            	    // InternalDim.g:3943:4: ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) )
-            	    // InternalDim.g:3944:5: ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) )
+            	    // InternalDim.g:4006:4: ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) )
+            	    // InternalDim.g:4007:5: ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) )
             	    {
-            	    // InternalDim.g:3944:5: ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) )
-            	    // InternalDim.g:3945:6: ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf )
+            	    // InternalDim.g:4007:5: ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) )
+            	    // InternalDim.g:4008:6: ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf )
             	    {
-            	    // InternalDim.g:3951:6: ( () ruleDmxOpInstanceOf )
-            	    // InternalDim.g:3952:7: () ruleDmxOpInstanceOf
+            	    // InternalDim.g:4014:6: ( () ruleDmxOpInstanceOf )
+            	    // InternalDim.g:4015:7: () ruleDmxOpInstanceOf
             	    {
-            	    // InternalDim.g:3952:7: ()
-            	    // InternalDim.g:3953:8: 
+            	    // InternalDim.g:4015:7: ()
+            	    // InternalDim.g:4016:8: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10940,11 +11057,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:3968:5: ( (otherlv_3= RULE_ID ) )
-            	    // InternalDim.g:3969:6: (otherlv_3= RULE_ID )
+            	    // InternalDim.g:4031:5: ( (otherlv_3= RULE_ID ) )
+            	    // InternalDim.g:4032:6: (otherlv_3= RULE_ID )
             	    {
-            	    // InternalDim.g:3969:6: (otherlv_3= RULE_ID )
-            	    // InternalDim.g:3970:7: otherlv_3= RULE_ID
+            	    // InternalDim.g:4032:6: (otherlv_3= RULE_ID )
+            	    // InternalDim.g:4033:7: otherlv_3= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10972,19 +11089,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDim.g:3983:4: ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) )
+            	    // InternalDim.g:4046:4: ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) )
             	    {
-            	    // InternalDim.g:3983:4: ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) )
-            	    // InternalDim.g:3984:5: ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) )
+            	    // InternalDim.g:4046:4: ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) )
+            	    // InternalDim.g:4047:5: ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) )
             	    {
-            	    // InternalDim.g:3984:5: ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) )
-            	    // InternalDim.g:3985:6: ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) )
+            	    // InternalDim.g:4047:5: ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) )
+            	    // InternalDim.g:4048:6: ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) )
             	    {
-            	    // InternalDim.g:3995:6: ( () ( (lv_operator_5_0= ruleOpCompare ) ) )
-            	    // InternalDim.g:3996:7: () ( (lv_operator_5_0= ruleOpCompare ) )
+            	    // InternalDim.g:4058:6: ( () ( (lv_operator_5_0= ruleOpCompare ) ) )
+            	    // InternalDim.g:4059:7: () ( (lv_operator_5_0= ruleOpCompare ) )
             	    {
-            	    // InternalDim.g:3996:7: ()
-            	    // InternalDim.g:3997:8: 
+            	    // InternalDim.g:4059:7: ()
+            	    // InternalDim.g:4060:8: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -10996,11 +11113,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4003:7: ( (lv_operator_5_0= ruleOpCompare ) )
-            	    // InternalDim.g:4004:8: (lv_operator_5_0= ruleOpCompare )
+            	    // InternalDim.g:4066:7: ( (lv_operator_5_0= ruleOpCompare ) )
+            	    // InternalDim.g:4067:8: (lv_operator_5_0= ruleOpCompare )
             	    {
-            	    // InternalDim.g:4004:8: (lv_operator_5_0= ruleOpCompare )
-            	    // InternalDim.g:4005:9: lv_operator_5_0= ruleOpCompare
+            	    // InternalDim.g:4067:8: (lv_operator_5_0= ruleOpCompare )
+            	    // InternalDim.g:4068:9: lv_operator_5_0= ruleOpCompare
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11037,11 +11154,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4024:5: ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) )
-            	    // InternalDim.g:4025:6: (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression )
+            	    // InternalDim.g:4087:5: ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) )
+            	    // InternalDim.g:4088:6: (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression )
             	    {
-            	    // InternalDim.g:4025:6: (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression )
-            	    // InternalDim.g:4026:7: lv_rightOperand_6_0= ruleDmxOtherOperatorExpression
+            	    // InternalDim.g:4088:6: (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression )
+            	    // InternalDim.g:4089:7: lv_rightOperand_6_0= ruleDmxOtherOperatorExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11109,7 +11226,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxOpInstanceOf"
-    // InternalDim.g:4049:1: entryRuleDmxOpInstanceOf returns [String current=null] : iv_ruleDmxOpInstanceOf= ruleDmxOpInstanceOf EOF ;
+    // InternalDim.g:4112:1: entryRuleDmxOpInstanceOf returns [String current=null] : iv_ruleDmxOpInstanceOf= ruleDmxOpInstanceOf EOF ;
     public final String entryRuleDmxOpInstanceOf() throws RecognitionException {
         String current = null;
 
@@ -11117,8 +11234,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4049:55: (iv_ruleDmxOpInstanceOf= ruleDmxOpInstanceOf EOF )
-            // InternalDim.g:4050:2: iv_ruleDmxOpInstanceOf= ruleDmxOpInstanceOf EOF
+            // InternalDim.g:4112:55: (iv_ruleDmxOpInstanceOf= ruleDmxOpInstanceOf EOF )
+            // InternalDim.g:4113:2: iv_ruleDmxOpInstanceOf= ruleDmxOpInstanceOf EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxOpInstanceOfRule()); 
@@ -11149,7 +11266,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpInstanceOf"
-    // InternalDim.g:4056:1: ruleDmxOpInstanceOf returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'ISA' | kw= 'isa' ) ;
+    // InternalDim.g:4119:1: ruleDmxOpInstanceOf returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'ISA' | kw= 'isa' ) ;
     public final AntlrDatatypeRuleToken ruleDmxOpInstanceOf() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -11159,10 +11276,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4062:2: ( (kw= 'ISA' | kw= 'isa' ) )
-            // InternalDim.g:4063:2: (kw= 'ISA' | kw= 'isa' )
+            // InternalDim.g:4125:2: ( (kw= 'ISA' | kw= 'isa' ) )
+            // InternalDim.g:4126:2: (kw= 'ISA' | kw= 'isa' )
             {
-            // InternalDim.g:4063:2: (kw= 'ISA' | kw= 'isa' )
+            // InternalDim.g:4126:2: (kw= 'ISA' | kw= 'isa' )
             int alt82=2;
             int LA82_0 = input.LA(1);
 
@@ -11181,7 +11298,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt82) {
                 case 1 :
-                    // InternalDim.g:4064:3: kw= 'ISA'
+                    // InternalDim.g:4127:3: kw= 'ISA'
                     {
                     kw=(Token)match(input,57,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -11194,7 +11311,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:4070:3: kw= 'isa'
+                    // InternalDim.g:4133:3: kw= 'isa'
                     {
                     kw=(Token)match(input,58,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -11231,7 +11348,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxOtherOperatorExpression"
-    // InternalDim.g:4079:1: entryRuleDmxOtherOperatorExpression returns [EObject current=null] : iv_ruleDmxOtherOperatorExpression= ruleDmxOtherOperatorExpression EOF ;
+    // InternalDim.g:4142:1: entryRuleDmxOtherOperatorExpression returns [EObject current=null] : iv_ruleDmxOtherOperatorExpression= ruleDmxOtherOperatorExpression EOF ;
     public final EObject entryRuleDmxOtherOperatorExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11239,8 +11356,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4079:67: (iv_ruleDmxOtherOperatorExpression= ruleDmxOtherOperatorExpression EOF )
-            // InternalDim.g:4080:2: iv_ruleDmxOtherOperatorExpression= ruleDmxOtherOperatorExpression EOF
+            // InternalDim.g:4142:67: (iv_ruleDmxOtherOperatorExpression= ruleDmxOtherOperatorExpression EOF )
+            // InternalDim.g:4143:2: iv_ruleDmxOtherOperatorExpression= ruleDmxOtherOperatorExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxOtherOperatorExpressionRule()); 
@@ -11271,7 +11388,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOtherOperatorExpression"
-    // InternalDim.g:4086:1: ruleDmxOtherOperatorExpression returns [EObject current=null] : (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* ) ;
+    // InternalDim.g:4149:1: ruleDmxOtherOperatorExpression returns [EObject current=null] : (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* ) ;
     public final EObject ruleDmxOtherOperatorExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11286,11 +11403,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4092:2: ( (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* ) )
-            // InternalDim.g:4093:2: (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* )
+            // InternalDim.g:4155:2: ( (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* ) )
+            // InternalDim.g:4156:2: (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* )
             {
-            // InternalDim.g:4093:2: (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* )
-            // InternalDim.g:4094:3: this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )*
+            // InternalDim.g:4156:2: (this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )* )
+            // InternalDim.g:4157:3: this_DmxAdditiveExpression_0= ruleDmxAdditiveExpression ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -11308,7 +11425,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:4102:3: ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )*
+            // InternalDim.g:4165:3: ( ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) ) )*
             loop83:
             do {
                 int alt83=2;
@@ -11373,16 +11490,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt83) {
             	case 1 :
-            	    // InternalDim.g:4103:4: ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) )
+            	    // InternalDim.g:4166:4: ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) )
             	    {
-            	    // InternalDim.g:4103:4: ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) )
-            	    // InternalDim.g:4104:5: ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) )
+            	    // InternalDim.g:4166:4: ( ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) ) )
+            	    // InternalDim.g:4167:5: ( ( () ( ( ruleOpOther ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpOther ) ) )
             	    {
-            	    // InternalDim.g:4114:5: ( () ( (lv_operator_2_0= ruleOpOther ) ) )
-            	    // InternalDim.g:4115:6: () ( (lv_operator_2_0= ruleOpOther ) )
+            	    // InternalDim.g:4177:5: ( () ( (lv_operator_2_0= ruleOpOther ) ) )
+            	    // InternalDim.g:4178:6: () ( (lv_operator_2_0= ruleOpOther ) )
             	    {
-            	    // InternalDim.g:4115:6: ()
-            	    // InternalDim.g:4116:7: 
+            	    // InternalDim.g:4178:6: ()
+            	    // InternalDim.g:4179:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11394,11 +11511,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4122:6: ( (lv_operator_2_0= ruleOpOther ) )
-            	    // InternalDim.g:4123:7: (lv_operator_2_0= ruleOpOther )
+            	    // InternalDim.g:4185:6: ( (lv_operator_2_0= ruleOpOther ) )
+            	    // InternalDim.g:4186:7: (lv_operator_2_0= ruleOpOther )
             	    {
-            	    // InternalDim.g:4123:7: (lv_operator_2_0= ruleOpOther )
-            	    // InternalDim.g:4124:8: lv_operator_2_0= ruleOpOther
+            	    // InternalDim.g:4186:7: (lv_operator_2_0= ruleOpOther )
+            	    // InternalDim.g:4187:8: lv_operator_2_0= ruleOpOther
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11435,11 +11552,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4143:4: ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) )
-            	    // InternalDim.g:4144:5: (lv_rightOperand_3_0= ruleDmxAdditiveExpression )
+            	    // InternalDim.g:4206:4: ( (lv_rightOperand_3_0= ruleDmxAdditiveExpression ) )
+            	    // InternalDim.g:4207:5: (lv_rightOperand_3_0= ruleDmxAdditiveExpression )
             	    {
-            	    // InternalDim.g:4144:5: (lv_rightOperand_3_0= ruleDmxAdditiveExpression )
-            	    // InternalDim.g:4145:6: lv_rightOperand_3_0= ruleDmxAdditiveExpression
+            	    // InternalDim.g:4207:5: (lv_rightOperand_3_0= ruleDmxAdditiveExpression )
+            	    // InternalDim.g:4208:6: lv_rightOperand_3_0= ruleDmxAdditiveExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11504,7 +11621,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxAdditiveExpression"
-    // InternalDim.g:4167:1: entryRuleDmxAdditiveExpression returns [EObject current=null] : iv_ruleDmxAdditiveExpression= ruleDmxAdditiveExpression EOF ;
+    // InternalDim.g:4230:1: entryRuleDmxAdditiveExpression returns [EObject current=null] : iv_ruleDmxAdditiveExpression= ruleDmxAdditiveExpression EOF ;
     public final EObject entryRuleDmxAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11512,8 +11629,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4167:62: (iv_ruleDmxAdditiveExpression= ruleDmxAdditiveExpression EOF )
-            // InternalDim.g:4168:2: iv_ruleDmxAdditiveExpression= ruleDmxAdditiveExpression EOF
+            // InternalDim.g:4230:62: (iv_ruleDmxAdditiveExpression= ruleDmxAdditiveExpression EOF )
+            // InternalDim.g:4231:2: iv_ruleDmxAdditiveExpression= ruleDmxAdditiveExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxAdditiveExpressionRule()); 
@@ -11544,7 +11661,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxAdditiveExpression"
-    // InternalDim.g:4174:1: ruleDmxAdditiveExpression returns [EObject current=null] : (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* ) ;
+    // InternalDim.g:4237:1: ruleDmxAdditiveExpression returns [EObject current=null] : (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* ) ;
     public final EObject ruleDmxAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11559,11 +11676,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4180:2: ( (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* ) )
-            // InternalDim.g:4181:2: (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* )
+            // InternalDim.g:4243:2: ( (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* ) )
+            // InternalDim.g:4244:2: (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* )
             {
-            // InternalDim.g:4181:2: (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* )
-            // InternalDim.g:4182:3: this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )*
+            // InternalDim.g:4244:2: (this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )* )
+            // InternalDim.g:4245:3: this_DmxMultiplicativeExpression_0= ruleDmxMultiplicativeExpression ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -11581,7 +11698,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:4190:3: ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )*
+            // InternalDim.g:4253:3: ( ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) ) )*
             loop84:
             do {
                 int alt84=2;
@@ -11609,16 +11726,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt84) {
             	case 1 :
-            	    // InternalDim.g:4191:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) )
+            	    // InternalDim.g:4254:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) )
             	    {
-            	    // InternalDim.g:4191:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) )
-            	    // InternalDim.g:4192:5: ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) )
+            	    // InternalDim.g:4254:4: ( ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) ) )
+            	    // InternalDim.g:4255:5: ( ( () ( ( ruleOpAdd ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpAdd ) ) )
             	    {
-            	    // InternalDim.g:4202:5: ( () ( (lv_operator_2_0= ruleOpAdd ) ) )
-            	    // InternalDim.g:4203:6: () ( (lv_operator_2_0= ruleOpAdd ) )
+            	    // InternalDim.g:4265:5: ( () ( (lv_operator_2_0= ruleOpAdd ) ) )
+            	    // InternalDim.g:4266:6: () ( (lv_operator_2_0= ruleOpAdd ) )
             	    {
-            	    // InternalDim.g:4203:6: ()
-            	    // InternalDim.g:4204:7: 
+            	    // InternalDim.g:4266:6: ()
+            	    // InternalDim.g:4267:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11630,11 +11747,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4210:6: ( (lv_operator_2_0= ruleOpAdd ) )
-            	    // InternalDim.g:4211:7: (lv_operator_2_0= ruleOpAdd )
+            	    // InternalDim.g:4273:6: ( (lv_operator_2_0= ruleOpAdd ) )
+            	    // InternalDim.g:4274:7: (lv_operator_2_0= ruleOpAdd )
             	    {
-            	    // InternalDim.g:4211:7: (lv_operator_2_0= ruleOpAdd )
-            	    // InternalDim.g:4212:8: lv_operator_2_0= ruleOpAdd
+            	    // InternalDim.g:4274:7: (lv_operator_2_0= ruleOpAdd )
+            	    // InternalDim.g:4275:8: lv_operator_2_0= ruleOpAdd
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11671,11 +11788,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4231:4: ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) )
-            	    // InternalDim.g:4232:5: (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression )
+            	    // InternalDim.g:4294:4: ( (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression ) )
+            	    // InternalDim.g:4295:5: (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression )
             	    {
-            	    // InternalDim.g:4232:5: (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression )
-            	    // InternalDim.g:4233:6: lv_rightOperand_3_0= ruleDmxMultiplicativeExpression
+            	    // InternalDim.g:4295:5: (lv_rightOperand_3_0= ruleDmxMultiplicativeExpression )
+            	    // InternalDim.g:4296:6: lv_rightOperand_3_0= ruleDmxMultiplicativeExpression
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11740,7 +11857,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxMultiplicativeExpression"
-    // InternalDim.g:4255:1: entryRuleDmxMultiplicativeExpression returns [EObject current=null] : iv_ruleDmxMultiplicativeExpression= ruleDmxMultiplicativeExpression EOF ;
+    // InternalDim.g:4318:1: entryRuleDmxMultiplicativeExpression returns [EObject current=null] : iv_ruleDmxMultiplicativeExpression= ruleDmxMultiplicativeExpression EOF ;
     public final EObject entryRuleDmxMultiplicativeExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11748,8 +11865,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4255:68: (iv_ruleDmxMultiplicativeExpression= ruleDmxMultiplicativeExpression EOF )
-            // InternalDim.g:4256:2: iv_ruleDmxMultiplicativeExpression= ruleDmxMultiplicativeExpression EOF
+            // InternalDim.g:4318:68: (iv_ruleDmxMultiplicativeExpression= ruleDmxMultiplicativeExpression EOF )
+            // InternalDim.g:4319:2: iv_ruleDmxMultiplicativeExpression= ruleDmxMultiplicativeExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxMultiplicativeExpressionRule()); 
@@ -11780,7 +11897,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxMultiplicativeExpression"
-    // InternalDim.g:4262:1: ruleDmxMultiplicativeExpression returns [EObject current=null] : (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* ) ;
+    // InternalDim.g:4325:1: ruleDmxMultiplicativeExpression returns [EObject current=null] : (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* ) ;
     public final EObject ruleDmxMultiplicativeExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11795,11 +11912,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4268:2: ( (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* ) )
-            // InternalDim.g:4269:2: (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* )
+            // InternalDim.g:4331:2: ( (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* ) )
+            // InternalDim.g:4332:2: (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* )
             {
-            // InternalDim.g:4269:2: (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* )
-            // InternalDim.g:4270:3: this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )*
+            // InternalDim.g:4332:2: (this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )* )
+            // InternalDim.g:4333:3: this_DmxUnaryOperation_0= ruleDmxUnaryOperation ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -11817,7 +11934,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:4278:3: ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )*
+            // InternalDim.g:4341:3: ( ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) ) )*
             loop85:
             do {
                 int alt85=2;
@@ -11871,16 +11988,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt85) {
             	case 1 :
-            	    // InternalDim.g:4279:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) )
+            	    // InternalDim.g:4342:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) ) ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) )
             	    {
-            	    // InternalDim.g:4279:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) )
-            	    // InternalDim.g:4280:5: ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) )
+            	    // InternalDim.g:4342:4: ( ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) ) )
+            	    // InternalDim.g:4343:5: ( ( () ( ( ruleOpMulti ) ) ) )=> ( () ( (lv_operator_2_0= ruleOpMulti ) ) )
             	    {
-            	    // InternalDim.g:4290:5: ( () ( (lv_operator_2_0= ruleOpMulti ) ) )
-            	    // InternalDim.g:4291:6: () ( (lv_operator_2_0= ruleOpMulti ) )
+            	    // InternalDim.g:4353:5: ( () ( (lv_operator_2_0= ruleOpMulti ) ) )
+            	    // InternalDim.g:4354:6: () ( (lv_operator_2_0= ruleOpMulti ) )
             	    {
-            	    // InternalDim.g:4291:6: ()
-            	    // InternalDim.g:4292:7: 
+            	    // InternalDim.g:4354:6: ()
+            	    // InternalDim.g:4355:7: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11892,11 +12009,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4298:6: ( (lv_operator_2_0= ruleOpMulti ) )
-            	    // InternalDim.g:4299:7: (lv_operator_2_0= ruleOpMulti )
+            	    // InternalDim.g:4361:6: ( (lv_operator_2_0= ruleOpMulti ) )
+            	    // InternalDim.g:4362:7: (lv_operator_2_0= ruleOpMulti )
             	    {
-            	    // InternalDim.g:4299:7: (lv_operator_2_0= ruleOpMulti )
-            	    // InternalDim.g:4300:8: lv_operator_2_0= ruleOpMulti
+            	    // InternalDim.g:4362:7: (lv_operator_2_0= ruleOpMulti )
+            	    // InternalDim.g:4363:8: lv_operator_2_0= ruleOpMulti
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -11933,11 +12050,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalDim.g:4319:4: ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) )
-            	    // InternalDim.g:4320:5: (lv_rightOperand_3_0= ruleDmxUnaryOperation )
+            	    // InternalDim.g:4382:4: ( (lv_rightOperand_3_0= ruleDmxUnaryOperation ) )
+            	    // InternalDim.g:4383:5: (lv_rightOperand_3_0= ruleDmxUnaryOperation )
             	    {
-            	    // InternalDim.g:4320:5: (lv_rightOperand_3_0= ruleDmxUnaryOperation )
-            	    // InternalDim.g:4321:6: lv_rightOperand_3_0= ruleDmxUnaryOperation
+            	    // InternalDim.g:4383:5: (lv_rightOperand_3_0= ruleDmxUnaryOperation )
+            	    // InternalDim.g:4384:6: lv_rightOperand_3_0= ruleDmxUnaryOperation
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -12002,7 +12119,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxUnaryOperation"
-    // InternalDim.g:4343:1: entryRuleDmxUnaryOperation returns [EObject current=null] : iv_ruleDmxUnaryOperation= ruleDmxUnaryOperation EOF ;
+    // InternalDim.g:4406:1: entryRuleDmxUnaryOperation returns [EObject current=null] : iv_ruleDmxUnaryOperation= ruleDmxUnaryOperation EOF ;
     public final EObject entryRuleDmxUnaryOperation() throws RecognitionException {
         EObject current = null;
 
@@ -12010,8 +12127,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4343:58: (iv_ruleDmxUnaryOperation= ruleDmxUnaryOperation EOF )
-            // InternalDim.g:4344:2: iv_ruleDmxUnaryOperation= ruleDmxUnaryOperation EOF
+            // InternalDim.g:4406:58: (iv_ruleDmxUnaryOperation= ruleDmxUnaryOperation EOF )
+            // InternalDim.g:4407:2: iv_ruleDmxUnaryOperation= ruleDmxUnaryOperation EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxUnaryOperationRule()); 
@@ -12042,7 +12159,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxUnaryOperation"
-    // InternalDim.g:4350:1: ruleDmxUnaryOperation returns [EObject current=null] : ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression ) ;
+    // InternalDim.g:4413:1: ruleDmxUnaryOperation returns [EObject current=null] : ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression ) ;
     public final EObject ruleDmxUnaryOperation() throws RecognitionException {
         EObject current = null;
 
@@ -12057,10 +12174,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4356:2: ( ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression ) )
-            // InternalDim.g:4357:2: ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression )
+            // InternalDim.g:4419:2: ( ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression ) )
+            // InternalDim.g:4420:2: ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression )
             {
-            // InternalDim.g:4357:2: ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression )
+            // InternalDim.g:4420:2: ( ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) ) | this_DmxCastExpression_3= ruleDmxCastExpression )
             int alt86=2;
             int LA86_0 = input.LA(1);
 
@@ -12079,13 +12196,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt86) {
                 case 1 :
-                    // InternalDim.g:4358:3: ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) )
+                    // InternalDim.g:4421:3: ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) )
                     {
-                    // InternalDim.g:4358:3: ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) )
-                    // InternalDim.g:4359:4: () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) )
+                    // InternalDim.g:4421:3: ( () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) ) )
+                    // InternalDim.g:4422:4: () ( (lv_operator_1_0= ruleOpUnary ) ) ( (lv_operand_2_0= ruleDmxUnaryOperation ) )
                     {
-                    // InternalDim.g:4359:4: ()
-                    // InternalDim.g:4360:5: 
+                    // InternalDim.g:4422:4: ()
+                    // InternalDim.g:4423:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12097,11 +12214,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:4366:4: ( (lv_operator_1_0= ruleOpUnary ) )
-                    // InternalDim.g:4367:5: (lv_operator_1_0= ruleOpUnary )
+                    // InternalDim.g:4429:4: ( (lv_operator_1_0= ruleOpUnary ) )
+                    // InternalDim.g:4430:5: (lv_operator_1_0= ruleOpUnary )
                     {
-                    // InternalDim.g:4367:5: (lv_operator_1_0= ruleOpUnary )
-                    // InternalDim.g:4368:6: lv_operator_1_0= ruleOpUnary
+                    // InternalDim.g:4430:5: (lv_operator_1_0= ruleOpUnary )
+                    // InternalDim.g:4431:6: lv_operator_1_0= ruleOpUnary
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12132,11 +12249,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:4385:4: ( (lv_operand_2_0= ruleDmxUnaryOperation ) )
-                    // InternalDim.g:4386:5: (lv_operand_2_0= ruleDmxUnaryOperation )
+                    // InternalDim.g:4448:4: ( (lv_operand_2_0= ruleDmxUnaryOperation ) )
+                    // InternalDim.g:4449:5: (lv_operand_2_0= ruleDmxUnaryOperation )
                     {
-                    // InternalDim.g:4386:5: (lv_operand_2_0= ruleDmxUnaryOperation )
-                    // InternalDim.g:4387:6: lv_operand_2_0= ruleDmxUnaryOperation
+                    // InternalDim.g:4449:5: (lv_operand_2_0= ruleDmxUnaryOperation )
+                    // InternalDim.g:4450:6: lv_operand_2_0= ruleDmxUnaryOperation
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12174,7 +12291,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:4406:3: this_DmxCastExpression_3= ruleDmxCastExpression
+                    // InternalDim.g:4469:3: this_DmxCastExpression_3= ruleDmxCastExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12220,7 +12337,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxCastExpression"
-    // InternalDim.g:4418:1: entryRuleDmxCastExpression returns [EObject current=null] : iv_ruleDmxCastExpression= ruleDmxCastExpression EOF ;
+    // InternalDim.g:4481:1: entryRuleDmxCastExpression returns [EObject current=null] : iv_ruleDmxCastExpression= ruleDmxCastExpression EOF ;
     public final EObject entryRuleDmxCastExpression() throws RecognitionException {
         EObject current = null;
 
@@ -12228,8 +12345,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4418:58: (iv_ruleDmxCastExpression= ruleDmxCastExpression EOF )
-            // InternalDim.g:4419:2: iv_ruleDmxCastExpression= ruleDmxCastExpression EOF
+            // InternalDim.g:4481:58: (iv_ruleDmxCastExpression= ruleDmxCastExpression EOF )
+            // InternalDim.g:4482:2: iv_ruleDmxCastExpression= ruleDmxCastExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxCastExpressionRule()); 
@@ -12260,7 +12377,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxCastExpression"
-    // InternalDim.g:4425:1: ruleDmxCastExpression returns [EObject current=null] : (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) ;
+    // InternalDim.g:4488:1: ruleDmxCastExpression returns [EObject current=null] : (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) ;
     public final EObject ruleDmxCastExpression() throws RecognitionException {
         EObject current = null;
 
@@ -12272,11 +12389,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4431:2: ( (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) )
-            // InternalDim.g:4432:2: (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
+            // InternalDim.g:4494:2: ( (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) )
+            // InternalDim.g:4495:2: (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
             {
-            // InternalDim.g:4432:2: (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
-            // InternalDim.g:4433:3: this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )?
+            // InternalDim.g:4495:2: (this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
+            // InternalDim.g:4496:3: this_DmxNavigableMemberReference_0= ruleDmxNavigableMemberReference ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )?
             {
             if ( state.backtracking==0 ) {
 
@@ -12294,7 +12411,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:4441:3: ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )?
+            // InternalDim.g:4504:3: ( ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) ) )?
             int alt87=2;
             int LA87_0 = input.LA(1);
 
@@ -12314,16 +12431,16 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt87) {
                 case 1 :
-                    // InternalDim.g:4442:4: ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) )
+                    // InternalDim.g:4505:4: ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) ) ( (otherlv_3= RULE_ID ) )
                     {
-                    // InternalDim.g:4442:4: ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) )
-                    // InternalDim.g:4443:5: ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast )
+                    // InternalDim.g:4505:4: ( ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast ) )
+                    // InternalDim.g:4506:5: ( ( () ruleDmxOpCast ) )=> ( () ruleDmxOpCast )
                     {
-                    // InternalDim.g:4449:5: ( () ruleDmxOpCast )
-                    // InternalDim.g:4450:6: () ruleDmxOpCast
+                    // InternalDim.g:4512:5: ( () ruleDmxOpCast )
+                    // InternalDim.g:4513:6: () ruleDmxOpCast
                     {
-                    // InternalDim.g:4450:6: ()
-                    // InternalDim.g:4451:7: 
+                    // InternalDim.g:4513:6: ()
+                    // InternalDim.g:4514:7: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12356,11 +12473,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:4466:4: ( (otherlv_3= RULE_ID ) )
-                    // InternalDim.g:4467:5: (otherlv_3= RULE_ID )
+                    // InternalDim.g:4529:4: ( (otherlv_3= RULE_ID ) )
+                    // InternalDim.g:4530:5: (otherlv_3= RULE_ID )
                     {
-                    // InternalDim.g:4467:5: (otherlv_3= RULE_ID )
-                    // InternalDim.g:4468:6: otherlv_3= RULE_ID
+                    // InternalDim.g:4530:5: (otherlv_3= RULE_ID )
+                    // InternalDim.g:4531:6: otherlv_3= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12412,7 +12529,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxOpCast"
-    // InternalDim.g:4484:1: entryRuleDmxOpCast returns [String current=null] : iv_ruleDmxOpCast= ruleDmxOpCast EOF ;
+    // InternalDim.g:4547:1: entryRuleDmxOpCast returns [String current=null] : iv_ruleDmxOpCast= ruleDmxOpCast EOF ;
     public final String entryRuleDmxOpCast() throws RecognitionException {
         String current = null;
 
@@ -12420,8 +12537,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4484:49: (iv_ruleDmxOpCast= ruleDmxOpCast EOF )
-            // InternalDim.g:4485:2: iv_ruleDmxOpCast= ruleDmxOpCast EOF
+            // InternalDim.g:4547:49: (iv_ruleDmxOpCast= ruleDmxOpCast EOF )
+            // InternalDim.g:4548:2: iv_ruleDmxOpCast= ruleDmxOpCast EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxOpCastRule()); 
@@ -12452,7 +12569,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpCast"
-    // InternalDim.g:4491:1: ruleDmxOpCast returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'AS' | kw= 'as' ) ;
+    // InternalDim.g:4554:1: ruleDmxOpCast returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'AS' | kw= 'as' ) ;
     public final AntlrDatatypeRuleToken ruleDmxOpCast() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -12462,10 +12579,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4497:2: ( (kw= 'AS' | kw= 'as' ) )
-            // InternalDim.g:4498:2: (kw= 'AS' | kw= 'as' )
+            // InternalDim.g:4560:2: ( (kw= 'AS' | kw= 'as' ) )
+            // InternalDim.g:4561:2: (kw= 'AS' | kw= 'as' )
             {
-            // InternalDim.g:4498:2: (kw= 'AS' | kw= 'as' )
+            // InternalDim.g:4561:2: (kw= 'AS' | kw= 'as' )
             int alt88=2;
             int LA88_0 = input.LA(1);
 
@@ -12484,7 +12601,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt88) {
                 case 1 :
-                    // InternalDim.g:4499:3: kw= 'AS'
+                    // InternalDim.g:4562:3: kw= 'AS'
                     {
                     kw=(Token)match(input,59,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -12497,7 +12614,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:4505:3: kw= 'as'
+                    // InternalDim.g:4568:3: kw= 'as'
                     {
                     kw=(Token)match(input,60,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -12534,7 +12651,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxPrimaryExpression"
-    // InternalDim.g:4514:1: entryRuleDmxPrimaryExpression returns [EObject current=null] : iv_ruleDmxPrimaryExpression= ruleDmxPrimaryExpression EOF ;
+    // InternalDim.g:4577:1: entryRuleDmxPrimaryExpression returns [EObject current=null] : iv_ruleDmxPrimaryExpression= ruleDmxPrimaryExpression EOF ;
     public final EObject entryRuleDmxPrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -12542,8 +12659,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4514:61: (iv_ruleDmxPrimaryExpression= ruleDmxPrimaryExpression EOF )
-            // InternalDim.g:4515:2: iv_ruleDmxPrimaryExpression= ruleDmxPrimaryExpression EOF
+            // InternalDim.g:4577:61: (iv_ruleDmxPrimaryExpression= ruleDmxPrimaryExpression EOF )
+            // InternalDim.g:4578:2: iv_ruleDmxPrimaryExpression= ruleDmxPrimaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxPrimaryExpressionRule()); 
@@ -12574,7 +12691,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxPrimaryExpression"
-    // InternalDim.g:4521:1: ruleDmxPrimaryExpression returns [EObject current=null] : (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression ) ;
+    // InternalDim.g:4584:1: ruleDmxPrimaryExpression returns [EObject current=null] : (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression ) ;
     public final EObject ruleDmxPrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -12597,10 +12714,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4527:2: ( (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression ) )
-            // InternalDim.g:4528:2: (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression )
+            // InternalDim.g:4590:2: ( (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression ) )
+            // InternalDim.g:4591:2: (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression )
             {
-            // InternalDim.g:4528:2: (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression )
+            // InternalDim.g:4591:2: (this_DmxLiteralExpression_0= ruleDmxLiteralExpression | this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression | this_DmxListExpression_2= ruleDmxListExpression | this_DmxFunctionCall_3= ruleDmxFunctionCall | this_DmxStaticReference_4= ruleDmxStaticReference | this_DmxContextReference_5= ruleDmxContextReference | this_DmxIfExpression_6= ruleDmxIfExpression )
             int alt89=7;
             switch ( input.LA(1) ) {
             case RULE_NATURAL:
@@ -12631,11 +12748,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 {
                 int LA89_4 = input.LA(2);
 
-                if ( (LA89_4==41) ) {
-                    alt89=4;
-                }
-                else if ( (LA89_4==EOF||(LA89_4>=RULE_ID && LA89_4<=RULE_RICH_TEXT_END)||(LA89_4>=22 && LA89_4<=23)||LA89_4==25||LA89_4==27||(LA89_4>=29 && LA89_4<=33)||LA89_4==36||LA89_4==38||LA89_4==42||LA89_4==48||(LA89_4>=53 && LA89_4<=55)||(LA89_4>=57 && LA89_4<=61)||(LA89_4>=67 && LA89_4<=70)||(LA89_4>=79 && LA89_4<=80)||(LA89_4>=82 && LA89_4<=83)||(LA89_4>=97 && LA89_4<=116)) ) {
+                if ( (LA89_4==EOF||(LA89_4>=RULE_ID && LA89_4<=RULE_RICH_TEXT_END)||(LA89_4>=22 && LA89_4<=23)||LA89_4==25||LA89_4==27||(LA89_4>=29 && LA89_4<=33)||LA89_4==36||LA89_4==38||LA89_4==42||LA89_4==48||(LA89_4>=53 && LA89_4<=55)||(LA89_4>=57 && LA89_4<=61)||(LA89_4>=67 && LA89_4<=70)||(LA89_4>=79 && LA89_4<=80)||(LA89_4>=82 && LA89_4<=83)||(LA89_4>=97 && LA89_4<=116)) ) {
                     alt89=6;
+                }
+                else if ( (LA89_4==41) ) {
+                    alt89=4;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -12666,7 +12783,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt89) {
                 case 1 :
-                    // InternalDim.g:4529:3: this_DmxLiteralExpression_0= ruleDmxLiteralExpression
+                    // InternalDim.g:4592:3: this_DmxLiteralExpression_0= ruleDmxLiteralExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12688,7 +12805,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:4538:3: this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression
+                    // InternalDim.g:4601:3: this_DmxParenthesizedExpression_1= ruleDmxParenthesizedExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12710,7 +12827,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:4547:3: this_DmxListExpression_2= ruleDmxListExpression
+                    // InternalDim.g:4610:3: this_DmxListExpression_2= ruleDmxListExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12732,7 +12849,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:4556:3: this_DmxFunctionCall_3= ruleDmxFunctionCall
+                    // InternalDim.g:4619:3: this_DmxFunctionCall_3= ruleDmxFunctionCall
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12754,7 +12871,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDim.g:4565:3: this_DmxStaticReference_4= ruleDmxStaticReference
+                    // InternalDim.g:4628:3: this_DmxStaticReference_4= ruleDmxStaticReference
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12776,7 +12893,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalDim.g:4574:3: this_DmxContextReference_5= ruleDmxContextReference
+                    // InternalDim.g:4637:3: this_DmxContextReference_5= ruleDmxContextReference
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12798,7 +12915,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalDim.g:4583:3: this_DmxIfExpression_6= ruleDmxIfExpression
+                    // InternalDim.g:4646:3: this_DmxIfExpression_6= ruleDmxIfExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12844,7 +12961,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxLiteralExpression"
-    // InternalDim.g:4595:1: entryRuleDmxLiteralExpression returns [EObject current=null] : iv_ruleDmxLiteralExpression= ruleDmxLiteralExpression EOF ;
+    // InternalDim.g:4658:1: entryRuleDmxLiteralExpression returns [EObject current=null] : iv_ruleDmxLiteralExpression= ruleDmxLiteralExpression EOF ;
     public final EObject entryRuleDmxLiteralExpression() throws RecognitionException {
         EObject current = null;
 
@@ -12852,8 +12969,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4595:61: (iv_ruleDmxLiteralExpression= ruleDmxLiteralExpression EOF )
-            // InternalDim.g:4596:2: iv_ruleDmxLiteralExpression= ruleDmxLiteralExpression EOF
+            // InternalDim.g:4658:61: (iv_ruleDmxLiteralExpression= ruleDmxLiteralExpression EOF )
+            // InternalDim.g:4659:2: iv_ruleDmxLiteralExpression= ruleDmxLiteralExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxLiteralExpressionRule()); 
@@ -12884,7 +13001,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxLiteralExpression"
-    // InternalDim.g:4602:1: ruleDmxLiteralExpression returns [EObject current=null] : (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail ) ;
+    // InternalDim.g:4665:1: ruleDmxLiteralExpression returns [EObject current=null] : (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail ) ;
     public final EObject ruleDmxLiteralExpression() throws RecognitionException {
         EObject current = null;
 
@@ -12907,15 +13024,15 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4608:2: ( (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail ) )
-            // InternalDim.g:4609:2: (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail )
+            // InternalDim.g:4671:2: ( (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail ) )
+            // InternalDim.g:4672:2: (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail )
             {
-            // InternalDim.g:4609:2: (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail )
+            // InternalDim.g:4672:2: (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail )
             int alt90=7;
             alt90 = dfa90.predict(input);
             switch (alt90) {
                 case 1 :
-                    // InternalDim.g:4610:3: this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral
+                    // InternalDim.g:4673:3: this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12937,7 +13054,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:4619:3: this_DmxStringLiteral_1= ruleDmxStringLiteral
+                    // InternalDim.g:4682:3: this_DmxStringLiteral_1= ruleDmxStringLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12959,7 +13076,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:4628:3: this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral
+                    // InternalDim.g:4691:3: this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12981,7 +13098,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:4637:3: this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral
+                    // InternalDim.g:4700:3: this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13003,7 +13120,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDim.g:4646:3: this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral
+                    // InternalDim.g:4709:3: this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13025,7 +13142,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalDim.g:4655:3: this_DmxEntity_5= ruleDmxEntity
+                    // InternalDim.g:4718:3: this_DmxEntity_5= ruleDmxEntity
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13047,7 +13164,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalDim.g:4664:3: this_DmxDetail_6= ruleDmxDetail
+                    // InternalDim.g:4727:3: this_DmxDetail_6= ruleDmxDetail
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13093,7 +13210,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxParenthesizedExpression"
-    // InternalDim.g:4676:1: entryRuleDmxParenthesizedExpression returns [EObject current=null] : iv_ruleDmxParenthesizedExpression= ruleDmxParenthesizedExpression EOF ;
+    // InternalDim.g:4739:1: entryRuleDmxParenthesizedExpression returns [EObject current=null] : iv_ruleDmxParenthesizedExpression= ruleDmxParenthesizedExpression EOF ;
     public final EObject entryRuleDmxParenthesizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13101,8 +13218,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4676:67: (iv_ruleDmxParenthesizedExpression= ruleDmxParenthesizedExpression EOF )
-            // InternalDim.g:4677:2: iv_ruleDmxParenthesizedExpression= ruleDmxParenthesizedExpression EOF
+            // InternalDim.g:4739:67: (iv_ruleDmxParenthesizedExpression= ruleDmxParenthesizedExpression EOF )
+            // InternalDim.g:4740:2: iv_ruleDmxParenthesizedExpression= ruleDmxParenthesizedExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxParenthesizedExpressionRule()); 
@@ -13133,7 +13250,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxParenthesizedExpression"
-    // InternalDim.g:4683:1: ruleDmxParenthesizedExpression returns [EObject current=null] : (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' ) ;
+    // InternalDim.g:4746:1: ruleDmxParenthesizedExpression returns [EObject current=null] : (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' ) ;
     public final EObject ruleDmxParenthesizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13146,11 +13263,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4689:2: ( (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' ) )
-            // InternalDim.g:4690:2: (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' )
+            // InternalDim.g:4752:2: ( (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' ) )
+            // InternalDim.g:4753:2: (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' )
             {
-            // InternalDim.g:4690:2: (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' )
-            // InternalDim.g:4691:3: otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')'
+            // InternalDim.g:4753:2: (otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')' )
+            // InternalDim.g:4754:3: otherlv_0= '(' this_DExpression_1= ruleDExpression otherlv_2= ')'
             {
             otherlv_0=(Token)match(input,41,FOLLOW_13); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -13205,7 +13322,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxListExpression"
-    // InternalDim.g:4711:1: entryRuleDmxListExpression returns [EObject current=null] : iv_ruleDmxListExpression= ruleDmxListExpression EOF ;
+    // InternalDim.g:4774:1: entryRuleDmxListExpression returns [EObject current=null] : iv_ruleDmxListExpression= ruleDmxListExpression EOF ;
     public final EObject entryRuleDmxListExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13213,8 +13330,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4711:58: (iv_ruleDmxListExpression= ruleDmxListExpression EOF )
-            // InternalDim.g:4712:2: iv_ruleDmxListExpression= ruleDmxListExpression EOF
+            // InternalDim.g:4774:58: (iv_ruleDmxListExpression= ruleDmxListExpression EOF )
+            // InternalDim.g:4775:2: iv_ruleDmxListExpression= ruleDmxListExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxListExpressionRule()); 
@@ -13245,7 +13362,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxListExpression"
-    // InternalDim.g:4718:1: ruleDmxListExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' ) ;
+    // InternalDim.g:4781:1: ruleDmxListExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' ) ;
     public final EObject ruleDmxListExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13261,14 +13378,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4724:2: ( ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' ) )
-            // InternalDim.g:4725:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' )
+            // InternalDim.g:4787:2: ( ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' ) )
+            // InternalDim.g:4788:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' )
             {
-            // InternalDim.g:4725:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' )
-            // InternalDim.g:4726:3: () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}'
+            // InternalDim.g:4788:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}' )
+            // InternalDim.g:4789:3: () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )? otherlv_5= '}'
             {
-            // InternalDim.g:4726:3: ()
-            // InternalDim.g:4727:4: 
+            // InternalDim.g:4789:3: ()
+            // InternalDim.g:4790:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -13286,7 +13403,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxListExpressionAccess().getLeftCurlyBracketKeyword_1());
               		
             }
-            // InternalDim.g:4737:3: ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )?
+            // InternalDim.g:4800:3: ( ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )* )?
             int alt92=2;
             int LA92_0 = input.LA(1);
 
@@ -13295,13 +13412,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt92) {
                 case 1 :
-                    // InternalDim.g:4738:4: ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )*
+                    // InternalDim.g:4801:4: ( (lv_elements_2_0= ruleDExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )*
                     {
-                    // InternalDim.g:4738:4: ( (lv_elements_2_0= ruleDExpression ) )
-                    // InternalDim.g:4739:5: (lv_elements_2_0= ruleDExpression )
+                    // InternalDim.g:4801:4: ( (lv_elements_2_0= ruleDExpression ) )
+                    // InternalDim.g:4802:5: (lv_elements_2_0= ruleDExpression )
                     {
-                    // InternalDim.g:4739:5: (lv_elements_2_0= ruleDExpression )
-                    // InternalDim.g:4740:6: lv_elements_2_0= ruleDExpression
+                    // InternalDim.g:4802:5: (lv_elements_2_0= ruleDExpression )
+                    // InternalDim.g:4803:6: lv_elements_2_0= ruleDExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13332,7 +13449,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:4757:4: (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )*
+                    // InternalDim.g:4820:4: (otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) ) )*
                     loop91:
                     do {
                         int alt91=2;
@@ -13345,7 +13462,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt91) {
                     	case 1 :
-                    	    // InternalDim.g:4758:5: otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) )
+                    	    // InternalDim.g:4821:5: otherlv_3= ',' ( (lv_elements_4_0= ruleDExpression ) )
                     	    {
                     	    otherlv_3=(Token)match(input,30,FOLLOW_13); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -13353,11 +13470,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     	      					newLeafNode(otherlv_3, grammarAccess.getDmxListExpressionAccess().getCommaKeyword_2_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:4762:5: ( (lv_elements_4_0= ruleDExpression ) )
-                    	    // InternalDim.g:4763:6: (lv_elements_4_0= ruleDExpression )
+                    	    // InternalDim.g:4825:5: ( (lv_elements_4_0= ruleDExpression ) )
+                    	    // InternalDim.g:4826:6: (lv_elements_4_0= ruleDExpression )
                     	    {
-                    	    // InternalDim.g:4763:6: (lv_elements_4_0= ruleDExpression )
-                    	    // InternalDim.g:4764:7: lv_elements_4_0= ruleDExpression
+                    	    // InternalDim.g:4826:6: (lv_elements_4_0= ruleDExpression )
+                    	    // InternalDim.g:4827:7: lv_elements_4_0= ruleDExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -13434,7 +13551,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxLiteralListExpression"
-    // InternalDim.g:4791:1: entryRuleDmxLiteralListExpression returns [EObject current=null] : iv_ruleDmxLiteralListExpression= ruleDmxLiteralListExpression EOF ;
+    // InternalDim.g:4854:1: entryRuleDmxLiteralListExpression returns [EObject current=null] : iv_ruleDmxLiteralListExpression= ruleDmxLiteralListExpression EOF ;
     public final EObject entryRuleDmxLiteralListExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13442,8 +13559,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4791:65: (iv_ruleDmxLiteralListExpression= ruleDmxLiteralListExpression EOF )
-            // InternalDim.g:4792:2: iv_ruleDmxLiteralListExpression= ruleDmxLiteralListExpression EOF
+            // InternalDim.g:4854:65: (iv_ruleDmxLiteralListExpression= ruleDmxLiteralListExpression EOF )
+            // InternalDim.g:4855:2: iv_ruleDmxLiteralListExpression= ruleDmxLiteralListExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxLiteralListExpressionRule()); 
@@ -13474,7 +13591,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxLiteralListExpression"
-    // InternalDim.g:4798:1: ruleDmxLiteralListExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' ) ;
+    // InternalDim.g:4861:1: ruleDmxLiteralListExpression returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' ) ;
     public final EObject ruleDmxLiteralListExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13490,14 +13607,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4804:2: ( ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' ) )
-            // InternalDim.g:4805:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' )
+            // InternalDim.g:4867:2: ( ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' ) )
+            // InternalDim.g:4868:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' )
             {
-            // InternalDim.g:4805:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' )
-            // InternalDim.g:4806:3: () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}'
+            // InternalDim.g:4868:2: ( () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}' )
+            // InternalDim.g:4869:3: () otherlv_1= '{' ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )? otherlv_5= '}'
             {
-            // InternalDim.g:4806:3: ()
-            // InternalDim.g:4807:4: 
+            // InternalDim.g:4869:3: ()
+            // InternalDim.g:4870:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -13515,7 +13632,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxLiteralListExpressionAccess().getLeftCurlyBracketKeyword_1());
               		
             }
-            // InternalDim.g:4817:3: ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )?
+            // InternalDim.g:4880:3: ( ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )* )?
             int alt94=2;
             int LA94_0 = input.LA(1);
 
@@ -13524,13 +13641,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt94) {
                 case 1 :
-                    // InternalDim.g:4818:4: ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )*
+                    // InternalDim.g:4881:4: ( (lv_elements_2_0= ruleDmxLiteralExpression ) ) (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )*
                     {
-                    // InternalDim.g:4818:4: ( (lv_elements_2_0= ruleDmxLiteralExpression ) )
-                    // InternalDim.g:4819:5: (lv_elements_2_0= ruleDmxLiteralExpression )
+                    // InternalDim.g:4881:4: ( (lv_elements_2_0= ruleDmxLiteralExpression ) )
+                    // InternalDim.g:4882:5: (lv_elements_2_0= ruleDmxLiteralExpression )
                     {
-                    // InternalDim.g:4819:5: (lv_elements_2_0= ruleDmxLiteralExpression )
-                    // InternalDim.g:4820:6: lv_elements_2_0= ruleDmxLiteralExpression
+                    // InternalDim.g:4882:5: (lv_elements_2_0= ruleDmxLiteralExpression )
+                    // InternalDim.g:4883:6: lv_elements_2_0= ruleDmxLiteralExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13561,7 +13678,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:4837:4: (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )*
+                    // InternalDim.g:4900:4: (otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) ) )*
                     loop93:
                     do {
                         int alt93=2;
@@ -13574,7 +13691,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt93) {
                     	case 1 :
-                    	    // InternalDim.g:4838:5: otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) )
+                    	    // InternalDim.g:4901:5: otherlv_3= ',' ( (lv_elements_4_0= ruleDmxLiteralExpression ) )
                     	    {
                     	    otherlv_3=(Token)match(input,30,FOLLOW_78); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -13582,11 +13699,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     	      					newLeafNode(otherlv_3, grammarAccess.getDmxLiteralListExpressionAccess().getCommaKeyword_2_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:4842:5: ( (lv_elements_4_0= ruleDmxLiteralExpression ) )
-                    	    // InternalDim.g:4843:6: (lv_elements_4_0= ruleDmxLiteralExpression )
+                    	    // InternalDim.g:4905:5: ( (lv_elements_4_0= ruleDmxLiteralExpression ) )
+                    	    // InternalDim.g:4906:6: (lv_elements_4_0= ruleDmxLiteralExpression )
                     	    {
-                    	    // InternalDim.g:4843:6: (lv_elements_4_0= ruleDmxLiteralExpression )
-                    	    // InternalDim.g:4844:7: lv_elements_4_0= ruleDmxLiteralExpression
+                    	    // InternalDim.g:4906:6: (lv_elements_4_0= ruleDmxLiteralExpression )
+                    	    // InternalDim.g:4907:7: lv_elements_4_0= ruleDmxLiteralExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -13663,7 +13780,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxFunctionCall"
-    // InternalDim.g:4871:1: entryRuleDmxFunctionCall returns [EObject current=null] : iv_ruleDmxFunctionCall= ruleDmxFunctionCall EOF ;
+    // InternalDim.g:4934:1: entryRuleDmxFunctionCall returns [EObject current=null] : iv_ruleDmxFunctionCall= ruleDmxFunctionCall EOF ;
     public final EObject entryRuleDmxFunctionCall() throws RecognitionException {
         EObject current = null;
 
@@ -13671,8 +13788,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4871:56: (iv_ruleDmxFunctionCall= ruleDmxFunctionCall EOF )
-            // InternalDim.g:4872:2: iv_ruleDmxFunctionCall= ruleDmxFunctionCall EOF
+            // InternalDim.g:4934:56: (iv_ruleDmxFunctionCall= ruleDmxFunctionCall EOF )
+            // InternalDim.g:4935:2: iv_ruleDmxFunctionCall= ruleDmxFunctionCall EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxFunctionCallRule()); 
@@ -13703,7 +13820,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFunctionCall"
-    // InternalDim.g:4878:1: ruleDmxFunctionCall returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' ) ;
+    // InternalDim.g:4941:1: ruleDmxFunctionCall returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' ) ;
     public final EObject ruleDmxFunctionCall() throws RecognitionException {
         EObject current = null;
 
@@ -13717,14 +13834,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4884:2: ( ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' ) )
-            // InternalDim.g:4885:2: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' )
+            // InternalDim.g:4947:2: ( ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' ) )
+            // InternalDim.g:4948:2: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' )
             {
-            // InternalDim.g:4885:2: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' )
-            // InternalDim.g:4886:3: () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')'
+            // InternalDim.g:4948:2: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')' )
+            // InternalDim.g:4949:3: () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) ) otherlv_4= ')'
             {
-            // InternalDim.g:4886:3: ()
-            // InternalDim.g:4887:4: 
+            // InternalDim.g:4949:3: ()
+            // InternalDim.g:4950:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -13736,11 +13853,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:4893:3: ( (otherlv_1= RULE_ID ) )
-            // InternalDim.g:4894:4: (otherlv_1= RULE_ID )
+            // InternalDim.g:4956:3: ( (otherlv_1= RULE_ID ) )
+            // InternalDim.g:4957:4: (otherlv_1= RULE_ID )
             {
-            // InternalDim.g:4894:4: (otherlv_1= RULE_ID )
-            // InternalDim.g:4895:5: otherlv_1= RULE_ID
+            // InternalDim.g:4957:4: (otherlv_1= RULE_ID )
+            // InternalDim.g:4958:5: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -13767,11 +13884,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDmxFunctionCallAccess().getLeftParenthesisKeyword_2());
               		
             }
-            // InternalDim.g:4910:3: ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) )
-            // InternalDim.g:4911:4: (lv_callArguments_3_0= ruleDmxFunctionCallArguments )
+            // InternalDim.g:4973:3: ( (lv_callArguments_3_0= ruleDmxFunctionCallArguments ) )
+            // InternalDim.g:4974:4: (lv_callArguments_3_0= ruleDmxFunctionCallArguments )
             {
-            // InternalDim.g:4911:4: (lv_callArguments_3_0= ruleDmxFunctionCallArguments )
-            // InternalDim.g:4912:5: lv_callArguments_3_0= ruleDmxFunctionCallArguments
+            // InternalDim.g:4974:4: (lv_callArguments_3_0= ruleDmxFunctionCallArguments )
+            // InternalDim.g:4975:5: lv_callArguments_3_0= ruleDmxFunctionCallArguments
             {
             if ( state.backtracking==0 ) {
 
@@ -13833,7 +13950,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxFunctionCallArguments"
-    // InternalDim.g:4937:1: entryRuleDmxFunctionCallArguments returns [EObject current=null] : iv_ruleDmxFunctionCallArguments= ruleDmxFunctionCallArguments EOF ;
+    // InternalDim.g:5000:1: entryRuleDmxFunctionCallArguments returns [EObject current=null] : iv_ruleDmxFunctionCallArguments= ruleDmxFunctionCallArguments EOF ;
     public final EObject entryRuleDmxFunctionCallArguments() throws RecognitionException {
         EObject current = null;
 
@@ -13841,8 +13958,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:4937:65: (iv_ruleDmxFunctionCallArguments= ruleDmxFunctionCallArguments EOF )
-            // InternalDim.g:4938:2: iv_ruleDmxFunctionCallArguments= ruleDmxFunctionCallArguments EOF
+            // InternalDim.g:5000:65: (iv_ruleDmxFunctionCallArguments= ruleDmxFunctionCallArguments EOF )
+            // InternalDim.g:5001:2: iv_ruleDmxFunctionCallArguments= ruleDmxFunctionCallArguments EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxFunctionCallArgumentsRule()); 
@@ -13873,7 +13990,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFunctionCallArguments"
-    // InternalDim.g:4944:1: ruleDmxFunctionCallArguments returns [EObject current=null] : ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? ) ;
+    // InternalDim.g:5007:1: ruleDmxFunctionCallArguments returns [EObject current=null] : ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? ) ;
     public final EObject ruleDmxFunctionCallArguments() throws RecognitionException {
         EObject current = null;
 
@@ -13887,14 +14004,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:4950:2: ( ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? ) )
-            // InternalDim.g:4951:2: ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? )
+            // InternalDim.g:5013:2: ( ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? ) )
+            // InternalDim.g:5014:2: ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? )
             {
-            // InternalDim.g:4951:2: ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? )
-            // InternalDim.g:4952:3: () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )?
+            // InternalDim.g:5014:2: ( () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )? )
+            // InternalDim.g:5015:3: () ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )?
             {
-            // InternalDim.g:4952:3: ()
-            // InternalDim.g:4953:4: 
+            // InternalDim.g:5015:3: ()
+            // InternalDim.g:5016:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -13906,7 +14023,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:4959:3: ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )?
+            // InternalDim.g:5022:3: ( ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )* )?
             int alt96=2;
             int LA96_0 = input.LA(1);
 
@@ -13915,13 +14032,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt96) {
                 case 1 :
-                    // InternalDim.g:4960:4: ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )*
+                    // InternalDim.g:5023:4: ( (lv_arguments_1_0= ruleDExpression ) ) (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )*
                     {
-                    // InternalDim.g:4960:4: ( (lv_arguments_1_0= ruleDExpression ) )
-                    // InternalDim.g:4961:5: (lv_arguments_1_0= ruleDExpression )
+                    // InternalDim.g:5023:4: ( (lv_arguments_1_0= ruleDExpression ) )
+                    // InternalDim.g:5024:5: (lv_arguments_1_0= ruleDExpression )
                     {
-                    // InternalDim.g:4961:5: (lv_arguments_1_0= ruleDExpression )
-                    // InternalDim.g:4962:6: lv_arguments_1_0= ruleDExpression
+                    // InternalDim.g:5024:5: (lv_arguments_1_0= ruleDExpression )
+                    // InternalDim.g:5025:6: lv_arguments_1_0= ruleDExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13952,7 +14069,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:4979:4: (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )*
+                    // InternalDim.g:5042:4: (otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) ) )*
                     loop95:
                     do {
                         int alt95=2;
@@ -13965,7 +14082,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                         switch (alt95) {
                     	case 1 :
-                    	    // InternalDim.g:4980:5: otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) )
+                    	    // InternalDim.g:5043:5: otherlv_2= ',' ( (lv_arguments_3_0= ruleDExpression ) )
                     	    {
                     	    otherlv_2=(Token)match(input,30,FOLLOW_13); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -13973,11 +14090,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     	      					newLeafNode(otherlv_2, grammarAccess.getDmxFunctionCallArgumentsAccess().getCommaKeyword_1_1_0());
                     	      				
                     	    }
-                    	    // InternalDim.g:4984:5: ( (lv_arguments_3_0= ruleDExpression ) )
-                    	    // InternalDim.g:4985:6: (lv_arguments_3_0= ruleDExpression )
+                    	    // InternalDim.g:5047:5: ( (lv_arguments_3_0= ruleDExpression ) )
+                    	    // InternalDim.g:5048:6: (lv_arguments_3_0= ruleDExpression )
                     	    {
-                    	    // InternalDim.g:4985:6: (lv_arguments_3_0= ruleDExpression )
-                    	    // InternalDim.g:4986:7: lv_arguments_3_0= ruleDExpression
+                    	    // InternalDim.g:5048:6: (lv_arguments_3_0= ruleDExpression )
+                    	    // InternalDim.g:5049:7: lv_arguments_3_0= ruleDExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -14048,7 +14165,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxEntity"
-    // InternalDim.g:5009:1: entryRuleDmxEntity returns [EObject current=null] : iv_ruleDmxEntity= ruleDmxEntity EOF ;
+    // InternalDim.g:5072:1: entryRuleDmxEntity returns [EObject current=null] : iv_ruleDmxEntity= ruleDmxEntity EOF ;
     public final EObject entryRuleDmxEntity() throws RecognitionException {
         EObject current = null;
 
@@ -14056,8 +14173,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5009:50: (iv_ruleDmxEntity= ruleDmxEntity EOF )
-            // InternalDim.g:5010:2: iv_ruleDmxEntity= ruleDmxEntity EOF
+            // InternalDim.g:5072:50: (iv_ruleDmxEntity= ruleDmxEntity EOF )
+            // InternalDim.g:5073:2: iv_ruleDmxEntity= ruleDmxEntity EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxEntityRule()); 
@@ -14088,7 +14205,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxEntity"
-    // InternalDim.g:5016:1: ruleDmxEntity returns [EObject current=null] : (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) ;
+    // InternalDim.g:5079:1: ruleDmxEntity returns [EObject current=null] : (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) ;
     public final EObject ruleDmxEntity() throws RecognitionException {
         EObject current = null;
 
@@ -14100,11 +14217,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5022:2: ( (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) )
-            // InternalDim.g:5023:2: (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
+            // InternalDim.g:5085:2: ( (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) )
+            // InternalDim.g:5086:2: (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
             {
-            // InternalDim.g:5023:2: (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
-            // InternalDim.g:5024:3: otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current]
+            // InternalDim.g:5086:2: (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
+            // InternalDim.g:5087:3: otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current]
             {
             otherlv_0=(Token)match(input,33,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -14156,7 +14273,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxDetail"
-    // InternalDim.g:5043:1: entryRuleDmxDetail returns [EObject current=null] : iv_ruleDmxDetail= ruleDmxDetail EOF ;
+    // InternalDim.g:5106:1: entryRuleDmxDetail returns [EObject current=null] : iv_ruleDmxDetail= ruleDmxDetail EOF ;
     public final EObject entryRuleDmxDetail() throws RecognitionException {
         EObject current = null;
 
@@ -14164,8 +14281,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5043:50: (iv_ruleDmxDetail= ruleDmxDetail EOF )
-            // InternalDim.g:5044:2: iv_ruleDmxDetail= ruleDmxDetail EOF
+            // InternalDim.g:5106:50: (iv_ruleDmxDetail= ruleDmxDetail EOF )
+            // InternalDim.g:5107:2: iv_ruleDmxDetail= ruleDmxDetail EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxDetailRule()); 
@@ -14196,7 +14313,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxDetail"
-    // InternalDim.g:5050:1: ruleDmxDetail returns [EObject current=null] : (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) ;
+    // InternalDim.g:5113:1: ruleDmxDetail returns [EObject current=null] : (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) ;
     public final EObject ruleDmxDetail() throws RecognitionException {
         EObject current = null;
 
@@ -14208,11 +14325,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5056:2: ( (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) )
-            // InternalDim.g:5057:2: (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
+            // InternalDim.g:5119:2: ( (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) )
+            // InternalDim.g:5120:2: (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
             {
-            // InternalDim.g:5057:2: (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
-            // InternalDim.g:5058:3: otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current]
+            // InternalDim.g:5120:2: (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
+            // InternalDim.g:5121:3: otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current]
             {
             otherlv_0=(Token)match(input,36,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -14264,7 +14381,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxComplexObject"
-    // InternalDim.g:5078:1: ruleDmxComplexObject[EObject in_current] returns [EObject current=in_current] : ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' ) ;
+    // InternalDim.g:5141:1: ruleDmxComplexObject[EObject in_current] returns [EObject current=in_current] : ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' ) ;
     public final EObject ruleDmxComplexObject(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
@@ -14277,17 +14394,17 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5084:2: ( ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' ) )
-            // InternalDim.g:5085:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' )
+            // InternalDim.g:5147:2: ( ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' ) )
+            // InternalDim.g:5148:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' )
             {
-            // InternalDim.g:5085:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' )
-            // InternalDim.g:5086:3: ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}'
+            // InternalDim.g:5148:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' )
+            // InternalDim.g:5149:3: ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}'
             {
-            // InternalDim.g:5086:3: ( (otherlv_0= RULE_ID ) )
-            // InternalDim.g:5087:4: (otherlv_0= RULE_ID )
+            // InternalDim.g:5149:3: ( (otherlv_0= RULE_ID ) )
+            // InternalDim.g:5150:4: (otherlv_0= RULE_ID )
             {
-            // InternalDim.g:5087:4: (otherlv_0= RULE_ID )
-            // InternalDim.g:5088:5: otherlv_0= RULE_ID
+            // InternalDim.g:5150:4: (otherlv_0= RULE_ID )
+            // InternalDim.g:5151:5: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -14323,7 +14440,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:5106:3: ( (lv_fields_2_0= ruleDmxField ) )*
+            // InternalDim.g:5169:3: ( (lv_fields_2_0= ruleDmxField ) )*
             loop97:
             do {
                 int alt97=2;
@@ -14336,10 +14453,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt97) {
             	case 1 :
-            	    // InternalDim.g:5107:4: (lv_fields_2_0= ruleDmxField )
+            	    // InternalDim.g:5170:4: (lv_fields_2_0= ruleDmxField )
             	    {
-            	    // InternalDim.g:5107:4: (lv_fields_2_0= ruleDmxField )
-            	    // InternalDim.g:5108:5: lv_fields_2_0= ruleDmxField
+            	    // InternalDim.g:5170:4: (lv_fields_2_0= ruleDmxField )
+            	    // InternalDim.g:5171:5: lv_fields_2_0= ruleDmxField
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -14407,7 +14524,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxField"
-    // InternalDim.g:5133:1: entryRuleDmxField returns [EObject current=null] : iv_ruleDmxField= ruleDmxField EOF ;
+    // InternalDim.g:5196:1: entryRuleDmxField returns [EObject current=null] : iv_ruleDmxField= ruleDmxField EOF ;
     public final EObject entryRuleDmxField() throws RecognitionException {
         EObject current = null;
 
@@ -14415,8 +14532,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5133:49: (iv_ruleDmxField= ruleDmxField EOF )
-            // InternalDim.g:5134:2: iv_ruleDmxField= ruleDmxField EOF
+            // InternalDim.g:5196:49: (iv_ruleDmxField= ruleDmxField EOF )
+            // InternalDim.g:5197:2: iv_ruleDmxField= ruleDmxField EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxFieldRule()); 
@@ -14447,7 +14564,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxField"
-    // InternalDim.g:5140:1: ruleDmxField returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) ) ;
+    // InternalDim.g:5203:1: ruleDmxField returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) ) ;
     public final EObject ruleDmxField() throws RecognitionException {
         EObject current = null;
 
@@ -14460,17 +14577,17 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5146:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) ) )
-            // InternalDim.g:5147:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) )
+            // InternalDim.g:5209:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) ) )
+            // InternalDim.g:5210:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) )
             {
-            // InternalDim.g:5147:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) )
-            // InternalDim.g:5148:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) )
+            // InternalDim.g:5210:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) )
+            // InternalDim.g:5211:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) )
             {
-            // InternalDim.g:5148:3: ( (otherlv_0= RULE_ID ) )
-            // InternalDim.g:5149:4: (otherlv_0= RULE_ID )
+            // InternalDim.g:5211:3: ( (otherlv_0= RULE_ID ) )
+            // InternalDim.g:5212:4: (otherlv_0= RULE_ID )
             {
-            // InternalDim.g:5149:4: (otherlv_0= RULE_ID )
-            // InternalDim.g:5150:5: otherlv_0= RULE_ID
+            // InternalDim.g:5212:4: (otherlv_0= RULE_ID )
+            // InternalDim.g:5213:5: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -14497,11 +14614,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxFieldAccess().getEqualsSignKeyword_1());
               		
             }
-            // InternalDim.g:5165:3: ( (lv_value_2_0= ruleDExpression ) )
-            // InternalDim.g:5166:4: (lv_value_2_0= ruleDExpression )
+            // InternalDim.g:5228:3: ( (lv_value_2_0= ruleDExpression ) )
+            // InternalDim.g:5229:4: (lv_value_2_0= ruleDExpression )
             {
-            // InternalDim.g:5166:4: (lv_value_2_0= ruleDExpression )
-            // InternalDim.g:5167:5: lv_value_2_0= ruleDExpression
+            // InternalDim.g:5229:4: (lv_value_2_0= ruleDExpression )
+            // InternalDim.g:5230:5: lv_value_2_0= ruleDExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -14557,7 +14674,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxStaticReference"
-    // InternalDim.g:5188:1: entryRuleDmxStaticReference returns [EObject current=null] : iv_ruleDmxStaticReference= ruleDmxStaticReference EOF ;
+    // InternalDim.g:5251:1: entryRuleDmxStaticReference returns [EObject current=null] : iv_ruleDmxStaticReference= ruleDmxStaticReference EOF ;
     public final EObject entryRuleDmxStaticReference() throws RecognitionException {
         EObject current = null;
 
@@ -14565,8 +14682,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5188:59: (iv_ruleDmxStaticReference= ruleDmxStaticReference EOF )
-            // InternalDim.g:5189:2: iv_ruleDmxStaticReference= ruleDmxStaticReference EOF
+            // InternalDim.g:5251:59: (iv_ruleDmxStaticReference= ruleDmxStaticReference EOF )
+            // InternalDim.g:5252:2: iv_ruleDmxStaticReference= ruleDmxStaticReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxStaticReferenceRule()); 
@@ -14597,7 +14714,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxStaticReference"
-    // InternalDim.g:5195:1: ruleDmxStaticReference returns [EObject current=null] : ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) ) ;
+    // InternalDim.g:5258:1: ruleDmxStaticReference returns [EObject current=null] : ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) ) ;
     public final EObject ruleDmxStaticReference() throws RecognitionException {
         EObject current = null;
 
@@ -14613,14 +14730,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5201:2: ( ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) ) )
-            // InternalDim.g:5202:2: ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) )
+            // InternalDim.g:5264:2: ( ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) ) )
+            // InternalDim.g:5265:2: ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) )
             {
-            // InternalDim.g:5202:2: ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) )
-            // InternalDim.g:5203:3: () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' )
+            // InternalDim.g:5265:2: ( () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' ) )
+            // InternalDim.g:5266:3: () otherlv_1= '[' ( ( ruleDQualifiedName ) ) (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )? ( ( ']' )=>otherlv_8= ']' )
             {
-            // InternalDim.g:5203:3: ()
-            // InternalDim.g:5204:4: 
+            // InternalDim.g:5266:3: ()
+            // InternalDim.g:5267:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -14638,11 +14755,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxStaticReferenceAccess().getLeftSquareBracketKeyword_1());
               		
             }
-            // InternalDim.g:5214:3: ( ( ruleDQualifiedName ) )
-            // InternalDim.g:5215:4: ( ruleDQualifiedName )
+            // InternalDim.g:5277:3: ( ( ruleDQualifiedName ) )
+            // InternalDim.g:5278:4: ( ruleDQualifiedName )
             {
-            // InternalDim.g:5215:4: ( ruleDQualifiedName )
-            // InternalDim.g:5216:5: ruleDQualifiedName
+            // InternalDim.g:5278:4: ( ruleDQualifiedName )
+            // InternalDim.g:5279:5: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -14672,7 +14789,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5230:3: (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )?
+            // InternalDim.g:5293:3: (otherlv_3= '#' ( (otherlv_4= RULE_ID ) ) )?
             int alt98=2;
             int LA98_0 = input.LA(1);
 
@@ -14681,7 +14798,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt98) {
                 case 1 :
-                    // InternalDim.g:5231:4: otherlv_3= '#' ( (otherlv_4= RULE_ID ) )
+                    // InternalDim.g:5294:4: otherlv_3= '#' ( (otherlv_4= RULE_ID ) )
                     {
                     otherlv_3=(Token)match(input,63,FOLLOW_3); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -14689,11 +14806,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_3, grammarAccess.getDmxStaticReferenceAccess().getNumberSignKeyword_3_0());
                       			
                     }
-                    // InternalDim.g:5235:4: ( (otherlv_4= RULE_ID ) )
-                    // InternalDim.g:5236:5: (otherlv_4= RULE_ID )
+                    // InternalDim.g:5298:4: ( (otherlv_4= RULE_ID ) )
+                    // InternalDim.g:5299:5: (otherlv_4= RULE_ID )
                     {
-                    // InternalDim.g:5236:5: (otherlv_4= RULE_ID )
-                    // InternalDim.g:5237:6: otherlv_4= RULE_ID
+                    // InternalDim.g:5299:5: (otherlv_4= RULE_ID )
+                    // InternalDim.g:5300:6: otherlv_4= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -14720,7 +14837,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5249:3: (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )?
+            // InternalDim.g:5312:3: (otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) ) )?
             int alt100=2;
             int LA100_0 = input.LA(1);
 
@@ -14729,7 +14846,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt100) {
                 case 1 :
-                    // InternalDim.g:5250:4: otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) )
+                    // InternalDim.g:5313:4: otherlv_5= '|' ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) )
                     {
                     otherlv_5=(Token)match(input,56,FOLLOW_84); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -14737,7 +14854,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_5, grammarAccess.getDmxStaticReferenceAccess().getVerticalLineKeyword_4_0());
                       			
                     }
-                    // InternalDim.g:5254:4: ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) )
+                    // InternalDim.g:5317:4: ( ( (lv_displayName_6_0= RULE_ID ) ) | ( (lv_plural_7_0= '*' ) ) )
                     int alt99=2;
                     int LA99_0 = input.LA(1);
 
@@ -14756,13 +14873,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt99) {
                         case 1 :
-                            // InternalDim.g:5255:5: ( (lv_displayName_6_0= RULE_ID ) )
+                            // InternalDim.g:5318:5: ( (lv_displayName_6_0= RULE_ID ) )
                             {
-                            // InternalDim.g:5255:5: ( (lv_displayName_6_0= RULE_ID ) )
-                            // InternalDim.g:5256:6: (lv_displayName_6_0= RULE_ID )
+                            // InternalDim.g:5318:5: ( (lv_displayName_6_0= RULE_ID ) )
+                            // InternalDim.g:5319:6: (lv_displayName_6_0= RULE_ID )
                             {
-                            // InternalDim.g:5256:6: (lv_displayName_6_0= RULE_ID )
-                            // InternalDim.g:5257:7: lv_displayName_6_0= RULE_ID
+                            // InternalDim.g:5319:6: (lv_displayName_6_0= RULE_ID )
+                            // InternalDim.g:5320:7: lv_displayName_6_0= RULE_ID
                             {
                             lv_displayName_6_0=(Token)match(input,RULE_ID,FOLLOW_85); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -14792,13 +14909,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalDim.g:5274:5: ( (lv_plural_7_0= '*' ) )
+                            // InternalDim.g:5337:5: ( (lv_plural_7_0= '*' ) )
                             {
-                            // InternalDim.g:5274:5: ( (lv_plural_7_0= '*' ) )
-                            // InternalDim.g:5275:6: (lv_plural_7_0= '*' )
+                            // InternalDim.g:5337:5: ( (lv_plural_7_0= '*' ) )
+                            // InternalDim.g:5338:6: (lv_plural_7_0= '*' )
                             {
-                            // InternalDim.g:5275:6: (lv_plural_7_0= '*' )
-                            // InternalDim.g:5276:7: lv_plural_7_0= '*'
+                            // InternalDim.g:5338:6: (lv_plural_7_0= '*' )
+                            // InternalDim.g:5339:7: lv_plural_7_0= '*'
                             {
                             lv_plural_7_0=(Token)match(input,53,FOLLOW_85); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -14832,8 +14949,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5290:3: ( ( ']' )=>otherlv_8= ']' )
-            // InternalDim.g:5291:4: ( ']' )=>otherlv_8= ']'
+            // InternalDim.g:5353:3: ( ( ']' )=>otherlv_8= ']' )
+            // InternalDim.g:5354:4: ( ']' )=>otherlv_8= ']'
             {
             otherlv_8=(Token)match(input,64,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -14869,7 +14986,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxContextReference"
-    // InternalDim.g:5301:1: entryRuleDmxContextReference returns [EObject current=null] : iv_ruleDmxContextReference= ruleDmxContextReference EOF ;
+    // InternalDim.g:5364:1: entryRuleDmxContextReference returns [EObject current=null] : iv_ruleDmxContextReference= ruleDmxContextReference EOF ;
     public final EObject entryRuleDmxContextReference() throws RecognitionException {
         EObject current = null;
 
@@ -14877,8 +14994,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5301:60: (iv_ruleDmxContextReference= ruleDmxContextReference EOF )
-            // InternalDim.g:5302:2: iv_ruleDmxContextReference= ruleDmxContextReference EOF
+            // InternalDim.g:5364:60: (iv_ruleDmxContextReference= ruleDmxContextReference EOF )
+            // InternalDim.g:5365:2: iv_ruleDmxContextReference= ruleDmxContextReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxContextReferenceRule()); 
@@ -14909,7 +15026,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxContextReference"
-    // InternalDim.g:5308:1: ruleDmxContextReference returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? ) ;
+    // InternalDim.g:5371:1: ruleDmxContextReference returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? ) ;
     public final EObject ruleDmxContextReference() throws RecognitionException {
         EObject current = null;
 
@@ -14922,14 +15039,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5314:2: ( ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? ) )
-            // InternalDim.g:5315:2: ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? )
+            // InternalDim.g:5377:2: ( ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? ) )
+            // InternalDim.g:5378:2: ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? )
             {
-            // InternalDim.g:5315:2: ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? )
-            // InternalDim.g:5316:3: () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )?
+            // InternalDim.g:5378:2: ( () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )? )
+            // InternalDim.g:5379:3: () ( (otherlv_1= RULE_ID ) ) ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )?
             {
-            // InternalDim.g:5316:3: ()
-            // InternalDim.g:5317:4: 
+            // InternalDim.g:5379:3: ()
+            // InternalDim.g:5380:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -14941,11 +15058,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5323:3: ( (otherlv_1= RULE_ID ) )
-            // InternalDim.g:5324:4: (otherlv_1= RULE_ID )
+            // InternalDim.g:5386:3: ( (otherlv_1= RULE_ID ) )
+            // InternalDim.g:5387:4: (otherlv_1= RULE_ID )
             {
-            // InternalDim.g:5324:4: (otherlv_1= RULE_ID )
-            // InternalDim.g:5325:5: otherlv_1= RULE_ID
+            // InternalDim.g:5387:4: (otherlv_1= RULE_ID )
+            // InternalDim.g:5388:5: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -14966,7 +15083,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5336:3: ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )?
+            // InternalDim.g:5399:3: ( ( (lv_before_2_0= '@before' ) ) | (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) ) )?
             int alt101=3;
             int LA101_0 = input.LA(1);
 
@@ -14982,13 +15099,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt101) {
                 case 1 :
-                    // InternalDim.g:5337:4: ( (lv_before_2_0= '@before' ) )
+                    // InternalDim.g:5400:4: ( (lv_before_2_0= '@before' ) )
                     {
-                    // InternalDim.g:5337:4: ( (lv_before_2_0= '@before' ) )
-                    // InternalDim.g:5338:5: (lv_before_2_0= '@before' )
+                    // InternalDim.g:5400:4: ( (lv_before_2_0= '@before' ) )
+                    // InternalDim.g:5401:5: (lv_before_2_0= '@before' )
                     {
-                    // InternalDim.g:5338:5: (lv_before_2_0= '@before' )
-                    // InternalDim.g:5339:6: lv_before_2_0= '@before'
+                    // InternalDim.g:5401:5: (lv_before_2_0= '@before' )
+                    // InternalDim.g:5402:6: lv_before_2_0= '@before'
                     {
                     lv_before_2_0=(Token)match(input,55,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15014,10 +15131,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:5352:4: (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) )
+                    // InternalDim.g:5415:4: (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) )
                     {
-                    // InternalDim.g:5352:4: (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) )
-                    // InternalDim.g:5353:5: otherlv_3= '.' ( (lv_all_4_0= 'all' ) )
+                    // InternalDim.g:5415:4: (otherlv_3= '.' ( (lv_all_4_0= 'all' ) ) )
+                    // InternalDim.g:5416:5: otherlv_3= '.' ( (lv_all_4_0= 'all' ) )
                     {
                     otherlv_3=(Token)match(input,54,FOLLOW_87); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15025,11 +15142,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_3, grammarAccess.getDmxContextReferenceAccess().getFullStopKeyword_2_1_0());
                       				
                     }
-                    // InternalDim.g:5357:5: ( (lv_all_4_0= 'all' ) )
-                    // InternalDim.g:5358:6: (lv_all_4_0= 'all' )
+                    // InternalDim.g:5420:5: ( (lv_all_4_0= 'all' ) )
+                    // InternalDim.g:5421:6: (lv_all_4_0= 'all' )
                     {
-                    // InternalDim.g:5358:6: (lv_all_4_0= 'all' )
-                    // InternalDim.g:5359:7: lv_all_4_0= 'all'
+                    // InternalDim.g:5421:6: (lv_all_4_0= 'all' )
+                    // InternalDim.g:5422:7: lv_all_4_0= 'all'
                     {
                     lv_all_4_0=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15085,7 +15202,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxIfExpression"
-    // InternalDim.g:5377:1: entryRuleDmxIfExpression returns [EObject current=null] : iv_ruleDmxIfExpression= ruleDmxIfExpression EOF ;
+    // InternalDim.g:5440:1: entryRuleDmxIfExpression returns [EObject current=null] : iv_ruleDmxIfExpression= ruleDmxIfExpression EOF ;
     public final EObject entryRuleDmxIfExpression() throws RecognitionException {
         EObject current = null;
 
@@ -15093,8 +15210,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5377:56: (iv_ruleDmxIfExpression= ruleDmxIfExpression EOF )
-            // InternalDim.g:5378:2: iv_ruleDmxIfExpression= ruleDmxIfExpression EOF
+            // InternalDim.g:5440:56: (iv_ruleDmxIfExpression= ruleDmxIfExpression EOF )
+            // InternalDim.g:5441:2: iv_ruleDmxIfExpression= ruleDmxIfExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxIfExpressionRule()); 
@@ -15125,7 +15242,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxIfExpression"
-    // InternalDim.g:5384:1: ruleDmxIfExpression returns [EObject current=null] : ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' ) ;
+    // InternalDim.g:5447:1: ruleDmxIfExpression returns [EObject current=null] : ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' ) ;
     public final EObject ruleDmxIfExpression() throws RecognitionException {
         EObject current = null;
 
@@ -15144,14 +15261,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5390:2: ( ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' ) )
-            // InternalDim.g:5391:2: ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' )
+            // InternalDim.g:5453:2: ( ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' ) )
+            // InternalDim.g:5454:2: ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' )
             {
-            // InternalDim.g:5391:2: ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' )
-            // InternalDim.g:5392:3: () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end'
+            // InternalDim.g:5454:2: ( () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end' )
+            // InternalDim.g:5455:3: () otherlv_1= 'if' ( (lv_if_2_0= ruleDExpression ) ) otherlv_3= 'then' ( (lv_then_4_0= ruleDExpression ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )? otherlv_7= 'end'
             {
-            // InternalDim.g:5392:3: ()
-            // InternalDim.g:5393:4: 
+            // InternalDim.g:5455:3: ()
+            // InternalDim.g:5456:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -15169,11 +15286,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxIfExpressionAccess().getIfKeyword_1());
               		
             }
-            // InternalDim.g:5403:3: ( (lv_if_2_0= ruleDExpression ) )
-            // InternalDim.g:5404:4: (lv_if_2_0= ruleDExpression )
+            // InternalDim.g:5466:3: ( (lv_if_2_0= ruleDExpression ) )
+            // InternalDim.g:5467:4: (lv_if_2_0= ruleDExpression )
             {
-            // InternalDim.g:5404:4: (lv_if_2_0= ruleDExpression )
-            // InternalDim.g:5405:5: lv_if_2_0= ruleDExpression
+            // InternalDim.g:5467:4: (lv_if_2_0= ruleDExpression )
+            // InternalDim.g:5468:5: lv_if_2_0= ruleDExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -15210,11 +15327,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_3, grammarAccess.getDmxIfExpressionAccess().getThenKeyword_3());
               		
             }
-            // InternalDim.g:5426:3: ( (lv_then_4_0= ruleDExpression ) )
-            // InternalDim.g:5427:4: (lv_then_4_0= ruleDExpression )
+            // InternalDim.g:5489:3: ( (lv_then_4_0= ruleDExpression ) )
+            // InternalDim.g:5490:4: (lv_then_4_0= ruleDExpression )
             {
-            // InternalDim.g:5427:4: (lv_then_4_0= ruleDExpression )
-            // InternalDim.g:5428:5: lv_then_4_0= ruleDExpression
+            // InternalDim.g:5490:4: (lv_then_4_0= ruleDExpression )
+            // InternalDim.g:5491:5: lv_then_4_0= ruleDExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -15245,7 +15362,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5445:3: ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )?
+            // InternalDim.g:5508:3: ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) ) )?
             int alt102=2;
             int LA102_0 = input.LA(1);
 
@@ -15254,10 +15371,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt102) {
                 case 1 :
-                    // InternalDim.g:5446:4: ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) )
+                    // InternalDim.g:5509:4: ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_else_6_0= ruleDExpression ) )
                     {
-                    // InternalDim.g:5446:4: ( ( 'else' )=>otherlv_5= 'else' )
-                    // InternalDim.g:5447:5: ( 'else' )=>otherlv_5= 'else'
+                    // InternalDim.g:5509:4: ( ( 'else' )=>otherlv_5= 'else' )
+                    // InternalDim.g:5510:5: ( 'else' )=>otherlv_5= 'else'
                     {
                     otherlv_5=(Token)match(input,68,FOLLOW_13); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15268,11 +15385,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:5453:4: ( (lv_else_6_0= ruleDExpression ) )
-                    // InternalDim.g:5454:5: (lv_else_6_0= ruleDExpression )
+                    // InternalDim.g:5516:4: ( (lv_else_6_0= ruleDExpression ) )
+                    // InternalDim.g:5517:5: (lv_else_6_0= ruleDExpression )
                     {
-                    // InternalDim.g:5454:5: (lv_else_6_0= ruleDExpression )
-                    // InternalDim.g:5455:6: lv_else_6_0= ruleDExpression
+                    // InternalDim.g:5517:5: (lv_else_6_0= ruleDExpression )
+                    // InternalDim.g:5518:6: lv_else_6_0= ruleDExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -15340,7 +15457,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDMultiplicity"
-    // InternalDim.g:5481:1: entryRuleDMultiplicity returns [EObject current=null] : iv_ruleDMultiplicity= ruleDMultiplicity EOF ;
+    // InternalDim.g:5544:1: entryRuleDMultiplicity returns [EObject current=null] : iv_ruleDMultiplicity= ruleDMultiplicity EOF ;
     public final EObject entryRuleDMultiplicity() throws RecognitionException {
         EObject current = null;
 
@@ -15348,8 +15465,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5481:54: (iv_ruleDMultiplicity= ruleDMultiplicity EOF )
-            // InternalDim.g:5482:2: iv_ruleDMultiplicity= ruleDMultiplicity EOF
+            // InternalDim.g:5544:54: (iv_ruleDMultiplicity= ruleDMultiplicity EOF )
+            // InternalDim.g:5545:2: iv_ruleDMultiplicity= ruleDMultiplicity EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDMultiplicityRule()); 
@@ -15380,7 +15497,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDMultiplicity"
-    // InternalDim.g:5488:1: ruleDMultiplicity returns [EObject current=null] : ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) ) ;
+    // InternalDim.g:5551:1: ruleDMultiplicity returns [EObject current=null] : ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) ) ;
     public final EObject ruleDMultiplicity() throws RecognitionException {
         EObject current = null;
 
@@ -15397,10 +15514,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5494:2: ( ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) ) )
-            // InternalDim.g:5495:2: ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) )
+            // InternalDim.g:5557:2: ( ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) ) )
+            // InternalDim.g:5558:2: ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) )
             {
-            // InternalDim.g:5495:2: ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) )
+            // InternalDim.g:5558:2: ( ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) ) | (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' ) )
             int alt103=2;
             int LA103_0 = input.LA(1);
 
@@ -15419,13 +15536,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt103) {
                 case 1 :
-                    // InternalDim.g:5496:3: ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) )
+                    // InternalDim.g:5559:3: ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) )
                     {
-                    // InternalDim.g:5496:3: ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) )
-                    // InternalDim.g:5497:4: (lv_shorthand_0_0= ruleDMultiplicityShorthand )
+                    // InternalDim.g:5559:3: ( (lv_shorthand_0_0= ruleDMultiplicityShorthand ) )
+                    // InternalDim.g:5560:4: (lv_shorthand_0_0= ruleDMultiplicityShorthand )
                     {
-                    // InternalDim.g:5497:4: (lv_shorthand_0_0= ruleDMultiplicityShorthand )
-                    // InternalDim.g:5498:5: lv_shorthand_0_0= ruleDMultiplicityShorthand
+                    // InternalDim.g:5560:4: (lv_shorthand_0_0= ruleDMultiplicityShorthand )
+                    // InternalDim.g:5561:5: lv_shorthand_0_0= ruleDMultiplicityShorthand
                     {
                     if ( state.backtracking==0 ) {
 
@@ -15460,10 +15577,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:5516:3: (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' )
+                    // InternalDim.g:5579:3: (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' )
                     {
-                    // InternalDim.g:5516:3: (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' )
-                    // InternalDim.g:5517:4: otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')'
+                    // InternalDim.g:5579:3: (otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')' )
+                    // InternalDim.g:5580:4: otherlv_1= '(' ( (lv_minOccurs_2_0= RULE_NATURAL ) ) otherlv_3= '..' ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) ) otherlv_5= ')'
                     {
                     otherlv_1=(Token)match(input,41,FOLLOW_91); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15471,11 +15588,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_1, grammarAccess.getDMultiplicityAccess().getLeftParenthesisKeyword_1_0());
                       			
                     }
-                    // InternalDim.g:5521:4: ( (lv_minOccurs_2_0= RULE_NATURAL ) )
-                    // InternalDim.g:5522:5: (lv_minOccurs_2_0= RULE_NATURAL )
+                    // InternalDim.g:5584:4: ( (lv_minOccurs_2_0= RULE_NATURAL ) )
+                    // InternalDim.g:5585:5: (lv_minOccurs_2_0= RULE_NATURAL )
                     {
-                    // InternalDim.g:5522:5: (lv_minOccurs_2_0= RULE_NATURAL )
-                    // InternalDim.g:5523:6: lv_minOccurs_2_0= RULE_NATURAL
+                    // InternalDim.g:5585:5: (lv_minOccurs_2_0= RULE_NATURAL )
+                    // InternalDim.g:5586:6: lv_minOccurs_2_0= RULE_NATURAL
                     {
                     lv_minOccurs_2_0=(Token)match(input,RULE_NATURAL,FOLLOW_92); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15507,11 +15624,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_3, grammarAccess.getDMultiplicityAccess().getFullStopFullStopKeyword_1_2());
                       			
                     }
-                    // InternalDim.g:5543:4: ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) )
-                    // InternalDim.g:5544:5: (lv_maxOccurs_4_0= ruleMULTIPLICITY )
+                    // InternalDim.g:5606:4: ( (lv_maxOccurs_4_0= ruleMULTIPLICITY ) )
+                    // InternalDim.g:5607:5: (lv_maxOccurs_4_0= ruleMULTIPLICITY )
                     {
-                    // InternalDim.g:5544:5: (lv_maxOccurs_4_0= ruleMULTIPLICITY )
-                    // InternalDim.g:5545:6: lv_maxOccurs_4_0= ruleMULTIPLICITY
+                    // InternalDim.g:5607:5: (lv_maxOccurs_4_0= ruleMULTIPLICITY )
+                    // InternalDim.g:5608:6: lv_maxOccurs_4_0= ruleMULTIPLICITY
                     {
                     if ( state.backtracking==0 ) {
 
@@ -15579,7 +15696,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMULTIPLICITY"
-    // InternalDim.g:5571:1: entryRuleMULTIPLICITY returns [String current=null] : iv_ruleMULTIPLICITY= ruleMULTIPLICITY EOF ;
+    // InternalDim.g:5634:1: entryRuleMULTIPLICITY returns [String current=null] : iv_ruleMULTIPLICITY= ruleMULTIPLICITY EOF ;
     public final String entryRuleMULTIPLICITY() throws RecognitionException {
         String current = null;
 
@@ -15587,8 +15704,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5571:52: (iv_ruleMULTIPLICITY= ruleMULTIPLICITY EOF )
-            // InternalDim.g:5572:2: iv_ruleMULTIPLICITY= ruleMULTIPLICITY EOF
+            // InternalDim.g:5634:52: (iv_ruleMULTIPLICITY= ruleMULTIPLICITY EOF )
+            // InternalDim.g:5635:2: iv_ruleMULTIPLICITY= ruleMULTIPLICITY EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMULTIPLICITYRule()); 
@@ -15619,7 +15736,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMULTIPLICITY"
-    // InternalDim.g:5578:1: ruleMULTIPLICITY returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_NATURAL_0= RULE_NATURAL | kw= '*' ) ;
+    // InternalDim.g:5641:1: ruleMULTIPLICITY returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_NATURAL_0= RULE_NATURAL | kw= '*' ) ;
     public final AntlrDatatypeRuleToken ruleMULTIPLICITY() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -15630,10 +15747,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5584:2: ( (this_NATURAL_0= RULE_NATURAL | kw= '*' ) )
-            // InternalDim.g:5585:2: (this_NATURAL_0= RULE_NATURAL | kw= '*' )
+            // InternalDim.g:5647:2: ( (this_NATURAL_0= RULE_NATURAL | kw= '*' ) )
+            // InternalDim.g:5648:2: (this_NATURAL_0= RULE_NATURAL | kw= '*' )
             {
-            // InternalDim.g:5585:2: (this_NATURAL_0= RULE_NATURAL | kw= '*' )
+            // InternalDim.g:5648:2: (this_NATURAL_0= RULE_NATURAL | kw= '*' )
             int alt104=2;
             int LA104_0 = input.LA(1);
 
@@ -15652,7 +15769,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt104) {
                 case 1 :
-                    // InternalDim.g:5586:3: this_NATURAL_0= RULE_NATURAL
+                    // InternalDim.g:5649:3: this_NATURAL_0= RULE_NATURAL
                     {
                     this_NATURAL_0=(Token)match(input,RULE_NATURAL,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15669,7 +15786,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:5594:3: kw= '*'
+                    // InternalDim.g:5657:3: kw= '*'
                     {
                     kw=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15706,7 +15823,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxBooleanLiteral"
-    // InternalDim.g:5603:1: entryRuleDmxBooleanLiteral returns [EObject current=null] : iv_ruleDmxBooleanLiteral= ruleDmxBooleanLiteral EOF ;
+    // InternalDim.g:5666:1: entryRuleDmxBooleanLiteral returns [EObject current=null] : iv_ruleDmxBooleanLiteral= ruleDmxBooleanLiteral EOF ;
     public final EObject entryRuleDmxBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -15714,8 +15831,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5603:58: (iv_ruleDmxBooleanLiteral= ruleDmxBooleanLiteral EOF )
-            // InternalDim.g:5604:2: iv_ruleDmxBooleanLiteral= ruleDmxBooleanLiteral EOF
+            // InternalDim.g:5666:58: (iv_ruleDmxBooleanLiteral= ruleDmxBooleanLiteral EOF )
+            // InternalDim.g:5667:2: iv_ruleDmxBooleanLiteral= ruleDmxBooleanLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxBooleanLiteralRule()); 
@@ -15746,7 +15863,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxBooleanLiteral"
-    // InternalDim.g:5610:1: ruleDmxBooleanLiteral returns [EObject current=null] : ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) ) ;
+    // InternalDim.g:5673:1: ruleDmxBooleanLiteral returns [EObject current=null] : ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) ) ;
     public final EObject ruleDmxBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -15759,14 +15876,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5616:2: ( ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) ) )
-            // InternalDim.g:5617:2: ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) )
+            // InternalDim.g:5679:2: ( ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) ) )
+            // InternalDim.g:5680:2: ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) )
             {
-            // InternalDim.g:5617:2: ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) )
-            // InternalDim.g:5618:3: () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' )
+            // InternalDim.g:5680:2: ( () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' ) )
+            // InternalDim.g:5681:3: () ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' )
             {
-            // InternalDim.g:5618:3: ()
-            // InternalDim.g:5619:4: 
+            // InternalDim.g:5681:3: ()
+            // InternalDim.g:5682:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -15778,7 +15895,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5625:3: ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' )
+            // InternalDim.g:5688:3: ( ( (lv_value_1_0= 'TRUE' ) ) | ( (lv_value_2_0= 'true' ) ) | otherlv_3= 'FALSE' | otherlv_4= 'false' )
             int alt105=4;
             switch ( input.LA(1) ) {
             case 71:
@@ -15811,13 +15928,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt105) {
                 case 1 :
-                    // InternalDim.g:5626:4: ( (lv_value_1_0= 'TRUE' ) )
+                    // InternalDim.g:5689:4: ( (lv_value_1_0= 'TRUE' ) )
                     {
-                    // InternalDim.g:5626:4: ( (lv_value_1_0= 'TRUE' ) )
-                    // InternalDim.g:5627:5: (lv_value_1_0= 'TRUE' )
+                    // InternalDim.g:5689:4: ( (lv_value_1_0= 'TRUE' ) )
+                    // InternalDim.g:5690:5: (lv_value_1_0= 'TRUE' )
                     {
-                    // InternalDim.g:5627:5: (lv_value_1_0= 'TRUE' )
-                    // InternalDim.g:5628:6: lv_value_1_0= 'TRUE'
+                    // InternalDim.g:5690:5: (lv_value_1_0= 'TRUE' )
+                    // InternalDim.g:5691:6: lv_value_1_0= 'TRUE'
                     {
                     lv_value_1_0=(Token)match(input,71,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15843,13 +15960,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:5641:4: ( (lv_value_2_0= 'true' ) )
+                    // InternalDim.g:5704:4: ( (lv_value_2_0= 'true' ) )
                     {
-                    // InternalDim.g:5641:4: ( (lv_value_2_0= 'true' ) )
-                    // InternalDim.g:5642:5: (lv_value_2_0= 'true' )
+                    // InternalDim.g:5704:4: ( (lv_value_2_0= 'true' ) )
+                    // InternalDim.g:5705:5: (lv_value_2_0= 'true' )
                     {
-                    // InternalDim.g:5642:5: (lv_value_2_0= 'true' )
-                    // InternalDim.g:5643:6: lv_value_2_0= 'true'
+                    // InternalDim.g:5705:5: (lv_value_2_0= 'true' )
+                    // InternalDim.g:5706:6: lv_value_2_0= 'true'
                     {
                     lv_value_2_0=(Token)match(input,72,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15875,7 +15992,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:5656:4: otherlv_3= 'FALSE'
+                    // InternalDim.g:5719:4: otherlv_3= 'FALSE'
                     {
                     otherlv_3=(Token)match(input,73,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15887,7 +16004,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:5661:4: otherlv_4= 'false'
+                    // InternalDim.g:5724:4: otherlv_4= 'false'
                     {
                     otherlv_4=(Token)match(input,74,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -15926,7 +16043,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxNaturalLiteral"
-    // InternalDim.g:5670:1: entryRuleDmxNaturalLiteral returns [EObject current=null] : iv_ruleDmxNaturalLiteral= ruleDmxNaturalLiteral EOF ;
+    // InternalDim.g:5733:1: entryRuleDmxNaturalLiteral returns [EObject current=null] : iv_ruleDmxNaturalLiteral= ruleDmxNaturalLiteral EOF ;
     public final EObject entryRuleDmxNaturalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -15934,8 +16051,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5670:58: (iv_ruleDmxNaturalLiteral= ruleDmxNaturalLiteral EOF )
-            // InternalDim.g:5671:2: iv_ruleDmxNaturalLiteral= ruleDmxNaturalLiteral EOF
+            // InternalDim.g:5733:58: (iv_ruleDmxNaturalLiteral= ruleDmxNaturalLiteral EOF )
+            // InternalDim.g:5734:2: iv_ruleDmxNaturalLiteral= ruleDmxNaturalLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxNaturalLiteralRule()); 
@@ -15966,7 +16083,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxNaturalLiteral"
-    // InternalDim.g:5677:1: ruleDmxNaturalLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_NATURAL ) ) ) ;
+    // InternalDim.g:5740:1: ruleDmxNaturalLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_NATURAL ) ) ) ;
     public final EObject ruleDmxNaturalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -15976,14 +16093,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5683:2: ( ( () ( (lv_value_1_0= RULE_NATURAL ) ) ) )
-            // InternalDim.g:5684:2: ( () ( (lv_value_1_0= RULE_NATURAL ) ) )
+            // InternalDim.g:5746:2: ( ( () ( (lv_value_1_0= RULE_NATURAL ) ) ) )
+            // InternalDim.g:5747:2: ( () ( (lv_value_1_0= RULE_NATURAL ) ) )
             {
-            // InternalDim.g:5684:2: ( () ( (lv_value_1_0= RULE_NATURAL ) ) )
-            // InternalDim.g:5685:3: () ( (lv_value_1_0= RULE_NATURAL ) )
+            // InternalDim.g:5747:2: ( () ( (lv_value_1_0= RULE_NATURAL ) ) )
+            // InternalDim.g:5748:3: () ( (lv_value_1_0= RULE_NATURAL ) )
             {
-            // InternalDim.g:5685:3: ()
-            // InternalDim.g:5686:4: 
+            // InternalDim.g:5748:3: ()
+            // InternalDim.g:5749:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -15995,11 +16112,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5692:3: ( (lv_value_1_0= RULE_NATURAL ) )
-            // InternalDim.g:5693:4: (lv_value_1_0= RULE_NATURAL )
+            // InternalDim.g:5755:3: ( (lv_value_1_0= RULE_NATURAL ) )
+            // InternalDim.g:5756:4: (lv_value_1_0= RULE_NATURAL )
             {
-            // InternalDim.g:5693:4: (lv_value_1_0= RULE_NATURAL )
-            // InternalDim.g:5694:5: lv_value_1_0= RULE_NATURAL
+            // InternalDim.g:5756:4: (lv_value_1_0= RULE_NATURAL )
+            // InternalDim.g:5757:5: lv_value_1_0= RULE_NATURAL
             {
             lv_value_1_0=(Token)match(input,RULE_NATURAL,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16050,7 +16167,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxDecimalLiteral"
-    // InternalDim.g:5714:1: entryRuleDmxDecimalLiteral returns [EObject current=null] : iv_ruleDmxDecimalLiteral= ruleDmxDecimalLiteral EOF ;
+    // InternalDim.g:5777:1: entryRuleDmxDecimalLiteral returns [EObject current=null] : iv_ruleDmxDecimalLiteral= ruleDmxDecimalLiteral EOF ;
     public final EObject entryRuleDmxDecimalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -16058,8 +16175,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5714:58: (iv_ruleDmxDecimalLiteral= ruleDmxDecimalLiteral EOF )
-            // InternalDim.g:5715:2: iv_ruleDmxDecimalLiteral= ruleDmxDecimalLiteral EOF
+            // InternalDim.g:5777:58: (iv_ruleDmxDecimalLiteral= ruleDmxDecimalLiteral EOF )
+            // InternalDim.g:5778:2: iv_ruleDmxDecimalLiteral= ruleDmxDecimalLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxDecimalLiteralRule()); 
@@ -16090,7 +16207,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxDecimalLiteral"
-    // InternalDim.g:5721:1: ruleDmxDecimalLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleDECIMAL ) ) ) ;
+    // InternalDim.g:5784:1: ruleDmxDecimalLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleDECIMAL ) ) ) ;
     public final EObject ruleDmxDecimalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -16101,14 +16218,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5727:2: ( ( () ( (lv_value_1_0= ruleDECIMAL ) ) ) )
-            // InternalDim.g:5728:2: ( () ( (lv_value_1_0= ruleDECIMAL ) ) )
+            // InternalDim.g:5790:2: ( ( () ( (lv_value_1_0= ruleDECIMAL ) ) ) )
+            // InternalDim.g:5791:2: ( () ( (lv_value_1_0= ruleDECIMAL ) ) )
             {
-            // InternalDim.g:5728:2: ( () ( (lv_value_1_0= ruleDECIMAL ) ) )
-            // InternalDim.g:5729:3: () ( (lv_value_1_0= ruleDECIMAL ) )
+            // InternalDim.g:5791:2: ( () ( (lv_value_1_0= ruleDECIMAL ) ) )
+            // InternalDim.g:5792:3: () ( (lv_value_1_0= ruleDECIMAL ) )
             {
-            // InternalDim.g:5729:3: ()
-            // InternalDim.g:5730:4: 
+            // InternalDim.g:5792:3: ()
+            // InternalDim.g:5793:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -16120,11 +16237,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5736:3: ( (lv_value_1_0= ruleDECIMAL ) )
-            // InternalDim.g:5737:4: (lv_value_1_0= ruleDECIMAL )
+            // InternalDim.g:5799:3: ( (lv_value_1_0= ruleDECIMAL ) )
+            // InternalDim.g:5800:4: (lv_value_1_0= ruleDECIMAL )
             {
-            // InternalDim.g:5737:4: (lv_value_1_0= ruleDECIMAL )
-            // InternalDim.g:5738:5: lv_value_1_0= ruleDECIMAL
+            // InternalDim.g:5800:4: (lv_value_1_0= ruleDECIMAL )
+            // InternalDim.g:5801:5: lv_value_1_0= ruleDECIMAL
             {
             if ( state.backtracking==0 ) {
 
@@ -16180,7 +16297,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxStringLiteral"
-    // InternalDim.g:5759:1: entryRuleDmxStringLiteral returns [EObject current=null] : iv_ruleDmxStringLiteral= ruleDmxStringLiteral EOF ;
+    // InternalDim.g:5822:1: entryRuleDmxStringLiteral returns [EObject current=null] : iv_ruleDmxStringLiteral= ruleDmxStringLiteral EOF ;
     public final EObject entryRuleDmxStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -16188,8 +16305,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5759:57: (iv_ruleDmxStringLiteral= ruleDmxStringLiteral EOF )
-            // InternalDim.g:5760:2: iv_ruleDmxStringLiteral= ruleDmxStringLiteral EOF
+            // InternalDim.g:5822:57: (iv_ruleDmxStringLiteral= ruleDmxStringLiteral EOF )
+            // InternalDim.g:5823:2: iv_ruleDmxStringLiteral= ruleDmxStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxStringLiteralRule()); 
@@ -16220,7 +16337,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxStringLiteral"
-    // InternalDim.g:5766:1: ruleDmxStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // InternalDim.g:5829:1: ruleDmxStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleDmxStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -16230,14 +16347,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5772:2: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // InternalDim.g:5773:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalDim.g:5835:2: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // InternalDim.g:5836:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // InternalDim.g:5773:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
-            // InternalDim.g:5774:3: () ( (lv_value_1_0= RULE_STRING ) )
+            // InternalDim.g:5836:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalDim.g:5837:3: () ( (lv_value_1_0= RULE_STRING ) )
             {
-            // InternalDim.g:5774:3: ()
-            // InternalDim.g:5775:4: 
+            // InternalDim.g:5837:3: ()
+            // InternalDim.g:5838:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -16249,11 +16366,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5781:3: ( (lv_value_1_0= RULE_STRING ) )
-            // InternalDim.g:5782:4: (lv_value_1_0= RULE_STRING )
+            // InternalDim.g:5844:3: ( (lv_value_1_0= RULE_STRING ) )
+            // InternalDim.g:5845:4: (lv_value_1_0= RULE_STRING )
             {
-            // InternalDim.g:5782:4: (lv_value_1_0= RULE_STRING )
-            // InternalDim.g:5783:5: lv_value_1_0= RULE_STRING
+            // InternalDim.g:5845:4: (lv_value_1_0= RULE_STRING )
+            // InternalDim.g:5846:5: lv_value_1_0= RULE_STRING
             {
             lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16304,7 +16421,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDmxUndefinedLiteral"
-    // InternalDim.g:5803:1: entryRuleDmxUndefinedLiteral returns [EObject current=null] : iv_ruleDmxUndefinedLiteral= ruleDmxUndefinedLiteral EOF ;
+    // InternalDim.g:5866:1: entryRuleDmxUndefinedLiteral returns [EObject current=null] : iv_ruleDmxUndefinedLiteral= ruleDmxUndefinedLiteral EOF ;
     public final EObject entryRuleDmxUndefinedLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -16312,8 +16429,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5803:60: (iv_ruleDmxUndefinedLiteral= ruleDmxUndefinedLiteral EOF )
-            // InternalDim.g:5804:2: iv_ruleDmxUndefinedLiteral= ruleDmxUndefinedLiteral EOF
+            // InternalDim.g:5866:60: (iv_ruleDmxUndefinedLiteral= ruleDmxUndefinedLiteral EOF )
+            // InternalDim.g:5867:2: iv_ruleDmxUndefinedLiteral= ruleDmxUndefinedLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDmxUndefinedLiteralRule()); 
@@ -16344,7 +16461,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxUndefinedLiteral"
-    // InternalDim.g:5810:1: ruleDmxUndefinedLiteral returns [EObject current=null] : ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) ) ;
+    // InternalDim.g:5873:1: ruleDmxUndefinedLiteral returns [EObject current=null] : ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) ) ;
     public final EObject ruleDmxUndefinedLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -16355,14 +16472,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5816:2: ( ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) ) )
-            // InternalDim.g:5817:2: ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) )
+            // InternalDim.g:5879:2: ( ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) ) )
+            // InternalDim.g:5880:2: ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) )
             {
-            // InternalDim.g:5817:2: ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) )
-            // InternalDim.g:5818:3: () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' )
+            // InternalDim.g:5880:2: ( () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' ) )
+            // InternalDim.g:5881:3: () (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' )
             {
-            // InternalDim.g:5818:3: ()
-            // InternalDim.g:5819:4: 
+            // InternalDim.g:5881:3: ()
+            // InternalDim.g:5882:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -16374,7 +16491,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDim.g:5825:3: (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' )
+            // InternalDim.g:5888:3: (otherlv_1= 'UNDEFINED' | otherlv_2= 'undefined' )
             int alt106=2;
             int LA106_0 = input.LA(1);
 
@@ -16393,7 +16510,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt106) {
                 case 1 :
-                    // InternalDim.g:5826:4: otherlv_1= 'UNDEFINED'
+                    // InternalDim.g:5889:4: otherlv_1= 'UNDEFINED'
                     {
                     otherlv_1=(Token)match(input,75,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16405,7 +16522,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:5831:4: otherlv_2= 'undefined'
+                    // InternalDim.g:5894:4: otherlv_2= 'undefined'
                     {
                     otherlv_2=(Token)match(input,76,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16444,7 +16561,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDECIMAL"
-    // InternalDim.g:5840:1: entryRuleDECIMAL returns [String current=null] : iv_ruleDECIMAL= ruleDECIMAL EOF ;
+    // InternalDim.g:5903:1: entryRuleDECIMAL returns [String current=null] : iv_ruleDECIMAL= ruleDECIMAL EOF ;
     public final String entryRuleDECIMAL() throws RecognitionException {
         String current = null;
 
@@ -16452,8 +16569,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5840:47: (iv_ruleDECIMAL= ruleDECIMAL EOF )
-            // InternalDim.g:5841:2: iv_ruleDECIMAL= ruleDECIMAL EOF
+            // InternalDim.g:5903:47: (iv_ruleDECIMAL= ruleDECIMAL EOF )
+            // InternalDim.g:5904:2: iv_ruleDECIMAL= ruleDECIMAL EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDECIMALRule()); 
@@ -16484,7 +16601,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDECIMAL"
-    // InternalDim.g:5847:1: ruleDECIMAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? ) ;
+    // InternalDim.g:5910:1: ruleDECIMAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? ) ;
     public final AntlrDatatypeRuleToken ruleDECIMAL() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16497,11 +16614,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5853:2: ( (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? ) )
-            // InternalDim.g:5854:2: (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? )
+            // InternalDim.g:5916:2: ( (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? ) )
+            // InternalDim.g:5917:2: (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? )
             {
-            // InternalDim.g:5854:2: (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? )
-            // InternalDim.g:5855:3: this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )?
+            // InternalDim.g:5917:2: (this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )? )
+            // InternalDim.g:5918:3: this_NATURAL_0= RULE_NATURAL kw= '.' this_NATURAL_2= RULE_NATURAL ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )?
             {
             this_NATURAL_0=(Token)match(input,RULE_NATURAL,FOLLOW_94); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16532,7 +16649,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_NATURAL_2, grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_2());
               		
             }
-            // InternalDim.g:5874:3: ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )?
+            // InternalDim.g:5937:3: ( (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL )?
             int alt109=2;
             int LA109_0 = input.LA(1);
 
@@ -16541,9 +16658,9 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt109) {
                 case 1 :
-                    // InternalDim.g:5875:4: (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL
+                    // InternalDim.g:5938:4: (kw= 'E' | kw= 'e' ) (kw= '+' | kw= '-' )? this_NATURAL_7= RULE_NATURAL
                     {
-                    // InternalDim.g:5875:4: (kw= 'E' | kw= 'e' )
+                    // InternalDim.g:5938:4: (kw= 'E' | kw= 'e' )
                     int alt107=2;
                     int LA107_0 = input.LA(1);
 
@@ -16562,7 +16679,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt107) {
                         case 1 :
-                            // InternalDim.g:5876:5: kw= 'E'
+                            // InternalDim.g:5939:5: kw= 'E'
                             {
                             kw=(Token)match(input,77,FOLLOW_96); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -16575,7 +16692,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalDim.g:5882:5: kw= 'e'
+                            // InternalDim.g:5945:5: kw= 'e'
                             {
                             kw=(Token)match(input,78,FOLLOW_96); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -16590,7 +16707,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDim.g:5888:4: (kw= '+' | kw= '-' )?
+                    // InternalDim.g:5951:4: (kw= '+' | kw= '-' )?
                     int alt108=3;
                     int LA108_0 = input.LA(1);
 
@@ -16602,7 +16719,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt108) {
                         case 1 :
-                            // InternalDim.g:5889:5: kw= '+'
+                            // InternalDim.g:5952:5: kw= '+'
                             {
                             kw=(Token)match(input,79,FOLLOW_91); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -16615,7 +16732,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalDim.g:5895:5: kw= '-'
+                            // InternalDim.g:5958:5: kw= '-'
                             {
                             kw=(Token)match(input,80,FOLLOW_91); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -16672,7 +16789,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDomFieldListStartSymbol"
-    // InternalDim.g:5913:1: entryRuleDomFieldListStartSymbol returns [String current=null] : iv_ruleDomFieldListStartSymbol= ruleDomFieldListStartSymbol EOF ;
+    // InternalDim.g:5976:1: entryRuleDomFieldListStartSymbol returns [String current=null] : iv_ruleDomFieldListStartSymbol= ruleDomFieldListStartSymbol EOF ;
     public final String entryRuleDomFieldListStartSymbol() throws RecognitionException {
         String current = null;
 
@@ -16680,8 +16797,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5913:63: (iv_ruleDomFieldListStartSymbol= ruleDomFieldListStartSymbol EOF )
-            // InternalDim.g:5914:2: iv_ruleDomFieldListStartSymbol= ruleDomFieldListStartSymbol EOF
+            // InternalDim.g:5976:63: (iv_ruleDomFieldListStartSymbol= ruleDomFieldListStartSymbol EOF )
+            // InternalDim.g:5977:2: iv_ruleDomFieldListStartSymbol= ruleDomFieldListStartSymbol EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDomFieldListStartSymbolRule()); 
@@ -16712,7 +16829,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDomFieldListStartSymbol"
-    // InternalDim.g:5920:1: ruleDomFieldListStartSymbol returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '{' ;
+    // InternalDim.g:5983:1: ruleDomFieldListStartSymbol returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '{' ;
     public final AntlrDatatypeRuleToken ruleDomFieldListStartSymbol() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16722,8 +16839,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5926:2: (kw= '{' )
-            // InternalDim.g:5927:2: kw= '{'
+            // InternalDim.g:5989:2: (kw= '{' )
+            // InternalDim.g:5990:2: kw= '{'
             {
             kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16754,7 +16871,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDQualifiedNameWithWildcard"
-    // InternalDim.g:5935:1: entryRuleDQualifiedNameWithWildcard returns [String current=null] : iv_ruleDQualifiedNameWithWildcard= ruleDQualifiedNameWithWildcard EOF ;
+    // InternalDim.g:5998:1: entryRuleDQualifiedNameWithWildcard returns [String current=null] : iv_ruleDQualifiedNameWithWildcard= ruleDQualifiedNameWithWildcard EOF ;
     public final String entryRuleDQualifiedNameWithWildcard() throws RecognitionException {
         String current = null;
 
@@ -16762,8 +16879,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5935:66: (iv_ruleDQualifiedNameWithWildcard= ruleDQualifiedNameWithWildcard EOF )
-            // InternalDim.g:5936:2: iv_ruleDQualifiedNameWithWildcard= ruleDQualifiedNameWithWildcard EOF
+            // InternalDim.g:5998:66: (iv_ruleDQualifiedNameWithWildcard= ruleDQualifiedNameWithWildcard EOF )
+            // InternalDim.g:5999:2: iv_ruleDQualifiedNameWithWildcard= ruleDQualifiedNameWithWildcard EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDQualifiedNameWithWildcardRule()); 
@@ -16794,7 +16911,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDQualifiedNameWithWildcard"
-    // InternalDim.g:5942:1: ruleDQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? ) ;
+    // InternalDim.g:6005:1: ruleDQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? ) ;
     public final AntlrDatatypeRuleToken ruleDQualifiedNameWithWildcard() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16806,11 +16923,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5948:2: ( (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? ) )
-            // InternalDim.g:5949:2: (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? )
+            // InternalDim.g:6011:2: ( (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? ) )
+            // InternalDim.g:6012:2: (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? )
             {
-            // InternalDim.g:5949:2: (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? )
-            // InternalDim.g:5950:3: this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )?
+            // InternalDim.g:6012:2: (this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )? )
+            // InternalDim.g:6013:3: this_DQualifiedName_0= ruleDQualifiedName (kw= '.*' )?
             {
             if ( state.backtracking==0 ) {
 
@@ -16832,7 +16949,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDim.g:5960:3: (kw= '.*' )?
+            // InternalDim.g:6023:3: (kw= '.*' )?
             int alt110=2;
             int LA110_0 = input.LA(1);
 
@@ -16841,7 +16958,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt110) {
                 case 1 :
-                    // InternalDim.g:5961:4: kw= '.*'
+                    // InternalDim.g:6024:4: kw= '.*'
                     {
                     kw=(Token)match(input,81,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16881,7 +16998,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDQualifiedName"
-    // InternalDim.g:5971:1: entryRuleDQualifiedName returns [String current=null] : iv_ruleDQualifiedName= ruleDQualifiedName EOF ;
+    // InternalDim.g:6034:1: entryRuleDQualifiedName returns [String current=null] : iv_ruleDQualifiedName= ruleDQualifiedName EOF ;
     public final String entryRuleDQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -16889,8 +17006,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDim.g:5971:54: (iv_ruleDQualifiedName= ruleDQualifiedName EOF )
-            // InternalDim.g:5972:2: iv_ruleDQualifiedName= ruleDQualifiedName EOF
+            // InternalDim.g:6034:54: (iv_ruleDQualifiedName= ruleDQualifiedName EOF )
+            // InternalDim.g:6035:2: iv_ruleDQualifiedName= ruleDQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDQualifiedNameRule()); 
@@ -16921,7 +17038,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDQualifiedName"
-    // InternalDim.g:5978:1: ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // InternalDim.g:6041:1: ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleDQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16933,11 +17050,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:5984:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalDim.g:5985:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalDim.g:6047:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalDim.g:6048:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalDim.g:5985:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalDim.g:5986:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // InternalDim.g:6048:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalDim.g:6049:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_60); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16950,7 +17067,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0());
               		
             }
-            // InternalDim.g:5993:3: (kw= '.' this_ID_2= RULE_ID )*
+            // InternalDim.g:6056:3: (kw= '.' this_ID_2= RULE_ID )*
             loop111:
             do {
                 int alt111=2;
@@ -16963,7 +17080,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt111) {
             	case 1 :
-            	    // InternalDim.g:5994:4: kw= '.' this_ID_2= RULE_ID
+            	    // InternalDim.g:6057:4: kw= '.' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)match(input,54,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -17017,7 +17134,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDEntityNatureAutonomous"
-    // InternalDim.g:6011:1: ruleDEntityNatureAutonomous returns [Enumerator current=null] : (enumLiteral_0= 'autonomous' ) ;
+    // InternalDim.g:6074:1: ruleDEntityNatureAutonomous returns [Enumerator current=null] : (enumLiteral_0= 'autonomous' ) ;
     public final Enumerator ruleDEntityNatureAutonomous() throws RecognitionException {
         Enumerator current = null;
 
@@ -17027,11 +17144,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6017:2: ( (enumLiteral_0= 'autonomous' ) )
-            // InternalDim.g:6018:2: (enumLiteral_0= 'autonomous' )
+            // InternalDim.g:6080:2: ( (enumLiteral_0= 'autonomous' ) )
+            // InternalDim.g:6081:2: (enumLiteral_0= 'autonomous' )
             {
-            // InternalDim.g:6018:2: (enumLiteral_0= 'autonomous' )
-            // InternalDim.g:6019:3: enumLiteral_0= 'autonomous'
+            // InternalDim.g:6081:2: (enumLiteral_0= 'autonomous' )
+            // InternalDim.g:6082:3: enumLiteral_0= 'autonomous'
             {
             enumLiteral_0=(Token)match(input,82,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -17065,7 +17182,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDEntityNatureRelationship"
-    // InternalDim.g:6028:1: ruleDEntityNatureRelationship returns [Enumerator current=null] : (enumLiteral_0= 'relationship' ) ;
+    // InternalDim.g:6091:1: ruleDEntityNatureRelationship returns [Enumerator current=null] : (enumLiteral_0= 'relationship' ) ;
     public final Enumerator ruleDEntityNatureRelationship() throws RecognitionException {
         Enumerator current = null;
 
@@ -17075,11 +17192,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6034:2: ( (enumLiteral_0= 'relationship' ) )
-            // InternalDim.g:6035:2: (enumLiteral_0= 'relationship' )
+            // InternalDim.g:6097:2: ( (enumLiteral_0= 'relationship' ) )
+            // InternalDim.g:6098:2: (enumLiteral_0= 'relationship' )
             {
-            // InternalDim.g:6035:2: (enumLiteral_0= 'relationship' )
-            // InternalDim.g:6036:3: enumLiteral_0= 'relationship'
+            // InternalDim.g:6098:2: (enumLiteral_0= 'relationship' )
+            // InternalDim.g:6099:3: enumLiteral_0= 'relationship'
             {
             enumLiteral_0=(Token)match(input,83,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -17113,7 +17230,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDAssociationKind"
-    // InternalDim.g:6045:1: ruleDAssociationKind returns [Enumerator current=null] : ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) ) ;
+    // InternalDim.g:6108:1: ruleDAssociationKind returns [Enumerator current=null] : ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) ) ;
     public final Enumerator ruleDAssociationKind() throws RecognitionException {
         Enumerator current = null;
 
@@ -17124,10 +17241,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6051:2: ( ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) ) )
-            // InternalDim.g:6052:2: ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) )
+            // InternalDim.g:6114:2: ( ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) ) )
+            // InternalDim.g:6115:2: ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) )
             {
-            // InternalDim.g:6052:2: ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) )
+            // InternalDim.g:6115:2: ( (enumLiteral_0= 'references' ) | (enumLiteral_1= 'contains' ) )
             int alt112=2;
             int LA112_0 = input.LA(1);
 
@@ -17146,10 +17263,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt112) {
                 case 1 :
-                    // InternalDim.g:6053:3: (enumLiteral_0= 'references' )
+                    // InternalDim.g:6116:3: (enumLiteral_0= 'references' )
                     {
-                    // InternalDim.g:6053:3: (enumLiteral_0= 'references' )
-                    // InternalDim.g:6054:4: enumLiteral_0= 'references'
+                    // InternalDim.g:6116:3: (enumLiteral_0= 'references' )
+                    // InternalDim.g:6117:4: enumLiteral_0= 'references'
                     {
                     enumLiteral_0=(Token)match(input,84,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17165,10 +17282,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6061:3: (enumLiteral_1= 'contains' )
+                    // InternalDim.g:6124:3: (enumLiteral_1= 'contains' )
                     {
-                    // InternalDim.g:6061:3: (enumLiteral_1= 'contains' )
-                    // InternalDim.g:6062:4: enumLiteral_1= 'contains'
+                    // InternalDim.g:6124:3: (enumLiteral_1= 'contains' )
+                    // InternalDim.g:6125:4: enumLiteral_1= 'contains'
                     {
                     enumLiteral_1=(Token)match(input,39,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17208,7 +17325,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDAssociationKindInverse"
-    // InternalDim.g:6072:1: ruleDAssociationKindInverse returns [Enumerator current=null] : (enumLiteral_0= 'inverse' ) ;
+    // InternalDim.g:6135:1: ruleDAssociationKindInverse returns [Enumerator current=null] : (enumLiteral_0= 'inverse' ) ;
     public final Enumerator ruleDAssociationKindInverse() throws RecognitionException {
         Enumerator current = null;
 
@@ -17218,11 +17335,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6078:2: ( (enumLiteral_0= 'inverse' ) )
-            // InternalDim.g:6079:2: (enumLiteral_0= 'inverse' )
+            // InternalDim.g:6141:2: ( (enumLiteral_0= 'inverse' ) )
+            // InternalDim.g:6142:2: (enumLiteral_0= 'inverse' )
             {
-            // InternalDim.g:6079:2: (enumLiteral_0= 'inverse' )
-            // InternalDim.g:6080:3: enumLiteral_0= 'inverse'
+            // InternalDim.g:6142:2: (enumLiteral_0= 'inverse' )
+            // InternalDim.g:6143:3: enumLiteral_0= 'inverse'
             {
             enumLiteral_0=(Token)match(input,85,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -17256,7 +17373,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxBaseType"
-    // InternalDim.g:6089:1: ruleDmxBaseType returns [Enumerator current=null] : ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) ;
+    // InternalDim.g:6152:1: ruleDmxBaseType returns [Enumerator current=null] : ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) ;
     public final Enumerator ruleDmxBaseType() throws RecognitionException {
         Enumerator current = null;
 
@@ -17276,10 +17393,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6095:2: ( ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) )
-            // InternalDim.g:6096:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
+            // InternalDim.g:6158:2: ( ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) )
+            // InternalDim.g:6159:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
             {
-            // InternalDim.g:6096:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
+            // InternalDim.g:6159:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
             int alt113=11;
             switch ( input.LA(1) ) {
             case 86:
@@ -17347,10 +17464,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt113) {
                 case 1 :
-                    // InternalDim.g:6097:3: (enumLiteral_0= 'VOID' )
+                    // InternalDim.g:6160:3: (enumLiteral_0= 'VOID' )
                     {
-                    // InternalDim.g:6097:3: (enumLiteral_0= 'VOID' )
-                    // InternalDim.g:6098:4: enumLiteral_0= 'VOID'
+                    // InternalDim.g:6160:3: (enumLiteral_0= 'VOID' )
+                    // InternalDim.g:6161:4: enumLiteral_0= 'VOID'
                     {
                     enumLiteral_0=(Token)match(input,86,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17366,10 +17483,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6105:3: (enumLiteral_1= 'BOOLEAN' )
+                    // InternalDim.g:6168:3: (enumLiteral_1= 'BOOLEAN' )
                     {
-                    // InternalDim.g:6105:3: (enumLiteral_1= 'BOOLEAN' )
-                    // InternalDim.g:6106:4: enumLiteral_1= 'BOOLEAN'
+                    // InternalDim.g:6168:3: (enumLiteral_1= 'BOOLEAN' )
+                    // InternalDim.g:6169:4: enumLiteral_1= 'BOOLEAN'
                     {
                     enumLiteral_1=(Token)match(input,87,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17385,10 +17502,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6113:3: (enumLiteral_2= 'NUMBER' )
+                    // InternalDim.g:6176:3: (enumLiteral_2= 'NUMBER' )
                     {
-                    // InternalDim.g:6113:3: (enumLiteral_2= 'NUMBER' )
-                    // InternalDim.g:6114:4: enumLiteral_2= 'NUMBER'
+                    // InternalDim.g:6176:3: (enumLiteral_2= 'NUMBER' )
+                    // InternalDim.g:6177:4: enumLiteral_2= 'NUMBER'
                     {
                     enumLiteral_2=(Token)match(input,88,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17404,10 +17521,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:6121:3: (enumLiteral_3= 'TEXT' )
+                    // InternalDim.g:6184:3: (enumLiteral_3= 'TEXT' )
                     {
-                    // InternalDim.g:6121:3: (enumLiteral_3= 'TEXT' )
-                    // InternalDim.g:6122:4: enumLiteral_3= 'TEXT'
+                    // InternalDim.g:6184:3: (enumLiteral_3= 'TEXT' )
+                    // InternalDim.g:6185:4: enumLiteral_3= 'TEXT'
                     {
                     enumLiteral_3=(Token)match(input,89,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17423,10 +17540,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDim.g:6129:3: (enumLiteral_4= 'IDENTIFIER' )
+                    // InternalDim.g:6192:3: (enumLiteral_4= 'IDENTIFIER' )
                     {
-                    // InternalDim.g:6129:3: (enumLiteral_4= 'IDENTIFIER' )
-                    // InternalDim.g:6130:4: enumLiteral_4= 'IDENTIFIER'
+                    // InternalDim.g:6192:3: (enumLiteral_4= 'IDENTIFIER' )
+                    // InternalDim.g:6193:4: enumLiteral_4= 'IDENTIFIER'
                     {
                     enumLiteral_4=(Token)match(input,90,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17442,10 +17559,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalDim.g:6137:3: (enumLiteral_5= 'TIMEPOINT' )
+                    // InternalDim.g:6200:3: (enumLiteral_5= 'TIMEPOINT' )
                     {
-                    // InternalDim.g:6137:3: (enumLiteral_5= 'TIMEPOINT' )
-                    // InternalDim.g:6138:4: enumLiteral_5= 'TIMEPOINT'
+                    // InternalDim.g:6200:3: (enumLiteral_5= 'TIMEPOINT' )
+                    // InternalDim.g:6201:4: enumLiteral_5= 'TIMEPOINT'
                     {
                     enumLiteral_5=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17461,10 +17578,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalDim.g:6145:3: (enumLiteral_6= 'STATE' )
+                    // InternalDim.g:6208:3: (enumLiteral_6= 'STATE' )
                     {
-                    // InternalDim.g:6145:3: (enumLiteral_6= 'STATE' )
-                    // InternalDim.g:6146:4: enumLiteral_6= 'STATE'
+                    // InternalDim.g:6208:3: (enumLiteral_6= 'STATE' )
+                    // InternalDim.g:6209:4: enumLiteral_6= 'STATE'
                     {
                     enumLiteral_6=(Token)match(input,92,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17480,10 +17597,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalDim.g:6153:3: (enumLiteral_7= 'STATE_EVENT' )
+                    // InternalDim.g:6216:3: (enumLiteral_7= 'STATE_EVENT' )
                     {
-                    // InternalDim.g:6153:3: (enumLiteral_7= 'STATE_EVENT' )
-                    // InternalDim.g:6154:4: enumLiteral_7= 'STATE_EVENT'
+                    // InternalDim.g:6216:3: (enumLiteral_7= 'STATE_EVENT' )
+                    // InternalDim.g:6217:4: enumLiteral_7= 'STATE_EVENT'
                     {
                     enumLiteral_7=(Token)match(input,93,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17499,10 +17616,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalDim.g:6161:3: (enumLiteral_8= 'COMPLEX' )
+                    // InternalDim.g:6224:3: (enumLiteral_8= 'COMPLEX' )
                     {
-                    // InternalDim.g:6161:3: (enumLiteral_8= 'COMPLEX' )
-                    // InternalDim.g:6162:4: enumLiteral_8= 'COMPLEX'
+                    // InternalDim.g:6224:3: (enumLiteral_8= 'COMPLEX' )
+                    // InternalDim.g:6225:4: enumLiteral_8= 'COMPLEX'
                     {
                     enumLiteral_8=(Token)match(input,94,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17518,10 +17635,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalDim.g:6169:3: (enumLiteral_9= 'NOTIFICATION' )
+                    // InternalDim.g:6232:3: (enumLiteral_9= 'NOTIFICATION' )
                     {
-                    // InternalDim.g:6169:3: (enumLiteral_9= 'NOTIFICATION' )
-                    // InternalDim.g:6170:4: enumLiteral_9= 'NOTIFICATION'
+                    // InternalDim.g:6232:3: (enumLiteral_9= 'NOTIFICATION' )
+                    // InternalDim.g:6233:4: enumLiteral_9= 'NOTIFICATION'
                     {
                     enumLiteral_9=(Token)match(input,95,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17537,10 +17654,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalDim.g:6177:3: (enumLiteral_10= 'SERVICE' )
+                    // InternalDim.g:6240:3: (enumLiteral_10= 'SERVICE' )
                     {
-                    // InternalDim.g:6177:3: (enumLiteral_10= 'SERVICE' )
-                    // InternalDim.g:6178:4: enumLiteral_10= 'SERVICE'
+                    // InternalDim.g:6240:3: (enumLiteral_10= 'SERVICE' )
+                    // InternalDim.g:6241:4: enumLiteral_10= 'SERVICE'
                     {
                     enumLiteral_10=(Token)match(input,96,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17580,7 +17697,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpOr"
-    // InternalDim.g:6188:1: ruleDmxOpOr returns [Enumerator current=null] : ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) ;
+    // InternalDim.g:6251:1: ruleDmxOpOr returns [Enumerator current=null] : ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) ;
     public final Enumerator ruleDmxOpOr() throws RecognitionException {
         Enumerator current = null;
 
@@ -17593,10 +17710,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6194:2: ( ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) )
-            // InternalDim.g:6195:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
+            // InternalDim.g:6257:2: ( ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) )
+            // InternalDim.g:6258:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
             {
-            // InternalDim.g:6195:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
+            // InternalDim.g:6258:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
             int alt114=4;
             switch ( input.LA(1) ) {
             case 97:
@@ -17629,10 +17746,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt114) {
                 case 1 :
-                    // InternalDim.g:6196:3: (enumLiteral_0= 'OR' )
+                    // InternalDim.g:6259:3: (enumLiteral_0= 'OR' )
                     {
-                    // InternalDim.g:6196:3: (enumLiteral_0= 'OR' )
-                    // InternalDim.g:6197:4: enumLiteral_0= 'OR'
+                    // InternalDim.g:6259:3: (enumLiteral_0= 'OR' )
+                    // InternalDim.g:6260:4: enumLiteral_0= 'OR'
                     {
                     enumLiteral_0=(Token)match(input,97,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17648,10 +17765,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6204:3: (enumLiteral_1= 'or' )
+                    // InternalDim.g:6267:3: (enumLiteral_1= 'or' )
                     {
-                    // InternalDim.g:6204:3: (enumLiteral_1= 'or' )
-                    // InternalDim.g:6205:4: enumLiteral_1= 'or'
+                    // InternalDim.g:6267:3: (enumLiteral_1= 'or' )
+                    // InternalDim.g:6268:4: enumLiteral_1= 'or'
                     {
                     enumLiteral_1=(Token)match(input,98,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17667,10 +17784,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6212:3: (enumLiteral_2= 'XOR' )
+                    // InternalDim.g:6275:3: (enumLiteral_2= 'XOR' )
                     {
-                    // InternalDim.g:6212:3: (enumLiteral_2= 'XOR' )
-                    // InternalDim.g:6213:4: enumLiteral_2= 'XOR'
+                    // InternalDim.g:6275:3: (enumLiteral_2= 'XOR' )
+                    // InternalDim.g:6276:4: enumLiteral_2= 'XOR'
                     {
                     enumLiteral_2=(Token)match(input,99,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17686,10 +17803,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:6220:3: (enumLiteral_3= 'xor' )
+                    // InternalDim.g:6283:3: (enumLiteral_3= 'xor' )
                     {
-                    // InternalDim.g:6220:3: (enumLiteral_3= 'xor' )
-                    // InternalDim.g:6221:4: enumLiteral_3= 'xor'
+                    // InternalDim.g:6283:3: (enumLiteral_3= 'xor' )
+                    // InternalDim.g:6284:4: enumLiteral_3= 'xor'
                     {
                     enumLiteral_3=(Token)match(input,100,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17729,7 +17846,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpAnd"
-    // InternalDim.g:6231:1: ruleDmxOpAnd returns [Enumerator current=null] : ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) ;
+    // InternalDim.g:6294:1: ruleDmxOpAnd returns [Enumerator current=null] : ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) ;
     public final Enumerator ruleDmxOpAnd() throws RecognitionException {
         Enumerator current = null;
 
@@ -17740,10 +17857,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6237:2: ( ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) )
-            // InternalDim.g:6238:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
+            // InternalDim.g:6300:2: ( ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) )
+            // InternalDim.g:6301:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
             {
-            // InternalDim.g:6238:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
+            // InternalDim.g:6301:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
             int alt115=2;
             int LA115_0 = input.LA(1);
 
@@ -17762,10 +17879,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt115) {
                 case 1 :
-                    // InternalDim.g:6239:3: (enumLiteral_0= 'AND' )
+                    // InternalDim.g:6302:3: (enumLiteral_0= 'AND' )
                     {
-                    // InternalDim.g:6239:3: (enumLiteral_0= 'AND' )
-                    // InternalDim.g:6240:4: enumLiteral_0= 'AND'
+                    // InternalDim.g:6302:3: (enumLiteral_0= 'AND' )
+                    // InternalDim.g:6303:4: enumLiteral_0= 'AND'
                     {
                     enumLiteral_0=(Token)match(input,101,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17781,10 +17898,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6247:3: (enumLiteral_1= 'and' )
+                    // InternalDim.g:6310:3: (enumLiteral_1= 'and' )
                     {
-                    // InternalDim.g:6247:3: (enumLiteral_1= 'and' )
-                    // InternalDim.g:6248:4: enumLiteral_1= 'and'
+                    // InternalDim.g:6310:3: (enumLiteral_1= 'and' )
+                    // InternalDim.g:6311:4: enumLiteral_1= 'and'
                     {
                     enumLiteral_1=(Token)match(input,102,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17824,7 +17941,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpEquality"
-    // InternalDim.g:6258:1: ruleDmxOpEquality returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) ;
+    // InternalDim.g:6321:1: ruleDmxOpEquality returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) ;
     public final Enumerator ruleDmxOpEquality() throws RecognitionException {
         Enumerator current = null;
 
@@ -17836,10 +17953,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6264:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) )
-            // InternalDim.g:6265:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
+            // InternalDim.g:6327:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) )
+            // InternalDim.g:6328:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
             {
-            // InternalDim.g:6265:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
+            // InternalDim.g:6328:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
             int alt116=3;
             switch ( input.LA(1) ) {
             case 61:
@@ -17867,10 +17984,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt116) {
                 case 1 :
-                    // InternalDim.g:6266:3: (enumLiteral_0= '=' )
+                    // InternalDim.g:6329:3: (enumLiteral_0= '=' )
                     {
-                    // InternalDim.g:6266:3: (enumLiteral_0= '=' )
-                    // InternalDim.g:6267:4: enumLiteral_0= '='
+                    // InternalDim.g:6329:3: (enumLiteral_0= '=' )
+                    // InternalDim.g:6330:4: enumLiteral_0= '='
                     {
                     enumLiteral_0=(Token)match(input,61,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17886,10 +18003,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6274:3: (enumLiteral_1= '!=' )
+                    // InternalDim.g:6337:3: (enumLiteral_1= '!=' )
                     {
-                    // InternalDim.g:6274:3: (enumLiteral_1= '!=' )
-                    // InternalDim.g:6275:4: enumLiteral_1= '!='
+                    // InternalDim.g:6337:3: (enumLiteral_1= '!=' )
+                    // InternalDim.g:6338:4: enumLiteral_1= '!='
                     {
                     enumLiteral_1=(Token)match(input,103,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17905,10 +18022,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6282:3: (enumLiteral_2= '<>' )
+                    // InternalDim.g:6345:3: (enumLiteral_2= '<>' )
                     {
-                    // InternalDim.g:6282:3: (enumLiteral_2= '<>' )
-                    // InternalDim.g:6283:4: enumLiteral_2= '<>'
+                    // InternalDim.g:6345:3: (enumLiteral_2= '<>' )
+                    // InternalDim.g:6346:4: enumLiteral_2= '<>'
                     {
                     enumLiteral_2=(Token)match(input,104,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17948,7 +18065,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpCompare"
-    // InternalDim.g:6293:1: ruleOpCompare returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) ;
+    // InternalDim.g:6356:1: ruleOpCompare returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) ;
     public final Enumerator ruleOpCompare() throws RecognitionException {
         Enumerator current = null;
 
@@ -17963,10 +18080,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6299:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) )
-            // InternalDim.g:6300:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
+            // InternalDim.g:6362:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) )
+            // InternalDim.g:6363:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
             {
-            // InternalDim.g:6300:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
+            // InternalDim.g:6363:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
             int alt117=6;
             switch ( input.LA(1) ) {
             case 105:
@@ -18009,10 +18126,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt117) {
                 case 1 :
-                    // InternalDim.g:6301:3: (enumLiteral_0= '<' )
+                    // InternalDim.g:6364:3: (enumLiteral_0= '<' )
                     {
-                    // InternalDim.g:6301:3: (enumLiteral_0= '<' )
-                    // InternalDim.g:6302:4: enumLiteral_0= '<'
+                    // InternalDim.g:6364:3: (enumLiteral_0= '<' )
+                    // InternalDim.g:6365:4: enumLiteral_0= '<'
                     {
                     enumLiteral_0=(Token)match(input,105,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18028,10 +18145,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6309:3: (enumLiteral_1= '<=' )
+                    // InternalDim.g:6372:3: (enumLiteral_1= '<=' )
                     {
-                    // InternalDim.g:6309:3: (enumLiteral_1= '<=' )
-                    // InternalDim.g:6310:4: enumLiteral_1= '<='
+                    // InternalDim.g:6372:3: (enumLiteral_1= '<=' )
+                    // InternalDim.g:6373:4: enumLiteral_1= '<='
                     {
                     enumLiteral_1=(Token)match(input,106,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18047,10 +18164,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6317:3: (enumLiteral_2= '\\u2264' )
+                    // InternalDim.g:6380:3: (enumLiteral_2= '\\u2264' )
                     {
-                    // InternalDim.g:6317:3: (enumLiteral_2= '\\u2264' )
-                    // InternalDim.g:6318:4: enumLiteral_2= '\\u2264'
+                    // InternalDim.g:6380:3: (enumLiteral_2= '\\u2264' )
+                    // InternalDim.g:6381:4: enumLiteral_2= '\\u2264'
                     {
                     enumLiteral_2=(Token)match(input,107,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18066,10 +18183,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:6325:3: (enumLiteral_3= '>=' )
+                    // InternalDim.g:6388:3: (enumLiteral_3= '>=' )
                     {
-                    // InternalDim.g:6325:3: (enumLiteral_3= '>=' )
-                    // InternalDim.g:6326:4: enumLiteral_3= '>='
+                    // InternalDim.g:6388:3: (enumLiteral_3= '>=' )
+                    // InternalDim.g:6389:4: enumLiteral_3= '>='
                     {
                     enumLiteral_3=(Token)match(input,108,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18085,10 +18202,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDim.g:6333:3: (enumLiteral_4= '\\u2265' )
+                    // InternalDim.g:6396:3: (enumLiteral_4= '\\u2265' )
                     {
-                    // InternalDim.g:6333:3: (enumLiteral_4= '\\u2265' )
-                    // InternalDim.g:6334:4: enumLiteral_4= '\\u2265'
+                    // InternalDim.g:6396:3: (enumLiteral_4= '\\u2265' )
+                    // InternalDim.g:6397:4: enumLiteral_4= '\\u2265'
                     {
                     enumLiteral_4=(Token)match(input,109,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18104,10 +18221,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalDim.g:6341:3: (enumLiteral_5= '>' )
+                    // InternalDim.g:6404:3: (enumLiteral_5= '>' )
                     {
-                    // InternalDim.g:6341:3: (enumLiteral_5= '>' )
-                    // InternalDim.g:6342:4: enumLiteral_5= '>'
+                    // InternalDim.g:6404:3: (enumLiteral_5= '>' )
+                    // InternalDim.g:6405:4: enumLiteral_5= '>'
                     {
                     enumLiteral_5=(Token)match(input,110,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18147,7 +18264,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpOther"
-    // InternalDim.g:6352:1: ruleOpOther returns [Enumerator current=null] : ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) ;
+    // InternalDim.g:6415:1: ruleOpOther returns [Enumerator current=null] : ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) ;
     public final Enumerator ruleOpOther() throws RecognitionException {
         Enumerator current = null;
 
@@ -18161,10 +18278,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6358:2: ( ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) )
-            // InternalDim.g:6359:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
+            // InternalDim.g:6421:2: ( ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) )
+            // InternalDim.g:6422:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
             {
-            // InternalDim.g:6359:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
+            // InternalDim.g:6422:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
             int alt118=5;
             switch ( input.LA(1) ) {
             case 111:
@@ -18202,10 +18319,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt118) {
                 case 1 :
-                    // InternalDim.g:6360:3: (enumLiteral_0= 'IN' )
+                    // InternalDim.g:6423:3: (enumLiteral_0= 'IN' )
                     {
-                    // InternalDim.g:6360:3: (enumLiteral_0= 'IN' )
-                    // InternalDim.g:6361:4: enumLiteral_0= 'IN'
+                    // InternalDim.g:6423:3: (enumLiteral_0= 'IN' )
+                    // InternalDim.g:6424:4: enumLiteral_0= 'IN'
                     {
                     enumLiteral_0=(Token)match(input,111,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18221,10 +18338,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6368:3: (enumLiteral_1= 'in' )
+                    // InternalDim.g:6431:3: (enumLiteral_1= 'in' )
                     {
-                    // InternalDim.g:6368:3: (enumLiteral_1= 'in' )
-                    // InternalDim.g:6369:4: enumLiteral_1= 'in'
+                    // InternalDim.g:6431:3: (enumLiteral_1= 'in' )
+                    // InternalDim.g:6432:4: enumLiteral_1= 'in'
                     {
                     enumLiteral_1=(Token)match(input,48,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18240,10 +18357,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6376:3: (enumLiteral_2= '..' )
+                    // InternalDim.g:6439:3: (enumLiteral_2= '..' )
                     {
-                    // InternalDim.g:6376:3: (enumLiteral_2= '..' )
-                    // InternalDim.g:6377:4: enumLiteral_2= '..'
+                    // InternalDim.g:6439:3: (enumLiteral_2= '..' )
+                    // InternalDim.g:6440:4: enumLiteral_2= '..'
                     {
                     enumLiteral_2=(Token)match(input,70,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18259,10 +18376,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:6384:3: (enumLiteral_3= '->' )
+                    // InternalDim.g:6447:3: (enumLiteral_3= '->' )
                     {
-                    // InternalDim.g:6384:3: (enumLiteral_3= '->' )
-                    // InternalDim.g:6385:4: enumLiteral_3= '->'
+                    // InternalDim.g:6447:3: (enumLiteral_3= '->' )
+                    // InternalDim.g:6448:4: enumLiteral_3= '->'
                     {
                     enumLiteral_3=(Token)match(input,112,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18278,10 +18395,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDim.g:6392:3: (enumLiteral_4= '=>' )
+                    // InternalDim.g:6455:3: (enumLiteral_4= '=>' )
                     {
-                    // InternalDim.g:6392:3: (enumLiteral_4= '=>' )
-                    // InternalDim.g:6393:4: enumLiteral_4= '=>'
+                    // InternalDim.g:6455:3: (enumLiteral_4= '=>' )
+                    // InternalDim.g:6456:4: enumLiteral_4= '=>'
                     {
                     enumLiteral_4=(Token)match(input,113,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18321,7 +18438,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpAdd"
-    // InternalDim.g:6403:1: ruleOpAdd returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
+    // InternalDim.g:6466:1: ruleOpAdd returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
     public final Enumerator ruleOpAdd() throws RecognitionException {
         Enumerator current = null;
 
@@ -18332,10 +18449,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6409:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
-            // InternalDim.g:6410:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // InternalDim.g:6472:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
+            // InternalDim.g:6473:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             {
-            // InternalDim.g:6410:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // InternalDim.g:6473:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             int alt119=2;
             int LA119_0 = input.LA(1);
 
@@ -18354,10 +18471,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             }
             switch (alt119) {
                 case 1 :
-                    // InternalDim.g:6411:3: (enumLiteral_0= '+' )
+                    // InternalDim.g:6474:3: (enumLiteral_0= '+' )
                     {
-                    // InternalDim.g:6411:3: (enumLiteral_0= '+' )
-                    // InternalDim.g:6412:4: enumLiteral_0= '+'
+                    // InternalDim.g:6474:3: (enumLiteral_0= '+' )
+                    // InternalDim.g:6475:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,79,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18373,10 +18490,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6419:3: (enumLiteral_1= '-' )
+                    // InternalDim.g:6482:3: (enumLiteral_1= '-' )
                     {
-                    // InternalDim.g:6419:3: (enumLiteral_1= '-' )
-                    // InternalDim.g:6420:4: enumLiteral_1= '-'
+                    // InternalDim.g:6482:3: (enumLiteral_1= '-' )
+                    // InternalDim.g:6483:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,80,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18416,7 +18533,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpMulti"
-    // InternalDim.g:6430:1: ruleOpMulti returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) ;
+    // InternalDim.g:6493:1: ruleOpMulti returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) ;
     public final Enumerator ruleOpMulti() throws RecognitionException {
         Enumerator current = null;
 
@@ -18429,10 +18546,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6436:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) )
-            // InternalDim.g:6437:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
+            // InternalDim.g:6499:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) )
+            // InternalDim.g:6500:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
             {
-            // InternalDim.g:6437:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
+            // InternalDim.g:6500:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
             int alt120=4;
             switch ( input.LA(1) ) {
             case 53:
@@ -18465,10 +18582,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt120) {
                 case 1 :
-                    // InternalDim.g:6438:3: (enumLiteral_0= '*' )
+                    // InternalDim.g:6501:3: (enumLiteral_0= '*' )
                     {
-                    // InternalDim.g:6438:3: (enumLiteral_0= '*' )
-                    // InternalDim.g:6439:4: enumLiteral_0= '*'
+                    // InternalDim.g:6501:3: (enumLiteral_0= '*' )
+                    // InternalDim.g:6502:4: enumLiteral_0= '*'
                     {
                     enumLiteral_0=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18484,10 +18601,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6446:3: (enumLiteral_1= '/' )
+                    // InternalDim.g:6509:3: (enumLiteral_1= '/' )
                     {
-                    // InternalDim.g:6446:3: (enumLiteral_1= '/' )
-                    // InternalDim.g:6447:4: enumLiteral_1= '/'
+                    // InternalDim.g:6509:3: (enumLiteral_1= '/' )
+                    // InternalDim.g:6510:4: enumLiteral_1= '/'
                     {
                     enumLiteral_1=(Token)match(input,114,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18503,10 +18620,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6454:3: (enumLiteral_2= '**' )
+                    // InternalDim.g:6517:3: (enumLiteral_2= '**' )
                     {
-                    // InternalDim.g:6454:3: (enumLiteral_2= '**' )
-                    // InternalDim.g:6455:4: enumLiteral_2= '**'
+                    // InternalDim.g:6517:3: (enumLiteral_2= '**' )
+                    // InternalDim.g:6518:4: enumLiteral_2= '**'
                     {
                     enumLiteral_2=(Token)match(input,115,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18522,10 +18639,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:6462:3: (enumLiteral_3= '%' )
+                    // InternalDim.g:6525:3: (enumLiteral_3= '%' )
                     {
-                    // InternalDim.g:6462:3: (enumLiteral_3= '%' )
-                    // InternalDim.g:6463:4: enumLiteral_3= '%'
+                    // InternalDim.g:6525:3: (enumLiteral_3= '%' )
+                    // InternalDim.g:6526:4: enumLiteral_3= '%'
                     {
                     enumLiteral_3=(Token)match(input,116,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18565,7 +18682,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpUnary"
-    // InternalDim.g:6473:1: ruleOpUnary returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) ;
+    // InternalDim.g:6536:1: ruleOpUnary returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) ;
     public final Enumerator ruleOpUnary() throws RecognitionException {
         Enumerator current = null;
 
@@ -18579,10 +18696,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6479:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) )
-            // InternalDim.g:6480:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
+            // InternalDim.g:6542:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) )
+            // InternalDim.g:6543:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
             {
-            // InternalDim.g:6480:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
+            // InternalDim.g:6543:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
             int alt121=5;
             switch ( input.LA(1) ) {
             case 79:
@@ -18620,10 +18737,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt121) {
                 case 1 :
-                    // InternalDim.g:6481:3: (enumLiteral_0= '+' )
+                    // InternalDim.g:6544:3: (enumLiteral_0= '+' )
                     {
-                    // InternalDim.g:6481:3: (enumLiteral_0= '+' )
-                    // InternalDim.g:6482:4: enumLiteral_0= '+'
+                    // InternalDim.g:6544:3: (enumLiteral_0= '+' )
+                    // InternalDim.g:6545:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,79,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18639,10 +18756,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6489:3: (enumLiteral_1= '-' )
+                    // InternalDim.g:6552:3: (enumLiteral_1= '-' )
                     {
-                    // InternalDim.g:6489:3: (enumLiteral_1= '-' )
-                    // InternalDim.g:6490:4: enumLiteral_1= '-'
+                    // InternalDim.g:6552:3: (enumLiteral_1= '-' )
+                    // InternalDim.g:6553:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,80,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18658,10 +18775,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6497:3: (enumLiteral_2= '!' )
+                    // InternalDim.g:6560:3: (enumLiteral_2= '!' )
                     {
-                    // InternalDim.g:6497:3: (enumLiteral_2= '!' )
-                    // InternalDim.g:6498:4: enumLiteral_2= '!'
+                    // InternalDim.g:6560:3: (enumLiteral_2= '!' )
+                    // InternalDim.g:6561:4: enumLiteral_2= '!'
                     {
                     enumLiteral_2=(Token)match(input,117,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18677,10 +18794,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDim.g:6505:3: (enumLiteral_3= 'NOT' )
+                    // InternalDim.g:6568:3: (enumLiteral_3= 'NOT' )
                     {
-                    // InternalDim.g:6505:3: (enumLiteral_3= 'NOT' )
-                    // InternalDim.g:6506:4: enumLiteral_3= 'NOT'
+                    // InternalDim.g:6568:3: (enumLiteral_3= 'NOT' )
+                    // InternalDim.g:6569:4: enumLiteral_3= 'NOT'
                     {
                     enumLiteral_3=(Token)match(input,118,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18696,10 +18813,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDim.g:6513:3: (enumLiteral_4= 'not' )
+                    // InternalDim.g:6576:3: (enumLiteral_4= 'not' )
                     {
-                    // InternalDim.g:6513:3: (enumLiteral_4= 'not' )
-                    // InternalDim.g:6514:4: enumLiteral_4= 'not'
+                    // InternalDim.g:6576:3: (enumLiteral_4= 'not' )
+                    // InternalDim.g:6577:4: enumLiteral_4= 'not'
                     {
                     enumLiteral_4=(Token)match(input,119,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18739,7 +18856,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDMultiplicityShorthand"
-    // InternalDim.g:6524:1: ruleDMultiplicityShorthand returns [Enumerator current=null] : ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) ;
+    // InternalDim.g:6587:1: ruleDMultiplicityShorthand returns [Enumerator current=null] : ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) ;
     public final Enumerator ruleDMultiplicityShorthand() throws RecognitionException {
         Enumerator current = null;
 
@@ -18751,10 +18868,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:6530:2: ( ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) )
-            // InternalDim.g:6531:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
+            // InternalDim.g:6593:2: ( ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) )
+            // InternalDim.g:6594:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
             {
-            // InternalDim.g:6531:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
+            // InternalDim.g:6594:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
             int alt122=3;
             switch ( input.LA(1) ) {
             case 120:
@@ -18782,10 +18899,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
             switch (alt122) {
                 case 1 :
-                    // InternalDim.g:6532:3: (enumLiteral_0= '?' )
+                    // InternalDim.g:6595:3: (enumLiteral_0= '?' )
                     {
-                    // InternalDim.g:6532:3: (enumLiteral_0= '?' )
-                    // InternalDim.g:6533:4: enumLiteral_0= '?'
+                    // InternalDim.g:6595:3: (enumLiteral_0= '?' )
+                    // InternalDim.g:6596:4: enumLiteral_0= '?'
                     {
                     enumLiteral_0=(Token)match(input,120,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18801,10 +18918,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:6540:3: (enumLiteral_1= '+' )
+                    // InternalDim.g:6603:3: (enumLiteral_1= '+' )
                     {
-                    // InternalDim.g:6540:3: (enumLiteral_1= '+' )
-                    // InternalDim.g:6541:4: enumLiteral_1= '+'
+                    // InternalDim.g:6603:3: (enumLiteral_1= '+' )
+                    // InternalDim.g:6604:4: enumLiteral_1= '+'
                     {
                     enumLiteral_1=(Token)match(input,79,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18820,10 +18937,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDim.g:6548:3: (enumLiteral_2= '*' )
+                    // InternalDim.g:6611:3: (enumLiteral_2= '*' )
                     {
-                    // InternalDim.g:6548:3: (enumLiteral_2= '*' )
-                    // InternalDim.g:6549:4: enumLiteral_2= '*'
+                    // InternalDim.g:6611:3: (enumLiteral_2= '*' )
+                    // InternalDim.g:6612:4: enumLiteral_2= '*'
                     {
                     enumLiteral_2=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18863,23 +18980,23 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalDim
     public final void synpred1_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3214:6: ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )
-        // InternalDim.g:3214:7: ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign )
+        // InternalDim.g:3277:6: ( ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign ) )
+        // InternalDim.g:3277:7: ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign )
         {
-        // InternalDim.g:3214:7: ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign )
-        // InternalDim.g:3215:7: () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign
+        // InternalDim.g:3277:7: ( () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign )
+        // InternalDim.g:3278:7: () '.' ( ( RULE_ID ) ) ruleDmxOpSingleAssign
         {
-        // InternalDim.g:3215:7: ()
-        // InternalDim.g:3216:7: 
+        // InternalDim.g:3278:7: ()
+        // InternalDim.g:3279:7: 
         {
         }
 
         match(input,54,FOLLOW_3); if (state.failed) return ;
-        // InternalDim.g:3218:7: ( ( RULE_ID ) )
-        // InternalDim.g:3219:8: ( RULE_ID )
+        // InternalDim.g:3281:7: ( ( RULE_ID ) )
+        // InternalDim.g:3282:8: ( RULE_ID )
         {
-        // InternalDim.g:3219:8: ( RULE_ID )
-        // InternalDim.g:3220:9: RULE_ID
+        // InternalDim.g:3282:8: ( RULE_ID )
+        // InternalDim.g:3283:9: RULE_ID
         {
         match(input,RULE_ID,FOLLOW_61); if (state.failed) return ;
 
@@ -18903,14 +19020,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred2_InternalDim
     public final void synpred2_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3283:6: ( ( () '.' ) )
-        // InternalDim.g:3283:7: ( () '.' )
+        // InternalDim.g:3346:6: ( ( () '.' ) )
+        // InternalDim.g:3346:7: ( () '.' )
         {
-        // InternalDim.g:3283:7: ( () '.' )
-        // InternalDim.g:3284:7: () '.'
+        // InternalDim.g:3346:7: ( () '.' )
+        // InternalDim.g:3347:7: () '.'
         {
-        // InternalDim.g:3284:7: ()
-        // InternalDim.g:3285:7: 
+        // InternalDim.g:3347:7: ()
+        // InternalDim.g:3348:7: 
         {
         }
 
@@ -18925,11 +19042,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred3_InternalDim
     public final void synpred3_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3319:8: ( ( '(' ) )
-        // InternalDim.g:3319:9: ( '(' )
+        // InternalDim.g:3382:8: ( ( '(' ) )
+        // InternalDim.g:3382:9: ( '(' )
         {
-        // InternalDim.g:3319:9: ( '(' )
-        // InternalDim.g:3320:9: '('
+        // InternalDim.g:3382:9: ( '(' )
+        // InternalDim.g:3383:9: '('
         {
         match(input,41,FOLLOW_2); if (state.failed) return ;
 
@@ -18942,22 +19059,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred4_InternalDim
     public final void synpred4_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3680:5: ( ( () ( ( ruleDmxOpOr ) ) ) )
-        // InternalDim.g:3680:6: ( () ( ( ruleDmxOpOr ) ) )
+        // InternalDim.g:3743:5: ( ( () ( ( ruleDmxOpOr ) ) ) )
+        // InternalDim.g:3743:6: ( () ( ( ruleDmxOpOr ) ) )
         {
-        // InternalDim.g:3680:6: ( () ( ( ruleDmxOpOr ) ) )
-        // InternalDim.g:3681:6: () ( ( ruleDmxOpOr ) )
+        // InternalDim.g:3743:6: ( () ( ( ruleDmxOpOr ) ) )
+        // InternalDim.g:3744:6: () ( ( ruleDmxOpOr ) )
         {
-        // InternalDim.g:3681:6: ()
-        // InternalDim.g:3682:6: 
+        // InternalDim.g:3744:6: ()
+        // InternalDim.g:3745:6: 
         {
         }
 
-        // InternalDim.g:3683:6: ( ( ruleDmxOpOr ) )
-        // InternalDim.g:3684:7: ( ruleDmxOpOr )
+        // InternalDim.g:3746:6: ( ( ruleDmxOpOr ) )
+        // InternalDim.g:3747:7: ( ruleDmxOpOr )
         {
-        // InternalDim.g:3684:7: ( ruleDmxOpOr )
-        // InternalDim.g:3685:8: ruleDmxOpOr
+        // InternalDim.g:3747:7: ( ruleDmxOpOr )
+        // InternalDim.g:3748:8: ruleDmxOpOr
         {
         pushFollow(FOLLOW_2);
         ruleDmxOpOr();
@@ -18980,22 +19097,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred5_InternalDim
     public final void synpred5_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3768:5: ( ( () ( ( ruleDmxOpAnd ) ) ) )
-        // InternalDim.g:3768:6: ( () ( ( ruleDmxOpAnd ) ) )
+        // InternalDim.g:3831:5: ( ( () ( ( ruleDmxOpAnd ) ) ) )
+        // InternalDim.g:3831:6: ( () ( ( ruleDmxOpAnd ) ) )
         {
-        // InternalDim.g:3768:6: ( () ( ( ruleDmxOpAnd ) ) )
-        // InternalDim.g:3769:6: () ( ( ruleDmxOpAnd ) )
+        // InternalDim.g:3831:6: ( () ( ( ruleDmxOpAnd ) ) )
+        // InternalDim.g:3832:6: () ( ( ruleDmxOpAnd ) )
         {
-        // InternalDim.g:3769:6: ()
-        // InternalDim.g:3770:6: 
+        // InternalDim.g:3832:6: ()
+        // InternalDim.g:3833:6: 
         {
         }
 
-        // InternalDim.g:3771:6: ( ( ruleDmxOpAnd ) )
-        // InternalDim.g:3772:7: ( ruleDmxOpAnd )
+        // InternalDim.g:3834:6: ( ( ruleDmxOpAnd ) )
+        // InternalDim.g:3835:7: ( ruleDmxOpAnd )
         {
-        // InternalDim.g:3772:7: ( ruleDmxOpAnd )
-        // InternalDim.g:3773:8: ruleDmxOpAnd
+        // InternalDim.g:3835:7: ( ruleDmxOpAnd )
+        // InternalDim.g:3836:8: ruleDmxOpAnd
         {
         pushFollow(FOLLOW_2);
         ruleDmxOpAnd();
@@ -19018,22 +19135,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred6_InternalDim
     public final void synpred6_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3856:5: ( ( () ( ( ruleDmxOpEquality ) ) ) )
-        // InternalDim.g:3856:6: ( () ( ( ruleDmxOpEquality ) ) )
+        // InternalDim.g:3919:5: ( ( () ( ( ruleDmxOpEquality ) ) ) )
+        // InternalDim.g:3919:6: ( () ( ( ruleDmxOpEquality ) ) )
         {
-        // InternalDim.g:3856:6: ( () ( ( ruleDmxOpEquality ) ) )
-        // InternalDim.g:3857:6: () ( ( ruleDmxOpEquality ) )
+        // InternalDim.g:3919:6: ( () ( ( ruleDmxOpEquality ) ) )
+        // InternalDim.g:3920:6: () ( ( ruleDmxOpEquality ) )
         {
-        // InternalDim.g:3857:6: ()
-        // InternalDim.g:3858:6: 
+        // InternalDim.g:3920:6: ()
+        // InternalDim.g:3921:6: 
         {
         }
 
-        // InternalDim.g:3859:6: ( ( ruleDmxOpEquality ) )
-        // InternalDim.g:3860:7: ( ruleDmxOpEquality )
+        // InternalDim.g:3922:6: ( ( ruleDmxOpEquality ) )
+        // InternalDim.g:3923:7: ( ruleDmxOpEquality )
         {
-        // InternalDim.g:3860:7: ( ruleDmxOpEquality )
-        // InternalDim.g:3861:8: ruleDmxOpEquality
+        // InternalDim.g:3923:7: ( ruleDmxOpEquality )
+        // InternalDim.g:3924:8: ruleDmxOpEquality
         {
         pushFollow(FOLLOW_2);
         ruleDmxOpEquality();
@@ -19056,14 +19173,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred7_InternalDim
     public final void synpred7_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3945:6: ( ( () ruleDmxOpInstanceOf ) )
-        // InternalDim.g:3945:7: ( () ruleDmxOpInstanceOf )
+        // InternalDim.g:4008:6: ( ( () ruleDmxOpInstanceOf ) )
+        // InternalDim.g:4008:7: ( () ruleDmxOpInstanceOf )
         {
-        // InternalDim.g:3945:7: ( () ruleDmxOpInstanceOf )
-        // InternalDim.g:3946:7: () ruleDmxOpInstanceOf
+        // InternalDim.g:4008:7: ( () ruleDmxOpInstanceOf )
+        // InternalDim.g:4009:7: () ruleDmxOpInstanceOf
         {
-        // InternalDim.g:3946:7: ()
-        // InternalDim.g:3947:7: 
+        // InternalDim.g:4009:7: ()
+        // InternalDim.g:4010:7: 
         {
         }
 
@@ -19082,22 +19199,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred8_InternalDim
     public final void synpred8_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:3985:6: ( ( () ( ( ruleOpCompare ) ) ) )
-        // InternalDim.g:3985:7: ( () ( ( ruleOpCompare ) ) )
+        // InternalDim.g:4048:6: ( ( () ( ( ruleOpCompare ) ) ) )
+        // InternalDim.g:4048:7: ( () ( ( ruleOpCompare ) ) )
         {
-        // InternalDim.g:3985:7: ( () ( ( ruleOpCompare ) ) )
-        // InternalDim.g:3986:7: () ( ( ruleOpCompare ) )
+        // InternalDim.g:4048:7: ( () ( ( ruleOpCompare ) ) )
+        // InternalDim.g:4049:7: () ( ( ruleOpCompare ) )
         {
-        // InternalDim.g:3986:7: ()
-        // InternalDim.g:3987:7: 
+        // InternalDim.g:4049:7: ()
+        // InternalDim.g:4050:7: 
         {
         }
 
-        // InternalDim.g:3988:7: ( ( ruleOpCompare ) )
-        // InternalDim.g:3989:8: ( ruleOpCompare )
+        // InternalDim.g:4051:7: ( ( ruleOpCompare ) )
+        // InternalDim.g:4052:8: ( ruleOpCompare )
         {
-        // InternalDim.g:3989:8: ( ruleOpCompare )
-        // InternalDim.g:3990:9: ruleOpCompare
+        // InternalDim.g:4052:8: ( ruleOpCompare )
+        // InternalDim.g:4053:9: ruleOpCompare
         {
         pushFollow(FOLLOW_2);
         ruleOpCompare();
@@ -19120,22 +19237,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred9_InternalDim
     public final void synpred9_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:4104:5: ( ( () ( ( ruleOpOther ) ) ) )
-        // InternalDim.g:4104:6: ( () ( ( ruleOpOther ) ) )
+        // InternalDim.g:4167:5: ( ( () ( ( ruleOpOther ) ) ) )
+        // InternalDim.g:4167:6: ( () ( ( ruleOpOther ) ) )
         {
-        // InternalDim.g:4104:6: ( () ( ( ruleOpOther ) ) )
-        // InternalDim.g:4105:6: () ( ( ruleOpOther ) )
+        // InternalDim.g:4167:6: ( () ( ( ruleOpOther ) ) )
+        // InternalDim.g:4168:6: () ( ( ruleOpOther ) )
         {
-        // InternalDim.g:4105:6: ()
-        // InternalDim.g:4106:6: 
+        // InternalDim.g:4168:6: ()
+        // InternalDim.g:4169:6: 
         {
         }
 
-        // InternalDim.g:4107:6: ( ( ruleOpOther ) )
-        // InternalDim.g:4108:7: ( ruleOpOther )
+        // InternalDim.g:4170:6: ( ( ruleOpOther ) )
+        // InternalDim.g:4171:7: ( ruleOpOther )
         {
-        // InternalDim.g:4108:7: ( ruleOpOther )
-        // InternalDim.g:4109:8: ruleOpOther
+        // InternalDim.g:4171:7: ( ruleOpOther )
+        // InternalDim.g:4172:8: ruleOpOther
         {
         pushFollow(FOLLOW_2);
         ruleOpOther();
@@ -19158,22 +19275,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred10_InternalDim
     public final void synpred10_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:4192:5: ( ( () ( ( ruleOpAdd ) ) ) )
-        // InternalDim.g:4192:6: ( () ( ( ruleOpAdd ) ) )
+        // InternalDim.g:4255:5: ( ( () ( ( ruleOpAdd ) ) ) )
+        // InternalDim.g:4255:6: ( () ( ( ruleOpAdd ) ) )
         {
-        // InternalDim.g:4192:6: ( () ( ( ruleOpAdd ) ) )
-        // InternalDim.g:4193:6: () ( ( ruleOpAdd ) )
+        // InternalDim.g:4255:6: ( () ( ( ruleOpAdd ) ) )
+        // InternalDim.g:4256:6: () ( ( ruleOpAdd ) )
         {
-        // InternalDim.g:4193:6: ()
-        // InternalDim.g:4194:6: 
+        // InternalDim.g:4256:6: ()
+        // InternalDim.g:4257:6: 
         {
         }
 
-        // InternalDim.g:4195:6: ( ( ruleOpAdd ) )
-        // InternalDim.g:4196:7: ( ruleOpAdd )
+        // InternalDim.g:4258:6: ( ( ruleOpAdd ) )
+        // InternalDim.g:4259:7: ( ruleOpAdd )
         {
-        // InternalDim.g:4196:7: ( ruleOpAdd )
-        // InternalDim.g:4197:8: ruleOpAdd
+        // InternalDim.g:4259:7: ( ruleOpAdd )
+        // InternalDim.g:4260:8: ruleOpAdd
         {
         pushFollow(FOLLOW_2);
         ruleOpAdd();
@@ -19196,22 +19313,22 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred11_InternalDim
     public final void synpred11_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:4280:5: ( ( () ( ( ruleOpMulti ) ) ) )
-        // InternalDim.g:4280:6: ( () ( ( ruleOpMulti ) ) )
+        // InternalDim.g:4343:5: ( ( () ( ( ruleOpMulti ) ) ) )
+        // InternalDim.g:4343:6: ( () ( ( ruleOpMulti ) ) )
         {
-        // InternalDim.g:4280:6: ( () ( ( ruleOpMulti ) ) )
-        // InternalDim.g:4281:6: () ( ( ruleOpMulti ) )
+        // InternalDim.g:4343:6: ( () ( ( ruleOpMulti ) ) )
+        // InternalDim.g:4344:6: () ( ( ruleOpMulti ) )
         {
-        // InternalDim.g:4281:6: ()
-        // InternalDim.g:4282:6: 
+        // InternalDim.g:4344:6: ()
+        // InternalDim.g:4345:6: 
         {
         }
 
-        // InternalDim.g:4283:6: ( ( ruleOpMulti ) )
-        // InternalDim.g:4284:7: ( ruleOpMulti )
+        // InternalDim.g:4346:6: ( ( ruleOpMulti ) )
+        // InternalDim.g:4347:7: ( ruleOpMulti )
         {
-        // InternalDim.g:4284:7: ( ruleOpMulti )
-        // InternalDim.g:4285:8: ruleOpMulti
+        // InternalDim.g:4347:7: ( ruleOpMulti )
+        // InternalDim.g:4348:8: ruleOpMulti
         {
         pushFollow(FOLLOW_2);
         ruleOpMulti();
@@ -19234,14 +19351,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred12_InternalDim
     public final void synpred12_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:4443:5: ( ( () ruleDmxOpCast ) )
-        // InternalDim.g:4443:6: ( () ruleDmxOpCast )
+        // InternalDim.g:4506:5: ( ( () ruleDmxOpCast ) )
+        // InternalDim.g:4506:6: ( () ruleDmxOpCast )
         {
-        // InternalDim.g:4443:6: ( () ruleDmxOpCast )
-        // InternalDim.g:4444:6: () ruleDmxOpCast
+        // InternalDim.g:4506:6: ( () ruleDmxOpCast )
+        // InternalDim.g:4507:6: () ruleDmxOpCast
         {
-        // InternalDim.g:4444:6: ()
-        // InternalDim.g:4445:6: 
+        // InternalDim.g:4507:6: ()
+        // InternalDim.g:4508:6: 
         {
         }
 
@@ -19260,8 +19377,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred13_InternalDim
     public final void synpred13_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:5291:4: ( ']' )
-        // InternalDim.g:5291:5: ']'
+        // InternalDim.g:5354:4: ( ']' )
+        // InternalDim.g:5354:5: ']'
         {
         match(input,64,FOLLOW_2); if (state.failed) return ;
 
@@ -19271,8 +19388,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred14_InternalDim
     public final void synpred14_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:5447:5: ( 'else' )
-        // InternalDim.g:5447:6: 'else'
+        // InternalDim.g:5510:5: ( 'else' )
+        // InternalDim.g:5510:6: 'else'
         {
         match(input,68,FOLLOW_2); if (state.failed) return ;
 
@@ -19519,7 +19636,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "1503:2: (this_DAssociation_0= ruleDAssociation | this_DAttribute_1= ruleDAttribute | this_DQuery_2= ruleDQuery )";
+            return "1538:2: (this_DimAssociation_0= ruleDimAssociation | this_DimAttribute_1= ruleDimAttribute | this_DimQuery_2= ruleDimQuery )";
         }
     }
     static final String dfa_7s = "\14\uffff";
@@ -19527,7 +19644,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     static final String dfa_9s = "\1\4\1\uffff\10\0\2\uffff";
     static final String dfa_10s = "\1\164\1\uffff\10\0\2\uffff";
     static final String dfa_11s = "\1\uffff\1\3\10\uffff\1\1\1\2";
-    static final String dfa_12s = "\2\uffff\1\4\1\5\1\2\1\0\1\7\1\6\1\3\1\1\2\uffff}>";
+    static final String dfa_12s = "\2\uffff\1\4\1\5\1\0\1\6\1\3\1\2\1\1\1\7\2\uffff}>";
     static final String[] dfa_13s = {
             "\5\1\15\uffff\2\1\1\uffff\1\1\1\uffff\1\1\1\uffff\5\1\2\uffff\1\1\1\uffff\1\1\3\uffff\1\1\5\uffff\1\1\4\uffff\2\1\2\uffff\1\2\1\3\3\1\5\uffff\4\1\10\uffff\2\1\1\uffff\2\1\15\uffff\10\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1",
             "",
@@ -19565,43 +19682,13 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             this.transition = dfa_13;
         }
         public String getDescription() {
-            return "()* loopback of 3942:3: ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )*";
+            return "()* loopback of 4005:3: ( ( ( ( ( () ruleDmxOpInstanceOf ) )=> ( () ruleDmxOpInstanceOf ) ) ( (otherlv_3= RULE_ID ) ) ) | ( ( ( ( () ( ( ruleOpCompare ) ) ) )=> ( () ( (lv_operator_5_0= ruleOpCompare ) ) ) ) ( (lv_rightOperand_6_0= ruleDmxOtherOperatorExpression ) ) ) )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA81_5 = input.LA(1);
-
-                         
-                        int index81_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalDim()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index81_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA81_9 = input.LA(1);
-
-                         
-                        int index81_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalDim()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index81_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA81_4 = input.LA(1);
 
                          
@@ -19616,7 +19703,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         input.seek(index81_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
+                    case 1 : 
                         int LA81_8 = input.LA(1);
 
                          
@@ -19629,6 +19716,36 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                          
                         input.seek(index81_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA81_7 = input.LA(1);
+
+                         
+                        int index81_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalDim()) ) {s = 11;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index81_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA81_6 = input.LA(1);
+
+                         
+                        int index81_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalDim()) ) {s = 11;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index81_6);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
@@ -19662,10 +19779,10 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA81_7 = input.LA(1);
+                        int LA81_5 = input.LA(1);
 
                          
-                        int index81_7 = input.index();
+                        int index81_5 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred8_InternalDim()) ) {s = 11;}
@@ -19673,14 +19790,14 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index81_7);
+                        input.seek(index81_5);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA81_6 = input.LA(1);
+                        int LA81_9 = input.LA(1);
 
                          
-                        int index81_6 = input.index();
+                        int index81_9 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred8_InternalDim()) ) {s = 11;}
@@ -19688,7 +19805,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index81_6);
+                        input.seek(index81_9);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -19700,21 +19817,21 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         }
     }
     static final String dfa_14s = "\12\uffff";
-    static final String dfa_15s = "\3\uffff\1\7\6\uffff";
-    static final String dfa_16s = "\1\11\2\uffff\1\4\4\uffff\1\4\1\uffff";
-    static final String dfa_17s = "\1\114\2\uffff\1\164\4\uffff\1\11\1\uffff";
-    static final String dfa_18s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\1\3\1\uffff\1\4";
+    static final String dfa_15s = "\3\uffff\1\10\6\uffff";
+    static final String dfa_16s = "\1\11\2\uffff\1\4\3\uffff\1\4\2\uffff";
+    static final String dfa_17s = "\1\114\2\uffff\1\164\3\uffff\1\11\2\uffff";
+    static final String dfa_18s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\1\uffff\1\3\1\4";
     static final String dfa_19s = "\12\uffff}>";
     static final String[] dfa_20s = {
             "\1\3\1\2\26\uffff\1\5\2\uffff\1\6\42\uffff\4\1\2\4",
             "",
             "",
-            "\5\7\14\uffff\3\7\1\uffff\1\7\1\uffff\1\7\1\uffff\5\7\2\uffff\1\7\1\uffff\1\7\3\uffff\1\7\5\uffff\1\7\4\uffff\1\7\1\10\2\uffff\5\7\5\uffff\4\7\10\uffff\2\7\1\uffff\2\7\15\uffff\24\7",
+            "\5\10\14\uffff\3\10\1\uffff\1\10\1\uffff\1\10\1\uffff\5\10\2\uffff\1\10\1\uffff\1\10\3\uffff\1\10\5\uffff\1\10\4\uffff\1\10\1\7\2\uffff\5\10\5\uffff\4\10\10\uffff\2\10\1\uffff\2\10\15\uffff\24\10",
             "",
             "",
             "",
+            "\1\10\4\uffff\1\11",
             "",
-            "\1\7\4\uffff\1\11",
             ""
     };
 
@@ -19740,7 +19857,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             this.transition = dfa_20;
         }
         public String getDescription() {
-            return "4609:2: (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail )";
+            return "4672:2: (this_DmxBooleanLiteral_0= ruleDmxBooleanLiteral | this_DmxStringLiteral_1= ruleDmxStringLiteral | this_DmxNaturalLiteral_2= ruleDmxNaturalLiteral | this_DmxDecimalLiteral_3= ruleDmxDecimalLiteral | this_DmxUndefinedLiteral_4= ruleDmxUndefinedLiteral | this_DmxEntity_5= ruleDmxEntity | this_DmxDetail_6= ruleDmxDetail )";
         }
     }
  

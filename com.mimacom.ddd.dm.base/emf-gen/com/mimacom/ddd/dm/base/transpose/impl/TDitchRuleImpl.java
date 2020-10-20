@@ -2,8 +2,6 @@
  */
 package com.mimacom.ddd.dm.base.transpose.impl;
 
-import com.mimacom.ddd.dm.base.base.impl.TTranspositionRuleImplCustom;
-
 import com.mimacom.ddd.dm.base.transpose.TDitchRule;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class TDitchRuleImpl extends TTranspositionRuleImplCustom implements TDitchRule
+public class TDitchRuleImpl extends TTranspositionRuleImpl implements TDitchRule
 {
 	/**
 	 * <!-- begin-user-doc -->

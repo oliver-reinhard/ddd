@@ -16,7 +16,7 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.ITransposition;
+import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.mimacom.ddd.dm.base/emf-gen" modelPluginID="com.mimacom.ddd.dm.base"
+    modelName="Synthetic" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="base.genmodel#//base transpose.genmodel#//transpose" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>synthetic.ecore</foreignModel>
+  <genPackages prefix="Synthetic" basePackage="com.mimacom.ddd.dm.base" disposableProviderFactory="true"
+      ecorePackage="synthetic.ecore#/">
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticAggregate"/>
+    <genClasses image="false" ecoreClass="synthetic.ecore#//TSyntheticType"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticPrimitive"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticEnumeration"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticLiteral"/>
+    <genClasses image="false" ecoreClass="synthetic.ecore#//TSyntheticComplexType"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticDetailType"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticEntityType"/>
+    <genClasses image="false" ecoreClass="synthetic.ecore#//TSyntheticFeature"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticAssociation"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticAttribute"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticQuery"/>
+    <genClasses ecoreClass="synthetic.ecore#//TSyntheticQueryParameter"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -9,23 +9,23 @@ import com.mimacom.ddd.dm.base.base.DDetailType
 import com.mimacom.ddd.dm.base.base.DEntityNature
 import com.mimacom.ddd.dm.base.base.DEntityType
 import com.mimacom.ddd.dm.base.base.DEnumeration
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider
 import org.eclipse.xtext.EcoreUtil2
 
-class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DInformationModel> {
+class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DomainInformationModel> {
 
 	@Inject extension DimUtil
 	
-	override canProvide(DInformationModel model) {
+	override canProvide(DomainInformationModel model) {
 		model !== null && ! (model.types.empty && model.aggregates.empty)
 	}
 	
-	override String diagramText(DInformationModel model) {
+	override String diagramText(DomainInformationModel model) {
 		val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate)
 		val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[getType instanceof DEntityType]
 //		val allEntitiesReferencedWithinAggregate = allAssociations.filter[targetType.eContainer == eContainer.eContainer].map[targetType]

@@ -17,7 +17,7 @@ package com.mimacom.ddd.dm.base.base;
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDAttribute()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DAttribute extends DFeature

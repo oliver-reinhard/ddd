@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DQueryImpl extends DFeatureImpl implements DQuery
+public abstract class DQueryImpl extends DFeatureImpl implements DQuery
 {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.

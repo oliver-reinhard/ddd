@@ -3,8 +3,8 @@ package com.mimacom.ddd.dm.base.transpose
 import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import com.mimacom.ddd.dm.base.base.BaseFactory
 import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.synthetic.SyntheticFactory
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
@@ -18,7 +18,7 @@ import org.eclipse.xtext.resource.IEObjectDescription
 class TypeMappingUtil {
 
 	static val LOGGER = Logger.getLogger(TypeMappingUtil);
-	static val BASE = BaseFactory.eINSTANCE
+	static val SYNTHETIC = SyntheticFactory.eINSTANCE
 
 	@Inject TransposeIndex index
 
@@ -41,7 +41,7 @@ class TypeMappingUtil {
 		}
 		val resourceURI = context.eResource.URI
 		val uri = URI.createURI(resourceURI.toString + "#" + TranspositionUtil.getTransposedTypeProxyUriFragment(sourceTypeQN))
-		val proxy = BASE.createDPrimitive() // any concrete DType will do here
+		val proxy = SYNTHETIC.createTSyntheticPrimitive() // any concrete DType will do here
 		(proxy as BasicEObjectImpl).eSetProxyURI(uri)
 		if (LOGGER.level.isGreaterOrEqual(Level.DEBUG)) {
 			LOGGER.debug("getSystemTypeProxy for " + sourceTypeQN + " -> " + uri)

@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DAggregate
 import com.mimacom.ddd.dm.base.base.IFeatureContainer
 import com.mimacom.ddd.dm.base.base.ITypeContainer
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate
 import java.util.List
 
 class TAggregateTranspositionRuleProcessor {
@@ -18,9 +19,9 @@ class TAggregateTranspositionRuleProcessor {
 
 		if (aggregate instanceof TAggregateTransposition) {
 			val recipe = aggregate
-			val rule = recipe.getTranspositionRule
+			val rule = recipe.rule
 			if (rule instanceof TGrabAggregateRule) {
-				var source = rule.getSource
+				var source = rule.source
 				if (source instanceof DAggregate) {
 					if (model.allowsIdentityTypes) {
 						val name = rule.getRenameTo !== null ? rule.getRenameTo : source.name
@@ -42,15 +43,15 @@ class TAggregateTranspositionRuleProcessor {
 	def void transposeAggregateQueries(DAggregate aggregate, TInformationModel model) {
 		if (aggregate instanceof TAggregateTransposition) {
 			val recipe = aggregate
-			val rule = recipe.getTranspositionRule
+			val rule = recipe.rule
 			
-			val syntheticAggregates = model.aggregates.filter[isSynthetic && getTransposedBy == aggregate]
+			val syntheticAggregates = model.aggregates.filter(TSyntheticAggregate).filter[recipe == aggregate]
 			if (syntheticAggregates.size == 1) {
 				val syntheticAggregate = syntheticAggregates.head
 				
 				// Process queries grabbed from domain :
 				if (model.allowsIdentityTypes) {
-					val desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, recipe, rule.getSource as IFeatureContainer)
+					val desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, recipe, rule.source as IFeatureContainer)
 					desc.addSyntheticFeatures // = queries
 				}
 			}

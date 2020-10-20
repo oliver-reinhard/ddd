@@ -13,9 +13,10 @@ import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
+
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -285,11 +286,6 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDContextAdapter();
 			}
 			@Override
-			public Adapter caseITransposableElement(ITransposableElement object)
-			{
-				return createITransposableElementAdapter();
-			}
-			@Override
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
 				return createIStaticReferenceTargetAdapter();
@@ -313,6 +309,11 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDPrimitive(DPrimitive object)
 			{
 				return createDPrimitiveAdapter();
+			}
+			@Override
+			public Adapter caseITransposableElement(ITransposableElement object)
+			{
+				return createITransposableElementAdapter();
 			}
 			@Override
 			public Adapter caseIRichTextSegment(IRichTextSegment object)
@@ -932,21 +933,6 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-	 * @generated
-	 */
-	public Adapter createITransposableElementAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1017,6 +1003,21 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDPrimitiveAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.ITransposableElement <em>ITransposable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposableElement
+	 * @generated
+	 */
+	public Adapter createITransposableElementAdapter()
 	{
 		return null;
 	}

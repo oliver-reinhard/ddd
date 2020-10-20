@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
@@ -114,11 +113,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
 				return createIStaticReferenceTargetAdapter();
-			}
-			@Override
-			public Adapter caseITransposableElement(ITransposableElement object)
-			{
-				return createITransposableElementAdapter();
 			}
 			@Override
 			public Adapter caseIDiagramRoot(IDiagramRoot object)
@@ -243,21 +237,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIStaticReferenceTargetAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.ITransposableElement <em>ITransposable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.ITransposableElement
-	 * @generated
-	 */
-	public Adapter createITransposableElementAdapter()
 	{
 		return null;
 	}

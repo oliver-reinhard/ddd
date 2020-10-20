@@ -62,6 +62,236 @@ public interface TransposePackage extends EPackage
 	TransposePackage eINSTANCE = com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.ITransposition <em>ITransposition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposition
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getITransposition()
+	 * @generated
+	 */
+	int ITRANSPOSITION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSITION__RULE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSITION__IMPLIED_TRANSPOSITIONS = 1;
+
+	/**
+	 * The number of structural features of the '<em>ITransposition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSITION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>ITransposition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSITION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TTranspositionRuleImpl <em>TTransposition Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TTranspositionRuleImpl
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTranspositionRule()
+	 * @generated
+	 */
+	int TTRANSPOSITION_RULE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTRANSPOSITION_RULE__SOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTRANSPOSITION_RULE__NAMED_SOURCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>TTransposition Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTRANSPOSITION_RULE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>TTransposition Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTRANSPOSITION_RULE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.ITransposableElement <em>ITransposable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposableElement
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getITransposableElement()
+	 * @generated
+	 */
+	int ITRANSPOSABLE_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY = 0;
+
+	/**
+	 * The number of structural features of the '<em>ITransposable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSABLE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>ITransposable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITRANSPOSABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.ISyntheticElement <em>ISynthetic Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.ISyntheticElement
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getISyntheticElement()
+	 * @generated
+	 */
+	int ISYNTHETIC_ELEMENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Recipe</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISYNTHETIC_ELEMENT__RECIPE = 0;
+
+	/**
+	 * The number of structural features of the '<em>ISynthetic Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISYNTHETIC_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>ISynthetic Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISYNTHETIC_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TImplicitTranspositionImpl <em>TImplicit Transposition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TImplicitTranspositionImpl
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTImplicitTransposition()
+	 * @generated
+	 */
+	int TIMPLICIT_TRANSPOSITION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMPLICIT_TRANSPOSITION__RULE = ITRANSPOSITION__RULE;
+
+	/**
+	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMPLICIT_TRANSPOSITION__IMPLIED_TRANSPOSITIONS = ITRANSPOSITION__IMPLIED_TRANSPOSITIONS;
+
+	/**
+	 * The feature id for the '<em><b>Recipe</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMPLICIT_TRANSPOSITION__RECIPE = ITRANSPOSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Original Transposition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMPLICIT_TRANSPOSITION__ORIGINAL_TRANSPOSITION = ITRANSPOSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>TImplicit Transposition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMPLICIT_TRANSPOSITION_FEATURE_COUNT = ITRANSPOSITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>TImplicit Transposition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMPLICIT_TRANSPOSITION_OPERATION_COUNT = ITRANSPOSITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImpl <em>TInformation Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,7 +299,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTInformationModel()
 	 * @generated
 	 */
-	int TINFORMATION_MODEL = 0;
+	int TINFORMATION_MODEL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -117,24 +347,6 @@ public interface TransposePackage extends EPackage
 	int TINFORMATION_MODEL__TYPES = BasePackage.DINFORMATION_MODEL__TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TINFORMATION_MODEL__TRANSPOSED_BY = BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TINFORMATION_MODEL__SYNTHETIC = BasePackage.DINFORMATION_MODEL__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Indexing Helper</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,7 +371,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = BasePackage.DINFORMATION_MODEL_OPERATION_COUNT + 0;
+	int TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = BasePackage.DINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES;
 
 	/**
 	 * The number of operations of the '<em>TInformation Model</em>' class.
@@ -168,7 +380,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TINFORMATION_MODEL_OPERATION_COUNT = BasePackage.DINFORMATION_MODEL_OPERATION_COUNT + 1;
+	int TINFORMATION_MODEL_OPERATION_COUNT = BasePackage.DINFORMATION_MODEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TTypeMappingImpl <em>TType Mapping</em>}' class.
@@ -178,7 +390,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTypeMapping()
 	 * @generated
 	 */
-	int TTYPE_MAPPING = 1;
+	int TTYPE_MAPPING = 6;
 
 	/**
 	 * The number of structural features of the '<em>TType Mapping</em>' class.
@@ -206,7 +418,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTAggregateTransposition()
 	 * @generated
 	 */
-	int TAGGREGATE_TRANSPOSITION = 2;
+	int TAGGREGATE_TRANSPOSITION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -263,24 +475,6 @@ public interface TransposePackage extends EPackage
 	int TAGGREGATE_TRANSPOSITION__NAVIGABLE_MEMBERS = BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAGGREGATE_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DAGGREGATE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAGGREGATE_TRANSPOSITION__SYNTHETIC = BasePackage.DAGGREGATE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,13 +484,13 @@ public interface TransposePackage extends EPackage
 	int TAGGREGATE_TRANSPOSITION__ROOTS = BasePackage.DAGGREGATE__ROOTS;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAGGREGATE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DAGGREGATE_FEATURE_COUNT + 0;
+	int TAGGREGATE_TRANSPOSITION__RULE = BasePackage.DAGGREGATE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -333,7 +527,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTypeTransposition()
 	 * @generated
 	 */
-	int TTYPE_TRANSPOSITION = 3;
+	int TTYPE_TRANSPOSITION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -342,7 +536,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+	int TTYPE_TRANSPOSITION__NAME = BasePackage.DTYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -351,7 +545,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int TTYPE_TRANSPOSITION__ALIASES = BasePackage.DTYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -360,16 +554,34 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
+	int TTYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DTYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int TTYPE_TRANSPOSITION__CONSTRAINTS = BasePackage.DTYPE__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTYPE_TRANSPOSITION__PRIMITIVE = BasePackage.DTYPE__PRIMITIVE;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTYPE_TRANSPOSITION__RULE = BasePackage.DTYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -378,7 +590,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TTYPE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS = BasePackage.DTYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>TType Transposition</em>' class.
@@ -387,7 +599,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TTYPE_TRANSPOSITION_FEATURE_COUNT = BasePackage.DTYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>TType Transposition</em>' class.
@@ -396,7 +608,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION_OPERATION_COUNT = BasePackage.DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int TTYPE_TRANSPOSITION_OPERATION_COUNT = BasePackage.DTYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TPrimitiveTranspositionImpl <em>TPrimitive Transposition</em>}' class.
@@ -406,7 +618,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTPrimitiveTransposition()
 	 * @generated
 	 */
-	int TPRIMITIVE_TRANSPOSITION = 4;
+	int TPRIMITIVE_TRANSPOSITION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -436,24 +648,6 @@ public interface TransposePackage extends EPackage
 	int TPRIMITIVE_TRANSPOSITION__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TPRIMITIVE_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DPRIMITIVE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TPRIMITIVE_TRANSPOSITION__SYNTHETIC = BasePackage.DPRIMITIVE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,13 +675,13 @@ public interface TransposePackage extends EPackage
 	int TPRIMITIVE_TRANSPOSITION__REDEFINES = BasePackage.DPRIMITIVE__REDEFINES;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TPRIMITIVE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DPRIMITIVE_FEATURE_COUNT + 0;
+	int TPRIMITIVE_TRANSPOSITION__RULE = BasePackage.DPRIMITIVE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -524,7 +718,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTEnumerationTransposition()
 	 * @generated
 	 */
-	int TENUMERATION_TRANSPOSITION = 5;
+	int TENUMERATION_TRANSPOSITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -552,24 +746,6 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TENUMERATION_TRANSPOSITION__DESCRIPTION = BasePackage.DENUMERATION__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TENUMERATION_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DENUMERATION__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TENUMERATION_TRANSPOSITION__SYNTHETIC = BasePackage.DENUMERATION__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -608,13 +784,13 @@ public interface TransposePackage extends EPackage
 	int TENUMERATION_TRANSPOSITION__LITERALS = BasePackage.DENUMERATION__LITERALS;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENUMERATION_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DENUMERATION_FEATURE_COUNT + 0;
+	int TENUMERATION_TRANSPOSITION__RULE = BasePackage.DENUMERATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -651,7 +827,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTLiteralTransposition()
 	 * @generated
 	 */
-	int TLITERAL_TRANSPOSITION = 6;
+	int TLITERAL_TRANSPOSITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -717,31 +893,13 @@ public interface TransposePackage extends EPackage
 	int TLITERAL_TRANSPOSITION__COLLECTION = BasePackage.DLITERAL__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TLITERAL_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DLITERAL__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TLITERAL_TRANSPOSITION__SYNTHETIC = BasePackage.DLITERAL__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TLITERAL_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DLITERAL_FEATURE_COUNT + 0;
+	int TLITERAL_TRANSPOSITION__RULE = BasePackage.DLITERAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -778,7 +936,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTComplexTypeTransposition()
 	 * @generated
 	 */
-	int TCOMPLEX_TYPE_TRANSPOSITION = 7;
+	int TCOMPLEX_TYPE_TRANSPOSITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -808,13 +966,31 @@ public interface TransposePackage extends EPackage
 	int TCOMPLEX_TYPE_TRANSPOSITION__DESCRIPTION = TTYPE_TRANSPOSITION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TCOMPLEX_TYPE_TRANSPOSITION__TRANSPOSITION_RULE = TTYPE_TRANSPOSITION__TRANSPOSITION_RULE;
+	int TCOMPLEX_TYPE_TRANSPOSITION__CONSTRAINTS = TTYPE_TRANSPOSITION__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TCOMPLEX_TYPE_TRANSPOSITION__PRIMITIVE = TTYPE_TRANSPOSITION__PRIMITIVE;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TCOMPLEX_TYPE_TRANSPOSITION__RULE = TTYPE_TRANSPOSITION__RULE;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -851,7 +1027,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDetailTypeTransposition()
 	 * @generated
 	 */
-	int TDETAIL_TYPE_TRANSPOSITION = 8;
+	int TDETAIL_TYPE_TRANSPOSITION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -879,24 +1055,6 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TDETAIL_TYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DDETAIL_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDETAIL_TYPE_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DDETAIL_TYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDETAIL_TYPE_TRANSPOSITION__SYNTHETIC = BasePackage.DDETAIL_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -953,13 +1111,13 @@ public interface TransposePackage extends EPackage
 	int TDETAIL_TYPE_TRANSPOSITION__SUPER_TYPE = BasePackage.DDETAIL_TYPE__SUPER_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TDETAIL_TYPE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DDETAIL_TYPE_FEATURE_COUNT + 0;
+	int TDETAIL_TYPE_TRANSPOSITION__RULE = BasePackage.DDETAIL_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -996,7 +1154,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTEntityTypeTransposition()
 	 * @generated
 	 */
-	int TENTITY_TYPE_TRANSPOSITION = 9;
+	int TENTITY_TYPE_TRANSPOSITION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1024,24 +1182,6 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TENTITY_TYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DENTITY_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TENTITY_TYPE_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DENTITY_TYPE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TENTITY_TYPE_TRANSPOSITION__SYNTHETIC = BasePackage.DENTITY_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1134,13 +1274,13 @@ public interface TransposePackage extends EPackage
 	int TENTITY_TYPE_TRANSPOSITION__EVENTS = BasePackage.DENTITY_TYPE__EVENTS;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENTITY_TYPE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DENTITY_TYPE_FEATURE_COUNT + 0;
+	int TENTITY_TYPE_TRANSPOSITION__RULE = BasePackage.DENTITY_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -1177,16 +1317,79 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFeatureTransposition()
 	 * @generated
 	 */
-	int TFEATURE_TRANSPOSITION = 10;
+	int TFEATURE_TRANSPOSITION = 15;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TFEATURE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.ITRANSPOSITION__TRANSPOSITION_RULE;
+	int TFEATURE_TRANSPOSITION__NAME = BasePackage.DFEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__ALIASES = BasePackage.DFEATURE__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__DESCRIPTION = BasePackage.DFEATURE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__TYPE = BasePackage.DFEATURE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__MULTIPLICITY = BasePackage.DFEATURE__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__OPTIONAL = BasePackage.DFEATURE__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__COLLECTION = BasePackage.DFEATURE__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__RULE = BasePackage.DFEATURE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -1195,7 +1398,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TFEATURE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS = BasePackage.ITRANSPOSITION__IMPLIED_TRANSPOSITIONS;
+	int TFEATURE_TRANSPOSITION__IMPLIED_TRANSPOSITIONS = BasePackage.DFEATURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>TFeature Transposition</em>' class.
@@ -1204,7 +1407,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TFEATURE_TRANSPOSITION_FEATURE_COUNT = BasePackage.ITRANSPOSITION_FEATURE_COUNT + 0;
+	int TFEATURE_TRANSPOSITION_FEATURE_COUNT = BasePackage.DFEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>TFeature Transposition</em>' class.
@@ -1213,7 +1416,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TFEATURE_TRANSPOSITION_OPERATION_COUNT = BasePackage.ITRANSPOSITION_OPERATION_COUNT + 0;
+	int TFEATURE_TRANSPOSITION_OPERATION_COUNT = BasePackage.DFEATURE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TAssociationTranspositionImpl <em>TAssociation Transposition</em>}' class.
@@ -1223,7 +1426,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTAssociationTransposition()
 	 * @generated
 	 */
-	int TASSOCIATION_TRANSPOSITION = 11;
+	int TASSOCIATION_TRANSPOSITION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1289,24 +1492,6 @@ public interface TransposePackage extends EPackage
 	int TASSOCIATION_TRANSPOSITION__COLLECTION = BasePackage.DASSOCIATION__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASSOCIATION_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DASSOCIATION__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASSOCIATION_TRANSPOSITION__SYNTHETIC = BasePackage.DASSOCIATION__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1334,13 +1519,13 @@ public interface TransposePackage extends EPackage
 	int TASSOCIATION_TRANSPOSITION__SOURCE_TYPE = BasePackage.DASSOCIATION__SOURCE_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASSOCIATION_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DASSOCIATION_FEATURE_COUNT + 0;
+	int TASSOCIATION_TRANSPOSITION__RULE = BasePackage.DASSOCIATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -1386,7 +1571,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTAttributeTransposition()
 	 * @generated
 	 */
-	int TATTRIBUTE_TRANSPOSITION = 12;
+	int TATTRIBUTE_TRANSPOSITION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1452,24 +1637,6 @@ public interface TransposePackage extends EPackage
 	int TATTRIBUTE_TRANSPOSITION__COLLECTION = BasePackage.DATTRIBUTE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TATTRIBUTE_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DATTRIBUTE__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TATTRIBUTE_TRANSPOSITION__SYNTHETIC = BasePackage.DATTRIBUTE__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1488,13 +1655,13 @@ public interface TransposePackage extends EPackage
 	int TATTRIBUTE_TRANSPOSITION__KEY = BasePackage.DATTRIBUTE__KEY;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TATTRIBUTE_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DATTRIBUTE_FEATURE_COUNT + 0;
+	int TATTRIBUTE_TRANSPOSITION__RULE = BasePackage.DATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -1531,7 +1698,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTQueryTransposition()
 	 * @generated
 	 */
-	int TQUERY_TRANSPOSITION = 13;
+	int TQUERY_TRANSPOSITION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1597,24 +1764,6 @@ public interface TransposePackage extends EPackage
 	int TQUERY_TRANSPOSITION__COLLECTION = BasePackage.DQUERY__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TQUERY_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DQUERY__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TQUERY_TRANSPOSITION__SYNTHETIC = BasePackage.DQUERY__SYNTHETIC;
-
-	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1642,13 +1791,13 @@ public interface TransposePackage extends EPackage
 	int TQUERY_TRANSPOSITION__RETURNS = BasePackage.DQUERY__RETURNS;
 
 	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TQUERY_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DQUERY_FEATURE_COUNT + 0;
+	int TQUERY_TRANSPOSITION__RULE = BasePackage.DQUERY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -1685,7 +1834,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTQueryParameterTransposition()
 	 * @generated
 	 */
-	int TQUERY_PARAMETER_TRANSPOSITION = 14;
+	int TQUERY_PARAMETER_TRANSPOSITION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1751,31 +1900,13 @@ public interface TransposePackage extends EPackage
 	int TQUERY_PARAMETER_TRANSPOSITION__COLLECTION = BasePackage.DQUERY_PARAMETER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TQUERY_PARAMETER_TRANSPOSITION__TRANSPOSED_BY = BasePackage.DQUERY_PARAMETER__TRANSPOSED_BY;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TQUERY_PARAMETER_TRANSPOSITION__SYNTHETIC = BasePackage.DQUERY_PARAMETER__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Transposition Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TQUERY_PARAMETER_TRANSPOSITION__TRANSPOSITION_RULE = BasePackage.DQUERY_PARAMETER_FEATURE_COUNT + 0;
+	int TQUERY_PARAMETER_TRANSPOSITION__RULE = BasePackage.DQUERY_PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Implied Transpositions</b></em>' containment reference list.
@@ -1812,7 +1943,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTRenameRule()
 	 * @generated
 	 */
-	int TRENAME_RULE = 15;
+	int TRENAME_RULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1821,7 +1952,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TRENAME_RULE__SOURCE = BasePackage.TTRANSPOSITION_RULE__SOURCE;
+	int TRENAME_RULE__SOURCE = TTRANSPOSITION_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Named Source</b></em>' reference.
@@ -1830,7 +1961,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TRENAME_RULE__NAMED_SOURCE = BasePackage.TTRANSPOSITION_RULE__NAMED_SOURCE;
+	int TRENAME_RULE__NAMED_SOURCE = TTRANSPOSITION_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1839,7 +1970,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TRENAME_RULE__RENAME_TO = BasePackage.TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
+	int TRENAME_RULE__RENAME_TO = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>TRename Rule</em>' class.
@@ -1848,7 +1979,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TRENAME_RULE_FEATURE_COUNT = BasePackage.TTRANSPOSITION_RULE_FEATURE_COUNT + 1;
+	int TRENAME_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>TRename Rule</em>' class.
@@ -1857,7 +1988,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TRENAME_RULE_OPERATION_COUNT = BasePackage.TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
+	int TRENAME_RULE_OPERATION_COUNT = TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TGrabRuleImpl <em>TGrab Rule</em>}' class.
@@ -1867,7 +1998,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTGrabRule()
 	 * @generated
 	 */
-	int TGRAB_RULE = 16;
+	int TGRAB_RULE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1922,7 +2053,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
 	 * @generated
 	 */
-	int TDITCH_RULE = 17;
+	int TDITCH_RULE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1931,7 +2062,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TDITCH_RULE__SOURCE = BasePackage.TTRANSPOSITION_RULE__SOURCE;
+	int TDITCH_RULE__SOURCE = TTRANSPOSITION_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Named Source</b></em>' reference.
@@ -1940,7 +2071,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TDITCH_RULE__NAMED_SOURCE = BasePackage.TTRANSPOSITION_RULE__NAMED_SOURCE;
+	int TDITCH_RULE__NAMED_SOURCE = TTRANSPOSITION_RULE__NAMED_SOURCE;
 
 	/**
 	 * The number of structural features of the '<em>TDitch Rule</em>' class.
@@ -1949,7 +2080,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TDITCH_RULE_FEATURE_COUNT = BasePackage.TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
+	int TDITCH_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>TDitch Rule</em>' class.
@@ -1958,7 +2089,7 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int TDITCH_RULE_OPERATION_COUNT = BasePackage.TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
+	int TDITCH_RULE_OPERATION_COUNT = TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TStructureChangingRuleImpl <em>TStructure Changing Rule</em>}' class.
@@ -1968,7 +2099,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTStructureChangingRule()
 	 * @generated
 	 */
-	int TSTRUCTURE_CHANGING_RULE = 18;
+	int TSTRUCTURE_CHANGING_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2059,7 +2190,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTMorphRule()
 	 * @generated
 	 */
-	int TMORPH_RULE = 19;
+	int TMORPH_RULE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2168,7 +2299,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
 	 * @generated
 	 */
-	int TFUSE_RULE = 20;
+	int TFUSE_RULE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2268,7 +2399,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTGrabAggregateRule()
 	 * @generated
 	 */
-	int TGRAB_AGGREGATE_RULE = 21;
+	int TGRAB_AGGREGATE_RULE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2332,8 +2463,135 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTristate()
 	 * @generated
 	 */
-	int TTRISTATE = 22;
+	int TTRISTATE = 27;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.ITransposition <em>ITransposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ITransposition</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposition
+	 * @generated
+	 */
+	EClass getITransposition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.transpose.ITransposition#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rule</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposition#getRule()
+	 * @see #getITransposition()
+	 * @generated
+	 */
+	EReference getITransposition_Rule();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.transpose.ITransposition#getImpliedTranspositions <em>Implied Transpositions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Implied Transpositions</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposition#getImpliedTranspositions()
+	 * @see #getITransposition()
+	 * @generated
+	 */
+	EReference getITransposition_ImpliedTranspositions();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule <em>TTransposition Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TTransposition Rule</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TTranspositionRule
+	 * @generated
+	 */
+	EClass getTTranspositionRule();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getSource()
+	 * @see #getTTranspositionRule()
+	 * @generated
+	 */
+	EReference getTTranspositionRule_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getNamedSource <em>Named Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Named Source</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TTranspositionRule#getNamedSource()
+	 * @see #getTTranspositionRule()
+	 * @generated
+	 */
+	EReference getTTranspositionRule_NamedSource();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.ITransposableElement <em>ITransposable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ITransposable Element</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposableElement
+	 * @generated
+	 */
+	EClass getITransposableElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.transpose.ITransposableElement#getTransposedBy <em>Transposed By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Transposed By</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ITransposableElement#getTransposedBy()
+	 * @see #getITransposableElement()
+	 * @generated
+	 */
+	EReference getITransposableElement_TransposedBy();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.ISyntheticElement <em>ISynthetic Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ISynthetic Element</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ISyntheticElement
+	 * @generated
+	 */
+	EClass getISyntheticElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.transpose.ISyntheticElement#getRecipe <em>Recipe</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Recipe</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.ISyntheticElement#getRecipe()
+	 * @see #getISyntheticElement()
+	 * @generated
+	 */
+	EReference getISyntheticElement_Recipe();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TImplicitTransposition <em>TImplicit Transposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TImplicit Transposition</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TImplicitTransposition
+	 * @generated
+	 */
+	EClass getTImplicitTransposition();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.transpose.TImplicitTransposition#getOriginalTransposition <em>Original Transposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original Transposition</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TImplicitTransposition#getOriginalTransposition()
+	 * @see #getTImplicitTransposition()
+	 * @generated
+	 */
+	EReference getTImplicitTransposition_OriginalTransposition();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel <em>TInformation Model</em>}'.
@@ -2355,16 +2613,6 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 */
 	EReference getTInformationModel_IndexingHelper();
-
-	/**
-	 * Returns the meta object for the '{@link com.mimacom.ddd.dm.base.transpose.TInformationModel#allowsIdentityTypes() <em>Allows Identity Types</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Allows Identity Types</em>' operation.
-	 * @see com.mimacom.ddd.dm.base.transpose.TInformationModel#allowsIdentityTypes()
-	 * @generated
-	 */
-	EOperation getTInformationModel__AllowsIdentityTypes();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TTypeMapping <em>TType Mapping</em>}'.
@@ -2720,6 +2968,112 @@ public interface TransposePackage extends EPackage
 	interface Literals
 	{
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.ITransposition <em>ITransposition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.ITransposition
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getITransposition()
+		 * @generated
+		 */
+		EClass ITRANSPOSITION = eINSTANCE.getITransposition();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITRANSPOSITION__RULE = eINSTANCE.getITransposition_Rule();
+
+		/**
+		 * The meta object literal for the '<em><b>Implied Transpositions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITRANSPOSITION__IMPLIED_TRANSPOSITIONS = eINSTANCE.getITransposition_ImpliedTranspositions();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TTranspositionRuleImpl <em>TTransposition Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TTranspositionRuleImpl
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTTranspositionRule()
+		 * @generated
+		 */
+		EClass TTRANSPOSITION_RULE = eINSTANCE.getTTranspositionRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TTRANSPOSITION_RULE__SOURCE = eINSTANCE.getTTranspositionRule_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Named Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TTRANSPOSITION_RULE__NAMED_SOURCE = eINSTANCE.getTTranspositionRule_NamedSource();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.ITransposableElement <em>ITransposable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.ITransposableElement
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getITransposableElement()
+		 * @generated
+		 */
+		EClass ITRANSPOSABLE_ELEMENT = eINSTANCE.getITransposableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Transposed By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY = eINSTANCE.getITransposableElement_TransposedBy();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.ISyntheticElement <em>ISynthetic Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.ISyntheticElement
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getISyntheticElement()
+		 * @generated
+		 */
+		EClass ISYNTHETIC_ELEMENT = eINSTANCE.getISyntheticElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Recipe</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISYNTHETIC_ELEMENT__RECIPE = eINSTANCE.getISyntheticElement_Recipe();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TImplicitTranspositionImpl <em>TImplicit Transposition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TImplicitTranspositionImpl
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTImplicitTransposition()
+		 * @generated
+		 */
+		EClass TIMPLICIT_TRANSPOSITION = eINSTANCE.getTImplicitTransposition();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Transposition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMPLICIT_TRANSPOSITION__ORIGINAL_TRANSPOSITION = eINSTANCE.getTImplicitTransposition_OriginalTransposition();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImpl <em>TInformation Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2736,14 +3090,6 @@ public interface TransposePackage extends EPackage
 		 * @generated
 		 */
 		EReference TINFORMATION_MODEL__INDEXING_HELPER = eINSTANCE.getTInformationModel_IndexingHelper();
-
-		/**
-		 * The meta object literal for the '<em><b>Allows Identity Types</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES = eINSTANCE.getTInformationModel__AllowsIdentityTypes();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TTypeMappingImpl <em>TType Mapping</em>}' class.

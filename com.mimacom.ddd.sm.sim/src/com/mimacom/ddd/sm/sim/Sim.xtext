@@ -2,6 +2,7 @@ grammar com.mimacom.ddd.sm.sim.Sim with com.mimacom.ddd.dm.dim.Dim
 
 import "http://www.mimacom.com/ddd/dm/base" 
 import "http://www.mimacom.com/ddd/dm/transpose" 
+import "http://www.mimacom.com/ddd/dm/dim"
 import "http://www.mimacom.com/ddd/sm/sim"
 
 
@@ -34,43 +35,43 @@ enum SystemInformationModelKind:
  */
 		
 SimGrabAggregateRule returns TGrabAggregateRule:
-	source=[DAggregate|DQualifiedName]
+	source=[DimAggregate|DQualifiedName]
 	('as' renameTo=ID)?;
 	
 SimGrabPrimitiveRule returns TGrabRule:
-	source=[DPrimitive|DQualifiedName]
+	source=[DimPrimitive|DQualifiedName]
 	('as' renameTo=ID)?;
 	
 SimDitchPrimitiveRule returns TDitchRule:
-	source=[DPrimitive|DQualifiedName];
+	source=[DimPrimitive|DQualifiedName];
 	
 SimGrabEnumerationRule returns TGrabRule:
-	source=[DEnumeration|DQualifiedName]
+	source=[DimEnumeration|DQualifiedName]
 	('as' renameTo=ID)?;
 	
 SimDitchEnumerationRule returns TDitchRule:
-	source=[DEnumeration|DQualifiedName];
+	source=[DimEnumeration|DQualifiedName];
 
 SimGrabEnumerationLiteralRule returns TGrabRule:
-	source=[DLiteral|ID]
+	source=[DimLiteral|ID]
 	('as' renameTo=ID)?;
 	
 SimDitchEnumerationLiteralRule returns TDitchRule:
-	source=[DLiteral|ID];
+	source=[DimLiteral|ID];
 	
 SimGrabComplexTypeRule returns TGrabRule:
-	source=[DComplexType|DQualifiedName]
+	source=[DimComplexType|DQualifiedName]
 	('as' renameTo=ID)?;
 	
 SimDitchComplexTypeRule returns TDitchRule:
-	source=[DComplexType|DQualifiedName];
+	source=[DimComplexType|DQualifiedName];
 	
 SimMorphComplexTypeRule returns TMorphRule:
-	source=[DComplexType|DQualifiedName]
+	source=[DimComplexType|DQualifiedName]
 	ChangeComplexType;
 	
 SimFuseComplexTypeRule returns TFuseRule:
-	source=[DComplexType|DQualifiedName]
+	source=[DimComplexType|DQualifiedName]
 	('and' otherSources+=[DComplexType|DQualifiedName])+
 	ChangeComplexType;
 
@@ -84,30 +85,30 @@ fragment ChangeComplexType returns TStructureChangingRule:
 	('extends' extendFrom=[DComplexType|ID])?;
 
 SimGrabFeatureRule returns TGrabRule:
-	source=[DFeature|ID]
+	source=[DimFeature|ID]
 	('as' renameTo=ID)?;
 	
 SimMorphFeatureRule returns TMorphRule:
-	source=[DFeature|ID]
+	source=[DimFeature|ID]
 	'to'
 	(renameTo=ID ':')? 
 	retypeTo=[DType|ID] (remultiplyTo=DMultiplicity)?;	
 
 SimDitchFeatureRule returns TDitchRule:
-	source=[DFeature|ID];
+	source=[DimFeature|ID];
 	
 SimGrabQueryParameterRule returns TGrabRule:
-	source=[DQueryParameter|ID]
+	source=[DimQueryParameter|ID]
 	('as' renameTo=ID)?;
 	
 SimMorphQueryParameterRule returns TMorphRule:
-	source=[DQueryParameter|ID]
+	source=[DimQueryParameter|ID]
 	'to'
 	(renameTo=ID ':')? 
 	retypeTo=[DType|ID] (remultiplyTo=DMultiplicity)?;	
 
 SimDitchQueryParameterRule returns TDitchRule:
-	source=[DQueryParameter|ID];
+	source=[DimQueryParameter|ID];
 
 enum SimAbstractType returns TTristate:
 	FALSE='nonabstract' | TRUE='abstract';
@@ -122,14 +123,14 @@ enum SimEntityType returns TTristate:
 	FALSE='entity';
 
 SimAggregate returns DAggregate:
-SimAggregateTransposition | DAggregate;
+SimAggregateTransposition | DimAggregate;
 
 SimAggregateTransposition returns TAggregateTransposition:
 	{TAggregateTransposition}
-	'grab' 'aggregate' transpositionRule=SimGrabAggregateRule
+	'grab' 'aggregate' rule=SimGrabAggregateRule
 	(description=DRichText)?
 	(	'{'
-			(features+=SimQueryTransposition | 'add' 'query' features+=DQuery)*
+			(features+=SimQueryTransposition | 'add' 'query' features+=DimQuery)*
 			( types+=SimType)*
 		'}'
 	)?;
@@ -143,22 +144,22 @@ DAggregateKeyword:
  */
 
 @Override
-DType:
-SimPrimitiveTransposition | DPrimitive
-	| SimEnumerationTransposition | DEnumeration
-	| SimEntityTypeTransposition | DEntityType
-	| SimDetailTypeTransposition | DDetailType;
+DimType returns DType:
+SimPrimitiveTransposition | DimPrimitive
+	| SimEnumerationTransposition | DimEnumeration
+	| SimEntityTypeTransposition | DimEntityType
+	| SimDetailTypeTransposition | DimDetailType;
 	
 SimType returns DType:
-SimPrimitiveTransposition | 'add' DPrimitive
-	| SimEnumerationTransposition | 'add' DEnumeration
-	| SimEntityTypeTransposition | 'add' DEntityType
-	| SimDetailTypeTransposition | 'add' DDetailType;
+SimPrimitiveTransposition | 'add' DimPrimitive
+	| SimEnumerationTransposition | 'add' DimEnumeration
+	| SimEntityTypeTransposition | 'add' DimEntityType
+	| SimDetailTypeTransposition | 'add' DimDetailType;
 
 SimPrimitiveTransposition returns TPrimitiveTransposition:
 	{TPrimitiveTransposition}
-	(	'grab' 'primitive' transpositionRule=SimGrabPrimitiveRule
-	|	'ditch' 'primitive' transpositionRule=SimDitchPrimitiveRule
+	(	'grab' 'primitive' rule=SimGrabPrimitiveRule
+	|	'ditch' 'primitive' rule=SimDitchPrimitiveRule
 	)
 	(description=DRichText)?
 	(	'{'
@@ -168,8 +169,8 @@ SimPrimitiveTransposition returns TPrimitiveTransposition:
 	
 SimEnumerationTransposition returns TEnumerationTransposition:
 	{TEnumerationTransposition} 
-	(	'grab' 'enumeration' transpositionRule=SimGrabEnumerationRule
-	|	'ditch' 'enumeration' transpositionRule=SimDitchEnumerationRule
+	(	'grab' 'enumeration' rule=SimGrabEnumerationRule
+	|	'ditch' 'enumeration' rule=SimDitchEnumerationRule
 	)
 	(description=DRichText)?
 	(	'{'
@@ -179,31 +180,31 @@ SimEnumerationTransposition returns TEnumerationTransposition:
 	)?;
 	 
 SimLiteral returns DLiteral:
-SimLiteralTransposition | 'add' DLiteral;
+SimLiteralTransposition | 'add' DimLiteral;
 	
 SimLiteralTransposition returns TLiteralTransposition:
 	{TLiteralTransposition}
-	(	 'grab' transpositionRule=SimGrabEnumerationLiteralRule
-	|	 'ditch' transpositionRule=SimDitchEnumerationLiteralRule
+	(	 'grab' rule=SimGrabEnumerationLiteralRule
+	|	 'ditch' rule=SimDitchEnumerationLiteralRule
 	)
 	(description=DRichText)?;
 
 SimEntityTypeTransposition returns TEntityTypeTransposition:
 	{TEntityTypeTransposition}
-	(	'grab'(root?='root')? 'entity' transpositionRule=SimGrabComplexTypeRule
-	|	'ditch' (root?='root')? 'entity' transpositionRule=SimDitchComplexTypeRule
-	|	'morph' (root?='root')? 'entity' transpositionRule=SimMorphComplexTypeRule
-	|	'fuse'(root?='root')?  'entity' transpositionRule=SimFuseComplexTypeRule
+	(	'grab'(root?='root')? 'entity' rule=SimGrabComplexTypeRule
+	|	'ditch' (root?='root')? 'entity' rule=SimDitchComplexTypeRule
+	|	'morph' (root?='root')? 'entity' rule=SimMorphComplexTypeRule
+	|	'fuse'(root?='root')?  'entity' rule=SimFuseComplexTypeRule
 	)
 	(description=DRichText)?
 	TComplexTypeFeatures?;
 
 SimDetailTypeTransposition returns TDetailTypeTransposition:
 	{TDetailTypeTransposition} 
-	(	'grab' 'detail' transpositionRule=SimGrabComplexTypeRule
-	|	'ditch' 'detail' transpositionRule=SimDitchComplexTypeRule
-	|	'morph' 'detail' transpositionRule=SimMorphComplexTypeRule
-	|	'fuse' 'detail' transpositionRule=SimFuseComplexTypeRule
+	(	'grab' 'detail' rule=SimGrabComplexTypeRule
+	|	'ditch' 'detail' rule=SimDitchComplexTypeRule
+	|	'morph' 'detail' rule=SimMorphComplexTypeRule
+	|	'fuse' 'detail' rule=SimFuseComplexTypeRule
 	)
 	(description=DRichText)?
 	TComplexTypeFeatures?;
@@ -218,47 +219,47 @@ fragment TComplexTypeFeatures returns DComplexType:
  */	
 	
 SimFeature returns DFeature:
-SimAssociationTransposition | 'add' DAssociation
-	| SimAttributeTransposition | 'add' DAttribute
-	| SimQueryTransposition | 'add' DQuery;
+SimAssociationTransposition | 'add' DimAssociation
+	| SimAttributeTransposition | 'add' DimAttribute
+	| SimQueryTransposition | 'add' DimQuery;
 
 SimAssociationTransposition returns TAssociationTransposition:
 	{TAssociationTransposition} 
-	(	'grab' ('reference' | 'composite') transpositionRule=SimGrabFeatureRule
-	|	'morph' ('reference' | 'composite')transpositionRule=SimMorphFeatureRule
-	|	'ditch' ('reference' | 'composite') transpositionRule=SimDitchFeatureRule
+	(	'grab' ('reference' | 'composite') rule=SimGrabFeatureRule
+	|	'morph' ('reference' | 'composite')rule=SimMorphFeatureRule
+	|	'ditch' ('reference' | 'composite') rule=SimDitchFeatureRule
 	)
 	(description=DRichText)?;
 	
 SimAttributeTransposition returns TAttributeTransposition:
 	{TAttributeTransposition} 
-	(	'grab' ('attribute' | detail?='detail')? transpositionRule=SimGrabFeatureRule
-	|	'morph' ('attribute' | detail?='detail')? transpositionRule=SimMorphFeatureRule
-	|	'ditch' ('attribute' | detail?='detail')? transpositionRule=SimDitchFeatureRule
+	(	'grab' ('attribute' | detail?='detail')? rule=SimGrabFeatureRule
+	|	'morph' ('attribute' | detail?='detail')? rule=SimMorphFeatureRule
+	|	'ditch' ('attribute' | detail?='detail')? rule=SimDitchFeatureRule
 	)
 	(description=DRichText)?;
 
 SimQueryTransposition returns TQueryTransposition:
 	{TQueryTransposition} 
-	(	(	'grab' 'query' transpositionRule=SimGrabFeatureRule
-		|	'morph' 'query' transpositionRule=SimMorphFeatureRule
+	(	(	'grab' 'query' rule=SimGrabFeatureRule
+		|	'morph' 'query' rule=SimMorphFeatureRule
 		)
 		'('
 		(	'*'
 		|	parameters+=SimQueryParameter ( ',' parameters+=SimQueryParameter)*
 		)
 		')'
-	|	'ditch' 'query' transpositionRule=SimDitchFeatureRule
+	|	'ditch' 'query' rule=SimDitchFeatureRule
 	)
 	(description=DRichText)?;
 		
 SimQueryParameter returns DQueryParameter:
-SimQueryParameterTransposition | 'add' DQueryParameter;
+SimQueryParameterTransposition | 'add' DimQueryParameter;
 	
 SimQueryParameterTransposition returns TQueryParameterTransposition:
 	{TQueryParameterTransposition} 
-	(	'grab' transpositionRule=SimGrabQueryParameterRule
-	|	'morph' transpositionRule=SimMorphQueryParameterRule
-	|	'ditch' transpositionRule=SimDitchQueryParameterRule
+	(	'grab' rule=SimGrabQueryParameterRule
+	|	'morph' rule=SimMorphQueryParameterRule
+	|	'ditch' rule=SimDitchQueryParameterRule
 	)
 	(description=DRichText)?;

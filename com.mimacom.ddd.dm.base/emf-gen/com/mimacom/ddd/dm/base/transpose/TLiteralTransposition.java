@@ -3,7 +3,6 @@
 package com.mimacom.ddd.dm.base.transpose;
 
 import com.mimacom.ddd.dm.base.base.DLiteral;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 
 /**
  * <!-- begin-user-doc -->

@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityType
+public abstract class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityType
 {
 	/**
 	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.

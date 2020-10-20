@@ -14,9 +14,8 @@ import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
-import com.mimacom.ddd.dm.base.base.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TDetailTypeTransposition;
@@ -27,6 +26,8 @@ import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
+import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.scoping.AbstractSimScopeProvider;
 import java.util.List;
@@ -46,11 +47,13 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
   
   private static final BasePackage BASE = BasePackage.eINSTANCE;
   
+  private static final TransposePackage TRANSPOSE = TransposePackage.eINSTANCE;
+  
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      EReference _tTranspositionRule_Source = SimScopeProvider.BASE.getTTranspositionRule_Source();
+      EReference _tTranspositionRule_Source = SimScopeProvider.TRANSPOSE.getTTranspositionRule_Source();
       boolean _equals = Objects.equal(reference, _tTranspositionRule_Source);
       if (_equals) {
         EObject _xifexpression = null;
@@ -75,10 +78,10 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
               } else {
                 if ((decduction instanceof TLiteralTransposition)) {
                   if ((container instanceof TEnumerationTransposition)) {
-                    TTranspositionRule _transpositionRule = ((TEnumerationTransposition)container).getTranspositionRule();
+                    TTranspositionRule _rule = ((TEnumerationTransposition)container).getRule();
                     ITransposableElement _source = null;
-                    if (_transpositionRule!=null) {
-                      _source=_transpositionRule.getSource();
+                    if (_rule!=null) {
+                      _source=_rule.getSource();
                     }
                     final ITransposableElement sourceType = _source;
                     if ((sourceType instanceof DEnumeration)) {
@@ -89,10 +92,10 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
                 } else {
                   if ((decduction instanceof TFeatureTransposition)) {
                     if ((container instanceof TComplexTypeTransposition)) {
-                      TTranspositionRule _transpositionRule_1 = ((TComplexTypeTransposition)container).getTranspositionRule();
+                      TTranspositionRule _rule_1 = ((TComplexTypeTransposition)container).getRule();
                       ITransposableElement _source_1 = null;
-                      if (_transpositionRule_1!=null) {
-                        _source_1=_transpositionRule_1.getSource();
+                      if (_rule_1!=null) {
+                        _source_1=_rule_1.getSource();
                       }
                       final ITransposableElement sourceType_1 = _source_1;
                       if ((sourceType_1 instanceof DComplexType)) {
@@ -101,10 +104,10 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
                       }
                     } else {
                       if ((container instanceof TAggregateTransposition)) {
-                        TTranspositionRule _transpositionRule_2 = ((TAggregateTransposition)container).getTranspositionRule();
+                        TTranspositionRule _rule_2 = ((TAggregateTransposition)container).getRule();
                         ITransposableElement _source_2 = null;
-                        if (_transpositionRule_2!=null) {
-                          _source_2=_transpositionRule_2.getSource();
+                        if (_rule_2!=null) {
+                          _source_2=_rule_2.getSource();
                         }
                         final ITransposableElement source = _source_2;
                         if ((source instanceof DAggregate)) {
@@ -116,10 +119,10 @@ public class SimScopeProvider extends AbstractSimScopeProvider {
                   } else {
                     if ((decduction instanceof TQueryParameterTransposition)) {
                       if ((container instanceof TQueryTransposition)) {
-                        TTranspositionRule _transpositionRule_3 = ((TQueryTransposition)container).getTranspositionRule();
+                        TTranspositionRule _rule_3 = ((TQueryTransposition)container).getRule();
                         ITransposableElement _source_3 = null;
-                        if (_transpositionRule_3!=null) {
-                          _source_3=_transpositionRule_3.getSource();
+                        if (_rule_3!=null) {
+                          _source_3=_rule_3.getSource();
                         }
                         final ITransposableElement source_1 = _source_3;
                         if ((source_1 instanceof DQuery)) {

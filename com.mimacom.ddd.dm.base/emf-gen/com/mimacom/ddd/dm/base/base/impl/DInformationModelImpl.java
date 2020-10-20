@@ -9,21 +9,18 @@ import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.base.base.ITransposableElement;
-import com.mimacom.ddd.dm.base.base.ITransposition;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -38,8 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#getTransposedBy <em>Transposed By</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#isSynthetic <em>Synthetic</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,36 +60,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	 * @ordered
 	 */
 	protected EList<DType> types;
-
-	/**
-	 * The cached value of the '{@link #getTransposedBy() <em>Transposed By</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransposedBy()
-	 * @generated
-	 * @ordered
-	 */
-	protected ITransposition transposedBy;
-
-	/**
-	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSynthetic()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SYNTHETIC_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSynthetic()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean synthetic = SYNTHETIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,68 +118,11 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	 * @generated
 	 */
 	@Override
-	public ITransposition getTransposedBy()
+	public boolean allowsIdentityTypes()
 	{
-		if (transposedBy != null && transposedBy.eIsProxy())
-		{
-			InternalEObject oldTransposedBy = (InternalEObject)transposedBy;
-			transposedBy = (ITransposition)eResolveProxy(oldTransposedBy);
-			if (transposedBy != oldTransposedBy)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY, oldTransposedBy, transposedBy));
-			}
-		}
-		return transposedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ITransposition basicGetTransposedBy()
-	{
-		return transposedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTransposedBy(ITransposition newTransposedBy)
-	{
-		ITransposition oldTransposedBy = transposedBy;
-		transposedBy = newTransposedBy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY, oldTransposedBy, transposedBy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSynthetic()
-	{
-		return synthetic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSynthetic(boolean newSynthetic)
-	{
-		boolean oldSynthetic = synthetic;
-		synthetic = newSynthetic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DINFORMATION_MODEL__SYNTHETIC, oldSynthetic, synthetic));
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -249,11 +157,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 				return getAggregates();
 			case BasePackage.DINFORMATION_MODEL__TYPES:
 				return getTypes();
-			case BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY:
-				if (resolve) return getTransposedBy();
-				return basicGetTransposedBy();
-			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
-				return isSynthetic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,12 +180,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends DType>)newValue);
 				return;
-			case BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY:
-				setTransposedBy((ITransposition)newValue);
-				return;
-			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
-				setSynthetic((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -303,12 +200,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 			case BasePackage.DINFORMATION_MODEL__TYPES:
 				getTypes().clear();
 				return;
-			case BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY:
-				setTransposedBy((ITransposition)null);
-				return;
-			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
-				setSynthetic(SYNTHETIC_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -327,10 +218,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 				return aggregates != null && !aggregates.isEmpty();
 			case BasePackage.DINFORMATION_MODEL__TYPES:
 				return types != null && !types.isEmpty();
-			case BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY:
-				return transposedBy != null;
-			case BasePackage.DINFORMATION_MODEL__SYNTHETIC:
-				return synthetic != SYNTHETIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -363,15 +250,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 		{
 			switch (derivedFeatureID)
 			{
-				default: return -1;
-			}
-		}
-		if (baseClass == ITransposableElement.class)
-		{
-			switch (derivedFeatureID)
-			{
-				case BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY: return BasePackage.ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY;
-				case BasePackage.DINFORMATION_MODEL__SYNTHETIC: return BasePackage.ITRANSPOSABLE_ELEMENT__SYNTHETIC;
 				default: return -1;
 			}
 		}
@@ -416,15 +294,6 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 				default: return -1;
 			}
 		}
-		if (baseClass == ITransposableElement.class)
-		{
-			switch (baseFeatureID)
-			{
-				case BasePackage.ITRANSPOSABLE_ELEMENT__TRANSPOSED_BY: return BasePackage.DINFORMATION_MODEL__TRANSPOSED_BY;
-				case BasePackage.ITRANSPOSABLE_ELEMENT__SYNTHETIC: return BasePackage.DINFORMATION_MODEL__SYNTHETIC;
-				default: return -1;
-			}
-		}
 		if (baseClass == IDiagramRoot.class)
 		{
 			switch (baseFeatureID)
@@ -441,15 +310,14 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	 * @generated
 	 */
 	@Override
-	public String toString()
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException
 	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (synthetic: ");
-		result.append(synthetic);
-		result.append(')');
-		return result.toString();
+		switch (operationID)
+		{
+			case BasePackage.DINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES:
+				return allowsIdentityTypes();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //DInformationModelImpl

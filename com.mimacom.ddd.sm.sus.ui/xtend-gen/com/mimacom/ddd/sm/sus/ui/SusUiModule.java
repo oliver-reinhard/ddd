@@ -40,7 +40,7 @@ public class SusUiModule extends AbstractSusUiModule {
     return DmxDoubleClickStrategyProvider.class;
   }
   
-  public SusUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public SusUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

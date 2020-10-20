@@ -96,6 +96,7 @@ public class TableCellImpl extends BlockContainerImpl implements TableCell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getWidth() {
 		return width;
 	}
@@ -105,6 +106,7 @@ public class TableCellImpl extends BlockContainerImpl implements TableCell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWidth(int newWidth) {
 		int oldWidth = width;
 		width = newWidth;
@@ -117,6 +119,7 @@ public class TableCellImpl extends BlockContainerImpl implements TableCell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getHeight() {
 		return height;
 	}
@@ -126,6 +129,7 @@ public class TableCellImpl extends BlockContainerImpl implements TableCell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHeight(int newHeight) {
 		int oldHeight = height;
 		height = newHeight;
@@ -138,6 +142,7 @@ public class TableCellImpl extends BlockContainerImpl implements TableCell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TableRow getRow() {
 		if (eContainerFeatureID() != PubPackage.TABLE_CELL__ROW) return null;
 		return (TableRow)eContainer();
@@ -168,6 +173,7 @@ public class TableCellImpl extends BlockContainerImpl implements TableCell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRow(TableRow newRow) {
 		if (newRow != eInternalContainer() || (eContainerFeatureID() != PubPackage.TABLE_CELL__ROW && newRow != null)) {
 			if (EcoreUtil.isAncestor(this, newRow))
