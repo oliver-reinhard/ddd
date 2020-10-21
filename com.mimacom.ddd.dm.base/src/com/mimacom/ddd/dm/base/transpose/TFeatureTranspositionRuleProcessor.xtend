@@ -44,7 +44,7 @@ class TFeatureTranspositionRuleProcessor {
 				var explicitParameters = recipe.parameters.filter [
 					! (it instanceof TQueryParameterTransposition || it instanceof ISyntheticElement)
 				]
-				if (! parameterRecipes.exists[recipe instanceof TGrabRule]) {
+				if (! parameterRecipes.exists[rule instanceof TGrabRule]) {
 					// there are no explicit grabs, so implicitly grab ALL SOURCE PARAMETERS for which there is NO EXPLICIT Transposition:
 					val implicitlyGrabbedSourceParameters = Lists.newArrayList((source as DQuery).parameters.filter[it instanceof ITransposableElement])
 					val sourceParametersWithTransposition = parameterRecipes.map[rule.source].filter (DQueryParameter)
@@ -87,7 +87,7 @@ class TFeatureTranspositionRuleProcessor {
 				]
 			}
 			if (! featureRecipes.exists[rule instanceof TGrabRule]) {
-			// there are no explicit grabs, so implicitly grab ALL SOURCE FEATURES for which there is NO EXPLICIT Transposition:
+				// there are no explicit grabs, so implicitly grab ALL SOURCE FEATURES for which there is NO EXPLICIT Transposition:
 				val implicitlyGrabbedSourceFeatures = Lists.newArrayList(desc.source.allFeatures.filter[it instanceof ITransposableElement])
 				val sourceFeaturesWithTransposition = featureRecipes.map[rule.source].filter (DFeature)
 				implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesWithTransposition)

@@ -16,7 +16,6 @@ import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
-import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate;
@@ -43,8 +42,12 @@ import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex;
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
+import com.mimacom.ddd.dm.dim.DimAttribute;
+import com.mimacom.ddd.dm.dim.DimEntityType;
 import com.mimacom.ddd.dm.dim.DimEnumeration;
 import com.mimacom.ddd.dm.dim.DimPrimitive;
+import com.mimacom.ddd.dm.dim.DimQuery;
+import com.mimacom.ddd.dm.dim.DimQueryParameter;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -205,7 +208,7 @@ public class SimTranspositionTest {
       final DNamespace dimNS = this.dimParseHelper.parse(_builder, rs);
       this.assertNoParseErrors(dimNS, "dm");
       DModel _model = dimNS.getModel();
-      final DInformationModel dim = ((DInformationModel) _model);
+      final DomainInformationModel dim = ((DomainInformationModel) _model);
       Assertions.assertNotNull(dim);
       Assertions.assertEquals(1, dim.getAggregates().size());
       final DAggregate acomp = dim.getAggregates().get(0);
@@ -213,27 +216,27 @@ public class SimTranspositionTest {
       Assertions.assertEquals("AComp", acomp.getName());
       Assertions.assertEquals(1, acomp.getFeatures().size());
       DFeature _get = acomp.getFeatures().get(0);
-      final DQuery q = ((DQuery) _get);
+      final DimQuery q = ((DimQuery) _get);
       Assertions.assertFalse((q instanceof ISyntheticElement));
       Assertions.assertEquals("q", q.getName());
       Assertions.assertEquals(at, q.getType());
       {
         Assertions.assertEquals(1, q.getParameters().size());
         DQueryParameter _get_1 = q.getParameters().get(0);
-        final DQueryParameter p1 = ((DQueryParameter) _get_1);
+        final DimQueryParameter p1 = ((DimQueryParameter) _get_1);
         Assertions.assertFalse((p1 instanceof ISyntheticElement));
         Assertions.assertEquals("p1", p1.getName());
         Assertions.assertEquals(at, p1.getType());
       }
       Assertions.assertEquals(1, acomp.getTypes().size());
       DType _get_1 = acomp.getTypes().get(0);
-      final DEntityType a = ((DEntityType) _get_1);
+      final DimEntityType a = ((DimEntityType) _get_1);
       Assertions.assertFalse((a instanceof ISyntheticElement));
       Assertions.assertEquals("A", a.getName());
       {
         Assertions.assertEquals(1, a.getFeatures().size());
         DFeature _get_2 = a.getFeatures().get(0);
-        final DAttribute x = ((DAttribute) _get_2);
+        final DimAttribute x = ((DimAttribute) _get_2);
         Assertions.assertFalse((x instanceof ISyntheticElement));
         Assertions.assertEquals("x", x.getName());
         Assertions.assertEquals(at, x.getType());
@@ -432,20 +435,17 @@ public class SimTranspositionTest {
       DType _get_6 = sm.getTypes().get(3);
       final TSyntheticPrimitive st = ((TSyntheticPrimitive) _get_6);
       Assertions.assertEquals("ST", st.getName());
-      Assertions.assertTrue((st instanceof ISyntheticElement));
       Assertions.assertEquals(stTransposition, st.getRecipe());
       Assertions.assertEquals(at, st.getRecipe().getRule().getSource());
       DType _get_7 = sm.getTypes().get(4);
       final TSyntheticEntityType sma1 = ((TSyntheticEntityType) _get_7);
       Assertions.assertEquals("SMA1", sma1.getName());
-      Assertions.assertTrue((sma1 instanceof ISyntheticElement));
       Assertions.assertEquals(sma1Transposition, sma1.getRecipe());
       Assertions.assertEquals(a, sma1.getRecipe().getRule().getSource());
       {
         Assertions.assertEquals(2, sma1.getFeatures().size());
         DFeature _get_8 = sma1.getFeatures().get(0);
         final TSyntheticAttribute smx = ((TSyntheticAttribute) _get_8);
-        Assertions.assertTrue((smx instanceof ISyntheticElement));
         Assertions.assertEquals("x", smx.getName());
         Assertions.assertEquals(st, smx.getType());
         ITransposition _recipe = smx.getRecipe();
@@ -455,7 +455,6 @@ public class SimTranspositionTest {
         Assertions.assertEquals(x, smx.getRecipe().getRule().getSource());
         DFeature _get_9 = sma1.getFeatures().get(1);
         final TSyntheticAttribute smy = ((TSyntheticAttribute) _get_9);
-        Assertions.assertTrue((smy instanceof ISyntheticElement));
         Assertions.assertEquals("y", smy.getName());
         Assertions.assertEquals(st, smy.getType());
         Assertions.assertNull(smy.getRecipe());
@@ -493,9 +492,9 @@ public class SimTranspositionTest {
       final DInformationModel dim = this.loadComponentDim(resourceSet, at);
       final DAggregate acomp = dim.getAggregates().get(0);
       DFeature _get_1 = acomp.getFeatures().get(0);
-      final DQuery q = ((DQuery) _get_1);
+      final DimQuery q = ((DimQuery) _get_1);
       DQueryParameter _get_2 = q.getParameters().get(0);
-      final DQueryParameter p1 = ((DQueryParameter) _get_2);
+      final DimQueryParameter p1 = ((DimQueryParameter) _get_2);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("system SM");
       _builder.newLine();
@@ -547,7 +546,6 @@ public class SimTranspositionTest {
       final TQueryTransposition sq2Transposition = ((TQueryTransposition) _get_7);
       DAggregate _get_8 = sm.getAggregates().get(1);
       final TSyntheticAggregate sAggr = ((TSyntheticAggregate) _get_8);
-      Assertions.assertTrue((sAggr instanceof ISyntheticElement));
       Assertions.assertEquals(sAggrTransposition, sAggr.getRecipe());
       Assertions.assertEquals(acomp, sAggr.getRecipe().getRule().getSource());
       Assertions.assertEquals(2, sAggr.getFeatures().size());
@@ -582,7 +580,6 @@ public class SimTranspositionTest {
         Assertions.assertEquals(1, sq2.getParameters().size());
         DQueryParameter _get_11 = sq2.getParameters().get(0);
         final TSyntheticQueryParameter sp0 = ((TSyntheticQueryParameter) _get_11);
-        Assertions.assertTrue((sp0 instanceof ISyntheticElement));
         Assertions.assertEquals("p0", sp0.getName());
         Assertions.assertEquals(st, sp0.getType());
         ITransposition _recipe = sp0.getRecipe();

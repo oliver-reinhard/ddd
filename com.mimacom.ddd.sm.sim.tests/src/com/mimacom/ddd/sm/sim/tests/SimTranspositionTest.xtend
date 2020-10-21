@@ -35,8 +35,12 @@ import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
+import com.mimacom.ddd.dm.dim.DimAttribute
+import com.mimacom.ddd.dm.dim.DimEntityType
 import com.mimacom.ddd.dm.dim.DimEnumeration
 import com.mimacom.ddd.dm.dim.DimPrimitive
+import com.mimacom.ddd.dm.dim.DimQuery
+import com.mimacom.ddd.dm.dim.DimQueryParameter
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
 import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dmx.DmxArchetype
@@ -154,7 +158,7 @@ class SimTranspositionTest {
 			}
 		''', rs)
 		assertNoParseErrors(dimNS, "dm")
-		val dim = dimNS.model as DInformationModel
+		val dim = dimNS.model as DomainInformationModel
 		assertNotNull(dim)
 		//
 		assertEquals(1, dim.aggregates.size)
@@ -163,25 +167,25 @@ class SimTranspositionTest {
 		assertEquals("AComp", acomp.name)
 		//
 		assertEquals(1, acomp.features.size)
-		val q = acomp.features.get(0) as DQuery
+		val q = acomp.features.get(0) as DimQuery
 		assertFalse(q instanceof ISyntheticElement)
 		assertEquals("q", q.name)
 		assertEquals(at, q.type)
 		{
 			assertEquals(1, q.parameters.size)
-			val p1 = q.parameters.get(0) as DQueryParameter
+			val p1 = q.parameters.get(0) as DimQueryParameter
 			assertFalse(p1 instanceof ISyntheticElement)
 			assertEquals("p1", p1.name)
 			assertEquals(at, p1.type)
 		}
 		//
 		assertEquals(1, acomp.types.size)
-		val a = acomp.types.get(0) as DEntityType
+		val a = acomp.types.get(0) as DimEntityType
 		assertFalse(a instanceof ISyntheticElement)
 		assertEquals("A", a.name)
 		{
 			assertEquals(1, a.features.size)
-			val x = a.features.get(0) as DAttribute
+			val x = a.features.get(0) as DimAttribute
 			assertFalse(x instanceof ISyntheticElement)
 			assertEquals("x", x.name)
 			assertEquals(at, x.type)
@@ -213,13 +217,13 @@ class SimTranspositionTest {
 		assertEquals(2, sm.types.size)
 		val stTransposition = sm.types.get(0) as TPrimitiveTransposition
 		assertFalse(stTransposition instanceof ISyntheticElement)
-		assertTrue(stTransposition.getRule instanceof TGrabRule)
+		assertTrue(stTransposition.rule instanceof TGrabRule)
 		//
 		val st = sm.types.get(1) as TSyntheticPrimitive
 		assertEquals("ST", st.name)
 		assertTrue(st instanceof TSyntheticPrimitive)
 		assertEquals(stTransposition, st.recipe)
-		assertEquals(dt, st.recipe.rule.getSource)
+		assertEquals(dt, st.recipe.rule.source)
 		
 		// Check the index:
 		val descs = index.getExportedDTypeDescriptions(st).toList
@@ -258,23 +262,23 @@ class SimTranspositionTest {
 		//
 		assertEquals(4, sm.types.size)
 		val sen1Transposition = sm.types.get(0) as TEnumerationTransposition
-		assertTrue(sen1Transposition.getRule instanceof TGrabRule)
+		assertTrue(sen1Transposition.rule instanceof TGrabRule)
 		//
 		val sen2Transposition = sm.types.get(1) as TEnumerationTransposition
-		assertTrue(sen2Transposition.getRule instanceof TGrabRule)
+		assertTrue(sen2Transposition.rule instanceof TGrabRule)
 		//
 		{
 			val sen1 = sm.types.get(2) as TSyntheticEnumeration
 			assertEquals("SEn1", sen1.name)
 			assertEquals(sen1Transposition, sen1.recipe)
-			assertEquals(en, sen1.recipe.rule.getSource)
+			assertEquals(en, sen1.recipe.rule.source)
 			//
 			assertEquals(3, sen1.literals.size)
 			val sl1 = sen1.literals.get(0) as TSyntheticLiteral
 			assertEquals("L1", sl1.name)
 			val sl1Transposition = sl1.recipe as TImplicitTransposition
 			assertTrue(sl1Transposition.rule instanceof TGrabRule)
-			assertEquals(l1, sl1Transposition.rule.getSource)
+			assertEquals(l1, sl1Transposition.rule.source)
 			//
 			assertEquals("L2", sen1.literals.get(1).name)
 			//
@@ -287,14 +291,14 @@ class SimTranspositionTest {
 			val sen2 = sm.types.get(3) as TSyntheticEnumeration
 			assertEquals("SEn2", sen2.name)
 			assertEquals(sen2Transposition, sen2.recipe)
-			assertEquals(en, sen2.recipe.rule.getSource)
+			assertEquals(en, sen2.recipe.rule.source)
 			//
 			assertEquals(1, sen2.literals.size)
 			val sl0 = sen2.literals.get(0) as TSyntheticLiteral
 			assertEquals("L0", sl0.name)
 			val sl0Transposition = sl0.recipe as TLiteralTransposition
-			assertTrue(sl0Transposition.getRule instanceof TGrabRule)
-			assertEquals(l2, sl0Transposition.getRule.getSource)
+			assertTrue(sl0Transposition.rule instanceof TGrabRule)
+			assertEquals(l2, sl0Transposition.rule.source)
 
 		}
 	}
@@ -326,7 +330,7 @@ class SimTranspositionTest {
 		assertEquals(6, sm.types.size)
 		val stTransposition = sm.types.get(0) as TPrimitiveTransposition
 		assertFalse(stTransposition instanceof ISyntheticElement)
-		assertTrue(stTransposition.getRule instanceof TGrabRule)
+		assertTrue(stTransposition.rule instanceof TGrabRule)
 		
 		// Check the index:
 		val descs2 = index.getExportedDTypeDescriptions(stTransposition).toList
@@ -341,35 +345,31 @@ class SimTranspositionTest {
 		//
 		val sma1Transposition = sm.types.get(1) as TEntityTypeTransposition
 		assertFalse(sma1Transposition instanceof ISyntheticElement)
-		assertTrue(sma1Transposition.getRule instanceof TGrabRule)
+		assertTrue(sma1Transposition.rule instanceof TGrabRule)
 		//
 		val sma2Transposition = sm.types.get(2) as TEntityTypeTransposition
 		assertFalse(sma2Transposition instanceof ISyntheticElement)
-		assertTrue(sma2Transposition.getRule instanceof TGrabRule)
+		assertTrue(sma2Transposition.rule instanceof TGrabRule)
 		//
 		val st = sm.types.get(3) as TSyntheticPrimitive
 		assertEquals("ST", st.name)
-		assertTrue(st instanceof ISyntheticElement)
 		assertEquals(stTransposition, st.recipe)
-		assertEquals(at, st.recipe.rule.getSource)
+		assertEquals(at, st.recipe.rule.source)
 		//
 		val sma1 = sm.types.get(4) as TSyntheticEntityType
 		assertEquals("SMA1", sma1.name)
-		assertTrue(sma1 instanceof ISyntheticElement)
 		assertEquals(sma1Transposition, sma1.recipe)
-		assertEquals(a, sma1.recipe.rule.getSource)
+		assertEquals(a, sma1.recipe.rule.source)
 		{
 			assertEquals(2, sma1.features.size)
 			val smx = sma1.features.get(0) as TSyntheticAttribute
-			assertTrue(smx instanceof ISyntheticElement)
 			assertEquals("x", smx.name)
 			assertEquals(st, smx.type)
 			val smxTransposition = smx.recipe as TImplicitTransposition
 			assertTrue(smxTransposition.rule instanceof TGrabRule)
-			assertEquals(x, smx.recipe.rule.getSource)
+			assertEquals(x, smx.recipe.rule.source)
 			//
 			val smy = sma1.features.get(1) as TSyntheticAttribute
-			assertTrue(smy instanceof ISyntheticElement)
 			assertEquals("y", smy.name)
 			assertEquals(st, smy.type)
 			assertNull(smy.recipe) // Note: NULL -- no rule, attribute added explicitly
@@ -379,15 +379,15 @@ class SimTranspositionTest {
 		assertEquals("SMA2", sma2.name)
 		assertTrue(sma2 instanceof ISyntheticElement)
 		assertEquals(sma2Transposition, sma2.recipe)
-		assertEquals(a, sma2.recipe.rule.getSource)
+		assertEquals(a, sma2.recipe.rule.source)
 		{
 			assertEquals(1, sma2.features.size)
 			val smx = sma2.features.get(0) as TSyntheticAttribute
 			assertEquals("x", smx.name)
 			assertEquals(st, smx.type)
 			val smxTransposition = smx.recipe as TFeatureTransposition
-			assertTrue(smxTransposition.getRule instanceof TGrabRule)
-			assertEquals(x, smx.recipe.rule.getSource)
+			assertTrue(smxTransposition.rule instanceof TGrabRule)
+			assertEquals(x, smx.recipe.rule.source)
 		}
 	}
 
@@ -400,8 +400,8 @@ class SimTranspositionTest {
 
 		val dim = loadComponentDim(resourceSet, at)
 		val acomp = dim.aggregates.get(0)
-		val q = acomp.features.get(0) as DQuery
-		val p1 = q.parameters.get(0) as DQueryParameter
+		val q = acomp.features.get(0) as DimQuery
+		val p1 = q.parameters.get(0) as DimQueryParameter
 
 		val smNS = simParseHelper.parse('''
 			system SM
@@ -420,31 +420,30 @@ class SimTranspositionTest {
 		assertEquals(2, sm.types.size)
 		val stTransposition = sm.types.get(0) as TPrimitiveTransposition
 		assertFalse(stTransposition instanceof ISyntheticElement)
-		assertTrue(stTransposition.getRule instanceof TGrabRule)
+		assertTrue(stTransposition.rule instanceof TGrabRule)
 		//
 		val st = sm.types.get(1) as TSyntheticPrimitive
 		assertEquals("ST", st.name)
 		assertEquals(stTransposition, st.recipe)
-		assertEquals(at, st.recipe.rule.getSource)
+		assertEquals(at, st.recipe.rule.source)
 		//
 		assertEquals(2, sm.aggregates.size)
 		val sAggrTransposition = sm.aggregates.get(0) as TAggregateTransposition
 		assertFalse(sAggrTransposition instanceof ISyntheticElement)
-		assertTrue(sAggrTransposition.getRule instanceof TGrabAggregateRule)
+		assertTrue(sAggrTransposition.rule instanceof TGrabAggregateRule)
 		assertEquals(2, sAggrTransposition.features.size)
 		val sq1Transposition = sAggrTransposition.features.get(0) as TQueryTransposition
 		val sq2Transposition = sAggrTransposition.features.get(1) as TQueryTransposition
 		//
 		val sAggr = sm.aggregates.get(1) as TSyntheticAggregate
-		assertTrue(sAggr instanceof ISyntheticElement)
 		assertEquals(sAggrTransposition, sAggr.recipe)
-		assertEquals(acomp, sAggr.recipe.rule.getSource)
+		assertEquals(acomp, sAggr.recipe.rule.source)
 		//
 		assertEquals(2, sAggr.features.size)
 		val sq1 = sAggr.features.get(0) as TSyntheticQuery
 		assertEquals("sq1", sq1.name)
 		assertEquals(sq1Transposition, sq1.recipe)
-		assertEquals(q, sq1.recipe.rule.getSource)
+		assertEquals(q, sq1.recipe.rule.source)
 		{
 			assertEquals(2, sq1.parameters.size)
 			val sp1 = sq1.parameters.get(0) as TSyntheticQueryParameter
@@ -452,7 +451,7 @@ class SimTranspositionTest {
 			assertEquals(st, sp1.type)
 			val sp1Transposition = sp1.recipe as TImplicitTransposition
 			assertTrue(sp1Transposition.rule instanceof TGrabRule)
-			assertEquals(p1, sp1.recipe.rule.getSource)
+			assertEquals(p1, sp1.recipe.rule.source)
 			//
 			val sp2 = sq1.parameters.get(1) as TSyntheticQueryParameter
 			assertEquals("p2", sp2.name)
@@ -463,16 +462,15 @@ class SimTranspositionTest {
 		val sq2 = sAggr.features.get(1) as TSyntheticQuery
 		assertEquals("sq2", sq2.name)
 		assertEquals(sq2Transposition, sq2.recipe)
-		assertEquals(q, sq2.recipe.rule.getSource)
+		assertEquals(q, sq2.recipe.rule.source)
 		{
 			assertEquals(1, sq2.parameters.size)
 			val sp0 = sq2.parameters.get(0) as TSyntheticQueryParameter
-			assertTrue(sp0 instanceof ISyntheticElement)
 			assertEquals("p0", sp0.name)
 			assertEquals(st, sp0.type)
 			val sp0Transposition = sp0.recipe as TQueryParameterTransposition
-			assertTrue(sp0Transposition.getRule instanceof TGrabRule)
-			assertEquals(p1, sp0.recipe.rule.getSource)
+			assertTrue(sp0Transposition.rule instanceof TGrabRule)
+			assertEquals(p1, sp0.recipe.rule.source)
 		}
 	}
 
@@ -501,27 +499,27 @@ class SimTranspositionTest {
 		//
 		assertEquals(2, sm.types.size)
 		val stTransposition = sm.types.get(0) as TPrimitiveTransposition
-		assertTrue(stTransposition.getRule instanceof TGrabRule)
+		assertTrue(stTransposition.rule instanceof TGrabRule)
 		//
 		val st = sm.types.get(1) as TSyntheticPrimitive
 		assertEquals("ST", st.name)
 		assertEquals(stTransposition, st.recipe)
-		assertEquals(at, st.recipe.rule.getSource)
+		assertEquals(at, st.recipe.rule.source)
 		//
 		assertEquals(2, sm.aggregates.size)
 		val sAggrTransposition = sm.aggregates.get(0) as TAggregateTransposition
-		assertTrue(sAggrTransposition.getRule instanceof TGrabAggregateRule)
+		assertTrue(sAggrTransposition.rule instanceof TGrabAggregateRule)
 		//
 		val sAggr = sm.aggregates.get(1) as TSyntheticAggregate
 		assertEquals(sAggrTransposition, sAggr.recipe)
-		assertEquals(acomp, sAggr.recipe.rule.getSource)
+		assertEquals(acomp, sAggr.recipe.rule.source)
 		//
 		assertEquals(1, sAggr.types.size)
 		val sma = sAggr.types.get(0) as TSyntheticEntityType
 		assertEquals("A", sma.name)
 		val smaTransposition = sma.recipe as TImplicitTransposition
 		assertTrue(smaTransposition.rule instanceof TGrabRule)
-		assertEquals(a, sma.recipe.rule.getSource)
+		assertEquals(a, sma.recipe.rule.source)
 		//
 		assertEquals(1, sma.features.size)
 		val smx = sma.features.get(0) as TSyntheticAttribute
@@ -529,7 +527,7 @@ class SimTranspositionTest {
 		assertEquals(st, smx.type)
 		val smxTransposition = smx.recipe as TImplicitTransposition
 		assertTrue(smxTransposition.rule instanceof TGrabRule)
-		assertEquals(x, smx.recipe.rule.getSource)
+		assertEquals(x, smx.recipe.rule.source)
 	}
 
 	protected def assertNoParseErrors(DNamespace ns, String name) {

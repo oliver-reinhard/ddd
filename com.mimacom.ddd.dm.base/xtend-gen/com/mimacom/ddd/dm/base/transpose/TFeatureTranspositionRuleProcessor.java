@@ -85,7 +85,7 @@ public class TFeatureTranspositionRuleProcessor {
         };
         Iterable<DQueryParameter> explicitParameters = IterableExtensions.<DQueryParameter>filter(((TQueryTransposition)recipe).getParameters(), _function);
         final Function1<TQueryParameterTransposition, Boolean> _function_1 = (TQueryParameterTransposition it) -> {
-          return Boolean.valueOf((recipe instanceof TGrabRule));
+          return Boolean.valueOf((rule instanceof TGrabRule));
         };
         boolean _exists = IterableExtensions.<TQueryParameterTransposition>exists(parameterRecipes, _function_1);
         boolean _not = (!_exists);
