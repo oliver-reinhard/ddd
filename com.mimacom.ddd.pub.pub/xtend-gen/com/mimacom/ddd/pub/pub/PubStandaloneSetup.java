@@ -3,7 +3,10 @@
  */
 package com.mimacom.ddd.pub.pub;
 
+import com.google.inject.Injector;
+import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PubStandaloneSetupGenerated;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -12,5 +15,15 @@ import com.mimacom.ddd.pub.pub.PubStandaloneSetupGenerated;
 public class PubStandaloneSetup extends PubStandaloneSetupGenerated {
   public static void doSetup() {
     new PubStandaloneSetup().createInjectorAndDoEMFRegistration();
+  }
+  
+  @Override
+  public void register(final Injector injector) {
+    boolean _containsKey = EPackage.Registry.INSTANCE.containsKey(PubPackage.eNS_URI);
+    boolean _not = (!_containsKey);
+    if (_not) {
+      EPackage.Registry.INSTANCE.put(PubPackage.eNS_URI, PubPackage.eINSTANCE);
+    }
+    super.register(injector);
   }
 }

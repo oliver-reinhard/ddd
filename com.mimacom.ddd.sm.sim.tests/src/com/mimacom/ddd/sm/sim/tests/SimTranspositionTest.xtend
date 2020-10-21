@@ -35,7 +35,10 @@ import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil
+import com.mimacom.ddd.dm.dim.DimEnumeration
+import com.mimacom.ddd.dm.dim.DimPrimitive
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup
@@ -100,7 +103,7 @@ class SimTranspositionTest {
 		return dmx
 	}
 
-	protected def DInformationModel loadSimpleDim(ResourceSet rs, DmxArchetype at) {
+	protected def DomainInformationModel loadSimpleDim(ResourceSet rs, DmxArchetype at) {
 		val dmNS = dimParseHelper.parse('''
 			domain DM
 			information model DIM {
@@ -109,16 +112,16 @@ class SimTranspositionTest {
 			}
 		''', rs)
 		assertNoParseErrors(dmNS, "dm")
-		val dim = dmNS.model as DInformationModel
+		val dim = dmNS.model as DomainInformationModel
 		assertNotNull(dim)
 		//
 		assertEquals(2, dim.types.size)
-		val dt = dim.types.get(0) as DPrimitive
+		val dt = dim.types.get(0) as DimPrimitive
 		assertFalse(dt instanceof ISyntheticElement)
 		assertEquals("DT", dt.name)
 		assertEquals(at, dt.redefines)
 		//
-		val en = dim.types.get(1) as DEnumeration
+		val en = dim.types.get(1) as DimEnumeration
 		assertFalse(dt instanceof ISyntheticElement)
 		assertEquals("En", en.name)
 		assertEquals(2, en.literals.size)
@@ -199,7 +202,7 @@ class SimTranspositionTest {
 
 		val smNS = simParseHelper.parse('''
 			system SM
-			base information model SM1 {
+			base type model SM1 {
 				grab primitive DM.DT as ST
 			}
 		''', resourceSet)
@@ -244,7 +247,7 @@ class SimTranspositionTest {
 
 		val smNS = simParseHelper.parse('''
 			system SM
-			base information model SM1 {
+			base type model SM1 {
 				grab enumeration DM.En as SEn1 { add L3 }
 				grab enumeration DM.En as SEn2 { grab L2 as L0 }
 			}

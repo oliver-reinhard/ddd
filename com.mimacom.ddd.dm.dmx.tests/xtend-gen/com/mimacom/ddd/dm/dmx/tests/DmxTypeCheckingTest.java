@@ -6,15 +6,15 @@ package com.mimacom.ddd.dm.dmx.tests;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DDetailType;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.dim.DimPackage;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -46,9 +46,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @InjectWith(DmxInjectorProvider.class)
 @SuppressWarnings("all")
 public class DmxTypeCheckingTest {
-  protected static final BasePackage BASE = BasePackage.eINSTANCE;
-  
   protected static final DmxPackage DMX = DmxPackage.eINSTANCE;
+  
+  protected static final DimPackage DIM = DimPackage.eINSTANCE;
   
   @Inject
   @Extension
@@ -77,9 +77,9 @@ public class DmxTypeCheckingTest {
       _builder.newLine();
       _builder.append("archetype Natural \t\tis NUMBER\t");
       _builder.newLine();
-      _builder.append("archetype Text\t\t\t\tis TEXT");
+      _builder.append("archetype Text\t\t\tis TEXT");
       _builder.newLine();
-      _builder.append("archetype Timepoint\tis TIMEPOINT");
+      _builder.append("archetype Timepoint\t\tis TIMEPOINT");
       _builder.newLine();
       final DNamespace systemTypes = this.dmxParseHelper.parse(_builder, resourceSet);
       Assertions.assertNotNull(systemTypes);
@@ -177,12 +177,12 @@ public class DmxTypeCheckingTest {
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
       DModel _model_1 = customTypes.getModel();
-      final DInformationModel dimModel = ((DInformationModel) _model_1);
+      final DomainInformationModel dimModel = ((DomainInformationModel) _model_1);
       Assertions.assertNotNull(dimModel);
-      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDPrimitive(), dimModel.getTypes().get(0).eClass());
-      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDEnumeration(), dimModel.getTypes().get(1).eClass());
+      Assertions.assertEquals(DmxTypeCheckingTest.DIM.getDimPrimitive(), dimModel.getTypes().get(0).eClass());
+      Assertions.assertEquals(DmxTypeCheckingTest.DIM.getDimEnumeration(), dimModel.getTypes().get(1).eClass());
       final DType detailA = dimModel.getTypes().get(2);
-      Assertions.assertEquals(DmxTypeCheckingTest.BASE.getDDetailType(), detailA.eClass());
+      Assertions.assertEquals(DmxTypeCheckingTest.DIM.getDimDetailType(), detailA.eClass());
       final DFeature a0 = ((DDetailType) detailA).getFeatures().get(0);
       Assertions.assertNotNull(a0.getType());
       Assertions.assertEquals("Text", a0.getType().getName());

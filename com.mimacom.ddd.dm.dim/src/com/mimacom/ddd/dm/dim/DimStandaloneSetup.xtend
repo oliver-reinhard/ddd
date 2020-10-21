@@ -3,6 +3,9 @@
  */
 package com.mimacom.ddd.dm.dim
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
@@ -12,10 +15,10 @@ class DimStandaloneSetup extends DimStandaloneSetupGenerated {
 		new DimStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
 	
-//	override register(Injector injector) {
-//		if (!EPackage.Registry.INSTANCE.containsKey(DimPackage.eNS_URI)) {
-//			EPackage.Registry.INSTANCE.put(DimPackage.eNS_URI, DimPackage.eINSTANCE);
-//		} // consider registering the subpackages as well
-//		super.register(injector)
-//	}
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey(DimPackage.eNS_URI)) {
+			EPackage.Registry.INSTANCE.put(DimPackage.eNS_URI, DimPackage.eINSTANCE);
+		} 
+		super.register(injector)
+	}
 }

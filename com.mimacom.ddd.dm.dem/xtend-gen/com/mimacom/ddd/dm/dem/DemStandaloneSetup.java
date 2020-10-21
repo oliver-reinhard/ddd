@@ -3,7 +3,10 @@
  */
 package com.mimacom.ddd.dm.dem;
 
+import com.google.inject.Injector;
+import com.mimacom.ddd.dm.dem.DemPackage;
 import com.mimacom.ddd.dm.dem.DemStandaloneSetupGenerated;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -12,5 +15,15 @@ import com.mimacom.ddd.dm.dem.DemStandaloneSetupGenerated;
 public class DemStandaloneSetup extends DemStandaloneSetupGenerated {
   public static void doSetup() {
     new DemStandaloneSetup().createInjectorAndDoEMFRegistration();
+  }
+  
+  @Override
+  public void register(final Injector injector) {
+    boolean _containsKey = EPackage.Registry.INSTANCE.containsKey(DemPackage.eNS_URI);
+    boolean _not = (!_containsKey);
+    if (_not) {
+      EPackage.Registry.INSTANCE.put(DemPackage.eNS_URI, DemPackage.eINSTANCE);
+    }
+    super.register(injector);
   }
 }

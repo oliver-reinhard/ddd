@@ -6,12 +6,12 @@ package com.mimacom.ddd.dm.dmx.tests;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DExpression;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.dim.DimPackage;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.evaluator.DmxExpressionEvaluator;
@@ -44,7 +44,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @InjectWith(DmxInjectorProvider.class)
 @SuppressWarnings("all")
 public class DmxEvaluatorTest {
-  protected static final BasePackage BASE = BasePackage.eINSTANCE;
+  protected static final DimPackage DIM = DimPackage.eINSTANCE;
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
@@ -177,11 +177,11 @@ public class DmxEvaluatorTest {
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
       DModel _model_1 = customTypes.getModel();
-      final DInformationModel dimModel = ((DInformationModel) _model_1);
+      final DomainInformationModel dimModel = ((DomainInformationModel) _model_1);
       Assertions.assertNotNull(dimModel);
-      Assertions.assertEquals(DmxEvaluatorTest.BASE.getDPrimitive(), dimModel.getTypes().get(0).eClass());
-      Assertions.assertEquals(DmxEvaluatorTest.BASE.getDEnumeration(), dimModel.getTypes().get(1).eClass());
-      Assertions.assertEquals(DmxEvaluatorTest.BASE.getDDetailType(), dimModel.getTypes().get(2).eClass());
+      Assertions.assertEquals(DmxEvaluatorTest.DIM.getDimPrimitive(), dimModel.getTypes().get(0).eClass());
+      Assertions.assertEquals(DmxEvaluatorTest.DIM.getDimEnumeration(), dimModel.getTypes().get(1).eClass());
+      Assertions.assertEquals(DmxEvaluatorTest.DIM.getDimDetailType(), dimModel.getTypes().get(2).eClass());
       final DNamespace result = this.dmxParseHelper.parse(input, resourceSet);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();

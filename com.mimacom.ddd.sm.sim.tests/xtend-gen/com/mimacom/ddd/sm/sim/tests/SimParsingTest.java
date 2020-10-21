@@ -4,7 +4,9 @@
 package com.mimacom.ddd.sm.sim.tests;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -29,19 +31,38 @@ public class SimParsingTest {
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("system DM");
       _builder.newLine();
-      final DNamespace result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+      _builder.append("core information model SIM {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("add primitive DT redefines AT");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("add enumeration En { L1, L2 }");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final DNamespace smNS = this.parseHelper.parse(_builder);
+      this.assertNoParseErrors(smNS, "dm");
+      DModel _model = smNS.getModel();
+      final SystemInformationModel sim = ((SystemInformationModel) _model);
+      Assertions.assertNotNull(sim);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  protected void assertNoParseErrors(final DNamespace ns, final String name) {
+    Assertions.assertNotNull(ns);
+    final EList<Resource.Diagnostic> errors = ns.eResource().getErrors();
+    boolean _isEmpty = errors.isEmpty();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Unexpected errors in ");
+    _builder.append(name);
+    _builder.append(" \': ");
+    String _join = IterableExtensions.join(errors, ", ");
+    _builder.append(_join);
+    Assertions.assertTrue(_isEmpty, _builder.toString());
   }
 }

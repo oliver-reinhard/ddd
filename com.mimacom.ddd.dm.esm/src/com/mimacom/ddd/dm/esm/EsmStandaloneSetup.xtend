@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.dm.esm
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -11,5 +13,12 @@ class EsmStandaloneSetup extends EsmStandaloneSetupGenerated {
 
 	def static void doSetup() {
 		new EsmStandaloneSetup().createInjectorAndDoEMFRegistration()
+	}
+	
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey(EsmPackage.eNS_URI)) {
+			EPackage.Registry.INSTANCE.put(EsmPackage.eNS_URI, EsmPackage.eINSTANCE);
+		} 
+		super.register(injector)
 	}
 }

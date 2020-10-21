@@ -3,7 +3,10 @@
  */
 package com.mimacom.ddd.sm.sus;
 
+import com.google.inject.Injector;
+import com.mimacom.ddd.sm.sus.SusPackage;
 import com.mimacom.ddd.sm.sus.SusStandaloneSetupGenerated;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -12,5 +15,15 @@ import com.mimacom.ddd.sm.sus.SusStandaloneSetupGenerated;
 public class SusStandaloneSetup extends SusStandaloneSetupGenerated {
   public static void doSetup() {
     new SusStandaloneSetup().createInjectorAndDoEMFRegistration();
+  }
+  
+  @Override
+  public void register(final Injector injector) {
+    boolean _containsKey = EPackage.Registry.INSTANCE.containsKey(SusPackage.eNS_URI);
+    boolean _not = (!_containsKey);
+    if (_not) {
+      EPackage.Registry.INSTANCE.put(SusPackage.eNS_URI, SusPackage.eINSTANCE);
+    }
+    super.register(injector);
   }
 }

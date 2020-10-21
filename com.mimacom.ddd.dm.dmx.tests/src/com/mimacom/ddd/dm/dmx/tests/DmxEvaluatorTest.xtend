@@ -5,11 +5,11 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.base.BasePackage
 import com.mimacom.ddd.dm.base.base.DExpression
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.dim.DimPackage
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxTest
 import com.mimacom.ddd.dm.dmx.evaluator.DmxExpressionEvaluator
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*
 @InjectWith(DmxInjectorProvider)
 class DmxEvaluatorTest {
 	
-	protected static val BASE = BasePackage.eINSTANCE
+	protected static val DIM = DimPackage.eINSTANCE
 	
 	@Inject Provider<ResourceSet> resourceSetProvider
 	@Inject ParseHelper<DNamespace> dmxParseHelper
@@ -97,11 +97,11 @@ class DmxEvaluatorTest {
 		assertNotNull(customTypes)
 		val ctErrors = customTypes.eResource.errors
 		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
-		val dimModel = customTypes.model as DInformationModel
+		val dimModel = customTypes.model as DomainInformationModel
 		assertNotNull(dimModel)
-		assertEquals(BASE.DPrimitive, dimModel.types.get(0).eClass)
-		assertEquals(BASE.DEnumeration, dimModel.types.get(1).eClass)
-		assertEquals(BASE.DDetailType, dimModel.types.get(2).eClass)
+		assertEquals(DIM.dimPrimitive, dimModel.types.get(0).eClass)
+		assertEquals(DIM.dimEnumeration, dimModel.types.get(1).eClass)
+		assertEquals(DIM.dimDetailType, dimModel.types.get(2).eClass)
 		
 		// Parse actual expression
 		val result = dmxParseHelper.parse(input, resourceSet)

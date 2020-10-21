@@ -219,9 +219,6 @@
                 <include>**/*</include>
               </includes>
             </fileset>
-            <fileset>
-              <directory>${basedir}/model/generated/</directory>
-            </fileset>
           </filesets>
         </configuration>
       </plugin>

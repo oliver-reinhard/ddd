@@ -5,12 +5,14 @@ package com.mimacom.ddd.sm.sim.tests
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.sm.sim.SystemInformationModel
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+
+import static org.junit.jupiter.api.Assertions.*
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
@@ -20,11 +22,22 @@ class SimParsingTest {
 	
 	@Test
 	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
+		val smNS = parseHelper.parse('''
+			system DM
+			core information model SIM {
+				add primitive DT redefines AT
+				add enumeration En { L1, L2 }
+			}
 		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		assertNoParseErrors(smNS, "dm")
+		val sim = smNS.model as SystemInformationModel
+		assertNotNull(sim)
+	}
+	
+
+	protected def assertNoParseErrors(DNamespace ns, String name) {
+		assertNotNull(ns)
+		val errors = ns.eResource.errors
+		assertTrue(errors.isEmpty, '''Unexpected errors in «name» ': «errors.join(", ")»''')
 	}
 }

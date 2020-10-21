@@ -5,12 +5,12 @@ package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.base.BasePackage
 import com.mimacom.ddd.dm.base.base.DDetailType
 import com.mimacom.ddd.dm.base.base.DExpression
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DNamespace
+import com.mimacom.ddd.dm.dim.DimPackage
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup
+import com.mimacom.ddd.dm.dim.DomainInformationModel
 import com.mimacom.ddd.dm.dmx.DmxModel
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.DmxTest
@@ -34,8 +34,8 @@ import static org.junit.jupiter.api.Assertions.*
 @InjectWith(DmxInjectorProvider)
 class DmxTypeCheckingTest {
 	
-	protected static val BASE = BasePackage.eINSTANCE
 	protected static val DMX = DmxPackage.eINSTANCE
+	protected static val DIM = DimPackage.eINSTANCE
 	
 	@Inject extension DmxTypeComputer
 	@Inject Provider<ResourceSet> resourceSetProvider
@@ -55,8 +55,8 @@ class DmxTypeCheckingTest {
 			namespace dm.types
 			archetype Boolean		is BOOLEAN
 			archetype Natural 		is NUMBER	
-			archetype Text				is TEXT
-			archetype Timepoint	is TIMEPOINT
+			archetype Text			is TEXT
+			archetype Timepoint		is TIMEPOINT
 			''', resourceSet)
 		assertNotNull(systemTypes)
 		val stErrors = systemTypes.eResource.errors
@@ -96,13 +96,13 @@ class DmxTypeCheckingTest {
 		assertNotNull(customTypes)
 		val ctErrors = customTypes.eResource.errors
 		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
-		val dimModel = customTypes.model as DInformationModel
+		val dimModel = customTypes.model as DomainInformationModel
 		assertNotNull(dimModel)
 		// Test resolution of SystemTypes:
-		assertEquals(BASE.DPrimitive, dimModel.types.get(0).eClass)
-		assertEquals(BASE.DEnumeration, dimModel.types.get(1).eClass)
+		assertEquals(DIM.dimPrimitive, dimModel.types.get(0).eClass)
+		assertEquals(DIM.dimEnumeration, dimModel.types.get(1).eClass)
 		val detailA = dimModel.types.get(2)
-		assertEquals(BASE.DDetailType, detailA.eClass)
+		assertEquals(DIM.dimDetailType, detailA.eClass)
 		val a0 = (detailA as DDetailType).features.get(0)
 		assertNotNull(a0.type)
 		assertEquals("Text", a0.type.name)

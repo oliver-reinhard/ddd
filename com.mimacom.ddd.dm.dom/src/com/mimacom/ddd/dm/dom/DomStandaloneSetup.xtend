@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.dm.dom
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -11,5 +13,12 @@ class DomStandaloneSetup extends DomStandaloneSetupGenerated {
 
 	def static void doSetup() {
 		new DomStandaloneSetup().createInjectorAndDoEMFRegistration()
+	}
+	
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey(DomPackage.eNS_URI)) {
+			EPackage.Registry.INSTANCE.put(DomPackage.eNS_URI, DomPackage.eINSTANCE);
+		} 
+		super.register(injector)
 	}
 }

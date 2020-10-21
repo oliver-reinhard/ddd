@@ -43,7 +43,10 @@ import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TransposeIndex;
 import com.mimacom.ddd.dm.base.transpose.TranspositionUtil;
+import com.mimacom.ddd.dm.dim.DimEnumeration;
+import com.mimacom.ddd.dm.dim.DimPrimitive;
 import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
+import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup;
@@ -124,7 +127,7 @@ public class SimTranspositionTest {
     }
   }
   
-  protected DInformationModel loadSimpleDim(final ResourceSet rs, final DmxArchetype at) {
+  protected DomainInformationModel loadSimpleDim(final ResourceSet rs, final DmxArchetype at) {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("domain DM");
@@ -142,16 +145,16 @@ public class SimTranspositionTest {
       final DNamespace dmNS = this.dimParseHelper.parse(_builder, rs);
       this.assertNoParseErrors(dmNS, "dm");
       DModel _model = dmNS.getModel();
-      final DInformationModel dim = ((DInformationModel) _model);
+      final DomainInformationModel dim = ((DomainInformationModel) _model);
       Assertions.assertNotNull(dim);
       Assertions.assertEquals(2, dim.getTypes().size());
       DType _get = dim.getTypes().get(0);
-      final DPrimitive dt = ((DPrimitive) _get);
+      final DimPrimitive dt = ((DimPrimitive) _get);
       Assertions.assertFalse((dt instanceof ISyntheticElement));
       Assertions.assertEquals("DT", dt.getName());
       Assertions.assertEquals(at, dt.getRedefines());
       DType _get_1 = dim.getTypes().get(1);
-      final DEnumeration en = ((DEnumeration) _get_1);
+      final DimEnumeration en = ((DimEnumeration) _get_1);
       Assertions.assertFalse((dt instanceof ISyntheticElement));
       Assertions.assertEquals("En", en.getName());
       Assertions.assertEquals(2, en.getLiterals().size());
@@ -248,13 +251,13 @@ public class SimTranspositionTest {
       final DmxModel dmx = this.loadDmx(resourceSet);
       DType _get = dmx.getTypes().get(0);
       final DmxArchetype at = ((DmxArchetype) _get);
-      final DInformationModel dim = this.loadSimpleDim(resourceSet, at);
+      final DomainInformationModel dim = this.loadSimpleDim(resourceSet, at);
       DType _get_1 = dim.getTypes().get(0);
       final DPrimitive dt = ((DPrimitive) _get_1);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("system SM");
       _builder.newLine();
-      _builder.append("base information model SM1 {");
+      _builder.append("base type model SM1 {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("grab primitive DM.DT as ST");
@@ -299,7 +302,7 @@ public class SimTranspositionTest {
       final DmxModel dmx = this.loadDmx(resourceSet);
       DType _get = dmx.getTypes().get(0);
       final DmxArchetype at = ((DmxArchetype) _get);
-      final DInformationModel dim = this.loadSimpleDim(resourceSet, at);
+      final DomainInformationModel dim = this.loadSimpleDim(resourceSet, at);
       DType _get_1 = dim.getTypes().get(1);
       final DEnumeration en = ((DEnumeration) _get_1);
       final DLiteral l1 = en.getLiterals().get(0);
@@ -307,7 +310,7 @@ public class SimTranspositionTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("system SM");
       _builder.newLine();
-      _builder.append("base information model SM1 {");
+      _builder.append("base type model SM1 {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("grab enumeration DM.En as SEn1 { add L3 }");
