@@ -3,20 +3,6 @@
  */
 package com.mimacom.ddd.sm.sim.ui.labeling
 
-import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.base.DAggregate
-import com.mimacom.ddd.dm.base.base.DFeature
-import com.mimacom.ddd.dm.base.base.DLiteral
-import com.mimacom.ddd.dm.base.base.DNamedPredicate
-import com.mimacom.ddd.dm.base.base.DQueryParameter
-import com.mimacom.ddd.dm.base.base.DType
-import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
-import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
-import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition
-import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition
-import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
-import com.mimacom.ddd.sm.sim.SimUtil
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
@@ -25,49 +11,5 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 class SimLabelProvider extends DefaultEObjectLabelProvider {
-
-	@Inject extension SimUtil
-	@Inject
-	new(AdapterFactoryLabelProvider delegate) {
-		super(delegate);
-	}
-	
-	def text(DAggregate a) {
-		if (a instanceof TAggregateTransposition) {
-			return ">" + a.getRule.label
-		}
-		return a.label
-	}
-	
-	def text(DType t) {
-		if (t instanceof TTypeTransposition) {
-			return ">" + t.getRule.label
-		}
-		return t.label
-	}
-	
-	def text(DFeature f) {
-		if (f instanceof TFeatureTransposition) {
-			return ">" + f.getRule.label
-		}
-		return f.label
-	}
-	
-	def text(DQueryParameter p) {
-		if (p instanceof TQueryParameterTransposition) {
-			return ">" + p.getRule.label
-		}
-		return p.label
-	}
-	
-	def text(DNamedPredicate c) {
-		return c.label
-	}
-	
-	def text(DLiteral literal) {
-		if (literal instanceof TLiteralTransposition) {
-			return ">" + literal.getRule.label
-		}
-		return literal.name
-	}
+	// UNUSED
 }

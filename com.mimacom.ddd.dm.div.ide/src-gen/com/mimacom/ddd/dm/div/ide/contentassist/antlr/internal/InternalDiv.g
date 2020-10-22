@@ -375,56 +375,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleDivGrabQueryParameterRule
-entryRuleDivGrabQueryParameterRule
-:
-{ before(grammarAccess.getDivGrabQueryParameterRuleRule()); }
-	 ruleDivGrabQueryParameterRule
-{ after(grammarAccess.getDivGrabQueryParameterRuleRule()); } 
-	 EOF 
-;
-
-// Rule DivGrabQueryParameterRule
-ruleDivGrabQueryParameterRule 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getGroup()); }
-		(rule__DivGrabQueryParameterRule__Group__0)
-		{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getGroup()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Entry rule entryRuleDivDitchQueryParameterRule
-entryRuleDivDitchQueryParameterRule
-:
-{ before(grammarAccess.getDivDitchQueryParameterRuleRule()); }
-	 ruleDivDitchQueryParameterRule
-{ after(grammarAccess.getDivDitchQueryParameterRuleRule()); } 
-	 EOF 
-;
-
-// Rule DivDitchQueryParameterRule
-ruleDivDitchQueryParameterRule 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceAssignment()); }
-		(rule__DivDitchQueryParameterRule__SourceAssignment)
-		{ after(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRuleDivAggregate
 entryRuleDivAggregate
 :
@@ -736,31 +686,6 @@ ruleDivQueryTransposition
 		{ before(grammarAccess.getDivQueryTranspositionAccess().getGroup()); }
 		(rule__DivQueryTransposition__Group__0)
 		{ after(grammarAccess.getDivQueryTranspositionAccess().getGroup()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Entry rule entryRuleDivQueryParameterTransposition
-entryRuleDivQueryParameterTransposition
-:
-{ before(grammarAccess.getDivQueryParameterTranspositionRule()); }
-	 ruleDivQueryParameterTransposition
-{ after(grammarAccess.getDivQueryParameterTranspositionRule()); } 
-	 EOF 
-;
-
-// Rule DivQueryParameterTransposition
-ruleDivQueryParameterTransposition 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getGroup()); }
-		(rule__DivQueryParameterTransposition__Group__0)
-		{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getGroup()); }
 	)
 ;
 finally {
@@ -3175,48 +3100,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DivQueryTransposition__Alternatives_1_0_2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryTranspositionAccess().getAsteriskKeyword_1_0_2_0()); }
-		'*'
-		{ after(grammarAccess.getDivQueryTranspositionAccess().getAsteriskKeyword_1_0_2_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getDivQueryTranspositionAccess().getGroup_1_0_2_1()); }
-		(rule__DivQueryTransposition__Group_1_0_2_1__0)
-		{ after(grammarAccess.getDivQueryTranspositionAccess().getGroup_1_0_2_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Alternatives_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getGroup_1_0()); }
-		(rule__DivQueryParameterTransposition__Group_1_0__0)
-		{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getGroup_1_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getGroup_1_1()); }
-		(rule__DivQueryParameterTransposition__Group_1_1__0)
-		{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getGroup_1_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__DimType__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -5205,114 +5088,6 @@ rule__DivGrabFeatureRule__Group_1__1__Impl
 	{ before(grammarAccess.getDivGrabFeatureRuleAccess().getRenameToAssignment_1_1()); }
 	(rule__DivGrabFeatureRule__RenameToAssignment_1_1)
 	{ after(grammarAccess.getDivGrabFeatureRuleAccess().getRenameToAssignment_1_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivGrabQueryParameterRule__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivGrabQueryParameterRule__Group__0__Impl
-	rule__DivGrabQueryParameterRule__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceAssignment_0()); }
-	(rule__DivGrabQueryParameterRule__SourceAssignment_0)
-	{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceAssignment_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivGrabQueryParameterRule__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getGroup_1()); }
-	(rule__DivGrabQueryParameterRule__Group_1__0)?
-	{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getGroup_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivGrabQueryParameterRule__Group_1__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivGrabQueryParameterRule__Group_1__0__Impl
-	rule__DivGrabQueryParameterRule__Group_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__Group_1__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getAsKeyword_1_0()); }
-	'as'
-	{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getAsKeyword_1_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__Group_1__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivGrabQueryParameterRule__Group_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__Group_1__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getRenameToAssignment_1_1()); }
-	(rule__DivGrabQueryParameterRule__RenameToAssignment_1_1)
-	{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getRenameToAssignment_1_1()); }
 )
 ;
 finally {
@@ -8038,9 +7813,9 @@ rule__DivQueryTransposition__Group_1_0__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getGroup_1_0_0()); }
-	(rule__DivQueryTransposition__Group_1_0_0__0)
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getGroup_1_0_0()); }
+	{ before(grammarAccess.getDivQueryTranspositionAccess().getGrabKeyword_1_0_0()); }
+	'grab'
+	{ after(grammarAccess.getDivQueryTranspositionAccess().getGrabKeyword_1_0_0()); }
 )
 ;
 finally {
@@ -8065,9 +7840,9 @@ rule__DivQueryTransposition__Group_1_0__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getLeftParenthesisKeyword_1_0_1()); }
-	'('
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getLeftParenthesisKeyword_1_0_1()); }
+	{ before(grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_0_1()); }
+	'query'
+	{ after(grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_0_1()); }
 )
 ;
 finally {
@@ -8080,7 +7855,6 @@ rule__DivQueryTransposition__Group_1_0__2
 	}
 :
 	rule__DivQueryTransposition__Group_1_0__2__Impl
-	rule__DivQueryTransposition__Group_1_0__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -8092,224 +7866,9 @@ rule__DivQueryTransposition__Group_1_0__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getAlternatives_1_0_2()); }
-	(rule__DivQueryTransposition__Alternatives_1_0_2)
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getAlternatives_1_0_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0__3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0__3__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0__3__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getRightParenthesisKeyword_1_0_3()); }
-	')'
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getRightParenthesisKeyword_1_0_3()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivQueryTransposition__Group_1_0_0__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_0__0__Impl
-	rule__DivQueryTransposition__Group_1_0_0__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_0__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getGrabKeyword_1_0_0_0()); }
-	'grab'
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getGrabKeyword_1_0_0_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_0__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_0__1__Impl
-	rule__DivQueryTransposition__Group_1_0_0__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_0__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_0_0_1()); }
-	'query'
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_0_0_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_0__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_0__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_0__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getRuleAssignment_1_0_0_2()); }
-	(rule__DivQueryTransposition__RuleAssignment_1_0_0_2)
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getRuleAssignment_1_0_0_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivQueryTransposition__Group_1_0_2_1__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_2_1__0__Impl
-	rule__DivQueryTransposition__Group_1_0_2_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_2_1__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getParametersAssignment_1_0_2_1_0()); }
-	(rule__DivQueryTransposition__ParametersAssignment_1_0_2_1_0)
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getParametersAssignment_1_0_2_1_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_2_1__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_2_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_2_1__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getGroup_1_0_2_1_1()); }
-	(rule__DivQueryTransposition__Group_1_0_2_1_1__0)*
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getGroup_1_0_2_1_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivQueryTransposition__Group_1_0_2_1_1__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_2_1_1__0__Impl
-	rule__DivQueryTransposition__Group_1_0_2_1_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_2_1_1__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getCommaKeyword_1_0_2_1_1_0()); }
-	','
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getCommaKeyword_1_0_2_1_1_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_2_1_1__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryTransposition__Group_1_0_2_1_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__Group_1_0_2_1_1__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryTranspositionAccess().getParametersAssignment_1_0_2_1_1_1()); }
-	(rule__DivQueryTransposition__ParametersAssignment_1_0_2_1_1_1)
-	{ after(grammarAccess.getDivQueryTranspositionAccess().getParametersAssignment_1_0_2_1_1_1()); }
+	{ before(grammarAccess.getDivQueryTranspositionAccess().getRuleAssignment_1_0_2()); }
+	(rule__DivQueryTransposition__RuleAssignment_1_0_2)
+	{ after(grammarAccess.getDivQueryTranspositionAccess().getRuleAssignment_1_0_2()); }
 )
 ;
 finally {
@@ -8391,195 +7950,6 @@ rule__DivQueryTransposition__Group_1_1__2__Impl
 	{ before(grammarAccess.getDivQueryTranspositionAccess().getRuleAssignment_1_1_2()); }
 	(rule__DivQueryTransposition__RuleAssignment_1_1_2)
 	{ after(grammarAccess.getDivQueryTranspositionAccess().getRuleAssignment_1_1_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivQueryParameterTransposition__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group__0__Impl
-	rule__DivQueryParameterTransposition__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getTQueryParameterTranspositionAction_0()); }
-	()
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getTQueryParameterTranspositionAction_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group__1__Impl
-	rule__DivQueryParameterTransposition__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getAlternatives_1()); }
-	(rule__DivQueryParameterTransposition__Alternatives_1)
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getAlternatives_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getDescriptionAssignment_2()); }
-	(rule__DivQueryParameterTransposition__DescriptionAssignment_2)?
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getDescriptionAssignment_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivQueryParameterTransposition__Group_1_0__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group_1_0__0__Impl
-	rule__DivQueryParameterTransposition__Group_1_0__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group_1_0__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getGrabKeyword_1_0_0()); }
-	'grab'
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getGrabKeyword_1_0_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group_1_0__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group_1_0__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group_1_0__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleAssignment_1_0_1()); }
-	(rule__DivQueryParameterTransposition__RuleAssignment_1_0_1)
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleAssignment_1_0_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__DivQueryParameterTransposition__Group_1_1__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group_1_1__0__Impl
-	rule__DivQueryParameterTransposition__Group_1_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group_1_1__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getDitchKeyword_1_1_0()); }
-	'ditch'
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getDitchKeyword_1_1_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group_1_1__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__DivQueryParameterTransposition__Group_1_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__Group_1_1__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleAssignment_1_1_1()); }
-	(rule__DivQueryParameterTransposition__RuleAssignment_1_1_1)
-	{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleAssignment_1_1_1()); }
 )
 ;
 finally {
@@ -19481,59 +18851,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DivGrabQueryParameterRule__SourceAssignment_0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceDimQueryParameterCrossReference_0_0()); }
-		(
-			{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceDimQueryParameterIDTerminalRuleCall_0_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceDimQueryParameterIDTerminalRuleCall_0_0_1()); }
-		)
-		{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceDimQueryParameterCrossReference_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivGrabQueryParameterRule__RenameToAssignment_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivGrabQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_1_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getDivGrabQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_1_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivDitchQueryParameterRule__SourceAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceDimQueryParameterCrossReference_0()); }
-		(
-			{ before(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceDimQueryParameterIDTerminalRuleCall_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceDimQueryParameterIDTerminalRuleCall_0_1()); }
-		)
-		{ after(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceDimQueryParameterCrossReference_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__DivAggregateTransposition__RuleAssignment_3
 	@init {
 		int stackSize = keepStackSize();
@@ -20075,45 +19392,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DivQueryTransposition__RuleAssignment_1_0_0_2
+rule__DivQueryTransposition__RuleAssignment_1_0_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDivQueryTranspositionAccess().getRuleDivGrabFeatureRuleParserRuleCall_1_0_0_2_0()); }
+		{ before(grammarAccess.getDivQueryTranspositionAccess().getRuleDivGrabFeatureRuleParserRuleCall_1_0_2_0()); }
 		ruleDivGrabFeatureRule
-		{ after(grammarAccess.getDivQueryTranspositionAccess().getRuleDivGrabFeatureRuleParserRuleCall_1_0_0_2_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__ParametersAssignment_1_0_2_1_0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryTranspositionAccess().getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_0_0()); }
-		ruleDivQueryParameterTransposition
-		{ after(grammarAccess.getDivQueryTranspositionAccess().getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryTransposition__ParametersAssignment_1_0_2_1_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryTranspositionAccess().getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_1_1_0()); }
-		ruleDivQueryParameterTransposition
-		{ after(grammarAccess.getDivQueryTranspositionAccess().getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_1_1_0()); }
+		{ after(grammarAccess.getDivQueryTranspositionAccess().getRuleDivGrabFeatureRuleParserRuleCall_1_0_2_0()); }
 	)
 ;
 finally {
@@ -20144,51 +19431,6 @@ rule__DivQueryTransposition__DescriptionAssignment_2
 		{ before(grammarAccess.getDivQueryTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
 		ruleDRichText
 		{ after(grammarAccess.getDivQueryTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__RuleAssignment_1_0_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleDivGrabQueryParameterRuleParserRuleCall_1_0_1_0()); }
-		ruleDivGrabQueryParameterRule
-		{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleDivGrabQueryParameterRuleParserRuleCall_1_0_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__RuleAssignment_1_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleDivDitchQueryParameterRuleParserRuleCall_1_1_1_0()); }
-		ruleDivDitchQueryParameterRule
-		{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleDivDitchQueryParameterRuleParserRuleCall_1_1_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DivQueryParameterTransposition__DescriptionAssignment_2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDivQueryParameterTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
-		ruleDRichText
-		{ after(grammarAccess.getDivQueryParameterTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0()); }
 	)
 ;
 finally {

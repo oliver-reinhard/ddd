@@ -3,10 +3,12 @@
  */
 package com.mimacom.ddd.sm.sim.ui
 
+import com.mimacom.ddd.dm.dim.ui.labeling.TransposedDimLabelProvider
 import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider
 import com.mimacom.ddd.dm.dmx.ui.doubleClicking.DmxDoubleClickStrategyProvider
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator
+import org.eclipse.jface.viewers.ILabelProvider
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider
@@ -20,6 +22,10 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
 class SimUiModule extends AbstractSimUiModule {
 	
 	static public val FILE_EXTENSION = "sim"
+	
+	override Class<? extends ILabelProvider> bindILabelProvider() {
+		return TransposedDimLabelProvider;
+	}
 
 	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
 		return DmxSemanticHighlightingCalculator

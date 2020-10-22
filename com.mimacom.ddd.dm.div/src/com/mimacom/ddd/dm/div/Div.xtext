@@ -63,13 +63,6 @@ DivGrabFeatureRule returns TGrabRule:
 DivDitchFeatureRule returns TDitchRule:
 	source=[DimFeature|ID];
 
-DivGrabQueryParameterRule returns TGrabRule:
-	source=[DimQueryParameter|ID]
-	('as' renameTo=ID)?;
-
-DivDitchQueryParameterRule returns TDitchRule:
-	source=[DimQueryParameter|ID];
-
 DivAggregate returns DAggregate:
 	DivAggregateTransposition | DimAggregate;
 
@@ -158,15 +151,5 @@ DivAttributeTransposition returns TAttributeTransposition:
 DivQueryTransposition returns TQueryTransposition:
 	{TQueryTransposition}
 	(('grab' 'query' rule=DivGrabFeatureRule)
-	'('
-	('*'
-	| parameters+=DivQueryParameterTransposition (',' parameters+=DivQueryParameterTransposition)*)
-	')'
 	| 'ditch' 'query' rule=DivDitchFeatureRule)
-	(description=DRichText)?;
-
-DivQueryParameterTransposition returns TQueryParameterTransposition:
-	{TQueryParameterTransposition}
-	('grab' rule=DivGrabQueryParameterRule
-	| 'ditch' rule=DivDitchQueryParameterRule)
 	(description=DRichText)?;

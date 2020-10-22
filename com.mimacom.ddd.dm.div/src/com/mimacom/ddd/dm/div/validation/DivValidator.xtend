@@ -3,23 +3,21 @@
  */
 package com.mimacom.ddd.dm.div.validation
 
+import com.mimacom.ddd.dm.dim.validation.TransposedDimValidator
+import java.util.List
+import org.eclipse.emf.ecore.EPackage
 
 /**
  * This class contains custom validation rules. 
  *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-class DivValidator extends AbstractDivValidator {
+class DivValidator extends TransposedDimValidator {
+
+	static val divValidatorEPackages = new DivValidatorEPackages()
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					DivPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
+	override List<EPackage> getEPackages() {
+		// take advantage of generated code
+		return divValidatorEPackages.EPackages
+	}
 }

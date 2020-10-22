@@ -4,7 +4,7 @@ import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.transpose.ITransposition;
 
 @SuppressWarnings("all")
-public class SyntheticFeatureContainerDescriptor {
+public class TSyntheticFeatureContainerDescriptor {
   public final IFeatureContainer syntheticType;
   
   /**
@@ -14,7 +14,7 @@ public class SyntheticFeatureContainerDescriptor {
   
   public final IFeatureContainer source;
   
-  public SyntheticFeatureContainerDescriptor(final IFeatureContainer syntheticType, final ITransposition recipe, final IFeatureContainer source) {
+  public TSyntheticFeatureContainerDescriptor(final IFeatureContainer syntheticType, final ITransposition recipe, final IFeatureContainer source) {
     this.syntheticType = syntheticType;
     this.recipe = recipe;
     this.source = source;

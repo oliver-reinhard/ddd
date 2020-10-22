@@ -761,92 +761,6 @@ ruleDivDitchFeatureRule returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleDivGrabQueryParameterRule
-entryRuleDivGrabQueryParameterRule returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDivGrabQueryParameterRuleRule()); }
-	iv_ruleDivGrabQueryParameterRule=ruleDivGrabQueryParameterRule
-	{ $current=$iv_ruleDivGrabQueryParameterRule.current; }
-	EOF;
-
-// Rule DivGrabQueryParameterRule
-ruleDivGrabQueryParameterRule returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDivGrabQueryParameterRuleRule());
-					}
-				}
-				otherlv_0=RULE_ID
-				{
-					newLeafNode(otherlv_0, grammarAccess.getDivGrabQueryParameterRuleAccess().getSourceDimQueryParameterCrossReference_0_0());
-				}
-			)
-		)
-		(
-			otherlv_1='as'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getDivGrabQueryParameterRuleAccess().getAsKeyword_1_0());
-			}
-			(
-				(
-					lv_renameTo_2_0=RULE_ID
-					{
-						newLeafNode(lv_renameTo_2_0, grammarAccess.getDivGrabQueryParameterRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDivGrabQueryParameterRuleRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"renameTo",
-							lv_renameTo_2_0,
-							"com.mimacom.ddd.dm.dmx.Dmx.ID");
-					}
-				)
-			)
-		)?
-	)
-;
-
-// Entry rule entryRuleDivDitchQueryParameterRule
-entryRuleDivDitchQueryParameterRule returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDivDitchQueryParameterRuleRule()); }
-	iv_ruleDivDitchQueryParameterRule=ruleDivDitchQueryParameterRule
-	{ $current=$iv_ruleDivDitchQueryParameterRule.current; }
-	EOF;
-
-// Rule DivDitchQueryParameterRule
-ruleDivDitchQueryParameterRule returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getDivDitchQueryParameterRuleRule());
-				}
-			}
-			otherlv_0=RULE_ID
-			{
-				newLeafNode(otherlv_0, grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceDimQueryParameterCrossReference_0());
-			}
-		)
-	)
-;
-
 // Entry rule entryRuleDivAggregate
 entryRuleDivAggregate returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDivAggregateRule()); }
@@ -2147,113 +2061,20 @@ ruleDivQueryTransposition returns [EObject current=null]
 		)
 		(
 			(
-				(
-					otherlv_1='grab'
-					{
-						newLeafNode(otherlv_1, grammarAccess.getDivQueryTranspositionAccess().getGrabKeyword_1_0_0_0());
-					}
-					otherlv_2='query'
-					{
-						newLeafNode(otherlv_2, grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_0_0_1());
-					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getRuleDivGrabFeatureRuleParserRuleCall_1_0_0_2_0());
-							}
-							lv_rule_3_0=ruleDivGrabFeatureRule
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
-								}
-								set(
-									$current,
-									"rule",
-									lv_rule_3_0,
-									"com.mimacom.ddd.dm.div.Div.DivGrabFeatureRule");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)
-				otherlv_4='('
+				otherlv_1='grab'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getDivQueryTranspositionAccess().getLeftParenthesisKeyword_1_0_1());
+					newLeafNode(otherlv_1, grammarAccess.getDivQueryTranspositionAccess().getGrabKeyword_1_0_0());
 				}
-				(
-					otherlv_5='*'
-					{
-						newLeafNode(otherlv_5, grammarAccess.getDivQueryTranspositionAccess().getAsteriskKeyword_1_0_2_0());
-					}
-					    |
-					(
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_0_0());
-								}
-								lv_parameters_6_0=ruleDivQueryParameterTransposition
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
-									}
-									add(
-										$current,
-										"parameters",
-										lv_parameters_6_0,
-										"com.mimacom.ddd.dm.div.Div.DivQueryParameterTransposition");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-						(
-							otherlv_7=','
-							{
-								newLeafNode(otherlv_7, grammarAccess.getDivQueryTranspositionAccess().getCommaKeyword_1_0_2_1_1_0());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_1_1_0());
-									}
-									lv_parameters_8_0=ruleDivQueryParameterTransposition
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
-										}
-										add(
-											$current,
-											"parameters",
-											lv_parameters_8_0,
-											"com.mimacom.ddd.dm.div.Div.DivQueryParameterTransposition");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-						)*
-					)
-				)
-				otherlv_9=')'
+				otherlv_2='query'
 				{
-					newLeafNode(otherlv_9, grammarAccess.getDivQueryTranspositionAccess().getRightParenthesisKeyword_1_0_3());
-				}
-			)
-			    |
-			(
-				otherlv_10='ditch'
-				{
-					newLeafNode(otherlv_10, grammarAccess.getDivQueryTranspositionAccess().getDitchKeyword_1_1_0());
-				}
-				otherlv_11='query'
-				{
-					newLeafNode(otherlv_11, grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_1_1());
+					newLeafNode(otherlv_2, grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_0_1());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getRuleDivDitchFeatureRuleParserRuleCall_1_1_2_0());
+							newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getRuleDivGrabFeatureRuleParserRuleCall_1_0_2_0());
 						}
-						lv_rule_12_0=ruleDivDitchFeatureRule
+						lv_rule_3_0=ruleDivGrabFeatureRule
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
@@ -2261,7 +2082,37 @@ ruleDivQueryTransposition returns [EObject current=null]
 							set(
 								$current,
 								"rule",
-								lv_rule_12_0,
+								lv_rule_3_0,
+								"com.mimacom.ddd.dm.div.Div.DivGrabFeatureRule");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_4='ditch'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getDivQueryTranspositionAccess().getDitchKeyword_1_1_0());
+				}
+				otherlv_5='query'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getDivQueryTranspositionAccess().getQueryKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getRuleDivDitchFeatureRuleParserRuleCall_1_1_2_0());
+						}
+						lv_rule_6_0=ruleDivDitchFeatureRule
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
+							}
+							set(
+								$current,
+								"rule",
+								lv_rule_6_0,
 								"com.mimacom.ddd.dm.div.Div.DivDitchFeatureRule");
 							afterParserOrEnumRuleCall();
 						}
@@ -2274,7 +2125,7 @@ ruleDivQueryTransposition returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
 				}
-				lv_description_13_0=ruleDRichText
+				lv_description_7_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
@@ -2282,105 +2133,7 @@ ruleDivQueryTransposition returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_13_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-	)
-;
-
-// Entry rule entryRuleDivQueryParameterTransposition
-entryRuleDivQueryParameterTransposition returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDivQueryParameterTranspositionRule()); }
-	iv_ruleDivQueryParameterTransposition=ruleDivQueryParameterTransposition
-	{ $current=$iv_ruleDivQueryParameterTransposition.current; }
-	EOF;
-
-// Rule DivQueryParameterTransposition
-ruleDivQueryParameterTransposition returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getDivQueryParameterTranspositionAccess().getTQueryParameterTranspositionAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				otherlv_1='grab'
-				{
-					newLeafNode(otherlv_1, grammarAccess.getDivQueryParameterTranspositionAccess().getGrabKeyword_1_0_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleDivGrabQueryParameterRuleParserRuleCall_1_0_1_0());
-						}
-						lv_rule_2_0=ruleDivGrabQueryParameterRule
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getDivQueryParameterTranspositionRule());
-							}
-							set(
-								$current,
-								"rule",
-								lv_rule_2_0,
-								"com.mimacom.ddd.dm.div.Div.DivGrabQueryParameterRule");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				otherlv_3='ditch'
-				{
-					newLeafNode(otherlv_3, grammarAccess.getDivQueryParameterTranspositionAccess().getDitchKeyword_1_1_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getDivQueryParameterTranspositionAccess().getRuleDivDitchQueryParameterRuleParserRuleCall_1_1_1_0());
-						}
-						lv_rule_4_0=ruleDivDitchQueryParameterRule
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getDivQueryParameterTranspositionRule());
-							}
-							set(
-								$current,
-								"rule",
-								lv_rule_4_0,
-								"com.mimacom.ddd.dm.div.Div.DivDitchQueryParameterRule");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDivQueryParameterTranspositionAccess().getDescriptionDRichTextParserRuleCall_2_0());
-				}
-				lv_description_5_0=ruleDRichText
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDivQueryParameterTranspositionRule());
-					}
-					set(
-						$current,
-						"description",
-						lv_description_5_0,
+						lv_description_7_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}

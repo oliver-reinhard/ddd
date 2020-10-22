@@ -11,5 +11,5 @@ package com.mimacom.ddd.dm.div.scoping
  * on how and when to use it.
  */
 class DivScopeProvider extends AbstractDivScopeProvider {
-
+	// Unused
 }

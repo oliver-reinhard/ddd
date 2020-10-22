@@ -9,12 +9,12 @@ import java.util.List
 
 class TAggregateTranspositionRuleProcessor {
 
-	@Inject extension SyntheticModelElementsFactory
+	@Inject extension TSyntheticModelElementsFactory
 	@Inject extension TTypeTranspositionRuleProcessor
 	@Inject extension TFeatureTranspositionRuleProcessor
 
 	def void transposeAggregateTypes(DAggregate aggregate, TInformationModel model, 
-		List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor) {
+		List<TSyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor) {
 		var ITypeContainer syntheticTypesContainer = if (model.allowsIdentityTypes) aggregate else model
 
 		if (aggregate instanceof TAggregateTransposition) {
@@ -51,7 +51,7 @@ class TAggregateTranspositionRuleProcessor {
 				
 				// Process queries grabbed from domain :
 				if (model.allowsIdentityTypes) {
-					val desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, recipe, rule.source as IFeatureContainer)
+					val desc = new TSyntheticFeatureContainerDescriptor(syntheticAggregate, recipe, rule.source as IFeatureContainer)
 					desc.addSyntheticFeatures // = queries
 				}
 			}

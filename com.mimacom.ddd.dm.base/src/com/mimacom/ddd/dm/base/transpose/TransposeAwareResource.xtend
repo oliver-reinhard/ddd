@@ -13,7 +13,7 @@ class TransposeAwareResource extends DerivedStateAwareResource {
 	static val LOGGER = Logger.getLogger(TransposeAwareResource);
 
 	@Inject TransposeAwareScopeProvider scopeProvider
-	@Inject extension TypeMappingUtil
+	@Inject extension TTypeMappingUtil
 
 	new() {
 		LOGGER.level = Level.DEBUG

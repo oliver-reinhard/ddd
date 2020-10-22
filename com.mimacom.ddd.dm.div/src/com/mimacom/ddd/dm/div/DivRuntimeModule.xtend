@@ -19,6 +19,7 @@ import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -31,6 +32,10 @@ class DivRuntimeModule extends AbstractDivRuntimeModule {
 	
 	override Class<? extends IValueConverterService> bindIValueConverterService() {
 		return DmxValueConverters
+	}
+	
+	override Class<? extends IScopeProvider> bindIScopeProvider() {
+		TransposedDimScopeProvider
 	}
 	
 	override void configureIScopeProviderDelegate(Binder binder) {

@@ -87,7 +87,7 @@ class TransposeAwareDerivedStateComputer implements IDerivedStateComputer {
 					val syntheticType = model.transposeType(r, rule)
 					if (r instanceof TComplexTypeTransposition) {
 						complexSyntheticTypes.add(
-							new SyntheticFeatureContainerDescriptor(syntheticType as DComplexType, r,
+							new TSyntheticFeatureContainerDescriptor(syntheticType as DComplexType, r,
 								source as DComplexType))
 					}
 				}

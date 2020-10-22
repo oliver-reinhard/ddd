@@ -27,10 +27,6 @@ public interface SystemInformationModel extends TInformationModel
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.sm.sim.SystemInformationModelKind}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Kind</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see com.mimacom.ddd.sm.sim.SystemInformationModelKind
@@ -55,10 +51,6 @@ public interface SystemInformationModel extends TInformationModel
 	/**
 	 * Returns the value of the '<em><b>Generate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Generate</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Generate</em>' attribute.
 	 * @see #setGenerate(boolean)

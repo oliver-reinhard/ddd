@@ -17,8 +17,6 @@ import com.mimacom.ddd.dm.base.synthetic.TSyntheticType;
 import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
 import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
 import com.mimacom.ddd.dm.base.transpose.ITransposition;
-import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
-import com.mimacom.ddd.dm.base.transpose.SyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TDitchRule;
@@ -31,6 +29,8 @@ import com.mimacom.ddd.dm.base.transpose.TMorphRule;
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
 import com.mimacom.ddd.dm.base.transpose.TRenameRule;
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticFeatureContainerDescriptor;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TypeSorter;
@@ -48,11 +48,11 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class TTypeTranspositionRuleProcessor {
   @Inject
   @Extension
-  private SyntheticModelElementsFactory _syntheticModelElementsFactory;
+  private TSyntheticModelElementsFactory _tSyntheticModelElementsFactory;
   
   private static final String UNDEFINED = "UNDEFINED";
   
-  protected void addImplicitSyntheticTypes(final ITypeContainer container, final TAggregateTransposition recipe, final DAggregate source, final List<SyntheticFeatureContainerDescriptor> acceptor) {
+  protected void addImplicitSyntheticTypes(final ITypeContainer container, final TAggregateTransposition recipe, final DAggregate source, final List<TSyntheticFeatureContainerDescriptor> acceptor) {
     final Iterable<TTypeTransposition> typeRecipes = Iterables.<TTypeTransposition>filter(recipe.getTypes(), TTypeTransposition.class);
     final Function1<TTypeTransposition, Boolean> _function = (TTypeTransposition it) -> {
       TTranspositionRule _rule = it.getRule();
@@ -72,14 +72,14 @@ public class TTypeTranspositionRuleProcessor {
       CollectionExtensions.<DType>removeAll(implicitlyGrabbedSourceTypes, sourceTypesWithTransposition);
       for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
-          final TImplicitTransposition implicitTypeTransposition = this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, ((ITransposableElement) sourceType));
-          final TSyntheticType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeTransposition);
+          final TImplicitTransposition implicitTypeTransposition = this._tSyntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, ((ITransposableElement) sourceType));
+          final TSyntheticType syntheticType = this._tSyntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, implicitTypeTransposition);
           if ((syntheticType instanceof DEnumeration)) {
             this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), implicitTypeTransposition);
           } else {
             if ((syntheticType instanceof DComplexType)) {
-              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((DComplexType)syntheticType), implicitTypeTransposition, ((DComplexType) sourceType));
-              acceptor.add(_syntheticFeatureContainerDescriptor);
+              TSyntheticFeatureContainerDescriptor _tSyntheticFeatureContainerDescriptor = new TSyntheticFeatureContainerDescriptor(((DComplexType)syntheticType), implicitTypeTransposition, ((DComplexType) sourceType));
+              acceptor.add(_tSyntheticFeatureContainerDescriptor);
             }
           }
         }
@@ -90,7 +90,7 @@ public class TTypeTranspositionRuleProcessor {
   /**
    * Add synthetic types for which there is an explicit STypeDeduction rule in the aggregate:
    */
-  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor) {
+  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<TSyntheticFeatureContainerDescriptor> acceptor) {
     final List<TTypeTransposition> typeRecipes = IterableExtensions.<TTypeTransposition>toList(Iterables.<TTypeTransposition>filter(origin.getTypes(), TTypeTransposition.class));
     TypeSorter _typeSorter = new TypeSorter();
     Collections.<TTypeTransposition>sort(typeRecipes, _typeSorter);
@@ -101,8 +101,8 @@ public class TTypeTranspositionRuleProcessor {
         if ((source instanceof DType)) {
           final DType syntheticType = this.transposeType(container, r, rule);
           if ((syntheticType instanceof DComplexType)) {
-            SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((TComplexTypeTransposition) r), ((DComplexType) source));
-            acceptor.add(_syntheticFeatureContainerDescriptor);
+            TSyntheticFeatureContainerDescriptor _tSyntheticFeatureContainerDescriptor = new TSyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((TComplexTypeTransposition) r), ((DComplexType) source));
+            acceptor.add(_tSyntheticFeatureContainerDescriptor);
           }
         }
       }
@@ -112,17 +112,17 @@ public class TTypeTranspositionRuleProcessor {
   /**
    * Add synthetic types for which there is an explicit definition (but not a rule) in the aggregate:
    */
-  protected void addSyntheticTypesAsCopy(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor) {
+  protected void addSyntheticTypesAsCopy(final ITypeContainer container, final DAggregate origin, final List<TSyntheticFeatureContainerDescriptor> acceptor) {
     final Function1<DType, Boolean> _function = (DType it) -> {
       return Boolean.valueOf((it instanceof ITransposableElement));
     };
     final List<DType> originalTypes = IterableExtensions.<DType>toList(IterableExtensions.<DType>filter(origin.getTypes(), _function));
     for (final DType original : originalTypes) {
       {
-        final TSyntheticType syntheticType = this._syntheticModelElementsFactory.addSyntheticTypeAsCopy(container, original);
+        final TSyntheticType syntheticType = this._tSyntheticModelElementsFactory.addSyntheticTypeAsCopy(container, original);
         if ((syntheticType instanceof DComplexType)) {
-          SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((DComplexType)syntheticType), null, ((DComplexType) original));
-          acceptor.add(_syntheticFeatureContainerDescriptor);
+          TSyntheticFeatureContainerDescriptor _tSyntheticFeatureContainerDescriptor = new TSyntheticFeatureContainerDescriptor(((DComplexType)syntheticType), null, ((DComplexType) original));
+          acceptor.add(_tSyntheticFeatureContainerDescriptor);
         }
       }
     }
@@ -140,7 +140,7 @@ public class TTypeTranspositionRuleProcessor {
         _xifexpression = ((DPrimitive)source).getName();
       }
       final String name = _xifexpression;
-      TSyntheticType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DPrimitive)source), recipe);
+      TSyntheticType _addSyntheticType = this._tSyntheticModelElementsFactory.addSyntheticType(container, name, ((DPrimitive)source), recipe);
       final DPrimitive syntheticType = ((DPrimitive) _addSyntheticType);
       return syntheticType;
     }
@@ -159,7 +159,7 @@ public class TTypeTranspositionRuleProcessor {
         _xifexpression = ((DEnumeration)source).getName();
       }
       final String name = _xifexpression;
-      TSyntheticType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DEnumeration)source), recipe);
+      TSyntheticType _addSyntheticType = this._tSyntheticModelElementsFactory.addSyntheticType(container, name, ((DEnumeration)source), recipe);
       final DEnumeration syntheticEnum = ((DEnumeration) _addSyntheticType);
       this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), recipe);
       this.addSyntheticLiterals(syntheticEnum, recipe);
@@ -204,7 +204,7 @@ public class TTypeTranspositionRuleProcessor {
         _xifexpression = ((DComplexType)source).getName();
       }
       final String name = _xifexpression;
-      TSyntheticType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, name, ((DComplexType)source), recipe);
+      TSyntheticType _addSyntheticType = this._tSyntheticModelElementsFactory.addSyntheticType(container, name, ((DComplexType)source), recipe);
       final DComplexType syntheticType = ((DComplexType) _addSyntheticType);
       return syntheticType;
     }
@@ -241,8 +241,8 @@ public class TTypeTranspositionRuleProcessor {
       CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedSourceLiterals, sourceLiteralsWithTransposition);
       for (final DLiteral sourceLiteral : implicitlyGrabbedSourceLiterals) {
         {
-          final TImplicitTransposition implicitTypeTransposition = this._syntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, ((ITransposableElement) sourceLiteral));
-          this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), sourceLiteral, implicitTypeTransposition);
+          final TImplicitTransposition implicitTypeTransposition = this._tSyntheticModelElementsFactory.createImplicitTranspositionAsCopy(recipe, ((ITransposableElement) sourceLiteral));
+          this._tSyntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName(), sourceLiteral, implicitTypeTransposition);
         }
       }
     }
@@ -272,7 +272,7 @@ public class TTypeTranspositionRuleProcessor {
           }
           final String literalName = _xifexpression;
           ITransposableElement _source = ((TGrabRule)rule).getSource();
-          this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literalName, ((DLiteral) _source), definition);
+          this._tSyntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literalName, ((DLiteral) _source), definition);
         }
       }
     }
@@ -281,7 +281,7 @@ public class TTypeTranspositionRuleProcessor {
     };
     final Iterable<DLiteral> genuineLiterals = IterableExtensions.<DLiteral>filter(recipe.getLiterals(), _function);
     for (final DLiteral literal : genuineLiterals) {
-      this._syntheticModelElementsFactory.addSyntheticLiteralAsCopy(syntheticEnum, literal.getName(), literal);
+      this._tSyntheticModelElementsFactory.addSyntheticLiteralAsCopy(syntheticEnum, literal.getName(), literal);
     }
   }
   

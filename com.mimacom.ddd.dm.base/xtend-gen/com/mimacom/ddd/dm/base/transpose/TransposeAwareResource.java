@@ -1,8 +1,8 @@
 package com.mimacom.ddd.dm.base.transpose;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.transpose.TTypeMappingUtil;
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareScopeProvider;
-import com.mimacom.ddd.dm.base.transpose.TypeMappingUtil;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -22,7 +22,7 @@ public class TransposeAwareResource extends DerivedStateAwareResource {
   
   @Inject
   @Extension
-  private TypeMappingUtil _typeMappingUtil;
+  private TTypeMappingUtil _tTypeMappingUtil;
   
   public TransposeAwareResource() {
     TransposeAwareResource.LOGGER.setLevel(Level.DEBUG);
@@ -35,7 +35,7 @@ public class TransposeAwareResource extends DerivedStateAwareResource {
    * IDeductionAwareResource
    */
   public EObject deduceTargetObject(final QualifiedName sourceObjectQN, final EObject objectContext) {
-    final Iterable<IEObjectDescription> descriptions = this._typeMappingUtil.getTransposedTypeDescriptions(objectContext, sourceObjectQN);
+    final Iterable<IEObjectDescription> descriptions = this._tTypeMappingUtil.getTransposedTypeDescriptions(objectContext, sourceObjectQN);
     final Iterable<IEObjectDescription> importedDescriptions = this.scopeProvider.filterByImportedNamespaces(objectContext, descriptions, false);
     boolean _isEmpty = IterableExtensions.isEmpty(importedDescriptions);
     boolean _not = (!_isEmpty);

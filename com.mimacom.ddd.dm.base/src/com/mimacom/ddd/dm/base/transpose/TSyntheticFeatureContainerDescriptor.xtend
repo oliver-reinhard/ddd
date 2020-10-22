@@ -2,7 +2,7 @@ package com.mimacom.ddd.dm.base.transpose
 
 import com.mimacom.ddd.dm.base.base.IFeatureContainer
 
-class SyntheticFeatureContainerDescriptor {
+class TSyntheticFeatureContainerDescriptor {
 		
 		public val IFeatureContainer syntheticType
 		/* Is null if the synthetic container is a COPY of the source */

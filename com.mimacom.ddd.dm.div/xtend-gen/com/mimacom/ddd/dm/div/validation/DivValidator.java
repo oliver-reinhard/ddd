@@ -3,7 +3,10 @@
  */
 package com.mimacom.ddd.dm.div.validation;
 
-import com.mimacom.ddd.dm.div.validation.AbstractDivValidator;
+import com.mimacom.ddd.dm.dim.validation.TransposedDimValidator;
+import com.mimacom.ddd.dm.div.validation.DivValidatorEPackages;
+import java.util.List;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * This class contains custom validation rules.
@@ -11,5 +14,11 @@ import com.mimacom.ddd.dm.div.validation.AbstractDivValidator;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class DivValidator extends AbstractDivValidator {
+public class DivValidator extends TransposedDimValidator {
+  private static final DivValidatorEPackages divValidatorEPackages = new DivValidatorEPackages();
+  
+  @Override
+  public List<EPackage> getEPackages() {
+    return DivValidator.divValidatorEPackages.getEPackages();
+  }
 }

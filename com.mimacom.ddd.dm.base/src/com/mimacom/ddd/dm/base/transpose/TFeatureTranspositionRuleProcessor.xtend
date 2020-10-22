@@ -11,7 +11,7 @@ import com.mimacom.ddd.dm.base.base.IFeatureContainer
 class TFeatureTranspositionRuleProcessor {
 
 	@Inject extension TypesUtil
-	@Inject extension SyntheticModelElementsFactory
+	@Inject extension TSyntheticModelElementsFactory
 
 	def dispatch void transposeFeature(IFeatureContainer container, TFeatureTransposition recipe, TGrabRule rule /*dispatch*/ ) {
 		grabFeature(container, recipe, rule)
@@ -71,7 +71,7 @@ class TFeatureTranspositionRuleProcessor {
 		return null
 	}
 
-	def void addSyntheticFeatures(SyntheticFeatureContainerDescriptor desc) {
+	def void addSyntheticFeatures(TSyntheticFeatureContainerDescriptor desc) {
 		var Iterable<TFeatureTransposition> featureRecipes = Lists.newArrayList
 		var Iterable<DFeature> explicitFeatures = Lists.newArrayList
 

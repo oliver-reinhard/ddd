@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
+import com.mimacom.ddd.dm.base.base.BasePackage;
+
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
 import com.mimacom.ddd.sm.sim.SimFactory;
@@ -67,7 +69,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SimPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -82,11 +84,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		if (isInited) return (SimPackage)EPackage.Registry.INSTANCE.getEPackage(SimPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SimPackageImpl theSimPackage = (SimPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimPackageImpl());
+		Object registeredSimPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SimPackageImpl theSimPackage = registeredSimPackage instanceof SimPackageImpl ? (SimPackageImpl)registeredSimPackage : new SimPackageImpl();
 
 		isInited = true;
 
 		// Initialize simple dependencies
+		BasePackage.eINSTANCE.eClass();
 		TransposePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -98,7 +102,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Mark meta-data to indicate it can't be changed
 		theSimPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimPackage.eNS_URI, theSimPackage);
 		return theSimPackage;
@@ -109,6 +112,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSystemInformationModel()
 	{
 		return systemInformationModelEClass;
@@ -119,6 +123,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSystemInformationModel_Kind()
 	{
 		return (EAttribute)systemInformationModelEClass.getEStructuralFeatures().get(0);
@@ -129,6 +134,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSystemInformationModel_Generate()
 	{
 		return (EAttribute)systemInformationModelEClass.getEStructuralFeatures().get(1);
@@ -139,6 +145,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSystemInformationModelKind()
 	{
 		return systemInformationModelKindEEnum;
@@ -149,6 +156,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimFactory getSimFactory()
 	{
 		return (SimFactory)getEFactoryInstance();

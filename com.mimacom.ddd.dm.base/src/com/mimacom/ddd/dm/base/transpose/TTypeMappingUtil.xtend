@@ -15,9 +15,9 @@ import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.resource.IEObjectDescription
 
 @Singleton
-class TypeMappingUtil {
+class TTypeMappingUtil {
 
-	static val LOGGER = Logger.getLogger(TypeMappingUtil);
+	static val LOGGER = Logger.getLogger(TTypeMappingUtil);
 	static val SYNTHETIC = SyntheticFactory.eINSTANCE
 
 	@Inject TransposeIndex index

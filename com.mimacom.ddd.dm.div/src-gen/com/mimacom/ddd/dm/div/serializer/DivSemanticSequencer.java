@@ -24,7 +24,6 @@ import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule;
 import com.mimacom.ddd.dm.base.transpose.TGrabRule;
 import com.mimacom.ddd.dm.base.transpose.TLiteralTransposition;
 import com.mimacom.ddd.dm.base.transpose.TPrimitiveTransposition;
-import com.mimacom.ddd.dm.base.transpose.TQueryParameterTransposition;
 import com.mimacom.ddd.dm.base.transpose.TQueryTransposition;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 import com.mimacom.ddd.dm.dim.DimAggregate;
@@ -382,10 +381,6 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 					sequence_DivDitchPrimitiveRule(context, (TDitchRule) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDivDitchQueryParameterRuleRule()) {
-					sequence_DivDitchQueryParameterRule(context, (TDitchRule) semanticObject); 
-					return; 
-				}
 				else break;
 			case TransposePackage.TENTITY_TYPE_TRANSPOSITION:
 				sequence_DivEntityTypeTransposition_TComplexTypeFeatures(context, (TEntityTypeTransposition) semanticObject); 
@@ -417,19 +412,12 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 					sequence_DivGrabPrimitiveRule(context, (TGrabRule) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDivGrabQueryParameterRuleRule()) {
-					sequence_DivGrabQueryParameterRule(context, (TGrabRule) semanticObject); 
-					return; 
-				}
 				else break;
 			case TransposePackage.TLITERAL_TRANSPOSITION:
 				sequence_DivLiteralTransposition(context, (TLiteralTransposition) semanticObject); 
 				return; 
 			case TransposePackage.TPRIMITIVE_TRANSPOSITION:
 				sequence_DivPrimitiveTransposition(context, (TPrimitiveTransposition) semanticObject); 
-				return; 
-			case TransposePackage.TQUERY_PARAMETER_TRANSPOSITION:
-				sequence_DivQueryParameterTransposition(context, (TQueryParameterTransposition) semanticObject); 
 				return; 
 			case TransposePackage.TQUERY_TRANSPOSITION:
 				sequence_DivQueryTransposition(context, (TQueryTransposition) semanticObject); 
@@ -600,24 +588,6 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DivDitchQueryParameterRule returns TDitchRule
-	 *
-	 * Constraint:
-	 *     source=[DimQueryParameter|ID]
-	 */
-	protected void sequence_DivDitchQueryParameterRule(ISerializationContext context, TDitchRule semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDivDitchQueryParameterRuleAccess().getSourceDimQueryParameterIDTerminalRuleCall_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DivType returns TEntityTypeTransposition
 	 *     DivEntityTypeTransposition returns TEntityTypeTransposition
 	 *
@@ -725,18 +695,6 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DivGrabQueryParameterRule returns TGrabRule
-	 *
-	 * Constraint:
-	 *     (source=[DimQueryParameter|ID] renameTo=ID?)
-	 */
-	protected void sequence_DivGrabQueryParameterRule(ISerializationContext context, TGrabRule semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DivLiteralTransposition returns TLiteralTransposition
 	 *
 	 * Constraint:
@@ -762,26 +720,11 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DivQueryParameterTransposition returns TQueryParameterTransposition
-	 *
-	 * Constraint:
-	 *     ((rule=DivGrabQueryParameterRule | rule=DivDitchQueryParameterRule) description=DRichText?)
-	 */
-	protected void sequence_DivQueryParameterTransposition(ISerializationContext context, TQueryParameterTransposition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DivFeature returns TQueryTransposition
 	 *     DivQueryTransposition returns TQueryTransposition
 	 *
 	 * Constraint:
-	 *     (
-	 *         ((rule=DivGrabFeatureRule (parameters+=DivQueryParameterTransposition parameters+=DivQueryParameterTransposition*)?) | rule=DivDitchFeatureRule) 
-	 *         description=DRichText?
-	 *     )
+	 *     ((rule=DivGrabFeatureRule | rule=DivDitchFeatureRule) description=DRichText?)
 	 */
 	protected void sequence_DivQueryTransposition(ISerializationContext context, TQueryTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

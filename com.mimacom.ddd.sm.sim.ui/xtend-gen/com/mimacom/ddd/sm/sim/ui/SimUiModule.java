@@ -3,11 +3,13 @@
  */
 package com.mimacom.ddd.sm.sim.ui;
 
+import com.mimacom.ddd.dm.dim.ui.labeling.TransposedDimLabelProvider;
 import com.mimacom.ddd.dm.dmx.ui.autoedit.DmxAutoEditStrategyProvider;
 import com.mimacom.ddd.dm.dmx.ui.doubleClicking.DmxDoubleClickStrategyProvider;
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxHighlightingConfiguration;
 import com.mimacom.ddd.dm.dmx.ui.highlight.DmxSemanticHighlightingCalculator;
 import com.mimacom.ddd.sm.sim.ui.AbstractSimUiModule;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -22,6 +24,11 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 @SuppressWarnings("all")
 public class SimUiModule extends AbstractSimUiModule {
   public static final String FILE_EXTENSION = "sim";
+  
+  @Override
+  public Class<? extends ILabelProvider> bindILabelProvider() {
+    return TransposedDimLabelProvider.class;
+  }
   
   public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
     return DmxSemanticHighlightingCalculator.class;

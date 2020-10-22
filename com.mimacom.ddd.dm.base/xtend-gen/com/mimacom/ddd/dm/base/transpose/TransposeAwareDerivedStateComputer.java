@@ -11,11 +11,11 @@ import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.transpose.ISyntheticElement;
 import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
-import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeTranspositionRuleProcessor;
@@ -135,7 +135,7 @@ public class TransposeAwareDerivedStateComputer implements IDerivedStateComputer
     if (_not) {
       TypeSorter _typeSorter = new TypeSorter();
       Collections.<TTypeTransposition>sort(typeRecipes, _typeSorter);
-      final ArrayList<SyntheticFeatureContainerDescriptor> complexSyntheticTypes = Lists.<SyntheticFeatureContainerDescriptor>newArrayList();
+      final ArrayList<TSyntheticFeatureContainerDescriptor> complexSyntheticTypes = Lists.<TSyntheticFeatureContainerDescriptor>newArrayList();
       for (final TTypeTransposition r : typeRecipes) {
         {
           final TTranspositionRule rule = r.getRule();
@@ -143,23 +143,23 @@ public class TransposeAwareDerivedStateComputer implements IDerivedStateComputer
           if ((source instanceof DType)) {
             final DType syntheticType = this._tTypeTranspositionRuleProcessor.transposeType(model, r, rule);
             if ((r instanceof TComplexTypeTransposition)) {
-              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((DComplexType) syntheticType), r, 
+              TSyntheticFeatureContainerDescriptor _tSyntheticFeatureContainerDescriptor = new TSyntheticFeatureContainerDescriptor(((DComplexType) syntheticType), r, 
                 ((DComplexType) source));
-              complexSyntheticTypes.add(_syntheticFeatureContainerDescriptor);
+              complexSyntheticTypes.add(_tSyntheticFeatureContainerDescriptor);
             }
           }
         }
       }
-      for (final SyntheticFeatureContainerDescriptor desc : complexSyntheticTypes) {
+      for (final TSyntheticFeatureContainerDescriptor desc : complexSyntheticTypes) {
         this._tFeatureTranspositionRuleProcessor.addSyntheticFeatures(desc);
       }
     }
     final ArrayList<DAggregate> originalAggregates = Lists.<DAggregate>newArrayList(model.getAggregates());
-    final ArrayList<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor = Lists.<SyntheticFeatureContainerDescriptor>newArrayList();
+    final ArrayList<TSyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor = Lists.<TSyntheticFeatureContainerDescriptor>newArrayList();
     for (final DAggregate aggregate : originalAggregates) {
       this._tAggregateTranspositionRuleProcessor.transposeAggregateTypes(aggregate, model, syntheticComplexTypesAcceptor);
     }
-    for (final SyntheticFeatureContainerDescriptor syntheticComplexTypesDescriptor : syntheticComplexTypesAcceptor) {
+    for (final TSyntheticFeatureContainerDescriptor syntheticComplexTypesDescriptor : syntheticComplexTypesAcceptor) {
       this._tFeatureTranspositionRuleProcessor.addSyntheticFeatures(syntheticComplexTypesDescriptor);
     }
     for (final DAggregate aggregate_1 : originalAggregates) {

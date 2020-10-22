@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EObject
 
 class TTypeTranspositionRuleProcessor {
 
-	@Inject extension SyntheticModelElementsFactory
+	@Inject extension TSyntheticModelElementsFactory
 
 	static val UNDEFINED = "UNDEFINED"
 
 	protected def void addImplicitSyntheticTypes(ITypeContainer container, TAggregateTransposition recipe, DAggregate source,
-		List<SyntheticFeatureContainerDescriptor> acceptor) {
+		List<TSyntheticFeatureContainerDescriptor> acceptor) {
 		val typeRecipes = recipe.types.filter(TTypeTransposition)
 		if (! typeRecipes.exists[rule instanceof TGrabRule]) {
 			// there are no explicit grabs, so implicitly grab ALL SOURCE TYPES for which there is NO EXPLICIT Transposition:
@@ -35,7 +35,7 @@ class TTypeTranspositionRuleProcessor {
 				if (syntheticType instanceof DEnumeration) {
 					syntheticType.addImplicitSyntheticLiterals(sourceType as DEnumeration, implicitTypeTransposition)
 				} else if (syntheticType instanceof DComplexType) {
-					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, implicitTypeTransposition, sourceType as DComplexType))
+					acceptor.add(new TSyntheticFeatureContainerDescriptor(syntheticType, implicitTypeTransposition, sourceType as DComplexType))
 				}
 			}
 		}
@@ -44,7 +44,7 @@ class TTypeTranspositionRuleProcessor {
 	/*
 	 * Add synthetic types for which there is an explicit STypeDeduction rule in the aggregate:
 	 */
-	protected def void addSyntheticTypes(ITypeContainer container, DAggregate origin, List<SyntheticFeatureContainerDescriptor> acceptor) {
+	protected def void addSyntheticTypes(ITypeContainer container, DAggregate origin, List<TSyntheticFeatureContainerDescriptor> acceptor) {
 		val typeRecipes = origin.types.filter(TTypeTransposition).toList // cannot sort Iterable 
 		Collections.sort(typeRecipes, new TypeSorter)
 		for (r : typeRecipes) {
@@ -53,7 +53,7 @@ class TTypeTranspositionRuleProcessor {
 			if (source instanceof DType) {
 				val syntheticType = container.transposeType(r, rule)
 				if (syntheticType instanceof DComplexType) {
-					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, r as TComplexTypeTransposition, source as DComplexType))
+					acceptor.add(new TSyntheticFeatureContainerDescriptor(syntheticType, r as TComplexTypeTransposition, source as DComplexType))
 				}
 			}
 		}
@@ -62,13 +62,13 @@ class TTypeTranspositionRuleProcessor {
 	/*
 	 * Add synthetic types for which there is an explicit definition (but not a rule) in the aggregate:
 	 */
-	protected def void addSyntheticTypesAsCopy(ITypeContainer container, DAggregate origin, List<SyntheticFeatureContainerDescriptor> acceptor) {
+	protected def void addSyntheticTypesAsCopy(ITypeContainer container, DAggregate origin, List<TSyntheticFeatureContainerDescriptor> acceptor) {
 		val originalTypes = origin.types.filter[(it instanceof ITransposableElement)].toList // cannot sort Iterable 
 //		Collections.sort(typeDefinitions, new TypeSorter)
 		for (original : originalTypes) {
 			val syntheticType = container.addSyntheticTypeAsCopy(original)
 			if (syntheticType instanceof DComplexType) {
-				acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, null, original as DComplexType))
+				acceptor.add(new TSyntheticFeatureContainerDescriptor(syntheticType, null, original as DComplexType))
 			}
 		}
 	}

@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.dim.DimUtil;
@@ -40,6 +41,10 @@ public class DimLabelProvider extends DmxLabelProvider {
   
   public String text(final DFeature f) {
     return this._dimUtil.label(f);
+  }
+  
+  public String text(final DQuery p) {
+    return this._dimUtil.label(p);
   }
   
   public String text(final DQueryParameter p) {

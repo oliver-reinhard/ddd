@@ -8,12 +8,12 @@ import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate;
 import com.mimacom.ddd.dm.base.transpose.ITransposableElement;
-import com.mimacom.ddd.dm.base.transpose.SyntheticFeatureContainerDescriptor;
-import com.mimacom.ddd.dm.base.transpose.SyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTranspositionRuleProcessor;
 import com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticFeatureContainerDescriptor;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactory;
 import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTypeTranspositionRuleProcessor;
 import java.util.List;
@@ -26,7 +26,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class TAggregateTranspositionRuleProcessor {
   @Inject
   @Extension
-  private SyntheticModelElementsFactory _syntheticModelElementsFactory;
+  private TSyntheticModelElementsFactory _tSyntheticModelElementsFactory;
   
   @Inject
   @Extension
@@ -36,7 +36,7 @@ public class TAggregateTranspositionRuleProcessor {
   @Extension
   private TFeatureTranspositionRuleProcessor _tFeatureTranspositionRuleProcessor;
   
-  public void transposeAggregateTypes(final DAggregate aggregate, final TInformationModel model, final List<SyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor) {
+  public void transposeAggregateTypes(final DAggregate aggregate, final TInformationModel model, final List<TSyntheticFeatureContainerDescriptor> syntheticComplexTypesAcceptor) {
     EObject _xifexpression = null;
     boolean _allowsIdentityTypes = model.allowsIdentityTypes();
     if (_allowsIdentityTypes) {
@@ -62,7 +62,7 @@ public class TAggregateTranspositionRuleProcessor {
               _xifexpression_1 = ((DAggregate)source).getName();
             }
             final String name = _xifexpression_1;
-            syntheticTypesContainer = this._syntheticModelElementsFactory.addSyntheticAggregate(model, name, recipe);
+            syntheticTypesContainer = this._tSyntheticModelElementsFactory.addSyntheticAggregate(model, name, recipe);
           }
           this._tTypeTranspositionRuleProcessor.addImplicitSyntheticTypes(syntheticTypesContainer, recipe, ((DAggregate)source), syntheticComplexTypesAcceptor);
         }
@@ -87,7 +87,7 @@ public class TAggregateTranspositionRuleProcessor {
         boolean _allowsIdentityTypes = model.allowsIdentityTypes();
         if (_allowsIdentityTypes) {
           ITransposableElement _source = rule.getSource();
-          final SyntheticFeatureContainerDescriptor desc = new SyntheticFeatureContainerDescriptor(syntheticAggregate, recipe, ((IFeatureContainer) _source));
+          final TSyntheticFeatureContainerDescriptor desc = new TSyntheticFeatureContainerDescriptor(syntheticAggregate, recipe, ((IFeatureContainer) _source));
           this._tFeatureTranspositionRuleProcessor.addSyntheticFeatures(desc);
         }
       }

@@ -21,8 +21,8 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 
 @Singleton
 @SuppressWarnings("all")
-public class TypeMappingUtil {
-  private static final Logger LOGGER = Logger.getLogger(TypeMappingUtil.class);
+public class TTypeMappingUtil {
+  private static final Logger LOGGER = Logger.getLogger(TTypeMappingUtil.class);
   
   private static final SyntheticFactory SYNTHETIC = SyntheticFactory.eINSTANCE;
   
@@ -32,8 +32,8 @@ public class TypeMappingUtil {
   @Inject
   private IQualifiedNameProvider qualifiedNameProvider;
   
-  public TypeMappingUtil() {
-    TypeMappingUtil.LOGGER.setLevel(Level.DEBUG);
+  public TTypeMappingUtil() {
+    TTypeMappingUtil.LOGGER.setLevel(Level.DEBUG);
   }
   
   /**
@@ -53,11 +53,11 @@ public class TypeMappingUtil {
     String _transposedTypeProxyUriFragment = TranspositionUtil.getTransposedTypeProxyUriFragment(sourceTypeQN);
     String _plus_1 = (_plus + _transposedTypeProxyUriFragment);
     final URI uri = URI.createURI(_plus_1);
-    final TSyntheticPrimitive proxy = TypeMappingUtil.SYNTHETIC.createTSyntheticPrimitive();
+    final TSyntheticPrimitive proxy = TTypeMappingUtil.SYNTHETIC.createTSyntheticPrimitive();
     ((BasicEObjectImpl) proxy).eSetProxyURI(uri);
-    boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+    boolean _isGreaterOrEqual = TTypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
-      TypeMappingUtil.LOGGER.debug(((("getSystemTypeProxy for " + sourceTypeQN) + " -> ") + uri));
+      TTypeMappingUtil.LOGGER.debug(((("getSystemTypeProxy for " + sourceTypeQN) + " -> ") + uri));
     }
     return proxy;
   }
@@ -83,9 +83,9 @@ public class TypeMappingUtil {
         Iterables.<IEObjectDescription>addAll(typeDescriptions, this.index.getVisibleDTypeDescriptions(context, systemTypeQN));
       }
     }
-    boolean _isGreaterOrEqual = TypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
+    boolean _isGreaterOrEqual = TTypeMappingUtil.LOGGER.getLevel().isGreaterOrEqual(Level.DEBUG);
     if (_isGreaterOrEqual) {
-      TypeMappingUtil.LOGGER.debug(((("getSystemTypeDescriptions for " + sourceTypeQN) + " -> ") + typeDescriptions));
+      TTypeMappingUtil.LOGGER.debug(((("getSystemTypeDescriptions for " + sourceTypeQN) + " -> ") + typeDescriptions));
     }
     return typeDescriptions;
   }

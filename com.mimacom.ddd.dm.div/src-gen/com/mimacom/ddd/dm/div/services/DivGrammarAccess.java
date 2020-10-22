@@ -470,64 +470,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSourceDimFeatureIDTerminalRuleCall_0_1() { return cSourceDimFeatureIDTerminalRuleCall_0_1; }
 	}
-	public class DivGrabQueryParameterRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivGrabQueryParameterRule");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cSourceDimQueryParameterCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
-		private final RuleCall cSourceDimQueryParameterIDTerminalRuleCall_0_0_1 = (RuleCall)cSourceDimQueryParameterCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cAsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
-		
-		//DivGrabQueryParameterRule TGrabRule:
-		//	source=[DimQueryParameter] ('as' renameTo=ID)?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//source=[DimQueryParameter] ('as' renameTo=ID)?
-		public Group getGroup() { return cGroup; }
-		
-		//source=[DimQueryParameter]
-		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
-		
-		//[DimQueryParameter]
-		public CrossReference getSourceDimQueryParameterCrossReference_0_0() { return cSourceDimQueryParameterCrossReference_0_0; }
-		
-		//ID
-		public RuleCall getSourceDimQueryParameterIDTerminalRuleCall_0_0_1() { return cSourceDimQueryParameterIDTerminalRuleCall_0_0_1; }
-		
-		//('as' renameTo=ID)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'as'
-		public Keyword getAsKeyword_1_0() { return cAsKeyword_1_0; }
-		
-		//renameTo=ID
-		public Assignment getRenameToAssignment_1_1() { return cRenameToAssignment_1_1; }
-		
-		//ID
-		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
-	}
-	public class DivDitchQueryParameterRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivDitchQueryParameterRule");
-		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cSourceDimQueryParameterCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
-		private final RuleCall cSourceDimQueryParameterIDTerminalRuleCall_0_1 = (RuleCall)cSourceDimQueryParameterCrossReference_0.eContents().get(1);
-		
-		//DivDitchQueryParameterRule TDitchRule:
-		//	source=[DimQueryParameter];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//source=[DimQueryParameter]
-		public Assignment getSourceAssignment() { return cSourceAssignment; }
-		
-		//[DimQueryParameter]
-		public CrossReference getSourceDimQueryParameterCrossReference_0() { return cSourceDimQueryParameterCrossReference_0; }
-		
-		//ID
-		public RuleCall getSourceDimQueryParameterIDTerminalRuleCall_0_1() { return cSourceDimQueryParameterIDTerminalRuleCall_0_1; }
-	}
 	public class DivAggregateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivAggregate");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1366,22 +1308,10 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTQueryTranspositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
-		private final Keyword cGrabKeyword_1_0_0_0 = (Keyword)cGroup_1_0_0.eContents().get(0);
-		private final Keyword cQueryKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
-		private final Assignment cRuleAssignment_1_0_0_2 = (Assignment)cGroup_1_0_0.eContents().get(2);
-		private final RuleCall cRuleDivGrabFeatureRuleParserRuleCall_1_0_0_2_0 = (RuleCall)cRuleAssignment_1_0_0_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Alternatives cAlternatives_1_0_2 = (Alternatives)cGroup_1_0.eContents().get(2);
-		private final Keyword cAsteriskKeyword_1_0_2_0 = (Keyword)cAlternatives_1_0_2.eContents().get(0);
-		private final Group cGroup_1_0_2_1 = (Group)cAlternatives_1_0_2.eContents().get(1);
-		private final Assignment cParametersAssignment_1_0_2_1_0 = (Assignment)cGroup_1_0_2_1.eContents().get(0);
-		private final RuleCall cParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_0_0 = (RuleCall)cParametersAssignment_1_0_2_1_0.eContents().get(0);
-		private final Group cGroup_1_0_2_1_1 = (Group)cGroup_1_0_2_1.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0_2_1_1_0 = (Keyword)cGroup_1_0_2_1_1.eContents().get(0);
-		private final Assignment cParametersAssignment_1_0_2_1_1_1 = (Assignment)cGroup_1_0_2_1_1.eContents().get(1);
-		private final RuleCall cParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_1_1_0 = (RuleCall)cParametersAssignment_1_0_2_1_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_0_3 = (Keyword)cGroup_1_0.eContents().get(3);
+		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cQueryKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cRuleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cRuleDivGrabFeatureRuleParserRuleCall_1_0_2_0 = (RuleCall)cRuleAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Keyword cQueryKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
@@ -1391,76 +1321,34 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
 		//DivQueryTransposition TQueryTransposition:
-		//	{TQueryTransposition} (('grab' 'query' rule=DivGrabFeatureRule)
-		//	'(' ('*'
-		//	| parameters+=DivQueryParameterTransposition (',' parameters+=DivQueryParameterTransposition)*)
-		//	')'
-		//	| 'ditch' 'query' rule=DivDitchFeatureRule) description=DRichText?;
+		//	{TQueryTransposition} ('grab' 'query' rule=DivGrabFeatureRule | 'ditch' 'query' rule=DivDitchFeatureRule)
+		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TQueryTransposition} (('grab' 'query' rule=DivGrabFeatureRule) '(' ('*' | parameters+=DivQueryParameterTransposition
-		//(',' parameters+=DivQueryParameterTransposition)*) ')' | 'ditch' 'query' rule=DivDitchFeatureRule)
+		//{TQueryTransposition} ('grab' 'query' rule=DivGrabFeatureRule | 'ditch' 'query' rule=DivDitchFeatureRule)
 		//description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
 		//{TQueryTransposition}
 		public Action getTQueryTranspositionAction_0() { return cTQueryTranspositionAction_0; }
 		
-		//(('grab' 'query' rule=DivGrabFeatureRule) '(' ('*' | parameters+=DivQueryParameterTransposition (','
-		//parameters+=DivQueryParameterTransposition)*) ')' | 'ditch' 'query' rule=DivDitchFeatureRule)
+		//('grab' 'query' rule=DivGrabFeatureRule | 'ditch' 'query' rule=DivDitchFeatureRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//('grab' 'query' rule=DivGrabFeatureRule) '(' ('*' | parameters+=DivQueryParameterTransposition (','
-		//parameters+=DivQueryParameterTransposition)*) ')'
+		//'grab' 'query' rule=DivGrabFeatureRule
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//('grab' 'query' rule=DivGrabFeatureRule)
-		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
-		
 		//'grab'
-		public Keyword getGrabKeyword_1_0_0_0() { return cGrabKeyword_1_0_0_0; }
+		public Keyword getGrabKeyword_1_0_0() { return cGrabKeyword_1_0_0; }
 		
 		//'query'
-		public Keyword getQueryKeyword_1_0_0_1() { return cQueryKeyword_1_0_0_1; }
+		public Keyword getQueryKeyword_1_0_1() { return cQueryKeyword_1_0_1; }
 		
 		//rule=DivGrabFeatureRule
-		public Assignment getRuleAssignment_1_0_0_2() { return cRuleAssignment_1_0_0_2; }
+		public Assignment getRuleAssignment_1_0_2() { return cRuleAssignment_1_0_2; }
 		
 		//DivGrabFeatureRule
-		public RuleCall getRuleDivGrabFeatureRuleParserRuleCall_1_0_0_2_0() { return cRuleDivGrabFeatureRuleParserRuleCall_1_0_0_2_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1_0_1() { return cLeftParenthesisKeyword_1_0_1; }
-		
-		//('*' | parameters+=DivQueryParameterTransposition (',' parameters+=DivQueryParameterTransposition)*)
-		public Alternatives getAlternatives_1_0_2() { return cAlternatives_1_0_2; }
-		
-		//'*'
-		public Keyword getAsteriskKeyword_1_0_2_0() { return cAsteriskKeyword_1_0_2_0; }
-		
-		//parameters+=DivQueryParameterTransposition (',' parameters+=DivQueryParameterTransposition)*
-		public Group getGroup_1_0_2_1() { return cGroup_1_0_2_1; }
-		
-		//parameters+=DivQueryParameterTransposition
-		public Assignment getParametersAssignment_1_0_2_1_0() { return cParametersAssignment_1_0_2_1_0; }
-		
-		//DivQueryParameterTransposition
-		public RuleCall getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_0_0() { return cParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_0_0; }
-		
-		//(',' parameters+=DivQueryParameterTransposition)*
-		public Group getGroup_1_0_2_1_1() { return cGroup_1_0_2_1_1; }
-		
-		//','
-		public Keyword getCommaKeyword_1_0_2_1_1_0() { return cCommaKeyword_1_0_2_1_1_0; }
-		
-		//parameters+=DivQueryParameterTransposition
-		public Assignment getParametersAssignment_1_0_2_1_1_1() { return cParametersAssignment_1_0_2_1_1_1; }
-		
-		//DivQueryParameterTransposition
-		public RuleCall getParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_1_1_0() { return cParametersDivQueryParameterTranspositionParserRuleCall_1_0_2_1_1_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_1_0_3() { return cRightParenthesisKeyword_1_0_3; }
+		public RuleCall getRuleDivGrabFeatureRuleParserRuleCall_1_0_2_0() { return cRuleDivGrabFeatureRuleParserRuleCall_1_0_2_0; }
 		
 		//'ditch' 'query' rule=DivDitchFeatureRule
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -1483,67 +1371,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
-	public class DivQueryParameterTranspositionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivQueryParameterTransposition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTQueryParameterTranspositionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Keyword cGrabKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
-		private final Assignment cRuleAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cRuleDivGrabQueryParameterRuleParserRuleCall_1_0_1_0 = (RuleCall)cRuleAssignment_1_0_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Keyword cDitchKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cRuleAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cRuleDivDitchQueryParameterRuleParserRuleCall_1_1_1_0 = (RuleCall)cRuleAssignment_1_1_1.eContents().get(0);
-		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
-		
-		//DivQueryParameterTransposition TQueryParameterTransposition:
-		//	{TQueryParameterTransposition} ('grab' rule=DivGrabQueryParameterRule
-		//	| 'ditch' rule=DivDitchQueryParameterRule) description=DRichText?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{TQueryParameterTransposition} ('grab' rule=DivGrabQueryParameterRule | 'ditch' rule=DivDitchQueryParameterRule)
-		//description=DRichText?
-		public Group getGroup() { return cGroup; }
-		
-		//{TQueryParameterTransposition}
-		public Action getTQueryParameterTranspositionAction_0() { return cTQueryParameterTranspositionAction_0; }
-		
-		//('grab' rule=DivGrabQueryParameterRule | 'ditch' rule=DivDitchQueryParameterRule)
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//'grab' rule=DivGrabQueryParameterRule
-		public Group getGroup_1_0() { return cGroup_1_0; }
-		
-		//'grab'
-		public Keyword getGrabKeyword_1_0_0() { return cGrabKeyword_1_0_0; }
-		
-		//rule=DivGrabQueryParameterRule
-		public Assignment getRuleAssignment_1_0_1() { return cRuleAssignment_1_0_1; }
-		
-		//DivGrabQueryParameterRule
-		public RuleCall getRuleDivGrabQueryParameterRuleParserRuleCall_1_0_1_0() { return cRuleDivGrabQueryParameterRuleParserRuleCall_1_0_1_0; }
-		
-		//'ditch' rule=DivDitchQueryParameterRule
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//'ditch'
-		public Keyword getDitchKeyword_1_1_0() { return cDitchKeyword_1_1_0; }
-		
-		//rule=DivDitchQueryParameterRule
-		public Assignment getRuleAssignment_1_1_1() { return cRuleAssignment_1_1_1; }
-		
-		//DivDitchQueryParameterRule
-		public RuleCall getRuleDivDitchQueryParameterRuleParserRuleCall_1_1_1_0() { return cRuleDivDitchQueryParameterRuleParserRuleCall_1_1_1_0; }
-		
-		//description=DRichText?
-		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
-		
-		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
-	}
 	
 	
 	private final DNamespaceElements pDNamespace;
@@ -1559,8 +1386,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	private final DivDitchComplexTypeRuleElements pDivDitchComplexTypeRule;
 	private final DivGrabFeatureRuleElements pDivGrabFeatureRule;
 	private final DivDitchFeatureRuleElements pDivDitchFeatureRule;
-	private final DivGrabQueryParameterRuleElements pDivGrabQueryParameterRule;
-	private final DivDitchQueryParameterRuleElements pDivDitchQueryParameterRule;
 	private final DivAggregateElements pDivAggregate;
 	private final DivAggregateTranspositionElements pDivAggregateTransposition;
 	private final DivTypeElements pDivType;
@@ -1574,7 +1399,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	private final DivAssociationTranspositionElements pDivAssociationTransposition;
 	private final DivAttributeTranspositionElements pDivAttributeTransposition;
 	private final DivQueryTranspositionElements pDivQueryTransposition;
-	private final DivQueryParameterTranspositionElements pDivQueryParameterTransposition;
 	
 	private final Grammar grammar;
 	
@@ -1602,8 +1426,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDivDitchComplexTypeRule = new DivDitchComplexTypeRuleElements();
 		this.pDivGrabFeatureRule = new DivGrabFeatureRuleElements();
 		this.pDivDitchFeatureRule = new DivDitchFeatureRuleElements();
-		this.pDivGrabQueryParameterRule = new DivGrabQueryParameterRuleElements();
-		this.pDivDitchQueryParameterRule = new DivDitchQueryParameterRuleElements();
 		this.pDivAggregate = new DivAggregateElements();
 		this.pDivAggregateTransposition = new DivAggregateTranspositionElements();
 		this.pDivType = new DivTypeElements();
@@ -1617,7 +1439,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDivAssociationTransposition = new DivAssociationTranspositionElements();
 		this.pDivAttributeTransposition = new DivAttributeTranspositionElements();
 		this.pDivQueryTransposition = new DivQueryTranspositionElements();
-		this.pDivQueryParameterTransposition = new DivQueryParameterTranspositionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1792,26 +1613,6 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		return getDivDitchFeatureRuleAccess().getRule();
 	}
 	
-	//DivGrabQueryParameterRule TGrabRule:
-	//	source=[DimQueryParameter] ('as' renameTo=ID)?;
-	public DivGrabQueryParameterRuleElements getDivGrabQueryParameterRuleAccess() {
-		return pDivGrabQueryParameterRule;
-	}
-	
-	public ParserRule getDivGrabQueryParameterRuleRule() {
-		return getDivGrabQueryParameterRuleAccess().getRule();
-	}
-	
-	//DivDitchQueryParameterRule TDitchRule:
-	//	source=[DimQueryParameter];
-	public DivDitchQueryParameterRuleElements getDivDitchQueryParameterRuleAccess() {
-		return pDivDitchQueryParameterRule;
-	}
-	
-	public ParserRule getDivDitchQueryParameterRuleRule() {
-		return getDivDitchQueryParameterRuleAccess().getRule();
-	}
-	
 	//DivAggregate DAggregate:
 	//	DivAggregateTransposition | DimAggregate;
 	public DivAggregateElements getDivAggregateAccess() {
@@ -1960,28 +1761,14 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DivQueryTransposition TQueryTransposition:
-	//	{TQueryTransposition} (('grab' 'query' rule=DivGrabFeatureRule)
-	//	'(' ('*'
-	//	| parameters+=DivQueryParameterTransposition (',' parameters+=DivQueryParameterTransposition)*)
-	//	')'
-	//	| 'ditch' 'query' rule=DivDitchFeatureRule) description=DRichText?;
+	//	{TQueryTransposition} ('grab' 'query' rule=DivGrabFeatureRule | 'ditch' 'query' rule=DivDitchFeatureRule)
+	//	description=DRichText?;
 	public DivQueryTranspositionElements getDivQueryTranspositionAccess() {
 		return pDivQueryTransposition;
 	}
 	
 	public ParserRule getDivQueryTranspositionRule() {
 		return getDivQueryTranspositionAccess().getRule();
-	}
-	
-	//DivQueryParameterTransposition TQueryParameterTransposition:
-	//	{TQueryParameterTransposition} ('grab' rule=DivGrabQueryParameterRule
-	//	| 'ditch' rule=DivDitchQueryParameterRule) description=DRichText?;
-	public DivQueryParameterTranspositionElements getDivQueryParameterTranspositionAccess() {
-		return pDivQueryParameterTransposition;
-	}
-	
-	public ParserRule getDivQueryParameterTranspositionRule() {
-		return getDivQueryParameterTranspositionAccess().getRule();
 	}
 	
 	//DomainInformationModel:

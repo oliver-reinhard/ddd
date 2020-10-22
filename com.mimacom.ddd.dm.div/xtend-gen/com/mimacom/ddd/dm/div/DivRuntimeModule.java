@@ -6,6 +6,7 @@ package com.mimacom.ddd.dm.div;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
+import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider;
 import com.mimacom.ddd.dm.div.AbstractDivRuntimeModule;
 import com.mimacom.ddd.dm.div.derivedState.DivDerivedStateComputer;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
@@ -35,6 +36,11 @@ public class DivRuntimeModule extends AbstractDivRuntimeModule {
   @Override
   public Class<? extends IValueConverterService> bindIValueConverterService() {
     return DmxValueConverters.class;
+  }
+  
+  @Override
+  public Class<? extends IScopeProvider> bindIScopeProvider() {
+    return TransposedDimScopeProvider.class;
   }
   
   @Override

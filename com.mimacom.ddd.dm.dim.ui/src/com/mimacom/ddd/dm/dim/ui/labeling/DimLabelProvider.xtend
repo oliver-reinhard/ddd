@@ -7,6 +7,7 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DAggregate
 import com.mimacom.ddd.dm.base.base.DFeature
 import com.mimacom.ddd.dm.base.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DQuery
 import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.dim.DimUtil
@@ -36,6 +37,10 @@ class DimLabelProvider extends DmxLabelProvider /*DefaultEObjectLabelProvider*/ 
 	
 	def text(DFeature f) {
 		return f.label
+	}
+	
+	def text(DQuery p) {
+		return p.label
 	}
 	
 	def text(DQueryParameter p) {

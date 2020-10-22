@@ -5,7 +5,9 @@ package com.mimacom.ddd.sm.sim
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactory
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource
+import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
@@ -19,6 +21,7 @@ import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactoryWithTypeMapping
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -31,6 +34,10 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 
 	override Class<? extends IValueConverterService> bindIValueConverterService() {
 		return SimValueConverters
+	}
+	
+	override Class<? extends IScopeProvider> bindIScopeProvider() {
+		TransposedDimScopeProvider
 	}
 	
 	override void configureIScopeProviderDelegate(Binder binder) {
@@ -55,6 +62,10 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 
 	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
 		return SimResourceDescriptionStrategy;
+	}
+	
+	def Class<? extends TSyntheticModelElementsFactory> bindTSyntheticModelElementsFactory()  {
+		return TSyntheticModelElementsFactoryWithTypeMapping
 	}
 
 //	def Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {

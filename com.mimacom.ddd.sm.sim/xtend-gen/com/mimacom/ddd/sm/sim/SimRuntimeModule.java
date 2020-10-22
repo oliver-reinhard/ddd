@@ -5,7 +5,10 @@ package com.mimacom.ddd.sm.sim;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactory;
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactoryWithTypeMapping;
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
+import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
@@ -38,6 +41,11 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   }
   
   @Override
+  public Class<? extends IScopeProvider> bindIScopeProvider() {
+    return TransposedDimScopeProvider.class;
+  }
+  
+  @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
     binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(ImportedNamespaceAwareLocalScopeProvider.class);
   }
@@ -57,5 +65,9 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
     return SimResourceDescriptionStrategy.class;
+  }
+  
+  public Class<? extends TSyntheticModelElementsFactory> bindTSyntheticModelElementsFactory() {
+    return TSyntheticModelElementsFactoryWithTypeMapping.class;
   }
 }

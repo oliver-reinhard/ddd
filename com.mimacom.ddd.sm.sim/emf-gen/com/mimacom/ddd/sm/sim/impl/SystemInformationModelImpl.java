@@ -96,6 +96,7 @@ public class SystemInformationModelImpl extends TInformationModelImplCustom impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SystemInformationModelKind getKind()
 	{
 		return kind;
@@ -106,6 +107,7 @@ public class SystemInformationModelImpl extends TInformationModelImplCustom impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(SystemInformationModelKind newKind)
 	{
 		SystemInformationModelKind oldKind = kind;
@@ -119,6 +121,7 @@ public class SystemInformationModelImpl extends TInformationModelImplCustom impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isGenerate()
 	{
 		return generate;
@@ -129,6 +132,7 @@ public class SystemInformationModelImpl extends TInformationModelImplCustom impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGenerate(boolean newGenerate)
 	{
 		boolean oldGenerate = generate;
@@ -223,7 +227,7 @@ public class SystemInformationModelImpl extends TInformationModelImplCustom impl
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (kind: ");
 		result.append(kind);
 		result.append(", generate: ");
