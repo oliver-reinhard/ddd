@@ -759,13 +759,22 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE__ROOTS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__READ_ONLY_VIEW = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>DAggregate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DAggregate</em>' class.
@@ -1672,13 +1681,22 @@ public interface BasePackage extends EPackage
 	int DCOMPLEX_TYPE__SUPER_TYPE = DTYPE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE__READ_ONLY_VIEW = DTYPE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>DComplex Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCOMPLEX_TYPE_FEATURE_COUNT = DTYPE_FEATURE_COUNT + 4;
+	int DCOMPLEX_TYPE_FEATURE_COUNT = DTYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DComplex Type</em>' class.
@@ -1779,6 +1797,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDETAIL_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDETAIL_TYPE__READ_ONLY_VIEW = DCOMPLEX_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The number of structural features of the '<em>DDetail Type</em>' class.
@@ -1888,6 +1915,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DENTITY_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE__READ_ONLY_VIEW = DCOMPLEX_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -2017,13 +2053,22 @@ public interface BasePackage extends EPackage
 	int DFEATURE__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE__READ_ONLY_VIEW = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>DFeature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+	int DFEATURE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DFeature</em>' class.
@@ -2106,6 +2151,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DASSOCIATION__COLLECTION = DFEATURE__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DASSOCIATION__READ_ONLY_VIEW = DFEATURE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -2235,6 +2289,15 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATTRIBUTE__READ_ONLY_VIEW = DFEATURE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2342,6 +2405,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DQUERY__COLLECTION = DFEATURE__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DQUERY__READ_ONLY_VIEW = DFEATURE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -2949,6 +3021,17 @@ public interface BasePackage extends EPackage
 	EReference getDAggregate_Roots();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DAggregate#isReadOnlyView <em>Read Only View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only View</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DAggregate#isReadOnlyView()
+	 * @see #getDAggregate()
+	 * @generated
+	 */
+	EAttribute getDAggregate_ReadOnlyView();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DNavigableMember <em>DNavigable Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3244,6 +3327,17 @@ public interface BasePackage extends EPackage
 	EReference getDComplexType_SuperType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DComplexType#isReadOnlyView <em>Read Only View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only View</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DComplexType#isReadOnlyView()
+	 * @see #getDComplexType()
+	 * @generated
+	 */
+	EAttribute getDComplexType_ReadOnlyView();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DDetailType <em>DDetail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3316,6 +3410,17 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getDFeature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DFeature#isReadOnlyView <em>Read Only View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only View</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DFeature#isReadOnlyView()
+	 * @see #getDFeature()
+	 * @generated
+	 */
+	EAttribute getDFeature_ReadOnlyView();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DAssociation <em>DAssociation</em>}'.
@@ -3773,6 +3878,14 @@ public interface BasePackage extends EPackage
 		EReference DAGGREGATE__ROOTS = eINSTANCE.getDAggregate_Roots();
 
 		/**
+		 * The meta object literal for the '<em><b>Read Only View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DAGGREGATE__READ_ONLY_VIEW = eINSTANCE.getDAggregate_ReadOnlyView();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImpl <em>DNavigable Member</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4023,6 +4136,14 @@ public interface BasePackage extends EPackage
 		EReference DCOMPLEX_TYPE__SUPER_TYPE = eINSTANCE.getDComplexType_SuperType();
 
 		/**
+		 * The meta object literal for the '<em><b>Read Only View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DCOMPLEX_TYPE__READ_ONLY_VIEW = eINSTANCE.getDComplexType_ReadOnlyView();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DDetailTypeImpl <em>DDetail Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4083,6 +4204,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DFEATURE = eINSTANCE.getDFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Only View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DFEATURE__READ_ONLY_VIEW = eINSTANCE.getDFeature_ReadOnlyView();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DAssociationImpl <em>DAssociation</em>}' class.

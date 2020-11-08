@@ -16,12 +16,15 @@ import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -38,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getRoots <em>Roots</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#isReadOnlyView <em>Read Only View</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +67,26 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	 * @ordered
 	 */
 	protected EList<DFeature> features;
+
+	/**
+	 * The default value of the '{@link #isReadOnlyView() <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadOnlyView()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READ_ONLY_VIEW_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadOnlyView() <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadOnlyView()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readOnlyView = READ_ONLY_VIEW_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,6 +175,31 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	 * @generated
 	 */
 	@Override
+	public boolean isReadOnlyView()
+	{
+		return readOnlyView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReadOnlyView(boolean newReadOnlyView)
+	{
+		boolean oldReadOnlyView = readOnlyView;
+		readOnlyView = newReadOnlyView;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__READ_ONLY_VIEW, oldReadOnlyView, readOnlyView));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -181,6 +230,8 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 				return getNavigableMembers();
 			case BasePackage.DAGGREGATE__ROOTS:
 				return getRoots();
+			case BasePackage.DAGGREGATE__READ_ONLY_VIEW:
+				return isReadOnlyView();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,6 +259,9 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 				getNavigableMembers().clear();
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
 				return;
+			case BasePackage.DAGGREGATE__READ_ONLY_VIEW:
+				setReadOnlyView((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -231,6 +285,9 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				return;
+			case BasePackage.DAGGREGATE__READ_ONLY_VIEW:
+				setReadOnlyView(READ_ONLY_VIEW_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +310,8 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 				return !getNavigableMembers().isEmpty();
 			case BasePackage.DAGGREGATE__ROOTS:
 				return !getRoots().isEmpty();
+			case BasePackage.DAGGREGATE__READ_ONLY_VIEW:
+				return readOnlyView != READ_ONLY_VIEW_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -353,6 +412,23 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (readOnlyView: ");
+		result.append(readOnlyView);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DAggregateImpl

@@ -49,9 +49,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="TQueryParameterTransposition" eSuperTypes="base.ecore#//DQueryParameter #//ITransposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="TRenameRule" abstract="true" eSuperTypes="#//TTranspositionRule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="renameTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnlyView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TGrabRule" eSuperTypes="#//TRenameRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TDitchRule" eSuperTypes="#//TTranspositionRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="TStructureChangingRule" abstract="true"
       eSuperTypes="#//TRenameRule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="#//TTristate"/>
@@ -59,15 +59,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="detail" eType="#//TTristate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="ecore:EClass base.ecore#//DType"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TFuseRule" eSuperTypes="#//TStructureChangingRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DNamedElement"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TMorphRule" eSuperTypes="#//TStructureChangingRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="retypeTo" eType="ecore:EClass base.ecore#//DType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="remultiplyTo" eType="ecore:EClass base.ecore#//DMultiplicity"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFuseRule" eSuperTypes="#//TStructureChangingRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
-        eType="ecore:EClass base.ecore#//DNamedElement"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TDitchRule" eSuperTypes="#//TTranspositionRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="TGrabAggregateRule" eSuperTypes="#//TRenameRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass base.ecore#//DAggregate"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>

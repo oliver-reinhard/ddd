@@ -13,6 +13,7 @@ package com.mimacom.ddd.dm.base.transpose;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.transpose.TRenameRule#getRenameTo <em>Rename To</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.transpose.TRenameRule#isReadOnlyView <em>Read Only View</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.transpose.TransposePackage#getTRenameRule()
@@ -42,5 +43,27 @@ public interface TRenameRule extends TTranspositionRule
 	 * @generated
 	 */
 	void setRenameTo(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Read Only View</em>' attribute.
+	 * @see #setReadOnlyView(boolean)
+	 * @see com.mimacom.ddd.dm.base.transpose.TransposePackage#getTRenameRule_ReadOnlyView()
+	 * @model
+	 * @generated
+	 */
+	boolean isReadOnlyView();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.transpose.TRenameRule#isReadOnlyView <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Read Only View</em>' attribute.
+	 * @see #isReadOnlyView()
+	 * @generated
+	 */
+	void setReadOnlyView(boolean value);
 
 } // TRenameRule

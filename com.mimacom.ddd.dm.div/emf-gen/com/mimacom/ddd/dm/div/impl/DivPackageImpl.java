@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.div.DivFactory;
 import com.mimacom.ddd.dm.div.DivPackage;
 import com.mimacom.ddd.dm.div.DomainInformationView;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -115,6 +116,17 @@ public class DivPackageImpl extends EPackageImpl implements DivPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDomainInformationView_ReadOnlyView()
+	{
+		return (EAttribute)domainInformationViewEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DivFactory getDivFactory()
 	{
 		return (DivFactory)getEFactoryInstance();
@@ -141,6 +153,7 @@ public class DivPackageImpl extends EPackageImpl implements DivPackage
 
 		// Create classes and their features
 		domainInformationViewEClass = createEClass(DOMAIN_INFORMATION_VIEW);
+		createEAttribute(domainInformationViewEClass, DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW);
 	}
 
 	/**
@@ -179,6 +192,7 @@ public class DivPackageImpl extends EPackageImpl implements DivPackage
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(domainInformationViewEClass, DomainInformationView.class, "DomainInformationView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDomainInformationView_ReadOnlyView(), ecorePackage.getEBoolean(), "readOnlyView", null, 0, 1, DomainInformationView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

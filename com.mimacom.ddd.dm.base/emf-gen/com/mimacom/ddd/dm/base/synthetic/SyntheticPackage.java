@@ -131,6 +131,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_AGGREGATE__ROOTS = BasePackage.DAGGREGATE__ROOTS;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_AGGREGATE__READ_ONLY_VIEW = BasePackage.DAGGREGATE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Recipe</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,6 +631,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_COMPLEX_TYPE__SUPER_TYPE = BasePackage.DCOMPLEX_TYPE__SUPER_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_COMPLEX_TYPE__READ_ONLY_VIEW = BasePackage.DCOMPLEX_TYPE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Recipe</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -740,6 +758,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_DETAIL_TYPE__SUPER_TYPE = BasePackage.DDETAIL_TYPE__SUPER_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_DETAIL_TYPE__READ_ONLY_VIEW = BasePackage.DDETAIL_TYPE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Recipe</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -856,6 +883,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_ENTITY_TYPE__SUPER_TYPE = BasePackage.DENTITY_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ENTITY_TYPE__READ_ONLY_VIEW = BasePackage.DENTITY_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -994,6 +1030,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_FEATURE__COLLECTION = BasePackage.DFEATURE__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_FEATURE__READ_ONLY_VIEW = BasePackage.DFEATURE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Recipe</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1092,6 +1137,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_ASSOCIATION__COLLECTION = BasePackage.DASSOCIATION__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ASSOCIATION__READ_ONLY_VIEW = BasePackage.DASSOCIATION__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1230,6 +1284,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_ATTRIBUTE__COLLECTION = BasePackage.DATTRIBUTE__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ATTRIBUTE__READ_ONLY_VIEW = BasePackage.DATTRIBUTE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1346,6 +1409,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_QUERY__COLLECTION = BasePackage.DQUERY__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_QUERY__READ_ONLY_VIEW = BasePackage.DQUERY__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.

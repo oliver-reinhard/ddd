@@ -14,6 +14,7 @@ package com.mimacom.ddd.dm.base.base;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.base.DComplexType#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.DComplexType#getSuperType <em>Super Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.DComplexType#isReadOnlyView <em>Read Only View</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDComplexType()
@@ -65,5 +66,27 @@ public interface DComplexType extends DType, IFeatureContainer, INavigableMember
 	 * @generated
 	 */
 	void setSuperType(DComplexType value);
+
+	/**
+	 * Returns the value of the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Read Only View</em>' attribute.
+	 * @see #setReadOnlyView(boolean)
+	 * @see com.mimacom.ddd.dm.base.base.BasePackage#getDComplexType_ReadOnlyView()
+	 * @model
+	 * @generated
+	 */
+	boolean isReadOnlyView();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.base.DComplexType#isReadOnlyView <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Read Only View</em>' attribute.
+	 * @see #isReadOnlyView()
+	 * @generated
+	 */
+	void setReadOnlyView(boolean value);
 
 } // DComplexType

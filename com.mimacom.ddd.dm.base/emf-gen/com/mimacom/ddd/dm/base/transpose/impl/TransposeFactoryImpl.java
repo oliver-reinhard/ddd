@@ -79,9 +79,9 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 			case TransposePackage.TQUERY_TRANSPOSITION: return createTQueryTransposition();
 			case TransposePackage.TQUERY_PARAMETER_TRANSPOSITION: return createTQueryParameterTransposition();
 			case TransposePackage.TGRAB_RULE: return createTGrabRule();
+			case TransposePackage.TFUSE_RULE: return createTFuseRule();
 			case TransposePackage.TDITCH_RULE: return createTDitchRule();
 			case TransposePackage.TMORPH_RULE: return createTMorphRule();
-			case TransposePackage.TFUSE_RULE: return createTFuseRule();
 			case TransposePackage.TGRAB_AGGREGATE_RULE: return createTGrabAggregateRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -296,6 +296,18 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 	 * @generated
 	 */
 	@Override
+	public TFuseRule createTFuseRule()
+	{
+		TFuseRuleImpl tFuseRule = new TFuseRuleImpl();
+		return tFuseRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TDitchRule createTDitchRule()
 	{
 		TDitchRuleImpl tDitchRule = new TDitchRuleImpl();
@@ -312,18 +324,6 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 	{
 		TMorphRuleImpl tMorphRule = new TMorphRuleImpl();
 		return tMorphRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TFuseRule createTFuseRule()
-	{
-		TFuseRuleImpl tFuseRule = new TFuseRuleImpl();
-		return tFuseRule;
 	}
 
 	/**

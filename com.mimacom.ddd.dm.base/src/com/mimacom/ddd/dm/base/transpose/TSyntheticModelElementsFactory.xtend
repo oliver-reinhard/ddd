@@ -44,6 +44,10 @@ class TSyntheticModelElementsFactory {
 		val syntheticAggregate = SYNTHETIC.createTSyntheticAggregate
 		syntheticAggregate.name = name
 		syntheticAggregate.recipe = recipe
+		val rule = recipe.rule
+		if (rule instanceof TRenameRule) {
+			syntheticAggregate.readOnlyView = rule.readOnlyView
+		}
 		container.aggregates.add(syntheticAggregate)
 		return syntheticAggregate
 	}
@@ -68,15 +72,19 @@ class TSyntheticModelElementsFactory {
 	def dispatch TSyntheticComplexType addSyntheticType(ITypeContainer container, String name, DComplexType source /*dispatch*/ ,
 		ITransposition recipe) {
 		val allowsIdentityTypes = EcoreUtil2.getContainerOfType(container, TInformationModel).allowsIdentityTypes
-		val syntheticComplexType = if (!allowsIdentityTypes || recipe.getRule.makeDetailType(source)) {
+		val syntheticComplexType = if (!allowsIdentityTypes || recipe.rule.makeDetailType(source)) {
 				SYNTHETIC.createTSyntheticDetailType
 			} else {
 				SYNTHETIC.createTSyntheticEntityType
 			}
 		syntheticComplexType.initSyntheticType(container, name, source, recipe)
-		syntheticComplexType.abstract = recipe.getRule.makeAbstract(source)
+		val rule = recipe.rule
+		if (rule instanceof TRenameRule) {
+			syntheticComplexType.readOnlyView = rule.readOnlyView
+		}
+		syntheticComplexType.abstract = recipe.rule.makeAbstract(source)
 		if (syntheticComplexType instanceof DEntityType) {
-			syntheticComplexType.root = recipe.getRule.makeRoot(source)
+			syntheticComplexType.root = recipe.rule.makeRoot(source)
 		}
 		container.types.add(syntheticComplexType)
 		return syntheticComplexType
@@ -104,6 +112,7 @@ class TSyntheticModelElementsFactory {
 		syntheticEntity.superType = original.superType
 		syntheticEntity.root = original.root
 		syntheticEntity.nature = original.nature
+		syntheticEntity.readOnlyView = original.readOnlyView
 		// Do not add features yet!
 		return syntheticEntity
 	}
@@ -113,6 +122,7 @@ class TSyntheticModelElementsFactory {
 		syntheticEntity.initSyntheticType(container, original.name, original, null /* NOTE: null */ )
 		syntheticEntity.abstract = original.abstract
 		syntheticEntity.superType = original.superType
+		syntheticEntity.readOnlyView = original.readOnlyView
 		// Do not add features yet!
 		return syntheticEntity
 	}
@@ -137,6 +147,10 @@ class TSyntheticModelElementsFactory {
 		syntheticFeature.aliases.addAll(source.aliases)
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.recipe = recipe
+		val rule = recipe.rule
+		if (rule instanceof TRenameRule) {
+			syntheticFeature.readOnlyView = rule.readOnlyView
+		}
 		container.features.add(syntheticFeature)
 		return syntheticFeature
 	}
@@ -190,6 +204,7 @@ class TSyntheticModelElementsFactory {
 		syntheticFeature.aliases.addAll(source.aliases)
 		syntheticFeature.type = source.getType
 		syntheticFeature.multiplicity = source.getMultiplicity
+		syntheticFeature.readOnlyView = source.readOnlyView
 		syntheticFeature.recipe = null /* NOTE: null */
 		if (source instanceof DQuery) {
 			for (p : source.parameters) {

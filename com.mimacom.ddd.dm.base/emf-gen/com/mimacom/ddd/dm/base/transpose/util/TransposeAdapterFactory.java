@@ -212,6 +212,11 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 				return createTGrabRuleAdapter();
 			}
 			@Override
+			public Adapter caseTFuseRule(TFuseRule object)
+			{
+				return createTFuseRuleAdapter();
+			}
+			@Override
 			public Adapter caseTDitchRule(TDitchRule object)
 			{
 				return createTDitchRuleAdapter();
@@ -225,11 +230,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseTMorphRule(TMorphRule object)
 			{
 				return createTMorphRuleAdapter();
-			}
-			@Override
-			public Adapter caseTFuseRule(TFuseRule object)
-			{
-				return createTFuseRuleAdapter();
 			}
 			@Override
 			public Adapter caseTGrabAggregateRule(TGrabAggregateRule object)
@@ -719,6 +719,21 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule <em>TFuse Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule
+	 * @generated
+	 */
+	public Adapter createTFuseRuleAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TDitchRule <em>TDitch Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -759,21 +774,6 @@ public class TransposeAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTMorphRuleAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule <em>TFuse Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule
-	 * @generated
-	 */
-	public Adapter createTFuseRuleAdapter()
 	{
 		return null;
 	}

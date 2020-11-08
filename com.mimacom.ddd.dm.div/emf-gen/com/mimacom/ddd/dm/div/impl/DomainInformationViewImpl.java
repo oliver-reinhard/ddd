@@ -8,17 +8,47 @@ import com.mimacom.ddd.dm.base.transpose.impl.TInformationModelImplCustom;
 import com.mimacom.ddd.dm.div.DivPackage;
 import com.mimacom.ddd.dm.div.DomainInformationView;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Domain Information View</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.div.impl.DomainInformationViewImpl#isReadOnlyView <em>Read Only View</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class DomainInformationViewImpl extends TInformationModelImplCustom implements DomainInformationView
 {
+	/**
+	 * The default value of the '{@link #isReadOnlyView() <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadOnlyView()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READ_ONLY_VIEW_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReadOnlyView() <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReadOnlyView()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean readOnlyView = READ_ONLY_VIEW_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,6 +68,114 @@ public class DomainInformationViewImpl extends TInformationModelImplCustom imple
 	protected EClass eStaticClass()
 	{
 		return DivPackage.Literals.DOMAIN_INFORMATION_VIEW;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isReadOnlyView()
+	{
+		return readOnlyView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReadOnlyView(boolean newReadOnlyView)
+	{
+		boolean oldReadOnlyView = readOnlyView;
+		readOnlyView = newReadOnlyView;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DivPackage.DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW, oldReadOnlyView, readOnlyView));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType)
+	{
+		switch (featureID)
+		{
+			case DivPackage.DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW:
+				return isReadOnlyView();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue)
+	{
+		switch (featureID)
+		{
+			case DivPackage.DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW:
+				setReadOnlyView((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID)
+	{
+		switch (featureID)
+		{
+			case DivPackage.DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW:
+				setReadOnlyView(READ_ONLY_VIEW_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID)
+	{
+		switch (featureID)
+		{
+			case DivPackage.DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW:
+				return readOnlyView != READ_ONLY_VIEW_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (readOnlyView: ");
+		result.append(readOnlyView);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DomainInformationViewImpl

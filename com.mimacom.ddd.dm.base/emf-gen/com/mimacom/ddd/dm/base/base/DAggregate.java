@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.base.DAggregate#getRoots <em>Roots</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.DAggregate#isReadOnlyView <em>Read Only View</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.base.BasePackage#getDAggregate()
@@ -33,5 +34,27 @@ public interface DAggregate extends DNamedElement, ITypeContainer, IFeatureConta
 	 * @generated
 	 */
 	EList<DEntityType> getRoots();
+
+	/**
+	 * Returns the value of the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Read Only View</em>' attribute.
+	 * @see #setReadOnlyView(boolean)
+	 * @see com.mimacom.ddd.dm.base.base.BasePackage#getDAggregate_ReadOnlyView()
+	 * @model
+	 * @generated
+	 */
+	boolean isReadOnlyView();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.base.DAggregate#isReadOnlyView <em>Read Only View</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Read Only View</em>' attribute.
+	 * @see #isReadOnlyView()
+	 * @generated
+	 */
+	void setReadOnlyView(boolean value);
 
 } // DAggregate

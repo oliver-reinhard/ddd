@@ -5,6 +5,7 @@ package com.mimacom.ddd.dm.div;
 
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -123,13 +124,22 @@ public interface DivPackage extends EPackage
 	int DOMAIN_INFORMATION_VIEW__INDEXING_HELPER = TransposePackage.TINFORMATION_MODEL__INDEXING_HELPER;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW = TransposePackage.TINFORMATION_MODEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Domain Information View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_INFORMATION_VIEW_FEATURE_COUNT = TransposePackage.TINFORMATION_MODEL_FEATURE_COUNT + 0;
+	int DOMAIN_INFORMATION_VIEW_FEATURE_COUNT = TransposePackage.TINFORMATION_MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Allows Identity Types</em>' operation.
@@ -159,6 +169,17 @@ public interface DivPackage extends EPackage
 	 * @generated
 	 */
 	EClass getDomainInformationView();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.div.DomainInformationView#isReadOnlyView <em>Read Only View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only View</em>'.
+	 * @see com.mimacom.ddd.dm.div.DomainInformationView#isReadOnlyView()
+	 * @see #getDomainInformationView()
+	 * @generated
+	 */
+	EAttribute getDomainInformationView_ReadOnlyView();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -193,6 +214,14 @@ public interface DivPackage extends EPackage
 		 * @generated
 		 */
 		EClass DOMAIN_INFORMATION_VIEW = eINSTANCE.getDomainInformationView();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Only View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_INFORMATION_VIEW__READ_ONLY_VIEW = eINSTANCE.getDomainInformationView_ReadOnlyView();
 
 	}
 

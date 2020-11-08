@@ -352,6 +352,16 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TransposePackage.TFUSE_RULE:
+			{
+				TFuseRule tFuseRule = (TFuseRule)theEObject;
+				T result = caseTFuseRule(tFuseRule);
+				if (result == null) result = caseTStructureChangingRule(tFuseRule);
+				if (result == null) result = caseTRenameRule(tFuseRule);
+				if (result == null) result = caseTTranspositionRule(tFuseRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TransposePackage.TDITCH_RULE:
 			{
 				TDitchRule tDitchRule = (TDitchRule)theEObject;
@@ -376,16 +386,6 @@ public class TransposeSwitch<T> extends Switch<T>
 				if (result == null) result = caseTStructureChangingRule(tMorphRule);
 				if (result == null) result = caseTRenameRule(tMorphRule);
 				if (result == null) result = caseTTranspositionRule(tMorphRule);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransposePackage.TFUSE_RULE:
-			{
-				TFuseRule tFuseRule = (TFuseRule)theEObject;
-				T result = caseTFuseRule(tFuseRule);
-				if (result == null) result = caseTStructureChangingRule(tFuseRule);
-				if (result == null) result = caseTRenameRule(tFuseRule);
-				if (result == null) result = caseTTranspositionRule(tFuseRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -755,6 +755,22 @@ public class TransposeSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>TFuse Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>TFuse Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTFuseRule(TFuseRule object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>TDitch Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -798,22 +814,6 @@ public class TransposeSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseTMorphRule(TMorphRule object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>TFuse Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>TFuse Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTFuseRule(TFuseRule object)
 	{
 		return null;
 	}

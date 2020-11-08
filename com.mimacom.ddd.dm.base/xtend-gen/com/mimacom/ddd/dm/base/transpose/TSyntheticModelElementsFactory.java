@@ -38,6 +38,7 @@ import com.mimacom.ddd.dm.base.transpose.TGrabRule;
 import com.mimacom.ddd.dm.base.transpose.TImplicitTransposition;
 import com.mimacom.ddd.dm.base.transpose.TInformationModel;
 import com.mimacom.ddd.dm.base.transpose.TMorphRule;
+import com.mimacom.ddd.dm.base.transpose.TRenameRule;
 import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule;
 import com.mimacom.ddd.dm.base.transpose.TTranspositionRule;
 import com.mimacom.ddd.dm.base.transpose.TTristate;
@@ -65,6 +66,10 @@ public class TSyntheticModelElementsFactory {
     final TSyntheticAggregate syntheticAggregate = TSyntheticModelElementsFactory.SYNTHETIC.createTSyntheticAggregate();
     syntheticAggregate.setName(name);
     syntheticAggregate.setRecipe(recipe);
+    final TTranspositionRule rule = recipe.getRule();
+    if ((rule instanceof TRenameRule)) {
+      syntheticAggregate.setReadOnlyView(((TRenameRule)rule).isReadOnlyView());
+    }
     container.getAggregates().add(syntheticAggregate);
     return syntheticAggregate;
   }
@@ -95,6 +100,10 @@ public class TSyntheticModelElementsFactory {
     }
     final TSyntheticComplexType syntheticComplexType = _xifexpression;
     this.initSyntheticType(syntheticComplexType, container, name, source, recipe);
+    final TTranspositionRule rule = recipe.getRule();
+    if ((rule instanceof TRenameRule)) {
+      syntheticComplexType.setReadOnlyView(((TRenameRule)rule).isReadOnlyView());
+    }
     syntheticComplexType.setAbstract(this.makeAbstract(recipe.getRule(), source));
     if ((syntheticComplexType instanceof DEntityType)) {
       ((DEntityType)syntheticComplexType).setRoot(this.makeRoot(recipe.getRule(), source));
@@ -126,6 +135,7 @@ public class TSyntheticModelElementsFactory {
     syntheticEntity.setSuperType(original.getSuperType());
     syntheticEntity.setRoot(original.isRoot());
     syntheticEntity.setNature(original.getNature());
+    syntheticEntity.setReadOnlyView(original.isReadOnlyView());
     return syntheticEntity;
   }
   
@@ -134,6 +144,7 @@ public class TSyntheticModelElementsFactory {
     this.initSyntheticType(syntheticEntity, container, original.getName(), original, null);
     syntheticEntity.setAbstract(original.isAbstract());
     syntheticEntity.setSuperType(original.getSuperType());
+    syntheticEntity.setReadOnlyView(original.isReadOnlyView());
     return syntheticEntity;
   }
   
@@ -157,6 +168,10 @@ public class TSyntheticModelElementsFactory {
     syntheticFeature.getAliases().addAll(source.getAliases());
     syntheticFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     syntheticFeature.setRecipe(recipe);
+    final TTranspositionRule rule = recipe.getRule();
+    if ((rule instanceof TRenameRule)) {
+      syntheticFeature.setReadOnlyView(((TRenameRule)rule).isReadOnlyView());
+    }
     container.getFeatures().add(syntheticFeature);
     return syntheticFeature;
   }
@@ -230,6 +245,7 @@ public class TSyntheticModelElementsFactory {
     syntheticFeature.getAliases().addAll(source.getAliases());
     syntheticFeature.setType(source.getType());
     syntheticFeature.setMultiplicity(source.getMultiplicity());
+    syntheticFeature.setReadOnlyView(source.isReadOnlyView());
     syntheticFeature.setRecipe(null);
     if ((source instanceof DQuery)) {
       EList<DQueryParameter> _parameters = ((DQuery)source).getParameters();

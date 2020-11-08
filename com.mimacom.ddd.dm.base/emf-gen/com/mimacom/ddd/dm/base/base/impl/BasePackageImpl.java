@@ -719,6 +719,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDAggregate_ReadOnlyView()
+	{
+		return (EAttribute)dAggregateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDNavigableMember()
 	{
 		return dNavigableMemberEClass;
@@ -1027,6 +1038,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDComplexType_ReadOnlyView()
+	{
+		return (EAttribute)dComplexTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDDetailType()
 	{
 		return dDetailTypeEClass;
@@ -1096,6 +1118,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EClass getDFeature()
 	{
 		return dFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDFeature_ReadOnlyView()
+	{
+		return (EAttribute)dFeatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1358,6 +1391,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dAggregateEClass = createEClass(DAGGREGATE);
 		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
+		createEAttribute(dAggregateEClass, DAGGREGATE__READ_ONLY_VIEW);
 
 		dNavigableMemberEClass = createEClass(DNAVIGABLE_MEMBER);
 		createEReference(dNavigableMemberEClass, DNAVIGABLE_MEMBER__TYPE);
@@ -1399,6 +1433,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dComplexTypeEClass = createEClass(DCOMPLEX_TYPE);
 		createEAttribute(dComplexTypeEClass, DCOMPLEX_TYPE__ABSTRACT);
 		createEReference(dComplexTypeEClass, DCOMPLEX_TYPE__SUPER_TYPE);
+		createEAttribute(dComplexTypeEClass, DCOMPLEX_TYPE__READ_ONLY_VIEW);
 
 		dDetailTypeEClass = createEClass(DDETAIL_TYPE);
 
@@ -1409,6 +1444,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dEntityTypeEClass, DENTITY_TYPE__EVENTS);
 
 		dFeatureEClass = createEClass(DFEATURE);
+		createEAttribute(dFeatureEClass, DFEATURE__READ_ONLY_VIEW);
 
 		dAssociationEClass = createEClass(DASSOCIATION);
 		createEAttribute(dAssociationEClass, DASSOCIATION__KIND);
@@ -1553,6 +1589,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAggregate_Roots(), this.getDEntityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDAggregate_ReadOnlyView(), ecorePackage.getEBoolean(), "readOnlyView", null, 0, 1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dNavigableMemberEClass, DNavigableMember.class, "DNavigableMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDNavigableMember_Type(), this.getDType(), null, "type", null, 0, 1, DNavigableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1594,6 +1631,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dComplexTypeEClass, DComplexType.class, "DComplexType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDComplexType_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDComplexType_SuperType(), this.getDComplexType(), null, "superType", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDComplexType_ReadOnlyView(), ecorePackage.getEBoolean(), "readOnlyView", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dDetailTypeEClass, DDetailType.class, "DDetailType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1604,6 +1642,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDEntityType_Events(), this.getDStateEvent(), null, "events", null, 0, -1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dFeatureEClass, DFeature.class, "DFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDFeature_ReadOnlyView(), ecorePackage.getEBoolean(), "readOnlyView", null, 0, 1, DFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAssociationEClass, DAssociation.class, "DAssociation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAssociation_Kind(), this.getDAssociationKind(), "kind", null, 0, 1, DAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

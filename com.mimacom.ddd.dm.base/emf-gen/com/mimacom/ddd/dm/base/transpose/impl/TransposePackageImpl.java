@@ -211,6 +211,13 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tFuseRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass tDitchRuleEClass = null;
 
 	/**
@@ -226,13 +233,6 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 	 * @generated
 	 */
 	private EClass tMorphRuleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass tFuseRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -661,9 +661,42 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTRenameRule_ReadOnlyView()
+	{
+		return (EAttribute)tRenameRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTGrabRule()
 	{
 		return tGrabRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTFuseRule()
+	{
+		return tFuseRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTFuseRule_OtherSources()
+	{
+		return (EReference)tFuseRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -763,28 +796,6 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 	public EReference getTMorphRule_RemultiplyTo()
 	{
 		return (EReference)tMorphRuleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTFuseRule()
-	{
-		return tFuseRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTFuseRule_OtherSources()
-	{
-		return (EReference)tFuseRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -902,8 +913,12 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 
 		tRenameRuleEClass = createEClass(TRENAME_RULE);
 		createEAttribute(tRenameRuleEClass, TRENAME_RULE__RENAME_TO);
+		createEAttribute(tRenameRuleEClass, TRENAME_RULE__READ_ONLY_VIEW);
 
 		tGrabRuleEClass = createEClass(TGRAB_RULE);
+
+		tFuseRuleEClass = createEClass(TFUSE_RULE);
+		createEReference(tFuseRuleEClass, TFUSE_RULE__OTHER_SOURCES);
 
 		tDitchRuleEClass = createEClass(TDITCH_RULE);
 
@@ -916,9 +931,6 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		tMorphRuleEClass = createEClass(TMORPH_RULE);
 		createEReference(tMorphRuleEClass, TMORPH_RULE__RETYPE_TO);
 		createEReference(tMorphRuleEClass, TMORPH_RULE__REMULTIPLY_TO);
-
-		tFuseRuleEClass = createEClass(TFUSE_RULE);
-		createEReference(tFuseRuleEClass, TFUSE_RULE__OTHER_SOURCES);
 
 		tGrabAggregateRuleEClass = createEClass(TGRAB_AGGREGATE_RULE);
 		createEReference(tGrabAggregateRuleEClass, TGRAB_AGGREGATE_RULE__AGGREGATE);
@@ -989,10 +1001,10 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		tQueryParameterTranspositionEClass.getESuperTypes().add(this.getITransposition());
 		tRenameRuleEClass.getESuperTypes().add(this.getTTranspositionRule());
 		tGrabRuleEClass.getESuperTypes().add(this.getTRenameRule());
+		tFuseRuleEClass.getESuperTypes().add(this.getTStructureChangingRule());
 		tDitchRuleEClass.getESuperTypes().add(this.getTTranspositionRule());
 		tStructureChangingRuleEClass.getESuperTypes().add(this.getTRenameRule());
 		tMorphRuleEClass.getESuperTypes().add(this.getTStructureChangingRule());
-		tFuseRuleEClass.getESuperTypes().add(this.getTStructureChangingRule());
 		tGrabAggregateRuleEClass.getESuperTypes().add(this.getTRenameRule());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1048,8 +1060,12 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 
 		initEClass(tRenameRuleEClass, TRenameRule.class, "TRenameRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTRenameRule_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, TRenameRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTRenameRule_ReadOnlyView(), ecorePackage.getEBoolean(), "readOnlyView", null, 0, 1, TRenameRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tGrabRuleEClass, TGrabRule.class, "TGrabRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(tFuseRuleEClass, TFuseRule.class, "TFuseRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTFuseRule_OtherSources(), theBasePackage.getDNamedElement(), null, "otherSources", null, 0, -1, TFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tDitchRuleEClass, TDitchRule.class, "TDitchRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1062,9 +1078,6 @@ public class TransposePackageImpl extends EPackageImpl implements TransposePacka
 		initEClass(tMorphRuleEClass, TMorphRule.class, "TMorphRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTMorphRule_RetypeTo(), theBasePackage.getDType(), null, "retypeTo", null, 0, 1, TMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTMorphRule_RemultiplyTo(), theBasePackage.getDMultiplicity(), null, "remultiplyTo", null, 0, 1, TMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(tFuseRuleEClass, TFuseRule.class, "TFuseRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTFuseRule_OtherSources(), theBasePackage.getDNamedElement(), null, "otherSources", null, 0, -1, TFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tGrabAggregateRuleEClass, TGrabAggregateRule.class, "TGrabAggregateRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTGrabAggregateRule_Aggregate(), theBasePackage.getDAggregate(), null, "aggregate", null, 0, 1, TGrabAggregateRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

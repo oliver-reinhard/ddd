@@ -484,6 +484,15 @@ public interface TransposePackage extends EPackage
 	int TAGGREGATE_TRANSPOSITION__ROOTS = BasePackage.DAGGREGATE__ROOTS;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGGREGATE_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DAGGREGATE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1111,6 +1120,15 @@ public interface TransposePackage extends EPackage
 	int TDETAIL_TYPE_TRANSPOSITION__SUPER_TYPE = BasePackage.DDETAIL_TYPE__SUPER_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDETAIL_TYPE_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DDETAIL_TYPE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,6 +1254,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TENTITY_TYPE_TRANSPOSITION__SUPER_TYPE = BasePackage.DENTITY_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENTITY_TYPE_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DENTITY_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -1383,6 +1410,15 @@ public interface TransposePackage extends EPackage
 	int TFEATURE_TRANSPOSITION__COLLECTION = BasePackage.DFEATURE__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DFEATURE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1490,6 +1526,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TASSOCIATION_TRANSPOSITION__COLLECTION = BasePackage.DASSOCIATION__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASSOCIATION_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DASSOCIATION__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1637,6 +1682,15 @@ public interface TransposePackage extends EPackage
 	int TATTRIBUTE_TRANSPOSITION__COLLECTION = BasePackage.DATTRIBUTE__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TATTRIBUTE_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DATTRIBUTE__READ_ONLY_VIEW;
+
+	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1762,6 +1816,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TQUERY_TRANSPOSITION__COLLECTION = BasePackage.DQUERY__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TQUERY_TRANSPOSITION__READ_ONLY_VIEW = BasePackage.DQUERY__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -1973,13 +2036,22 @@ public interface TransposePackage extends EPackage
 	int TRENAME_RULE__RENAME_TO = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRENAME_RULE__READ_ONLY_VIEW = TTRANSPOSITION_RULE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>TRename Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRENAME_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 1;
+	int TRENAME_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>TRename Rule</em>' class.
@@ -2028,6 +2100,15 @@ public interface TransposePackage extends EPackage
 	int TGRAB_RULE__RENAME_TO = TRENAME_RULE__RENAME_TO;
 
 	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TGRAB_RULE__READ_ONLY_VIEW = TRENAME_RULE__READ_ONLY_VIEW;
+
+	/**
 	 * The number of structural features of the '<em>TGrab Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2046,52 +2127,6 @@ public interface TransposePackage extends EPackage
 	int TGRAB_RULE_OPERATION_COUNT = TRENAME_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl
-	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
-	 * @generated
-	 */
-	int TDITCH_RULE = 22;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE__SOURCE = TTRANSPOSITION_RULE__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Named Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE__NAMED_SOURCE = TTRANSPOSITION_RULE__NAMED_SOURCE;
-
-	/**
-	 * The number of structural features of the '<em>TDitch Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>TDitch Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE_OPERATION_COUNT = TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TStructureChangingRuleImpl <em>TStructure Changing Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2099,7 +2134,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTStructureChangingRule()
 	 * @generated
 	 */
-	int TSTRUCTURE_CHANGING_RULE = 23;
+	int TSTRUCTURE_CHANGING_RULE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2127,6 +2162,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TSTRUCTURE_CHANGING_RULE__RENAME_TO = TRENAME_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSTRUCTURE_CHANGING_RULE__READ_ONLY_VIEW = TRENAME_RULE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -2183,6 +2227,161 @@ public interface TransposePackage extends EPackage
 	int TSTRUCTURE_CHANGING_RULE_OPERATION_COUNT = TRENAME_RULE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl <em>TFuse Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
+	 * @generated
+	 */
+	int TFUSE_RULE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__SOURCE = TSTRUCTURE_CHANGING_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__NAMED_SOURCE = TSTRUCTURE_CHANGING_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__RENAME_TO = TSTRUCTURE_CHANGING_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__READ_ONLY_VIEW = TSTRUCTURE_CHANGING_RULE__READ_ONLY_VIEW;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__ABSTRACT = TSTRUCTURE_CHANGING_RULE__ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Root Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__ROOT_ENTITY = TSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Detail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__DETAIL = TSTRUCTURE_CHANGING_RULE__DETAIL;
+
+	/**
+	 * The feature id for the '<em><b>Extend From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__EXTEND_FROM = TSTRUCTURE_CHANGING_RULE__EXTEND_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Other Sources</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE__OTHER_SOURCES = TSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>TFuse Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE_FEATURE_COUNT = TSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>TFuse Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFUSE_RULE_OPERATION_COUNT = TSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
+	 * @generated
+	 */
+	int TDITCH_RULE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE__SOURCE = TTRANSPOSITION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE__NAMED_SOURCE = TTRANSPOSITION_RULE__NAMED_SOURCE;
+
+	/**
+	 * The number of structural features of the '<em>TDitch Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>TDitch Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE_OPERATION_COUNT = TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TMorphRuleImpl <em>TMorph Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2190,7 +2389,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTMorphRule()
 	 * @generated
 	 */
-	int TMORPH_RULE = 24;
+	int TMORPH_RULE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2218,6 +2417,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TMORPH_RULE__RENAME_TO = TSTRUCTURE_CHANGING_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TMORPH_RULE__READ_ONLY_VIEW = TSTRUCTURE_CHANGING_RULE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -2292,106 +2500,6 @@ public interface TransposePackage extends EPackage
 	int TMORPH_RULE_OPERATION_COUNT = TSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl <em>TFuse Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl
-	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
-	 * @generated
-	 */
-	int TFUSE_RULE = 25;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__SOURCE = TSTRUCTURE_CHANGING_RULE__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Named Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__NAMED_SOURCE = TSTRUCTURE_CHANGING_RULE__NAMED_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__RENAME_TO = TSTRUCTURE_CHANGING_RULE__RENAME_TO;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__ABSTRACT = TSTRUCTURE_CHANGING_RULE__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Root Entity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__ROOT_ENTITY = TSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
-
-	/**
-	 * The feature id for the '<em><b>Detail</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__DETAIL = TSTRUCTURE_CHANGING_RULE__DETAIL;
-
-	/**
-	 * The feature id for the '<em><b>Extend From</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__EXTEND_FROM = TSTRUCTURE_CHANGING_RULE__EXTEND_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Other Sources</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE__OTHER_SOURCES = TSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>TFuse Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE_FEATURE_COUNT = TSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>TFuse Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFUSE_RULE_OPERATION_COUNT = TSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TGrabAggregateRuleImpl <em>TGrab Aggregate Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2427,6 +2535,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TGRAB_AGGREGATE_RULE__RENAME_TO = TRENAME_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TGRAB_AGGREGATE_RULE__READ_ONLY_VIEW = TRENAME_RULE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Aggregate</b></em>' reference.
@@ -2786,6 +2903,17 @@ public interface TransposePackage extends EPackage
 	EAttribute getTRenameRule_RenameTo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.transpose.TRenameRule#isReadOnlyView <em>Read Only View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only View</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TRenameRule#isReadOnlyView()
+	 * @see #getTRenameRule()
+	 * @generated
+	 */
+	EAttribute getTRenameRule_ReadOnlyView();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TGrabRule <em>TGrab Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2794,6 +2922,27 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 */
 	EClass getTGrabRule();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule <em>TFuse Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TFuse Rule</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule
+	 * @generated
+	 */
+	EClass getTFuseRule();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources <em>Other Sources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Other Sources</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources()
+	 * @see #getTFuseRule()
+	 * @generated
+	 */
+	EReference getTFuseRule_OtherSources();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TDitchRule <em>TDitch Rule</em>}'.
@@ -2890,27 +3039,6 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 */
 	EReference getTMorphRule_RemultiplyTo();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule <em>TFuse Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>TFuse Rule</em>'.
-	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule
-	 * @generated
-	 */
-	EClass getTFuseRule();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources <em>Other Sources</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Other Sources</em>'.
-	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources()
-	 * @see #getTFuseRule()
-	 * @generated
-	 */
-	EReference getTFuseRule_OtherSources();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule <em>TGrab Aggregate Rule</em>}'.
@@ -3258,6 +3386,14 @@ public interface TransposePackage extends EPackage
 		EAttribute TRENAME_RULE__RENAME_TO = eINSTANCE.getTRenameRule_RenameTo();
 
 		/**
+		 * The meta object literal for the '<em><b>Read Only View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRENAME_RULE__READ_ONLY_VIEW = eINSTANCE.getTRenameRule_ReadOnlyView();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TGrabRuleImpl <em>TGrab Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3266,6 +3402,24 @@ public interface TransposePackage extends EPackage
 		 * @generated
 		 */
 		EClass TGRAB_RULE = eINSTANCE.getTGrabRule();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl <em>TFuse Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
+		 * @generated
+		 */
+		EClass TFUSE_RULE = eINSTANCE.getTFuseRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Other Sources</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TFUSE_RULE__OTHER_SOURCES = eINSTANCE.getTFuseRule_OtherSources();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
@@ -3344,24 +3498,6 @@ public interface TransposePackage extends EPackage
 		 * @generated
 		 */
 		EReference TMORPH_RULE__REMULTIPLY_TO = eINSTANCE.getTMorphRule_RemultiplyTo();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl <em>TFuse Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl
-		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
-		 * @generated
-		 */
-		EClass TFUSE_RULE = eINSTANCE.getTFuseRule();
-
-		/**
-		 * The meta object literal for the '<em><b>Other Sources</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TFUSE_RULE__OTHER_SOURCES = eINSTANCE.getTFuseRule_OtherSources();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TGrabAggregateRuleImpl <em>TGrab Aggregate Rule</em>}' class.

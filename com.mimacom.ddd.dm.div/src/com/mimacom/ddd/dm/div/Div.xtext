@@ -15,17 +15,19 @@ DNamespace:
 DomainInformationView:
 	'information' 'view'
 	name=ID
+	readOnlyView?='read' 'only'
 	//	 (^generate?='generate')?
 	(description=DRichText)?
 	'{'
 	(types+=DivType | aggregates+=DivAggregate)*
 	'}';
 
-	/*
+/*
  * RULEs
  */
 DivGrabAggregateRule returns TGrabAggregateRule:
 	source=[DimAggregate|DQualifiedName]
+	(readOnlyView?='read' 'only')?
 	('as' renameTo=ID)?;
 
 DivGrabPrimitiveRule returns TGrabRule:
@@ -51,17 +53,29 @@ DivDitchEnumerationLiteralRule returns TDitchRule:
 
 DivGrabComplexTypeRule returns TGrabRule:
 	source=[DimComplexType|DQualifiedName]
+	(readOnlyView?='read' 'only')?
 	('as' renameTo=ID)?;
 
 DivDitchComplexTypeRule returns TDitchRule:
 	source=[DimComplexType|DQualifiedName];
+	
+SimMorphComplexTypeRule returns TMorphRule:
+	source=[DimComplexType|DQualifiedName]
+	'to'
+	readOnlyView?='read' 'only';
 
 DivGrabFeatureRule returns TGrabRule:
 	source=[DimFeature|ID]
+	(readOnlyView?='read' 'only')?
 	('as' renameTo=ID)?;
 
 DivDitchFeatureRule returns TDitchRule:
 	source=[DimFeature|ID];
+	
+DivMorphFeatureRule returns TMorphRule:
+	source=[DimFeature|ID]
+	'to'
+	readOnlyView?='read' 'only';
 
 DivAggregate returns DAggregate:
 	DivAggregateTransposition | DimAggregate;
@@ -87,7 +101,8 @@ DivType returns DType:
 DivPrimitiveTransposition returns TPrimitiveTransposition:
 	{TPrimitiveTransposition}
 	('grab' 'primitive' rule=DivGrabPrimitiveRule
-	| 'ditch' 'primitive' rule=DivDitchPrimitiveRule)
+	| 'ditch' 'primitive' rule=DivDitchPrimitiveRule
+	)
 	(description=DRichText)?
 	('{'
 	('add' constraints+=DConstraint)*
@@ -96,7 +111,8 @@ DivPrimitiveTransposition returns TPrimitiveTransposition:
 DivEnumerationTransposition returns TEnumerationTransposition:
 	{TEnumerationTransposition}
 	('grab' 'enumeration' rule=DivGrabEnumerationRule
-	| 'ditch' 'enumeration' rule=DivDitchEnumerationRule)
+	| 'ditch' 'enumeration' rule=DivDitchEnumerationRule
+	)
 	(description=DRichText)?
 	('{'
 	(literals+=DivLiteralTransposition (',' literals+=DivLiteralTransposition)*)?
@@ -112,14 +128,17 @@ DivLiteralTransposition returns TLiteralTransposition:
 DivEntityTypeTransposition returns TEntityTypeTransposition:
 	{TEntityTypeTransposition}
 	('grab' (root?='root')? 'entity' rule=DivGrabComplexTypeRule
-	| 'ditch' (root?='root')? 'entity' rule=DivDitchComplexTypeRule)
+	| 'ditch' (root?='root')? 'entity' rule=DivDitchComplexTypeRule
+	| 'motph' (root?='root')? 'entity' rule=SimMorphComplexTypeRule
+	)
 	(description=DRichText)?
 	TComplexTypeFeatures?;
 
 DivDetailTypeTransposition returns TDetailTypeTransposition:
 	{TDetailTypeTransposition}
 	('grab' 'detail' rule=DivGrabComplexTypeRule
-	| 'ditch' 'detail' rule=DivDitchComplexTypeRule)
+	| 'ditch' 'detail' rule=DivDitchComplexTypeRule
+	)
 	(description=DRichText)?
 	TComplexTypeFeatures?;
 
@@ -139,13 +158,17 @@ DivFeature returns DFeature:
 DivAssociationTransposition returns TAssociationTransposition:
 	{TAssociationTransposition}
 	('grab' ('reference' | 'composite') rule=DivGrabFeatureRule
-	| 'ditch' ('reference' | 'composite') rule=DivDitchFeatureRule)
+	| 'ditch' ('reference' | 'composite') rule=DivDitchFeatureRule
+	| 'morph' ('reference' | 'composite') rule=DivMorphFeatureRule
+	)
 	(description=DRichText)?;
 
 DivAttributeTransposition returns TAttributeTransposition:
 	{TAttributeTransposition}
 	('grab' ('attribute' | detail?='detail')? rule=DivGrabFeatureRule
-	| 'ditch' ('attribute' | detail?='detail')? rule=DivDitchFeatureRule)
+	| 'ditch' ('attribute' | detail?='detail')? rule=DivDitchFeatureRule
+	| 'morph' ('attribute' | detail?='detail')? rule=DivMorphFeatureRule
+	)
 	(description=DRichText)?;
 
 DivQueryTransposition returns TQueryTransposition:
