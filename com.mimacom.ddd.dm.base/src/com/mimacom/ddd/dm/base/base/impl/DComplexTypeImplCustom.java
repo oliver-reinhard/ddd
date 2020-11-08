@@ -1,11 +1,10 @@
 package com.mimacom.ddd.dm.base.base.impl;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.BasicInternalEList;
 
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.base.impl.DComplexTypeImpl;
 
 public class DComplexTypeImplCustom extends DComplexTypeImpl {
 
@@ -15,7 +14,7 @@ public class DComplexTypeImplCustom extends DComplexTypeImpl {
 	
 	@Override
 	public EList<DNavigableMember> getNavigableMembers() {
-		EList<DNavigableMember> members = new BasicEList<>();
+		EList<DNavigableMember> members = new BasicInternalEList<>(DNavigableMember.class);
 		DComplexType st = this;
 		while(st != null) {
 			members.addAll(st.getFeatures());
