@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -84,6 +85,9 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
+				return; 
+			case BasePackage.DNOTE:
+				sequence_DNote(context, (DNote) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -346,6 +350,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *         kind=EsmStateKind? 
 	 *         state=[DState|ID] 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         direction=EsmLayoutDirection? 
 	 *         states+=EsmState+ 
 	 *         transitions+=EsmTransition+
@@ -362,7 +367,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     EsmConcurrentState returns EsmConcurrentState
 	 *
 	 * Constraint:
-	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? subStates+=EsmSubStateModel+)
+	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? notes+=DNote* subStates+=EsmSubStateModel+)
 	 */
 	protected void sequence_EsmConcurrentState(ISerializationContext context, EsmConcurrentState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -375,7 +380,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     EsmDerivedState returns EsmDerivedState
 	 *
 	 * Constraint:
-	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? expression=DExpression)
+	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? notes+=DNote* expression=DExpression)
 	 */
 	protected void sequence_EsmDerivedState(ISerializationContext context, EsmDerivedState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -391,6 +396,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *         name=DQualifiedName 
 	 *         forType=[DimEntityType|DQualifiedName] 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         direction=EsmLayoutDirection? 
 	 *         states+=EsmState+ 
 	 *         transitions+=EsmTransition+
@@ -407,7 +413,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     EsmNormalState returns EsmState
 	 *
 	 * Constraint:
-	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText?)
+	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_EsmNormalState(ISerializationContext context, EsmState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -431,7 +437,14 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     EsmTransition returns EsmTransition
 	 *
 	 * Constraint:
-	 *     (direction=EsmLayoutDirection? from=[DState|ID] to=[DState|ID] event=[DStateEvent|ID] guard=DExpression?)
+	 *     (
+	 *         direction=EsmLayoutDirection? 
+	 *         from=[DState|ID] 
+	 *         to=[DState|ID] 
+	 *         event=[DStateEvent|ID] 
+	 *         guard=DExpression? 
+	 *         notes+=DNote*
+	 *     )
 	 */
 	protected void sequence_EsmTransition(ISerializationContext context, EsmTransition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

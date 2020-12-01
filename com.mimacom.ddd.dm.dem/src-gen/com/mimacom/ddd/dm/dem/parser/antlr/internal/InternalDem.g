@@ -196,10 +196,17 @@ ruleDemDomainEvent returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getDemDomainEventAccess().getEventKeyword_0());
 		}
 		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDemDomainEventAccess().getDemDomainEventAction_1(),
+					$current);
+			}
+		)
+		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getDemDomainEventAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getDemDomainEventAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -208,21 +215,21 @@ ruleDemDomainEvent returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.ID");
 				}
 			)
 		)
 		(
-			otherlv_2='alias'
+			otherlv_3='alias'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getDemDomainEventAccess().getAliasKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getDemDomainEventAccess().getAliasKeyword_3_0());
 			}
 			(
 				(
-					lv_aliases_3_0=RULE_ID
+					lv_aliases_4_0=RULE_ID
 					{
-						newLeafNode(lv_aliases_3_0, grammarAccess.getDemDomainEventAccess().getAliasesIDTerminalRuleCall_2_1_0());
+						newLeafNode(lv_aliases_4_0, grammarAccess.getDemDomainEventAccess().getAliasesIDTerminalRuleCall_3_1_0());
 					}
 					{
 						if ($current==null) {
@@ -231,7 +238,7 @@ ruleDemDomainEvent returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"aliases",
-							lv_aliases_3_0,
+							lv_aliases_4_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.ID");
 					}
 				)
@@ -240,9 +247,9 @@ ruleDemDomainEvent returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDemDomainEventAccess().getDescriptionDRichTextParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDemDomainEventAccess().getDescriptionDRichTextParserRuleCall_4_0());
 				}
-				lv_description_4_0=ruleDRichText
+				lv_description_5_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
@@ -250,26 +257,45 @@ ruleDemDomainEvent returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_4_0,
+						lv_description_5_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_5='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemDomainEventAccess().getNotesDNoteParserRuleCall_5_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getDemDomainEventAccess().getLeftCurlyBracketKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getDemDomainEventAccess().getLeftCurlyBracketKeyword_6());
 		}
-		otherlv_6='context'
+		otherlv_8='context'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDemDomainEventAccess().getContextKeyword_5());
+			newLeafNode(otherlv_8, grammarAccess.getDemDomainEventAccess().getContextKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDemDomainEventAccess().getContextDContextParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDemDomainEventAccess().getContextDContextParserRuleCall_8_0());
 				}
-				lv_context_7_0=ruleDContext
+				lv_context_9_0=ruleDContext
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
@@ -277,20 +303,20 @@ ruleDemDomainEvent returns [EObject current=null]
 					add(
 						$current,
 						"context",
-						lv_context_7_0,
+						lv_context_9_0,
 						"com.mimacom.ddd.dm.dem.Dem.DContext");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
 		(
-			otherlv_8='triggered'
+			otherlv_10='triggered'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getDemDomainEventAccess().getTriggeredKeyword_7_0());
+				newLeafNode(otherlv_10, grammarAccess.getDemDomainEventAccess().getTriggeredKeyword_9_0());
 			}
-			otherlv_9='by'
+			otherlv_11='by'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getDemDomainEventAccess().getByKeyword_7_1());
+				newLeafNode(otherlv_11, grammarAccess.getDemDomainEventAccess().getByKeyword_9_1());
 			}
 			(
 				(
@@ -299,24 +325,24 @@ ruleDemDomainEvent returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getDemDomainEventRule());
 						}
 					}
-					otherlv_10=RULE_ID
+					otherlv_12=RULE_ID
 					{
-						newLeafNode(otherlv_10, grammarAccess.getDemDomainEventAccess().getTriggersDemActorCrossReference_7_2_0());
+						newLeafNode(otherlv_12, grammarAccess.getDemDomainEventAccess().getTriggersDemActorCrossReference_9_2_0());
 					}
 				)
 			)+
 		)?
 		(
-			otherlv_11='notifications'
+			otherlv_13='notifications'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getDemDomainEventAccess().getNotificationsKeyword_8_0());
+				newLeafNode(otherlv_13, grammarAccess.getDemDomainEventAccess().getNotificationsKeyword_10_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDemDomainEventAccess().getNotificationsDemNotificationParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getDemDomainEventAccess().getNotificationsDemNotificationParserRuleCall_10_1_0());
 					}
-					lv_notifications_12_0=ruleDemNotification
+					lv_notifications_14_0=ruleDemNotification
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
@@ -324,7 +350,7 @@ ruleDemDomainEvent returns [EObject current=null]
 						add(
 							$current,
 							"notifications",
-							lv_notifications_12_0,
+							lv_notifications_14_0,
 							"com.mimacom.ddd.dm.dem.Dem.DemNotification");
 						afterParserOrEnumRuleCall();
 					}
@@ -332,16 +358,16 @@ ruleDemDomainEvent returns [EObject current=null]
 			)+
 		)?
 		(
-			otherlv_13='preconditions'
+			otherlv_15='preconditions'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getDemDomainEventAccess().getPreconditionsKeyword_9_0());
+				newLeafNode(otherlv_15, grammarAccess.getDemDomainEventAccess().getPreconditionsKeyword_11_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDemDomainEventAccess().getPreconditionsCNFDNamedPredicateParserRuleCall_9_1_0());
+						newCompositeNode(grammarAccess.getDemDomainEventAccess().getPreconditionsCNFDNamedPredicateParserRuleCall_11_1_0());
 					}
-					lv_preconditionsCNF_14_0=ruleDNamedPredicate
+					lv_preconditionsCNF_16_0=ruleDNamedPredicate
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
@@ -349,7 +375,7 @@ ruleDemDomainEvent returns [EObject current=null]
 						add(
 							$current,
 							"preconditionsCNF",
-							lv_preconditionsCNF_14_0,
+							lv_preconditionsCNF_16_0,
 							"com.mimacom.ddd.dm.dem.Dem.DNamedPredicate");
 						afterParserOrEnumRuleCall();
 					}
@@ -357,17 +383,17 @@ ruleDemDomainEvent returns [EObject current=null]
 			)+
 		)?
 		(
-			otherlv_15='postconditions'
+			otherlv_17='postconditions'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getDemDomainEventAccess().getPostconditionsKeyword_10_0());
+				newLeafNode(otherlv_17, grammarAccess.getDemDomainEventAccess().getPostconditionsKeyword_12_0());
 			}
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDemDomainEventAccess().getPostconditionsDNFDemCaseConjunctionParserRuleCall_10_1_0_0());
+							newCompositeNode(grammarAccess.getDemDomainEventAccess().getPostconditionsDNFDemCaseConjunctionParserRuleCall_12_1_0_0());
 						}
-						lv_postconditionsDNF_16_0=ruleDemCaseConjunction
+						lv_postconditionsDNF_18_0=ruleDemCaseConjunction
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
@@ -375,7 +401,7 @@ ruleDemDomainEvent returns [EObject current=null]
 							add(
 								$current,
 								"postconditionsDNF",
-								lv_postconditionsDNF_16_0,
+								lv_postconditionsDNF_18_0,
 								"com.mimacom.ddd.dm.dem.Dem.DemCaseConjunction");
 							afterParserOrEnumRuleCall();
 						}
@@ -385,9 +411,9 @@ ruleDemDomainEvent returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDemDomainEventAccess().getPostconditionsDNFDNamedPredicateParserRuleCall_10_1_1_0());
+							newCompositeNode(grammarAccess.getDemDomainEventAccess().getPostconditionsDNFDNamedPredicateParserRuleCall_12_1_1_0());
 						}
-						lv_postconditionsDNF_17_0=ruleDNamedPredicate
+						lv_postconditionsDNF_19_0=ruleDNamedPredicate
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDemDomainEventRule());
@@ -395,7 +421,7 @@ ruleDemDomainEvent returns [EObject current=null]
 							add(
 								$current,
 								"postconditionsDNF",
-								lv_postconditionsDNF_17_0,
+								lv_postconditionsDNF_19_0,
 								"com.mimacom.ddd.dm.dem.Dem.DNamedPredicate");
 							afterParserOrEnumRuleCall();
 						}
@@ -403,9 +429,9 @@ ruleDemDomainEvent returns [EObject current=null]
 				)+
 			)
 		)?
-		otherlv_18='}'
+		otherlv_20='}'
 		{
-			newLeafNode(otherlv_18, grammarAccess.getDemDomainEventAccess().getRightCurlyBracketKeyword_11());
+			newLeafNode(otherlv_20, grammarAccess.getDemDomainEventAccess().getRightCurlyBracketKeyword_13());
 		}
 	)
 ;
@@ -494,9 +520,28 @@ ruleDNamedPredicate returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDNamedPredicateAccess().getPredicateDmxOrExpressionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDNamedPredicateAccess().getNotesDNoteParserRuleCall_4_0());
 				}
-				lv_predicate_5_0=ruleDmxOrExpression
+				lv_notes_5_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNamedPredicateRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_5_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNamedPredicateAccess().getPredicateDmxOrExpressionParserRuleCall_5_0());
+				}
+				lv_predicate_6_0=ruleDmxOrExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDNamedPredicateRule());
@@ -504,7 +549,7 @@ ruleDNamedPredicate returns [EObject current=null]
 					set(
 						$current,
 						"predicate",
-						lv_predicate_5_0,
+						lv_predicate_6_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DmxOrExpression");
 					afterParserOrEnumRuleCall();
 				}
@@ -946,6 +991,25 @@ ruleDContext returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDContextAccess().getNotesDNoteParserRuleCall_6_0());
+				}
+				lv_notes_7_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDContextRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_7_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -991,16 +1055,54 @@ ruleDemActorModel returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemActorModelAccess().getDescriptionDRichTextParserRuleCall_3_0());
+				}
+				lv_description_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemActorModelRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemActorModelAccess().getNotesDNoteParserRuleCall_4_0());
+				}
+				lv_notes_4_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemActorModelRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_5='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDemActorModelAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getDemActorModelAccess().getLeftCurlyBracketKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDemActorModelAccess().getActorsDemActorParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDemActorModelAccess().getActorsDemActorParserRuleCall_6_0());
 				}
-				lv_actors_4_0=ruleDemActor
+				lv_actors_6_0=ruleDemActor
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDemActorModelRule());
@@ -1008,15 +1110,15 @@ ruleDemActorModel returns [EObject current=null]
 					add(
 						$current,
 						"actors",
-						lv_actors_4_0,
+						lv_actors_6_0,
 						"com.mimacom.ddd.dm.dem.Dem.DemActor");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_5='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getDemActorModelAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getDemActorModelAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1146,6 +1248,25 @@ ruleDemHumanActorRole returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemHumanActorRoleAccess().getNotesDNoteParserRuleCall_6_0());
+				}
+				lv_notes_7_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemHumanActorRoleRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_7_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -1234,6 +1355,25 @@ ruleDemService returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemServiceAccess().getNotesDNoteParserRuleCall_5_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemServiceRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -1279,21 +1419,59 @@ ruleDemEventsOverviewModel returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemEventsOverviewModelAccess().getDescriptionDRichTextParserRuleCall_3_0());
+				}
+				lv_description_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemEventsOverviewModelRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDemEventsOverviewModelAccess().getNotesDNoteParserRuleCall_4_0());
+				}
+				lv_notes_4_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDemEventsOverviewModelRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_5='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDemEventsOverviewModelAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getDemEventsOverviewModelAccess().getLeftCurlyBracketKeyword_5());
 		}
 		(
 			(
-				otherlv_4='include'
+				otherlv_6='include'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getDemEventsOverviewModelAccess().getIncludeKeyword_4_0_0());
+					newLeafNode(otherlv_6, grammarAccess.getDemEventsOverviewModelAccess().getIncludeKeyword_6_0_0());
 				}
 				(
 					(
-						lv_all_5_0='all'
+						lv_all_7_0='all'
 						{
-							newLeafNode(lv_all_5_0, grammarAccess.getDemEventsOverviewModelAccess().getAllAllKeyword_4_0_1_0());
+							newLeafNode(lv_all_7_0, grammarAccess.getDemEventsOverviewModelAccess().getAllAllKeyword_6_0_1_0());
 						}
 						{
 							if ($current==null) {
@@ -1306,9 +1484,9 @@ ruleDemEventsOverviewModel returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_6='include'
+				otherlv_8='include'
 				{
-					newLeafNode(otherlv_6, grammarAccess.getDemEventsOverviewModelAccess().getIncludeKeyword_4_1_0());
+					newLeafNode(otherlv_8, grammarAccess.getDemEventsOverviewModelAccess().getIncludeKeyword_6_1_0());
 				}
 				(
 					(
@@ -1318,7 +1496,7 @@ ruleDemEventsOverviewModel returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDemEventsOverviewModelAccess().getIncludeDemDomainEventCrossReference_4_1_1_0());
+							newCompositeNode(grammarAccess.getDemEventsOverviewModelAccess().getIncludeDemDomainEventCrossReference_6_1_1_0());
 						}
 						ruleDQualifiedName
 						{
@@ -1329,9 +1507,9 @@ ruleDemEventsOverviewModel returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_8='exclude'
+				otherlv_10='exclude'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getDemEventsOverviewModelAccess().getExcludeKeyword_4_2_0());
+					newLeafNode(otherlv_10, grammarAccess.getDemEventsOverviewModelAccess().getExcludeKeyword_6_2_0());
 				}
 				(
 					(
@@ -1341,7 +1519,7 @@ ruleDemEventsOverviewModel returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDemEventsOverviewModelAccess().getExcludeDemDomainEventCrossReference_4_2_1_0());
+							newCompositeNode(grammarAccess.getDemEventsOverviewModelAccess().getExcludeDemDomainEventCrossReference_6_2_1_0());
 						}
 						ruleDQualifiedName
 						{
@@ -1351,9 +1529,96 @@ ruleDemEventsOverviewModel returns [EObject current=null]
 				)+
 			)
 		)
-		otherlv_10='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getDemEventsOverviewModelAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_12, grammarAccess.getDemEventsOverviewModelAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleDNote
+entryRuleDNote returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDNoteRule()); }
+	iv_ruleDNote=ruleDNote
+	{ $current=$iv_ruleDNote.current; }
+	EOF;
+
+// Rule DNote
+ruleDNote returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='NOTE'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDNoteAccess().getNOTEKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDNoteAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDNoteRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDNoteAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNoteAccess().getTextDRichTextParserRuleCall_3_0());
+				}
+				lv_text_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNoteRule());
+					}
+					set(
+						$current,
+						"text",
+						lv_text_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNoteAccess().getColorDNoteColorEnumRuleCall_4_0());
+				}
+				lv_color_4_0=ruleDNoteColor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNoteRule());
+					}
+					set(
+						$current,
+						"color",
+						lv_color_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNoteColor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDNoteAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -5228,6 +5493,81 @@ ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 				newLeafNode(this_ID_2, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
+	)
+;
+
+// Rule DNoteColor
+ruleDNoteColor returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='white'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='red'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='orange'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='yellow'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='green'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='blue'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='pink'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6());
+			}
+		)
+		    |
+		(
+			enumLiteral_7='grey'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7());
+			}
+		)
 	)
 ;
 

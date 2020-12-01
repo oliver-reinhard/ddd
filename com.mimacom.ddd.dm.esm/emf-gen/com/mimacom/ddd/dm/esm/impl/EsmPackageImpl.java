@@ -423,6 +423,16 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEsmTransition_Description()
+	{
+		return (EReference)esmTransitionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEsmLayoutDirection()
 	{
 		return esmLayoutDirectionEEnum;
@@ -500,6 +510,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		createEReference(esmTransitionEClass, ESM_TRANSITION__TO);
 		createEReference(esmTransitionEClass, ESM_TRANSITION__EVENT);
 		createEReference(esmTransitionEClass, ESM_TRANSITION__GUARD);
+		createEReference(esmTransitionEClass, ESM_TRANSITION__DESCRIPTION);
 
 		// Create enums
 		esmLayoutDirectionEEnum = createEEnum(ESM_LAYOUT_DIRECTION);
@@ -540,11 +551,13 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 		// Add supertypes to classes
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 		esmEntityStateModelEClass.getESuperTypes().add(this.getIEsmStateModel());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		iEsmStateModelEClass.getESuperTypes().add(this.getIEsmLayout());
+		iEsmStateEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 		esmStateEClass.getESuperTypes().add(this.getIEsmState());
 		esmDerivedStateEClass.getESuperTypes().add(this.getEsmState());
 		esmCompositeStateEClass.getESuperTypes().add(this.getIEsmState());
@@ -552,6 +565,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		esmConcurrentStateEClass.getESuperTypes().add(this.getIEsmState());
 		esmSubStateModelEClass.getESuperTypes().add(this.getIEsmStateModel());
 		esmTransitionEClass.getESuperTypes().add(this.getIEsmLayout());
+		esmTransitionEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esmEntityStateModelEClass, EsmEntityStateModel.class, "EsmEntityStateModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -586,6 +600,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		initEReference(getEsmTransition_To(), theBasePackage.getDState(), null, "to", null, 0, 1, EsmTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEsmTransition_Event(), theBasePackage.getDStateEvent(), null, "event", null, 0, 1, EsmTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEsmTransition_Guard(), theBasePackage.getDExpression(), null, "guard", null, 0, 1, EsmTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEsmTransition_Description(), theBasePackage.getDRichText(), null, "description", null, 0, 1, EsmTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(esmLayoutDirectionEEnum, EsmLayoutDirection.class, "EsmLayoutDirection");

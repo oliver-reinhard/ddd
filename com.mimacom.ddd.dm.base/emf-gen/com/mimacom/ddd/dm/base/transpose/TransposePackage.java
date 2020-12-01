@@ -329,6 +329,15 @@ public interface TransposePackage extends EPackage
 	int TINFORMATION_MODEL__DESCRIPTION = BasePackage.DINFORMATION_MODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TINFORMATION_MODEL__NOTES = BasePackage.DINFORMATION_MODEL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -446,6 +455,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TAGGREGATE_TRANSPOSITION__DESCRIPTION = BasePackage.DAGGREGATE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGGREGATE_TRANSPOSITION__NOTES = BasePackage.DAGGREGATE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -566,6 +584,15 @@ public interface TransposePackage extends EPackage
 	int TTYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DTYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TTYPE_TRANSPOSITION__NOTES = BasePackage.DTYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -655,6 +682,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TPRIMITIVE_TRANSPOSITION__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TPRIMITIVE_TRANSPOSITION__NOTES = BasePackage.DPRIMITIVE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -755,6 +791,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TENUMERATION_TRANSPOSITION__DESCRIPTION = BasePackage.DENUMERATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENUMERATION_TRANSPOSITION__NOTES = BasePackage.DENUMERATION__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -866,6 +911,15 @@ public interface TransposePackage extends EPackage
 	int TLITERAL_TRANSPOSITION__DESCRIPTION = BasePackage.DLITERAL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TLITERAL_TRANSPOSITION__NOTES = BasePackage.DLITERAL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,6 +1029,15 @@ public interface TransposePackage extends EPackage
 	int TCOMPLEX_TYPE_TRANSPOSITION__DESCRIPTION = TTYPE_TRANSPOSITION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TCOMPLEX_TYPE_TRANSPOSITION__NOTES = TTYPE_TRANSPOSITION__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1064,6 +1127,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TDETAIL_TYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DDETAIL_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDETAIL_TYPE_TRANSPOSITION__NOTES = BasePackage.DDETAIL_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1200,6 +1272,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TENTITY_TYPE_TRANSPOSITION__DESCRIPTION = BasePackage.DENTITY_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENTITY_TYPE_TRANSPOSITION__NOTES = BasePackage.DENTITY_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1374,6 +1455,15 @@ public interface TransposePackage extends EPackage
 	int TFEATURE_TRANSPOSITION__DESCRIPTION = BasePackage.DFEATURE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TFEATURE_TRANSPOSITION__NOTES = BasePackage.DFEATURE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1490,6 +1580,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TASSOCIATION_TRANSPOSITION__DESCRIPTION = BasePackage.DASSOCIATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASSOCIATION_TRANSPOSITION__NOTES = BasePackage.DASSOCIATION__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1646,6 +1745,15 @@ public interface TransposePackage extends EPackage
 	int TATTRIBUTE_TRANSPOSITION__DESCRIPTION = BasePackage.DATTRIBUTE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TATTRIBUTE_TRANSPOSITION__NOTES = BasePackage.DATTRIBUTE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1780,6 +1888,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TQUERY_TRANSPOSITION__DESCRIPTION = BasePackage.DQUERY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TQUERY_TRANSPOSITION__NOTES = BasePackage.DQUERY__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1925,6 +2042,15 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TQUERY_PARAMETER_TRANSPOSITION__DESCRIPTION = BasePackage.DQUERY_PARAMETER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TQUERY_PARAMETER_TRANSPOSITION__NOTES = BasePackage.DQUERY_PARAMETER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2134,7 +2260,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTStructureChangingRule()
 	 * @generated
 	 */
-	int TSTRUCTURE_CHANGING_RULE = 24;
+	int TSTRUCTURE_CHANGING_RULE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2234,7 +2360,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
 	 * @generated
 	 */
-	int TFUSE_RULE = 22;
+	int TFUSE_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2336,52 +2462,6 @@ public interface TransposePackage extends EPackage
 	int TFUSE_RULE_OPERATION_COUNT = TSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl
-	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
-	 * @generated
-	 */
-	int TDITCH_RULE = 23;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE__SOURCE = TTRANSPOSITION_RULE__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Named Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE__NAMED_SOURCE = TTRANSPOSITION_RULE__NAMED_SOURCE;
-
-	/**
-	 * The number of structural features of the '<em>TDitch Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>TDitch Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TDITCH_RULE_OPERATION_COUNT = TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TMorphRuleImpl <em>TMorph Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2389,7 +2469,7 @@ public interface TransposePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTMorphRule()
 	 * @generated
 	 */
-	int TMORPH_RULE = 25;
+	int TMORPH_RULE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2498,6 +2578,52 @@ public interface TransposePackage extends EPackage
 	 * @ordered
 	 */
 	int TMORPH_RULE_OPERATION_COUNT = TSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl
+	 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
+	 * @generated
+	 */
+	int TDITCH_RULE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE__SOURCE = TTRANSPOSITION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE__NAMED_SOURCE = TTRANSPOSITION_RULE__NAMED_SOURCE;
+
+	/**
+	 * The number of structural features of the '<em>TDitch Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE_FEATURE_COUNT = TTRANSPOSITION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>TDitch Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TDITCH_RULE_OPERATION_COUNT = TTRANSPOSITION_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TGrabAggregateRuleImpl <em>TGrab Aggregate Rule</em>}' class.
@@ -2924,37 +3050,6 @@ public interface TransposePackage extends EPackage
 	EClass getTGrabRule();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule <em>TFuse Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>TFuse Rule</em>'.
-	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule
-	 * @generated
-	 */
-	EClass getTFuseRule();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources <em>Other Sources</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Other Sources</em>'.
-	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources()
-	 * @see #getTFuseRule()
-	 * @generated
-	 */
-	EReference getTFuseRule_OtherSources();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TDitchRule <em>TDitch Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>TDitch Rule</em>'.
-	 * @see com.mimacom.ddd.dm.base.transpose.TDitchRule
-	 * @generated
-	 */
-	EClass getTDitchRule();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TStructureChangingRule <em>TStructure Changing Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3009,6 +3104,27 @@ public interface TransposePackage extends EPackage
 	EReference getTStructureChangingRule_ExtendFrom();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule <em>TFuse Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TFuse Rule</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule
+	 * @generated
+	 */
+	EClass getTFuseRule();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources <em>Other Sources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Other Sources</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TFuseRule#getOtherSources()
+	 * @see #getTFuseRule()
+	 * @generated
+	 */
+	EReference getTFuseRule_OtherSources();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TMorphRule <em>TMorph Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3039,6 +3155,16 @@ public interface TransposePackage extends EPackage
 	 * @generated
 	 */
 	EReference getTMorphRule_RemultiplyTo();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TDitchRule <em>TDitch Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TDitch Rule</em>'.
+	 * @see com.mimacom.ddd.dm.base.transpose.TDitchRule
+	 * @generated
+	 */
+	EClass getTDitchRule();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.transpose.TGrabAggregateRule <em>TGrab Aggregate Rule</em>}'.
@@ -3404,34 +3530,6 @@ public interface TransposePackage extends EPackage
 		EClass TGRAB_RULE = eINSTANCE.getTGrabRule();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl <em>TFuse Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl
-		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
-		 * @generated
-		 */
-		EClass TFUSE_RULE = eINSTANCE.getTFuseRule();
-
-		/**
-		 * The meta object literal for the '<em><b>Other Sources</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TFUSE_RULE__OTHER_SOURCES = eINSTANCE.getTFuseRule_OtherSources();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl
-		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
-		 * @generated
-		 */
-		EClass TDITCH_RULE = eINSTANCE.getTDitchRule();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TStructureChangingRuleImpl <em>TStructure Changing Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3474,6 +3572,24 @@ public interface TransposePackage extends EPackage
 		EReference TSTRUCTURE_CHANGING_RULE__EXTEND_FROM = eINSTANCE.getTStructureChangingRule_ExtendFrom();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl <em>TFuse Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TFuseRuleImpl
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTFuseRule()
+		 * @generated
+		 */
+		EClass TFUSE_RULE = eINSTANCE.getTFuseRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Other Sources</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TFUSE_RULE__OTHER_SOURCES = eINSTANCE.getTFuseRule_OtherSources();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TMorphRuleImpl <em>TMorph Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3498,6 +3614,16 @@ public interface TransposePackage extends EPackage
 		 * @generated
 		 */
 		EReference TMORPH_RULE__REMULTIPLY_TO = eINSTANCE.getTMorphRule_RemultiplyTo();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl <em>TDitch Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TDitchRuleImpl
+		 * @see com.mimacom.ddd.dm.base.transpose.impl.TransposePackageImpl#getTDitchRule()
+		 * @generated
+		 */
+		EClass TDITCH_RULE = eINSTANCE.getTDitchRule();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.transpose.impl.TGrabAggregateRuleImpl <em>TGrab Aggregate Rule</em>}' class.

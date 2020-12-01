@@ -25,6 +25,7 @@ import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
@@ -187,6 +188,11 @@ public class DimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDModel(DModel object)
 			{
 				return createDModelAdapter();
+			}
+			@Override
+			public Adapter caseINoteContainer(INoteContainer object)
+			{
+				return createINoteContainerAdapter();
 			}
 			@Override
 			public Adapter caseIAggregateContainer(IAggregateContainer object)
@@ -586,6 +592,21 @@ public class DimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.INoteContainer <em>INote Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.INoteContainer
+	 * @generated
+	 */
+	public Adapter createINoteContainerAdapter()
 	{
 		return null;
 	}

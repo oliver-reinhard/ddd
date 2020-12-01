@@ -26,6 +26,8 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNote;
+import com.mimacom.ddd.dm.base.base.DNoteColor;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
@@ -40,6 +42,7 @@ import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
@@ -67,48 +70,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dNamedElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dImportEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dNamespaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iDiagramRootEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iStaticReferenceTargetEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass iRichTextSegmentEClass = null;
 
 	/**
@@ -131,6 +92,62 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dRichTextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dNamedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dNoteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iNoteContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dImportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dNamespaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iDiagramRootEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iStaticReferenceTargetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -326,6 +343,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum dNoteColorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum dMultiplicityShorthandEEnum = null;
 
 	/**
@@ -411,138 +435,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDNamedElement()
-	{
-		return dNamedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDNamedElement_Name()
-	{
-		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDNamedElement_Aliases()
-	{
-		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNamedElement_Description()
-	{
-		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDImport()
-	{
-		return dImportEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDImport_ImportedNamespace()
-	{
-		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDNamespace()
-	{
-		return dNamespaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNamespace_Imports()
-	{
-		return (EReference)dNamespaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNamespace_Model()
-	{
-		return (EReference)dNamespaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDModel()
-	{
-		return dModelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIDiagramRoot()
-	{
-		return iDiagramRootEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIStaticReferenceTarget()
-	{
-		return iStaticReferenceTargetEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getIRichTextSegment()
 	{
 		return iRichTextSegmentEClass;
@@ -601,6 +493,204 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDRichText_Segments()
 	{
 		return (EReference)dRichTextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDNamedElement()
+	{
+		return dNamedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDNamedElement_Name()
+	{
+		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDNamedElement_Aliases()
+	{
+		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNamedElement_Description()
+	{
+		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDNote()
+	{
+		return dNoteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDNote_Name()
+	{
+		return (EAttribute)dNoteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNote_Text()
+	{
+		return (EReference)dNoteEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDNote_Color()
+	{
+		return (EAttribute)dNoteEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getINoteContainer()
+	{
+		return iNoteContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getINoteContainer_Notes()
+	{
+		return (EReference)iNoteContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDImport()
+	{
+		return dImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDImport_ImportedNamespace()
+	{
+		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDModel()
+	{
+		return dModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDNamespace()
+	{
+		return dNamespaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNamespace_Imports()
+	{
+		return (EReference)dNamespaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNamespace_Model()
+	{
+		return (EReference)dNamespaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIDiagramRoot()
+	{
+		return iDiagramRootEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIStaticReferenceTarget()
+	{
+		return iStaticReferenceTargetEClass;
 	}
 
 	/**
@@ -1291,6 +1381,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EEnum getDNoteColor()
+	{
+		return dNoteColorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDMultiplicityShorthand()
 	{
 		return dMultiplicityShorthandEEnum;
@@ -1349,24 +1450,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		isCreated = true;
 
 		// Create classes and their features
-		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
-		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
-		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
-		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
-
-		dImportEClass = createEClass(DIMPORT);
-		createEAttribute(dImportEClass, DIMPORT__IMPORTED_NAMESPACE);
-
-		dNamespaceEClass = createEClass(DNAMESPACE);
-		createEReference(dNamespaceEClass, DNAMESPACE__IMPORTS);
-		createEReference(dNamespaceEClass, DNAMESPACE__MODEL);
-
-		dModelEClass = createEClass(DMODEL);
-
-		iDiagramRootEClass = createEClass(IDIAGRAM_ROOT);
-
-		iStaticReferenceTargetEClass = createEClass(ISTATIC_REFERENCE_TARGET);
-
 		iRichTextSegmentEClass = createEClass(IRICH_TEXT_SEGMENT);
 
 		dTextSegmentEClass = createEClass(DTEXT_SEGMENT);
@@ -1376,6 +1459,32 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dRichTextEClass = createEClass(DRICH_TEXT);
 		createEReference(dRichTextEClass, DRICH_TEXT__SEGMENTS);
+
+		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
+		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
+		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
+		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
+
+		dNoteEClass = createEClass(DNOTE);
+		createEAttribute(dNoteEClass, DNOTE__NAME);
+		createEReference(dNoteEClass, DNOTE__TEXT);
+		createEAttribute(dNoteEClass, DNOTE__COLOR);
+
+		iNoteContainerEClass = createEClass(INOTE_CONTAINER);
+		createEReference(iNoteContainerEClass, INOTE_CONTAINER__NOTES);
+
+		dImportEClass = createEClass(DIMPORT);
+		createEAttribute(dImportEClass, DIMPORT__IMPORTED_NAMESPACE);
+
+		dModelEClass = createEClass(DMODEL);
+
+		dNamespaceEClass = createEClass(DNAMESPACE);
+		createEReference(dNamespaceEClass, DNAMESPACE__IMPORTS);
+		createEReference(dNamespaceEClass, DNAMESPACE__MODEL);
+
+		iDiagramRootEClass = createEClass(IDIAGRAM_ROOT);
+
+		iStaticReferenceTargetEClass = createEClass(ISTATIC_REFERENCE_TARGET);
 
 		dInformationModelEClass = createEClass(DINFORMATION_MODEL);
 		createEOperation(dInformationModelEClass, DINFORMATION_MODEL___ALLOWS_IDENTITY_TYPES);
@@ -1467,6 +1576,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dStateEventEClass = createEClass(DSTATE_EVENT);
 
 		// Create enums
+		dNoteColorEEnum = createEEnum(DNOTE_COLOR);
 		dMultiplicityShorthandEEnum = createEEnum(DMULTIPLICITY_SHORTHAND);
 		dEntityNatureEEnum = createEEnum(DENTITY_NATURE);
 		dAssociationKindEEnum = createEEnum(DASSOCIATION_KIND);
@@ -1501,28 +1611,33 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		dNamespaceEClass.getESuperTypes().add(this.getDNamedElement());
-		dModelEClass.getESuperTypes().add(this.getDNamedElement());
-		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
 		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dRichTextEClass.getESuperTypes().add(this.getDExpression());
+		dModelEClass.getESuperTypes().add(this.getDNamedElement());
+		dNamespaceEClass.getESuperTypes().add(this.getDNamedElement());
+		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
 		dInformationModelEClass.getESuperTypes().add(this.getDModel());
+		dInformationModelEClass.getESuperTypes().add(this.getINoteContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getIAggregateContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getITypeContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dInformationModelEClass.getESuperTypes().add(this.getIDiagramRoot());
 		dAggregateEClass.getESuperTypes().add(this.getDNamedElement());
+		dAggregateEClass.getESuperTypes().add(this.getINoteContainer());
 		dAggregateEClass.getESuperTypes().add(this.getITypeContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIFeatureContainer());
 		dAggregateEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dAggregateEClass.getESuperTypes().add(this.getIDiagramRoot());
 		dNavigableMemberEClass.getESuperTypes().add(this.getDNamedElement());
+		dNavigableMemberEClass.getESuperTypes().add(this.getINoteContainer());
 		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dTypeEClass.getESuperTypes().add(this.getDNamedElement());
+		dTypeEClass.getESuperTypes().add(this.getINoteContainer());
 		dTypeEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dNamedPredicateEClass.getESuperTypes().add(this.getDNamedElement());
+		dNamedPredicateEClass.getESuperTypes().add(this.getINoteContainer());
 		dSimpleTypeEClass.getESuperTypes().add(this.getDType());
 		dSimpleTypeEClass.getESuperTypes().add(this.getIValueType());
 		dPrimitiveEClass.getESuperTypes().add(this.getDSimpleType());
@@ -1544,26 +1659,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dQueryParameterEClass.getESuperTypes().add(this.getDNavigableMember());
 		dStateEClass.getESuperTypes().add(this.getDNavigableMember());
 		dStateEventEClass.getESuperTypes().add(this.getDNamedElement());
+		dStateEventEClass.getESuperTypes().add(this.getINoteContainer());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dImportEClass, DImport.class, "DImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, DImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dNamespaceEClass, DNamespace.class, "DNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDNamespace_Imports(), this.getDImport(), null, "imports", null, 0, -1, DNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNamespace_Model(), this.getDModel(), null, "model", null, 0, 1, DNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dModelEClass, DModel.class, "DModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(iDiagramRootEClass, IDiagramRoot.class, "IDiagramRoot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(iStaticReferenceTargetEClass, IStaticReferenceTarget.class, "IStaticReferenceTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(iRichTextSegmentEClass, IRichTextSegment.class, "IRichTextSegment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dTextSegmentEClass, DTextSegment.class, "DTextSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1573,6 +1671,32 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dRichTextEClass, DRichText.class, "DRichText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDRichText_Segments(), this.getIRichTextSegment(), null, "segments", null, 0, -1, DRichText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dNoteEClass, DNote.class, "DNote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDNote_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDNote_Text(), this.getDRichText(), null, "text", null, 0, 1, DNote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNote_Color(), this.getDNoteColor(), "color", null, 0, 1, DNote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iNoteContainerEClass, INoteContainer.class, "INoteContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getINoteContainer_Notes(), this.getDNote(), null, "notes", null, 0, -1, INoteContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dImportEClass, DImport.class, "DImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, DImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dModelEClass, DModel.class, "DModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dNamespaceEClass, DNamespace.class, "DNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDNamespace_Imports(), this.getDImport(), null, "imports", null, 0, -1, DNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDNamespace_Model(), this.getDModel(), null, "model", null, 0, 1, DNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iDiagramRootEClass, IDiagramRoot.class, "IDiagramRoot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(iStaticReferenceTargetEClass, IStaticReferenceTarget.class, "IStaticReferenceTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dInformationModelEClass, DInformationModel.class, "DInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1666,6 +1790,16 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dStateEventEClass, DStateEvent.class, "DStateEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
+		initEEnum(dNoteColorEEnum, DNoteColor.class, "DNoteColor");
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.WHITE);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.RED);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.ORANGE);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.YELLOW);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.GREEN);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.BLUE);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.PINK);
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.GREY);
+
 		initEEnum(dMultiplicityShorthandEEnum, DMultiplicityShorthand.class, "DMultiplicityShorthand");
 		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.NONE);
 		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_ONE);

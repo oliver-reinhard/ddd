@@ -97,6 +97,15 @@ public interface SimPackage extends EPackage
 	int SYSTEM_INFORMATION_MODEL__DESCRIPTION = TransposePackage.TINFORMATION_MODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_INFORMATION_MODEL__NOTES = TransposePackage.TINFORMATION_MODEL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

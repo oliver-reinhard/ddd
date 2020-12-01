@@ -15,11 +15,13 @@ DNamespace:
 /*
  * DOMAIN EVENT
  */
-DemDomainEvent:
+DemDomainEvent returns DModel:
 	'event'
+	{DemDomainEvent}
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?
+	(notes+=DNote)*
 	'{'
 		'context' (context+=DContext)+
 		('triggered' 'by' triggers+=[DemActor|ID]+)?
@@ -37,6 +39,7 @@ DNamedPredicate:
 	('alias' aliases+=ID)*
 	':'
 	(description=DRichText)?
+	(notes+=DNote)*
 	predicate=DmxOrExpression;
 
 DemCaseConjunction:
@@ -70,7 +73,8 @@ DContext:
 	('alias' aliases+=ID)*
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 /*
  * ACTOR MODEL
@@ -78,6 +82,8 @@ DContext:
 DemActorModel:
 	'actor' 'model'
 	name=ID
+	(description=DRichText)?
+	(notes+=DNote)*
 	'{'
 	actors+=DemActor*
 	'}';
@@ -89,13 +95,15 @@ DemHumanActorRole:
 	'human' 'actor' 'as'
 	name=ID
 	('alias' aliases+=ID)*
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 	
 DemService:
 	'service' 'actor'
 	name=ID
 	('alias' aliases+=ID)*
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 /*
  * EVENTS OVERVIEW
@@ -103,6 +111,8 @@ DemService:
 DemEventsOverviewModel:
 	'event' 'overview'
 	name=ID
+	(description=DRichText)?
+	(notes+=DNote)*
 	'{'
 	(	'include' all?='all'
 	|	'include'

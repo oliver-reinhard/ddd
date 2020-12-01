@@ -5,14 +5,23 @@ package com.mimacom.ddd.dm.base.base.impl;
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DNote;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNamedPredicateImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNamedPredicateImpl#getPredicate <em>Predicate</em>}</li>
  * </ul>
  *
@@ -29,6 +39,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPredicate
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -58,6 +78,21 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DNAMED_PREDICATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, BasePackage.DNAMED_PREDICATE__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -120,6 +155,8 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAMED_PREDICATE__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DNAMED_PREDICATE__PREDICATE:
 				return basicSetPredicate(null, msgs);
 		}
@@ -136,6 +173,8 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAMED_PREDICATE__NOTES:
+				return getNotes();
 			case BasePackage.DNAMED_PREDICATE__PREDICATE:
 				return getPredicate();
 		}
@@ -147,11 +186,16 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAMED_PREDICATE__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case BasePackage.DNAMED_PREDICATE__PREDICATE:
 				setPredicate((DExpression)newValue);
 				return;
@@ -169,6 +213,9 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAMED_PREDICATE__NOTES:
+				getNotes().clear();
+				return;
 			case BasePackage.DNAMED_PREDICATE__PREDICATE:
 				setPredicate((DExpression)null);
 				return;
@@ -186,10 +233,50 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAMED_PREDICATE__NOTES:
+				return notes != null && !notes.isEmpty();
 			case BasePackage.DNAMED_PREDICATE__PREDICATE:
 				return predicate != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DNAMED_PREDICATE__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return BasePackage.DNAMED_PREDICATE__NOTES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DNamedPredicateImpl

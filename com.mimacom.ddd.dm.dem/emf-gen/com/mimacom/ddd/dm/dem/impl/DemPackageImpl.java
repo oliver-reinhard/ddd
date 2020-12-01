@@ -486,6 +486,7 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 
 		// Add supertypes to classes
 		demDomainEventEClass.getESuperTypes().add(theBasePackage.getDModel());
+		demDomainEventEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 		demDomainEventEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		demDomainEventEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
 		demDomainEventEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
@@ -494,11 +495,13 @@ public class DemPackageImpl extends EPackageImpl implements DemPackage
 		demNotificationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		demMessageEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		demActorModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		demActorModelEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 		demActorEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		demActorEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
 		demHumanActorRoleEClass.getESuperTypes().add(this.getDemActor());
 		demServiceEClass.getESuperTypes().add(this.getDemActor());
 		demEventsOverviewModelEClass.getESuperTypes().add(theBasePackage.getDModel());
+		demEventsOverviewModelEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(demDomainEventEClass, DemDomainEvent.class, "DemDomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

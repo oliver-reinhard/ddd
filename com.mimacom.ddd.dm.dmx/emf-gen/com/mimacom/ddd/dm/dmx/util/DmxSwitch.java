@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DSimpleType;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
@@ -113,6 +114,7 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = caseDContext(dmxTestContext);
 				if (result == null) result = caseDNavigableMember(dmxTestContext);
 				if (result == null) result = caseDNamedElement(dmxTestContext);
+				if (result == null) result = caseINoteContainer(dmxTestContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +134,7 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = caseDSimpleType(dmxArchetype);
 				if (result == null) result = caseDType(dmxArchetype);
 				if (result == null) result = caseIValueType(dmxArchetype);
+				if (result == null) result = caseINoteContainer(dmxArchetype);
 				if (result == null) result = caseIStaticReferenceTarget(dmxArchetype);
 				if (result == null) result = caseDNamedElement(dmxArchetype);
 				if (result == null) result = defaultCase(theEObject);
@@ -143,6 +146,7 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxFilter(dmxFilter);
 				if (result == null) result = caseDNavigableMember(dmxFilter);
 				if (result == null) result = caseDNamedElement(dmxFilter);
+				if (result == null) result = caseINoteContainer(dmxFilter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -185,6 +189,7 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxCorrelationVariable(dmxCorrelationVariable);
 				if (result == null) result = caseDNavigableMember(dmxCorrelationVariable);
 				if (result == null) result = caseDNamedElement(dmxCorrelationVariable);
+				if (result == null) result = caseINoteContainer(dmxCorrelationVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -364,6 +369,7 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxField(dmxField);
 				if (result == null) result = caseDNavigableMember(dmxField);
 				if (result == null) result = caseDNamedElement(dmxField);
+				if (result == null) result = caseINoteContainer(dmxField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -981,6 +987,22 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

@@ -114,7 +114,7 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder.toString();
   }
   
-  public String diagram(final DModel model) {
+  public String diagram(final EObject model) {
     if (model instanceof DemActorModel) {
       return _diagram((DemActorModel)model);
     } else if (model instanceof DemDomainEvent) {

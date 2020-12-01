@@ -33,8 +33,8 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_SimAttributeTransposition_AttributeKeyword_1_0_1_0_q;
 	protected AbstractElementAlias match_SimAttributeTransposition_AttributeKeyword_1_1_1_0_q;
 	protected AbstractElementAlias match_SimAttributeTransposition_AttributeKeyword_1_2_1_0_q;
-	protected AbstractElementAlias match_SimEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q;
-	protected AbstractElementAlias match_SimPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
+	protected AbstractElementAlias match_SimEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q;
+	protected AbstractElementAlias match_SimPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -50,8 +50,8 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_SimAttributeTransposition_AttributeKeyword_1_0_1_0_q = new TokenAlias(false, true, grammarAccess.getSimAttributeTranspositionAccess().getAttributeKeyword_1_0_1_0());
 		match_SimAttributeTransposition_AttributeKeyword_1_1_1_0_q = new TokenAlias(false, true, grammarAccess.getSimAttributeTranspositionAccess().getAttributeKeyword_1_1_1_0());
 		match_SimAttributeTransposition_AttributeKeyword_1_2_1_0_q = new TokenAlias(false, true, grammarAccess.getSimAttributeTranspositionAccess().getAttributeKeyword_1_2_1_0());
-		match_SimEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSimEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSimEnumerationTranspositionAccess().getRightCurlyBracketKeyword_3_3()));
-		match_SimPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSimPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSimPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_3_2()));
+		match_SimEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSimEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getSimEnumerationTranspositionAccess().getRightCurlyBracketKeyword_4_3()));
+		match_SimPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSimPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getSimPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_4_2()));
 	}
 	
 	@Override
@@ -148,10 +148,10 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_SimAttributeTransposition_AttributeKeyword_1_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SimAttributeTransposition_AttributeKeyword_1_2_1_0_q.equals(syntax))
 				emit_SimAttributeTransposition_AttributeKeyword_1_2_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SimEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q.equals(syntax))
-				emit_SimEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SimPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
-				emit_SimPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SimEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q.equals(syntax))
+				emit_SimEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SimPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_SimPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -336,10 +336,11 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
+	 *     notes+=DNote (ambiguity) (rule end)
 	 *     rule=SimDitchEnumerationRule (ambiguity) (rule end)
 	 *     rule=SimGrabEnumerationRule (ambiguity) (rule end)
 	 */
-	protected void emit_SimEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SimEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -349,10 +350,11 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
+	 *     notes+=DNote (ambiguity) (rule end)
 	 *     rule=SimDitchPrimitiveRule (ambiguity) (rule end)
 	 *     rule=SimGrabPrimitiveRule (ambiguity) (rule end)
 	 */
-	protected void emit_SimPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SimPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

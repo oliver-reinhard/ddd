@@ -7,10 +7,12 @@ import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DAggregateImpl#getNavigableMembers <em>Navigable Members</em>}</li>
@@ -48,6 +51,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class DAggregateImpl extends DNamedElementImpl implements DAggregate
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -107,6 +120,21 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DAGGREGATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, BasePackage.DAGGREGATE__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -204,6 +232,8 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DAGGREGATE__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DAGGREGATE__FEATURES:
@@ -222,6 +252,8 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__NOTES:
+				return getNotes();
 			case BasePackage.DAGGREGATE__TYPES:
 				return getTypes();
 			case BasePackage.DAGGREGATE__FEATURES:
@@ -247,6 +279,10 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case BasePackage.DAGGREGATE__TYPES:
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends DType>)newValue);
@@ -276,6 +312,9 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__NOTES:
+				getNotes().clear();
+				return;
 			case BasePackage.DAGGREGATE__TYPES:
 				getTypes().clear();
 				return;
@@ -302,6 +341,8 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__NOTES:
+				return notes != null && !notes.isEmpty();
 			case BasePackage.DAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
 			case BasePackage.DAGGREGATE__FEATURES:
@@ -324,6 +365,14 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DAGGREGATE__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == ITypeContainer.class)
 		{
 			switch (derivedFeatureID)
@@ -373,6 +422,14 @@ public abstract class DAggregateImpl extends DNamedElementImpl implements DAggre
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return BasePackage.DAGGREGATE__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == ITypeContainer.class)
 		{
 			switch (baseFeatureID)

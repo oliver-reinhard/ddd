@@ -80,8 +80,8 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 			case TransposePackage.TQUERY_PARAMETER_TRANSPOSITION: return createTQueryParameterTransposition();
 			case TransposePackage.TGRAB_RULE: return createTGrabRule();
 			case TransposePackage.TFUSE_RULE: return createTFuseRule();
-			case TransposePackage.TDITCH_RULE: return createTDitchRule();
 			case TransposePackage.TMORPH_RULE: return createTMorphRule();
+			case TransposePackage.TDITCH_RULE: return createTDitchRule();
 			case TransposePackage.TGRAB_AGGREGATE_RULE: return createTGrabAggregateRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -308,10 +308,10 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 	 * @generated
 	 */
 	@Override
-	public TDitchRule createTDitchRule()
+	public TMorphRule createTMorphRule()
 	{
-		TDitchRuleImpl tDitchRule = new TDitchRuleImpl();
-		return tDitchRule;
+		TMorphRuleImpl tMorphRule = new TMorphRuleImpl();
+		return tMorphRule;
 	}
 
 	/**
@@ -320,10 +320,10 @@ public class TransposeFactoryImpl extends EFactoryImpl implements TransposeFacto
 	 * @generated
 	 */
 	@Override
-	public TMorphRule createTMorphRule()
+	public TDitchRule createTDitchRule()
 	{
-		TMorphRuleImpl tMorphRule = new TMorphRuleImpl();
-		return tMorphRule;
+		TDitchRuleImpl tDitchRule = new TDitchRuleImpl();
+		return tDitchRule;
 	}
 
 	/**

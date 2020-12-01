@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface DType extends DNamedElement, IStaticReferenceTarget
+public interface DType extends DNamedElement, INoteContainer, IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.

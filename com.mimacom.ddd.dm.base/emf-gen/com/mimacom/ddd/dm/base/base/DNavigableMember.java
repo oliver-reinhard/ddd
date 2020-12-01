@@ -22,7 +22,7 @@ package com.mimacom.ddd.dm.base.base;
  * @model abstract="true"
  * @generated
  */
-public interface DNavigableMember extends DNamedElement
+public interface DNavigableMember extends DNamedElement, INoteContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.

@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base.base;
  * @model
  * @generated
  */
-public interface DStateEvent extends DNamedElement
+public interface DStateEvent extends DNamedElement, INoteContainer
 {
 } // DStateEvent

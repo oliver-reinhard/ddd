@@ -6,6 +6,7 @@ package com.mimacom.ddd.dm.esm;
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.dim.DimEntityType;
@@ -26,7 +27,7 @@ import com.mimacom.ddd.dm.dim.DimEntityType;
  * @model
  * @generated
  */
-public interface EsmEntityStateModel extends DModel, IEsmStateModel, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
+public interface EsmEntityStateModel extends DModel, INoteContainer, IEsmStateModel, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
 {
 	/**
 	 * Returns the value of the '<em><b>For Type</b></em>' reference.

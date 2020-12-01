@@ -18,8 +18,8 @@ class DimFormatter extends DmxFormatter {
 	@Inject extension DimGrammarAccess
 
 	def dispatch void format(DomainInformationModel model, extension IFormattableDocument document) {
-		val open = model.regionFor.keyword(domainInformationModelAccess.leftCurlyBracketKeyword_5)
-		val close = model.regionFor.keyword(domainInformationModelAccess.rightCurlyBracketKeyword_7)
+		val open = model.regionFor.keyword(domainInformationModelAccess.leftCurlyBracketKeyword_6)
+		val close = model.regionFor.keyword(domainInformationModelAccess.rightCurlyBracketKeyword_8)
 		open.append[newLines = 2]
 		interior(open, close)[indent]
 		close.append[newLines = 2]
@@ -35,8 +35,8 @@ class DimFormatter extends DmxFormatter {
 	}
 
 	def dispatch void format(DAggregate aggregate, extension IFormattableDocument document) {
-		val open = aggregate.regionFor.keyword(dimAggregateAccess.leftCurlyBracketKeyword_4)
-		val close = aggregate.regionFor.keyword(dimAggregateAccess.rightCurlyBracketKeyword_7)
+		val open = aggregate.regionFor.keyword(dimAggregateAccess.leftCurlyBracketKeyword_6)
+		val close = aggregate.regionFor.keyword(dimAggregateAccess.rightCurlyBracketKeyword_9)
 		open.append[newLines = 2]
 		interior(open, close)[indent]
 
@@ -53,15 +53,15 @@ class DimFormatter extends DmxFormatter {
 
 	def dispatch void format(DEnumeration en, extension IFormattableDocument document) {
 		if (en.literals.size > 3) {
-			val open = en.regionFor.keyword(dimEnumerationAccess.leftCurlyBracketKeyword_5)
-			val close = en.regionFor.keyword(dimEnumerationAccess.rightCurlyBracketKeyword_8)
+			val open = en.regionFor.keyword(dimEnumerationAccess.leftCurlyBracketKeyword_6)
+			val close = en.regionFor.keyword(dimEnumerationAccess.rightCurlyBracketKeyword_9)
 			open.append[newLine]
 			interior(open, close)[indent]
 
 			for (literal : en.literals) {
 				literal.regionFor.assignment(dimLiteralAccess.nameAssignment_1).surround[noSpace]
 			}
-			for (comma : en.regionFor.keywords(dimEnumerationAccess.commaKeyword_6_1_0)) {
+			for (comma : en.regionFor.keywords(dimEnumerationAccess.commaKeyword_7_1_0)) {
 				comma.append[newLine]
 			}
 			en.literals.last.append[newLine]

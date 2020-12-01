@@ -95,6 +95,15 @@ public interface DimPackage extends EPackage
 	int DOMAIN_INFORMATION_MODEL__DESCRIPTION = BasePackage.DINFORMATION_MODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_INFORMATION_MODEL__NOTES = BasePackage.DINFORMATION_MODEL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,6 +186,15 @@ public interface DimPackage extends EPackage
 	int DIM_AGGREGATE__DESCRIPTION = BasePackage.DAGGREGATE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_AGGREGATE__NOTES = BasePackage.DAGGREGATE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -211,6 +229,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_AGGREGATE__ROOTS = BasePackage.DAGGREGATE__ROOTS;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_AGGREGATE__READ_ONLY_VIEW = BasePackage.DAGGREGATE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
@@ -275,6 +302,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_TYPE__DESCRIPTION = BasePackage.DTYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_TYPE__NOTES = BasePackage.DTYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -359,6 +395,15 @@ public interface DimPackage extends EPackage
 	int DIM_SIMPLE_TYPE__DESCRIPTION = BasePackage.DSIMPLE_TYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_SIMPLE_TYPE__NOTES = BasePackage.DSIMPLE_TYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -439,6 +484,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_PRIMITIVE__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_PRIMITIVE__NOTES = BasePackage.DPRIMITIVE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -530,6 +584,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_ENUMERATION__DESCRIPTION = BasePackage.DENUMERATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ENUMERATION__NOTES = BasePackage.DENUMERATION__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -632,6 +695,15 @@ public interface DimPackage extends EPackage
 	int DIM_LITERAL__DESCRIPTION = BasePackage.DLITERAL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_LITERAL__NOTES = BasePackage.DLITERAL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -732,6 +804,15 @@ public interface DimPackage extends EPackage
 	int DIM_COMPLEX_TYPE__DESCRIPTION = BasePackage.DCOMPLEX_TYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_COMPLEX_TYPE__NOTES = BasePackage.DCOMPLEX_TYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -784,6 +865,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_COMPLEX_TYPE__SUPER_TYPE = BasePackage.DCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_COMPLEX_TYPE__READ_ONLY_VIEW = BasePackage.DCOMPLEX_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
@@ -850,6 +940,15 @@ public interface DimPackage extends EPackage
 	int DIM_DETAIL_TYPE__DESCRIPTION = BasePackage.DDETAIL_TYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_DETAIL_TYPE__NOTES = BasePackage.DDETAIL_TYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -902,6 +1001,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_DETAIL_TYPE__SUPER_TYPE = BasePackage.DDETAIL_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_DETAIL_TYPE__READ_ONLY_VIEW = BasePackage.DDETAIL_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
@@ -968,6 +1076,15 @@ public interface DimPackage extends EPackage
 	int DIM_ENTITY_TYPE__DESCRIPTION = BasePackage.DENTITY_TYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ENTITY_TYPE__NOTES = BasePackage.DENTITY_TYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1020,6 +1137,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_ENTITY_TYPE__SUPER_TYPE = BasePackage.DENTITY_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ENTITY_TYPE__READ_ONLY_VIEW = BasePackage.DENTITY_TYPE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -1122,6 +1248,15 @@ public interface DimPackage extends EPackage
 	int DIM_FEATURE__DESCRIPTION = BasePackage.DFEATURE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_FEATURE__NOTES = BasePackage.DFEATURE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1156,6 +1291,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_FEATURE__COLLECTION = BasePackage.DFEATURE__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_FEATURE__READ_ONLY_VIEW = BasePackage.DFEATURE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Transposed By</b></em>' reference.
@@ -1222,6 +1366,15 @@ public interface DimPackage extends EPackage
 	int DIM_ASSOCIATION__DESCRIPTION = BasePackage.DASSOCIATION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ASSOCIATION__NOTES = BasePackage.DASSOCIATION__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,6 +1409,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_ASSOCIATION__COLLECTION = BasePackage.DASSOCIATION__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ASSOCIATION__READ_ONLY_VIEW = BasePackage.DASSOCIATION__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1358,6 +1520,15 @@ public interface DimPackage extends EPackage
 	int DIM_ATTRIBUTE__DESCRIPTION = BasePackage.DATTRIBUTE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ATTRIBUTE__NOTES = BasePackage.DATTRIBUTE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1392,6 +1563,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_ATTRIBUTE__COLLECTION = BasePackage.DATTRIBUTE__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_ATTRIBUTE__READ_ONLY_VIEW = BasePackage.DATTRIBUTE__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
@@ -1476,6 +1656,15 @@ public interface DimPackage extends EPackage
 	int DIM_QUERY__DESCRIPTION = BasePackage.DQUERY__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_QUERY__NOTES = BasePackage.DQUERY__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1510,6 +1699,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_QUERY__COLLECTION = BasePackage.DQUERY__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_QUERY__READ_ONLY_VIEW = BasePackage.DQUERY__READ_ONLY_VIEW;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -1601,6 +1799,15 @@ public interface DimPackage extends EPackage
 	 * @ordered
 	 */
 	int DIM_QUERY_PARAMETER__DESCRIPTION = BasePackage.DQUERY_PARAMETER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIM_QUERY_PARAMETER__NOTES = BasePackage.DQUERY_PARAMETER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.

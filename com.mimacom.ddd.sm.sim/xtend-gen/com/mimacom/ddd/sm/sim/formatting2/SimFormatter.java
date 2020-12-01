@@ -85,8 +85,8 @@ public class SimFormatter extends AbstractFormatter2 {
     int _size = en.getLiterals().size();
     boolean _greaterThan = (_size > 3);
     if (_greaterThan) {
-      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_3_0());
-      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getRightCurlyBracketKeyword_3_3());
+      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_4_0());
+      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getRightCurlyBracketKeyword_4_3());
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
@@ -100,9 +100,9 @@ public class SimFormatter extends AbstractFormatter2 {
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.noSpace();
         };
-        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getLiteralsAssignment_3_1_0()), _function_2);
+        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getLiteralsAssignment_4_1_0()), _function_2);
       }
-      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getCommaKeyword_3_1_1_0());
+      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSimEnumerationTranspositionAccess().getCommaKeyword_4_1_1_0());
       for (final ISemanticRegion comma : _keywords) {
         final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
           it.newLine();

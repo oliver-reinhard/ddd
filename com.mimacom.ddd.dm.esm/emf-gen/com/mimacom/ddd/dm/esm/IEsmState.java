@@ -5,8 +5,7 @@ package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
-
-import org.eclipse.emf.ecore.EObject;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface IEsmState extends EObject
+public interface IEsmState extends INoteContainer
 {
 	/**
 	 * Returns the value of the '<em><b>State</b></em>' reference.

@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import com.mimacom.ddd.dm.dom.*;
 
@@ -104,6 +105,7 @@ public class DomSwitch<T> extends Switch<T>
 				T result = caseDomObject(domObject);
 				if (result == null) result = caseDNavigableMember(domObject);
 				if (result == null) result = caseDNamedElement(domObject);
+				if (result == null) result = caseINoteContainer(domObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,6 +116,7 @@ public class DomSwitch<T> extends Switch<T>
 				if (result == null) result = caseDomObject(domNamedComplexObject);
 				if (result == null) result = caseDNavigableMember(domNamedComplexObject);
 				if (result == null) result = caseDNamedElement(domNamedComplexObject);
+				if (result == null) result = caseINoteContainer(domNamedComplexObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,6 +248,22 @@ public class DomSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIDiagramRoot(IDiagramRoot object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

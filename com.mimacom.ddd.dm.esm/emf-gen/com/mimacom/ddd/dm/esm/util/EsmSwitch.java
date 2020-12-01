@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.esm.*;
@@ -84,6 +85,7 @@ public class EsmSwitch<T> extends Switch<T>
 				EsmEntityStateModel esmEntityStateModel = (EsmEntityStateModel)theEObject;
 				T result = caseEsmEntityStateModel(esmEntityStateModel);
 				if (result == null) result = caseDModel(esmEntityStateModel);
+				if (result == null) result = caseINoteContainer(esmEntityStateModel);
 				if (result == null) result = caseIEsmStateModel(esmEntityStateModel);
 				if (result == null) result = caseINavigableMemberContainer(esmEntityStateModel);
 				if (result == null) result = caseIStaticReferenceTarget(esmEntityStateModel);
@@ -112,6 +114,7 @@ public class EsmSwitch<T> extends Switch<T>
 			{
 				IEsmState iEsmState = (IEsmState)theEObject;
 				T result = caseIEsmState(iEsmState);
+				if (result == null) result = caseINoteContainer(iEsmState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,6 +123,7 @@ public class EsmSwitch<T> extends Switch<T>
 				EsmState esmState = (EsmState)theEObject;
 				T result = caseEsmState(esmState);
 				if (result == null) result = caseIEsmState(esmState);
+				if (result == null) result = caseINoteContainer(esmState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +133,7 @@ public class EsmSwitch<T> extends Switch<T>
 				T result = caseEsmDerivedState(esmDerivedState);
 				if (result == null) result = caseEsmState(esmDerivedState);
 				if (result == null) result = caseIEsmState(esmDerivedState);
+				if (result == null) result = caseINoteContainer(esmDerivedState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,6 +143,7 @@ public class EsmSwitch<T> extends Switch<T>
 				T result = caseEsmCompositeState(esmCompositeState);
 				if (result == null) result = caseIEsmState(esmCompositeState);
 				if (result == null) result = caseIEsmStateModel(esmCompositeState);
+				if (result == null) result = caseINoteContainer(esmCompositeState);
 				if (result == null) result = caseIEsmLayout(esmCompositeState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -147,6 +153,7 @@ public class EsmSwitch<T> extends Switch<T>
 				EsmConcurrentState esmConcurrentState = (EsmConcurrentState)theEObject;
 				T result = caseEsmConcurrentState(esmConcurrentState);
 				if (result == null) result = caseIEsmState(esmConcurrentState);
+				if (result == null) result = caseINoteContainer(esmConcurrentState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +171,7 @@ public class EsmSwitch<T> extends Switch<T>
 				EsmTransition esmTransition = (EsmTransition)theEObject;
 				T result = caseEsmTransition(esmTransition);
 				if (result == null) result = caseIEsmLayout(esmTransition);
+				if (result == null) result = caseINoteContainer(esmTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -359,6 +367,22 @@ public class EsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDModel(DModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

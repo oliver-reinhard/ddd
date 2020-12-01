@@ -95,6 +95,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_AGGREGATE__DESCRIPTION = BasePackage.DAGGREGATE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_AGGREGATE__NOTES = BasePackage.DAGGREGATE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +213,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_TYPE__DESCRIPTION = BasePackage.DTYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_TYPE__NOTES = BasePackage.DTYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,6 +302,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_PRIMITIVE__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_PRIMITIVE__NOTES = BasePackage.DPRIMITIVE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -375,6 +402,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_ENUMERATION__DESCRIPTION = BasePackage.DENUMERATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ENUMERATION__NOTES = BasePackage.DENUMERATION__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -477,6 +513,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_LITERAL__DESCRIPTION = BasePackage.DLITERAL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_LITERAL__NOTES = BasePackage.DLITERAL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,6 +620,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_COMPLEX_TYPE__DESCRIPTION = BasePackage.DCOMPLEX_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_COMPLEX_TYPE__NOTES = BasePackage.DCOMPLEX_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -704,6 +758,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_DETAIL_TYPE__DESCRIPTION = BasePackage.DDETAIL_TYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_DETAIL_TYPE__NOTES = BasePackage.DDETAIL_TYPE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -829,6 +892,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_ENTITY_TYPE__DESCRIPTION = BasePackage.DENTITY_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ENTITY_TYPE__NOTES = BasePackage.DENTITY_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -994,6 +1066,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_FEATURE__DESCRIPTION = BasePackage.DFEATURE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_FEATURE__NOTES = BasePackage.DFEATURE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1101,6 +1182,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_ASSOCIATION__DESCRIPTION = BasePackage.DASSOCIATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ASSOCIATION__NOTES = BasePackage.DASSOCIATION__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1248,6 +1338,15 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_ATTRIBUTE__DESCRIPTION = BasePackage.DATTRIBUTE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_ATTRIBUTE__NOTES = BasePackage.DATTRIBUTE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1373,6 +1472,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_QUERY__DESCRIPTION = BasePackage.DQUERY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_QUERY__NOTES = BasePackage.DQUERY__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1509,6 +1617,15 @@ public interface SyntheticPackage extends EPackage
 	 * @ordered
 	 */
 	int TSYNTHETIC_QUERY_PARAMETER__DESCRIPTION = BasePackage.DQUERY_PARAMETER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TSYNTHETIC_QUERY_PARAMETER__NOTES = BasePackage.DQUERY_PARAMETER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.

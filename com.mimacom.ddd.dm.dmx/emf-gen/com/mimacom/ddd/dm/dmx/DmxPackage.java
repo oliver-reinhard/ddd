@@ -245,6 +245,15 @@ public interface DmxPackage extends EPackage
 	int DMX_TEST_CONTEXT__DESCRIPTION = BasePackage.DCONTEXT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__NOTES = BasePackage.DCONTEXT__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,6 +400,15 @@ public interface DmxPackage extends EPackage
 	int DMX_ARCHETYPE__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ARCHETYPE__NOTES = BasePackage.DPRIMITIVE__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,6 +507,15 @@ public interface DmxPackage extends EPackage
 	 * @ordered
 	 */
 	int DMX_FILTER__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_FILTER__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -845,6 +872,15 @@ public interface DmxPackage extends EPackage
 	 * @ordered
 	 */
 	int DMX_CORRELATION_VARIABLE__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1810,6 +1846,15 @@ public interface DmxPackage extends EPackage
 	 * @ordered
 	 */
 	int DMX_FIELD__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_FIELD__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.

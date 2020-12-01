@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface DAggregate extends DNamedElement, ITypeContainer, IFeatureContainer, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
+public interface DAggregate extends DNamedElement, INoteContainer, ITypeContainer, IFeatureContainer, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
 {
 	/**
 	 * Returns the value of the '<em><b>Roots</b></em>' reference list.

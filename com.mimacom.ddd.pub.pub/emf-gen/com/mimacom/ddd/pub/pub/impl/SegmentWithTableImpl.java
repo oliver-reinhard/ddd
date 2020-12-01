@@ -67,7 +67,6 @@ public class SegmentWithTableImpl extends DocumentSegmentImpl implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ContentBlock> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList<ContentBlock>(ContentBlock.class, this, PubPackage.SEGMENT_WITH_TABLE__CONTENTS);

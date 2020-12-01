@@ -4,8 +4,10 @@
 package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,13 +22,14 @@ import com.mimacom.ddd.dm.base.base.DStateEvent;
  *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getTo <em>To</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getEvent <em>Event</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getGuard <em>Guard</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition()
  * @model
  * @generated
  */
-public interface EsmTransition extends IEsmLayout
+public interface EsmTransition extends IEsmLayout, INoteContainer
 {
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.
@@ -131,5 +134,31 @@ public interface EsmTransition extends IEsmLayout
 	 * @generated
 	 */
 	void setGuard(DExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(DRichText)
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_Description()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DRichText getDescription();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(DRichText value);
 
 } // EsmTransition

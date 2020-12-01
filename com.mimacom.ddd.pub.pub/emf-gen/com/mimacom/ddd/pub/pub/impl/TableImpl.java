@@ -90,7 +90,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -100,7 +99,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -113,7 +111,6 @@ public class TableImpl extends AbstractTableImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<TableRow> getRows() {
 		if (rows == null) {
 			rows = new EObjectContainmentWithInverseEList<TableRow>(TableRow.class, this, PubPackage.TABLE__ROWS, PubPackage.TABLE_ROW__TABLE);

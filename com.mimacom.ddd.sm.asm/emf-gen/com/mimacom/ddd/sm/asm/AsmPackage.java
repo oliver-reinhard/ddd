@@ -575,6 +575,15 @@ public interface AsmPackage extends EPackage
 	int ASM_SERVICE_PARAMETER__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASM_SERVICE_PARAMETER__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

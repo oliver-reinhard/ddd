@@ -220,17 +220,36 @@ ruleDomainInformationView returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDomainInformationViewAccess().getNotesDNoteParserRuleCall_6_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDomainInformationViewRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDomainInformationViewAccess().getLeftCurlyBracketKeyword_6());
+			newLeafNode(otherlv_7, grammarAccess.getDomainInformationViewAccess().getLeftCurlyBracketKeyword_7());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getTypesDivTypeParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getTypesDivTypeParserRuleCall_8_0_0());
 					}
-					lv_types_7_0=ruleDivType
+					lv_types_8_0=ruleDivType
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDomainInformationViewRule());
@@ -238,7 +257,7 @@ ruleDomainInformationView returns [EObject current=null]
 						add(
 							$current,
 							"types",
-							lv_types_7_0,
+							lv_types_8_0,
 							"com.mimacom.ddd.dm.div.Div.DivType");
 						afterParserOrEnumRuleCall();
 					}
@@ -248,9 +267,9 @@ ruleDomainInformationView returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getAggregatesDivAggregateParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getAggregatesDivAggregateParserRuleCall_8_1_0());
 					}
-					lv_aggregates_8_0=ruleDivAggregate
+					lv_aggregates_9_0=ruleDivAggregate
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDomainInformationViewRule());
@@ -258,16 +277,16 @@ ruleDomainInformationView returns [EObject current=null]
 						add(
 							$current,
 							"aggregates",
-							lv_aggregates_8_0,
+							lv_aggregates_9_0,
 							"com.mimacom.ddd.dm.div.Div.DivAggregate");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_9='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getDomainInformationViewAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_10, grammarAccess.getDomainInformationViewAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -1264,21 +1283,40 @@ ruleDivPrimitiveTransposition returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_8='{'
+			(
+				{
+					newCompositeNode(grammarAccess.getDivPrimitiveTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_8_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivPrimitiveTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_8_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			otherlv_9='{'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getDivPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_3_0());
+				newLeafNode(otherlv_9, grammarAccess.getDivPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_4_0());
 			}
 			(
-				otherlv_9='add'
+				otherlv_10='add'
 				{
-					newLeafNode(otherlv_9, grammarAccess.getDivPrimitiveTranspositionAccess().getAddKeyword_3_1_0());
+					newLeafNode(otherlv_10, grammarAccess.getDivPrimitiveTranspositionAccess().getAddKeyword_4_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDivPrimitiveTranspositionAccess().getConstraintsDConstraintParserRuleCall_3_1_1_0());
+							newCompositeNode(grammarAccess.getDivPrimitiveTranspositionAccess().getConstraintsDConstraintParserRuleCall_4_1_1_0());
 						}
-						lv_constraints_10_0=ruleDConstraint
+						lv_constraints_11_0=ruleDConstraint
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDivPrimitiveTranspositionRule());
@@ -1286,16 +1324,16 @@ ruleDivPrimitiveTransposition returns [EObject current=null]
 							add(
 								$current,
 								"constraints",
-								lv_constraints_10_0,
+								lv_constraints_11_0,
 								"com.mimacom.ddd.dm.dim.Dim.DConstraint");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_11='}'
+			otherlv_12='}'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getDivPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_3_2());
+				newLeafNode(otherlv_12, grammarAccess.getDivPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_4_2());
 			}
 		)?
 	)
@@ -1405,17 +1443,36 @@ ruleDivEnumerationTransposition returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_8='{'
+			(
+				{
+					newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_8_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivEnumerationTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_8_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			otherlv_9='{'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getDivEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_3_0());
+				newLeafNode(otherlv_9, grammarAccess.getDivEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_4_0());
 			}
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getLiteralsDivLiteralTranspositionParserRuleCall_3_1_0_0());
+							newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getLiteralsDivLiteralTranspositionParserRuleCall_4_1_0_0());
 						}
-						lv_literals_9_0=ruleDivLiteralTransposition
+						lv_literals_10_0=ruleDivLiteralTransposition
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDivEnumerationTranspositionRule());
@@ -1423,23 +1480,23 @@ ruleDivEnumerationTransposition returns [EObject current=null]
 							add(
 								$current,
 								"literals",
-								lv_literals_9_0,
+								lv_literals_10_0,
 								"com.mimacom.ddd.dm.div.Div.DivLiteralTransposition");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 				(
-					otherlv_10=','
+					otherlv_11=','
 					{
-						newLeafNode(otherlv_10, grammarAccess.getDivEnumerationTranspositionAccess().getCommaKeyword_3_1_1_0());
+						newLeafNode(otherlv_11, grammarAccess.getDivEnumerationTranspositionAccess().getCommaKeyword_4_1_1_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getLiteralsDivLiteralTranspositionParserRuleCall_3_1_1_1_0());
+								newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getLiteralsDivLiteralTranspositionParserRuleCall_4_1_1_1_0());
 							}
-							lv_literals_11_0=ruleDivLiteralTransposition
+							lv_literals_12_0=ruleDivLiteralTransposition
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getDivEnumerationTranspositionRule());
@@ -1447,7 +1504,7 @@ ruleDivEnumerationTransposition returns [EObject current=null]
 								add(
 									$current,
 									"literals",
-									lv_literals_11_0,
+									lv_literals_12_0,
 									"com.mimacom.ddd.dm.div.Div.DivLiteralTransposition");
 								afterParserOrEnumRuleCall();
 							}
@@ -1456,16 +1513,16 @@ ruleDivEnumerationTransposition returns [EObject current=null]
 				)*
 			)?
 			(
-				otherlv_12='add'
+				otherlv_13='add'
 				{
-					newLeafNode(otherlv_12, grammarAccess.getDivEnumerationTranspositionAccess().getAddKeyword_3_2_0());
+					newLeafNode(otherlv_13, grammarAccess.getDivEnumerationTranspositionAccess().getAddKeyword_4_2_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getConstraintsDConstraintParserRuleCall_3_2_1_0());
+							newCompositeNode(grammarAccess.getDivEnumerationTranspositionAccess().getConstraintsDConstraintParserRuleCall_4_2_1_0());
 						}
-						lv_constraints_13_0=ruleDConstraint
+						lv_constraints_14_0=ruleDConstraint
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDivEnumerationTranspositionRule());
@@ -1473,16 +1530,16 @@ ruleDivEnumerationTransposition returns [EObject current=null]
 							add(
 								$current,
 								"constraints",
-								lv_constraints_13_0,
+								lv_constraints_14_0,
 								"com.mimacom.ddd.dm.dim.Dim.DConstraint");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_14='}'
+			otherlv_15='}'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getDivEnumerationTranspositionAccess().getRightCurlyBracketKeyword_3_3());
+				newLeafNode(otherlv_15, grammarAccess.getDivEnumerationTranspositionAccess().getRightCurlyBracketKeyword_4_3());
 			}
 		)?
 	)
@@ -1583,6 +1640,25 @@ ruleDivLiteralTransposition returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDivLiteralTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivLiteralTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -1762,15 +1838,34 @@ ruleDivEntityTypeTransposition returns [EObject current=null]
 			)
 		)?
 		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDivEntityTypeTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_14_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivEntityTypeTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_14_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getDivEntityTypeTranspositionRule());
 				}
-				newCompositeNode(grammarAccess.getDivEntityTypeTranspositionAccess().getTComplexTypeFeaturesParserRuleCall_3());
+				newCompositeNode(grammarAccess.getDivEntityTypeTranspositionAccess().getTComplexTypeFeaturesParserRuleCall_4());
 			}
-			this_TComplexTypeFeatures_14=ruleTComplexTypeFeatures[$current]
+			this_TComplexTypeFeatures_15=ruleTComplexTypeFeatures[$current]
 			{
-				$current = $this_TComplexTypeFeatures_14.current;
+				$current = $this_TComplexTypeFeatures_15.current;
 				afterParserOrEnumRuleCall();
 			}
 		)?
@@ -1881,15 +1976,34 @@ ruleDivDetailTypeTransposition returns [EObject current=null]
 			)
 		)?
 		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDivDetailTypeTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_8_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivDetailTypeTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_8_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getDivDetailTypeTranspositionRule());
 				}
-				newCompositeNode(grammarAccess.getDivDetailTypeTranspositionAccess().getTComplexTypeFeaturesParserRuleCall_3());
+				newCompositeNode(grammarAccess.getDivDetailTypeTranspositionAccess().getTComplexTypeFeaturesParserRuleCall_4());
 			}
-			this_TComplexTypeFeatures_8=ruleTComplexTypeFeatures[$current]
+			this_TComplexTypeFeatures_9=ruleTComplexTypeFeatures[$current]
 			{
-				$current = $this_TComplexTypeFeatures_8.current;
+				$current = $this_TComplexTypeFeatures_9.current;
 				afterParserOrEnumRuleCall();
 			}
 		)?
@@ -2163,6 +2277,25 @@ ruleDivAssociationTransposition returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDivAssociationTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_14_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivAssociationTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_14_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -2350,6 +2483,25 @@ ruleDivAttributeTransposition returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDivAttributeTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_14_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivAttributeTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_14_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -2456,6 +2608,25 @@ ruleDivQueryTransposition returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDivQueryTranspositionAccess().getNotesDNoteParserRuleCall_3_0());
+				}
+				lv_notes_8_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDivQueryTranspositionRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_8_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -2508,11 +2679,35 @@ ruleDimAggregate returns [EObject current=null]
 			)
 		)
 		(
+			otherlv_3='alias'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getDimAggregateAccess().getAliasKeyword_3_0());
+			}
+			(
+				(
+					lv_aliases_4_0=RULE_ID
+					{
+						newLeafNode(lv_aliases_4_0, grammarAccess.getDimAggregateAccess().getAliasesIDTerminalRuleCall_3_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDimAggregateRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"aliases",
+							lv_aliases_4_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.ID");
+					}
+				)
+			)
+		)*
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDimAggregateAccess().getDescriptionDRichTextParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDimAggregateAccess().getDescriptionDRichTextParserRuleCall_4_0());
 				}
-				lv_description_3_0=ruleDRichText
+				lv_description_5_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDimAggregateRule());
@@ -2520,27 +2715,46 @@ ruleDimAggregate returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_3_0,
+						lv_description_5_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_4='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimAggregateAccess().getNotesDNoteParserRuleCall_5_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimAggregateRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDimAggregateAccess().getLeftCurlyBracketKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getDimAggregateAccess().getLeftCurlyBracketKeyword_6());
 		}
 		(
-			otherlv_5='query'
+			otherlv_8='query'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getDimAggregateAccess().getQueryKeyword_5_0());
+				newLeafNode(otherlv_8, grammarAccess.getDimAggregateAccess().getQueryKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDimAggregateAccess().getFeaturesDimQueryParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDimAggregateAccess().getFeaturesDimQueryParserRuleCall_7_1_0());
 					}
-					lv_features_6_0=ruleDimQuery
+					lv_features_9_0=ruleDimQuery
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDimAggregateRule());
@@ -2548,7 +2762,7 @@ ruleDimAggregate returns [EObject current=null]
 						add(
 							$current,
 							"features",
-							lv_features_6_0,
+							lv_features_9_0,
 							"com.mimacom.ddd.dm.dim.Dim.DimQuery");
 						afterParserOrEnumRuleCall();
 					}
@@ -2558,9 +2772,9 @@ ruleDimAggregate returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDimAggregateAccess().getTypesDimTypeParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDimAggregateAccess().getTypesDimTypeParserRuleCall_8_0());
 				}
-				lv_types_7_0=ruleDimType
+				lv_types_10_0=ruleDimType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDimAggregateRule());
@@ -2568,15 +2782,15 @@ ruleDimAggregate returns [EObject current=null]
 					add(
 						$current,
 						"types",
-						lv_types_7_0,
+						lv_types_10_0,
 						"com.mimacom.ddd.dm.dim.Dim.DimType");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8='}'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getDimAggregateAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_11, grammarAccess.getDimAggregateAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -2761,6 +2975,25 @@ ruleDConstraint returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDConstraintAccess().getNotesDNoteParserRuleCall_6_0());
+				}
+				lv_notes_7_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDConstraintRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_7_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -2870,16 +3103,35 @@ ruleDimPrimitive returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_8='{'
+			(
+				{
+					newCompositeNode(grammarAccess.getDimPrimitiveAccess().getNotesDNoteParserRuleCall_7_0());
+				}
+				lv_notes_8_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimPrimitiveRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_8_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			otherlv_9='{'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getDimPrimitiveAccess().getLeftCurlyBracketKeyword_7_0());
+				newLeafNode(otherlv_9, grammarAccess.getDimPrimitiveAccess().getLeftCurlyBracketKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDimPrimitiveAccess().getConstraintsDConstraintParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getDimPrimitiveAccess().getConstraintsDConstraintParserRuleCall_8_1_0());
 					}
-					lv_constraints_9_0=ruleDConstraint
+					lv_constraints_10_0=ruleDConstraint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDimPrimitiveRule());
@@ -2887,15 +3139,15 @@ ruleDimPrimitive returns [EObject current=null]
 						add(
 							$current,
 							"constraints",
-							lv_constraints_9_0,
+							lv_constraints_10_0,
 							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
-			otherlv_10='}'
+			otherlv_11='}'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getDimPrimitiveAccess().getRightCurlyBracketKeyword_7_2());
+				newLeafNode(otherlv_11, grammarAccess.getDimPrimitiveAccess().getRightCurlyBracketKeyword_8_2());
 			}
 		)?
 	)
@@ -2989,17 +3241,36 @@ ruleDimEnumeration returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimEnumerationAccess().getNotesDNoteParserRuleCall_5_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDimEnumerationAccess().getLeftCurlyBracketKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getDimEnumerationAccess().getLeftCurlyBracketKeyword_6());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDimEnumerationAccess().getLiteralsDimLiteralParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getDimEnumerationAccess().getLiteralsDimLiteralParserRuleCall_7_0_0());
 					}
-					lv_literals_7_0=ruleDimLiteral
+					lv_literals_8_0=ruleDimLiteral
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
@@ -3007,23 +3278,23 @@ ruleDimEnumeration returns [EObject current=null]
 						add(
 							$current,
 							"literals",
-							lv_literals_7_0,
+							lv_literals_8_0,
 							"com.mimacom.ddd.dm.dim.Dim.DimLiteral");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_8=','
+				otherlv_9=','
 				{
-					newLeafNode(otherlv_8, grammarAccess.getDimEnumerationAccess().getCommaKeyword_6_1_0());
+					newLeafNode(otherlv_9, grammarAccess.getDimEnumerationAccess().getCommaKeyword_7_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDimEnumerationAccess().getLiteralsDimLiteralParserRuleCall_6_1_1_0());
+							newCompositeNode(grammarAccess.getDimEnumerationAccess().getLiteralsDimLiteralParserRuleCall_7_1_1_0());
 						}
-						lv_literals_9_0=ruleDimLiteral
+						lv_literals_10_0=ruleDimLiteral
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
@@ -3031,7 +3302,7 @@ ruleDimEnumeration returns [EObject current=null]
 							add(
 								$current,
 								"literals",
-								lv_literals_9_0,
+								lv_literals_10_0,
 								"com.mimacom.ddd.dm.dim.Dim.DimLiteral");
 							afterParserOrEnumRuleCall();
 						}
@@ -3042,9 +3313,9 @@ ruleDimEnumeration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDimEnumerationAccess().getConstraintsDConstraintParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getDimEnumerationAccess().getConstraintsDConstraintParserRuleCall_8_0());
 				}
-				lv_constraints_10_0=ruleDConstraint
+				lv_constraints_11_0=ruleDConstraint
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDimEnumerationRule());
@@ -3052,15 +3323,15 @@ ruleDimEnumeration returns [EObject current=null]
 					add(
 						$current,
 						"constraints",
-						lv_constraints_10_0,
+						lv_constraints_11_0,
 						"com.mimacom.ddd.dm.dim.Dim.DConstraint");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_11='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getDimEnumerationAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_12, grammarAccess.getDimEnumerationAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -3149,6 +3420,25 @@ ruleDimLiteral returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimLiteralAccess().getNotesDNoteParserRuleCall_4_0());
+				}
+				lv_notes_5_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimLiteralRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_5_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -3698,6 +3988,25 @@ ruleDimComplexType[EObject in_current]  returns [EObject current=in_current]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimComplexTypeAccess().getNotesDNoteParserRuleCall_4_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimComplexTypeRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -3923,6 +4232,25 @@ ruleDimAssociation returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimAssociationAccess().getNotesDNoteParserRuleCall_8_0());
+				}
+				lv_notes_11_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimAssociationRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_11_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -4074,6 +4402,25 @@ ruleDimAttribute returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimAttributeAccess().getNotesDNoteParserRuleCall_9_0());
+				}
+				lv_notes_10_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimAttributeRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_10_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -4276,6 +4623,25 @@ ruleDimQuery returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimQueryAccess().getNotesDNoteParserRuleCall_11_0());
+				}
+				lv_notes_15_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimQueryRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_15_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -4375,6 +4741,112 @@ ruleDimQueryParameter returns [EObject current=null]
 				}
 			)
 		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDimQueryParameterAccess().getNotesDNoteParserRuleCall_6_0());
+				}
+				lv_notes_6_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDimQueryParameterRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleDNote
+entryRuleDNote returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDNoteRule()); }
+	iv_ruleDNote=ruleDNote
+	{ $current=$iv_ruleDNote.current; }
+	EOF;
+
+// Rule DNote
+ruleDNote returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='NOTE'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDNoteAccess().getNOTEKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDNoteAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDNoteRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDNoteAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNoteAccess().getTextDRichTextParserRuleCall_3_0());
+				}
+				lv_text_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNoteRule());
+					}
+					set(
+						$current,
+						"text",
+						lv_text_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNoteAccess().getColorDNoteColorEnumRuleCall_4_0());
+				}
+				lv_color_4_0=ruleDNoteColor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNoteRule());
+					}
+					set(
+						$current,
+						"color",
+						lv_color_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNoteColor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDNoteAccess().getRightCurlyBracketKeyword_5());
+		}
 	)
 ;
 
@@ -8326,6 +8798,81 @@ ruleDAssociationKindInverse returns [Enumerator current=null]
 			$current = grammarAccess.getDAssociationKindInverseAccess().getINVERSE_COMPOSITEEnumLiteralDeclaration().getEnumLiteral().getInstance();
 			newLeafNode(enumLiteral_0, grammarAccess.getDAssociationKindInverseAccess().getINVERSE_COMPOSITEEnumLiteralDeclaration());
 		}
+	)
+;
+
+// Rule DNoteColor
+ruleDNoteColor returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='white'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='red'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='orange'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='yellow'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='green'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='blue'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='pink'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6());
+			}
+		)
+		    |
+		(
+			enumLiteral_7='grey'
+			{
+				$current = grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7());
+			}
+		)
 	)
 ;
 

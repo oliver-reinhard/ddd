@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dem" nsURI="http://www.mimacom.com/ddd/dm/dem" nsPrefix="dem">
-  <eClassifiers xsi:type="ecore:EClass" name="DemDomainEvent" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot">
+  <eClassifiers xsi:type="ecore:EClass" name="DemDomainEvent" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INoteContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext"
         containment="true"/>
@@ -31,14 +31,14 @@
         eType="#//DemActor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DemMessage" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DemActorModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel">
+  <eClassifiers xsi:type="ecore:EClass" name="DemActorModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INoteContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//DemActor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DemActor" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemHumanActorRole" eSuperTypes="#//DemActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemService" eSuperTypes="#//DemActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DemEventsOverviewModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel">
+  <eClassifiers xsi:type="ecore:EClass" name="DemEventsOverviewModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INoteContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="include" upperBound="-1"
         eType="#//DemDomainEvent"/>

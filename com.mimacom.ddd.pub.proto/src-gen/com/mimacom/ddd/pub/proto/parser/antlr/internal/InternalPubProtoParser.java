@@ -23,9 +23,14 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_NATURAL", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'publication'", "'class'", "'nature:'", "'symbol:'", "'htmlPreamble:'", "'latexClass:'", "'latexPreamble:'", "'segments:'", "'divisions:'", "'title:'", "'optional:'", "'true'", "'false'", "'Abstract'", "'{'", "'}'", "'Preface'", "'Epilogue'", "'Body'", "'ChangeHistory'", "'TableOfContents'", "'maxLevel:'", "'Abbreviations'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'Glossary'", "'Index'", "'numbering:'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Sub'", "'Subsub'", "'import'", "'test'", "'context'", "','", "':'", "':='", "'in'", "'('", "')'", "'archetype'", "'is'", "'filter'", "'with'", "'*'", "'.'", "'@before'", "'|'", "'ISA'", "'isa'", "'AS'", "'as'", "'entity'", "'detail'", "'='", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'..'", "'TRUE'", "'FALSE'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'Print'", "'Web'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_NATURAL", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'publication'", "'class'", "'nature:'", "'symbol:'", "'htmlPreamble:'", "'latexClass:'", "'latexPreamble:'", "'segments:'", "'divisions:'", "'title:'", "'optional:'", "'true'", "'false'", "'Abstract'", "'{'", "'}'", "'Preface'", "'Epilogue'", "'Body'", "'ChangeHistory'", "'TableOfContents'", "'maxLevel:'", "'Abbreviations'", "'ListOfTables'", "'ListOfFigures'", "'Bibliography'", "'Glossary'", "'Index'", "'numbering:'", "'Part'", "'Appendix'", "'Chapter'", "'Section'", "'Sub'", "'Subsub'", "'import'", "'test'", "'context'", "','", "':'", "':='", "'in'", "'('", "')'", "'archetype'", "'is'", "'filter'", "'with'", "'*'", "'.'", "'@before'", "'|'", "'ISA'", "'isa'", "'AS'", "'as'", "'entity'", "'detail'", "'='", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'..'", "'TRUE'", "'FALSE'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'Print'", "'Web'", "'arabic'", "'capitalLetter'", "'smallLetter'", "'capitalRoman'", "'smallRoman'", "'none'", "'white'", "'red'", "'orange'", "'yellow'", "'green'", "'blue'", "'pink'", "'grey'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'"
     };
+    public static final int T__144=144;
+    public static final int T__143=143;
     public static final int T__50=50;
+    public static final int T__140=140;
+    public static final int T__142=142;
+    public static final int T__141=141;
     public static final int RULE_PLAIN_TEXT_ONLY=7;
     public static final int T__59=59;
     public static final int T__55=55;
@@ -33,10 +38,13 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     public static final int T__57=57;
     public static final int T__58=58;
     public static final int T__51=51;
+    public static final int T__137=137;
     public static final int T__52=52;
     public static final int T__136=136;
     public static final int T__53=53;
+    public static final int T__139=139;
     public static final int T__54=54;
+    public static final int T__138=138;
     public static final int T__133=133;
     public static final int T__132=132;
     public static final int T__60=60;
@@ -5303,7 +5311,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             int alt19=2;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==59||LA19_0==65||LA19_0==91||LA19_0==136) ) {
+            if ( (LA19_0==59||LA19_0==65||LA19_0==91||LA19_0==144) ) {
                 alt19=1;
             }
             switch (alt19) {
@@ -6371,7 +6379,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( ((LA27_0>=102 && LA27_0<=112)) ) {
+            if ( ((LA27_0>=110 && LA27_0<=120)) ) {
                 alt27=1;
             }
             else if ( (LA27_0==RULE_ID) ) {
@@ -7980,7 +7988,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_NATURAL)||(LA34_0>=28 && LA34_0<=29)||LA34_0==31||LA34_0==59||(LA34_0>=73 && LA34_0<=74)||LA34_0==76||LA34_0==80||(LA34_0>=85 && LA34_0<=88)||(LA34_0>=91 && LA34_0<=92)||(LA34_0>=133 && LA34_0<=135)) ) {
+            if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_NATURAL)||(LA34_0>=28 && LA34_0<=29)||LA34_0==31||LA34_0==59||(LA34_0>=73 && LA34_0<=74)||LA34_0==76||LA34_0==80||(LA34_0>=85 && LA34_0<=88)||(LA34_0>=91 && LA34_0<=92)||(LA34_0>=141 && LA34_0<=143)) ) {
                 alt34=1;
             }
             switch (alt34) {
@@ -8266,11 +8274,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             if ( (LA35_0==RULE_ID) ) {
                 int LA35_1 = input.LA(2);
 
-                if ( (LA35_1==68) ) {
-                    alt35=1;
-                }
-                else if ( (LA35_1==EOF||LA35_1==55||(LA35_1>=58 && LA35_1<=60)||(LA35_1>=65 && LA35_1<=67)||(LA35_1>=69 && LA35_1<=72)||LA35_1==75||LA35_1==84||(LA35_1>=91 && LA35_1<=92)||(LA35_1>=113 && LA35_1<=132)) ) {
+                if ( (LA35_1==EOF||LA35_1==55||(LA35_1>=58 && LA35_1<=60)||(LA35_1>=65 && LA35_1<=67)||(LA35_1>=69 && LA35_1<=72)||LA35_1==75||LA35_1==84||(LA35_1>=91 && LA35_1<=92)||(LA35_1>=121 && LA35_1<=140)) ) {
                     alt35=2;
+                }
+                else if ( (LA35_1==68) ) {
+                    alt35=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -8280,7 +8288,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     throw nvae;
                 }
             }
-            else if ( ((LA35_0>=RULE_STRING && LA35_0<=RULE_NATURAL)||(LA35_0>=28 && LA35_0<=29)||LA35_0==31||LA35_0==59||(LA35_0>=73 && LA35_0<=74)||LA35_0==76||LA35_0==80||(LA35_0>=85 && LA35_0<=88)||(LA35_0>=91 && LA35_0<=92)||(LA35_0>=133 && LA35_0<=135)) ) {
+            else if ( ((LA35_0>=RULE_STRING && LA35_0<=RULE_NATURAL)||(LA35_0>=28 && LA35_0<=29)||LA35_0==31||LA35_0==59||(LA35_0>=73 && LA35_0<=74)||LA35_0==76||LA35_0==80||(LA35_0>=85 && LA35_0<=88)||(LA35_0>=91 && LA35_0<=92)||(LA35_0>=141 && LA35_0<=143)) ) {
                 alt35=2;
             }
             else {
@@ -8626,7 +8634,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             do {
                 int alt36=2;
                 switch ( input.LA(1) ) {
-                case 113:
+                case 121:
                     {
                     int LA36_2 = input.LA(2);
 
@@ -8637,7 +8645,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 114:
+                case 122:
                     {
                     int LA36_3 = input.LA(2);
 
@@ -8648,7 +8656,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 115:
+                case 123:
                     {
                     int LA36_4 = input.LA(2);
 
@@ -8659,7 +8667,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 116:
+                case 124:
                     {
                     int LA36_5 = input.LA(2);
 
@@ -8889,7 +8897,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                 int alt37=2;
                 int LA37_0 = input.LA(1);
 
-                if ( (LA37_0==117) ) {
+                if ( (LA37_0==125) ) {
                     int LA37_2 = input.LA(2);
 
                     if ( (synpred5_InternalPubProto()) ) {
@@ -8898,7 +8906,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
                 }
-                else if ( (LA37_0==118) ) {
+                else if ( (LA37_0==126) ) {
                     int LA37_3 = input.LA(2);
 
                     if ( (synpred5_InternalPubProto()) ) {
@@ -9135,7 +9143,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 119:
+                case 127:
                     {
                     int LA38_3 = input.LA(2);
 
@@ -9146,7 +9154,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 120:
+                case 128:
                     {
                     int LA38_4 = input.LA(2);
 
@@ -9796,7 +9804,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             do {
                 int alt41=2;
                 switch ( input.LA(1) ) {
-                case 127:
+                case 135:
                     {
                     int LA41_2 = input.LA(2);
 
@@ -9829,7 +9837,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 128:
+                case 136:
                     {
                     int LA41_5 = input.LA(2);
 
@@ -9840,7 +9848,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 129:
+                case 137:
                     {
                     int LA41_6 = input.LA(2);
 
@@ -10316,7 +10324,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 130:
+                case 138:
                     {
                     int LA43_3 = input.LA(2);
 
@@ -10327,7 +10335,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 131:
+                case 139:
                     {
                     int LA43_4 = input.LA(2);
 
@@ -10338,7 +10346,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 132:
+                case 140:
                     {
                     int LA43_5 = input.LA(2);
 
@@ -10547,7 +10555,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             int alt44=2;
             int LA44_0 = input.LA(1);
 
-            if ( ((LA44_0>=91 && LA44_0<=92)||(LA44_0>=133 && LA44_0<=135)) ) {
+            if ( ((LA44_0>=91 && LA44_0<=92)||(LA44_0>=141 && LA44_0<=143)) ) {
                 alt44=1;
             }
             else if ( ((LA44_0>=RULE_ID && LA44_0<=RULE_NATURAL)||(LA44_0>=28 && LA44_0<=29)||LA44_0==31||LA44_0==59||(LA44_0>=73 && LA44_0<=74)||LA44_0==76||LA44_0==80||(LA44_0>=85 && LA44_0<=88)) ) {
@@ -11114,11 +11122,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                 {
                 int LA47_4 = input.LA(2);
 
-                if ( (LA47_4==59) ) {
-                    alt47=4;
-                }
-                else if ( (LA47_4==EOF||LA47_4==55||LA47_4==58||LA47_4==60||(LA47_4>=65 && LA47_4<=67)||(LA47_4>=69 && LA47_4<=72)||LA47_4==75||LA47_4==84||(LA47_4>=91 && LA47_4<=92)||(LA47_4>=113 && LA47_4<=132)) ) {
+                if ( (LA47_4==EOF||LA47_4==55||LA47_4==58||LA47_4==60||(LA47_4>=65 && LA47_4<=67)||(LA47_4>=69 && LA47_4<=72)||LA47_4==75||LA47_4==84||(LA47_4>=91 && LA47_4<=92)||(LA47_4>=121 && LA47_4<=140)) ) {
                     alt47=6;
+                }
+                else if ( (LA47_4==59) ) {
+                    alt47=4;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -13887,7 +13895,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( (LA61_0==65||LA61_0==91||LA61_0==136) ) {
+            if ( (LA61_0==65||LA61_0==91||LA61_0==144) ) {
                 alt61=1;
             }
             else if ( (LA61_0==59) ) {
@@ -15793,9 +15801,9 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleProtoSequenceNumberStyle"
 
 
-    // $ANTLR start "ruleDmxBaseType"
-    // InternalPubProto.g:5500:1: ruleDmxBaseType returns [Enumerator current=null] : ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) ;
-    public final Enumerator ruleDmxBaseType() throws RecognitionException {
+    // $ANTLR start "ruleDNoteColor"
+    // InternalPubProto.g:5500:1: ruleDNoteColor returns [Enumerator current=null] : ( (enumLiteral_0= 'white' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'orange' ) | (enumLiteral_3= 'yellow' ) | (enumLiteral_4= 'green' ) | (enumLiteral_5= 'blue' ) | (enumLiteral_6= 'pink' ) | (enumLiteral_7= 'grey' ) ) ;
+    public final Enumerator ruleDNoteColor() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -15806,19 +15814,16 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         Token enumLiteral_5=null;
         Token enumLiteral_6=null;
         Token enumLiteral_7=null;
-        Token enumLiteral_8=null;
-        Token enumLiteral_9=null;
-        Token enumLiteral_10=null;
 
 
         	enterRule();
 
         try {
-            // InternalPubProto.g:5506:2: ( ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) )
-            // InternalPubProto.g:5507:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
+            // InternalPubProto.g:5506:2: ( ( (enumLiteral_0= 'white' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'orange' ) | (enumLiteral_3= 'yellow' ) | (enumLiteral_4= 'green' ) | (enumLiteral_5= 'blue' ) | (enumLiteral_6= 'pink' ) | (enumLiteral_7= 'grey' ) ) )
+            // InternalPubProto.g:5507:2: ( (enumLiteral_0= 'white' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'orange' ) | (enumLiteral_3= 'yellow' ) | (enumLiteral_4= 'green' ) | (enumLiteral_5= 'blue' ) | (enumLiteral_6= 'pink' ) | (enumLiteral_7= 'grey' ) )
             {
-            // InternalPubProto.g:5507:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
-            int alt72=11;
+            // InternalPubProto.g:5507:2: ( (enumLiteral_0= 'white' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'orange' ) | (enumLiteral_3= 'yellow' ) | (enumLiteral_4= 'green' ) | (enumLiteral_5= 'blue' ) | (enumLiteral_6= 'pink' ) | (enumLiteral_7= 'grey' ) )
+            int alt72=8;
             switch ( input.LA(1) ) {
             case 102:
                 {
@@ -15860,21 +15865,6 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                 alt72=8;
                 }
                 break;
-            case 110:
-                {
-                alt72=9;
-                }
-                break;
-            case 111:
-                {
-                alt72=10;
-                }
-                break;
-            case 112:
-                {
-                alt72=11;
-                }
-                break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
@@ -15885,12 +15875,279 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
             switch (alt72) {
                 case 1 :
-                    // InternalPubProto.g:5508:3: (enumLiteral_0= 'VOID' )
+                    // InternalPubProto.g:5508:3: (enumLiteral_0= 'white' )
                     {
-                    // InternalPubProto.g:5508:3: (enumLiteral_0= 'VOID' )
-                    // InternalPubProto.g:5509:4: enumLiteral_0= 'VOID'
+                    // InternalPubProto.g:5508:3: (enumLiteral_0= 'white' )
+                    // InternalPubProto.g:5509:4: enumLiteral_0= 'white'
                     {
                     enumLiteral_0=(Token)match(input,102,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_0, grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPubProto.g:5516:3: (enumLiteral_1= 'red' )
+                    {
+                    // InternalPubProto.g:5516:3: (enumLiteral_1= 'red' )
+                    // InternalPubProto.g:5517:4: enumLiteral_1= 'red'
+                    {
+                    enumLiteral_1=(Token)match(input,103,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_1, grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalPubProto.g:5524:3: (enumLiteral_2= 'orange' )
+                    {
+                    // InternalPubProto.g:5524:3: (enumLiteral_2= 'orange' )
+                    // InternalPubProto.g:5525:4: enumLiteral_2= 'orange'
+                    {
+                    enumLiteral_2=(Token)match(input,104,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_2, grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalPubProto.g:5532:3: (enumLiteral_3= 'yellow' )
+                    {
+                    // InternalPubProto.g:5532:3: (enumLiteral_3= 'yellow' )
+                    // InternalPubProto.g:5533:4: enumLiteral_3= 'yellow'
+                    {
+                    enumLiteral_3=(Token)match(input,105,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_3, grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalPubProto.g:5540:3: (enumLiteral_4= 'green' )
+                    {
+                    // InternalPubProto.g:5540:3: (enumLiteral_4= 'green' )
+                    // InternalPubProto.g:5541:4: enumLiteral_4= 'green'
+                    {
+                    enumLiteral_4=(Token)match(input,106,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_4, grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalPubProto.g:5548:3: (enumLiteral_5= 'blue' )
+                    {
+                    // InternalPubProto.g:5548:3: (enumLiteral_5= 'blue' )
+                    // InternalPubProto.g:5549:4: enumLiteral_5= 'blue'
+                    {
+                    enumLiteral_5=(Token)match(input,107,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_5, grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalPubProto.g:5556:3: (enumLiteral_6= 'pink' )
+                    {
+                    // InternalPubProto.g:5556:3: (enumLiteral_6= 'pink' )
+                    // InternalPubProto.g:5557:4: enumLiteral_6= 'pink'
+                    {
+                    enumLiteral_6=(Token)match(input,108,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_6, grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 8 :
+                    // InternalPubProto.g:5564:3: (enumLiteral_7= 'grey' )
+                    {
+                    // InternalPubProto.g:5564:3: (enumLiteral_7= 'grey' )
+                    // InternalPubProto.g:5565:4: enumLiteral_7= 'grey'
+                    {
+                    enumLiteral_7=(Token)match(input,109,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_7, grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDNoteColor"
+
+
+    // $ANTLR start "ruleDmxBaseType"
+    // InternalPubProto.g:5575:1: ruleDmxBaseType returns [Enumerator current=null] : ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) ;
+    public final Enumerator ruleDmxBaseType() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+        Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+        Token enumLiteral_5=null;
+        Token enumLiteral_6=null;
+        Token enumLiteral_7=null;
+        Token enumLiteral_8=null;
+        Token enumLiteral_9=null;
+        Token enumLiteral_10=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalPubProto.g:5581:2: ( ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) ) )
+            // InternalPubProto.g:5582:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
+            {
+            // InternalPubProto.g:5582:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'STATE' ) | (enumLiteral_7= 'STATE_EVENT' ) | (enumLiteral_8= 'COMPLEX' ) | (enumLiteral_9= 'NOTIFICATION' ) | (enumLiteral_10= 'SERVICE' ) )
+            int alt73=11;
+            switch ( input.LA(1) ) {
+            case 110:
+                {
+                alt73=1;
+                }
+                break;
+            case 111:
+                {
+                alt73=2;
+                }
+                break;
+            case 112:
+                {
+                alt73=3;
+                }
+                break;
+            case 113:
+                {
+                alt73=4;
+                }
+                break;
+            case 114:
+                {
+                alt73=5;
+                }
+                break;
+            case 115:
+                {
+                alt73=6;
+                }
+                break;
+            case 116:
+                {
+                alt73=7;
+                }
+                break;
+            case 117:
+                {
+                alt73=8;
+                }
+                break;
+            case 118:
+                {
+                alt73=9;
+                }
+                break;
+            case 119:
+                {
+                alt73=10;
+                }
+                break;
+            case 120:
+                {
+                alt73=11;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 73, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt73) {
+                case 1 :
+                    // InternalPubProto.g:5583:3: (enumLiteral_0= 'VOID' )
+                    {
+                    // InternalPubProto.g:5583:3: (enumLiteral_0= 'VOID' )
+                    // InternalPubProto.g:5584:4: enumLiteral_0= 'VOID'
+                    {
+                    enumLiteral_0=(Token)match(input,110,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getVOIDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -15904,12 +16161,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5516:3: (enumLiteral_1= 'BOOLEAN' )
+                    // InternalPubProto.g:5591:3: (enumLiteral_1= 'BOOLEAN' )
                     {
-                    // InternalPubProto.g:5516:3: (enumLiteral_1= 'BOOLEAN' )
-                    // InternalPubProto.g:5517:4: enumLiteral_1= 'BOOLEAN'
+                    // InternalPubProto.g:5591:3: (enumLiteral_1= 'BOOLEAN' )
+                    // InternalPubProto.g:5592:4: enumLiteral_1= 'BOOLEAN'
                     {
-                    enumLiteral_1=(Token)match(input,103,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,111,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getBOOLEANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -15923,12 +16180,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5524:3: (enumLiteral_2= 'NUMBER' )
+                    // InternalPubProto.g:5599:3: (enumLiteral_2= 'NUMBER' )
                     {
-                    // InternalPubProto.g:5524:3: (enumLiteral_2= 'NUMBER' )
-                    // InternalPubProto.g:5525:4: enumLiteral_2= 'NUMBER'
+                    // InternalPubProto.g:5599:3: (enumLiteral_2= 'NUMBER' )
+                    // InternalPubProto.g:5600:4: enumLiteral_2= 'NUMBER'
                     {
-                    enumLiteral_2=(Token)match(input,104,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,112,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getNUMBEREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -15942,12 +16199,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPubProto.g:5532:3: (enumLiteral_3= 'TEXT' )
+                    // InternalPubProto.g:5607:3: (enumLiteral_3= 'TEXT' )
                     {
-                    // InternalPubProto.g:5532:3: (enumLiteral_3= 'TEXT' )
-                    // InternalPubProto.g:5533:4: enumLiteral_3= 'TEXT'
+                    // InternalPubProto.g:5607:3: (enumLiteral_3= 'TEXT' )
+                    // InternalPubProto.g:5608:4: enumLiteral_3= 'TEXT'
                     {
-                    enumLiteral_3=(Token)match(input,105,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,113,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getTEXTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -15961,12 +16218,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalPubProto.g:5540:3: (enumLiteral_4= 'IDENTIFIER' )
+                    // InternalPubProto.g:5615:3: (enumLiteral_4= 'IDENTIFIER' )
                     {
-                    // InternalPubProto.g:5540:3: (enumLiteral_4= 'IDENTIFIER' )
-                    // InternalPubProto.g:5541:4: enumLiteral_4= 'IDENTIFIER'
+                    // InternalPubProto.g:5615:3: (enumLiteral_4= 'IDENTIFIER' )
+                    // InternalPubProto.g:5616:4: enumLiteral_4= 'IDENTIFIER'
                     {
-                    enumLiteral_4=(Token)match(input,106,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,114,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getIDENTIFIEREnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -15980,12 +16237,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalPubProto.g:5548:3: (enumLiteral_5= 'TIMEPOINT' )
+                    // InternalPubProto.g:5623:3: (enumLiteral_5= 'TIMEPOINT' )
                     {
-                    // InternalPubProto.g:5548:3: (enumLiteral_5= 'TIMEPOINT' )
-                    // InternalPubProto.g:5549:4: enumLiteral_5= 'TIMEPOINT'
+                    // InternalPubProto.g:5623:3: (enumLiteral_5= 'TIMEPOINT' )
+                    // InternalPubProto.g:5624:4: enumLiteral_5= 'TIMEPOINT'
                     {
-                    enumLiteral_5=(Token)match(input,107,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,115,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getTIMEPOINTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -15999,12 +16256,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalPubProto.g:5556:3: (enumLiteral_6= 'STATE' )
+                    // InternalPubProto.g:5631:3: (enumLiteral_6= 'STATE' )
                     {
-                    // InternalPubProto.g:5556:3: (enumLiteral_6= 'STATE' )
-                    // InternalPubProto.g:5557:4: enumLiteral_6= 'STATE'
+                    // InternalPubProto.g:5631:3: (enumLiteral_6= 'STATE' )
+                    // InternalPubProto.g:5632:4: enumLiteral_6= 'STATE'
                     {
-                    enumLiteral_6=(Token)match(input,108,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,116,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getSTATEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -16018,12 +16275,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalPubProto.g:5564:3: (enumLiteral_7= 'STATE_EVENT' )
+                    // InternalPubProto.g:5639:3: (enumLiteral_7= 'STATE_EVENT' )
                     {
-                    // InternalPubProto.g:5564:3: (enumLiteral_7= 'STATE_EVENT' )
-                    // InternalPubProto.g:5565:4: enumLiteral_7= 'STATE_EVENT'
+                    // InternalPubProto.g:5639:3: (enumLiteral_7= 'STATE_EVENT' )
+                    // InternalPubProto.g:5640:4: enumLiteral_7= 'STATE_EVENT'
                     {
-                    enumLiteral_7=(Token)match(input,109,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,117,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getSTATE_EVENTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -16037,12 +16294,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalPubProto.g:5572:3: (enumLiteral_8= 'COMPLEX' )
+                    // InternalPubProto.g:5647:3: (enumLiteral_8= 'COMPLEX' )
                     {
-                    // InternalPubProto.g:5572:3: (enumLiteral_8= 'COMPLEX' )
-                    // InternalPubProto.g:5573:4: enumLiteral_8= 'COMPLEX'
+                    // InternalPubProto.g:5647:3: (enumLiteral_8= 'COMPLEX' )
+                    // InternalPubProto.g:5648:4: enumLiteral_8= 'COMPLEX'
                     {
-                    enumLiteral_8=(Token)match(input,110,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,118,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -16056,12 +16313,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalPubProto.g:5580:3: (enumLiteral_9= 'NOTIFICATION' )
+                    // InternalPubProto.g:5655:3: (enumLiteral_9= 'NOTIFICATION' )
                     {
-                    // InternalPubProto.g:5580:3: (enumLiteral_9= 'NOTIFICATION' )
-                    // InternalPubProto.g:5581:4: enumLiteral_9= 'NOTIFICATION'
+                    // InternalPubProto.g:5655:3: (enumLiteral_9= 'NOTIFICATION' )
+                    // InternalPubProto.g:5656:4: enumLiteral_9= 'NOTIFICATION'
                     {
-                    enumLiteral_9=(Token)match(input,111,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,119,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -16075,12 +16332,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalPubProto.g:5588:3: (enumLiteral_10= 'SERVICE' )
+                    // InternalPubProto.g:5663:3: (enumLiteral_10= 'SERVICE' )
                     {
-                    // InternalPubProto.g:5588:3: (enumLiteral_10= 'SERVICE' )
-                    // InternalPubProto.g:5589:4: enumLiteral_10= 'SERVICE'
+                    // InternalPubProto.g:5663:3: (enumLiteral_10= 'SERVICE' )
+                    // InternalPubProto.g:5664:4: enumLiteral_10= 'SERVICE'
                     {
-                    enumLiteral_10=(Token)match(input,112,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,120,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -16118,7 +16375,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpOr"
-    // InternalPubProto.g:5599:1: ruleDmxOpOr returns [Enumerator current=null] : ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) ;
+    // InternalPubProto.g:5674:1: ruleDmxOpOr returns [Enumerator current=null] : ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) ;
     public final Enumerator ruleDmxOpOr() throws RecognitionException {
         Enumerator current = null;
 
@@ -16131,48 +16388,48 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5605:2: ( ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) )
-            // InternalPubProto.g:5606:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
+            // InternalPubProto.g:5680:2: ( ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) ) )
+            // InternalPubProto.g:5681:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
             {
-            // InternalPubProto.g:5606:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
-            int alt73=4;
+            // InternalPubProto.g:5681:2: ( (enumLiteral_0= 'OR' ) | (enumLiteral_1= 'or' ) | (enumLiteral_2= 'XOR' ) | (enumLiteral_3= 'xor' ) )
+            int alt74=4;
             switch ( input.LA(1) ) {
-            case 113:
+            case 121:
                 {
-                alt73=1;
+                alt74=1;
                 }
                 break;
-            case 114:
+            case 122:
                 {
-                alt73=2;
+                alt74=2;
                 }
                 break;
-            case 115:
+            case 123:
                 {
-                alt73=3;
+                alt74=3;
                 }
                 break;
-            case 116:
+            case 124:
                 {
-                alt73=4;
+                alt74=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 73, 0, input);
+                    new NoViableAltException("", 74, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt73) {
+            switch (alt74) {
                 case 1 :
-                    // InternalPubProto.g:5607:3: (enumLiteral_0= 'OR' )
+                    // InternalPubProto.g:5682:3: (enumLiteral_0= 'OR' )
                     {
-                    // InternalPubProto.g:5607:3: (enumLiteral_0= 'OR' )
-                    // InternalPubProto.g:5608:4: enumLiteral_0= 'OR'
+                    // InternalPubProto.g:5682:3: (enumLiteral_0= 'OR' )
+                    // InternalPubProto.g:5683:4: enumLiteral_0= 'OR'
                     {
-                    enumLiteral_0=(Token)match(input,113,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,121,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpOrAccess().getOREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -16186,12 +16443,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5615:3: (enumLiteral_1= 'or' )
+                    // InternalPubProto.g:5690:3: (enumLiteral_1= 'or' )
                     {
-                    // InternalPubProto.g:5615:3: (enumLiteral_1= 'or' )
-                    // InternalPubProto.g:5616:4: enumLiteral_1= 'or'
+                    // InternalPubProto.g:5690:3: (enumLiteral_1= 'or' )
+                    // InternalPubProto.g:5691:4: enumLiteral_1= 'or'
                     {
-                    enumLiteral_1=(Token)match(input,114,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,122,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpOrAccess().getOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -16205,12 +16462,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5623:3: (enumLiteral_2= 'XOR' )
+                    // InternalPubProto.g:5698:3: (enumLiteral_2= 'XOR' )
                     {
-                    // InternalPubProto.g:5623:3: (enumLiteral_2= 'XOR' )
-                    // InternalPubProto.g:5624:4: enumLiteral_2= 'XOR'
+                    // InternalPubProto.g:5698:3: (enumLiteral_2= 'XOR' )
+                    // InternalPubProto.g:5699:4: enumLiteral_2= 'XOR'
                     {
-                    enumLiteral_2=(Token)match(input,115,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,123,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpOrAccess().getXOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -16224,12 +16481,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPubProto.g:5631:3: (enumLiteral_3= 'xor' )
+                    // InternalPubProto.g:5706:3: (enumLiteral_3= 'xor' )
                     {
-                    // InternalPubProto.g:5631:3: (enumLiteral_3= 'xor' )
-                    // InternalPubProto.g:5632:4: enumLiteral_3= 'xor'
+                    // InternalPubProto.g:5706:3: (enumLiteral_3= 'xor' )
+                    // InternalPubProto.g:5707:4: enumLiteral_3= 'xor'
                     {
-                    enumLiteral_3=(Token)match(input,116,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,124,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpOrAccess().getXOREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -16267,7 +16524,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpAnd"
-    // InternalPubProto.g:5642:1: ruleDmxOpAnd returns [Enumerator current=null] : ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) ;
+    // InternalPubProto.g:5717:1: ruleDmxOpAnd returns [Enumerator current=null] : ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) ;
     public final Enumerator ruleDmxOpAnd() throws RecognitionException {
         Enumerator current = null;
 
@@ -16278,34 +16535,34 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5648:2: ( ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) )
-            // InternalPubProto.g:5649:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
+            // InternalPubProto.g:5723:2: ( ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) ) )
+            // InternalPubProto.g:5724:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
             {
-            // InternalPubProto.g:5649:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
-            int alt74=2;
-            int LA74_0 = input.LA(1);
+            // InternalPubProto.g:5724:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'and' ) )
+            int alt75=2;
+            int LA75_0 = input.LA(1);
 
-            if ( (LA74_0==117) ) {
-                alt74=1;
+            if ( (LA75_0==125) ) {
+                alt75=1;
             }
-            else if ( (LA74_0==118) ) {
-                alt74=2;
+            else if ( (LA75_0==126) ) {
+                alt75=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 74, 0, input);
+                    new NoViableAltException("", 75, 0, input);
 
                 throw nvae;
             }
-            switch (alt74) {
+            switch (alt75) {
                 case 1 :
-                    // InternalPubProto.g:5650:3: (enumLiteral_0= 'AND' )
+                    // InternalPubProto.g:5725:3: (enumLiteral_0= 'AND' )
                     {
-                    // InternalPubProto.g:5650:3: (enumLiteral_0= 'AND' )
-                    // InternalPubProto.g:5651:4: enumLiteral_0= 'AND'
+                    // InternalPubProto.g:5725:3: (enumLiteral_0= 'AND' )
+                    // InternalPubProto.g:5726:4: enumLiteral_0= 'AND'
                     {
-                    enumLiteral_0=(Token)match(input,117,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,125,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpAndAccess().getANDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -16319,12 +16576,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5658:3: (enumLiteral_1= 'and' )
+                    // InternalPubProto.g:5733:3: (enumLiteral_1= 'and' )
                     {
-                    // InternalPubProto.g:5658:3: (enumLiteral_1= 'and' )
-                    // InternalPubProto.g:5659:4: enumLiteral_1= 'and'
+                    // InternalPubProto.g:5733:3: (enumLiteral_1= 'and' )
+                    // InternalPubProto.g:5734:4: enumLiteral_1= 'and'
                     {
-                    enumLiteral_1=(Token)match(input,118,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,126,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpAndAccess().getANDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -16362,7 +16619,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxOpEquality"
-    // InternalPubProto.g:5669:1: ruleDmxOpEquality returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) ;
+    // InternalPubProto.g:5744:1: ruleDmxOpEquality returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) ;
     public final Enumerator ruleDmxOpEquality() throws RecognitionException {
         Enumerator current = null;
 
@@ -16374,41 +16631,41 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5675:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) )
-            // InternalPubProto.g:5676:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
+            // InternalPubProto.g:5750:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) ) )
+            // InternalPubProto.g:5751:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
             {
-            // InternalPubProto.g:5676:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
-            int alt75=3;
+            // InternalPubProto.g:5751:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '<>' ) )
+            int alt76=3;
             switch ( input.LA(1) ) {
             case 75:
                 {
-                alt75=1;
+                alt76=1;
                 }
                 break;
-            case 119:
+            case 127:
                 {
-                alt75=2;
+                alt76=2;
                 }
                 break;
-            case 120:
+            case 128:
                 {
-                alt75=3;
+                alt76=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 75, 0, input);
+                    new NoViableAltException("", 76, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt75) {
+            switch (alt76) {
                 case 1 :
-                    // InternalPubProto.g:5677:3: (enumLiteral_0= '=' )
+                    // InternalPubProto.g:5752:3: (enumLiteral_0= '=' )
                     {
-                    // InternalPubProto.g:5677:3: (enumLiteral_0= '=' )
-                    // InternalPubProto.g:5678:4: enumLiteral_0= '='
+                    // InternalPubProto.g:5752:3: (enumLiteral_0= '=' )
+                    // InternalPubProto.g:5753:4: enumLiteral_0= '='
                     {
                     enumLiteral_0=(Token)match(input,75,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16424,12 +16681,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5685:3: (enumLiteral_1= '!=' )
+                    // InternalPubProto.g:5760:3: (enumLiteral_1= '!=' )
                     {
-                    // InternalPubProto.g:5685:3: (enumLiteral_1= '!=' )
-                    // InternalPubProto.g:5686:4: enumLiteral_1= '!='
+                    // InternalPubProto.g:5760:3: (enumLiteral_1= '!=' )
+                    // InternalPubProto.g:5761:4: enumLiteral_1= '!='
                     {
-                    enumLiteral_1=(Token)match(input,119,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,127,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpEqualityAccess().getNOT_EQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -16443,12 +16700,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5693:3: (enumLiteral_2= '<>' )
+                    // InternalPubProto.g:5768:3: (enumLiteral_2= '<>' )
                     {
-                    // InternalPubProto.g:5693:3: (enumLiteral_2= '<>' )
-                    // InternalPubProto.g:5694:4: enumLiteral_2= '<>'
+                    // InternalPubProto.g:5768:3: (enumLiteral_2= '<>' )
+                    // InternalPubProto.g:5769:4: enumLiteral_2= '<>'
                     {
-                    enumLiteral_2=(Token)match(input,120,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,128,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDmxOpEqualityAccess().getNOT_EQUALEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -16486,7 +16743,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpCompare"
-    // InternalPubProto.g:5704:1: ruleOpCompare returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) ;
+    // InternalPubProto.g:5779:1: ruleOpCompare returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) ;
     public final Enumerator ruleOpCompare() throws RecognitionException {
         Enumerator current = null;
 
@@ -16501,58 +16758,58 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5710:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) )
-            // InternalPubProto.g:5711:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
+            // InternalPubProto.g:5785:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) ) )
+            // InternalPubProto.g:5786:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
             {
-            // InternalPubProto.g:5711:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
-            int alt76=6;
+            // InternalPubProto.g:5786:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '\\u2264' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '\\u2265' ) | (enumLiteral_5= '>' ) )
+            int alt77=6;
             switch ( input.LA(1) ) {
-            case 121:
+            case 129:
                 {
-                alt76=1;
+                alt77=1;
                 }
                 break;
-            case 122:
+            case 130:
                 {
-                alt76=2;
+                alt77=2;
                 }
                 break;
-            case 123:
+            case 131:
                 {
-                alt76=3;
+                alt77=3;
                 }
                 break;
-            case 124:
+            case 132:
                 {
-                alt76=4;
+                alt77=4;
                 }
                 break;
-            case 125:
+            case 133:
                 {
-                alt76=5;
+                alt77=5;
                 }
                 break;
-            case 126:
+            case 134:
                 {
-                alt76=6;
+                alt77=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 76, 0, input);
+                    new NoViableAltException("", 77, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt76) {
+            switch (alt77) {
                 case 1 :
-                    // InternalPubProto.g:5712:3: (enumLiteral_0= '<' )
+                    // InternalPubProto.g:5787:3: (enumLiteral_0= '<' )
                     {
-                    // InternalPubProto.g:5712:3: (enumLiteral_0= '<' )
-                    // InternalPubProto.g:5713:4: enumLiteral_0= '<'
+                    // InternalPubProto.g:5787:3: (enumLiteral_0= '<' )
+                    // InternalPubProto.g:5788:4: enumLiteral_0= '<'
                     {
-                    enumLiteral_0=(Token)match(input,121,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,129,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpCompareAccess().getLESSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -16566,12 +16823,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5720:3: (enumLiteral_1= '<=' )
+                    // InternalPubProto.g:5795:3: (enumLiteral_1= '<=' )
                     {
-                    // InternalPubProto.g:5720:3: (enumLiteral_1= '<=' )
-                    // InternalPubProto.g:5721:4: enumLiteral_1= '<='
+                    // InternalPubProto.g:5795:3: (enumLiteral_1= '<=' )
+                    // InternalPubProto.g:5796:4: enumLiteral_1= '<='
                     {
-                    enumLiteral_1=(Token)match(input,122,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,130,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpCompareAccess().getLESS_OR_EQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -16585,12 +16842,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5728:3: (enumLiteral_2= '\\u2264' )
+                    // InternalPubProto.g:5803:3: (enumLiteral_2= '\\u2264' )
                     {
-                    // InternalPubProto.g:5728:3: (enumLiteral_2= '\\u2264' )
-                    // InternalPubProto.g:5729:4: enumLiteral_2= '\\u2264'
+                    // InternalPubProto.g:5803:3: (enumLiteral_2= '\\u2264' )
+                    // InternalPubProto.g:5804:4: enumLiteral_2= '\\u2264'
                     {
-                    enumLiteral_2=(Token)match(input,123,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,131,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpCompareAccess().getLESS_OR_EQUALEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -16604,12 +16861,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPubProto.g:5736:3: (enumLiteral_3= '>=' )
+                    // InternalPubProto.g:5811:3: (enumLiteral_3= '>=' )
                     {
-                    // InternalPubProto.g:5736:3: (enumLiteral_3= '>=' )
-                    // InternalPubProto.g:5737:4: enumLiteral_3= '>='
+                    // InternalPubProto.g:5811:3: (enumLiteral_3= '>=' )
+                    // InternalPubProto.g:5812:4: enumLiteral_3= '>='
                     {
-                    enumLiteral_3=(Token)match(input,124,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,132,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpCompareAccess().getGREATER_OR_EQUALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -16623,12 +16880,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalPubProto.g:5744:3: (enumLiteral_4= '\\u2265' )
+                    // InternalPubProto.g:5819:3: (enumLiteral_4= '\\u2265' )
                     {
-                    // InternalPubProto.g:5744:3: (enumLiteral_4= '\\u2265' )
-                    // InternalPubProto.g:5745:4: enumLiteral_4= '\\u2265'
+                    // InternalPubProto.g:5819:3: (enumLiteral_4= '\\u2265' )
+                    // InternalPubProto.g:5820:4: enumLiteral_4= '\\u2265'
                     {
-                    enumLiteral_4=(Token)match(input,125,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,133,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpCompareAccess().getGREATER_OR_EQUALEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -16642,12 +16899,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalPubProto.g:5752:3: (enumLiteral_5= '>' )
+                    // InternalPubProto.g:5827:3: (enumLiteral_5= '>' )
                     {
-                    // InternalPubProto.g:5752:3: (enumLiteral_5= '>' )
-                    // InternalPubProto.g:5753:4: enumLiteral_5= '>'
+                    // InternalPubProto.g:5827:3: (enumLiteral_5= '>' )
+                    // InternalPubProto.g:5828:4: enumLiteral_5= '>'
                     {
-                    enumLiteral_5=(Token)match(input,126,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,134,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpCompareAccess().getGREATEREnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -16685,7 +16942,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpOther"
-    // InternalPubProto.g:5763:1: ruleOpOther returns [Enumerator current=null] : ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) ;
+    // InternalPubProto.g:5838:1: ruleOpOther returns [Enumerator current=null] : ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) ;
     public final Enumerator ruleOpOther() throws RecognitionException {
         Enumerator current = null;
 
@@ -16699,53 +16956,53 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5769:2: ( ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) )
-            // InternalPubProto.g:5770:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
+            // InternalPubProto.g:5844:2: ( ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) ) )
+            // InternalPubProto.g:5845:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
             {
-            // InternalPubProto.g:5770:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
-            int alt77=5;
+            // InternalPubProto.g:5845:2: ( (enumLiteral_0= 'IN' ) | (enumLiteral_1= 'in' ) | (enumLiteral_2= '..' ) | (enumLiteral_3= '->' ) | (enumLiteral_4= '=>' ) )
+            int alt78=5;
             switch ( input.LA(1) ) {
-            case 127:
+            case 135:
                 {
-                alt77=1;
+                alt78=1;
                 }
                 break;
             case 58:
                 {
-                alt77=2;
+                alt78=2;
                 }
                 break;
             case 84:
                 {
-                alt77=3;
+                alt78=3;
                 }
                 break;
-            case 128:
+            case 136:
                 {
-                alt77=4;
+                alt78=4;
                 }
                 break;
-            case 129:
+            case 137:
                 {
-                alt77=5;
+                alt78=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 77, 0, input);
+                    new NoViableAltException("", 78, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt77) {
+            switch (alt78) {
                 case 1 :
-                    // InternalPubProto.g:5771:3: (enumLiteral_0= 'IN' )
+                    // InternalPubProto.g:5846:3: (enumLiteral_0= 'IN' )
                     {
-                    // InternalPubProto.g:5771:3: (enumLiteral_0= 'IN' )
-                    // InternalPubProto.g:5772:4: enumLiteral_0= 'IN'
+                    // InternalPubProto.g:5846:3: (enumLiteral_0= 'IN' )
+                    // InternalPubProto.g:5847:4: enumLiteral_0= 'IN'
                     {
-                    enumLiteral_0=(Token)match(input,127,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,135,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpOtherAccess().getINEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -16759,10 +17016,10 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5779:3: (enumLiteral_1= 'in' )
+                    // InternalPubProto.g:5854:3: (enumLiteral_1= 'in' )
                     {
-                    // InternalPubProto.g:5779:3: (enumLiteral_1= 'in' )
-                    // InternalPubProto.g:5780:4: enumLiteral_1= 'in'
+                    // InternalPubProto.g:5854:3: (enumLiteral_1= 'in' )
+                    // InternalPubProto.g:5855:4: enumLiteral_1= 'in'
                     {
                     enumLiteral_1=(Token)match(input,58,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16778,10 +17035,10 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5787:3: (enumLiteral_2= '..' )
+                    // InternalPubProto.g:5862:3: (enumLiteral_2= '..' )
                     {
-                    // InternalPubProto.g:5787:3: (enumLiteral_2= '..' )
-                    // InternalPubProto.g:5788:4: enumLiteral_2= '..'
+                    // InternalPubProto.g:5862:3: (enumLiteral_2= '..' )
+                    // InternalPubProto.g:5863:4: enumLiteral_2= '..'
                     {
                     enumLiteral_2=(Token)match(input,84,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16797,12 +17054,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPubProto.g:5795:3: (enumLiteral_3= '->' )
+                    // InternalPubProto.g:5870:3: (enumLiteral_3= '->' )
                     {
-                    // InternalPubProto.g:5795:3: (enumLiteral_3= '->' )
-                    // InternalPubProto.g:5796:4: enumLiteral_3= '->'
+                    // InternalPubProto.g:5870:3: (enumLiteral_3= '->' )
+                    // InternalPubProto.g:5871:4: enumLiteral_3= '->'
                     {
-                    enumLiteral_3=(Token)match(input,128,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,136,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpOtherAccess().getSINGLE_ARROWEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -16816,12 +17073,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalPubProto.g:5803:3: (enumLiteral_4= '=>' )
+                    // InternalPubProto.g:5878:3: (enumLiteral_4= '=>' )
                     {
-                    // InternalPubProto.g:5803:3: (enumLiteral_4= '=>' )
-                    // InternalPubProto.g:5804:4: enumLiteral_4= '=>'
+                    // InternalPubProto.g:5878:3: (enumLiteral_4= '=>' )
+                    // InternalPubProto.g:5879:4: enumLiteral_4= '=>'
                     {
-                    enumLiteral_4=(Token)match(input,129,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,137,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpOtherAccess().getDOUBLE_ARROWEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -16859,7 +17116,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpAdd"
-    // InternalPubProto.g:5814:1: ruleOpAdd returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
+    // InternalPubProto.g:5889:1: ruleOpAdd returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
     public final Enumerator ruleOpAdd() throws RecognitionException {
         Enumerator current = null;
 
@@ -16870,32 +17127,32 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5820:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
-            // InternalPubProto.g:5821:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // InternalPubProto.g:5895:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
+            // InternalPubProto.g:5896:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             {
-            // InternalPubProto.g:5821:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            // InternalPubProto.g:5896:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            int alt79=2;
+            int LA79_0 = input.LA(1);
 
-            if ( (LA78_0==91) ) {
-                alt78=1;
+            if ( (LA79_0==91) ) {
+                alt79=1;
             }
-            else if ( (LA78_0==92) ) {
-                alt78=2;
+            else if ( (LA79_0==92) ) {
+                alt79=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 78, 0, input);
+                    new NoViableAltException("", 79, 0, input);
 
                 throw nvae;
             }
-            switch (alt78) {
+            switch (alt79) {
                 case 1 :
-                    // InternalPubProto.g:5822:3: (enumLiteral_0= '+' )
+                    // InternalPubProto.g:5897:3: (enumLiteral_0= '+' )
                     {
-                    // InternalPubProto.g:5822:3: (enumLiteral_0= '+' )
-                    // InternalPubProto.g:5823:4: enumLiteral_0= '+'
+                    // InternalPubProto.g:5897:3: (enumLiteral_0= '+' )
+                    // InternalPubProto.g:5898:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16911,10 +17168,10 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5830:3: (enumLiteral_1= '-' )
+                    // InternalPubProto.g:5905:3: (enumLiteral_1= '-' )
                     {
-                    // InternalPubProto.g:5830:3: (enumLiteral_1= '-' )
-                    // InternalPubProto.g:5831:4: enumLiteral_1= '-'
+                    // InternalPubProto.g:5905:3: (enumLiteral_1= '-' )
+                    // InternalPubProto.g:5906:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,92,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16954,7 +17211,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpMulti"
-    // InternalPubProto.g:5841:1: ruleOpMulti returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) ;
+    // InternalPubProto.g:5916:1: ruleOpMulti returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) ;
     public final Enumerator ruleOpMulti() throws RecognitionException {
         Enumerator current = null;
 
@@ -16967,46 +17224,46 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5847:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) )
-            // InternalPubProto.g:5848:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
+            // InternalPubProto.g:5922:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) ) )
+            // InternalPubProto.g:5923:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
             {
-            // InternalPubProto.g:5848:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
-            int alt79=4;
+            // InternalPubProto.g:5923:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '**' ) | (enumLiteral_3= '%' ) )
+            int alt80=4;
             switch ( input.LA(1) ) {
             case 65:
                 {
-                alt79=1;
+                alt80=1;
                 }
                 break;
-            case 130:
+            case 138:
                 {
-                alt79=2;
+                alt80=2;
                 }
                 break;
-            case 131:
+            case 139:
                 {
-                alt79=3;
+                alt80=3;
                 }
                 break;
-            case 132:
+            case 140:
                 {
-                alt79=4;
+                alt80=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 79, 0, input);
+                    new NoViableAltException("", 80, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt79) {
+            switch (alt80) {
                 case 1 :
-                    // InternalPubProto.g:5849:3: (enumLiteral_0= '*' )
+                    // InternalPubProto.g:5924:3: (enumLiteral_0= '*' )
                     {
-                    // InternalPubProto.g:5849:3: (enumLiteral_0= '*' )
-                    // InternalPubProto.g:5850:4: enumLiteral_0= '*'
+                    // InternalPubProto.g:5924:3: (enumLiteral_0= '*' )
+                    // InternalPubProto.g:5925:4: enumLiteral_0= '*'
                     {
                     enumLiteral_0=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17022,12 +17279,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5857:3: (enumLiteral_1= '/' )
+                    // InternalPubProto.g:5932:3: (enumLiteral_1= '/' )
                     {
-                    // InternalPubProto.g:5857:3: (enumLiteral_1= '/' )
-                    // InternalPubProto.g:5858:4: enumLiteral_1= '/'
+                    // InternalPubProto.g:5932:3: (enumLiteral_1= '/' )
+                    // InternalPubProto.g:5933:4: enumLiteral_1= '/'
                     {
-                    enumLiteral_1=(Token)match(input,130,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,138,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpMultiAccess().getDIVIDEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -17041,12 +17298,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5865:3: (enumLiteral_2= '**' )
+                    // InternalPubProto.g:5940:3: (enumLiteral_2= '**' )
                     {
-                    // InternalPubProto.g:5865:3: (enumLiteral_2= '**' )
-                    // InternalPubProto.g:5866:4: enumLiteral_2= '**'
+                    // InternalPubProto.g:5940:3: (enumLiteral_2= '**' )
+                    // InternalPubProto.g:5941:4: enumLiteral_2= '**'
                     {
-                    enumLiteral_2=(Token)match(input,131,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,139,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpMultiAccess().getPOWEREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -17060,12 +17317,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPubProto.g:5873:3: (enumLiteral_3= '%' )
+                    // InternalPubProto.g:5948:3: (enumLiteral_3= '%' )
                     {
-                    // InternalPubProto.g:5873:3: (enumLiteral_3= '%' )
-                    // InternalPubProto.g:5874:4: enumLiteral_3= '%'
+                    // InternalPubProto.g:5948:3: (enumLiteral_3= '%' )
+                    // InternalPubProto.g:5949:4: enumLiteral_3= '%'
                     {
-                    enumLiteral_3=(Token)match(input,132,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,140,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpMultiAccess().getMODULOEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -17103,7 +17360,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpUnary"
-    // InternalPubProto.g:5884:1: ruleOpUnary returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) ;
+    // InternalPubProto.g:5959:1: ruleOpUnary returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) ;
     public final Enumerator ruleOpUnary() throws RecognitionException {
         Enumerator current = null;
 
@@ -17117,51 +17374,51 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5890:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) )
-            // InternalPubProto.g:5891:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
+            // InternalPubProto.g:5965:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) ) )
+            // InternalPubProto.g:5966:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
             {
-            // InternalPubProto.g:5891:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
-            int alt80=5;
+            // InternalPubProto.g:5966:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '!' ) | (enumLiteral_3= 'NOT' ) | (enumLiteral_4= 'not' ) )
+            int alt81=5;
             switch ( input.LA(1) ) {
             case 91:
                 {
-                alt80=1;
+                alt81=1;
                 }
                 break;
             case 92:
                 {
-                alt80=2;
+                alt81=2;
                 }
                 break;
-            case 133:
+            case 141:
                 {
-                alt80=3;
+                alt81=3;
                 }
                 break;
-            case 134:
+            case 142:
                 {
-                alt80=4;
+                alt81=4;
                 }
                 break;
-            case 135:
+            case 143:
                 {
-                alt80=5;
+                alt81=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 80, 0, input);
+                    new NoViableAltException("", 81, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt80) {
+            switch (alt81) {
                 case 1 :
-                    // InternalPubProto.g:5892:3: (enumLiteral_0= '+' )
+                    // InternalPubProto.g:5967:3: (enumLiteral_0= '+' )
                     {
-                    // InternalPubProto.g:5892:3: (enumLiteral_0= '+' )
-                    // InternalPubProto.g:5893:4: enumLiteral_0= '+'
+                    // InternalPubProto.g:5967:3: (enumLiteral_0= '+' )
+                    // InternalPubProto.g:5968:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17177,10 +17434,10 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5900:3: (enumLiteral_1= '-' )
+                    // InternalPubProto.g:5975:3: (enumLiteral_1= '-' )
                     {
-                    // InternalPubProto.g:5900:3: (enumLiteral_1= '-' )
-                    // InternalPubProto.g:5901:4: enumLiteral_1= '-'
+                    // InternalPubProto.g:5975:3: (enumLiteral_1= '-' )
+                    // InternalPubProto.g:5976:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,92,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17196,12 +17453,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5908:3: (enumLiteral_2= '!' )
+                    // InternalPubProto.g:5983:3: (enumLiteral_2= '!' )
                     {
-                    // InternalPubProto.g:5908:3: (enumLiteral_2= '!' )
-                    // InternalPubProto.g:5909:4: enumLiteral_2= '!'
+                    // InternalPubProto.g:5983:3: (enumLiteral_2= '!' )
+                    // InternalPubProto.g:5984:4: enumLiteral_2= '!'
                     {
-                    enumLiteral_2=(Token)match(input,133,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,141,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpUnaryAccess().getNOTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -17215,12 +17472,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPubProto.g:5916:3: (enumLiteral_3= 'NOT' )
+                    // InternalPubProto.g:5991:3: (enumLiteral_3= 'NOT' )
                     {
-                    // InternalPubProto.g:5916:3: (enumLiteral_3= 'NOT' )
-                    // InternalPubProto.g:5917:4: enumLiteral_3= 'NOT'
+                    // InternalPubProto.g:5991:3: (enumLiteral_3= 'NOT' )
+                    // InternalPubProto.g:5992:4: enumLiteral_3= 'NOT'
                     {
-                    enumLiteral_3=(Token)match(input,134,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,142,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpUnaryAccess().getNOTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -17234,12 +17491,12 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalPubProto.g:5924:3: (enumLiteral_4= 'not' )
+                    // InternalPubProto.g:5999:3: (enumLiteral_4= 'not' )
                     {
-                    // InternalPubProto.g:5924:3: (enumLiteral_4= 'not' )
-                    // InternalPubProto.g:5925:4: enumLiteral_4= 'not'
+                    // InternalPubProto.g:5999:3: (enumLiteral_4= 'not' )
+                    // InternalPubProto.g:6000:4: enumLiteral_4= 'not'
                     {
-                    enumLiteral_4=(Token)match(input,135,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,143,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getOpUnaryAccess().getNOTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -17277,7 +17534,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDMultiplicityShorthand"
-    // InternalPubProto.g:5935:1: ruleDMultiplicityShorthand returns [Enumerator current=null] : ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) ;
+    // InternalPubProto.g:6010:1: ruleDMultiplicityShorthand returns [Enumerator current=null] : ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) ;
     public final Enumerator ruleDMultiplicityShorthand() throws RecognitionException {
         Enumerator current = null;
 
@@ -17289,43 +17546,43 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPubProto.g:5941:2: ( ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) )
-            // InternalPubProto.g:5942:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
+            // InternalPubProto.g:6016:2: ( ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) ) )
+            // InternalPubProto.g:6017:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
             {
-            // InternalPubProto.g:5942:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
-            int alt81=3;
+            // InternalPubProto.g:6017:2: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '+' ) | (enumLiteral_2= '*' ) )
+            int alt82=3;
             switch ( input.LA(1) ) {
-            case 136:
+            case 144:
                 {
-                alt81=1;
+                alt82=1;
                 }
                 break;
             case 91:
                 {
-                alt81=2;
+                alt82=2;
                 }
                 break;
             case 65:
                 {
-                alt81=3;
+                alt82=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 81, 0, input);
+                    new NoViableAltException("", 82, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt81) {
+            switch (alt82) {
                 case 1 :
-                    // InternalPubProto.g:5943:3: (enumLiteral_0= '?' )
+                    // InternalPubProto.g:6018:3: (enumLiteral_0= '?' )
                     {
-                    // InternalPubProto.g:5943:3: (enumLiteral_0= '?' )
-                    // InternalPubProto.g:5944:4: enumLiteral_0= '?'
+                    // InternalPubProto.g:6018:3: (enumLiteral_0= '?' )
+                    // InternalPubProto.g:6019:4: enumLiteral_0= '?'
                     {
-                    enumLiteral_0=(Token)match(input,136,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,144,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDMultiplicityShorthandAccess().getZERO_OR_ONEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -17339,10 +17596,10 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPubProto.g:5951:3: (enumLiteral_1= '+' )
+                    // InternalPubProto.g:6026:3: (enumLiteral_1= '+' )
                     {
-                    // InternalPubProto.g:5951:3: (enumLiteral_1= '+' )
-                    // InternalPubProto.g:5952:4: enumLiteral_1= '+'
+                    // InternalPubProto.g:6026:3: (enumLiteral_1= '+' )
+                    // InternalPubProto.g:6027:4: enumLiteral_1= '+'
                     {
                     enumLiteral_1=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17358,10 +17615,10 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPubProto.g:5959:3: (enumLiteral_2= '*' )
+                    // InternalPubProto.g:6034:3: (enumLiteral_2= '*' )
                     {
-                    // InternalPubProto.g:5959:3: (enumLiteral_2= '*' )
-                    // InternalPubProto.g:5960:4: enumLiteral_2= '*'
+                    // InternalPubProto.g:6034:3: (enumLiteral_2= '*' )
+                    // InternalPubProto.g:6035:4: enumLiteral_2= '*'
                     {
                     enumLiteral_2=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18023,11 +18280,11 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     static final String dfa_1s = "\14\uffff";
     static final String dfa_2s = "\1\1\13\uffff";
     static final String dfa_3s = "\1\67\1\uffff\10\0\2\uffff";
-    static final String dfa_4s = "\1\u0084\1\uffff\10\0\2\uffff";
+    static final String dfa_4s = "\1\u008c\1\uffff\10\0\2\uffff";
     static final String dfa_5s = "\1\uffff\1\3\10\uffff\1\1\1\2";
-    static final String dfa_6s = "\2\uffff\1\0\1\1\1\4\1\2\1\7\1\6\1\5\1\3\2\uffff}>";
+    static final String dfa_6s = "\2\uffff\1\3\1\4\1\0\1\6\1\5\1\2\1\1\1\7\2\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\2\uffff\1\1\1\uffff\1\1\4\uffff\2\1\2\uffff\1\2\1\3\2\1\2\uffff\1\1\10\uffff\1\1\6\uffff\2\1\24\uffff\10\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1",
+            "\1\1\2\uffff\1\1\1\uffff\1\1\4\uffff\2\1\2\uffff\1\2\1\3\2\1\2\uffff\1\1\10\uffff\1\1\6\uffff\2\1\34\uffff\10\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -18070,66 +18327,6 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA39_2 = input.LA(1);
-
-                         
-                        int index39_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred7_InternalPubProto()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index39_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA39_3 = input.LA(1);
-
-                         
-                        int index39_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred7_InternalPubProto()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index39_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA39_5 = input.LA(1);
-
-                         
-                        int index39_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalPubProto()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index39_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA39_9 = input.LA(1);
-
-                         
-                        int index39_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalPubProto()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index39_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
                         int LA39_4 = input.LA(1);
 
                          
@@ -18144,7 +18341,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                         input.seek(index39_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
+                    case 1 : 
                         int LA39_8 = input.LA(1);
 
                          
@@ -18159,7 +18356,7 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                         input.seek(index39_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
+                    case 2 : 
                         int LA39_7 = input.LA(1);
 
                          
@@ -18174,7 +18371,37 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                         input.seek(index39_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 3 : 
+                        int LA39_2 = input.LA(1);
+
+                         
+                        int index39_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred7_InternalPubProto()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index39_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA39_3 = input.LA(1);
+
+                         
+                        int index39_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred7_InternalPubProto()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index39_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
                         int LA39_6 = input.LA(1);
 
                          
@@ -18189,6 +18416,36 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
                         input.seek(index39_6);
                         if ( s>=0 ) return s;
                         break;
+                    case 6 : 
+                        int LA39_5 = input.LA(1);
+
+                         
+                        int index39_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalPubProto()) ) {s = 11;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index39_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA39_9 = input.LA(1);
+
+                         
+                        int index39_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalPubProto()) ) {s = 11;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index39_9);
+                        if ( s>=0 ) return s;
+                        break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
@@ -18198,21 +18455,21 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
         }
     }
     static final String dfa_8s = "\12\uffff";
-    static final String dfa_9s = "\3\uffff\1\7\6\uffff";
-    static final String dfa_10s = "\1\5\2\uffff\1\37\4\uffff\1\4\1\uffff";
-    static final String dfa_11s = "\1\130\2\uffff\1\u0084\4\uffff\1\6\1\uffff";
-    static final String dfa_12s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\1\3\1\uffff\1\4";
+    static final String dfa_9s = "\3\uffff\1\10\6\uffff";
+    static final String dfa_10s = "\1\5\2\uffff\1\37\3\uffff\1\4\2\uffff";
+    static final String dfa_11s = "\1\130\2\uffff\1\u008c\3\uffff\1\6\2\uffff";
+    static final String dfa_12s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\1\uffff\1\3\1\4";
     static final String dfa_13s = "\12\uffff}>";
     static final String[] dfa_14s = {
             "\1\2\1\3\25\uffff\2\1\53\uffff\1\5\1\6\12\uffff\2\1\2\4",
             "",
             "",
-            "\2\7\26\uffff\1\7\2\uffff\1\7\1\uffff\1\7\4\uffff\1\7\1\10\2\uffff\4\7\2\uffff\1\7\10\uffff\1\7\6\uffff\2\7\24\uffff\24\7",
+            "\2\10\26\uffff\1\10\2\uffff\1\10\1\uffff\1\10\4\uffff\1\10\1\7\2\uffff\4\10\2\uffff\1\10\10\uffff\1\10\6\uffff\2\10\34\uffff\24\10",
             "",
             "",
             "",
+            "\1\10\1\uffff\1\11",
             "",
-            "\1\7\1\uffff\1\11",
             ""
     };
 
@@ -18273,36 +18530,36 @@ public class InternalPubProtoParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0040000080000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0080000080000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0A00000000000002L,0x0000000008000002L,0x0000000000000100L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0A00000000000002L,0x0000000008000002L,0x0000000000010000L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0200000000000002L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x00000000B0000060L,0x0000000001E00600L});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0400000000000000L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000000L,0x0001FFC000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000000L,0x01FFC00000000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x1080000000000000L});
     public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x4000000000000000L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000182L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x1000000000000010L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000010L,0x0001FFC000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000010L,0x01FFC00000000000L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000600L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x08000000B0000070L,0x0000000019E11600L,0x00000000000000E0L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x08000000B0000070L,0x0000000019E11600L,0x000000000000E000L});
     public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0800000000000002L,0x000000000000000CL});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x18000000B0000070L,0x0000000019E11600L,0x00000000000000E0L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x18000000B0000070L,0x0000000019E11600L,0x000000000000E000L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x1000000000000000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0080000000000002L});
     public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000002L,0x001E000000000000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000002L,0x0060000000000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000002L,0x0180000000000800L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000002L,0x7E00000000000060L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0400000000000002L,0x8000000000100000L,0x0000000000000003L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000002L,0x1E00000000000000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000002L,0x6000000000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000800L,0x0000000000000001L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000060L,0x000000000000007EL});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0400000000000002L,0x0000000000100000L,0x0000000000000380L});
     public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000002L,0x0000000018000000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L,0x000000000000001CL});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L,0x0000000000001C00L});
     public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000180L});
     public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000100000010L});
     public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0080000100000000L});

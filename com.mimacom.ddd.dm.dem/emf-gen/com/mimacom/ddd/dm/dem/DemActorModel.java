@@ -3,6 +3,7 @@
 package com.mimacom.ddd.dm.dem;
 
 import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -22,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DemActorModel extends DModel
+public interface DemActorModel extends DModel, INoteContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.

@@ -37,8 +37,8 @@ public class DimFormatter extends DmxFormatter {
   private DimGrammarAccess _dimGrammarAccess;
   
   protected void _format(final DomainInformationModel model, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDomainInformationModelAccess().getLeftCurlyBracketKeyword_5());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDomainInformationModelAccess().getRightCurlyBracketKeyword_7());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDomainInformationModelAccess().getLeftCurlyBracketKeyword_6());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(model).keyword(this._dimGrammarAccess.getDomainInformationModelAccess().getRightCurlyBracketKeyword_8());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -82,8 +82,8 @@ public class DimFormatter extends DmxFormatter {
   }
   
   protected void _format(final DAggregate aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDimAggregateAccess().getLeftCurlyBracketKeyword_4());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDimAggregateAccess().getRightCurlyBracketKeyword_7());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDimAggregateAccess().getLeftCurlyBracketKeyword_6());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDimAggregateAccess().getRightCurlyBracketKeyword_9());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -126,8 +126,8 @@ public class DimFormatter extends DmxFormatter {
     int _size = en.getLiterals().size();
     boolean _greaterThan = (_size > 3);
     if (_greaterThan) {
-      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDimEnumerationAccess().getLeftCurlyBracketKeyword_5());
-      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDimEnumerationAccess().getRightCurlyBracketKeyword_8());
+      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDimEnumerationAccess().getLeftCurlyBracketKeyword_6());
+      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._dimGrammarAccess.getDimEnumerationAccess().getRightCurlyBracketKeyword_9());
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
@@ -143,7 +143,7 @@ public class DimFormatter extends DmxFormatter {
         };
         document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._dimGrammarAccess.getDimLiteralAccess().getNameAssignment_1()), _function_2);
       }
-      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._dimGrammarAccess.getDimEnumerationAccess().getCommaKeyword_6_1_0());
+      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._dimGrammarAccess.getDimEnumerationAccess().getCommaKeyword_7_1_0());
       for (final ISemanticRegion comma : _keywords) {
         final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
           it.newLine();

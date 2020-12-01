@@ -3,6 +3,7 @@
 package com.mimacom.ddd.dm.dem;
 
 import com.mimacom.ddd.dm.base.base.DModel;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -24,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DemEventsOverviewModel extends DModel
+public interface DemEventsOverviewModel extends DModel, INoteContainer
 {
 	/**
 	 * Returns the value of the '<em><b>All</b></em>' attribute.

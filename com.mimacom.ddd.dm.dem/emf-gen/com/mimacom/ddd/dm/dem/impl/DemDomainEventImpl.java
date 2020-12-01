@@ -7,8 +7,10 @@ import com.mimacom.ddd.dm.base.base.DContext;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
@@ -39,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemDomainEventImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemDomainEventImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemDomainEventImpl#getContext <em>Context</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemDomainEventImpl#getTriggers <em>Triggers</em>}</li>
@@ -51,6 +54,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -120,6 +133,20 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	protected EClass eStaticClass()
 	{
 		return DemPackage.Literals.DEM_DOMAIN_EVENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, DemPackage.DEM_DOMAIN_EVENT__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -216,6 +243,8 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	{
 		switch (featureID)
 		{
+			case DemPackage.DEM_DOMAIN_EVENT__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case DemPackage.DEM_DOMAIN_EVENT__CONTEXT:
 				return ((InternalEList<?>)getContext()).basicRemove(otherEnd, msgs);
 			case DemPackage.DEM_DOMAIN_EVENT__PRECONDITIONS_CNF:
@@ -238,6 +267,8 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	{
 		switch (featureID)
 		{
+			case DemPackage.DEM_DOMAIN_EVENT__NOTES:
+				return getNotes();
 			case DemPackage.DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS:
 				return getNavigableMembers();
 			case DemPackage.DEM_DOMAIN_EVENT__CONTEXT:
@@ -265,6 +296,10 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	{
 		switch (featureID)
 		{
+			case DemPackage.DEM_DOMAIN_EVENT__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case DemPackage.DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
@@ -303,6 +338,9 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	{
 		switch (featureID)
 		{
+			case DemPackage.DEM_DOMAIN_EVENT__NOTES:
+				getNotes().clear();
+				return;
 			case DemPackage.DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				return;
@@ -335,6 +373,8 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	{
 		switch (featureID)
 		{
+			case DemPackage.DEM_DOMAIN_EVENT__NOTES:
+				return notes != null && !notes.isEmpty();
 			case DemPackage.DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS:
 				return !getNavigableMembers().isEmpty();
 			case DemPackage.DEM_DOMAIN_EVENT__CONTEXT:
@@ -359,6 +399,14 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case DemPackage.DEM_DOMAIN_EVENT__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (derivedFeatureID)
@@ -392,6 +440,14 @@ public class DemDomainEventImpl extends DModelImpl implements DemDomainEvent
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return DemPackage.DEM_DOMAIN_EVENT__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (baseFeatureID)

@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -121,6 +122,9 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
+				return; 
+			case BasePackage.DNOTE:
+				sequence_DNote(context, (DNote) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 

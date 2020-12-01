@@ -108,7 +108,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return this.eClass().getName().toLowerCase();
 	}
@@ -118,7 +117,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -128,7 +126,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -141,7 +138,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isOptional() {
 		return optional;
 	}
@@ -151,7 +147,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setOptional(boolean newOptional) {
 		boolean oldOptional = optional;
 		optional = newOptional;
@@ -164,7 +159,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PublicationClass getParent() {
 		if (eContainerFeatureID() != ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT) return null;
 		return (PublicationClass)eContainer();
@@ -195,7 +189,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParent(PublicationClass newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))

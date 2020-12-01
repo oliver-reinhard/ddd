@@ -5,8 +5,10 @@ package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
@@ -44,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getStates <em>States</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getTransitions <em>Transitions</em>}</li>
@@ -55,6 +58,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStateModel
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -124,6 +137,20 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	protected EClass eStaticClass()
 	{
 		return EsmPackage.Literals.ESM_ENTITY_STATE_MODEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -244,6 +271,8 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
@@ -262,6 +291,8 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES:
+				return getNotes();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
 				return getDirection();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
@@ -288,6 +319,10 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
 				setDirection((EsmLayoutDirection)newValue);
 				return;
@@ -320,6 +355,9 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES:
+				getNotes().clear();
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
@@ -349,6 +387,8 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES:
+				return notes != null && !notes.isEmpty();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
@@ -371,6 +411,14 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == IEsmLayout.class)
 		{
 			switch (derivedFeatureID)
@@ -421,6 +469,14 @@ public class EsmEntityStateModelImpl extends DModelImpl implements EsmEntityStat
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return EsmPackage.ESM_ENTITY_STATE_MODEL__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == IEsmLayout.class)
 		{
 			switch (baseFeatureID)

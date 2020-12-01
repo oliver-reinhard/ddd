@@ -22,6 +22,7 @@ import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
@@ -104,6 +105,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				T result = caseTSyntheticAggregate(tSyntheticAggregate);
 				if (result == null) result = caseDAggregate(tSyntheticAggregate);
 				if (result == null) result = caseISyntheticElement(tSyntheticAggregate);
+				if (result == null) result = caseINoteContainer(tSyntheticAggregate);
 				if (result == null) result = caseITypeContainer(tSyntheticAggregate);
 				if (result == null) result = caseIFeatureContainer(tSyntheticAggregate);
 				if (result == null) result = caseINavigableMemberContainer(tSyntheticAggregate);
@@ -119,6 +121,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				T result = caseTSyntheticType(tSyntheticType);
 				if (result == null) result = caseDType(tSyntheticType);
 				if (result == null) result = caseISyntheticElement(tSyntheticType);
+				if (result == null) result = caseINoteContainer(tSyntheticType);
 				if (result == null) result = caseIStaticReferenceTarget(tSyntheticType);
 				if (result == null) result = caseDNamedElement(tSyntheticType);
 				if (result == null) result = defaultCase(theEObject);
@@ -134,6 +137,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticPrimitive);
 				if (result == null) result = caseDType(tSyntheticPrimitive);
 				if (result == null) result = caseIValueType(tSyntheticPrimitive);
+				if (result == null) result = caseINoteContainer(tSyntheticPrimitive);
 				if (result == null) result = caseIStaticReferenceTarget(tSyntheticPrimitive);
 				if (result == null) result = caseDNamedElement(tSyntheticPrimitive);
 				if (result == null) result = defaultCase(theEObject);
@@ -150,6 +154,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticEnumeration);
 				if (result == null) result = caseDType(tSyntheticEnumeration);
 				if (result == null) result = caseIValueType(tSyntheticEnumeration);
+				if (result == null) result = caseINoteContainer(tSyntheticEnumeration);
 				if (result == null) result = caseIStaticReferenceTarget(tSyntheticEnumeration);
 				if (result == null) result = caseDNamedElement(tSyntheticEnumeration);
 				if (result == null) result = defaultCase(theEObject);
@@ -163,6 +168,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticLiteral);
 				if (result == null) result = caseDNavigableMember(tSyntheticLiteral);
 				if (result == null) result = caseDNamedElement(tSyntheticLiteral);
+				if (result == null) result = caseINoteContainer(tSyntheticLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -176,6 +182,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(tSyntheticComplexType);
 				if (result == null) result = caseINavigableMemberContainer(tSyntheticComplexType);
 				if (result == null) result = caseISyntheticElement(tSyntheticComplexType);
+				if (result == null) result = caseINoteContainer(tSyntheticComplexType);
 				if (result == null) result = caseIStaticReferenceTarget(tSyntheticComplexType);
 				if (result == null) result = caseDNamedElement(tSyntheticComplexType);
 				if (result == null) result = defaultCase(theEObject);
@@ -194,6 +201,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(tSyntheticDetailType);
 				if (result == null) result = caseINavigableMemberContainer(tSyntheticDetailType);
 				if (result == null) result = caseISyntheticElement(tSyntheticDetailType);
+				if (result == null) result = caseINoteContainer(tSyntheticDetailType);
 				if (result == null) result = caseIStaticReferenceTarget(tSyntheticDetailType);
 				if (result == null) result = caseDNamedElement(tSyntheticDetailType);
 				if (result == null) result = defaultCase(theEObject);
@@ -212,6 +220,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(tSyntheticEntityType);
 				if (result == null) result = caseINavigableMemberContainer(tSyntheticEntityType);
 				if (result == null) result = caseISyntheticElement(tSyntheticEntityType);
+				if (result == null) result = caseINoteContainer(tSyntheticEntityType);
 				if (result == null) result = caseIStaticReferenceTarget(tSyntheticEntityType);
 				if (result == null) result = caseDNamedElement(tSyntheticEntityType);
 				if (result == null) result = defaultCase(theEObject);
@@ -225,6 +234,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticFeature);
 				if (result == null) result = caseDNavigableMember(tSyntheticFeature);
 				if (result == null) result = caseDNamedElement(tSyntheticFeature);
+				if (result == null) result = caseINoteContainer(tSyntheticFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,6 +248,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticAssociation);
 				if (result == null) result = caseDNavigableMember(tSyntheticAssociation);
 				if (result == null) result = caseDNamedElement(tSyntheticAssociation);
+				if (result == null) result = caseINoteContainer(tSyntheticAssociation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -251,6 +262,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticAttribute);
 				if (result == null) result = caseDNavigableMember(tSyntheticAttribute);
 				if (result == null) result = caseDNamedElement(tSyntheticAttribute);
+				if (result == null) result = caseINoteContainer(tSyntheticAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -265,6 +277,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticQuery);
 				if (result == null) result = caseDNavigableMember(tSyntheticQuery);
 				if (result == null) result = caseDNamedElement(tSyntheticQuery);
+				if (result == null) result = caseINoteContainer(tSyntheticQuery);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -276,6 +289,7 @@ public class SyntheticSwitch<T> extends Switch<T>
 				if (result == null) result = caseISyntheticElement(tSyntheticQueryParameter);
 				if (result == null) result = caseDNavigableMember(tSyntheticQueryParameter);
 				if (result == null) result = caseDNamedElement(tSyntheticQueryParameter);
+				if (result == null) result = caseINoteContainer(tSyntheticQueryParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -503,6 +517,22 @@ public class SyntheticSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDNamedElement(DNamedElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

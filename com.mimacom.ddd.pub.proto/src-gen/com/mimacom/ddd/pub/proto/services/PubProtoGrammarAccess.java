@@ -1586,6 +1586,32 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		return getDNamespaceAccess().getRule();
 	}
 	
+	//DNote:
+	//	'NOTE'
+	//	name=ID
+	//	'{'
+	//	text=DRichText
+	//	color=DNoteColor?
+	//	'}';
+	public DmxGrammarAccess.DNoteElements getDNoteAccess() {
+		return gaDmx.getDNoteAccess();
+	}
+	
+	public ParserRule getDNoteRule() {
+		return getDNoteAccess().getRule();
+	}
+	
+	//enum DNoteColor:
+	//	WHITE='white' | RED='red' | ORANGE='orange' | YELLOW='yellow' | GREEN='green' | BLUE='blue' | PINK='pink' |
+	//	GREY='grey';
+	public DmxGrammarAccess.DNoteColorElements getDNoteColorAccess() {
+		return gaDmx.getDNoteColorAccess();
+	}
+	
+	public EnumRule getDNoteColorRule() {
+		return getDNoteColorAccess().getRule();
+	}
+	
 	//DmxModel:
 	//	{DmxModel} types+=DmxArchetype*
 	//	filters+=DmxFilter*

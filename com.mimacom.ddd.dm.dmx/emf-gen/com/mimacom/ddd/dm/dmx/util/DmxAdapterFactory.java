@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DSimpleType;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
@@ -274,6 +275,11 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
 			{
 				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseINoteContainer(INoteContainer object)
+			{
+				return createINoteContainerAdapter();
 			}
 			@Override
 			public Adapter caseDNavigableMember(DNavigableMember object)
@@ -898,6 +904,21 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.INoteContainer <em>INote Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.INoteContainer
+	 * @generated
+	 */
+	public Adapter createINoteContainerAdapter()
 	{
 		return null;
 	}

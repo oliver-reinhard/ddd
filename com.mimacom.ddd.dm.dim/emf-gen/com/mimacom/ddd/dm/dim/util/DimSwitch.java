@@ -25,6 +25,7 @@ import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.base.IIdentityType;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.base.IValueType;
@@ -107,6 +108,7 @@ public class DimSwitch<T> extends Switch<T>
 				T result = caseDomainInformationModel(domainInformationModel);
 				if (result == null) result = caseDInformationModel(domainInformationModel);
 				if (result == null) result = caseDModel(domainInformationModel);
+				if (result == null) result = caseINoteContainer(domainInformationModel);
 				if (result == null) result = caseIAggregateContainer(domainInformationModel);
 				if (result == null) result = caseITypeContainer(domainInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(domainInformationModel);
@@ -121,6 +123,7 @@ public class DimSwitch<T> extends Switch<T>
 				T result = caseDimAggregate(dimAggregate);
 				if (result == null) result = caseDAggregate(dimAggregate);
 				if (result == null) result = caseITransposableElement(dimAggregate);
+				if (result == null) result = caseINoteContainer(dimAggregate);
 				if (result == null) result = caseITypeContainer(dimAggregate);
 				if (result == null) result = caseIFeatureContainer(dimAggregate);
 				if (result == null) result = caseINavigableMemberContainer(dimAggregate);
@@ -136,6 +139,7 @@ public class DimSwitch<T> extends Switch<T>
 				T result = caseDimType(dimType);
 				if (result == null) result = caseDType(dimType);
 				if (result == null) result = caseITransposableElement(dimType);
+				if (result == null) result = caseINoteContainer(dimType);
 				if (result == null) result = caseIStaticReferenceTarget(dimType);
 				if (result == null) result = caseDNamedElement(dimType);
 				if (result == null) result = defaultCase(theEObject);
@@ -150,6 +154,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dimSimpleType);
 				if (result == null) result = caseIValueType(dimSimpleType);
 				if (result == null) result = caseITransposableElement(dimSimpleType);
+				if (result == null) result = caseINoteContainer(dimSimpleType);
 				if (result == null) result = caseIStaticReferenceTarget(dimSimpleType);
 				if (result == null) result = caseDNamedElement(dimSimpleType);
 				if (result == null) result = defaultCase(theEObject);
@@ -166,6 +171,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dimPrimitive);
 				if (result == null) result = caseIValueType(dimPrimitive);
 				if (result == null) result = caseITransposableElement(dimPrimitive);
+				if (result == null) result = caseINoteContainer(dimPrimitive);
 				if (result == null) result = caseIStaticReferenceTarget(dimPrimitive);
 				if (result == null) result = caseDNamedElement(dimPrimitive);
 				if (result == null) result = defaultCase(theEObject);
@@ -183,6 +189,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dimEnumeration);
 				if (result == null) result = caseIValueType(dimEnumeration);
 				if (result == null) result = caseITransposableElement(dimEnumeration);
+				if (result == null) result = caseINoteContainer(dimEnumeration);
 				if (result == null) result = caseIStaticReferenceTarget(dimEnumeration);
 				if (result == null) result = caseDNamedElement(dimEnumeration);
 				if (result == null) result = defaultCase(theEObject);
@@ -196,6 +203,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposableElement(dimLiteral);
 				if (result == null) result = caseDNavigableMember(dimLiteral);
 				if (result == null) result = caseDNamedElement(dimLiteral);
+				if (result == null) result = caseINoteContainer(dimLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -209,6 +217,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(dimComplexType);
 				if (result == null) result = caseINavigableMemberContainer(dimComplexType);
 				if (result == null) result = caseITransposableElement(dimComplexType);
+				if (result == null) result = caseINoteContainer(dimComplexType);
 				if (result == null) result = caseIStaticReferenceTarget(dimComplexType);
 				if (result == null) result = caseDNamedElement(dimComplexType);
 				if (result == null) result = defaultCase(theEObject);
@@ -227,6 +236,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(dimDetailType);
 				if (result == null) result = caseINavigableMemberContainer(dimDetailType);
 				if (result == null) result = caseITransposableElement(dimDetailType);
+				if (result == null) result = caseINoteContainer(dimDetailType);
 				if (result == null) result = caseIStaticReferenceTarget(dimDetailType);
 				if (result == null) result = caseDNamedElement(dimDetailType);
 				if (result == null) result = defaultCase(theEObject);
@@ -245,6 +255,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIFeatureContainer(dimEntityType);
 				if (result == null) result = caseINavigableMemberContainer(dimEntityType);
 				if (result == null) result = caseITransposableElement(dimEntityType);
+				if (result == null) result = caseINoteContainer(dimEntityType);
 				if (result == null) result = caseIStaticReferenceTarget(dimEntityType);
 				if (result == null) result = caseDNamedElement(dimEntityType);
 				if (result == null) result = defaultCase(theEObject);
@@ -258,6 +269,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposableElement(dimFeature);
 				if (result == null) result = caseDNavigableMember(dimFeature);
 				if (result == null) result = caseDNamedElement(dimFeature);
+				if (result == null) result = caseINoteContainer(dimFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -271,6 +283,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposableElement(dimAssociation);
 				if (result == null) result = caseDNavigableMember(dimAssociation);
 				if (result == null) result = caseDNamedElement(dimAssociation);
+				if (result == null) result = caseINoteContainer(dimAssociation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -284,6 +297,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposableElement(dimAttribute);
 				if (result == null) result = caseDNavigableMember(dimAttribute);
 				if (result == null) result = caseDNamedElement(dimAttribute);
+				if (result == null) result = caseINoteContainer(dimAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -298,6 +312,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposableElement(dimQuery);
 				if (result == null) result = caseDNavigableMember(dimQuery);
 				if (result == null) result = caseDNamedElement(dimQuery);
+				if (result == null) result = caseINoteContainer(dimQuery);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -309,6 +324,7 @@ public class DimSwitch<T> extends Switch<T>
 				if (result == null) result = caseITransposableElement(dimQueryParameter);
 				if (result == null) result = caseDNavigableMember(dimQueryParameter);
 				if (result == null) result = caseDNamedElement(dimQueryParameter);
+				if (result == null) result = caseINoteContainer(dimQueryParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -584,6 +600,22 @@ public class DimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDModel(DModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

@@ -5,9 +5,11 @@ package com.mimacom.ddd.dm.base.base.impl;
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DInformationModel;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl#getTypes <em>Types</em>}</li>
  * </ul>
@@ -41,6 +44,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DInformationModelImpl extends DModelImpl implements DInformationModel
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -80,6 +93,21 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DINFORMATION_MODEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, BasePackage.DINFORMATION_MODEL__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -135,6 +163,8 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	{
 		switch (featureID)
 		{
+			case BasePackage.DINFORMATION_MODEL__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 			case BasePackage.DINFORMATION_MODEL__TYPES:
@@ -153,6 +183,8 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	{
 		switch (featureID)
 		{
+			case BasePackage.DINFORMATION_MODEL__NOTES:
+				return getNotes();
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				return getAggregates();
 			case BasePackage.DINFORMATION_MODEL__TYPES:
@@ -172,6 +204,10 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	{
 		switch (featureID)
 		{
+			case BasePackage.DINFORMATION_MODEL__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				getAggregates().addAll((Collection<? extends DAggregate>)newValue);
@@ -194,6 +230,9 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	{
 		switch (featureID)
 		{
+			case BasePackage.DINFORMATION_MODEL__NOTES:
+				getNotes().clear();
+				return;
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				return;
@@ -214,6 +253,8 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	{
 		switch (featureID)
 		{
+			case BasePackage.DINFORMATION_MODEL__NOTES:
+				return notes != null && !notes.isEmpty();
 			case BasePackage.DINFORMATION_MODEL__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
 			case BasePackage.DINFORMATION_MODEL__TYPES:
@@ -230,6 +271,14 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DINFORMATION_MODEL__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == IAggregateContainer.class)
 		{
 			switch (derivedFeatureID)
@@ -271,6 +320,14 @@ public class DInformationModelImpl extends DModelImpl implements DInformationMod
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return BasePackage.DINFORMATION_MODEL__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == IAggregateContainer.class)
 		{
 			switch (baseFeatureID)

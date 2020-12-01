@@ -3,22 +3,33 @@
  */
 package com.mimacom.ddd.dm.esm.impl;
 
+import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DExpression;
+import com.mimacom.ddd.dm.base.base.DNote;
+import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import com.mimacom.ddd.dm.esm.EsmLayoutDirection;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmTransition;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,10 +40,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getDirection <em>Direction</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getTo <em>To</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getGuard <em>Guard</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +71,16 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @ordered
 	 */
 	protected EsmLayoutDirection direction = DIRECTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
 
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
@@ -98,6 +121,16 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @ordered
 	 */
 	protected DExpression guard;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected DRichText description;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,6 +174,20 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__DIRECTION, oldDirection, direction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, EsmPackage.ESM_TRANSITION__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -325,13 +372,65 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DRichText getDescription()
+	{
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(DRichText newDescription, NotificationChain msgs)
+	{
+		DRichText oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(DRichText newDescription)
+	{
+		if (newDescription != description)
+		{
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsmPackage.ESM_TRANSITION__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsmPackage.ESM_TRANSITION__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__DESCRIPTION, newDescription, newDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_TRANSITION__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case EsmPackage.ESM_TRANSITION__GUARD:
 				return basicSetGuard(null, msgs);
+			case EsmPackage.ESM_TRANSITION__DESCRIPTION:
+				return basicSetDescription(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -348,6 +447,8 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 		{
 			case EsmPackage.ESM_TRANSITION__DIRECTION:
 				return getDirection();
+			case EsmPackage.ESM_TRANSITION__NOTES:
+				return getNotes();
 			case EsmPackage.ESM_TRANSITION__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
@@ -359,6 +460,8 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 				return basicGetEvent();
 			case EsmPackage.ESM_TRANSITION__GUARD:
 				return getGuard();
+			case EsmPackage.ESM_TRANSITION__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,6 +471,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -375,6 +479,10 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 		{
 			case EsmPackage.ESM_TRANSITION__DIRECTION:
 				setDirection((EsmLayoutDirection)newValue);
+				return;
+			case EsmPackage.ESM_TRANSITION__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
 				return;
 			case EsmPackage.ESM_TRANSITION__FROM:
 				setFrom((DState)newValue);
@@ -387,6 +495,9 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 				return;
 			case EsmPackage.ESM_TRANSITION__GUARD:
 				setGuard((DExpression)newValue);
+				return;
+			case EsmPackage.ESM_TRANSITION__DESCRIPTION:
+				setDescription((DRichText)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -405,6 +516,9 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 			case EsmPackage.ESM_TRANSITION__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
+			case EsmPackage.ESM_TRANSITION__NOTES:
+				getNotes().clear();
+				return;
 			case EsmPackage.ESM_TRANSITION__FROM:
 				setFrom((DState)null);
 				return;
@@ -416,6 +530,9 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 				return;
 			case EsmPackage.ESM_TRANSITION__GUARD:
 				setGuard((DExpression)null);
+				return;
+			case EsmPackage.ESM_TRANSITION__DESCRIPTION:
+				setDescription((DRichText)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -433,6 +550,8 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 		{
 			case EsmPackage.ESM_TRANSITION__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
+			case EsmPackage.ESM_TRANSITION__NOTES:
+				return notes != null && !notes.isEmpty();
 			case EsmPackage.ESM_TRANSITION__FROM:
 				return from != null;
 			case EsmPackage.ESM_TRANSITION__TO:
@@ -441,8 +560,48 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 				return event != null;
 			case EsmPackage.ESM_TRANSITION__GUARD:
 				return guard != null;
+			case EsmPackage.ESM_TRANSITION__DESCRIPTION:
+				return description != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case EsmPackage.ESM_TRANSITION__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return EsmPackage.ESM_TRANSITION__NOTES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

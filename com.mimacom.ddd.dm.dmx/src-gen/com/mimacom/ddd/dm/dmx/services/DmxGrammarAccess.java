@@ -68,6 +68,58 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//DmxModel
 		public RuleCall getModelDmxModelParserRuleCall_3_0() { return cModelDmxModelParserRuleCall_3_0; }
 	}
+	public class DNoteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DNote");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNOTEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTextDRichTextParserRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
+		private final Assignment cColorAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cColorDNoteColorEnumRuleCall_4_0 = (RuleCall)cColorAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//DNote:
+		//	'NOTE'
+		//	name=ID
+		//	'{'
+		//	text=DRichText
+		//	color=DNoteColor?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'NOTE' name=ID '{' text=DRichText color=DNoteColor? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'NOTE'
+		public Keyword getNOTEKeyword_0() { return cNOTEKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//text=DRichText
+		public Assignment getTextAssignment_3() { return cTextAssignment_3; }
+		
+		//DRichText
+		public RuleCall getTextDRichTextParserRuleCall_3_0() { return cTextDRichTextParserRuleCall_3_0; }
+		
+		//color=DNoteColor?
+		public Assignment getColorAssignment_4() { return cColorAssignment_4; }
+		
+		//DNoteColor
+		public RuleCall getColorDNoteColorEnumRuleCall_4_0() { return cColorDNoteColorEnumRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
 	public class DmxModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2513,6 +2565,82 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	
+	public class DNoteColorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DNoteColor");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cWHITEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cWHITEWhiteKeyword_0_0 = (Keyword)cWHITEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cREDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cREDRedKeyword_1_0 = (Keyword)cREDEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cORANGEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cORANGEOrangeKeyword_2_0 = (Keyword)cORANGEEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cYELLOWEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cYELLOWYellowKeyword_3_0 = (Keyword)cYELLOWEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cGREENEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cGREENGreenKeyword_4_0 = (Keyword)cGREENEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cBLUEEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cBLUEBlueKeyword_5_0 = (Keyword)cBLUEEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cPINKEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cPINKPinkKeyword_6_0 = (Keyword)cPINKEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cGREYEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cGREYGreyKeyword_7_0 = (Keyword)cGREYEnumLiteralDeclaration_7.eContents().get(0);
+		
+		//enum DNoteColor:
+		//	WHITE='white' | RED='red' | ORANGE='orange' | YELLOW='yellow' | GREEN='green' | BLUE='blue' | PINK='pink' |
+		//	GREY='grey';
+		public EnumRule getRule() { return rule; }
+		
+		//WHITE='white' | RED='red' | ORANGE='orange' | YELLOW='yellow' | GREEN='green' | BLUE='blue' | PINK='pink' | GREY='grey'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//WHITE='white'
+		public EnumLiteralDeclaration getWHITEEnumLiteralDeclaration_0() { return cWHITEEnumLiteralDeclaration_0; }
+		
+		//'white'
+		public Keyword getWHITEWhiteKeyword_0_0() { return cWHITEWhiteKeyword_0_0; }
+		
+		//RED='red'
+		public EnumLiteralDeclaration getREDEnumLiteralDeclaration_1() { return cREDEnumLiteralDeclaration_1; }
+		
+		//'red'
+		public Keyword getREDRedKeyword_1_0() { return cREDRedKeyword_1_0; }
+		
+		//ORANGE='orange'
+		public EnumLiteralDeclaration getORANGEEnumLiteralDeclaration_2() { return cORANGEEnumLiteralDeclaration_2; }
+		
+		//'orange'
+		public Keyword getORANGEOrangeKeyword_2_0() { return cORANGEOrangeKeyword_2_0; }
+		
+		//YELLOW='yellow'
+		public EnumLiteralDeclaration getYELLOWEnumLiteralDeclaration_3() { return cYELLOWEnumLiteralDeclaration_3; }
+		
+		//'yellow'
+		public Keyword getYELLOWYellowKeyword_3_0() { return cYELLOWYellowKeyword_3_0; }
+		
+		//GREEN='green'
+		public EnumLiteralDeclaration getGREENEnumLiteralDeclaration_4() { return cGREENEnumLiteralDeclaration_4; }
+		
+		//'green'
+		public Keyword getGREENGreenKeyword_4_0() { return cGREENGreenKeyword_4_0; }
+		
+		//BLUE='blue'
+		public EnumLiteralDeclaration getBLUEEnumLiteralDeclaration_5() { return cBLUEEnumLiteralDeclaration_5; }
+		
+		//'blue'
+		public Keyword getBLUEBlueKeyword_5_0() { return cBLUEBlueKeyword_5_0; }
+		
+		//PINK='pink'
+		public EnumLiteralDeclaration getPINKEnumLiteralDeclaration_6() { return cPINKEnumLiteralDeclaration_6; }
+		
+		//'pink'
+		public Keyword getPINKPinkKeyword_6_0() { return cPINKPinkKeyword_6_0; }
+		
+		//GREY='grey'
+		public EnumLiteralDeclaration getGREYEnumLiteralDeclaration_7() { return cGREYEnumLiteralDeclaration_7; }
+		
+		//'grey'
+		public Keyword getGREYGreyKeyword_7_0() { return cGREYGreyKeyword_7_0; }
+	}
 	public class DmxBaseTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxBaseType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -2987,6 +3115,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final DNamespaceElements pDNamespace;
+	private final DNoteElements pDNote;
+	private final DNoteColorElements eDNoteColor;
 	private final DmxModelElements pDmxModel;
 	private final DImportElements pDImport;
 	private final DmxTestElements pDmxTest;
@@ -3075,6 +3205,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	public DmxGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pDNamespace = new DNamespaceElements();
+		this.pDNote = new DNoteElements();
+		this.eDNoteColor = new DNoteColorElements();
 		this.pDmxModel = new DmxModelElements();
 		this.pDImport = new DImportElements();
 		this.pDmxTest = new DmxTestElements();
@@ -3192,6 +3324,32 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDNamespaceRule() {
 		return getDNamespaceAccess().getRule();
+	}
+	
+	//DNote:
+	//	'NOTE'
+	//	name=ID
+	//	'{'
+	//	text=DRichText
+	//	color=DNoteColor?
+	//	'}';
+	public DNoteElements getDNoteAccess() {
+		return pDNote;
+	}
+	
+	public ParserRule getDNoteRule() {
+		return getDNoteAccess().getRule();
+	}
+	
+	//enum DNoteColor:
+	//	WHITE='white' | RED='red' | ORANGE='orange' | YELLOW='yellow' | GREEN='green' | BLUE='blue' | PINK='pink' |
+	//	GREY='grey';
+	public DNoteColorElements getDNoteColorAccess() {
+		return eDNoteColor;
+	}
+	
+	public EnumRule getDNoteColorRule() {
+		return getDNoteColorAccess().getRule();
 	}
 	
 	//DmxModel:

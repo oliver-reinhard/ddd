@@ -9,6 +9,17 @@ DNamespace:
 	name=DQualifiedName
 	(imports+=DImport)*
 	model=DmxModel;
+	
+DNote:
+	'NOTE'
+	name=ID 
+	'{'
+	text=DRichText
+	(color=DNoteColor)?
+	'}';
+
+enum DNoteColor:
+	WHITE='white' | RED='red' | ORANGE='orange' | YELLOW='yellow' | GREEN='green' | BLUE='blue' | PINK='pink' | GREY='grey';
 
 DmxModel:
 	{DmxModel} (types+=DmxArchetype)*

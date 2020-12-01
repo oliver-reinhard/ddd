@@ -19,7 +19,7 @@ package com.mimacom.ddd.dm.base.base;
  * @model
  * @generated
  */
-public interface DNamedPredicate extends DNamedElement
+public interface DNamedPredicate extends DNamedElement, INoteContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Predicate</b></em>' containment reference.

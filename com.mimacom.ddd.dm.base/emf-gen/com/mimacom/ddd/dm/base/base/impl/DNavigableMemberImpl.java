@@ -5,15 +5,24 @@ package com.mimacom.ddd.dm.base.base.impl;
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNavigableMemberImpl#isOptional <em>Optional</em>}</li>
@@ -33,6 +43,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class DNavigableMemberImpl extends DNamedElementImpl implements DNavigableMember
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -92,6 +112,21 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DNAVIGABLE_MEMBER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, BasePackage.DNAVIGABLE_MEMBER__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -225,6 +260,8 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAVIGABLE_MEMBER__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
 				return basicSetMultiplicity(null, msgs);
 		}
@@ -241,6 +278,8 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAVIGABLE_MEMBER__NOTES:
+				return getNotes();
 			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
@@ -259,11 +298,16 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAVIGABLE_MEMBER__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				setType((DType)newValue);
 				return;
@@ -284,6 +328,9 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAVIGABLE_MEMBER__NOTES:
+				getNotes().clear();
+				return;
 			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				setType((DType)null);
 				return;
@@ -304,6 +351,8 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	{
 		switch (featureID)
 		{
+			case BasePackage.DNAVIGABLE_MEMBER__NOTES:
+				return notes != null && !notes.isEmpty();
 			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				return type != null;
 			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
@@ -314,6 +363,44 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 				return isCollection() != COLLECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DNAVIGABLE_MEMBER__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return BasePackage.DNAVIGABLE_MEMBER__NOTES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DNavigableMemberImpl

@@ -4,7 +4,10 @@ package com.mimacom.ddd.dm.base.base.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
+import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import java.util.Collection;
 
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DTypeImpl#isPrimitive <em>Primitive</em>}</li>
  * </ul>
@@ -37,6 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class DTypeImpl extends DNamedElementImpl implements DType
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -94,6 +108,21 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * @generated
 	 */
 	@Override
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, BasePackage.DTYPE__NOTES);
+		}
+		return notes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<DNamedPredicate> getConstraints()
 	{
 		if (constraints == null)
@@ -138,6 +167,8 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DTYPE__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DTYPE__CONSTRAINTS:
 				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 		}
@@ -154,6 +185,8 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DTYPE__NOTES:
+				return getNotes();
 			case BasePackage.DTYPE__CONSTRAINTS:
 				return getConstraints();
 			case BasePackage.DTYPE__PRIMITIVE:
@@ -173,6 +206,10 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DTYPE__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case BasePackage.DTYPE__CONSTRAINTS:
 				getConstraints().clear();
 				getConstraints().addAll((Collection<? extends DNamedPredicate>)newValue);
@@ -194,6 +231,9 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DTYPE__NOTES:
+				getNotes().clear();
+				return;
 			case BasePackage.DTYPE__CONSTRAINTS:
 				getConstraints().clear();
 				return;
@@ -214,12 +254,66 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DTYPE__NOTES:
+				return notes != null && !notes.isEmpty();
 			case BasePackage.DTYPE__CONSTRAINTS:
 				return constraints != null && !constraints.isEmpty();
 			case BasePackage.DTYPE__PRIMITIVE:
 				return primitive != PRIMITIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DTYPE__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
+		if (baseClass == IStaticReferenceTarget.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return BasePackage.DTYPE__NOTES;
+				default: return -1;
+			}
+		}
+		if (baseClass == IStaticReferenceTarget.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

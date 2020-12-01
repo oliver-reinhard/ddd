@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="base" nsURI="http://www.mimacom.com/ddd/dm/base" nsPrefix="base">
-  <eClassifiers xsi:type="ecore:EClass" name="DNamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DImport">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DNamespace" eSuperTypes="#//DNamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//DImport" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//DModel"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DModel" abstract="true" eSuperTypes="#//DNamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IDiagramRoot" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IStaticReferenceTarget" abstract="true"
-      interface="true" eSuperTypes="#//DNamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="IRichTextSegment" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DTextSegment" eSuperTypes="#//IRichTextSegment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -30,7 +10,47 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
         eType="#//IRichTextSegment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DInformationModel" eSuperTypes="#//DModel #//IAggregateContainer #//ITypeContainer #//IStaticReferenceTarget #//IDiagramRoot">
+  <eClassifiers xsi:type="ecore:EClass" name="DNamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DNote">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//DRichText"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//DNoteColor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DNoteColor">
+    <eLiterals name="WHITE"/>
+    <eLiterals name="RED" value="1"/>
+    <eLiterals name="ORANGE" value="2"/>
+    <eLiterals name="YELLOW" value="3"/>
+    <eLiterals name="GREEN" value="4"/>
+    <eLiterals name="BLUE" value="5"/>
+    <eLiterals name="PINK" value="6"/>
+    <eLiterals name="GREY" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="INoteContainer" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"
+        eType="#//DNote" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DImport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DModel" abstract="true" eSuperTypes="#//DNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DNamespace" eSuperTypes="#//DNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//DImport" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//DModel"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IDiagramRoot" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IStaticReferenceTarget" abstract="true"
+      interface="true" eSuperTypes="#//DNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DInformationModel" eSuperTypes="#//DModel #//INoteContainer #//IAggregateContainer #//ITypeContainer #//IStaticReferenceTarget #//IDiagramRoot">
     <eOperations name="allowsIdentityTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IAggregateContainer" abstract="true"
@@ -46,13 +66,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//DFeature" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" abstract="true" eSuperTypes="#//DNamedElement #//ITypeContainer #//IFeatureContainer #//INavigableMemberContainer #//IStaticReferenceTarget #//IDiagramRoot">
+  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" abstract="true" eSuperTypes="#//DNamedElement #//INoteContainer #//ITypeContainer #//IFeatureContainer #//INavigableMemberContainer #//IStaticReferenceTarget #//IDiagramRoot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="roots" unique="false" upperBound="-1"
         eType="#//DEntityType" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnlyView" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DNavigableMember" abstract="true" eSuperTypes="#//DNamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DNavigableMember" abstract="true" eSuperTypes="#//DNamedElement #//INoteContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//DMultiplicity"
         containment="true"/>
@@ -80,13 +100,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IValueType" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DType" abstract="true" eSuperTypes="#//DNamedElement #//IStaticReferenceTarget">
+  <eClassifiers xsi:type="ecore:EClass" name="DType" abstract="true" eSuperTypes="#//DNamedElement #//INoteContainer #//IStaticReferenceTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//DNamedPredicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="primitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DNamedPredicate" eSuperTypes="#//DNamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DNamedPredicate" eSuperTypes="#//DNamedElement #//INoteContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="#//DExpression"
         containment="true"/>
   </eClassifiers>
@@ -146,5 +166,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DQueryParameter" abstract="true" eSuperTypes="#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DState" eSuperTypes="#//DNavigableMember"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DStateEvent" eSuperTypes="#//DNamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DStateEvent" eSuperTypes="#//DNamedElement #//INoteContainer"/>
 </ecore:EPackage>

@@ -97,13 +97,22 @@ public interface DemPackage extends EPackage
 	int DEM_DOMAIN_EVENT__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_DOMAIN_EVENT__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' containment reference list.
@@ -112,7 +121,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__CONTEXT = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int DEM_DOMAIN_EVENT__CONTEXT = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Triggers</b></em>' reference list.
@@ -121,7 +130,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__TRIGGERS = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int DEM_DOMAIN_EVENT__TRIGGERS = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Preconditions CNF</b></em>' containment reference list.
@@ -130,7 +139,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__PRECONDITIONS_CNF = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int DEM_DOMAIN_EVENT__PRECONDITIONS_CNF = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Postconditions DNF</b></em>' containment reference list.
@@ -139,7 +148,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__POSTCONDITIONS_DNF = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int DEM_DOMAIN_EVENT__POSTCONDITIONS_DNF = BasePackage.DMODEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
@@ -148,7 +157,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__NOTIFICATIONS = BasePackage.DMODEL_FEATURE_COUNT + 5;
+	int DEM_DOMAIN_EVENT__NOTIFICATIONS = BasePackage.DMODEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Domain Event</em>' class.
@@ -157,7 +166,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 6;
+	int DEM_DOMAIN_EVENT_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Domain Event</em>' class.
@@ -288,6 +297,15 @@ public interface DemPackage extends EPackage
 	int DEM_NOTIFICATION__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_NOTIFICATION__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -406,6 +424,15 @@ public interface DemPackage extends EPackage
 	int DEM_MESSAGE__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_MESSAGE__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -497,13 +524,22 @@ public interface DemPackage extends EPackage
 	int DEM_ACTOR_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_ACTOR_MODEL__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR_MODEL__ACTORS = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int DEM_ACTOR_MODEL__ACTORS = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Actor Model</em>' class.
@@ -512,7 +548,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int DEM_ACTOR_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Actor Model</em>' class.
@@ -559,6 +595,15 @@ public interface DemPackage extends EPackage
 	 * @ordered
 	 */
 	int DEM_ACTOR__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_ACTOR__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -652,6 +697,15 @@ public interface DemPackage extends EPackage
 	int DEM_HUMAN_ACTOR_ROLE__DESCRIPTION = DEM_ACTOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_HUMAN_ACTOR_ROLE__NOTES = DEM_ACTOR__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -741,6 +795,15 @@ public interface DemPackage extends EPackage
 	 * @ordered
 	 */
 	int DEM_SERVICE__DESCRIPTION = DEM_ACTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_SERVICE__NOTES = DEM_ACTOR__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -834,13 +897,22 @@ public interface DemPackage extends EPackage
 	int DEM_EVENTS_OVERVIEW_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_EVENTS_OVERVIEW_MODEL__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>All</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__ALL = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int DEM_EVENTS_OVERVIEW_MODEL__ALL = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -849,7 +921,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__INCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int DEM_EVENTS_OVERVIEW_MODEL__INCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Exclude</b></em>' reference list.
@@ -858,7 +930,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Events Overview Model</em>' class.
@@ -867,7 +939,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int DEM_EVENTS_OVERVIEW_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Events Overview Model</em>' class.

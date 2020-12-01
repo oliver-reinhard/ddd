@@ -52,6 +52,10 @@ public enum SystemInformationModelKind implements Enumerator
 	/**
 	 * The '<em><b>BASE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>BASE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BASE
 	 * @model
@@ -63,6 +67,10 @@ public enum SystemInformationModelKind implements Enumerator
 	/**
 	 * The '<em><b>INTERFACE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>INTERFACE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERFACE
 	 * @model
@@ -74,6 +82,10 @@ public enum SystemInformationModelKind implements Enumerator
 	/**
 	 * The '<em><b>CORE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>CORE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CORE
 	 * @model
@@ -204,7 +216,6 @@ public enum SystemInformationModelKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -215,7 +226,6 @@ public enum SystemInformationModelKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -226,7 +236,6 @@ public enum SystemInformationModelKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

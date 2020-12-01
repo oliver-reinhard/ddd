@@ -215,6 +215,15 @@ public interface DomPackage extends EPackage
 	int DOM_OBJECT__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__NOTES = BasePackage.DNAVIGABLE_MEMBER__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,6 +304,15 @@ public interface DomPackage extends EPackage
 	 * @ordered
 	 */
 	int DOM_NAMED_COMPLEX_OBJECT__DESCRIPTION = DOM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__NOTES = DOM_OBJECT__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.

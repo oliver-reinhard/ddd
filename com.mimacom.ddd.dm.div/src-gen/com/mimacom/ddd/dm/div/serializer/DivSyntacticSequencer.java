@@ -29,8 +29,8 @@ public class DivSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_DivAttributeTransposition_AttributeKeyword_1_0_1_0_q;
 	protected AbstractElementAlias match_DivAttributeTransposition_AttributeKeyword_1_1_1_0_q;
 	protected AbstractElementAlias match_DivAttributeTransposition_AttributeKeyword_1_2_1_0_q;
-	protected AbstractElementAlias match_DivEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q;
-	protected AbstractElementAlias match_DivPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
+	protected AbstractElementAlias match_DivEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q;
+	protected AbstractElementAlias match_DivPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
 	protected AbstractElementAlias match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
@@ -46,8 +46,8 @@ public class DivSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_DivAttributeTransposition_AttributeKeyword_1_0_1_0_q = new TokenAlias(false, true, grammarAccess.getDivAttributeTranspositionAccess().getAttributeKeyword_1_0_1_0());
 		match_DivAttributeTransposition_AttributeKeyword_1_1_1_0_q = new TokenAlias(false, true, grammarAccess.getDivAttributeTranspositionAccess().getAttributeKeyword_1_1_1_0());
 		match_DivAttributeTransposition_AttributeKeyword_1_2_1_0_q = new TokenAlias(false, true, grammarAccess.getDivAttributeTranspositionAccess().getAttributeKeyword_1_2_1_0());
-		match_DivEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDivEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getDivEnumerationTranspositionAccess().getRightCurlyBracketKeyword_3_3()));
-		match_DivPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDivPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getDivPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_3_2()));
+		match_DivEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDivEnumerationTranspositionAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getDivEnumerationTranspositionAccess().getRightCurlyBracketKeyword_4_3()));
+		match_DivPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDivPrimitiveTranspositionAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getDivPrimitiveTranspositionAccess().getRightCurlyBracketKeyword_4_2()));
 		match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFalseKeyword_1_3()));
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
@@ -139,10 +139,10 @@ public class DivSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DivAttributeTransposition_AttributeKeyword_1_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DivAttributeTransposition_AttributeKeyword_1_2_1_0_q.equals(syntax))
 				emit_DivAttributeTransposition_AttributeKeyword_1_2_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DivEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q.equals(syntax))
-				emit_DivEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DivPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
-				emit_DivPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DivEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q.equals(syntax))
+				emit_DivEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DivPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_DivPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
@@ -239,10 +239,11 @@ public class DivSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
+	 *     notes+=DNote (ambiguity) (rule end)
 	 *     rule=DivDitchEnumerationRule (ambiguity) (rule end)
 	 *     rule=DivGrabEnumerationRule (ambiguity) (rule end)
 	 */
-	protected void emit_DivEnumerationTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DivEnumerationTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -252,10 +253,11 @@ public class DivSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     description=DRichText (ambiguity) (rule end)
+	 *     notes+=DNote (ambiguity) (rule end)
 	 *     rule=DivDitchPrimitiveRule (ambiguity) (rule end)
 	 *     rule=DivGrabPrimitiveRule (ambiguity) (rule end)
 	 */
-	protected void emit_DivPrimitiveTransposition___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DivPrimitiveTransposition___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.esm.impl;
 
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 
@@ -10,14 +11,21 @@ import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmStateKind;
 import com.mimacom.ddd.dm.esm.IEsmState;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl#getState <em>State</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl#getDescription <em>Description</em>}</li>
@@ -36,6 +45,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container implements IEsmState
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getState() <em>State</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -95,6 +114,20 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	protected EClass eStaticClass()
 	{
 		return EsmPackage.Literals.IESM_STATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, EsmPackage.IESM_STATE__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -221,6 +254,8 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
+			case EsmPackage.IESM_STATE__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case EsmPackage.IESM_STATE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 		}
@@ -237,6 +272,8 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
+			case EsmPackage.IESM_STATE__NOTES:
+				return getNotes();
 			case EsmPackage.IESM_STATE__STATE:
 				if (resolve) return getState();
 				return basicGetState();
@@ -253,11 +290,16 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
+			case EsmPackage.IESM_STATE__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case EsmPackage.IESM_STATE__STATE:
 				setState((DState)newValue);
 				return;
@@ -281,6 +323,9 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
+			case EsmPackage.IESM_STATE__NOTES:
+				getNotes().clear();
+				return;
 			case EsmPackage.IESM_STATE__STATE:
 				setState((DState)null);
 				return;
@@ -304,6 +349,8 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
+			case EsmPackage.IESM_STATE__NOTES:
+				return notes != null && !notes.isEmpty();
 			case EsmPackage.IESM_STATE__STATE:
 				return state != null;
 			case EsmPackage.IESM_STATE__KIND:

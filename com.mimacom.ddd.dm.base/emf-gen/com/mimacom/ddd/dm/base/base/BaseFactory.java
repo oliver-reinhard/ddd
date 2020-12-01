@@ -23,24 +23,6 @@ public interface BaseFactory extends EFactory
 	BaseFactory eINSTANCE = com.mimacom.ddd.dm.base.base.impl.BaseFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>DImport</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DImport</em>'.
-	 * @generated
-	 */
-	DImport createDImport();
-
-	/**
-	 * Returns a new object of class '<em>DNamespace</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DNamespace</em>'.
-	 * @generated
-	 */
-	DNamespace createDNamespace();
-
-	/**
 	 * Returns a new object of class '<em>DText Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,6 +39,33 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DRichText createDRichText();
+
+	/**
+	 * Returns a new object of class '<em>DNote</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DNote</em>'.
+	 * @generated
+	 */
+	DNote createDNote();
+
+	/**
+	 * Returns a new object of class '<em>DImport</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DImport</em>'.
+	 * @generated
+	 */
+	DImport createDImport();
+
+	/**
+	 * Returns a new object of class '<em>DNamespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DNamespace</em>'.
+	 * @generated
+	 */
+	DNamespace createDNamespace();
 
 	/**
 	 * Returns a new object of class '<em>DInformation Model</em>'.

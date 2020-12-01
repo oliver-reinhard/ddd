@@ -119,7 +119,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DemDomainEvent getEvent() {
 		if (event != null && event.eIsProxy()) {
 			InternalEObject oldEvent = (InternalEObject)event;
@@ -146,7 +145,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setEvent(DemDomainEvent newEvent) {
 		DemDomainEvent oldEvent = event;
 		event = newEvent;
@@ -159,7 +157,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DRichText getGoal() {
 		return goal;
 	}
@@ -184,7 +181,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setGoal(DRichText newGoal) {
 		if (newGoal != goal) {
 			NotificationChain msgs = null;
@@ -204,7 +200,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Section> getSections() {
 		if (sections == null) {
 			sections = new EObjectContainmentEList<Section>(Section.class, this, SusPackage.USER_STORY__SECTIONS);
@@ -217,7 +212,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getJiraKey() {
 		return jiraKey;
 	}
@@ -227,7 +221,6 @@ public class UserStoryImpl extends DModelImpl implements UserStory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setJiraKey(String newJiraKey) {
 		String oldJiraKey = jiraKey;
 		jiraKey = newJiraKey;

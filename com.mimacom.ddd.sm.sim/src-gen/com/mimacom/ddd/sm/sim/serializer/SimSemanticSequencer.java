@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
@@ -112,6 +113,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
+				return; 
+			case BasePackage.DNOTE:
+				sequence_DNote(context, (DNote) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -559,6 +563,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (rule=SimGrabComplexTypeRule | rule=SimDitchComplexTypeRule | rule=SimMorphComplexTypeRule | rule=SimFuseComplexTypeRule) 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         features+=SimFeature? 
 	 *         (constraints+=DConstraint? features+=SimFeature?)*
 	 *     )
@@ -691,6 +696,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *             (root?='root'? rule=SimFuseComplexTypeRule)
 	 *         ) 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         (features+=SimFeature | constraints+=DConstraint)*
 	 *     )
 	 */
@@ -709,6 +715,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (rule=SimGrabEnumerationRule | rule=SimDitchEnumerationRule) 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         (literals+=SimLiteral literals+=SimLiteral*)? 
 	 *         constraints+=DConstraint*
 	 *     )
@@ -808,7 +815,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimLiteralTransposition returns TLiteralTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=SimGrabEnumerationLiteralRule | rule=SimDitchEnumerationLiteralRule) description=DRichText?)
+	 *     ((rule=SimGrabEnumerationLiteralRule | rule=SimDitchEnumerationLiteralRule) description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_SimLiteralTransposition(ISerializationContext context, TLiteralTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -846,7 +853,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimPrimitiveTransposition returns TPrimitiveTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=SimGrabPrimitiveRule | rule=SimDitchPrimitiveRule) description=DRichText? constraints+=DConstraint*)
+	 *     ((rule=SimGrabPrimitiveRule | rule=SimDitchPrimitiveRule) description=DRichText? notes+=DNote* constraints+=DConstraint*)
 	 */
 	protected void sequence_SimPrimitiveTransposition(ISerializationContext context, TPrimitiveTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -859,7 +866,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SimQueryParameterTransposition returns TQueryParameterTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=SimGrabQueryParameterRule | rule=SimMorphQueryParameterRule | rule=SimDitchQueryParameterRule) description=DRichText?)
+	 *     ((rule=SimGrabQueryParameterRule | rule=SimMorphQueryParameterRule | rule=SimDitchQueryParameterRule) description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_SimQueryParameterTransposition(ISerializationContext context, TQueryParameterTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -877,7 +884,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *             ((rule=SimGrabFeatureRule | rule=SimMorphFeatureRule) (parameters+=SimQueryParameter parameters+=SimQueryParameter*)?) | 
 	 *             rule=SimDitchFeatureRule
 	 *         ) 
-	 *         description=DRichText?
+	 *         description=DRichText? 
+	 *         notes+=DNote*
 	 *     )
 	 */
 	protected void sequence_SimQueryTransposition(ISerializationContext context, TQueryTransposition semanticObject) {
@@ -895,6 +903,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         name=ID 
 	 *         generate?='generate'? 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         (types+=SimType | aggregates+=SimAggregate)*
 	 *     )
 	 */

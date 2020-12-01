@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -76,6 +77,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
+				return; 
+			case BasePackage.DNOTE:
+				sequence_DNote(context, (DNote) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -307,6 +311,18 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=DQualifiedName imports+=DImport* model=DmxModel)
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DNote returns DNote
+	 *
+	 * Constraint:
+	 *     (name=ID text=DRichText color=DNoteColor?)
+	 */
+	protected void sequence_DNote(ISerializationContext context, DNote semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

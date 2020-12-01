@@ -98,13 +98,22 @@ public interface EsmPackage extends EPackage
 	int ESM_ENTITY_STATE_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_ENTITY_STATE_MODEL__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__DIRECTION = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int ESM_ENTITY_STATE_MODEL__DIRECTION = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -113,7 +122,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__STATES = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int ESM_ENTITY_STATE_MODEL__STATES = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -122,7 +131,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__TRANSITIONS = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int ESM_ENTITY_STATE_MODEL__TRANSITIONS = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -131,7 +140,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>For Type</b></em>' reference.
@@ -140,7 +149,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DMODEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Entity State Model</em>' class.
@@ -149,7 +158,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 5;
+	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.IEsmLayout <em>IEsm Layout</em>}' class.
@@ -236,13 +245,22 @@ public interface EsmPackage extends EPackage
 	int IESM_STATE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE__NOTES = BasePackage.INOTE_CONTAINER__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IESM_STATE__STATE = 0;
+	int IESM_STATE__STATE = BasePackage.INOTE_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -251,7 +269,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int IESM_STATE__KIND = 1;
+	int IESM_STATE__KIND = BasePackage.INOTE_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -260,7 +278,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int IESM_STATE__DESCRIPTION = 2;
+	int IESM_STATE__DESCRIPTION = BasePackage.INOTE_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>IEsm State</em>' class.
@@ -269,7 +287,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int IESM_STATE_FEATURE_COUNT = 3;
+	int IESM_STATE_FEATURE_COUNT = BasePackage.INOTE_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmStateImpl <em>State</em>}' class.
@@ -280,6 +298,15 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 */
 	int ESM_STATE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_STATE__NOTES = IESM_STATE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -326,6 +353,15 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 */
 	int ESM_DERIVED_STATE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_DERIVED_STATE__NOTES = ESM_STATE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -381,6 +417,15 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 */
 	int ESM_COMPOSITE_STATE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__NOTES = IESM_STATE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -454,6 +499,15 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 */
 	int ESM_CONCURRENT_STATE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_CONCURRENT_STATE__NOTES = IESM_STATE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -566,13 +620,22 @@ public interface EsmPackage extends EPackage
 	int ESM_TRANSITION__DIRECTION = IESM_LAYOUT__DIRECTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_TRANSITION__NOTES = IESM_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__FROM = IESM_LAYOUT_FEATURE_COUNT + 0;
+	int ESM_TRANSITION__FROM = IESM_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -581,7 +644,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__TO = IESM_LAYOUT_FEATURE_COUNT + 1;
+	int ESM_TRANSITION__TO = IESM_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.
@@ -590,7 +653,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__EVENT = IESM_LAYOUT_FEATURE_COUNT + 2;
+	int ESM_TRANSITION__EVENT = IESM_LAYOUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -599,7 +662,16 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__GUARD = IESM_LAYOUT_FEATURE_COUNT + 3;
+	int ESM_TRANSITION__GUARD = IESM_LAYOUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_TRANSITION__DESCRIPTION = IESM_LAYOUT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -608,7 +680,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION_FEATURE_COUNT = IESM_LAYOUT_FEATURE_COUNT + 4;
+	int ESM_TRANSITION_FEATURE_COUNT = IESM_LAYOUT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.EsmLayoutDirection <em>Layout Direction</em>}' enum.
@@ -875,6 +947,17 @@ public interface EsmPackage extends EPackage
 	EReference getEsmTransition_Guard();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.esm.EsmTransition#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Description</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmTransition#getDescription()
+	 * @see #getEsmTransition()
+	 * @generated
+	 */
+	EReference getEsmTransition_Description();
+
+	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.esm.EsmLayoutDirection <em>Layout Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1120,6 +1203,14 @@ public interface EsmPackage extends EPackage
 		 * @generated
 		 */
 		EReference ESM_TRANSITION__GUARD = eINSTANCE.getEsmTransition_Guard();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ESM_TRANSITION__DESCRIPTION = eINSTANCE.getEsmTransition_Description();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.EsmLayoutDirection <em>Layout Direction</em>}' enum.

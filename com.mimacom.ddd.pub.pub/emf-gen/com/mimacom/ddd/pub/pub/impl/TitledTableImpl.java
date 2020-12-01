@@ -62,7 +62,6 @@ public class TitledTableImpl extends TitledBlockImpl implements TitledTable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public AbstractTable getTable() {
 		return table;
 	}
@@ -87,7 +86,6 @@ public class TitledTableImpl extends TitledBlockImpl implements TitledTable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTable(AbstractTable newTable) {
 		if (newTable != table) {
 			NotificationChain msgs = null;

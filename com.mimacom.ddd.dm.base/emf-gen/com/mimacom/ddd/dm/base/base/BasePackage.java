@@ -60,6 +60,136 @@ public interface BasePackage extends EPackage
 	BasePackage eINSTANCE = com.mimacom.ddd.dm.base.base.impl.BasePackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.IRichTextSegment
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIRichTextSegment()
+	 * @generated
+	 */
+	int IRICH_TEXT_SEGMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>IRich Text Segment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRICH_TEXT_SEGMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>IRich Text Segment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRICH_TEXT_SEGMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DTextSegmentImpl <em>DText Segment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DTextSegmentImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDTextSegment()
+	 * @generated
+	 */
+	int DTEXT_SEGMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTEXT_SEGMENT__VALUE = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>DText Segment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTEXT_SEGMENT_FEATURE_COUNT = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>DText Segment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTEXT_SEGMENT_OPERATION_COUNT = IRICH_TEXT_SEGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DExpressionImpl <em>DExpression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DExpressionImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDExpression()
+	 * @generated
+	 */
+	int DEXPRESSION = 2;
+
+	/**
+	 * The number of structural features of the '<em>DExpression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEXPRESSION_FEATURE_COUNT = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DExpression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEXPRESSION_OPERATION_COUNT = IRICH_TEXT_SEGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DRichTextImpl <em>DRich Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DRichTextImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDRichText()
+	 * @generated
+	 */
+	int DRICH_TEXT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRICH_TEXT__SEGMENTS = DEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>DRich Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRICH_TEXT_FEATURE_COUNT = DEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>DRich Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRICH_TEXT_OPERATION_COUNT = DEXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl <em>DNamed Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,7 +197,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamedElement()
 	 * @generated
 	 */
-	int DNAMED_ELEMENT = 0;
+	int DNAMED_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -115,6 +245,98 @@ public interface BasePackage extends EPackage
 	int DNAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DNoteImpl <em>DNote</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DNoteImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNote()
+	 * @generated
+	 */
+	int DNOTE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTE__TEXT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTE__COLOR = 2;
+
+	/**
+	 * The number of structural features of the '<em>DNote</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>DNote</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.INoteContainer <em>INote Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.INoteContainer
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getINoteContainer()
+	 * @generated
+	 */
+	int INOTE_CONTAINER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOTE_CONTAINER__NOTES = 0;
+
+	/**
+	 * The number of structural features of the '<em>INote Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOTE_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>INote Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOTE_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DImportImpl <em>DImport</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,7 +344,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDImport()
 	 * @generated
 	 */
-	int DIMPORT = 1;
+	int DIMPORT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -152,6 +374,61 @@ public interface BasePackage extends EPackage
 	int DIMPORT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DModelImpl <em>DModel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DModelImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDModel()
+	 * @generated
+	 */
+	int DMODEL = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMODEL__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMODEL__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMODEL__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>DModel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMODEL_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DModel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMODEL_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DNamespaceImpl <em>DNamespace</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,7 +436,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamespace()
 	 * @generated
 	 */
-	int DNAMESPACE = 2;
+	int DNAMESPACE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -225,61 +502,6 @@ public interface BasePackage extends EPackage
 	int DNAMESPACE_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DModelImpl <em>DModel</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.impl.DModelImpl
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDModel()
-	 * @generated
-	 */
-	int DMODEL = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMODEL__NAME = DNAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMODEL__ALIASES = DNAMED_ELEMENT__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMODEL__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The number of structural features of the '<em>DModel</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMODEL_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>DModel</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMODEL_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -287,7 +509,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIDiagramRoot()
 	 * @generated
 	 */
-	int IDIAGRAM_ROOT = 4;
+	int IDIAGRAM_ROOT = 10;
 
 	/**
 	 * The number of structural features of the '<em>IDiagram Root</em>' class.
@@ -315,7 +537,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIStaticReferenceTarget()
 	 * @generated
 	 */
-	int ISTATIC_REFERENCE_TARGET = 5;
+	int ISTATIC_REFERENCE_TARGET = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -363,136 +585,6 @@ public interface BasePackage extends EPackage
 	int ISTATIC_REFERENCE_TARGET_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.IRichTextSegment
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIRichTextSegment()
-	 * @generated
-	 */
-	int IRICH_TEXT_SEGMENT = 6;
-
-	/**
-	 * The number of structural features of the '<em>IRich Text Segment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRICH_TEXT_SEGMENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>IRich Text Segment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRICH_TEXT_SEGMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DTextSegmentImpl <em>DText Segment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.impl.DTextSegmentImpl
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDTextSegment()
-	 * @generated
-	 */
-	int DTEXT_SEGMENT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTEXT_SEGMENT__VALUE = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>DText Segment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTEXT_SEGMENT_FEATURE_COUNT = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>DText Segment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTEXT_SEGMENT_OPERATION_COUNT = IRICH_TEXT_SEGMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DExpressionImpl <em>DExpression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.impl.DExpressionImpl
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDExpression()
-	 * @generated
-	 */
-	int DEXPRESSION = 8;
-
-	/**
-	 * The number of structural features of the '<em>DExpression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXPRESSION_FEATURE_COUNT = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>DExpression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXPRESSION_OPERATION_COUNT = IRICH_TEXT_SEGMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DRichTextImpl <em>DRich Text</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.base.impl.DRichTextImpl
-	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDRichText()
-	 * @generated
-	 */
-	int DRICH_TEXT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRICH_TEXT__SEGMENTS = DEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>DRich Text</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRICH_TEXT_FEATURE_COUNT = DEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>DRich Text</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRICH_TEXT_OPERATION_COUNT = DEXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl <em>DInformation Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,7 +592,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDInformationModel()
 	 * @generated
 	 */
-	int DINFORMATION_MODEL = 10;
+	int DINFORMATION_MODEL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -530,13 +622,22 @@ public interface BasePackage extends EPackage
 	int DINFORMATION_MODEL__DESCRIPTION = DMODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DINFORMATION_MODEL__NOTES = DMODEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL__AGGREGATES = DMODEL_FEATURE_COUNT + 0;
+	int DINFORMATION_MODEL__AGGREGATES = DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -545,7 +646,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL__TYPES = DMODEL_FEATURE_COUNT + 1;
+	int DINFORMATION_MODEL__TYPES = DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>DInformation Model</em>' class.
@@ -554,7 +655,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL_FEATURE_COUNT = DMODEL_FEATURE_COUNT + 2;
+	int DINFORMATION_MODEL_FEATURE_COUNT = DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Allows Identity Types</em>' operation.
@@ -582,7 +683,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIAggregateContainer()
 	 * @generated
 	 */
-	int IAGGREGATE_CONTAINER = 11;
+	int IAGGREGATE_CONTAINER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -619,7 +720,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getITypeContainer()
 	 * @generated
 	 */
-	int ITYPE_CONTAINER = 12;
+	int ITYPE_CONTAINER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -656,7 +757,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIFeatureContainer()
 	 * @generated
 	 */
-	int IFEATURE_CONTAINER = 13;
+	int IFEATURE_CONTAINER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -693,7 +794,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAggregate()
 	 * @generated
 	 */
-	int DAGGREGATE = 14;
+	int DAGGREGATE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -723,13 +824,22 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__NOTES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__TYPES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DAGGREGATE__TYPES = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -738,7 +848,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__FEATURES = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DAGGREGATE__FEATURES = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -747,7 +857,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__NAVIGABLE_MEMBERS = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DAGGREGATE__NAVIGABLE_MEMBERS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
@@ -756,7 +866,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ROOTS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DAGGREGATE__ROOTS = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
@@ -765,7 +875,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__READ_ONLY_VIEW = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DAGGREGATE__READ_ONLY_VIEW = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>DAggregate</em>' class.
@@ -774,7 +884,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 5;
+	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>DAggregate</em>' class.
@@ -793,7 +903,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNavigableMember()
 	 * @generated
 	 */
-	int DNAVIGABLE_MEMBER = 15;
+	int DNAVIGABLE_MEMBER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -823,13 +933,22 @@ public interface BasePackage extends EPackage
 	int DNAVIGABLE_MEMBER__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNAVIGABLE_MEMBER__NOTES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAVIGABLE_MEMBER__TYPE = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DNAVIGABLE_MEMBER__TYPE = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -838,7 +957,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNAVIGABLE_MEMBER__MULTIPLICITY = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DNAVIGABLE_MEMBER__MULTIPLICITY = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -847,7 +966,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNAVIGABLE_MEMBER__OPTIONAL = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DNAVIGABLE_MEMBER__OPTIONAL = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -856,7 +975,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNAVIGABLE_MEMBER__COLLECTION = DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DNAVIGABLE_MEMBER__COLLECTION = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>DNavigable Member</em>' class.
@@ -865,7 +984,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNAVIGABLE_MEMBER_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DNAVIGABLE_MEMBER_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DNavigable Member</em>' class.
@@ -884,7 +1003,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getINavigableMemberContainer()
 	 * @generated
 	 */
-	int INAVIGABLE_MEMBER_CONTAINER = 16;
+	int INAVIGABLE_MEMBER_CONTAINER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -921,7 +1040,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 17;
+	int DCONTEXT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -949,6 +1068,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DCONTEXT__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__NOTES = DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1012,7 +1140,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 18;
+	int DMULTIPLICITY = 20;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -1067,7 +1195,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIIdentityType()
 	 * @generated
 	 */
-	int IIDENTITY_TYPE = 19;
+	int IIDENTITY_TYPE = 21;
 
 	/**
 	 * The number of structural features of the '<em>IIdentity Type</em>' class.
@@ -1095,7 +1223,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIValueType()
 	 * @generated
 	 */
-	int IVALUE_TYPE = 20;
+	int IVALUE_TYPE = 22;
 
 	/**
 	 * The number of structural features of the '<em>IValue Type</em>' class.
@@ -1123,7 +1251,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDType()
 	 * @generated
 	 */
-	int DTYPE = 21;
+	int DTYPE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1153,13 +1281,22 @@ public interface BasePackage extends EPackage
 	int DTYPE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTYPE__NOTES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE__CONSTRAINTS = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DTYPE__CONSTRAINTS = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
@@ -1168,7 +1305,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE__PRIMITIVE = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DTYPE__PRIMITIVE = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>DType</em>' class.
@@ -1177,7 +1314,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DTYPE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>DType</em>' class.
@@ -1196,7 +1333,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamedPredicate()
 	 * @generated
 	 */
-	int DNAMED_PREDICATE = 22;
+	int DNAMED_PREDICATE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1226,13 +1363,22 @@ public interface BasePackage extends EPackage
 	int DNAMED_PREDICATE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNAMED_PREDICATE__NOTES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMED_PREDICATE__PREDICATE = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DNAMED_PREDICATE__PREDICATE = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DNamed Predicate</em>' class.
@@ -1241,7 +1387,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMED_PREDICATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DNAMED_PREDICATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DNamed Predicate</em>' class.
@@ -1260,7 +1406,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDSimpleType()
 	 * @generated
 	 */
-	int DSIMPLE_TYPE = 23;
+	int DSIMPLE_TYPE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1288,6 +1434,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DSIMPLE_TYPE__DESCRIPTION = DTYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSIMPLE_TYPE__NOTES = DTYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1333,7 +1488,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDPrimitive()
 	 * @generated
 	 */
-	int DPRIMITIVE = 24;
+	int DPRIMITIVE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1361,6 +1516,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DPRIMITIVE__DESCRIPTION = DSIMPLE_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DPRIMITIVE__NOTES = DSIMPLE_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1415,7 +1579,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEnumeration()
 	 * @generated
 	 */
-	int DENUMERATION = 25;
+	int DENUMERATION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1443,6 +1607,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DENUMERATION__DESCRIPTION = DSIMPLE_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENUMERATION__NOTES = DSIMPLE_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1506,7 +1679,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDLiteral()
 	 * @generated
 	 */
-	int DLITERAL = 26;
+	int DLITERAL = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1534,6 +1707,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DLITERAL__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DLITERAL__NOTES = DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1597,7 +1779,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDComplexType()
 	 * @generated
 	 */
-	int DCOMPLEX_TYPE = 27;
+	int DCOMPLEX_TYPE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1625,6 +1807,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DCOMPLEX_TYPE__DESCRIPTION = DTYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE__NOTES = DTYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1715,7 +1906,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDDetailType()
 	 * @generated
 	 */
-	int DDETAIL_TYPE = 28;
+	int DDETAIL_TYPE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1743,6 +1934,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDETAIL_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDETAIL_TYPE__NOTES = DCOMPLEX_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1833,7 +2033,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DENTITY_TYPE = 29;
+	int DENTITY_TYPE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1861,6 +2061,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE__NOTES = DCOMPLEX_TYPE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1987,7 +2196,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 30;
+	int DFEATURE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2015,6 +2224,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DFEATURE__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE__NOTES = DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2087,7 +2305,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 31;
+	int DASSOCIATION = 33;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2115,6 +2333,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DASSOCIATION__DESCRIPTION = DFEATURE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DASSOCIATION__NOTES = DFEATURE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2223,7 +2450,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 32;
+	int DATTRIBUTE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2251,6 +2478,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DATTRIBUTE__DESCRIPTION = DFEATURE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATTRIBUTE__NOTES = DFEATURE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2341,7 +2577,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 33;
+	int DQUERY = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2369,6 +2605,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DQUERY__DESCRIPTION = DFEATURE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DQUERY__NOTES = DFEATURE__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2468,7 +2713,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 34;
+	int DQUERY_PARAMETER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2496,6 +2741,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DQUERY_PARAMETER__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DQUERY_PARAMETER__NOTES = DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2559,7 +2813,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDState()
 	 * @generated
 	 */
-	int DSTATE = 35;
+	int DSTATE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2587,6 +2841,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DSTATE__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__NOTES = DNAVIGABLE_MEMBER__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2650,7 +2913,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDStateEvent()
 	 * @generated
 	 */
-	int DSTATE_EVENT = 36;
+	int DSTATE_EVENT = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2680,13 +2943,22 @@ public interface BasePackage extends EPackage
 	int DSTATE_EVENT__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_EVENT__NOTES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>DState Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSTATE_EVENT_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DSTATE_EVENT_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DState Event</em>' class.
@@ -2698,6 +2970,16 @@ public interface BasePackage extends EPackage
 	int DSTATE_EVENT_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DNoteColor <em>DNote Color</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.DNoteColor
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNoteColor()
+	 * @generated
+	 */
+	int DNOTE_COLOR = 39;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2705,7 +2987,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDMultiplicityShorthand()
 	 * @generated
 	 */
-	int DMULTIPLICITY_SHORTHAND = 37;
+	int DMULTIPLICITY_SHORTHAND = 40;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DEntityNature <em>DEntity Nature</em>}' enum.
@@ -2715,7 +2997,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEntityNature()
 	 * @generated
 	 */
-	int DENTITY_NATURE = 38;
+	int DENTITY_NATURE = 41;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -2725,134 +3007,8 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 39;
+	int DASSOCIATION_KIND = 42;
 
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DNamedElement <em>DNamed Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DNamed Element</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamedElement
-	 * @generated
-	 */
-	EClass getDNamedElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getName()
-	 * @see #getDNamedElement()
-	 * @generated
-	 */
-	EAttribute getDNamedElement_Name();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAliases <em>Aliases</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Aliases</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getAliases()
-	 * @see #getDNamedElement()
-	 * @generated
-	 */
-	EAttribute getDNamedElement_Aliases();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Description</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getDescription()
-	 * @see #getDNamedElement()
-	 * @generated
-	 */
-	EReference getDNamedElement_Description();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DImport <em>DImport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DImport</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DImport
-	 * @generated
-	 */
-	EClass getDImport();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DImport#getImportedNamespace <em>Imported Namespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Imported Namespace</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DImport#getImportedNamespace()
-	 * @see #getDImport()
-	 * @generated
-	 */
-	EAttribute getDImport_ImportedNamespace();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DNamespace <em>DNamespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DNamespace</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamespace
-	 * @generated
-	 */
-	EClass getDNamespace();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.base.DNamespace#getImports <em>Imports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Imports</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamespace#getImports()
-	 * @see #getDNamespace()
-	 * @generated
-	 */
-	EReference getDNamespace_Imports();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.DNamespace#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Model</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamespace#getModel()
-	 * @see #getDNamespace()
-	 * @generated
-	 */
-	EReference getDNamespace_Model();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DModel <em>DModel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DModel</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DModel
-	 * @generated
-	 */
-	EClass getDModel();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IDiagram Root</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.IDiagramRoot
-	 * @generated
-	 */
-	EClass getIDiagramRoot();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IStatic Reference Target</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.IStaticReferenceTarget
-	 * @generated
-	 */
-	EClass getIStaticReferenceTarget();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.IRichTextSegment <em>IRich Text Segment</em>}'.
@@ -2915,6 +3071,196 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDRichText_Segments();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DNamed Element</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamedElement
+	 * @generated
+	 */
+	EClass getDNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getName()
+	 * @see #getDNamedElement()
+	 * @generated
+	 */
+	EAttribute getDNamedElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAliases <em>Aliases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Aliases</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getAliases()
+	 * @see #getDNamedElement()
+	 * @generated
+	 */
+	EAttribute getDNamedElement_Aliases();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Description</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getDescription()
+	 * @see #getDNamedElement()
+	 * @generated
+	 */
+	EReference getDNamedElement_Description();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DNote <em>DNote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DNote</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNote
+	 * @generated
+	 */
+	EClass getDNote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DNote#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNote#getName()
+	 * @see #getDNote()
+	 * @generated
+	 */
+	EAttribute getDNote_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.DNote#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Text</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNote#getText()
+	 * @see #getDNote()
+	 * @generated
+	 */
+	EReference getDNote_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DNote#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNote#getColor()
+	 * @see #getDNote()
+	 * @generated
+	 */
+	EAttribute getDNote_Color();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.INoteContainer <em>INote Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>INote Container</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.INoteContainer
+	 * @generated
+	 */
+	EClass getINoteContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.base.INoteContainer#getNotes <em>Notes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Notes</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.INoteContainer#getNotes()
+	 * @see #getINoteContainer()
+	 * @generated
+	 */
+	EReference getINoteContainer_Notes();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DImport <em>DImport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DImport</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DImport
+	 * @generated
+	 */
+	EClass getDImport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DImport#getImportedNamespace <em>Imported Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DImport#getImportedNamespace()
+	 * @see #getDImport()
+	 * @generated
+	 */
+	EAttribute getDImport_ImportedNamespace();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DModel <em>DModel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DModel</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DModel
+	 * @generated
+	 */
+	EClass getDModel();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DNamespace <em>DNamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DNamespace</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamespace
+	 * @generated
+	 */
+	EClass getDNamespace();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.base.DNamespace#getImports <em>Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Imports</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamespace#getImports()
+	 * @see #getDNamespace()
+	 * @generated
+	 */
+	EReference getDNamespace_Imports();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.DNamespace#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Model</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamespace#getModel()
+	 * @see #getDNamespace()
+	 * @generated
+	 */
+	EReference getDNamespace_Model();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IDiagram Root</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.IDiagramRoot
+	 * @generated
+	 */
+	EClass getIDiagramRoot();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IStatic Reference Target</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.IStaticReferenceTarget
+	 * @generated
+	 */
+	EClass getIStaticReferenceTarget();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DInformationModel <em>DInformation Model</em>}'.
@@ -3570,6 +3916,16 @@ public interface BasePackage extends EPackage
 	EClass getDStateEvent();
 
 	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.base.DNoteColor <em>DNote Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>DNote Color</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNoteColor
+	 * @generated
+	 */
+	EEnum getDNoteColor();
+
+	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3623,114 +3979,6 @@ public interface BasePackage extends EPackage
 	 */
 	interface Literals
 	{
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl <em>DNamed Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamedElement()
-		 * @generated
-		 */
-		EClass DNAMED_ELEMENT = eINSTANCE.getDNamedElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DNAMED_ELEMENT__NAME = eINSTANCE.getDNamedElement_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Aliases</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DNAMED_ELEMENT__ALIASES = eINSTANCE.getDNamedElement_Aliases();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DNAMED_ELEMENT__DESCRIPTION = eINSTANCE.getDNamedElement_Description();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DImportImpl <em>DImport</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.impl.DImportImpl
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDImport()
-		 * @generated
-		 */
-		EClass DIMPORT = eINSTANCE.getDImport();
-
-		/**
-		 * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIMPORT__IMPORTED_NAMESPACE = eINSTANCE.getDImport_ImportedNamespace();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DNamespaceImpl <em>DNamespace</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.impl.DNamespaceImpl
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamespace()
-		 * @generated
-		 */
-		EClass DNAMESPACE = eINSTANCE.getDNamespace();
-
-		/**
-		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DNAMESPACE__IMPORTS = eINSTANCE.getDNamespace_Imports();
-
-		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DNAMESPACE__MODEL = eINSTANCE.getDNamespace_Model();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DModelImpl <em>DModel</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.impl.DModelImpl
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDModel()
-		 * @generated
-		 */
-		EClass DMODEL = eINSTANCE.getDModel();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.IDiagramRoot
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIDiagramRoot()
-		 * @generated
-		 */
-		EClass IDIAGRAM_ROOT = eINSTANCE.getIDiagramRoot();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.base.IStaticReferenceTarget
-		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIStaticReferenceTarget()
-		 * @generated
-		 */
-		EClass ISTATIC_REFERENCE_TARGET = eINSTANCE.getIStaticReferenceTarget();
-
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -3786,6 +4034,166 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DRICH_TEXT__SEGMENTS = eINSTANCE.getDRichText_Segments();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl <em>DNamed Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamedElement()
+		 * @generated
+		 */
+		EClass DNAMED_ELEMENT = eINSTANCE.getDNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DNAMED_ELEMENT__NAME = eINSTANCE.getDNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Aliases</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DNAMED_ELEMENT__ALIASES = eINSTANCE.getDNamedElement_Aliases();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DNAMED_ELEMENT__DESCRIPTION = eINSTANCE.getDNamedElement_Description();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DNoteImpl <em>DNote</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DNoteImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNote()
+		 * @generated
+		 */
+		EClass DNOTE = eINSTANCE.getDNote();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DNOTE__NAME = eINSTANCE.getDNote_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DNOTE__TEXT = eINSTANCE.getDNote_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DNOTE__COLOR = eINSTANCE.getDNote_Color();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.INoteContainer <em>INote Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.INoteContainer
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getINoteContainer()
+		 * @generated
+		 */
+		EClass INOTE_CONTAINER = eINSTANCE.getINoteContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Notes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INOTE_CONTAINER__NOTES = eINSTANCE.getINoteContainer_Notes();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DImportImpl <em>DImport</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DImportImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDImport()
+		 * @generated
+		 */
+		EClass DIMPORT = eINSTANCE.getDImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIMPORT__IMPORTED_NAMESPACE = eINSTANCE.getDImport_ImportedNamespace();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DModelImpl <em>DModel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DModelImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDModel()
+		 * @generated
+		 */
+		EClass DMODEL = eINSTANCE.getDModel();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DNamespaceImpl <em>DNamespace</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DNamespaceImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNamespace()
+		 * @generated
+		 */
+		EClass DNAMESPACE = eINSTANCE.getDNamespace();
+
+		/**
+		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DNAMESPACE__IMPORTS = eINSTANCE.getDNamespace_Imports();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DNAMESPACE__MODEL = eINSTANCE.getDNamespace_Model();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.IDiagramRoot <em>IDiagram Root</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.IDiagramRoot
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIDiagramRoot()
+		 * @generated
+		 */
+		EClass IDIAGRAM_ROOT = eINSTANCE.getIDiagramRoot();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.IStaticReferenceTarget
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getIStaticReferenceTarget()
+		 * @generated
+		 */
+		EClass ISTATIC_REFERENCE_TARGET = eINSTANCE.getIStaticReferenceTarget();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DInformationModelImpl <em>DInformation Model</em>}' class.
@@ -4336,6 +4744,16 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DSTATE_EVENT = eINSTANCE.getDStateEvent();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.DNoteColor <em>DNote Color</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.DNoteColor
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNoteColor()
+		 * @generated
+		 */
+		EEnum DNOTE_COLOR = eINSTANCE.getDNoteColor();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}' enum.

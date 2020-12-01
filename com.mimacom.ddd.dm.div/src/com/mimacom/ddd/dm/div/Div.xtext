@@ -18,6 +18,7 @@ DomainInformationView:
 	readOnlyView?='read' 'only'
 	//	 (^generate?='generate')?
 	(description=DRichText)?
+	(notes+=DNote)*
 	'{'
 	(types+=DivType | aggregates+=DivAggregate)*
 	'}';
@@ -104,6 +105,7 @@ DivPrimitiveTransposition returns TPrimitiveTransposition:
 	| 'ditch' 'primitive' rule=DivDitchPrimitiveRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	('{'
 	('add' constraints+=DConstraint)*
 	'}')?;
@@ -114,6 +116,7 @@ DivEnumerationTransposition returns TEnumerationTransposition:
 	| 'ditch' 'enumeration' rule=DivDitchEnumerationRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	('{'
 	(literals+=DivLiteralTransposition (',' literals+=DivLiteralTransposition)*)?
 	('add' constraints+=DConstraint)*
@@ -123,7 +126,8 @@ DivLiteralTransposition returns TLiteralTransposition:
 	{TLiteralTransposition}
 	('grab' rule=DivGrabEnumerationLiteralRule
 	| 'ditch' rule=DivDitchEnumerationLiteralRule)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 DivEntityTypeTransposition returns TEntityTypeTransposition:
 	{TEntityTypeTransposition}
@@ -132,6 +136,7 @@ DivEntityTypeTransposition returns TEntityTypeTransposition:
 	| 'motph' (root?='root')? 'entity' rule=SimMorphComplexTypeRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	TComplexTypeFeatures?;
 
 DivDetailTypeTransposition returns TDetailTypeTransposition:
@@ -140,6 +145,7 @@ DivDetailTypeTransposition returns TDetailTypeTransposition:
 	| 'ditch' 'detail' rule=DivDitchComplexTypeRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	TComplexTypeFeatures?;
 
 fragment TComplexTypeFeatures returns DComplexType:
@@ -161,7 +167,8 @@ DivAssociationTransposition returns TAssociationTransposition:
 	| 'ditch' ('reference' | 'composite') rule=DivDitchFeatureRule
 	| 'morph' ('reference' | 'composite') rule=DivMorphFeatureRule
 	)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 DivAttributeTransposition returns TAttributeTransposition:
 	{TAttributeTransposition}
@@ -169,10 +176,12 @@ DivAttributeTransposition returns TAttributeTransposition:
 	| 'ditch' ('attribute' | detail?='detail')? rule=DivDitchFeatureRule
 	| 'morph' ('attribute' | detail?='detail')? rule=DivMorphFeatureRule
 	)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 DivQueryTransposition returns TQueryTransposition:
 	{TQueryTransposition}
 	(('grab' 'query' rule=DivGrabFeatureRule)
 	| 'ditch' 'query' rule=DivDitchFeatureRule)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;

@@ -90,6 +90,7 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getGridLinesAccess().getAlternatives(), "rule__GridLines__Alternatives");
 			builder.put(grammarAccess.getPubParagraphStyleAccess().getAlternatives(), "rule__PubParagraphStyle__Alternatives");
 			builder.put(grammarAccess.getPubReferenceScopeAccess().getAlternatives(), "rule__PubReferenceScope__Alternatives");
+			builder.put(grammarAccess.getDNoteColorAccess().getAlternatives(), "rule__DNoteColor__Alternatives");
 			builder.put(grammarAccess.getDmxBaseTypeAccess().getAlternatives(), "rule__DmxBaseType__Alternatives");
 			builder.put(grammarAccess.getDmxOpOrAccess().getAlternatives(), "rule__DmxOpOr__Alternatives");
 			builder.put(grammarAccess.getDmxOpAndAccess().getAlternatives(), "rule__DmxOpAnd__Alternatives");
@@ -204,6 +205,7 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPubFootnoteAccess().getGroup(), "rule__PubFootnote__Group__0");
 			builder.put(grammarAccess.getPubReferenceAccess().getGroup(), "rule__PubReference__Group__0");
 			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
+			builder.put(grammarAccess.getDNoteAccess().getGroup(), "rule__DNote__Group__0");
 			builder.put(grammarAccess.getDmxModelAccess().getGroup(), "rule__DmxModel__Group__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup(), "rule__DmxTest__Group__0");
@@ -445,6 +447,9 @@ public class PubParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamespaceAccess().getNameAssignment_1(), "rule__DNamespace__NameAssignment_1");
 			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
 			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
+			builder.put(grammarAccess.getDNoteAccess().getNameAssignment_1(), "rule__DNote__NameAssignment_1");
+			builder.put(grammarAccess.getDNoteAccess().getTextAssignment_3(), "rule__DNote__TextAssignment_3");
+			builder.put(grammarAccess.getDNoteAccess().getColorAssignment_4(), "rule__DNote__ColorAssignment_4");
 			builder.put(grammarAccess.getDmxModelAccess().getTypesAssignment_1(), "rule__DmxModel__TypesAssignment_1");
 			builder.put(grammarAccess.getDmxModelAccess().getFiltersAssignment_2(), "rule__DmxModel__FiltersAssignment_2");
 			builder.put(grammarAccess.getDmxModelAccess().getTestsAssignment_3(), "rule__DmxModel__TestsAssignment_3");

@@ -1683,6 +1683,22 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Rule DNoteColor
+ruleDNoteColor
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getAlternatives()); }
+		(rule__DNoteColor__Alternatives)
+		{ after(grammarAccess.getDNoteColorAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Rule DmxBaseType
 ruleDmxBaseType
 	@init {
@@ -2419,6 +2435,63 @@ rule__AsmParameterDirection__Alternatives
 		{ before(grammarAccess.getAsmParameterDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1()); }
 		('out')
 		{ after(grammarAccess.getAsmParameterDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DNoteColor__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0()); }
+		('white')
+		{ after(grammarAccess.getDNoteColorAccess().getWHITEEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1()); }
+		('red')
+		{ after(grammarAccess.getDNoteColorAccess().getREDEnumLiteralDeclaration_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2()); }
+		('orange')
+		{ after(grammarAccess.getDNoteColorAccess().getORANGEEnumLiteralDeclaration_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3()); }
+		('yellow')
+		{ after(grammarAccess.getDNoteColorAccess().getYELLOWEnumLiteralDeclaration_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4()); }
+		('green')
+		{ after(grammarAccess.getDNoteColorAccess().getGREENEnumLiteralDeclaration_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5()); }
+		('blue')
+		{ after(grammarAccess.getDNoteColorAccess().getBLUEEnumLiteralDeclaration_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6()); }
+		('pink')
+		{ after(grammarAccess.getDNoteColorAccess().getPINKEnumLiteralDeclaration_6()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7()); }
+		('grey')
+		{ after(grammarAccess.getDNoteColorAccess().getGREYEnumLiteralDeclaration_7()); }
 	)
 ;
 finally {

@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DemDomainEvent extends DModel, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
+public interface DemDomainEvent extends DModel, INoteContainer, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
 {
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.

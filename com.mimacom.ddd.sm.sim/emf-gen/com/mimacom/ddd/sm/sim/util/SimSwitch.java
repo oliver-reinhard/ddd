@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.ITypeContainer;
 
@@ -89,6 +90,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseTInformationModel(systemInformationModel);
 				if (result == null) result = caseDInformationModel(systemInformationModel);
 				if (result == null) result = caseDModel(systemInformationModel);
+				if (result == null) result = caseINoteContainer(systemInformationModel);
 				if (result == null) result = caseIAggregateContainer(systemInformationModel);
 				if (result == null) result = caseITypeContainer(systemInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(systemInformationModel);
@@ -145,6 +147,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDModel(DModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

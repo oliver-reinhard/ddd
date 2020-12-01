@@ -97,6 +97,15 @@ public interface DivPackage extends EPackage
 	int DOMAIN_INFORMATION_VIEW__DESCRIPTION = TransposePackage.TINFORMATION_MODEL__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_INFORMATION_VIEW__NOTES = TransposePackage.TINFORMATION_MODEL__NOTES;
+
+	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

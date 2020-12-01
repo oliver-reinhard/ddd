@@ -19,13 +19,13 @@ class DemFormatter extends  DmxFormatter {
 	@Inject extension DemGrammarAccess
 	
 	def dispatch void format(DemDomainEvent event, extension IFormattableDocument document) {
-		val open = event.regionFor.keyword(demDomainEventAccess.leftCurlyBracketKeyword_4)
-		val close = event.regionFor.keyword(demDomainEventAccess.rightCurlyBracketKeyword_11)
+		val open = event.regionFor.keyword(demDomainEventAccess.leftCurlyBracketKeyword_6)
+		val close = event.regionFor.keyword(demDomainEventAccess.rightCurlyBracketKeyword_13)
 		open.append[newLines = 2]
 		interior(open, close) [indent]
 		
 		// Context
-		event.regionFor.keyword(demDomainEventAccess.contextKeyword_5).append[newLine]
+		event.regionFor.keyword(demDomainEventAccess.contextKeyword_7).append[newLine]
 		for (context : event.context) {
 			context.regionFor.keyword(DContextAccess.colonKeyword_2).surround[oneSpace]
 			context.surround[indent]
@@ -33,16 +33,16 @@ class DemFormatter extends  DmxFormatter {
 		}
 		
 		// Triggers
-		event.regionFor.keyword(demDomainEventAccess.triggeredKeyword_7_0).prepend[newLines=2]
-		event.regionFor.keyword(demDomainEventAccess.byKeyword_7_1).append[newLine]
+		event.regionFor.keyword(demDomainEventAccess.triggeredKeyword_9_0).prepend[newLines=2]
+		event.regionFor.keyword(demDomainEventAccess.byKeyword_9_1).append[newLine]
 		for (t : event.triggers) {
-			t.regionFor.assignment(demDomainEventAccess.triggersAssignment_7_2).surround[oneSpace]
+			t.regionFor.assignment(demDomainEventAccess.triggersAssignment_9_2).surround[oneSpace]
 			t.surround[indent]
 			t.append[if (t == event.triggers.last) newLines=2 else newLine]
 		}
 		
 		// Notifications
-		event.regionFor.keyword(demDomainEventAccess.notificationsKeyword_8_0).append[newLine]
+		event.regionFor.keyword(demDomainEventAccess.notificationsKeyword_10_0).append[newLine]
 		for (n : event.notifications) {
 			n.regionFor.keyword(demNotificationAccess.colonKeyword_2).surround[oneSpace]
 			n.surround[indent]
@@ -50,11 +50,11 @@ class DemFormatter extends  DmxFormatter {
 		}
 		
 		// Preconditions
-		event.regionFor.keyword(demDomainEventAccess.preconditionsKeyword_9_0).append[newLine]
+		event.regionFor.keyword(demDomainEventAccess.preconditionsKeyword_11_0).append[newLine]
 		format(event.preconditionsCNF, document)
 		
 		// Postconditions
-		event.regionFor.keyword(demDomainEventAccess.postconditionsKeyword_10_0).append[newLine]
+		event.regionFor.keyword(demDomainEventAccess.postconditionsKeyword_12_0).append[newLine]
 		format(event.postconditionsDNF, document)
 	}
 	

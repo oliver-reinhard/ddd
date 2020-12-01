@@ -20,6 +20,7 @@ SystemInformationModel:
 	name=ID
 	 (^generate?='generate')?
 	(description=DRichText)?
+	(notes+=DNote)*
 	'{'
 	(types+=SimType | aggregates+=SimAggregate)*
 	'}';
@@ -162,6 +163,7 @@ SimPrimitiveTransposition returns TPrimitiveTransposition:
 	|	'ditch' 'primitive' rule=SimDitchPrimitiveRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	(	'{'
 		('add' constraints+=DConstraint)*
 		'}'
@@ -173,6 +175,7 @@ SimEnumerationTransposition returns TEnumerationTransposition:
 	|	'ditch' 'enumeration' rule=SimDitchEnumerationRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	(	'{'
 		 	(literals+=SimLiteral (',' literals+=SimLiteral)*)?
 			('add' constraints+=DConstraint)*
@@ -187,7 +190,8 @@ SimLiteralTransposition returns TLiteralTransposition:
 	(	 'grab' rule=SimGrabEnumerationLiteralRule
 	|	 'ditch' rule=SimDitchEnumerationLiteralRule
 	)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 SimEntityTypeTransposition returns TEntityTypeTransposition:
 	{TEntityTypeTransposition}
@@ -197,6 +201,7 @@ SimEntityTypeTransposition returns TEntityTypeTransposition:
 	|	'fuse'(root?='root')?  'entity' rule=SimFuseComplexTypeRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	TComplexTypeFeatures?;
 
 SimDetailTypeTransposition returns TDetailTypeTransposition:
@@ -207,6 +212,7 @@ SimDetailTypeTransposition returns TDetailTypeTransposition:
 	|	'fuse' 'detail' rule=SimFuseComplexTypeRule
 	)
 	(description=DRichText)?
+	(notes+=DNote)*
 	TComplexTypeFeatures?;
 
 fragment TComplexTypeFeatures returns DComplexType:
@@ -251,7 +257,8 @@ SimQueryTransposition returns TQueryTransposition:
 		')'
 	|	'ditch' 'query' rule=SimDitchFeatureRule
 	)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 		
 SimQueryParameter returns DQueryParameter:
 SimQueryParameterTransposition | 'add' DimQueryParameter;
@@ -262,4 +269,5 @@ SimQueryParameterTransposition returns TQueryParameterTransposition:
 	|	'morph' rule=SimMorphQueryParameterRule
 	|	'ditch' rule=SimDitchQueryParameterRule
 	)
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;

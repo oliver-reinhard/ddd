@@ -53,15 +53,15 @@ class SimFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(TEnumerationTransposition en, extension IFormattableDocument document) {
 		if (en.literals.size > 3) {
-			val open = en.regionFor.keyword(simEnumerationTranspositionAccess.leftCurlyBracketKeyword_3_0)
-			val close = en.regionFor.keyword(simEnumerationTranspositionAccess.rightCurlyBracketKeyword_3_3)
+			val open = en.regionFor.keyword(simEnumerationTranspositionAccess.leftCurlyBracketKeyword_4_0)
+			val close = en.regionFor.keyword(simEnumerationTranspositionAccess.rightCurlyBracketKeyword_4_3)
 			open.append[newLine]
 			interior(open, close)[indent]
 
 			for (literal : en.literals) {
-				literal.regionFor.assignment(simEnumerationTranspositionAccess.literalsAssignment_3_1_0).surround[noSpace]
+				literal.regionFor.assignment(simEnumerationTranspositionAccess.literalsAssignment_4_1_0).surround[noSpace]
 			}
-			for (comma : en.regionFor.keywords(simEnumerationTranspositionAccess.commaKeyword_3_1_1_0)) {
+			for (comma : en.regionFor.keywords(simEnumerationTranspositionAccess.commaKeyword_4_1_1_0)) {
 				comma.append[newLine]
 			}
 			en.literals.last.append[newLine]

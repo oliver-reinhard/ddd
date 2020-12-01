@@ -158,15 +158,6 @@ public interface TransposeFactory extends EFactory
 	TFuseRule createTFuseRule();
 
 	/**
-	 * Returns a new object of class '<em>TDitch Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>TDitch Rule</em>'.
-	 * @generated
-	 */
-	TDitchRule createTDitchRule();
-
-	/**
 	 * Returns a new object of class '<em>TMorph Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,6 +165,15 @@ public interface TransposeFactory extends EFactory
 	 * @generated
 	 */
 	TMorphRule createTMorphRule();
+
+	/**
+	 * Returns a new object of class '<em>TDitch Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TDitch Rule</em>'.
+	 * @generated
+	 */
+	TDitchRule createTDitchRule();
 
 	/**
 	 * Returns a new object of class '<em>TGrab Aggregate Rule</em>'.

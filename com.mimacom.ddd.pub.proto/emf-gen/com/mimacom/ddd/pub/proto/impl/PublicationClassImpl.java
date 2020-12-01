@@ -183,7 +183,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -193,7 +192,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -206,7 +204,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PublicationNature getNature() {
 		return nature;
 	}
@@ -216,7 +213,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setNature(PublicationNature newNature) {
 		PublicationNature oldNature = nature;
 		nature = newNature == null ? NATURE_EDEFAULT : newNature;
@@ -229,7 +225,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLaTeXClass() {
 		return laTeXClass;
 	}
@@ -239,7 +234,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setLaTeXClass(String newLaTeXClass) {
 		String oldLaTeXClass = laTeXClass;
 		laTeXClass = newLaTeXClass;
@@ -252,7 +246,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ProtoSymbol> getSymbols() {
 		if (symbols == null) {
 			symbols = new EObjectContainmentEList<ProtoSymbol>(ProtoSymbol.class, this, ProtoPackage.PUBLICATION_CLASS__SYMBOLS);
@@ -265,7 +258,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DRichText getLaTeXPreamble() {
 		return laTeXPreamble;
 	}
@@ -290,7 +282,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setLaTeXPreamble(DRichText newLaTeXPreamble) {
 		if (newLaTeXPreamble != laTeXPreamble) {
 			NotificationChain msgs = null;
@@ -310,7 +301,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DRichText getHtmlPreamble() {
 		return htmlPreamble;
 	}
@@ -335,7 +325,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setHtmlPreamble(DRichText newHtmlPreamble) {
 		if (newHtmlPreamble != htmlPreamble) {
 			NotificationChain msgs = null;
@@ -355,7 +344,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ProtoDocumentSegment> getSegments() {
 		if (segments == null) {
 			segments = new EObjectContainmentWithInverseEList<ProtoDocumentSegment>(ProtoDocumentSegment.class, this, ProtoPackage.PUBLICATION_CLASS__SEGMENTS, ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT);
@@ -368,7 +356,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ProtoDivision> getDivisions() {
 		if (divisions == null) {
 			divisions = new EObjectContainmentEList<ProtoDivision>(ProtoDivision.class, this, ProtoPackage.PUBLICATION_CLASS__DIVISIONS);

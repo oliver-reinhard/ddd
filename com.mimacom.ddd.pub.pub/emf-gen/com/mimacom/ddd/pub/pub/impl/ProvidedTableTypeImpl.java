@@ -91,7 +91,6 @@ public class ProvidedTableTypeImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -101,7 +100,6 @@ public class ProvidedTableTypeImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -114,7 +112,6 @@ public class ProvidedTableTypeImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getTableTypeName() {
 		return tableTypeName;
 	}
@@ -124,7 +121,6 @@ public class ProvidedTableTypeImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTableTypeName(String newTableTypeName) {
 		String oldTableTypeName = tableTypeName;
 		tableTypeName = newTableTypeName;

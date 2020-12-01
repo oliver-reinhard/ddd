@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
@@ -110,6 +111,9 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case BasePackage.DNAMESPACE:
 				sequence_DNamespace(context, (DNamespace) semanticObject); 
+				return; 
+			case BasePackage.DNOTE:
+				sequence_DNote(context, (DNote) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -469,7 +473,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DivAssociationTransposition returns TAssociationTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=DivGrabFeatureRule | rule=DivDitchFeatureRule | rule=DivMorphFeatureRule) description=DRichText?)
+	 *     ((rule=DivGrabFeatureRule | rule=DivDitchFeatureRule | rule=DivMorphFeatureRule) description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DivAssociationTransposition(ISerializationContext context, TAssociationTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -484,7 +488,8 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         ((detail?='detail'? rule=DivGrabFeatureRule) | (detail?='detail'? rule=DivDitchFeatureRule) | (detail?='detail'? rule=DivMorphFeatureRule)) 
-	 *         description=DRichText?
+	 *         description=DRichText? 
+	 *         notes+=DNote*
 	 *     )
 	 */
 	protected void sequence_DivAttributeTransposition(ISerializationContext context, TAttributeTransposition semanticObject) {
@@ -501,6 +506,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (rule=DivGrabComplexTypeRule | rule=DivDitchComplexTypeRule) 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         features+=DivFeature? 
 	 *         (constraints+=DConstraint? features+=DivFeature?)*
 	 *     )
@@ -609,6 +615,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         ((root?='root'? rule=DivGrabComplexTypeRule) | (root?='root'? rule=DivDitchComplexTypeRule) | (root?='root'? rule=SimMorphComplexTypeRule)) 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         (features+=DivFeature | constraints+=DConstraint)*
 	 *     )
 	 */
@@ -626,6 +633,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (rule=DivGrabEnumerationRule | rule=DivDitchEnumerationRule) 
 	 *         description=DRichText? 
+	 *         notes+=DNote* 
 	 *         (literals+=DivLiteralTransposition literals+=DivLiteralTransposition*)? 
 	 *         constraints+=DConstraint*
 	 *     )
@@ -712,7 +720,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DivLiteralTransposition returns TLiteralTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=DivGrabEnumerationLiteralRule | rule=DivDitchEnumerationLiteralRule) description=DRichText?)
+	 *     ((rule=DivGrabEnumerationLiteralRule | rule=DivDitchEnumerationLiteralRule) description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DivLiteralTransposition(ISerializationContext context, TLiteralTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -746,7 +754,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DivPrimitiveTransposition returns TPrimitiveTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=DivGrabPrimitiveRule | rule=DivDitchPrimitiveRule) description=DRichText? constraints+=DConstraint*)
+	 *     ((rule=DivGrabPrimitiveRule | rule=DivDitchPrimitiveRule) description=DRichText? notes+=DNote* constraints+=DConstraint*)
 	 */
 	protected void sequence_DivPrimitiveTransposition(ISerializationContext context, TPrimitiveTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -759,7 +767,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DivQueryTransposition returns TQueryTransposition
 	 *
 	 * Constraint:
-	 *     ((rule=DivGrabFeatureRule | rule=DivDitchFeatureRule) description=DRichText?)
+	 *     ((rule=DivGrabFeatureRule | rule=DivDitchFeatureRule) description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DivQueryTransposition(ISerializationContext context, TQueryTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -771,7 +779,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DomainInformationView returns DomainInformationView
 	 *
 	 * Constraint:
-	 *     (name=ID readOnlyView?='read' description=DRichText? (types+=DivType | aggregates+=DivAggregate)*)
+	 *     (name=ID readOnlyView?='read' description=DRichText? notes+=DNote* (types+=DivType | aggregates+=DivAggregate)*)
 	 */
 	protected void sequence_DomainInformationView(ISerializationContext context, DomainInformationView semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

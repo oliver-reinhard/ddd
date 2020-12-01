@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.dem.*;
@@ -84,6 +85,7 @@ public class DemSwitch<T> extends Switch<T>
 				DemDomainEvent demDomainEvent = (DemDomainEvent)theEObject;
 				T result = caseDemDomainEvent(demDomainEvent);
 				if (result == null) result = caseDModel(demDomainEvent);
+				if (result == null) result = caseINoteContainer(demDomainEvent);
 				if (result == null) result = caseINavigableMemberContainer(demDomainEvent);
 				if (result == null) result = caseIStaticReferenceTarget(demDomainEvent);
 				if (result == null) result = caseIDiagramRoot(demDomainEvent);
@@ -106,6 +108,7 @@ public class DemSwitch<T> extends Switch<T>
 				if (result == null) result = caseDNavigableMember(demNotification);
 				if (result == null) result = caseINavigableMemberContainer(demNotification);
 				if (result == null) result = caseDNamedElement(demNotification);
+				if (result == null) result = caseINoteContainer(demNotification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,6 +118,7 @@ public class DemSwitch<T> extends Switch<T>
 				T result = caseDemMessage(demMessage);
 				if (result == null) result = caseDNavigableMember(demMessage);
 				if (result == null) result = caseDNamedElement(demMessage);
+				if (result == null) result = caseINoteContainer(demMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,6 +127,7 @@ public class DemSwitch<T> extends Switch<T>
 				DemActorModel demActorModel = (DemActorModel)theEObject;
 				T result = caseDemActorModel(demActorModel);
 				if (result == null) result = caseDModel(demActorModel);
+				if (result == null) result = caseINoteContainer(demActorModel);
 				if (result == null) result = caseDNamedElement(demActorModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -134,6 +139,7 @@ public class DemSwitch<T> extends Switch<T>
 				if (result == null) result = caseDNavigableMember(demActor);
 				if (result == null) result = caseIStaticReferenceTarget(demActor);
 				if (result == null) result = caseDNamedElement(demActor);
+				if (result == null) result = caseINoteContainer(demActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -145,6 +151,7 @@ public class DemSwitch<T> extends Switch<T>
 				if (result == null) result = caseDNavigableMember(demHumanActorRole);
 				if (result == null) result = caseIStaticReferenceTarget(demHumanActorRole);
 				if (result == null) result = caseDNamedElement(demHumanActorRole);
+				if (result == null) result = caseINoteContainer(demHumanActorRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,6 +163,7 @@ public class DemSwitch<T> extends Switch<T>
 				if (result == null) result = caseDNavigableMember(demService);
 				if (result == null) result = caseIStaticReferenceTarget(demService);
 				if (result == null) result = caseDNamedElement(demService);
+				if (result == null) result = caseINoteContainer(demService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +172,7 @@ public class DemSwitch<T> extends Switch<T>
 				DemEventsOverviewModel demEventsOverviewModel = (DemEventsOverviewModel)theEObject;
 				T result = caseDemEventsOverviewModel(demEventsOverviewModel);
 				if (result == null) result = caseDModel(demEventsOverviewModel);
+				if (result == null) result = caseINoteContainer(demEventsOverviewModel);
 				if (result == null) result = caseDNamedElement(demEventsOverviewModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -344,6 +353,22 @@ public class DemSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDModel(DModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

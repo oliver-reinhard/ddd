@@ -65,10 +65,11 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case BasePackage.DIMPORT: return createDImport();
-			case BasePackage.DNAMESPACE: return createDNamespace();
 			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
 			case BasePackage.DRICH_TEXT: return createDRichText();
+			case BasePackage.DNOTE: return createDNote();
+			case BasePackage.DIMPORT: return createDImport();
+			case BasePackage.DNAMESPACE: return createDNamespace();
 			case BasePackage.DINFORMATION_MODEL: return createDInformationModel();
 			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
@@ -90,6 +91,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DNOTE_COLOR:
+				return createDNoteColorFromString(eDataType, initialValue);
 			case BasePackage.DMULTIPLICITY_SHORTHAND:
 				return createDMultiplicityShorthandFromString(eDataType, initialValue);
 			case BasePackage.DENTITY_NATURE:
@@ -111,6 +114,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DNOTE_COLOR:
+				return convertDNoteColorToString(eDataType, instanceValue);
 			case BasePackage.DMULTIPLICITY_SHORTHAND:
 				return convertDMultiplicityShorthandToString(eDataType, instanceValue);
 			case BasePackage.DENTITY_NATURE:
@@ -120,30 +125,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DImport createDImport()
-	{
-		DImportImpl dImport = new DImportImpl();
-		return dImport;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DNamespace createDNamespace()
-	{
-		DNamespaceImpl dNamespace = new DNamespaceImpl();
-		return dNamespace;
 	}
 
 	/**
@@ -168,6 +149,42 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DRichTextImpl dRichText = new DRichTextImpl();
 		return dRichText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DNote createDNote()
+	{
+		DNoteImpl dNote = new DNoteImpl();
+		return dNote;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DImport createDImport()
+	{
+		DImportImpl dImport = new DImportImpl();
+		return dImport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DNamespace createDNamespace()
+	{
+		DNamespaceImpl dNamespace = new DNamespaceImpl();
+		return dNamespace;
 	}
 
 	/**
@@ -240,6 +257,28 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DStateEventImpl dStateEvent = new DStateEventImpl();
 		return dStateEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DNoteColor createDNoteColorFromString(EDataType eDataType, String initialValue)
+	{
+		DNoteColor result = DNoteColor.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDNoteColorToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -69,7 +69,6 @@ public class EquationImpl extends TitledBlockImpl implements Equation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getFileUri() {
 		return fileUri;
 	}
@@ -79,7 +78,6 @@ public class EquationImpl extends TitledBlockImpl implements Equation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setFileUri(String newFileUri) {
 		String oldFileUri = fileUri;
 		fileUri = newFileUri;

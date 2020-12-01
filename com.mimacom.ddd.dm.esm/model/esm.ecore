@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esm" nsURI="http://www.mimacom.com/ddd/dm/esm" nsPrefix="esm">
-  <eClassifiers xsi:type="ecore:EClass" name="EsmEntityStateModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel #//IEsmStateModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot">
+  <eClassifiers xsi:type="ecore:EClass" name="EsmEntityStateModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INoteContainer #//IEsmStateModel ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDiagramRoot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="ecore:EClass ../../com.mimacom.ddd.dm.dim/model/dim.ecore#//DimEntityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IEsmLayout" abstract="true" interface="true">
@@ -21,7 +21,7 @@
     <eLiterals name="UP" value="3"/>
     <eLiterals name="RIGHT" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IEsmState" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="IEsmState" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INoteContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//EsmStateKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DRichText"
@@ -43,11 +43,13 @@
         eType="#//EsmSubStateModel" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EsmSubStateModel" eSuperTypes="#//IEsmStateModel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EsmTransition" eSuperTypes="#//IEsmLayout">
+  <eClassifiers xsi:type="ecore:EClass" name="EsmTransition" eSuperTypes="#//IEsmLayout ../../com.mimacom.ddd.dm.base/model/base.ecore#//INoteContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DState"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DState"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DStateEvent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DRichText"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
