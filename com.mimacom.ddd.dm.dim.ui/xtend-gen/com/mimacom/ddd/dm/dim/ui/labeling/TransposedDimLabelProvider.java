@@ -59,6 +59,7 @@ public class TransposedDimLabelProvider extends DimLabelProvider {
     return this._dimUtil.label(t);
   }
   
+  @Override
   public String text(final DLiteral literal) {
     if ((literal instanceof TLiteralTransposition)) {
       String _label = this._dimUtil.label(((TLiteralTransposition)literal).getRule());

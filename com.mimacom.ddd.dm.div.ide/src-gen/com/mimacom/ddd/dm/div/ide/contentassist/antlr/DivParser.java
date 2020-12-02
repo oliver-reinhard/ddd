@@ -31,8 +31,9 @@ public class DivParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DivGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getDomainInformationViewAccess().getAlternatives_8(), "rule__DomainInformationView__Alternatives_8");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getAlternatives_7(), "rule__DomainInformationView__Alternatives_7");
 			builder.put(grammarAccess.getDivAggregateAccess().getAlternatives(), "rule__DivAggregate__Alternatives");
+			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getAlternatives_5_1(), "rule__DivAggregateTransposition__Alternatives_5_1");
 			builder.put(grammarAccess.getDivTypeAccess().getAlternatives(), "rule__DivType__Alternatives");
 			builder.put(grammarAccess.getDivPrimitiveTranspositionAccess().getAlternatives_1(), "rule__DivPrimitiveTransposition__Alternatives_1");
 			builder.put(grammarAccess.getDivEnumerationTranspositionAccess().getAlternatives_1(), "rule__DivEnumerationTransposition__Alternatives_1");
@@ -92,6 +93,7 @@ public class DivParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
 			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
 			builder.put(grammarAccess.getDomainInformationViewAccess().getGroup(), "rule__DomainInformationView__Group__0");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getGroup_3(), "rule__DomainInformationView__Group_3__0");
 			builder.put(grammarAccess.getDivGrabAggregateRuleAccess().getGroup(), "rule__DivGrabAggregateRule__Group__0");
 			builder.put(grammarAccess.getDivGrabAggregateRuleAccess().getGroup_1(), "rule__DivGrabAggregateRule__Group_1__0");
 			builder.put(grammarAccess.getDivGrabAggregateRuleAccess().getGroup_2(), "rule__DivGrabAggregateRule__Group_2__0");
@@ -104,13 +106,14 @@ public class DivParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDivGrabComplexTypeRuleAccess().getGroup(), "rule__DivGrabComplexTypeRule__Group__0");
 			builder.put(grammarAccess.getDivGrabComplexTypeRuleAccess().getGroup_1(), "rule__DivGrabComplexTypeRule__Group_1__0");
 			builder.put(grammarAccess.getDivGrabComplexTypeRuleAccess().getGroup_2(), "rule__DivGrabComplexTypeRule__Group_2__0");
-			builder.put(grammarAccess.getSimMorphComplexTypeRuleAccess().getGroup(), "rule__SimMorphComplexTypeRule__Group__0");
+			builder.put(grammarAccess.getDivMorphComplexTypeRuleAccess().getGroup(), "rule__DivMorphComplexTypeRule__Group__0");
 			builder.put(grammarAccess.getDivGrabFeatureRuleAccess().getGroup(), "rule__DivGrabFeatureRule__Group__0");
 			builder.put(grammarAccess.getDivGrabFeatureRuleAccess().getGroup_1(), "rule__DivGrabFeatureRule__Group_1__0");
 			builder.put(grammarAccess.getDivGrabFeatureRuleAccess().getGroup_2(), "rule__DivGrabFeatureRule__Group_2__0");
 			builder.put(grammarAccess.getDivMorphFeatureRuleAccess().getGroup(), "rule__DivMorphFeatureRule__Group__0");
 			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getGroup(), "rule__DivAggregateTransposition__Group__0");
 			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getGroup_5(), "rule__DivAggregateTransposition__Group_5__0");
+			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getGroup_5_1_1(), "rule__DivAggregateTransposition__Group_5_1_1__0");
 			builder.put(grammarAccess.getDivPrimitiveTranspositionAccess().getGroup(), "rule__DivPrimitiveTransposition__Group__0");
 			builder.put(grammarAccess.getDivPrimitiveTranspositionAccess().getGroup_1_0(), "rule__DivPrimitiveTransposition__Group_1_0__0");
 			builder.put(grammarAccess.getDivPrimitiveTranspositionAccess().getGroup_1_1(), "rule__DivPrimitiveTransposition__Group_1_1__0");
@@ -135,6 +138,7 @@ public class DivParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDivDetailTypeTranspositionAccess().getGroup_1_1(), "rule__DivDetailTypeTransposition__Group_1_1__0");
 			builder.put(grammarAccess.getTComplexTypeFeaturesAccess().getGroup(), "rule__TComplexTypeFeatures__Group__0");
 			builder.put(grammarAccess.getTComplexTypeFeaturesAccess().getGroup_1_1(), "rule__TComplexTypeFeatures__Group_1_1__0");
+			builder.put(grammarAccess.getDivFeatureAccess().getGroup_3(), "rule__DivFeature__Group_3__0");
 			builder.put(grammarAccess.getDivAssociationTranspositionAccess().getGroup(), "rule__DivAssociationTransposition__Group__0");
 			builder.put(grammarAccess.getDivAssociationTranspositionAccess().getGroup_1_0(), "rule__DivAssociationTransposition__Group_1_0__0");
 			builder.put(grammarAccess.getDivAssociationTranspositionAccess().getGroup_1_1(), "rule__DivAssociationTransposition__Group_1_1__0");
@@ -290,11 +294,11 @@ public class DivParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
 			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
 			builder.put(grammarAccess.getDomainInformationViewAccess().getNameAssignment_2(), "rule__DomainInformationView__NameAssignment_2");
-			builder.put(grammarAccess.getDomainInformationViewAccess().getReadOnlyViewAssignment_3(), "rule__DomainInformationView__ReadOnlyViewAssignment_3");
-			builder.put(grammarAccess.getDomainInformationViewAccess().getDescriptionAssignment_5(), "rule__DomainInformationView__DescriptionAssignment_5");
-			builder.put(grammarAccess.getDomainInformationViewAccess().getNotesAssignment_6(), "rule__DomainInformationView__NotesAssignment_6");
-			builder.put(grammarAccess.getDomainInformationViewAccess().getTypesAssignment_8_0(), "rule__DomainInformationView__TypesAssignment_8_0");
-			builder.put(grammarAccess.getDomainInformationViewAccess().getAggregatesAssignment_8_1(), "rule__DomainInformationView__AggregatesAssignment_8_1");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getReadOnlyViewAssignment_3_0(), "rule__DomainInformationView__ReadOnlyViewAssignment_3_0");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getDescriptionAssignment_4(), "rule__DomainInformationView__DescriptionAssignment_4");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getNotesAssignment_5(), "rule__DomainInformationView__NotesAssignment_5");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getTypesAssignment_7_0(), "rule__DomainInformationView__TypesAssignment_7_0");
+			builder.put(grammarAccess.getDomainInformationViewAccess().getAggregatesAssignment_7_1(), "rule__DomainInformationView__AggregatesAssignment_7_1");
 			builder.put(grammarAccess.getDivGrabAggregateRuleAccess().getSourceAssignment_0(), "rule__DivGrabAggregateRule__SourceAssignment_0");
 			builder.put(grammarAccess.getDivGrabAggregateRuleAccess().getReadOnlyViewAssignment_1_0(), "rule__DivGrabAggregateRule__ReadOnlyViewAssignment_1_0");
 			builder.put(grammarAccess.getDivGrabAggregateRuleAccess().getRenameToAssignment_2_1(), "rule__DivGrabAggregateRule__RenameToAssignment_2_1");
@@ -311,8 +315,8 @@ public class DivParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDivGrabComplexTypeRuleAccess().getReadOnlyViewAssignment_1_0(), "rule__DivGrabComplexTypeRule__ReadOnlyViewAssignment_1_0");
 			builder.put(grammarAccess.getDivGrabComplexTypeRuleAccess().getRenameToAssignment_2_1(), "rule__DivGrabComplexTypeRule__RenameToAssignment_2_1");
 			builder.put(grammarAccess.getDivDitchComplexTypeRuleAccess().getSourceAssignment(), "rule__DivDitchComplexTypeRule__SourceAssignment");
-			builder.put(grammarAccess.getSimMorphComplexTypeRuleAccess().getSourceAssignment_0(), "rule__SimMorphComplexTypeRule__SourceAssignment_0");
-			builder.put(grammarAccess.getSimMorphComplexTypeRuleAccess().getReadOnlyViewAssignment_2(), "rule__SimMorphComplexTypeRule__ReadOnlyViewAssignment_2");
+			builder.put(grammarAccess.getDivMorphComplexTypeRuleAccess().getSourceAssignment_0(), "rule__DivMorphComplexTypeRule__SourceAssignment_0");
+			builder.put(grammarAccess.getDivMorphComplexTypeRuleAccess().getReadOnlyViewAssignment_2(), "rule__DivMorphComplexTypeRule__ReadOnlyViewAssignment_2");
 			builder.put(grammarAccess.getDivGrabFeatureRuleAccess().getSourceAssignment_0(), "rule__DivGrabFeatureRule__SourceAssignment_0");
 			builder.put(grammarAccess.getDivGrabFeatureRuleAccess().getReadOnlyViewAssignment_1_0(), "rule__DivGrabFeatureRule__ReadOnlyViewAssignment_1_0");
 			builder.put(grammarAccess.getDivGrabFeatureRuleAccess().getRenameToAssignment_2_1(), "rule__DivGrabFeatureRule__RenameToAssignment_2_1");
@@ -321,7 +325,8 @@ public class DivParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDivMorphFeatureRuleAccess().getReadOnlyViewAssignment_2(), "rule__DivMorphFeatureRule__ReadOnlyViewAssignment_2");
 			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getRuleAssignment_3(), "rule__DivAggregateTransposition__RuleAssignment_3");
 			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getDescriptionAssignment_4(), "rule__DivAggregateTransposition__DescriptionAssignment_4");
-			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getFeaturesAssignment_5_1(), "rule__DivAggregateTransposition__FeaturesAssignment_5_1");
+			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getFeaturesAssignment_5_1_0(), "rule__DivAggregateTransposition__FeaturesAssignment_5_1_0");
+			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getFeaturesAssignment_5_1_1_2(), "rule__DivAggregateTransposition__FeaturesAssignment_5_1_1_2");
 			builder.put(grammarAccess.getDivAggregateTranspositionAccess().getTypesAssignment_5_2(), "rule__DivAggregateTransposition__TypesAssignment_5_2");
 			builder.put(grammarAccess.getDivPrimitiveTranspositionAccess().getRuleAssignment_1_0_2(), "rule__DivPrimitiveTransposition__RuleAssignment_1_0_2");
 			builder.put(grammarAccess.getDivPrimitiveTranspositionAccess().getRuleAssignment_1_1_2(), "rule__DivPrimitiveTransposition__RuleAssignment_1_1_2");

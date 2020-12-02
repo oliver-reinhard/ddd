@@ -112,6 +112,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -121,6 +122,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Component getParent() {
 		if (eContainerFeatureID() != PubPackage.DOCUMENT_SEGMENT__PARENT) return null;
 		return (Component)eContainer();
@@ -151,6 +153,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParent(Component newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != PubPackage.DOCUMENT_SEGMENT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
@@ -172,6 +175,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return this.eClass().getName().toLowerCase();
 	}
@@ -181,6 +185,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(final String name) {
 		throw new UnsupportedOperationException();
 	}

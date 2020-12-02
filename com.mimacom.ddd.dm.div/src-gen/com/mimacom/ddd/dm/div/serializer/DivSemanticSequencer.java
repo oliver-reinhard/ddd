@@ -422,12 +422,12 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 				sequence_DivLiteralTransposition(context, (TLiteralTransposition) semanticObject); 
 				return; 
 			case TransposePackage.TMORPH_RULE:
-				if (rule == grammarAccess.getDivMorphFeatureRuleRule()) {
-					sequence_DivMorphFeatureRule(context, (TMorphRule) semanticObject); 
+				if (rule == grammarAccess.getDivMorphComplexTypeRuleRule()) {
+					sequence_DivMorphComplexTypeRule(context, (TMorphRule) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getSimMorphComplexTypeRuleRule()) {
-					sequence_SimMorphComplexTypeRule(context, (TMorphRule) semanticObject); 
+				else if (rule == grammarAccess.getDivMorphFeatureRuleRule()) {
+					sequence_DivMorphFeatureRule(context, (TMorphRule) semanticObject); 
 					return; 
 				}
 				else break;
@@ -460,7 +460,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DivAggregateTransposition returns TAggregateTransposition
 	 *
 	 * Constraint:
-	 *     (rule=DivGrabAggregateRule description=DRichText? features+=DivQueryTransposition* types+=DivType*)
+	 *     (rule=DivGrabAggregateRule description=DRichText? (features+=DivQueryTransposition | features+=DimQuery)* types+=DivType*)
 	 */
 	protected void sequence_DivAggregateTransposition(ISerializationContext context, TAggregateTransposition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -613,7 +613,7 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         ((root?='root'? rule=DivGrabComplexTypeRule) | (root?='root'? rule=DivDitchComplexTypeRule) | (root?='root'? rule=SimMorphComplexTypeRule)) 
+	 *         ((root?='root'? rule=DivGrabComplexTypeRule) | (root?='root'? rule=DivDitchComplexTypeRule) | (root?='root'? rule=DivMorphComplexTypeRule)) 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
 	 *         (features+=DivFeature | constraints+=DConstraint)*
@@ -729,6 +729,27 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DivMorphComplexTypeRule returns TMorphRule
+	 *
+	 * Constraint:
+	 *     (source=[DimComplexType|DQualifiedName] readOnlyView?='read')
+	 */
+	protected void sequence_DivMorphComplexTypeRule(ISerializationContext context, TMorphRule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TRENAME_RULE__READ_ONLY_VIEW) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TRENAME_RULE__READ_ONLY_VIEW));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDivMorphComplexTypeRuleAccess().getSourceDimComplexTypeDQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getDivMorphComplexTypeRuleAccess().getReadOnlyViewReadKeyword_2_0(), semanticObject.isReadOnlyView());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DivMorphFeatureRule returns TMorphRule
 	 *
 	 * Constraint:
@@ -779,31 +800,10 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DomainInformationView returns DomainInformationView
 	 *
 	 * Constraint:
-	 *     (name=ID readOnlyView?='read' description=DRichText? notes+=DNote* (types+=DivType | aggregates+=DivAggregate)*)
+	 *     (name=ID readOnlyView?='read'? description=DRichText? notes+=DNote* (types+=DivType | aggregates+=DivAggregate)*)
 	 */
 	protected void sequence_DomainInformationView(ISerializationContext context, DomainInformationView semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SimMorphComplexTypeRule returns TMorphRule
-	 *
-	 * Constraint:
-	 *     (source=[DimComplexType|DQualifiedName] readOnlyView?='read')
-	 */
-	protected void sequence_SimMorphComplexTypeRule(ISerializationContext context, TMorphRule semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, TransposePackage.Literals.TRENAME_RULE__READ_ONLY_VIEW) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TransposePackage.Literals.TRENAME_RULE__READ_ONLY_VIEW));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimMorphComplexTypeRuleAccess().getSourceDimComplexTypeDQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE, false));
-		feeder.accept(grammarAccess.getSimMorphComplexTypeRuleAccess().getReadOnlyViewReadKeyword_2_0(), semanticObject.isReadOnlyView());
-		feeder.finish();
 	}
 	
 	

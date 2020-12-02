@@ -79,6 +79,10 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 	def text(DmxCallArguments d) {
 		"DmxCallArguments"
 	}
+	
+	override String text(Object obj) {
+		obj.simpleName
+	}
 
 	protected def simpleName(Object obj) {
 		val name = obj.class.simpleName

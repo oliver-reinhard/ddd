@@ -648,6 +648,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPubModel() {
 		return pubModelEClass;
 	}
@@ -657,6 +658,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPubModel_Imports() {
 		return (EReference)pubModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -666,6 +668,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPubModel_Document() {
 		return (EReference)pubModelEClass.getEStructuralFeatures().get(1);
 	}
@@ -675,6 +678,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPubModel_ProvidedDiagramTypes() {
 		return (EReference)pubModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -684,6 +688,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPubModel_ProvidedTableTypes() {
 		return (EReference)pubModelEClass.getEStructuralFeatures().get(3);
 	}
@@ -693,6 +698,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDocument() {
 		return documentEClass;
 	}
@@ -702,6 +708,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocument_Title() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(0);
 	}
@@ -711,6 +718,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocument_GenerateHtml() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(1);
 	}
@@ -720,6 +728,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocument_GenerateLaTeX() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(2);
 	}
@@ -729,6 +738,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocument_GenerateMarkdown() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(3);
 	}
@@ -738,6 +748,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocument_GenerateAsciiDoc() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(4);
 	}
@@ -747,6 +758,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocument_PreferRasterDiagrams() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(5);
 	}
@@ -756,6 +768,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocument_Symbols() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(6);
 	}
@@ -765,6 +778,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocument_PublicationClass() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(7);
 	}
@@ -774,6 +788,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getDocument__GetSymbol__String() {
 		return documentEClass.getEOperations().get(0);
 	}
@@ -783,6 +798,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSymbol() {
 		return symbolEClass;
 	}
@@ -792,6 +808,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSymbol_Value() {
 		return (EReference)symbolEClass.getEStructuralFeatures().get(0);
 	}
@@ -801,6 +818,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPublication() {
 		return publicationEClass;
 	}
@@ -810,6 +828,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPublication_Includes() {
 		return (EReference)publicationEClass.getEStructuralFeatures().get(0);
 	}
@@ -819,6 +838,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -828,6 +848,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Segments() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(0);
 	}
@@ -837,6 +858,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReferenceTarget() {
 		return referenceTargetEClass;
 	}
@@ -846,6 +868,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReferenceTarget_Name() {
 		return (EAttribute)referenceTargetEClass.getEStructuralFeatures().get(0);
 	}
@@ -855,6 +878,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReferenceTarget_Id() {
 		return (EAttribute)referenceTargetEClass.getEStructuralFeatures().get(1);
 	}
@@ -864,6 +888,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReference() {
 		return referenceEClass;
 	}
@@ -873,6 +898,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReference_Scope() {
 		return (EAttribute)referenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -882,6 +908,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReference_Target() {
 		return (EReference)referenceEClass.getEStructuralFeatures().get(1);
 	}
@@ -891,6 +918,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReference_PageReference() {
 		return (EAttribute)referenceEClass.getEStructuralFeatures().get(2);
 	}
@@ -900,6 +928,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDocumentSegment() {
 		return documentSegmentEClass;
 	}
@@ -909,6 +938,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocumentSegment_Parent() {
 		return (EReference)documentSegmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -918,6 +948,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getDocumentSegment__GetName() {
 		return documentSegmentEClass.getEOperations().get(0);
 	}
@@ -927,6 +958,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getDocumentSegment__SetName__String() {
 		return documentSegmentEClass.getEOperations().get(1);
 	}
@@ -936,6 +968,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBlockContainer() {
 		return blockContainerEClass;
 	}
@@ -945,6 +978,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBlockContainer_Contents() {
 		return (EReference)blockContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -954,6 +988,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSegmentWithText() {
 		return segmentWithTextEClass;
 	}
@@ -963,6 +998,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstract() {
 		return abstractEClass;
 	}
@@ -972,6 +1008,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPreface() {
 		return prefaceEClass;
 	}
@@ -981,6 +1018,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEpilogue() {
 		return epilogueEClass;
 	}
@@ -990,6 +1028,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSegmentWithTable() {
 		return segmentWithTableEClass;
 	}
@@ -999,6 +1038,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChangeHistory() {
 		return changeHistoryEClass;
 	}
@@ -1008,6 +1048,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChangeHistory_Entries() {
 		return (EReference)changeHistoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1017,6 +1058,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChangeDescription() {
 		return changeDescriptionEClass;
 	}
@@ -1026,6 +1068,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChangeDescription_Version() {
 		return (EAttribute)changeDescriptionEClass.getEStructuralFeatures().get(0);
 	}
@@ -1035,6 +1078,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChangeDescription_Date() {
 		return (EAttribute)changeDescriptionEClass.getEStructuralFeatures().get(1);
 	}
@@ -1044,6 +1088,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChangeDescription_Author() {
 		return (EAttribute)changeDescriptionEClass.getEStructuralFeatures().get(2);
 	}
@@ -1053,6 +1098,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChangeDescription_Description() {
 		return (EAttribute)changeDescriptionEClass.getEStructuralFeatures().get(3);
 	}
@@ -1062,6 +1108,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTOC() {
 		return tocEClass;
 	}
@@ -1071,6 +1118,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbbreviations() {
 		return abbreviationsEClass;
 	}
@@ -1080,6 +1128,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAbbreviations_Entries() {
 		return (EReference)abbreviationsEClass.getEStructuralFeatures().get(0);
 	}
@@ -1089,6 +1138,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbbreviation() {
 		return abbreviationEClass;
 	}
@@ -1098,6 +1148,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbbreviation_Name() {
 		return (EAttribute)abbreviationEClass.getEStructuralFeatures().get(0);
 	}
@@ -1107,6 +1158,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbbreviation_LongForm() {
 		return (EAttribute)abbreviationEClass.getEStructuralFeatures().get(1);
 	}
@@ -1116,6 +1168,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getListOfTables() {
 		return listOfTablesEClass;
 	}
@@ -1125,6 +1178,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getListOfFigures() {
 		return listOfFiguresEClass;
 	}
@@ -1134,6 +1188,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBibliography() {
 		return bibliographyEClass;
 	}
@@ -1143,6 +1198,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBibliography_Entries() {
 		return (EReference)bibliographyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1152,6 +1208,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBibliographyEntry() {
 		return bibliographyEntryEClass;
 	}
@@ -1161,6 +1218,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBibliographyEntry_Name() {
 		return (EAttribute)bibliographyEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1170,6 +1228,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBibliographyEntry_Authors() {
 		return (EAttribute)bibliographyEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -1179,6 +1238,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBibliographyEntry_Title() {
 		return (EAttribute)bibliographyEntryEClass.getEStructuralFeatures().get(2);
 	}
@@ -1188,6 +1248,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBibliographyEntry_Publisher() {
 		return (EAttribute)bibliographyEntryEClass.getEStructuralFeatures().get(3);
 	}
@@ -1197,6 +1258,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBibliographyEntry_Date() {
 		return (EAttribute)bibliographyEntryEClass.getEStructuralFeatures().get(4);
 	}
@@ -1206,6 +1268,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBibliographyEntry_Comment() {
 		return (EAttribute)bibliographyEntryEClass.getEStructuralFeatures().get(5);
 	}
@@ -1215,6 +1278,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGlossary() {
 		return glossaryEClass;
 	}
@@ -1224,6 +1288,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGlossary_Entries() {
 		return (EReference)glossaryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1233,6 +1298,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGlossaryEntry() {
 		return glossaryEntryEClass;
 	}
@@ -1242,6 +1308,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGlossaryEntry_Name() {
 		return (EAttribute)glossaryEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1251,6 +1318,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGlossaryEntry_Text() {
 		return (EAttribute)glossaryEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -1260,6 +1328,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGlossaryEntry_Comment() {
 		return (EAttribute)glossaryEntryEClass.getEStructuralFeatures().get(2);
 	}
@@ -1269,6 +1338,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIndex() {
 		return indexEClass;
 	}
@@ -1278,6 +1348,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIndex_Entries() {
 		return (EReference)indexEClass.getEStructuralFeatures().get(0);
 	}
@@ -1287,6 +1358,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIndexEntry() {
 		return indexEntryEClass;
 	}
@@ -1296,6 +1368,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIndexEntry_Text() {
 		return (EAttribute)indexEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1305,6 +1378,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIndexEntry_References() {
 		return (EReference)indexEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -1314,6 +1388,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSegmentInclude() {
 		return segmentIncludeEClass;
 	}
@@ -1323,6 +1398,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSegmentInclude_Include() {
 		return (EReference)segmentIncludeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1332,6 +1408,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPublicationBody() {
 		return publicationBodyEClass;
 	}
@@ -1341,6 +1418,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumbered() {
 		return numberedEClass;
 	}
@@ -1350,6 +1428,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumbered_Level() {
 		return (EAttribute)numberedEClass.getEStructuralFeatures().get(0);
 	}
@@ -1359,6 +1438,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumbered_SequenceNumber() {
 		return (EAttribute)numberedEClass.getEStructuralFeatures().get(1);
 	}
@@ -1368,6 +1448,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumberedByChapter() {
 		return numberedByChapterEClass;
 	}
@@ -1377,6 +1458,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNumberedByChapter_LogicalContainer() {
 		return (EReference)numberedByChapterEClass.getEStructuralFeatures().get(0);
 	}
@@ -1386,6 +1468,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumberedByChapter_SequenceNumberInChapter() {
 		return (EAttribute)numberedByChapterEClass.getEStructuralFeatures().get(1);
 	}
@@ -1395,6 +1478,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDivisionContainer() {
 		return divisionContainerEClass;
 	}
@@ -1404,6 +1488,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDivisionContainer_Divisions() {
 		return (EReference)divisionContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1413,6 +1498,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDivision() {
 		return divisionEClass;
 	}
@@ -1422,6 +1508,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDivision_StartNumberingAt() {
 		return (EAttribute)divisionEClass.getEStructuralFeatures().get(0);
 	}
@@ -1431,6 +1518,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDivision_Title() {
 		return (EReference)divisionEClass.getEStructuralFeatures().get(1);
 	}
@@ -1440,6 +1528,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDivision_Include() {
 		return (EReference)divisionEClass.getEStructuralFeatures().get(2);
 	}
@@ -1449,6 +1538,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDivision_LogicalContainer() {
 		return (EReference)divisionEClass.getEStructuralFeatures().get(3);
 	}
@@ -1458,6 +1548,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getDivision__GetId() {
 		return divisionEClass.getEOperations().get(0);
 	}
@@ -1467,6 +1558,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getDivision__Parent() {
 		return divisionEClass.getEOperations().get(1);
 	}
@@ -1476,6 +1568,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getDivision__GetDocument() {
 		return divisionEClass.getEOperations().get(2);
 	}
@@ -1485,6 +1578,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPart() {
 		return partEClass;
 	}
@@ -1494,6 +1588,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAppendix() {
 		return appendixEClass;
 	}
@@ -1503,6 +1598,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChapter() {
 		return chapterEClass;
 	}
@@ -1512,6 +1608,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSection() {
 		return sectionEClass;
 	}
@@ -1521,6 +1618,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSubsection() {
 		return subsectionEClass;
 	}
@@ -1530,6 +1628,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSubsubsection() {
 		return subsubsectionEClass;
 	}
@@ -1539,6 +1638,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContentBlock() {
 		return contentBlockEClass;
 	}
@@ -1548,6 +1648,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAdmonition() {
 		return admonitionEClass;
 	}
@@ -1557,6 +1658,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAdmonition_Kind() {
 		return (EAttribute)admonitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -1566,6 +1668,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAdmonition_Title() {
 		return (EReference)admonitionEClass.getEStructuralFeatures().get(1);
 	}
@@ -1575,6 +1678,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getList() {
 		return listEClass;
 	}
@@ -1584,6 +1688,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getList_Style() {
 		return (EAttribute)listEClass.getEStructuralFeatures().get(0);
 	}
@@ -1593,6 +1698,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getList_NumberingStyle() {
 		return (EAttribute)listEClass.getEStructuralFeatures().get(1);
 	}
@@ -1602,6 +1708,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getList_Level() {
 		return (EAttribute)listEClass.getEStructuralFeatures().get(2);
 	}
@@ -1611,6 +1718,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getList_Items() {
 		return (EReference)listEClass.getEStructuralFeatures().get(3);
 	}
@@ -1620,6 +1728,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getListItem() {
 		return listItemEClass;
 	}
@@ -1629,6 +1738,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getListItem_Title() {
 		return (EReference)listItemEClass.getEStructuralFeatures().get(0);
 	}
@@ -1638,6 +1748,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getListItem_List() {
 		return (EReference)listItemEClass.getEStructuralFeatures().get(1);
 	}
@@ -1647,6 +1758,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getListItem__GetLevel() {
 		return listItemEClass.getEOperations().get(0);
 	}
@@ -1656,6 +1768,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getListItem__GetSequenceNumber() {
 		return listItemEClass.getEOperations().get(1);
 	}
@@ -1665,6 +1778,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTitledBlock() {
 		return titledBlockEClass;
 	}
@@ -1674,6 +1788,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTitledBlock_Title() {
 		return (EReference)titledBlockEClass.getEStructuralFeatures().get(0);
 	}
@@ -1683,6 +1798,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getTitledBlock__GetId() {
 		return titledBlockEClass.getEOperations().get(0);
 	}
@@ -1692,6 +1808,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getTitledBlock__Parent() {
 		return titledBlockEClass.getEOperations().get(1);
 	}
@@ -1701,6 +1818,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTitledTable() {
 		return titledTableEClass;
 	}
@@ -1710,6 +1828,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTitledTable_Table() {
 		return (EReference)titledTableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1719,6 +1838,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstractTable() {
 		return abstractTableEClass;
 	}
@@ -1728,6 +1848,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbstractTable_WidthPercent() {
 		return (EAttribute)abstractTableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1737,6 +1858,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbstractTable_Gridlines() {
 		return (EAttribute)abstractTableEClass.getEStructuralFeatures().get(1);
 	}
@@ -1746,6 +1868,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -1755,6 +1878,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTable_Columns() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1764,6 +1888,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTable_Rows() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(1);
 	}
@@ -1773,6 +1898,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTableRow() {
 		return tableRowEClass;
 	}
@@ -1782,6 +1908,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTableRow_IsHeading() {
 		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(0);
 	}
@@ -1791,6 +1918,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTableRow_Cells() {
 		return (EReference)tableRowEClass.getEStructuralFeatures().get(1);
 	}
@@ -1800,6 +1928,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTableRow_Table() {
 		return (EReference)tableRowEClass.getEStructuralFeatures().get(2);
 	}
@@ -1809,6 +1938,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTableCell() {
 		return tableCellEClass;
 	}
@@ -1818,6 +1948,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTableCell_Width() {
 		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(0);
 	}
@@ -1827,6 +1958,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTableCell_Height() {
 		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(1);
 	}
@@ -1836,6 +1968,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTableCell_Row() {
 		return (EReference)tableCellEClass.getEStructuralFeatures().get(2);
 	}
@@ -1845,6 +1978,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProvidedTable() {
 		return providedTableEClass;
 	}
@@ -1854,6 +1988,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProvidedTable_DiagramRoot() {
 		return (EReference)providedTableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1863,6 +1998,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProvidedTable_TableType() {
 		return (EReference)providedTableEClass.getEStructuralFeatures().get(1);
 	}
@@ -1872,6 +2008,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProvidedTableType() {
 		return providedTableTypeEClass;
 	}
@@ -1881,6 +2018,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProvidedTableType_Name() {
 		return (EAttribute)providedTableTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1890,6 +2028,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProvidedTableType_TableTypeName() {
 		return (EAttribute)providedTableTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -1899,6 +2038,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTitledFigure() {
 		return titledFigureEClass;
 	}
@@ -1908,6 +2048,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTitledFigure_Figure() {
 		return (EReference)titledFigureEClass.getEStructuralFeatures().get(0);
 	}
@@ -1917,6 +2058,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstractFigure() {
 		return abstractFigureEClass;
 	}
@@ -1926,6 +2068,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbstractFigure_WidthPercent() {
 		return (EAttribute)abstractFigureEClass.getEStructuralFeatures().get(0);
 	}
@@ -1935,6 +2078,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIncludedFigure() {
 		return includedFigureEClass;
 	}
@@ -1944,6 +2088,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIncludedFigure_FileUri() {
 		return (EAttribute)includedFigureEClass.getEStructuralFeatures().get(0);
 	}
@@ -1953,6 +2098,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProvidedFigure() {
 		return providedFigureEClass;
 	}
@@ -1962,6 +2108,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProvidedFigure_DiagramRoot() {
 		return (EReference)providedFigureEClass.getEStructuralFeatures().get(0);
 	}
@@ -1971,6 +2118,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProvidedFigure_DiagramType() {
 		return (EReference)providedFigureEClass.getEStructuralFeatures().get(1);
 	}
@@ -1980,6 +2128,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProvidedFigure_PreferRasterDiagram() {
 		return (EAttribute)providedFigureEClass.getEStructuralFeatures().get(2);
 	}
@@ -1989,6 +2138,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProvidedDiagramType() {
 		return providedDiagramTypeEClass;
 	}
@@ -1998,6 +2148,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProvidedDiagramType_Name() {
 		return (EAttribute)providedDiagramTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -2007,6 +2158,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProvidedDiagramType_DiagramTypeName() {
 		return (EAttribute)providedDiagramTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -2016,6 +2168,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEquation() {
 		return equationEClass;
 	}
@@ -2025,6 +2178,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEquation_FileUri() {
 		return (EAttribute)equationEClass.getEStructuralFeatures().get(0);
 	}
@@ -2034,6 +2188,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTitledCodeListing() {
 		return titledCodeListingEClass;
 	}
@@ -2043,6 +2198,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTitledCodeListing_Numbered() {
 		return (EAttribute)titledCodeListingEClass.getEStructuralFeatures().get(0);
 	}
@@ -2052,6 +2208,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTitledCodeListing_CodeLines() {
 		return (EAttribute)titledCodeListingEClass.getEStructuralFeatures().get(1);
 	}
@@ -2061,6 +2218,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTitledCodeListing_Include() {
 		return (EReference)titledCodeListingEClass.getEStructuralFeatures().get(2);
 	}
@@ -2070,6 +2228,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParagraph() {
 		return paragraphEClass;
 	}
@@ -2079,6 +2238,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRichTextParagraph() {
 		return richTextParagraphEClass;
 	}
@@ -2088,6 +2248,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRichTextParagraph_Style() {
 		return (EAttribute)richTextParagraphEClass.getEStructuralFeatures().get(0);
 	}
@@ -2097,6 +2258,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRichTextParagraph_Text() {
 		return (EReference)richTextParagraphEClass.getEStructuralFeatures().get(1);
 	}
@@ -2106,6 +2268,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRichTextReferencingParagraph() {
 		return richTextReferencingParagraphEClass;
 	}
@@ -2115,6 +2278,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRichTextReferencingParagraph_Text() {
 		return (EReference)richTextReferencingParagraphEClass.getEStructuralFeatures().get(0);
 	}
@@ -2124,6 +2288,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUnformattedParagraph() {
 		return unformattedParagraphEClass;
 	}
@@ -2133,6 +2298,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUnformattedParagraph_Text() {
 		return (EAttribute)unformattedParagraphEClass.getEStructuralFeatures().get(0);
 	}
@@ -2142,6 +2308,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFootnote() {
 		return footnoteEClass;
 	}
@@ -2151,6 +2318,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFootnote_Text() {
 		return (EReference)footnoteEClass.getEStructuralFeatures().get(0);
 	}
@@ -2160,6 +2328,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPublicationNature() {
 		return publicationNatureEEnum;
 	}
@@ -2169,6 +2338,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getReferenceScope() {
 		return referenceScopeEEnum;
 	}
@@ -2178,6 +2348,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getAdmonitionKind() {
 		return admonitionKindEEnum;
 	}
@@ -2187,6 +2358,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getListStyle() {
 		return listStyleEEnum;
 	}
@@ -2196,6 +2368,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getGridLines() {
 		return gridLinesEEnum;
 	}
@@ -2205,6 +2378,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getParagraphStyle() {
 		return paragraphStyleEEnum;
 	}
@@ -2214,6 +2388,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PubFactory getPubFactory() {
 		return (PubFactory)getEFactoryInstance();
 	}

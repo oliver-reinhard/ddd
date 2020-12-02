@@ -879,7 +879,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSimAggregateTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDimAggregateParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//SimAggregate DAggregate:
+		///*
+		// * AGGREGATES
+		// */ SimAggregate DAggregate:
 		//	SimAggregateTransposition | DimAggregate;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2924,7 +2926,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getSimEntityTypeAccess().getRule();
 	}
 	
-	//SimAggregate DAggregate:
+	///*
+	// * AGGREGATES
+	// */ SimAggregate DAggregate:
 	//	SimAggregateTransposition | DimAggregate;
 	public SimAggregateElements getSimAggregateAccess() {
 		return pSimAggregate;

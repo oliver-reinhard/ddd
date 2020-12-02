@@ -123,6 +123,9 @@ enum SimDetailType returns TTristate:
 enum SimEntityType returns TTristate:
 	FALSE='entity';
 
+/*
+ * AGGREGATES
+ */
 SimAggregate returns DAggregate:
 SimAggregateTransposition | DimAggregate;
 
@@ -132,7 +135,7 @@ SimAggregateTransposition returns TAggregateTransposition:
 	(description=DRichText)?
 	(	'{'
 			(features+=SimQueryTransposition | 'add' 'query' features+=DimQuery)*
-			( types+=SimType)*
+			(types+=SimType)*
 		'}'
 	)?;
 		

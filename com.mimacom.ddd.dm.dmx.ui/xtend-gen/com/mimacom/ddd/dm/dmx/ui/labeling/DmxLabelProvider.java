@@ -111,6 +111,11 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
     return "DmxCallArguments";
   }
   
+  @Override
+  public String text(final Object obj) {
+    return this.simpleName(obj);
+  }
+  
   protected String simpleName(final Object obj) {
     final String name = obj.getClass().getSimpleName();
     boolean _endsWith = name.endsWith("Impl");

@@ -15,7 +15,7 @@ DNamespace:
 DomainInformationView:
 	'information' 'view'
 	name=ID
-	readOnlyView?='read' 'only'
+	(readOnlyView?='read' 'only')?
 	//	 (^generate?='generate')?
 	(description=DRichText)?
 	(notes+=DNote)*
@@ -60,8 +60,8 @@ DivGrabComplexTypeRule returns TGrabRule:
 DivDitchComplexTypeRule returns TDitchRule:
 	source=[DimComplexType|DQualifiedName];
 	
-SimMorphComplexTypeRule returns TMorphRule:
-	source=[DimComplexType|DQualifiedName]
+DivMorphComplexTypeRule returns TMorphRule:
+	source=[DimComplexType|DQualifiedName] 
 	'to'
 	readOnlyView?='read' 'only';
 
@@ -77,7 +77,10 @@ DivMorphFeatureRule returns TMorphRule:
 	source=[DimFeature|ID]
 	'to'
 	readOnlyView?='read' 'only';
-
+	
+/*
+ * AGGREGATES
+ */
 DivAggregate returns DAggregate:
 	DivAggregateTransposition | DimAggregate;
 
@@ -86,18 +89,19 @@ DivAggregateTransposition returns TAggregateTransposition:
 	'grab' 'aggregate' rule=DivGrabAggregateRule
 	(description=DRichText)?
 	('{'
-	features+=DivQueryTransposition*
-	types+=DivType*
+		(features+=DivQueryTransposition | 'add' 'query' features+=DimQuery)* // allow new queries -> read only
+		(types+=DivType)*
 	'}')?;
 
-	/*
+/*
  * TYPES
  */
 DivType returns DType:
 	DivPrimitiveTransposition
 	| DivEnumerationTransposition
 	| DivEntityTypeTransposition
-	| DivDetailTypeTransposition;
+	| DivDetailTypeTransposition
+	| DimDetailType;		// allow new DetailTypes -> can only be used by new queries
 
 DivPrimitiveTransposition returns TPrimitiveTransposition:
 	{TPrimitiveTransposition}
@@ -107,7 +111,7 @@ DivPrimitiveTransposition returns TPrimitiveTransposition:
 	(description=DRichText)?
 	(notes+=DNote)*
 	('{'
-	('add' constraints+=DConstraint)*
+		('add' constraints+=DConstraint)*
 	'}')?;
 
 DivEnumerationTransposition returns TEnumerationTransposition:
@@ -118,8 +122,8 @@ DivEnumerationTransposition returns TEnumerationTransposition:
 	(description=DRichText)?
 	(notes+=DNote)*
 	('{'
-	(literals+=DivLiteralTransposition (',' literals+=DivLiteralTransposition)*)?
-	('add' constraints+=DConstraint)*
+		(literals+=DivLiteralTransposition (',' literals+=DivLiteralTransposition)*)?
+		('add' constraints+=DConstraint)*
 	'}')?;
 
 DivLiteralTransposition returns TLiteralTransposition:
@@ -133,7 +137,7 @@ DivEntityTypeTransposition returns TEntityTypeTransposition:
 	{TEntityTypeTransposition}
 	('grab' (root?='root')? 'entity' rule=DivGrabComplexTypeRule
 	| 'ditch' (root?='root')? 'entity' rule=DivDitchComplexTypeRule
-	| 'motph' (root?='root')? 'entity' rule=SimMorphComplexTypeRule
+	| 'morph' (root?='root')? 'entity' rule=DivMorphComplexTypeRule
 	)
 	(description=DRichText)?
 	(notes+=DNote)*
@@ -159,7 +163,8 @@ fragment TComplexTypeFeatures returns DComplexType:
 DivFeature returns DFeature:
 	DivAssociationTransposition
 	| DivAttributeTransposition
-	| DivQueryTransposition;
+	| DivQueryTransposition
+	| 'add' DimQuery; // allow new queries -> read only
 
 DivAssociationTransposition returns TAssociationTransposition:
 	{TAssociationTransposition}

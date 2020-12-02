@@ -1,19 +1,14 @@
-package com.mimacom.ddd.dm.dmx.scoping;
+package com.mimacom.ddd.dm.div.scoping;
 
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import java.util.List;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.scoping.impl.ImportNormalizer;
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 @SuppressWarnings("all")
-public class DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes extends DmxImportedNamespaceAwareLocalScopeProvider {
-  public static final String PREFIX = "dm";
-  
-  public static final String TYPES = "types";
-  
-  public static final String DEFAULT_IMPORT_TYPES = ((DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.PREFIX + ".") + DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.TYPES);
-  
+public class DivImportedNamespaceAwareLocalScopeProviderWithDmTypes extends ImportedNamespaceAwareLocalScopeProvider {
   @Override
   public List<ImportNormalizer> getImplicitImports(final boolean ignoreCase) {
     QualifiedName _create = QualifiedName.create(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.PREFIX, DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.TYPES);

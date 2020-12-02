@@ -185,26 +185,28 @@ ruleDomainInformationView returns [EObject current=null]
 		)
 		(
 			(
-				lv_readOnlyView_3_0='read'
-				{
-					newLeafNode(lv_readOnlyView_3_0, grammarAccess.getDomainInformationViewAccess().getReadOnlyViewReadKeyword_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDomainInformationViewRule());
+				(
+					lv_readOnlyView_3_0='read'
+					{
+						newLeafNode(lv_readOnlyView_3_0, grammarAccess.getDomainInformationViewAccess().getReadOnlyViewReadKeyword_3_0_0());
 					}
-					setWithLastConsumed($current, "readOnlyView", true, "read");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDomainInformationViewRule());
+						}
+						setWithLastConsumed($current, "readOnlyView", true, "read");
+					}
+				)
 			)
-		)
-		otherlv_4='only'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getDomainInformationViewAccess().getOnlyKeyword_4());
-		}
+			otherlv_4='only'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getDomainInformationViewAccess().getOnlyKeyword_3_1());
+			}
+		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomainInformationViewAccess().getDescriptionDRichTextParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getDomainInformationViewAccess().getDescriptionDRichTextParserRuleCall_4_0());
 				}
 				lv_description_5_0=ruleDRichText
 				{
@@ -223,7 +225,7 @@ ruleDomainInformationView returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomainInformationViewAccess().getNotesDNoteParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDomainInformationViewAccess().getNotesDNoteParserRuleCall_5_0());
 				}
 				lv_notes_6_0=ruleDNote
 				{
@@ -241,13 +243,13 @@ ruleDomainInformationView returns [EObject current=null]
 		)*
 		otherlv_7='{'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDomainInformationViewAccess().getLeftCurlyBracketKeyword_7());
+			newLeafNode(otherlv_7, grammarAccess.getDomainInformationViewAccess().getLeftCurlyBracketKeyword_6());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getTypesDivTypeParserRuleCall_8_0_0());
+						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getTypesDivTypeParserRuleCall_7_0_0());
 					}
 					lv_types_8_0=ruleDivType
 					{
@@ -267,7 +269,7 @@ ruleDomainInformationView returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getAggregatesDivAggregateParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getDomainInformationViewAccess().getAggregatesDivAggregateParserRuleCall_7_1_0());
 					}
 					lv_aggregates_9_0=ruleDivAggregate
 					{
@@ -286,7 +288,7 @@ ruleDomainInformationView returns [EObject current=null]
 		)*
 		otherlv_10='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getDomainInformationViewAccess().getRightCurlyBracketKeyword_9());
+			newLeafNode(otherlv_10, grammarAccess.getDomainInformationViewAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -752,15 +754,15 @@ ruleDivDitchComplexTypeRule returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleSimMorphComplexTypeRule
-entryRuleSimMorphComplexTypeRule returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSimMorphComplexTypeRuleRule()); }
-	iv_ruleSimMorphComplexTypeRule=ruleSimMorphComplexTypeRule
-	{ $current=$iv_ruleSimMorphComplexTypeRule.current; }
+// Entry rule entryRuleDivMorphComplexTypeRule
+entryRuleDivMorphComplexTypeRule returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDivMorphComplexTypeRuleRule()); }
+	iv_ruleDivMorphComplexTypeRule=ruleDivMorphComplexTypeRule
+	{ $current=$iv_ruleDivMorphComplexTypeRule.current; }
 	EOF;
 
-// Rule SimMorphComplexTypeRule
-ruleSimMorphComplexTypeRule returns [EObject current=null]
+// Rule DivMorphComplexTypeRule
+ruleDivMorphComplexTypeRule returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -772,11 +774,11 @@ ruleSimMorphComplexTypeRule returns [EObject current=null]
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSimMorphComplexTypeRuleRule());
+						$current = createModelElement(grammarAccess.getDivMorphComplexTypeRuleRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getSimMorphComplexTypeRuleAccess().getSourceDimComplexTypeCrossReference_0_0());
+					newCompositeNode(grammarAccess.getDivMorphComplexTypeRuleAccess().getSourceDimComplexTypeCrossReference_0_0());
 				}
 				ruleDQualifiedName
 				{
@@ -786,17 +788,17 @@ ruleSimMorphComplexTypeRule returns [EObject current=null]
 		)
 		otherlv_1='to'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getSimMorphComplexTypeRuleAccess().getToKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getDivMorphComplexTypeRuleAccess().getToKeyword_1());
 		}
 		(
 			(
 				lv_readOnlyView_2_0='read'
 				{
-					newLeafNode(lv_readOnlyView_2_0, grammarAccess.getSimMorphComplexTypeRuleAccess().getReadOnlyViewReadKeyword_2_0());
+					newLeafNode(lv_readOnlyView_2_0, grammarAccess.getDivMorphComplexTypeRuleAccess().getReadOnlyViewReadKeyword_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSimMorphComplexTypeRuleRule());
+						$current = createModelElement(grammarAccess.getDivMorphComplexTypeRuleRule());
 					}
 					setWithLastConsumed($current, "readOnlyView", true, "read");
 				}
@@ -804,7 +806,7 @@ ruleSimMorphComplexTypeRule returns [EObject current=null]
 		)
 		otherlv_3='only'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getSimMorphComplexTypeRuleAccess().getOnlyKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getDivMorphComplexTypeRuleAccess().getOnlyKeyword_3());
 		}
 	)
 ;
@@ -1081,21 +1083,53 @@ ruleDivAggregateTransposition returns [EObject current=null]
 			}
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getDivAggregateTranspositionAccess().getFeaturesDivQueryTranspositionParserRuleCall_5_1_0());
-					}
-					lv_features_6_0=ruleDivQueryTransposition
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDivAggregateTranspositionRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getDivAggregateTranspositionAccess().getFeaturesDivQueryTranspositionParserRuleCall_5_1_0_0());
 						}
-						add(
-							$current,
-							"features",
-							lv_features_6_0,
-							"com.mimacom.ddd.dm.div.Div.DivQueryTransposition");
-						afterParserOrEnumRuleCall();
+						lv_features_6_0=ruleDivQueryTransposition
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDivAggregateTranspositionRule());
+							}
+							add(
+								$current,
+								"features",
+								lv_features_6_0,
+								"com.mimacom.ddd.dm.div.Div.DivQueryTransposition");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				    |
+				(
+					otherlv_7='add'
+					{
+						newLeafNode(otherlv_7, grammarAccess.getDivAggregateTranspositionAccess().getAddKeyword_5_1_1_0());
 					}
+					otherlv_8='query'
+					{
+						newLeafNode(otherlv_8, grammarAccess.getDivAggregateTranspositionAccess().getQueryKeyword_5_1_1_1());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getDivAggregateTranspositionAccess().getFeaturesDimQueryParserRuleCall_5_1_1_2_0());
+							}
+							lv_features_9_0=ruleDimQuery
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getDivAggregateTranspositionRule());
+								}
+								add(
+									$current,
+									"features",
+									lv_features_9_0,
+									"com.mimacom.ddd.dm.dim.Dim.DimQuery");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
 				)
 			)*
 			(
@@ -1103,7 +1137,7 @@ ruleDivAggregateTransposition returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getDivAggregateTranspositionAccess().getTypesDivTypeParserRuleCall_5_2_0());
 					}
-					lv_types_7_0=ruleDivType
+					lv_types_10_0=ruleDivType
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDivAggregateTranspositionRule());
@@ -1111,15 +1145,15 @@ ruleDivAggregateTransposition returns [EObject current=null]
 						add(
 							$current,
 							"types",
-							lv_types_7_0,
+							lv_types_10_0,
 							"com.mimacom.ddd.dm.div.Div.DivType");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
-			otherlv_8='}'
+			otherlv_11='}'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getDivAggregateTranspositionAccess().getRightCurlyBracketKeyword_5_3());
+				newLeafNode(otherlv_11, grammarAccess.getDivAggregateTranspositionAccess().getRightCurlyBracketKeyword_5_3());
 			}
 		)?
 	)
@@ -1174,6 +1208,15 @@ ruleDivType returns [EObject current=null]
 		this_DivDetailTypeTransposition_3=ruleDivDetailTypeTransposition
 		{
 			$current = $this_DivDetailTypeTransposition_3.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDivTypeAccess().getDimDetailTypeParserRuleCall_4());
+		}
+		this_DimDetailType_4=ruleDimDetailType
+		{
+			$current = $this_DimDetailType_4.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1775,9 +1818,9 @@ ruleDivEntityTypeTransposition returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_9='motph'
+				otherlv_9='morph'
 				{
-					newLeafNode(otherlv_9, grammarAccess.getDivEntityTypeTranspositionAccess().getMotphKeyword_1_2_0());
+					newLeafNode(otherlv_9, grammarAccess.getDivEntityTypeTranspositionAccess().getMorphKeyword_1_2_0());
 				}
 				(
 					(
@@ -1800,9 +1843,9 @@ ruleDivEntityTypeTransposition returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDivEntityTypeTranspositionAccess().getRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0());
+							newCompositeNode(grammarAccess.getDivEntityTypeTranspositionAccess().getRuleDivMorphComplexTypeRuleParserRuleCall_1_2_3_0());
 						}
-						lv_rule_12_0=ruleSimMorphComplexTypeRule
+						lv_rule_12_0=ruleDivMorphComplexTypeRule
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDivEntityTypeTranspositionRule());
@@ -1811,7 +1854,7 @@ ruleDivEntityTypeTransposition returns [EObject current=null]
 								$current,
 								"rule",
 								lv_rule_12_0,
-								"com.mimacom.ddd.dm.div.Div.SimMorphComplexTypeRule");
+								"com.mimacom.ddd.dm.div.Div.DivMorphComplexTypeRule");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -2120,6 +2163,21 @@ ruleDivFeature returns [EObject current=null]
 			$current = $this_DivQueryTransposition_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		(
+			otherlv_3='add'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getDivFeatureAccess().getAddKeyword_3_0());
+			}
+			{
+				newCompositeNode(grammarAccess.getDivFeatureAccess().getDimQueryParserRuleCall_3_1());
+			}
+			this_DimQuery_4=ruleDimQuery
+			{
+				$current = $this_DimQuery_4.current;
+				afterParserOrEnumRuleCall();
+			}
+		)
 	)
 ;
 

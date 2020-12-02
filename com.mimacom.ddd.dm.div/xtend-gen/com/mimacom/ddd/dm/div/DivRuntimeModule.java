@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource;
 import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider;
 import com.mimacom.ddd.dm.div.AbstractDivRuntimeModule;
 import com.mimacom.ddd.dm.div.derivedState.DivDerivedStateComputer;
+import com.mimacom.ddd.dm.div.scoping.DivImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
@@ -21,7 +22,6 @@ import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -45,7 +45,7 @@ public class DivRuntimeModule extends AbstractDivRuntimeModule {
   
   @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
-    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(ImportedNamespaceAwareLocalScopeProvider.class);
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DivImportedNamespaceAwareLocalScopeProviderWithDmTypes.class);
   }
   
   @Override

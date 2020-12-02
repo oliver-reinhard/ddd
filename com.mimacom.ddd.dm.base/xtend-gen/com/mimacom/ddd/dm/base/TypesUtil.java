@@ -431,13 +431,22 @@ public class TypesUtil {
   
   public String label(final DQuery f) {
     String _name = f.getName();
-    String _plus = (_name + "() : ");
+    String _plus = (_name + "(");
+    String _xifexpression = null;
+    boolean _isEmpty = f.getParameters().isEmpty();
+    if (_isEmpty) {
+      _xifexpression = "";
+    } else {
+      _xifexpression = "..";
+    }
+    String _plus_1 = (_plus + _xifexpression);
+    String _plus_2 = (_plus_1 + ") : ");
     DType _type = f.getType();
     String _label = null;
     if (_type!=null) {
       _label=this.label(_type);
     }
-    return (_plus + _label);
+    return (_plus_2 + _label);
   }
   
   public String label(final DQueryParameter p) {

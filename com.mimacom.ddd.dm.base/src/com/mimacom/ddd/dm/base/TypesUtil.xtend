@@ -253,7 +253,7 @@ class TypesUtil {
 	}
 
 	def String label(DQuery f) {
-		return f.name + "() : " + f.getType?.label
+		return f.name + "(" + (f.parameters.empty ? "" : "..") + ") : " + f.getType?.label
 	}
 
 	def String label(DQueryParameter p) {

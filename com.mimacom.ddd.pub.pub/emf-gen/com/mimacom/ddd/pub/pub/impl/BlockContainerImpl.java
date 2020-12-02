@@ -68,6 +68,7 @@ public abstract class BlockContainerImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContentBlock> getContents() {
 		if (contents == null) {
 			contents = new EObjectContainmentEList<ContentBlock>(ContentBlock.class, this, PubPackage.BLOCK_CONTAINER__CONTENTS);

@@ -76,25 +76,25 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cViewKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cReadOnlyViewAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cReadOnlyViewReadKeyword_3_0 = (Keyword)cReadOnlyViewAssignment_3.eContents().get(0);
-		private final Keyword cOnlyKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Assignment cNotesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cNotesDNoteParserRuleCall_6_0 = (RuleCall)cNotesAssignment_6.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Alternatives cAlternatives_8 = (Alternatives)cGroup.eContents().get(8);
-		private final Assignment cTypesAssignment_8_0 = (Assignment)cAlternatives_8.eContents().get(0);
-		private final RuleCall cTypesDivTypeParserRuleCall_8_0_0 = (RuleCall)cTypesAssignment_8_0.eContents().get(0);
-		private final Assignment cAggregatesAssignment_8_1 = (Assignment)cAlternatives_8.eContents().get(1);
-		private final RuleCall cAggregatesDivAggregateParserRuleCall_8_1_0 = (RuleCall)cAggregatesAssignment_8_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cReadOnlyViewAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cReadOnlyViewReadKeyword_3_0_0 = (Keyword)cReadOnlyViewAssignment_3_0.eContents().get(0);
+		private final Keyword cOnlyKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Assignment cNotesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNotesDNoteParserRuleCall_5_0 = (RuleCall)cNotesAssignment_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
+		private final Assignment cTypesAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
+		private final RuleCall cTypesDivTypeParserRuleCall_7_0_0 = (RuleCall)cTypesAssignment_7_0.eContents().get(0);
+		private final Assignment cAggregatesAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
+		private final RuleCall cAggregatesDivAggregateParserRuleCall_7_1_0 = (RuleCall)cAggregatesAssignment_7_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DomainInformationView:
 		//	'information' 'view'
-		//	name=ID
-		//	readOnlyView?='read' 'only'
+		//	name=ID (readOnlyView?='read' 'only')?
 		//	//	 (^generate?='generate')?
 		//	description=DRichText?
 		//	notes+=DNote*
@@ -102,7 +102,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'information' 'view' name=ID readOnlyView?='read' 'only' //	 (^generate?='generate')?
+		//'information' 'view' name=ID (readOnlyView?='read' 'only')? //	 (^generate?='generate')?
 		//description=DRichText? notes+=DNote* '{' (types+=DivType | aggregates+=DivAggregate)* '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -118,48 +118,51 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
+		//(readOnlyView?='read' 'only')?
+		public Group getGroup_3() { return cGroup_3; }
+		
 		//readOnlyView?='read'
-		public Assignment getReadOnlyViewAssignment_3() { return cReadOnlyViewAssignment_3; }
+		public Assignment getReadOnlyViewAssignment_3_0() { return cReadOnlyViewAssignment_3_0; }
 		
 		//'read'
-		public Keyword getReadOnlyViewReadKeyword_3_0() { return cReadOnlyViewReadKeyword_3_0; }
+		public Keyword getReadOnlyViewReadKeyword_3_0_0() { return cReadOnlyViewReadKeyword_3_0_0; }
 		
 		//'only'
-		public Keyword getOnlyKeyword_4() { return cOnlyKeyword_4; }
+		public Keyword getOnlyKeyword_3_1() { return cOnlyKeyword_3_1; }
 		
 		////	 (^generate?='generate')?
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
 		
 		//notes+=DNote*
-		public Assignment getNotesAssignment_6() { return cNotesAssignment_6; }
+		public Assignment getNotesAssignment_5() { return cNotesAssignment_5; }
 		
 		//DNote
-		public RuleCall getNotesDNoteParserRuleCall_6_0() { return cNotesDNoteParserRuleCall_6_0; }
+		public RuleCall getNotesDNoteParserRuleCall_5_0() { return cNotesDNoteParserRuleCall_5_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
 		//(types+=DivType | aggregates+=DivAggregate)*
-		public Alternatives getAlternatives_8() { return cAlternatives_8; }
+		public Alternatives getAlternatives_7() { return cAlternatives_7; }
 		
 		//types+=DivType
-		public Assignment getTypesAssignment_8_0() { return cTypesAssignment_8_0; }
+		public Assignment getTypesAssignment_7_0() { return cTypesAssignment_7_0; }
 		
 		//DivType
-		public RuleCall getTypesDivTypeParserRuleCall_8_0_0() { return cTypesDivTypeParserRuleCall_8_0_0; }
+		public RuleCall getTypesDivTypeParserRuleCall_7_0_0() { return cTypesDivTypeParserRuleCall_7_0_0; }
 		
 		//aggregates+=DivAggregate
-		public Assignment getAggregatesAssignment_8_1() { return cAggregatesAssignment_8_1; }
+		public Assignment getAggregatesAssignment_7_1() { return cAggregatesAssignment_7_1; }
 		
 		//DivAggregate
-		public RuleCall getAggregatesDivAggregateParserRuleCall_8_1_0() { return cAggregatesDivAggregateParserRuleCall_8_1_0; }
+		public RuleCall getAggregatesDivAggregateParserRuleCall_7_1_0() { return cAggregatesDivAggregateParserRuleCall_7_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class DivGrabAggregateRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivGrabAggregateRule");
@@ -466,8 +469,8 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getSourceDimComplexTypeDQualifiedNameParserRuleCall_0_1() { return cSourceDimComplexTypeDQualifiedNameParserRuleCall_0_1; }
 	}
-	public class SimMorphComplexTypeRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.SimMorphComplexTypeRule");
+	public class DivMorphComplexTypeRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivMorphComplexTypeRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDimComplexTypeCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
@@ -477,7 +480,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReadOnlyViewReadKeyword_2_0 = (Keyword)cReadOnlyViewAssignment_2.eContents().get(0);
 		private final Keyword cOnlyKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//SimMorphComplexTypeRule TMorphRule:
+		//DivMorphComplexTypeRule TMorphRule:
 		//	source=[DimComplexType|DQualifiedName]
 		//	'to'
 		//	readOnlyView?='read' 'only';
@@ -628,7 +631,9 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDivAggregateTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDimAggregateParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//DivAggregate DAggregate:
+		///*
+		// * AGGREGATES
+		// */ DivAggregate DAggregate:
 		//	DivAggregateTransposition | DimAggregate;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -653,8 +658,14 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cLeftCurlyBracketKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cFeaturesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cFeaturesDivQueryTranspositionParserRuleCall_5_1_0 = (RuleCall)cFeaturesAssignment_5_1.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final Assignment cFeaturesAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
+		private final RuleCall cFeaturesDivQueryTranspositionParserRuleCall_5_1_0_0 = (RuleCall)cFeaturesAssignment_5_1_0.eContents().get(0);
+		private final Group cGroup_5_1_1 = (Group)cAlternatives_5_1.eContents().get(1);
+		private final Keyword cAddKeyword_5_1_1_0 = (Keyword)cGroup_5_1_1.eContents().get(0);
+		private final Keyword cQueryKeyword_5_1_1_1 = (Keyword)cGroup_5_1_1.eContents().get(1);
+		private final Assignment cFeaturesAssignment_5_1_1_2 = (Assignment)cGroup_5_1_1.eContents().get(2);
+		private final RuleCall cFeaturesDimQueryParserRuleCall_5_1_1_2_0 = (RuleCall)cFeaturesAssignment_5_1_1_2.eContents().get(0);
 		private final Assignment cTypesAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
 		private final RuleCall cTypesDivTypeParserRuleCall_5_2_0 = (RuleCall)cTypesAssignment_5_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
@@ -662,14 +673,14 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//DivAggregateTransposition TAggregateTransposition:
 		//	{TAggregateTransposition}
 		//	'grab' 'aggregate' rule=DivGrabAggregateRule
-		//	description=DRichText? ('{'
-		//	features+=DivQueryTransposition*
+		//	description=DRichText? ('{' (features+=DivQueryTransposition | 'add' 'query' features+=DimQuery)* // allow new queries -> read only
 		//	types+=DivType*
 		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TAggregateTransposition} 'grab' 'aggregate' rule=DivGrabAggregateRule description=DRichText? ('{'
-		//features+=DivQueryTransposition* types+=DivType* '}')?
+		//(features+=DivQueryTransposition | 'add' 'query' features+=DimQuery)* // allow new queries -> read only
+		//types+=DivType* '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//{TAggregateTransposition}
@@ -693,18 +704,38 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
 		
-		//('{' features+=DivQueryTransposition* types+=DivType* '}')?
+		//('{' (features+=DivQueryTransposition | 'add' 'query' features+=DimQuery)* // allow new queries -> read only
+		//types+=DivType* '}')?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5_0() { return cLeftCurlyBracketKeyword_5_0; }
 		
-		//features+=DivQueryTransposition*
-		public Assignment getFeaturesAssignment_5_1() { return cFeaturesAssignment_5_1; }
+		//(features+=DivQueryTransposition | 'add' 'query' features+=DimQuery)*
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+		
+		//features+=DivQueryTransposition
+		public Assignment getFeaturesAssignment_5_1_0() { return cFeaturesAssignment_5_1_0; }
 		
 		//DivQueryTransposition
-		public RuleCall getFeaturesDivQueryTranspositionParserRuleCall_5_1_0() { return cFeaturesDivQueryTranspositionParserRuleCall_5_1_0; }
+		public RuleCall getFeaturesDivQueryTranspositionParserRuleCall_5_1_0_0() { return cFeaturesDivQueryTranspositionParserRuleCall_5_1_0_0; }
 		
+		//'add' 'query' features+=DimQuery
+		public Group getGroup_5_1_1() { return cGroup_5_1_1; }
+		
+		//'add'
+		public Keyword getAddKeyword_5_1_1_0() { return cAddKeyword_5_1_1_0; }
+		
+		//'query'
+		public Keyword getQueryKeyword_5_1_1_1() { return cQueryKeyword_5_1_1_1; }
+		
+		//features+=DimQuery
+		public Assignment getFeaturesAssignment_5_1_1_2() { return cFeaturesAssignment_5_1_1_2; }
+		
+		//DimQuery
+		public RuleCall getFeaturesDimQueryParserRuleCall_5_1_1_2_0() { return cFeaturesDimQueryParserRuleCall_5_1_1_2_0; }
+		
+		//// allow new queries -> read only
 		//types+=DivType*
 		public Assignment getTypesAssignment_5_2() { return cTypesAssignment_5_2; }
 		
@@ -721,6 +752,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDivEnumerationTranspositionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDivEntityTypeTranspositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDivDetailTypeTranspositionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDimDetailTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		///*
 		// * TYPES
@@ -728,10 +760,12 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//	DivPrimitiveTransposition
 		//	| DivEnumerationTransposition
 		//	| DivEntityTypeTransposition
-		//	| DivDetailTypeTransposition;
+		//	| DivDetailTypeTransposition
+		//	| DimDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DivPrimitiveTransposition | DivEnumerationTransposition | DivEntityTypeTransposition | DivDetailTypeTransposition
+		//DivPrimitiveTransposition | DivEnumerationTransposition | DivEntityTypeTransposition | DivDetailTypeTransposition |
+		//DimDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DivPrimitiveTransposition
@@ -745,6 +779,9 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DivDetailTypeTransposition
 		public RuleCall getDivDetailTypeTranspositionParserRuleCall_3() { return cDivDetailTypeTranspositionParserRuleCall_3; }
+		
+		//DimDetailType
+		public RuleCall getDimDetailTypeParserRuleCall_4() { return cDimDetailTypeParserRuleCall_4; }
 	}
 	public class DivPrimitiveTranspositionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivPrimitiveTransposition");
@@ -773,6 +810,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstraintsDConstraintParserRuleCall_4_1_1_0 = (RuleCall)cConstraintsAssignment_4_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
+		//// allow new DetailTypes -> can only be used by new queries
 		//DivPrimitiveTransposition TPrimitiveTransposition:
 		//	{TPrimitiveTransposition} ('grab' 'primitive' rule=DivGrabPrimitiveRule
 		//	| 'ditch' 'primitive' rule=DivDitchPrimitiveRule) description=DRichText?
@@ -1081,12 +1119,12 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRuleAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
 		private final RuleCall cRuleDivDitchComplexTypeRuleParserRuleCall_1_1_3_0 = (RuleCall)cRuleAssignment_1_1_3.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final Keyword cMotphKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cMorphKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Assignment cRootAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final Keyword cRootRootKeyword_1_2_1_0 = (Keyword)cRootAssignment_1_2_1.eContents().get(0);
 		private final Keyword cEntityKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
 		private final Assignment cRuleAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
-		private final RuleCall cRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0 = (RuleCall)cRuleAssignment_1_2_3.eContents().get(0);
+		private final RuleCall cRuleDivMorphComplexTypeRuleParserRuleCall_1_2_3_0 = (RuleCall)cRuleAssignment_1_2_3.eContents().get(0);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		private final Assignment cNotesAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -1096,13 +1134,13 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//DivEntityTypeTransposition TEntityTypeTransposition:
 		//	{TEntityTypeTransposition} ('grab' root?='root'? 'entity' rule=DivGrabComplexTypeRule
 		//	| 'ditch' root?='root'? 'entity' rule=DivDitchComplexTypeRule
-		//	| 'motph' root?='root'? 'entity' rule=SimMorphComplexTypeRule) description=DRichText?
+		//	| 'morph' root?='root'? 'entity' rule=DivMorphComplexTypeRule) description=DRichText?
 		//	notes+=DNote*
 		//	TComplexTypeFeatures?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TEntityTypeTransposition} ('grab' root?='root'? 'entity' rule=DivGrabComplexTypeRule | 'ditch' root?='root'? 'entity'
-		//rule=DivDitchComplexTypeRule | 'motph' root?='root'? 'entity' rule=SimMorphComplexTypeRule) description=DRichText?
+		//rule=DivDitchComplexTypeRule | 'morph' root?='root'? 'entity' rule=DivMorphComplexTypeRule) description=DRichText?
 		//notes+=DNote* TComplexTypeFeatures?
 		public Group getGroup() { return cGroup; }
 		
@@ -1110,7 +1148,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		public Action getTEntityTypeTranspositionAction_0() { return cTEntityTypeTranspositionAction_0; }
 		
 		//('grab' root?='root'? 'entity' rule=DivGrabComplexTypeRule | 'ditch' root?='root'? 'entity' rule=DivDitchComplexTypeRule
-		//| 'motph' root?='root'? 'entity' rule=SimMorphComplexTypeRule)
+		//| 'morph' root?='root'? 'entity' rule=DivMorphComplexTypeRule)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//'grab' root?='root'? 'entity' rule=DivGrabComplexTypeRule
@@ -1155,11 +1193,11 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//DivDitchComplexTypeRule
 		public RuleCall getRuleDivDitchComplexTypeRuleParserRuleCall_1_1_3_0() { return cRuleDivDitchComplexTypeRuleParserRuleCall_1_1_3_0; }
 		
-		//'motph' root?='root'? 'entity' rule=SimMorphComplexTypeRule
+		//'morph' root?='root'? 'entity' rule=DivMorphComplexTypeRule
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
-		//'motph'
-		public Keyword getMotphKeyword_1_2_0() { return cMotphKeyword_1_2_0; }
+		//'morph'
+		public Keyword getMorphKeyword_1_2_0() { return cMorphKeyword_1_2_0; }
 		
 		//root?='root'?
 		public Assignment getRootAssignment_1_2_1() { return cRootAssignment_1_2_1; }
@@ -1170,11 +1208,11 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//'entity'
 		public Keyword getEntityKeyword_1_2_2() { return cEntityKeyword_1_2_2; }
 		
-		//rule=SimMorphComplexTypeRule
+		//rule=DivMorphComplexTypeRule
 		public Assignment getRuleAssignment_1_2_3() { return cRuleAssignment_1_2_3; }
 		
-		//SimMorphComplexTypeRule
-		public RuleCall getRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0() { return cRuleSimMorphComplexTypeRuleParserRuleCall_1_2_3_0; }
+		//DivMorphComplexTypeRule
+		public RuleCall getRuleDivMorphComplexTypeRuleParserRuleCall_1_2_3_0() { return cRuleDivMorphComplexTypeRuleParserRuleCall_1_2_3_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
@@ -1328,16 +1366,20 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDivAssociationTranspositionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDivAttributeTranspositionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDivQueryTranspositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cAddKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cDimQueryParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		
 		///*
 		// * FEATURES
 		// */ DivFeature DFeature:
 		//	DivAssociationTransposition
 		//	| DivAttributeTransposition
-		//	| DivQueryTransposition;
+		//	| DivQueryTransposition
+		//	| 'add' DimQuery;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DivAssociationTransposition | DivAttributeTransposition | DivQueryTransposition
+		//DivAssociationTransposition | DivAttributeTransposition | DivQueryTransposition | 'add' DimQuery
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DivAssociationTransposition
@@ -1348,6 +1390,15 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DivQueryTransposition
 		public RuleCall getDivQueryTranspositionParserRuleCall_2() { return cDivQueryTranspositionParserRuleCall_2; }
+		
+		//'add' DimQuery
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'add'
+		public Keyword getAddKeyword_3_0() { return cAddKeyword_3_0; }
+		
+		//DimQuery
+		public RuleCall getDimQueryParserRuleCall_3_1() { return cDimQueryParserRuleCall_3_1; }
 	}
 	public class DivAssociationTranspositionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivAssociationTransposition");
@@ -1380,6 +1431,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNotesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNotesDNoteParserRuleCall_3_0 = (RuleCall)cNotesAssignment_3.eContents().get(0);
 		
+		//// allow new queries -> read only
 		//DivAssociationTransposition TAssociationTransposition:
 		//	{TAssociationTransposition} ('grab' ('reference' | 'composite') rule=DivGrabFeatureRule
 		//	| 'ditch' ('reference' | 'composite') rule=DivDitchFeatureRule
@@ -1702,7 +1754,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	private final DivDitchEnumerationLiteralRuleElements pDivDitchEnumerationLiteralRule;
 	private final DivGrabComplexTypeRuleElements pDivGrabComplexTypeRule;
 	private final DivDitchComplexTypeRuleElements pDivDitchComplexTypeRule;
-	private final SimMorphComplexTypeRuleElements pSimMorphComplexTypeRule;
+	private final DivMorphComplexTypeRuleElements pDivMorphComplexTypeRule;
 	private final DivGrabFeatureRuleElements pDivGrabFeatureRule;
 	private final DivDitchFeatureRuleElements pDivDitchFeatureRule;
 	private final DivMorphFeatureRuleElements pDivMorphFeatureRule;
@@ -1744,7 +1796,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDivDitchEnumerationLiteralRule = new DivDitchEnumerationLiteralRuleElements();
 		this.pDivGrabComplexTypeRule = new DivGrabComplexTypeRuleElements();
 		this.pDivDitchComplexTypeRule = new DivDitchComplexTypeRuleElements();
-		this.pSimMorphComplexTypeRule = new SimMorphComplexTypeRuleElements();
+		this.pDivMorphComplexTypeRule = new DivMorphComplexTypeRuleElements();
 		this.pDivGrabFeatureRule = new DivGrabFeatureRuleElements();
 		this.pDivDitchFeatureRule = new DivDitchFeatureRuleElements();
 		this.pDivMorphFeatureRule = new DivMorphFeatureRuleElements();
@@ -1810,8 +1862,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DomainInformationView:
 	//	'information' 'view'
-	//	name=ID
-	//	readOnlyView?='read' 'only'
+	//	name=ID (readOnlyView?='read' 'only')?
 	//	//	 (^generate?='generate')?
 	//	description=DRichText?
 	//	notes+=DNote*
@@ -1917,16 +1968,16 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		return getDivDitchComplexTypeRuleAccess().getRule();
 	}
 	
-	//SimMorphComplexTypeRule TMorphRule:
+	//DivMorphComplexTypeRule TMorphRule:
 	//	source=[DimComplexType|DQualifiedName]
 	//	'to'
 	//	readOnlyView?='read' 'only';
-	public SimMorphComplexTypeRuleElements getSimMorphComplexTypeRuleAccess() {
-		return pSimMorphComplexTypeRule;
+	public DivMorphComplexTypeRuleElements getDivMorphComplexTypeRuleAccess() {
+		return pDivMorphComplexTypeRule;
 	}
 	
-	public ParserRule getSimMorphComplexTypeRuleRule() {
-		return getSimMorphComplexTypeRuleAccess().getRule();
+	public ParserRule getDivMorphComplexTypeRuleRule() {
+		return getDivMorphComplexTypeRuleAccess().getRule();
 	}
 	
 	//DivGrabFeatureRule TGrabRule:
@@ -1961,7 +2012,9 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		return getDivMorphFeatureRuleAccess().getRule();
 	}
 	
-	//DivAggregate DAggregate:
+	///*
+	// * AGGREGATES
+	// */ DivAggregate DAggregate:
 	//	DivAggregateTransposition | DimAggregate;
 	public DivAggregateElements getDivAggregateAccess() {
 		return pDivAggregate;
@@ -1974,8 +2027,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	//DivAggregateTransposition TAggregateTransposition:
 	//	{TAggregateTransposition}
 	//	'grab' 'aggregate' rule=DivGrabAggregateRule
-	//	description=DRichText? ('{'
-	//	features+=DivQueryTransposition*
+	//	description=DRichText? ('{' (features+=DivQueryTransposition | 'add' 'query' features+=DimQuery)* // allow new queries -> read only
 	//	types+=DivType*
 	//	'}')?;
 	public DivAggregateTranspositionElements getDivAggregateTranspositionAccess() {
@@ -1992,7 +2044,8 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	//	DivPrimitiveTransposition
 	//	| DivEnumerationTransposition
 	//	| DivEntityTypeTransposition
-	//	| DivDetailTypeTransposition;
+	//	| DivDetailTypeTransposition
+	//	| DimDetailType;
 	public DivTypeElements getDivTypeAccess() {
 		return pDivType;
 	}
@@ -2001,6 +2054,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		return getDivTypeAccess().getRule();
 	}
 	
+	//// allow new DetailTypes -> can only be used by new queries
 	//DivPrimitiveTransposition TPrimitiveTransposition:
 	//	{TPrimitiveTransposition} ('grab' 'primitive' rule=DivGrabPrimitiveRule
 	//	| 'ditch' 'primitive' rule=DivDitchPrimitiveRule) description=DRichText?
@@ -2043,7 +2097,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	//DivEntityTypeTransposition TEntityTypeTransposition:
 	//	{TEntityTypeTransposition} ('grab' root?='root'? 'entity' rule=DivGrabComplexTypeRule
 	//	| 'ditch' root?='root'? 'entity' rule=DivDitchComplexTypeRule
-	//	| 'motph' root?='root'? 'entity' rule=SimMorphComplexTypeRule) description=DRichText?
+	//	| 'morph' root?='root'? 'entity' rule=DivMorphComplexTypeRule) description=DRichText?
 	//	notes+=DNote*
 	//	TComplexTypeFeatures?;
 	public DivEntityTypeTranspositionElements getDivEntityTypeTranspositionAccess() {
@@ -2083,7 +2137,8 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	// */ DivFeature DFeature:
 	//	DivAssociationTransposition
 	//	| DivAttributeTransposition
-	//	| DivQueryTransposition;
+	//	| DivQueryTransposition
+	//	| 'add' DimQuery;
 	public DivFeatureElements getDivFeatureAccess() {
 		return pDivFeature;
 	}
@@ -2092,6 +2147,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		return getDivFeatureAccess().getRule();
 	}
 	
+	//// allow new queries -> read only
 	//DivAssociationTransposition TAssociationTransposition:
 	//	{TAssociationTransposition} ('grab' ('reference' | 'composite') rule=DivGrabFeatureRule
 	//	| 'ditch' ('reference' | 'composite') rule=DivDitchFeatureRule

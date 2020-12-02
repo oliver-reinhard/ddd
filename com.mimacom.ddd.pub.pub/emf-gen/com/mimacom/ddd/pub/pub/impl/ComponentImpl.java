@@ -66,6 +66,7 @@ public class ComponentImpl extends DocumentImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DocumentSegment> getSegments() {
 		if (segments == null) {
 			segments = new EObjectContainmentWithInverseEList<DocumentSegment>(DocumentSegment.class, this, PubPackage.COMPONENT__SEGMENTS, PubPackage.DOCUMENT_SEGMENT__PARENT);

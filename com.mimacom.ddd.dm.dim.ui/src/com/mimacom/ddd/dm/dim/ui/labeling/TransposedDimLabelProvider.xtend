@@ -49,7 +49,7 @@ class TransposedDimLabelProvider extends DimLabelProvider {
 		return t.label
 	}
 	
-	def text(DLiteral literal) {
+	override text(DLiteral literal) {
 		if (literal instanceof TLiteralTransposition) {
 			return ">" + literal.rule.label
 		}
