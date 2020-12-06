@@ -41,7 +41,7 @@ class DemEventTableRenderer extends AbstractDemEventTableRenderer {
 		var firstRow = true
 		for (c : e.context) {
 			val firstColValue = firstRow ? "Context".strong : IGNORE_TABLE_CELL
-			val row = t.addStyledTextRowWithDescription(#[firstColValue, c.name.keyword, c.describeType], c.description)
+			val row = t.addStyledTextRowWithDescription(#[firstColValue, c.name.keyword, c.describeType.escapeStyledText], c.description)
 			if (firstRow) {
 				row.cells.head.height = e.context.length
 				firstRow = false
@@ -65,7 +65,7 @@ class DemEventTableRenderer extends AbstractDemEventTableRenderer {
 		var firstRow = true
 		for (n : e.notifications) {
 			val firstColValue = firstRow ? "Notifications".strong : IGNORE_TABLE_CELL
-			val row = t.addStyledTextRowWithDescription(#[firstColValue, n.name, n.message.describeType], n.description)
+			val row = t.addStyledTextRowWithDescription(#[firstColValue, n.name, n.message.describeType.escapeStyledText], n.description)
 			if (firstRow) {
 				row.cells.head.height = e.notifications.length
 				firstRow = false

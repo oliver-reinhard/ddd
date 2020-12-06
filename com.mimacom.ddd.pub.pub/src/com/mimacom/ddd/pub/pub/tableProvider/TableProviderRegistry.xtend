@@ -90,19 +90,13 @@ class TableProviderRegistry {
 
 	def TableRendererProxy getTableRenderer(String id) {
 		val candidates = getAllTableRenderers.filter[it.id == id]
-		if (candidates.empty) {
-			return null
-		}
-		return candidates.head
+		return candidates.head  // returns null if collection is empty
 	}
 
 	def Iterable<TableRendererProxy> getTableRenderers(Class<? extends IDiagramRoot> tableRootClass) {
 		val candidates = getAllTableRenderers.filter [
 			it.tableRootClass.isAssignableFrom(tableRootClass)
 		]
-		if (candidates.empty) {
-			return null
-		}
 		return candidates
 	}
 
@@ -110,10 +104,7 @@ class TableProviderRegistry {
 		val candidates = getAllTableRenderers.filter [
 			it.tableRootClass.isAssignableFrom(tableRootClass) && it.tableTypeID.equals(tableTypeID)
 		]
-		if (candidates.empty) {
-			return null
-		}
-		return candidates.head
+		return candidates.head  // returns null if collection is empty
 	}
 
 	private def String loadAttributeAndLogException(IConfigurationElement el, String attributeName) {

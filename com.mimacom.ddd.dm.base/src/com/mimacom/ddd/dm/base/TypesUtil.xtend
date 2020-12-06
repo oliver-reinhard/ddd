@@ -114,10 +114,17 @@ class TypesUtil {
 		return if (a !== null) a.name else "default"
 	}
 
-	def multiplicityText(DNavigableMember member) {
+	/**
+	 * @param hideMandatory1   [1,1] is the default, return "" if true
+	 */
+	def multiplicityText(DNavigableMember member, boolean suppressMandatory1) {
 		val m = member.multiplicity
-		if (m === null || m.minOccurs == 1 && m.maxOccurs == 1) return ""
+		if (m === null || m.minOccurs == 1 && m.maxOccurs == 1) {
+			return suppressMandatory1 ? "" : "[1]"
+		}
 		val maxOccurs = if (m.maxOccurs == -1) "*" else m.maxOccurs.toString
+		if (m.minOccurs == 0 && m.maxOccurs == -1) return "[" + maxOccurs + "]"
+		if (m.minOccurs == m.maxOccurs) return "[" + maxOccurs + "]"
 		return "[" + m.minOccurs + "," + maxOccurs + "]"
 	}
 
@@ -155,13 +162,26 @@ class TypesUtil {
 		return f.isTypeInsideDomain(d)
 	}
 
-	// // Labels
+	/*
+	 * Labels
+	 */
+	 
+	def simpleClassName(Object obj) {
+		val name = obj.class.simpleName
+		if (name.endsWith("Impl")) {
+			return name.substring(0, name.length - 4)
+		} else if (name.endsWith("ImplCustom")) {
+			return name.substring(0, name.length - 10)
+		}
+		return name
+	}
+	
 	def String describeType(DNavigableMember m) {
 		val b = new StringBuilder
 		if (m.type !== null) {
 			if (m.type.name !== null) {
 				b.append(m.type.name)
-				b.append(m.multiplicityText)
+				b.append(m.multiplicityText(false))
 			}
 			b.append(" (")
 			b.append(m.type.metatypeName)

@@ -74,8 +74,8 @@ public class DemEventTableRenderer extends AbstractDemEventTableRenderer {
         }
         final String firstColValue = _xifexpression;
         String _keyword = this._styledTextUtil.keyword(c.getName());
-        String _describeType = this._typesUtil.describeType(c);
-        final TableRow row = this._pubTableUtil.addStyledTextRowWithDescription(t, new String[] { firstColValue, _keyword, _describeType }, c.getDescription());
+        String _escapeStyledText = this._styledTextUtil.escapeStyledText(this._typesUtil.describeType(c));
+        final TableRow row = this._pubTableUtil.addStyledTextRowWithDescription(t, new String[] { firstColValue, _keyword, _escapeStyledText }, c.getDescription());
         if (firstRow) {
           TableCell _head = IterableExtensions.<TableCell>head(row.getCells());
           _head.setHeight(((Object[])Conversions.unwrapArray(e.getContext(), Object.class)).length);
@@ -121,8 +121,8 @@ public class DemEventTableRenderer extends AbstractDemEventTableRenderer {
         }
         final String firstColValue = _xifexpression;
         String _name = n.getName();
-        String _describeType = this._typesUtil.describeType(n.getMessage());
-        final TableRow row = this._pubTableUtil.addStyledTextRowWithDescription(t, new String[] { firstColValue, _name, _describeType }, n.getDescription());
+        String _escapeStyledText = this._styledTextUtil.escapeStyledText(this._typesUtil.describeType(n.getMessage()));
+        final TableRow row = this._pubTableUtil.addStyledTextRowWithDescription(t, new String[] { firstColValue, _name, _escapeStyledText }, n.getDescription());
         if (firstRow) {
           TableCell _head = IterableExtensions.<TableCell>head(row.getCells());
           _head.setHeight(((Object[])Conversions.unwrapArray(e.getNotifications(), Object.class)).length);

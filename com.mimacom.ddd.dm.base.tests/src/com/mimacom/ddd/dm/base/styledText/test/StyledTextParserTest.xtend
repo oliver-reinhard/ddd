@@ -130,7 +130,7 @@ class StyledTextParserTest {
 		assertFalse(parse("aa **bb --cc"))
 	}
 
-	@Test def void testExpression1() {
+	@Test def void testExpressionEmpty() {
 		val String text = "aa [] cc"
 		assertTrue(parse(text))
 
@@ -146,7 +146,7 @@ class StyledTextParserTest {
 		assertTrue(parse("aa []"))
 	}
 	
-	@Test def void testExpression2() {
+	@Test def void testExpressionNotEmpty() {
 		val String text = "aa [b] cc"
 		assertTrue(parse(text))
 
@@ -162,7 +162,7 @@ class StyledTextParserTest {
 		assertTrue(parse("aa **[bb]** cc"))
 	}
 
-	@Test def void testStaticReference1() {
+	@Test def void testStaticReferenceEmpty() {
 		val String text = "aa [[]] cc"
 		assertTrue(parse(text))
 
@@ -179,7 +179,7 @@ class StyledTextParserTest {
 		assertTrue(parse("aa [[]]"))
 	}
 	
-	@Test def void testStaticReference2() {
+	@Test def void testStaticReferenceNotEmpty() {
 		val String text = "aa [[b]] cc"
 		assertTrue(parse(text))
 

@@ -145,22 +145,40 @@ public class TypesUtil {
     return _xifexpression;
   }
   
-  public String multiplicityText(final DNavigableMember member) {
+  /**
+   * @param hideMandatory1   [1,1] is the default, return "" if true
+   */
+  public String multiplicityText(final DNavigableMember member, final boolean suppressMandatory1) {
     final DMultiplicity m = member.getMultiplicity();
     if (((m == null) || ((m.getMinOccurs() == 1) && (m.getMaxOccurs() == 1)))) {
-      return "";
+      String _xifexpression = null;
+      if (suppressMandatory1) {
+        _xifexpression = "";
+      } else {
+        _xifexpression = "[1]";
+      }
+      return _xifexpression;
     }
-    String _xifexpression = null;
+    String _xifexpression_1 = null;
     int _maxOccurs = m.getMaxOccurs();
     boolean _equals = (_maxOccurs == (-1));
     if (_equals) {
-      _xifexpression = "*";
+      _xifexpression_1 = "*";
     } else {
-      _xifexpression = Integer.valueOf(m.getMaxOccurs()).toString();
+      _xifexpression_1 = Integer.valueOf(m.getMaxOccurs()).toString();
     }
-    final String maxOccurs = _xifexpression;
+    final String maxOccurs = _xifexpression_1;
+    if (((m.getMinOccurs() == 0) && (m.getMaxOccurs() == (-1)))) {
+      return (("[" + maxOccurs) + "]");
+    }
     int _minOccurs = m.getMinOccurs();
-    String _plus = ("[" + Integer.valueOf(_minOccurs));
+    int _maxOccurs_1 = m.getMaxOccurs();
+    boolean _equals_1 = (_minOccurs == _maxOccurs_1);
+    if (_equals_1) {
+      return (("[" + maxOccurs) + "]");
+    }
+    int _minOccurs_1 = m.getMinOccurs();
+    String _plus = ("[" + Integer.valueOf(_minOccurs_1));
     String _plus_1 = (_plus + ",");
     String _plus_2 = (_plus_1 + maxOccurs);
     return (_plus_2 + "]");
@@ -208,6 +226,27 @@ public class TypesUtil {
     return this.isTypeInsideDomain(f, d);
   }
   
+  /**
+   * Labels
+   */
+  public String simpleClassName(final Object obj) {
+    final String name = obj.getClass().getSimpleName();
+    boolean _endsWith = name.endsWith("Impl");
+    if (_endsWith) {
+      int _length = name.length();
+      int _minus = (_length - 4);
+      return name.substring(0, _minus);
+    } else {
+      boolean _endsWith_1 = name.endsWith("ImplCustom");
+      if (_endsWith_1) {
+        int _length_1 = name.length();
+        int _minus_1 = (_length_1 - 10);
+        return name.substring(0, _minus_1);
+      }
+    }
+    return name;
+  }
+  
   public String describeType(final DNavigableMember m) {
     final StringBuilder b = new StringBuilder();
     DType _type = m.getType();
@@ -217,7 +256,7 @@ public class TypesUtil {
       boolean _tripleNotEquals_1 = (_name != null);
       if (_tripleNotEquals_1) {
         b.append(m.getType().getName());
-        b.append(this.multiplicityText(m));
+        b.append(this.multiplicityText(m, false));
       }
       b.append(" (");
       b.append(this.metatypeName(m.getType()));

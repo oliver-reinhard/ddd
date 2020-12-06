@@ -47,7 +47,7 @@ public class SimUiModule extends AbstractSimUiModule {
     return DmxDoubleClickStrategyProvider.class;
   }
   
-  public SimUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public SimUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

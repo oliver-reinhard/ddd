@@ -10,7 +10,6 @@ import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.base.styledText.DTextAttribute;
 import com.mimacom.ddd.dm.base.styledText.DTextStyle;
 import com.mimacom.ddd.dm.base.styledText.StyledTextFactory;
-import com.mimacom.ddd.dm.base.styledText.parser.StyledTextTokenizer.Token;
 
 /**
  * Stateful recursive-descent parser. Only use once.
@@ -29,11 +28,10 @@ public class StyledTextParser {
 	public StyledTextParser(String styledText) {
 		this(styledText, 0, styledText != null ? styledText.length() - 1 : 0, null);
 	}
-	
+
 	public StyledTextParser(String styledText, ErrorMessageAcceptor acceptor) {
 		this(styledText, 0, styledText != null ? styledText.length() - 1 : 0, acceptor);
 	}
-	
 
 	public StyledTextParser(String styledText, int startIndex, int endIndex) {
 		this(styledText, startIndex, endIndex, null);
@@ -43,15 +41,16 @@ public class StyledTextParser {
 	 * @param styledText not null
 	 * @param startIndex index of first character of text to scan
 	 * @param endIndex   index of last character of text to scan
-	 * @param acceptor	collects parse errors; defaults to {@link ErrorMessageAcceptor} when <code>null</code>
+	 * @param acceptor   collects parse errors; defaults to
+	 *                   {@link ErrorMessageAcceptor} when <code>null</code>
 	 * @return null if no format has been detected
 	 */
 	public StyledTextParser(String styledText, int startIndex, int endIndex, ErrorMessageAcceptor acceptor) {
 		if (styledText == null) {
 			throw new NullPointerException("text");
 		}
-		errorMessageAcceptor = acceptor != null? acceptor : new SystemErrorErrorMessageAcceptor();
- 		this.styledText = styledText.toCharArray();
+		errorMessageAcceptor = acceptor != null ? acceptor : new SystemErrorErrorMessageAcceptor();
+		this.styledText = styledText.toCharArray();
 		this.startIndex = startIndex;
 		this.endIndex = endIndex;
 		this.tokenizer = new StyledTextTokenizer(this.styledText, startIndex, endIndex);
@@ -68,7 +67,7 @@ public class StyledTextParser {
 	public DStyledTextSpan parse() {
 		DStyledTextSpan root = createSpan(null);
 		try {
-			parseImpl(root, Token.EOF);
+			parseImpl(root, Symbol.EOF);
 		} catch (PrematureEOFException e) {
 			// Diagnostic message already issued/accepted.
 		}
@@ -79,72 +78,77 @@ public class StyledTextParser {
 		return root;
 	}
 
-	void parseImpl(DStyledTextSpan parent, Token returnOnToken) {
+	void parseImpl(DStyledTextSpan parent, Symbol returnOnToken) {
 		while (true) {
-			Token t = tokenizer.readNext();
-			if (t == returnOnToken) {
-				return;
-			}
-
 			try {
-				switch (t) {
-				case EOF:
-					if (returnOnToken != Token.EOF) {
-						error("Unclosed format(s): Expecting '" + returnOnToken.getLiteral() + "'",
-								tokenizer.getIndex() - 1, 1);
-						throw new PrematureEOFException();
-					}
+				Symbol symbol = tokenizer.readNext();
+				if (symbol == returnOnToken) {
 					return;
-				case TEXT:
-					addTextSpan(parent);
-					break;
-				case EMPHASIS:
-					openStyle(parent, DTextStyle.EMPHASIS, t, Token.EMPHASIS);
-					break;
-				case STRONG:
-					openStyle(parent, DTextStyle.STRONG, t, Token.STRONG);
-					break;
-				case KEYWORD:
-					openStyle(parent, DTextStyle.KEYWORD, t, Token.KEYWORD);
-					break;
-				case MONOSPACE_START:
-					openStyle(parent, DTextStyle.MONOSPACE, t, Token.MONOSPACE_END);
-					break;
-				case EXPRESSION_START:
-					handleExpression(parent);
-					break;
-				case STATIC_REFERENCE_START:
-					handleStaticReference(parent);
-					break;
-				case UNDERLINE:
-					openTextAttribute(parent, DTextAttribute.UNDERLINE, t, Token.UNDERLINE);
-					break;
-				case STRIKETHROUGH:
-					openTextAttribute(parent, DTextAttribute.STRIKETHROUGH, t, Token.STRIKETHROUGH);
-					break;
-				case SUPERSCRIPT:
-					openTextAttribute(parent, DTextAttribute.SUPERSCRIPT, t, Token.SUPERSCRIPT);
-					break;
-				case SUBSCRIPT:
-					openTextAttribute(parent, DTextAttribute.SUBSCRIPT, t, Token.SUBSCRIPT);
-					break;
-				case EXPRESSION_END:
-					// Special treatment for missing EXPRESSION_START symbols:
-					error("Unpaired expression end '" + t.getLiteral() + "'", tokenizer.getIndex() - t.getLength(),
-								t.getLength());
-					break;
-				default:
-					error("Unexpected token '" + t.getLiteral() + "'", tokenizer.getIndex() - t.getLength(),
-							t.getLength());
+				}
 
+				try {
+					switch (symbol) {
+					case EOF:
+						if (returnOnToken != Symbol.EOF) {
+							error("Unclosed format(s): Expecting '" + returnOnToken.getLiteral() + "'",
+									tokenizer.getIndex() - 1, 1);
+							throw new PrematureEOFException();
+						}
+						return;
+					case TEXT:
+						addTextSpan(parent);
+						break;
+					case EMPHASIS:
+						openStyle(parent, DTextStyle.EMPHASIS, symbol, Symbol.EMPHASIS);
+						break;
+					case STRONG:
+						openStyle(parent, DTextStyle.STRONG, symbol, Symbol.STRONG);
+						break;
+					case KEYWORD:
+						openStyle(parent, DTextStyle.KEYWORD, symbol, Symbol.KEYWORD);
+						break;
+					case MONOSPACE_START:
+						openStyle(parent, DTextStyle.MONOSPACE, symbol, Symbol.MONOSPACE_END);
+						break;
+					case EXPRESSION_START:
+						handleExpression(parent);
+						break;
+					case STATIC_REFERENCE_START:
+						handleStaticReference(parent);
+						break;
+					case UNDERLINE:
+						openTextAttribute(parent, DTextAttribute.UNDERLINE, symbol, Symbol.UNDERLINE);
+						break;
+					case STRIKETHROUGH:
+						openTextAttribute(parent, DTextAttribute.STRIKETHROUGH, symbol, Symbol.STRIKETHROUGH);
+						break;
+					case SUPERSCRIPT:
+						openTextAttribute(parent, DTextAttribute.SUPERSCRIPT, symbol, Symbol.SUPERSCRIPT);
+						break;
+					case SUBSCRIPT:
+						openTextAttribute(parent, DTextAttribute.SUBSCRIPT, symbol, Symbol.SUBSCRIPT);
+						break;
+					case EXPRESSION_END:
+						// Special treatment for missing EXPRESSION_START symbols:
+						error("Unpaired expression end '" + symbol.getLiteral() + "'", tokenizer.getIndex() - symbol.getLength(),
+								symbol.getLength());
+						break;
+					default:
+						error("Unexpected token '" + symbol.getLiteral() + "'", tokenizer.getIndex() - symbol.getLength(),
+								symbol.getLength());
+
+					}
+
+				} catch (ConflictingFormatsException e) {
+					error(e.getMessage() + ": Expecting '" + returnOnToken.getLiteral() + "'", e.pos,
+							tokenizer.getLastSymbol().getLength());
+					if (tokenizer.getLastSymbol() != returnOnToken) {
+						tokenizer.skipToNext(returnOnToken); // does not consume the token!
+					}
 				}
-				
-			} catch (ConflictingFormatsException e) {
-				error(e.getMessage() + ": Expecting '" + returnOnToken.getLiteral() + "'", e.pos,
-						tokenizer.getLastToken().getLength());
-				if (tokenizer.getLastToken() != returnOnToken) {
-					tokenizer.skipToNext(returnOnToken); // does not consume the token!
-				}
+			} catch (IncompleteEscapeSequenceException e) {
+				error(e.getMessage(), tokenizer.getLastSymbolStartIndex(), tokenizer.getLastSymbol().getLength());
+				throw new PrematureEOFException();
 			}
 		}
 	}
@@ -160,7 +164,7 @@ public class StyledTextParser {
 	 */
 	DStyledTextSpan createSpan(DStyledTextSpan parent) {
 		DStyledTextSpan span = FACTORY.createDStyledTextSpan();
-		span.setStartPos(tokenizer.getLastTokenStartIndex());
+		span.setStartPos(tokenizer.getLastSymbolStartIndex());
 		span.setStyle(DTextStyle.PLAIN);
 		if (parent != null) {
 			span.setStyle(parent.getStyle());
@@ -176,7 +180,8 @@ public class StyledTextParser {
 		span.setText(tokenizer.getText());
 	}
 
-	void openStyle(DStyledTextSpan parent, DTextStyle style, Token openingToken, Token closingToken) {
+	void openStyle(DStyledTextSpan parent, DTextStyle style, Symbol openingToken, Symbol closingToken)
+			throws IncompleteEscapeSequenceException {
 		if (parent.getStyle() == DTextStyle.PLAIN) {
 			DStyledTextSpan span = createSpan(parent);
 			span.setStyle(style);
@@ -193,7 +198,8 @@ public class StyledTextParser {
 		}
 	}
 
-	void openTextAttribute(DStyledTextSpan parent, DTextAttribute attr, Token openingToken, Token closingToken) {
+	void openTextAttribute(DStyledTextSpan parent, DTextAttribute attr, Symbol openingToken, Symbol closingToken)
+			throws IncompleteEscapeSequenceException {
 		if (!parent.getAttributes().contains(attr)) {
 			DStyledTextSpan span = createSpan(parent);
 			span.getAttributes().add(attr);
@@ -206,26 +212,25 @@ public class StyledTextParser {
 			throw new ConflictingFormatsException("Format overlap", tokenizer.getIndex() - openingToken.getLength());
 		}
 	}
-	
 
-	void handleExpression(DStyledTextSpan parent) {
+	void handleExpression(DStyledTextSpan parent) throws IncompleteEscapeSequenceException {
 		DStyledTextSpan span = createSpan(parent);
 		span.setStyle(DTextStyle.EXPRESSION);
-		Token t;
+		Symbol symbol;
 		while (true) {
-			t = tokenizer.peekNext(); // do not consume the token
-			if (t == Token.EXPRESSION_START) {
-				error("Unclosed expression: Expecting '" + Token.EXPRESSION_END.getLiteral() + "'",
-						tokenizer.getIndex(), Token.EXPRESSION_START.getLength());
+			symbol = tokenizer.peekNext(); // do not consume the token
+			if (symbol == Symbol.EXPRESSION_START) {
+				error("Unclosed expression: Expecting '" + Symbol.EXPRESSION_END.getLiteral() + "'",
+						tokenizer.getIndex(), Symbol.EXPRESSION_START.getLength());
 				break;
-			} else if (t == Token.EXPRESSION_END) {
+			} else if (symbol == Symbol.EXPRESSION_END) {
 				tokenizer.readNext();
 				break;
-			} else if (t == Token.EOF) {
-				tokenizer.readNext(); 
+			} else if (symbol == Symbol.EOF) {
+				tokenizer.readNext();
 				break;
 			}
-			tokenizer.readNext(); 
+			tokenizer.readNext();
 		}
 		span.setEndPos(tokenizer.getIndex() - 1);
 		final int textStartPos = span.getStartPos() + 1;
@@ -233,32 +238,31 @@ public class StyledTextParser {
 		final int length = textEndPos - textStartPos;
 		String text = length > 0 ? new String(styledText, textStartPos, length) : "";
 		span.setText(text);
-		if (t == Token.EOF) {
-			error("Unclosed expression: Expecting '" + Token.EXPRESSION_END.getLiteral() + "'",
+		if (symbol == Symbol.EOF) {
+			error("Unclosed expression: Expecting '" + Symbol.EXPRESSION_END.getLiteral() + "'",
 					tokenizer.getIndex() - 1, 1);
 		}
 	}
-	
 
-	void handleStaticReference(DStyledTextSpan parent) {
+	void handleStaticReference(DStyledTextSpan parent) throws IncompleteEscapeSequenceException {
 		DStyledTextSpan span = createSpan(parent);
 		// Return as an expression but adjust length of actual static-reference text:
 		span.setStyle(DTextStyle.EXPRESSION);
-		Token t;
+		Symbol symbol;
 		while (true) {
-			t = tokenizer.peekNext(); // do not consume the token
-			if (t == Token.STATIC_REFERENCE_START) {
-				error("Unclosed expression: Expecting '" + Token.STATIC_REFERENCE_END.getLiteral() + "'",
-						tokenizer.getIndex(), Token.STATIC_REFERENCE_START.getLength());
+			symbol = tokenizer.peekNext(); // do not consume the token
+			if (symbol == Symbol.STATIC_REFERENCE_START) {
+				error("Unclosed expression: Expecting '" + Symbol.STATIC_REFERENCE_END.getLiteral() + "'",
+						tokenizer.getIndex(), Symbol.STATIC_REFERENCE_START.getLength());
 				break;
-			} else if (t == Token.STATIC_REFERENCE_END) {
+			} else if (symbol == Symbol.STATIC_REFERENCE_END) {
 				tokenizer.readNext();
 				break;
-			} else if (t == Token.EOF) {
-				tokenizer.readNext(); 
+			} else if (symbol == Symbol.EOF) {
+				tokenizer.readNext();
 				break;
 			}
-			tokenizer.readNext(); 
+			tokenizer.readNext();
 		}
 		span.setEndPos(tokenizer.getIndex() - 1);
 		final int textStartPos = span.getStartPos() + 2;
@@ -266,8 +270,8 @@ public class StyledTextParser {
 		final int length = textEndPos - textStartPos;
 		String text = length > 0 ? new String(styledText, textStartPos, length) : "";
 		span.setText(text);
-		if (t == Token.EOF) {
-			error("Unclosed expression: Expecting '" + Token.STATIC_REFERENCE_END.getLiteral() + "'",
+		if (symbol == Symbol.EOF) {
+			error("Unclosed expression: Expecting '" + Symbol.STATIC_REFERENCE_END.getLiteral() + "'",
 					tokenizer.getIndex() - 1, 1);
 		}
 	}
@@ -283,7 +287,7 @@ public class StyledTextParser {
 		traverse(mapByTreeLevel, 0, root);
 		List<Integer> levels = Lists.newArrayList(mapByTreeLevel.keySet());
 		Collections.sort(levels);
-		
+
 		final StringBuilder b = new StringBuilder();
 
 		for (Integer level : levels) {
@@ -375,7 +379,7 @@ public class StyledTextParser {
 		}
 		return b.toString();
 	}
-	
+
 	/*
 	 * --- Local exceptions ---
 	 */

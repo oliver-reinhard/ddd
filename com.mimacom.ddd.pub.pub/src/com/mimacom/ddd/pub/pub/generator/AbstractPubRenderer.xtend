@@ -108,6 +108,7 @@ abstract class AbstractPubRenderer {
 
 	abstract def CharSequence renderRichTextReferencingParagraph(RichTextReferencingParagraph para)
 
+	// encodes for the target language, e.g. HTML
 	abstract protected def CharSequence encode(CharSequence plainText)
 
 	//

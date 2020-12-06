@@ -15,11 +15,11 @@ abstract class AbstractRichTextRenderer {
 	static class RendererErrorMessageAcceptor implements ErrorMessageAcceptor {
 
 		override void acceptError(String message, int offset, int length) throws IllegalStateException {
-			throw new IllegalStateException("DRichText parse error: invalid format: '" + message + "' at position " +
-				offset)
+			throw new IllegalStateException("DRichText parse error: invalid format: '" + message + "' at position " + offset)
 		}
 	}
 
+	var String source // stored to provide meaningful error messages
 	var List<DExpression> expressions
 	var currentExpressionIndex = -1
 	var encode = true
@@ -27,10 +27,11 @@ abstract class AbstractRichTextRenderer {
 	synchronized def CharSequence render(DRichText text) throws IllegalStateException {
 		render(text, true)
 	}
-	
+
 	synchronized def CharSequence render(DRichText text, boolean encode) throws IllegalStateException {
 		val source = text.sourceText
 		if (source !== null && ! source.empty) {
+			this.source = source
 			expressions = text.segments.filter(DExpression).toList
 			currentExpressionIndex = -1
 			val parser = new StyledTextParser(source, new RendererErrorMessageAcceptor)
@@ -112,7 +113,7 @@ abstract class AbstractRichTextRenderer {
 			return span
 		}
 		val result = StyledTextFactory.eINSTANCE.createDStyledTextSpan
-		result.style = if(span.style == parent.style) DTextStyle.PLAIN else span.style
+		result.style = if (span.style == parent.style) DTextStyle.PLAIN else span.style
 		if (span.attributes.length > parent.attributes.length) {
 			result.attributes.add(span.attributes.last)
 		}
@@ -126,7 +127,8 @@ abstract class AbstractRichTextRenderer {
 			val expr = expressions.get(currentExpressionIndex)
 			return renderStyleExpression(expr, encode ? encode(span.text) as String : span.text)
 		}
-		throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match")
+		throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match: \"" + source +
+			"\". Expected expressions: " + expressions.size + ". Escape reserved symbols.")
 	}
 
 	/**
@@ -135,7 +137,7 @@ abstract class AbstractRichTextRenderer {
 	 * @param plainText can be {@code null}
 	 */
 	abstract protected def String encode(String plainText)
-	
+
 	abstract protected def CharSequence renderStylePlain(DStyledTextSpan span)
 
 	abstract protected def CharSequence renderStyleEmphasis(DStyledTextSpan span)

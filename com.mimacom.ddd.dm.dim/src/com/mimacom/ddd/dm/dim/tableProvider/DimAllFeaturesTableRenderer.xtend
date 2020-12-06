@@ -12,6 +12,7 @@ import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.tableProvider.ITableRenderer
 import org.apache.log4j.Logger
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.styledText.StyledTextUtil
 
 class DimAllFeaturesTableRenderer implements ITableRenderer {
 
@@ -19,6 +20,7 @@ class DimAllFeaturesTableRenderer implements ITableRenderer {
 
 	@Inject extension DimUtil
 	@Inject extension PubTableUtil
+	@Inject extension StyledTextUtil
 
 	override canRender(IDiagramRoot root) {
 		if (root instanceof DomainInformationModel || root instanceof DAggregate) {
@@ -37,7 +39,7 @@ class DimAllFeaturesTableRenderer implements ITableRenderer {
 				val typeLabel = type.label
 				var first = true
 				for (f : type.features) {
-					t.addRowWithDescription(#[first ? typeLabel : "", f.name, f.type.name + " " + f.multiplicityText],
+					t.addRowWithDescription(#[first ? typeLabel.escapeStyledText : "", f.name.escapeStyledText, (f.type.name + " " + f.multiplicityText(false)).escapeStyledText],
 						f.description)
 					first = false
 				}

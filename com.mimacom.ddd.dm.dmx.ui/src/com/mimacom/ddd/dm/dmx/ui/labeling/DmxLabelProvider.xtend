@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dmx.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.TypesUtil
 import com.mimacom.ddd.dm.base.base.DExpression
 import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
@@ -25,6 +26,8 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 class DmxLabelProvider extends DefaultEObjectLabelProvider {
+	
+	@Inject extension TypesUtil
 
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
@@ -33,39 +36,39 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 
 	// Labels and icons can be computed like this:
 	def text(DNamedElement e) {
-		return e.simpleName + " " + e.name
+		return e.simpleClassName + " " + e.name
 	}
 
 	def text(DExpression e) {
-		return e.simpleName
+		return e.simpleClassName
 	}
 
 	def text(DmxBinaryOperation e) {
-		return e.simpleName + " " + e.operator.getName
+		return e.simpleClassName + " " + e.operator.getName
 	}
 
 	def text(DmxUnaryOperation e) {
-		return e.simpleName + " " + e.operator.getName
+		return e.simpleClassName + " " + e.operator.getName
 	}
 
 	def text(DmxBooleanLiteral e) {
-		return e.simpleName + " " + e.value
+		return e.simpleClassName + " " + e.value
 	}
 
 	def text(DmxStringLiteral e) {
-		return e.simpleName + " " + e.value
+		return e.simpleClassName + " " + e.value
 	}
 
 	def text(DmxNaturalLiteral e) {
-		return e.simpleName + " " + e.value
+		return e.simpleClassName + " " + e.value
 	}
 
 	def text(DmxDecimalLiteral e) {
-		return e.simpleName + " " + e.value
+		return e.simpleClassName + " " + e.value
 	}
 
 	def text(DmxUndefinedLiteral e) {
-		return e.simpleName
+		return e.simpleClassName
 	}
 	
 	def text(DmxEntity e) {
@@ -81,17 +84,7 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	override String text(Object obj) {
-		obj.simpleName
-	}
-
-	protected def simpleName(Object obj) {
-		val name = obj.class.simpleName
-		if (name.endsWith("Impl")) {
-			return name.substring(0, name.length - 4)
-		} else if (name.endsWith("ImplCustom")) {
-			return name.substring(0, name.length - 10)
-		}
-		return name
+		obj.simpleClassName
 	}
 //
 //	def image(Greeting ele) {

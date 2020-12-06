@@ -17,6 +17,8 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
+import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
@@ -107,8 +109,11 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         _builder.append("\' all domain-level types");
         _builder.newLine();
         {
-          EList<DType> _types = model.getTypes();
-          for(final DType t : _types) {
+          final Function1<DType, Boolean> _function_9 = (DType it) -> {
+            return Boolean.valueOf((!(it instanceof TTypeTransposition)));
+          };
+          Iterable<DType> _filter = IterableExtensions.<DType>filter(model.getTypes(), _function_9);
+          for(final DType t : _filter) {
             CharSequence _generateType = this.generateType(t);
             _builder.append(_generateType);
             _builder.newLineIfNotEmpty();
@@ -137,8 +142,11 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
         }
         _builder.newLineIfNotEmpty();
         {
-          EList<DType> _types_1 = a.getTypes();
-          for(final DType t_1 : _types_1) {
+          final Function1<DType, Boolean> _function_10 = (DType it) -> {
+            return Boolean.valueOf((!(it instanceof TTypeTransposition)));
+          };
+          Iterable<DType> _filter_1 = IterableExtensions.<DType>filter(a.getTypes(), _function_10);
+          for(final DType t_1 : _filter_1) {
             _builder.append("\t");
             CharSequence _generateType_1 = this.generateType(t_1);
             _builder.append(_generateType_1, "\t");
@@ -246,7 +254,7 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     String _name_2 = a.getName();
     _builder.append(_name_2);
     _builder.append(" ");
-    String _spot = this.getSpot(a);
+    String _spot = this.spot(a);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
@@ -273,20 +281,20 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
       }
     }
     _builder.append("class ");
-    String _aggregateName = this._dimUtil.aggregateName(c);
-    _builder.append(_aggregateName);
-    _builder.append(".");
-    String _name = c.getName();
-    _builder.append(_name);
+    CharSequence _typeName = this.typeName(c);
+    _builder.append(_typeName);
     _builder.append(" ");
-    String _spot = this.getSpot(c);
+    String _spot = this.spot(c);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     {
-      EList<DFeature> _features = c.getFeatures();
-      for(final DFeature f : _features) {
+      final Function1<DFeature, Boolean> _function = (DFeature it) -> {
+        return Boolean.valueOf((!(it instanceof TFeatureTransposition)));
+      };
+      Iterable<DFeature> _filter = IterableExtensions.<DFeature>filter(c.getFeatures(), _function);
+      for(final DFeature f : _filter) {
         CharSequence _generateFeature = this.generateFeature(f);
         _builder.append(_generateFeature, "\t");
       }
@@ -300,13 +308,10 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   protected CharSequence _generateType(final DPrimitive p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
-    String _aggregateName = this._dimUtil.aggregateName(p);
-    _builder.append(_aggregateName);
-    _builder.append(".");
-    String _name = p.getName();
-    _builder.append(_name);
+    CharSequence _typeName = this.typeName(p);
+    _builder.append(_typeName);
     _builder.append(" ");
-    String _spot = this.getSpot(p);
+    String _spot = this.spot(p);
     _builder.append(_spot);
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -315,13 +320,10 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
   protected CharSequence _generateType(final DEnumeration e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("enum ");
-    String _aggregateName = this._dimUtil.aggregateName(e);
-    _builder.append(_aggregateName);
-    _builder.append(".");
-    String _name = e.getName();
-    _builder.append(_name);
+    CharSequence _typeName = this.typeName(e);
+    _builder.append(_typeName);
     _builder.append(" ");
-    String _spot = this.getSpot(e);
+    String _spot = this.spot(e);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
@@ -329,8 +331,8 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
       EList<DLiteral> _literals = e.getLiterals();
       for(final DLiteral f : _literals) {
         _builder.append("\t");
-        String _name_1 = f.getName();
-        _builder.append(_name_1, "\t");
+        String _name = f.getName();
+        _builder.append(_name, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -344,11 +346,174 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     return _builder;
   }
   
-  public String getSpot(final DAggregate a) {
+  public CharSequence generateStaticQuery(final DQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      DType _type = q.getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        _builder.append("{static} ");
+        String _name = q.getName();
+        _builder.append(_name);
+        _builder.append("(");
+        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
+        _builder.append(_generateQueryParameters);
+        _builder.append(") : ");
+        String _name_1 = q.getType().getName();
+        _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(q, true);
+        _builder.append(_multiplicityText);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  protected CharSequence _generateFeature(final DAttribute a) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _not = (!((a.getType() == null) || (a.getType() instanceof DDetailType)));
+      if (_not) {
+        String _name = a.getName();
+        _builder.append(_name);
+        _builder.append(" : ");
+        String _name_1 = a.getType().getName();
+        _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(a, false);
+        _builder.append(_multiplicityText);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _generateFeature(final DQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      DType _type = q.getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        String _name = q.getName();
+        _builder.append(_name);
+        _builder.append("(");
+        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
+        _builder.append(_generateQueryParameters);
+        _builder.append(") : ");
+        String _name_1 = q.getType().getName();
+        _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(q, true);
+        _builder.append(_multiplicityText);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  protected CharSequence _generateFeature(final DAssociation a) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence generateQueryParameters(final DQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<DQueryParameter> _parameters = q.getParameters();
+      boolean _hasElements = false;
+      for(final DQueryParameter p : _parameters) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        String _name = p.getName();
+        _builder.append(_name);
+        _builder.append(":");
+        String _name_1 = p.getType().getName();
+        _builder.append(_name_1);
+        _builder.append(" ");
+        String _multiplicityText = this._dimUtil.multiplicityText(p, true);
+        _builder.append(_multiplicityText);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence generateAssociation(final DAssociation a) {
+    String _name = a.getName();
+    String _plus = (_name + " ");
+    String _multiplicityText = this._dimUtil.multiplicityText(a, false);
+    final String targetLabel = (_plus + _multiplicityText);
+    CharSequence _switchResult = null;
+    DAssociationKind _kind = a.getKind();
+    if (_kind != null) {
+      switch (_kind) {
+        case REFERENCE:
+          EObject _eContainer = a.eContainer();
+          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), targetLabel, ">");
+          break;
+        case COMPOSITE:
+          EObject _eContainer_1 = a.eContainer();
+          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), targetLabel, ">");
+          break;
+        case INVERSE_COMPOSITE:
+          EObject _eContainer_2 = a.eContainer();
+          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), targetLabel, "*");
+          break;
+        default:
+          break;
+      }
+    }
+    return _switchResult;
+  }
+  
+  public CharSequence generateLink(final DAttribute a) {
+    String _name = a.getName();
+    String _plus = (_name + " ");
+    String _multiplicityText = this._dimUtil.multiplicityText(a, false);
+    final String label = (_plus + _multiplicityText);
+    EObject _eContainer = a.eContainer();
+    return this.generateLink("+", ((DType) _eContainer), a.getType(), label, "");
+  }
+  
+  public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _typeName = this.typeName(source);
+    _builder.append(_typeName);
+    _builder.append(" ");
+    _builder.append(sourceArrowhead);
+    _builder.append("--");
+    _builder.append(targetArrowhead);
+    _builder.append(" ");
+    CharSequence _targetName = this.targetName(source, target);
+    _builder.append(_targetName);
+    _builder.append(" : ");
+    _builder.append(targetRole);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence typeName(final DType t) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _xifexpression = null;
+    EObject _eContainer = t.eContainer();
+    if ((_eContainer instanceof DAggregate)) {
+      _xifexpression = this._dimUtil.aggregateName(t);
+    }
+    _builder.append(_xifexpression);
+    _builder.append(".");
+    String _name = t.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  public String spot(final DAggregate a) {
     return "<< (Q,Gold) >>";
   }
   
-  public String getSpot(final DType t) {
+  public String spot(final DType t) {
     String _switchResult = null;
     boolean _matched = false;
     if (t instanceof DEntityType) {
@@ -394,175 +559,20 @@ public class DimTypeDiagramTextProviderImpl implements IPlantUmlDiagramTextProvi
     return _switchResult;
   }
   
-  public CharSequence generateStaticQuery(final DQuery q) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      DType _type = q.getType();
-      boolean _tripleNotEquals = (_type != null);
-      if (_tripleNotEquals) {
-        _builder.append("{static} ");
-        String _name = q.getName();
-        _builder.append(_name);
-        _builder.append("(");
-        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
-        _builder.append(_generateQueryParameters);
-        _builder.append(") : ");
-        String _name_1 = q.getType().getName();
-        _builder.append(_name_1);
-        _builder.append(" ");
-        String _multiplicityText = this._dimUtil.multiplicityText(q);
-        _builder.append(_multiplicityText);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  protected CharSequence _generateFeature(final DAttribute a) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      boolean _not = (!((a.getType() == null) || (a.getType() instanceof DDetailType)));
-      if (_not) {
-        String _name = a.getName();
-        _builder.append(_name);
-        _builder.append(" : ");
-        String _name_1 = a.getType().getName();
-        _builder.append(_name_1);
-        _builder.append(" ");
-        String _multiplicityText = this._dimUtil.multiplicityText(a);
-        _builder.append(_multiplicityText);
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  protected CharSequence _generateFeature(final DQuery q) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      DType _type = q.getType();
-      boolean _tripleNotEquals = (_type != null);
-      if (_tripleNotEquals) {
-        String _name = q.getName();
-        _builder.append(_name);
-        _builder.append("(");
-        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
-        _builder.append(_generateQueryParameters);
-        _builder.append(") : ");
-        String _name_1 = q.getType().getName();
-        _builder.append(_name_1);
-        _builder.append(" ");
-        String _multiplicityText = this._dimUtil.multiplicityText(q);
-        _builder.append(_multiplicityText);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  protected CharSequence _generateFeature(final DAssociation a) {
-    StringConcatenation _builder = new StringConcatenation();
-    return _builder;
-  }
-  
-  public CharSequence generateQueryParameters(final DQuery q) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<DQueryParameter> _parameters = q.getParameters();
-      boolean _hasElements = false;
-      for(final DQueryParameter p : _parameters) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(", ", "");
-        }
-        String _name = p.getName();
-        _builder.append(_name);
-        _builder.append(":");
-        String _name_1 = p.getType().getName();
-        _builder.append(_name_1);
-        _builder.append(" ");
-        String _multiplicityText = this._dimUtil.multiplicityText(p);
-        _builder.append(_multiplicityText);
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence generateAssociation(final DAssociation a) {
-    String _name = a.getName();
-    String _plus = (_name + " ");
-    String _multiplicityText = this._dimUtil.multiplicityText(a);
-    final String targetLabel = (_plus + _multiplicityText);
-    CharSequence _switchResult = null;
-    DAssociationKind _kind = a.getKind();
-    if (_kind != null) {
-      switch (_kind) {
-        case REFERENCE:
-          EObject _eContainer = a.eContainer();
-          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), targetLabel, ">");
-          break;
-        case COMPOSITE:
-          EObject _eContainer_1 = a.eContainer();
-          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), targetLabel, ">");
-          break;
-        case INVERSE_COMPOSITE:
-          EObject _eContainer_2 = a.eContainer();
-          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), targetLabel, "*");
-          break;
-        default:
-          break;
-      }
-    }
-    return _switchResult;
-  }
-  
-  public CharSequence generateLink(final DAttribute a) {
-    String _name = a.getName();
-    String _plus = (_name + " ");
-    String _multiplicityText = this._dimUtil.multiplicityText(a);
-    final String label = (_plus + _multiplicityText);
-    EObject _eContainer = a.eContainer();
-    return this.generateLink("+", ((DType) _eContainer), a.getType(), label, "");
-  }
-  
-  public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _aggregateName = this._dimUtil.aggregateName(source);
-    _builder.append(_aggregateName);
-    _builder.append(".");
-    String _name = source.getName();
-    _builder.append(_name);
-    _builder.append(" ");
-    _builder.append(sourceArrowhead);
-    _builder.append("--");
-    _builder.append(targetArrowhead);
-    _builder.append(" ");
-    String _targetName = this.getTargetName(source, target);
-    _builder.append(_targetName);
-    _builder.append(" : ");
-    _builder.append(targetRole);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public String getTargetName(final DType source, final DType target) {
-    String _domainName = this._dimUtil.domainName(source);
-    String _domainName_1 = this._dimUtil.domainName(target);
-    boolean _equals = Objects.equal(_domainName, _domainName_1);
+  public CharSequence targetName(final DType source, final DType target) {
+    String _outermostSemanticContainerName = this._dimUtil.outermostSemanticContainerName(source);
+    String _outermostSemanticContainerName_1 = this._dimUtil.outermostSemanticContainerName(target);
+    boolean _equals = Objects.equal(_outermostSemanticContainerName, _outermostSemanticContainerName_1);
     if (_equals) {
       String _aggregateName = this._dimUtil.aggregateName(source);
       String _aggregateName_1 = this._dimUtil.aggregateName(target);
       boolean _equals_1 = Objects.equal(_aggregateName, _aggregateName_1);
       if (_equals_1) {
-        String _aggregateName_2 = this._dimUtil.aggregateName(target);
-        String _plus = (_aggregateName_2 + ".");
-        String _name = target.getName();
-        return (_plus + _name);
+        return this.typeName(target);
       }
       return this._dimUtil.aggregateName(target);
     }
-    return this._dimUtil.domainName(target);
+    return this._dimUtil.outermostSemanticContainerName(target);
   }
   
   public CharSequence generateType(final DType e) {

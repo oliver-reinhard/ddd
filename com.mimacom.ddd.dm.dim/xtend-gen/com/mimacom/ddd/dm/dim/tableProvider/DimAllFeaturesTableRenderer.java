@@ -5,6 +5,7 @@ import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
+import com.mimacom.ddd.dm.base.styledText.StyledTextUtil;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
@@ -27,6 +28,10 @@ public class DimAllFeaturesTableRenderer implements ITableRenderer {
   @Inject
   @Extension
   private PubTableUtil _pubTableUtil;
+  
+  @Inject
+  @Extension
+  private StyledTextUtil _styledTextUtil;
   
   @Override
   public boolean canRender(final IDiagramRoot root) {
@@ -53,16 +58,16 @@ public class DimAllFeaturesTableRenderer implements ITableRenderer {
             {
               String _xifexpression = null;
               if (first) {
-                _xifexpression = typeLabel;
+                _xifexpression = this._styledTextUtil.escapeStyledText(typeLabel);
               } else {
                 _xifexpression = "";
               }
-              String _name = f.getName();
-              String _name_1 = f.getType().getName();
-              String _plus = (_name_1 + " ");
-              String _multiplicityText = this._dimUtil.multiplicityText(f);
-              String _plus_1 = (_plus + _multiplicityText);
-              this._pubTableUtil.addRowWithDescription(t, new String[] { _xifexpression, _name, _plus_1 }, 
+              String _escapeStyledText = this._styledTextUtil.escapeStyledText(f.getName());
+              String _name = f.getType().getName();
+              String _plus = (_name + " ");
+              String _multiplicityText = this._dimUtil.multiplicityText(f, false);
+              String _escapeStyledText_1 = this._styledTextUtil.escapeStyledText((_plus + _multiplicityText));
+              this._pubTableUtil.addRowWithDescription(t, new String[] { _xifexpression, _escapeStyledText, _escapeStyledText_1 }, 
                 f.getDescription());
               first = false;
             }

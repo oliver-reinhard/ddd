@@ -17,6 +17,7 @@ import com.mimacom.ddd.dm.base.base.DFeature
 import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.base.base.DNavigableMember
 import com.mimacom.ddd.dm.base.base.DQuery
+import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.base.base.IIdentityType
 import com.mimacom.ddd.dm.base.base.IValueType
 import com.mimacom.ddd.dm.base.transpose.ISyntheticElement
@@ -40,6 +41,7 @@ import com.mimacom.ddd.dm.base.transpose.TStructureChangingRule
 import com.mimacom.ddd.dm.base.transpose.TTristate
 import com.mimacom.ddd.dm.base.transpose.TransposePackage
 import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
@@ -53,7 +55,8 @@ class TransposedDimValidator extends DimValidator {
 
 	@Inject extension DimUtil
 
-	@Inject IQualifiedNameProvider qualifiedNameProvider
+	@Inject IQualifiedNameProvider transposedQualifiedNameProvider
+	@Inject DmxQualifiedNameProvider dimQualifiedNameProvider // TODO replace by injection of IQualifiedNameProvider based on DimRuntimeModule
 
 	@Check
 	override checkAggregateHasSingleRootOrRootHiearchy(DAggregate a) {
@@ -82,8 +85,7 @@ class TransposedDimValidator extends DimValidator {
 		val source = t.rule.source
 		if (source instanceof DEntityType) {
 			if (source.root !== t.root) {
-				error("Transposed-entity rule must match domain-model root property", t.rule,
-					TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+				error("Transposed-entity rule must match domain-model root property", t.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 			}
 		} else if (source !== null) {
 			error("Transposed-entity rule must have a domain-model entity as its source", t.rule,
@@ -118,8 +120,7 @@ class TransposedDimValidator extends DimValidator {
 			val hasDitchElements = featureRecipes.exists[getRule instanceof TDitchRule]
 			val hasGrabElements = featureRecipes.exists[getRule instanceof TGrabRule]
 			if (hasDitchElements && hasGrabElements) {
-				error("Cannot use both grab rule and ditch rules together.", t.rule,
-					TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+				error("Cannot use both grab rule and ditch rules together.", t.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 			}
 		}
 	}
@@ -149,9 +150,8 @@ class TransposedDimValidator extends DimValidator {
 	def void checkHasTransposedContainer(TFeatureTransposition f) {
 		val container = f.eContainer
 		if (!(container instanceof TComplexTypeTransposition || container instanceof TAggregateTransposition)) {
-			error(
-				"Features can only have a transposition rule if the containing type or aggregate also has a transposition rule.",
-				f.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+			error("Features can only have a transposition rule if the containing type or aggregate also has a transposition rule.", f.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
@@ -166,8 +166,7 @@ class TransposedDimValidator extends DimValidator {
 	@Check
 	def checkCorrespondingDQueryType(TQueryTransposition q) {
 		if (q.rule.source !== null && ! (q.rule.source instanceof DQuery)) {
-			error("Transposed query rule must have a domain-model query as its source", q.rule,
-				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+			error("Transposed query rule must have a domain-model query as its source", q.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
@@ -183,8 +182,8 @@ class TransposedDimValidator extends DimValidator {
 	def void checkHasTransposedEnumeration(TLiteralTransposition literal) {
 		val container = literal.eContainer
 		if (! (container instanceof TEnumerationTransposition)) {
-			error("Literals can only have a transposition rule if the containing enumeration also has a transposition rule.",
-				literal.rule, TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
+			error("Literals can only have a transposition rule if the containing enumeration also has a transposition rule.", literal.rule,
+				TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE)
 		}
 	}
 
@@ -195,7 +194,7 @@ class TransposedDimValidator extends DimValidator {
 		}
 		super.checkEnumerationHasLiterals(e)
 	}
-	
+
 	override protected allTypes(DAggregate a) {
 		if (a instanceof TAggregateTransposition) {
 			val types = Lists.newArrayList
@@ -211,7 +210,7 @@ class TransposedDimValidator extends DimValidator {
 			super.checkFeatureTypeIsSet(f)
 		}
 	}
-	
+
 	@Check
 	override checkAttributeIsValueType(DAttribute a) {
 		if (a instanceof ITransposition) {
@@ -224,7 +223,7 @@ class TransposedDimValidator extends DimValidator {
 				val recipe = a.recipe
 				val source = recipe?.rule?.source as DAttribute
 				val sourceType = source?.type
-				errorOnStructuralElement(a, getDescription(a) + ": no type mapping for domain type '" + sourceType?.name + "'")
+				errorOnStructuralElement(a,	getDescription(a) + ": " + noTypeMappingForDomainType(sourceType))
 			} else if (! (a.getType instanceof IValueType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": attribute type must be a ValueType")
 			}
@@ -244,38 +243,33 @@ class TransposedDimValidator extends DimValidator {
 				val recipe = a.recipe
 				val source = recipe?.rule?.source as DAssociation
 				val sourceType = source?.type
-				errorOnStructuralElement(a,
-					getDescription(a) + ": no type mapping for association-target domain type '" + sourceType?.name + "'")
+				errorOnStructuralElement(a,	getDescription(a) + ": " + noTypeMappingForDomainType(sourceType))
 			} else if (! (a.getType instanceof IIdentityType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": association target must be an IdentityType")
 			}
 		}
 	}
 
-// // Queries and their parameters: restrictions on their types
-	override checkMemberType(DNavigableMember p) {
-		if (p instanceof ITransposition) {
+	override checkMemberType(DNavigableMember m) {
+		if (m instanceof ITransposition) {
 			return
 		}
-		if (p instanceof ITransposableElement) {
-			if (! (p instanceof ISyntheticElement)) {
-				super.checkMemberType(p)
-			} else if (p.getType === null) {
-				val source = p.transposedBy?.rule?.source
-				var sourceType = ""
-				if (source instanceof DNavigableMember) {
-					if (source.type !== null) {
-						sourceType = " '" + source.type.name + "'"
-					}
-				}
-				errorOnStructuralElement(p, getDescription(p) + ": no type mapping for domain type" + sourceType)
-			} else if (! p.isAllowedMemberType) {
-				errorOnStructuralElement(p, getDescription(p) + ": " + ILLEGAL_MEMBER_TYPE_MSG)
+		if (m instanceof ISyntheticElement) {
+			if (m.getType === null) {
+				val source = m.recipe?.rule?.source
+				var sourceType = source instanceof DNavigableMember ? source?.type : null
+				errorOnStructuralElement(m, getDescription(m) + ": " + noTypeMappingForDomainType(sourceType))
+			} else if (! m.isAllowedMemberType) {
+				errorOnStructuralElement(m, getDescription(m) + ": " + ILLEGAL_MEMBER_TYPE_MSG)
 			}
+		} else {
+			super.checkMemberType(m)
 		}
 	}
 
-// // Naming: Elements whose names should start with a CAPITAL
+	/*
+	 * Naming: Elements whose names should start with a CAPITAL
+	 */
 //	@Check
 //	def void checkTypeNameStartsWithCapital(SInformationModel m) {
 //		if (DEFAULT_IMPORT_TYPES == dm.name || DEFAULT_IMPORT_FUNCTIONS == m.name) {
@@ -283,41 +277,42 @@ class TransposedDimValidator extends DimValidator {
 //		}
 //		checkNameStartsWithCapital(d)
 //	}
-// // Naming: Elements whose names should start with a LOWERCASE
-// // Naming: Elements whose names should be ALL UPPERCASE
-// - only 1 SPrimitive can realize a given DPrimitive
+	/* 
+	 * Naming: Elements whose names should start with a LOWERCASE
+	 * Naming: Elements whose names should be ALL UPPERCASE
+	 */
+	/*
+	 * Warnings and Errors
+	 */
 	protected def String getDescription(EObject obj) {
-		var synthetic = ""
-		if (obj instanceof ITransposableElement) {
-			if (obj instanceof ISyntheticElement) synthetic = "Synthetic "
-		}
-		synthetic + obj.class.simpleName + " " + qualifiedNameProvider.getFullyQualifiedName(obj)
+		obj.simpleClassName + " " + transposedQualifiedNameProvider.getFullyQualifiedName(obj)
+	}
+	
+	protected def String noTypeMappingForDomainType(DType sourceType) {
+		val qualifiedName = dimQualifiedNameProvider.getFullyQualifiedName(sourceType)
+		val name = qualifiedName !== null ? " " + qualifiedName.toString : ""
+		return "no type mapping for domain type" + name + " --> check local imports and 'grab' clauses)"
 	}
 
 	protected def void warningOnStructuralElement(EObject e, String warningMsg) {
-		if (e instanceof ITransposableElement) {
-			if (e instanceof ISyntheticElement) {
-				var definition = e.transposedBy
-				if (definition instanceof TImplicitTransposition) {
-					while (definition instanceof TImplicitTransposition) {
-						definition = definition.originalTransposition
-					}
-					warningOnStructuralElementImpl(definition, warningMsg)
-				} else {
-					val container = e.eContainer
-					if (container instanceof ITransposableElement) {
-						warningOnStructuralElement(container, warningMsg) // recursion
-					} else {
-						warningOnStructuralElementImpl(container, warningMsg)
-					}
+		if (e instanceof ISyntheticElement) {
+			var recipe = e.recipe
+			if (recipe instanceof TImplicitTransposition) {
+				while (recipe instanceof TImplicitTransposition) {
+					recipe = recipe.originalTransposition
 				}
-
-			} else if (e instanceof ITransposition) {
-				warning(warningMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE)
-
-			} else if (! (e instanceof ISyntheticElement)) {
-				warningOnStructuralElementImpl(e, warningMsg)
+				warningOnStructuralElementImpl(recipe, warningMsg)
+			} else {
+				val container = e.eContainer
+				if (container instanceof ITransposableElement) {
+					warningOnStructuralElement(container, warningMsg) // recursion
+				} else {
+					warningOnStructuralElementImpl(container, warningMsg)
+				}
 			}
+
+		} else if (e instanceof ITransposition) {
+			warning(warningMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE)
 		} else {
 			warningOnStructuralElementImpl(e, warningMsg)
 		}
@@ -332,29 +327,25 @@ class TransposedDimValidator extends DimValidator {
 	}
 
 	protected def void errorOnStructuralElement(EObject e, String errorMsg) {
-		if (e instanceof ITransposableElement) {
-			if (e instanceof ISyntheticElement) {
-				var definition = e.transposedBy
-				if (definition instanceof TImplicitTransposition) {
-					while (definition instanceof TImplicitTransposition) {
-						definition = definition.originalTransposition
-					}
-					errorOnStructuralElementImpl(definition, errorMsg)
-				} else {
-					val container = e.eContainer
-					if (container instanceof ITransposableElement) {
-						errorOnStructuralElement(container, errorMsg) // recursion
-					} else {
-						errorOnStructuralElementImpl(container, errorMsg)
-					}
+		if (e instanceof ISyntheticElement) {
+			var recipe = e.recipe
+			if (recipe instanceof TImplicitTransposition) {
+				while (recipe instanceof TImplicitTransposition) {
+					recipe = recipe.originalTransposition
 				}
-
-			} else if (e instanceof ITransposition) {
-				error(errorMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE)
-
-			} else if (! (e instanceof ISyntheticElement)) {
-				errorOnStructuralElementImpl(e, errorMsg)
+				errorOnStructuralElementImpl(recipe, errorMsg)
+			} else {
+				val container = e.eContainer
+				if (container instanceof ITransposableElement) {
+					errorOnStructuralElement(container, errorMsg) // recursion
+				} else {
+					errorOnStructuralElementImpl(container, errorMsg)
+				}
 			}
+
+		} else if (e instanceof ITransposition) {
+			error(errorMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE)
+
 		} else {
 			errorOnStructuralElementImpl(e, errorMsg)
 		}

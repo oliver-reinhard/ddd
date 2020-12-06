@@ -46,6 +46,7 @@ import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TransposePackage;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.validation.DimValidator;
+import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
@@ -68,7 +69,10 @@ public class TransposedDimValidator extends DimValidator {
   private DimUtil _dimUtil;
   
   @Inject
-  private IQualifiedNameProvider qualifiedNameProvider;
+  private IQualifiedNameProvider transposedQualifiedNameProvider;
+  
+  @Inject
+  private DmxQualifiedNameProvider dimQualifiedNameProvider;
   
   @Check
   @Override
@@ -108,8 +112,7 @@ public class TransposedDimValidator extends DimValidator {
       boolean _isRoot_1 = t.isRoot();
       boolean _tripleNotEquals = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
       if (_tripleNotEquals) {
-        this.error("Transposed-entity rule must match domain-model root property", t.getRule(), 
-          TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        this.error("Transposed-entity rule must match domain-model root property", t.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
       }
     } else {
       if ((source != null)) {
@@ -156,8 +159,7 @@ public class TransposedDimValidator extends DimValidator {
       };
       final boolean hasGrabElements = IterableExtensions.<TFeatureTransposition>exists(featureRecipes, _function_1);
       if ((hasDitchElements && hasGrabElements)) {
-        this.error("Cannot use both grab rule and ditch rules together.", t.getRule(), 
-          TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+        this.error("Cannot use both grab rule and ditch rules together.", t.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
       }
     }
   }
@@ -193,9 +195,8 @@ public class TransposedDimValidator extends DimValidator {
   public void checkHasTransposedContainer(final TFeatureTransposition f) {
     final EObject container = f.eContainer();
     if ((!((container instanceof TComplexTypeTransposition) || (container instanceof TAggregateTransposition)))) {
-      this.error(
-        "Features can only have a transposition rule if the containing type or aggregate also has a transposition rule.", 
-        f.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+      this.error("Features can only have a transposition rule if the containing type or aggregate also has a transposition rule.", f.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
@@ -210,8 +211,7 @@ public class TransposedDimValidator extends DimValidator {
   @Check
   public void checkCorrespondingDQueryType(final TQueryTransposition q) {
     if (((q.getRule().getSource() != null) && (!(q.getRule().getSource() instanceof DQuery)))) {
-      this.error("Transposed query rule must have a domain-model query as its source", q.getRule(), 
-        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+      this.error("Transposed query rule must have a domain-model query as its source", q.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
@@ -227,8 +227,8 @@ public class TransposedDimValidator extends DimValidator {
   public void checkHasTransposedEnumeration(final TLiteralTransposition literal) {
     final EObject container = literal.eContainer();
     if ((!(container instanceof TEnumerationTransposition))) {
-      this.error("Literals can only have a transposition rule if the containing enumeration also has a transposition rule.", 
-        literal.getRule(), TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
+      this.error("Literals can only have a transposition rule if the containing enumeration also has a transposition rule.", literal.getRule(), 
+        TransposePackage.Literals.TTRANSPOSITION_RULE__SOURCE);
     }
   }
   
@@ -291,21 +291,17 @@ public class TransposedDimValidator extends DimValidator {
           }
           final DType sourceType = _type_1;
           String _description = this.getDescription(a);
-          String _plus = (_description + ": no type mapping for domain type \'");
-          String _name = null;
-          if (sourceType!=null) {
-            _name=sourceType.getName();
-          }
-          String _plus_1 = (_plus + _name);
-          String _plus_2 = (_plus_1 + "\'");
-          this.errorOnStructuralElement(a, _plus_2);
+          String _plus = (_description + ": ");
+          String _noTypeMappingForDomainType = this.noTypeMappingForDomainType(sourceType);
+          String _plus_1 = (_plus + _noTypeMappingForDomainType);
+          this.errorOnStructuralElement(a, _plus_1);
         } else {
           DType _type_2 = a.getType();
           boolean _not = (!(_type_2 instanceof IValueType));
           if (_not) {
             String _description_1 = this.getDescription(a);
-            String _plus_3 = (_description_1 + ": attribute type must be a ValueType");
-            this.errorOnStructuralElement(a, _plus_3);
+            String _plus_2 = (_description_1 + ": attribute type must be a ValueType");
+            this.errorOnStructuralElement(a, _plus_2);
           }
         }
       }
@@ -338,123 +334,117 @@ public class TransposedDimValidator extends DimValidator {
         }
         final DType sourceType = _type_1;
         String _description = this.getDescription(a);
-        String _plus = (_description + ": no type mapping for association-target domain type \'");
-        String _name = null;
-        if (sourceType!=null) {
-          _name=sourceType.getName();
-        }
-        String _plus_1 = (_plus + _name);
-        String _plus_2 = (_plus_1 + "\'");
-        this.errorOnStructuralElement(a, _plus_2);
+        String _plus = (_description + ": ");
+        String _noTypeMappingForDomainType = this.noTypeMappingForDomainType(sourceType);
+        String _plus_1 = (_plus + _noTypeMappingForDomainType);
+        this.errorOnStructuralElement(a, _plus_1);
       } else {
         DType _type_2 = a.getType();
         boolean _not = (!(_type_2 instanceof IIdentityType));
         if (_not) {
           String _description_1 = this.getDescription(a);
-          String _plus_3 = (_description_1 + ": association target must be an IdentityType");
-          this.errorOnStructuralElement(a, _plus_3);
+          String _plus_2 = (_description_1 + ": association target must be an IdentityType");
+          this.errorOnStructuralElement(a, _plus_2);
         }
       }
     }
   }
   
   @Override
-  public void checkMemberType(final DNavigableMember p) {
-    if ((p instanceof ITransposition)) {
+  public void checkMemberType(final DNavigableMember m) {
+    if ((m instanceof ITransposition)) {
       return;
     }
-    if ((p instanceof ITransposableElement)) {
-      if ((!(p instanceof ISyntheticElement))) {
-        super.checkMemberType(p);
+    if ((m instanceof ISyntheticElement)) {
+      DType _type = m.getType();
+      boolean _tripleEquals = (_type == null);
+      if (_tripleEquals) {
+        ITransposition _recipe = ((ISyntheticElement)m).getRecipe();
+        TTranspositionRule _rule = null;
+        if (_recipe!=null) {
+          _rule=_recipe.getRule();
+        }
+        ITransposableElement _source = null;
+        if (_rule!=null) {
+          _source=_rule.getSource();
+        }
+        final ITransposableElement source = _source;
+        DType _xifexpression = null;
+        if ((source instanceof DNavigableMember)) {
+          DType _type_1 = null;
+          if (((DNavigableMember)source)!=null) {
+            _type_1=((DNavigableMember)source).getType();
+          }
+          _xifexpression = _type_1;
+        } else {
+          _xifexpression = null;
+        }
+        DType sourceType = _xifexpression;
+        String _description = this.getDescription(m);
+        String _plus = (_description + ": ");
+        String _noTypeMappingForDomainType = this.noTypeMappingForDomainType(sourceType);
+        String _plus_1 = (_plus + _noTypeMappingForDomainType);
+        this.errorOnStructuralElement(m, _plus_1);
       } else {
-        DType _type = p.getType();
-        boolean _tripleEquals = (_type == null);
-        if (_tripleEquals) {
-          ITransposition _transposedBy = ((ITransposableElement)p).getTransposedBy();
-          TTranspositionRule _rule = null;
-          if (_transposedBy!=null) {
-            _rule=_transposedBy.getRule();
-          }
-          ITransposableElement _source = null;
-          if (_rule!=null) {
-            _source=_rule.getSource();
-          }
-          final ITransposableElement source = _source;
-          String sourceType = "";
-          if ((source instanceof DNavigableMember)) {
-            DType _type_1 = ((DNavigableMember)source).getType();
-            boolean _tripleNotEquals = (_type_1 != null);
-            if (_tripleNotEquals) {
-              String _name = ((DNavigableMember)source).getType().getName();
-              String _plus = (" \'" + _name);
-              String _plus_1 = (_plus + "\'");
-              sourceType = _plus_1;
-            }
-          }
-          String _description = this.getDescription(p);
-          String _plus_2 = (_description + ": no type mapping for domain type");
-          String _plus_3 = (_plus_2 + sourceType);
-          this.errorOnStructuralElement(p, _plus_3);
-        } else {
-          boolean _isAllowedMemberType = this.isAllowedMemberType(p);
-          boolean _not = (!_isAllowedMemberType);
-          if (_not) {
-            String _description_1 = this.getDescription(p);
-            String _plus_4 = (_description_1 + ": ");
-            String _plus_5 = (_plus_4 + DimValidator.ILLEGAL_MEMBER_TYPE_MSG);
-            this.errorOnStructuralElement(p, _plus_5);
-          }
-        }
-      }
-    }
-  }
-  
-  protected String getDescription(final EObject obj) {
-    String _xblockexpression = null;
-    {
-      String synthetic = "";
-      if ((obj instanceof ITransposableElement)) {
-        if ((obj instanceof ISyntheticElement)) {
-          synthetic = "Synthetic ";
-        }
-      }
-      String _simpleName = obj.getClass().getSimpleName();
-      String _plus = (synthetic + _simpleName);
-      String _plus_1 = (_plus + " ");
-      QualifiedName _fullyQualifiedName = this.qualifiedNameProvider.getFullyQualifiedName(obj);
-      _xblockexpression = (_plus_1 + _fullyQualifiedName);
-    }
-    return _xblockexpression;
-  }
-  
-  protected void warningOnStructuralElement(final EObject e, final String warningMsg) {
-    if ((e instanceof ITransposableElement)) {
-      if ((e instanceof ISyntheticElement)) {
-        ITransposition definition = ((ITransposableElement)e).getTransposedBy();
-        if ((definition instanceof TImplicitTransposition)) {
-          while ((definition instanceof TImplicitTransposition)) {
-            definition = ((TImplicitTransposition)definition).getOriginalTransposition();
-          }
-          this.warningOnStructuralElementImpl(definition, warningMsg);
-        } else {
-          final EObject container = e.eContainer();
-          if ((container instanceof ITransposableElement)) {
-            this.warningOnStructuralElement(container, warningMsg);
-          } else {
-            this.warningOnStructuralElementImpl(container, warningMsg);
-          }
-        }
-      } else {
-        if ((e instanceof ITransposition)) {
-          this.warning(warningMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE);
-        } else {
-          if ((!(e instanceof ISyntheticElement))) {
-            this.warningOnStructuralElementImpl(e, warningMsg);
-          }
+        boolean _isAllowedMemberType = this.isAllowedMemberType(m);
+        boolean _not = (!_isAllowedMemberType);
+        if (_not) {
+          String _description_1 = this.getDescription(m);
+          String _plus_2 = (_description_1 + ": ");
+          String _plus_3 = (_plus_2 + DimValidator.ILLEGAL_MEMBER_TYPE_MSG);
+          this.errorOnStructuralElement(m, _plus_3);
         }
       }
     } else {
-      this.warningOnStructuralElementImpl(e, warningMsg);
+      super.checkMemberType(m);
+    }
+  }
+  
+  /**
+   * Warnings and Errors
+   */
+  protected String getDescription(final EObject obj) {
+    String _simpleClassName = this._dimUtil.simpleClassName(obj);
+    String _plus = (_simpleClassName + " ");
+    QualifiedName _fullyQualifiedName = this.transposedQualifiedNameProvider.getFullyQualifiedName(obj);
+    return (_plus + _fullyQualifiedName);
+  }
+  
+  protected String noTypeMappingForDomainType(final DType sourceType) {
+    final QualifiedName qualifiedName = this.dimQualifiedNameProvider.getFullyQualifiedName(sourceType);
+    String _xifexpression = null;
+    if ((qualifiedName != null)) {
+      String _string = qualifiedName.toString();
+      _xifexpression = (" " + _string);
+    } else {
+      _xifexpression = "";
+    }
+    final String name = _xifexpression;
+    return (("no type mapping for domain type" + name) + " --> check local imports and \'grab\' clauses)");
+  }
+  
+  protected void warningOnStructuralElement(final EObject e, final String warningMsg) {
+    if ((e instanceof ISyntheticElement)) {
+      ITransposition recipe = ((ISyntheticElement)e).getRecipe();
+      if ((recipe instanceof TImplicitTransposition)) {
+        while ((recipe instanceof TImplicitTransposition)) {
+          recipe = ((TImplicitTransposition)recipe).getOriginalTransposition();
+        }
+        this.warningOnStructuralElementImpl(recipe, warningMsg);
+      } else {
+        final EObject container = ((ISyntheticElement)e).eContainer();
+        if ((container instanceof ITransposableElement)) {
+          this.warningOnStructuralElement(container, warningMsg);
+        } else {
+          this.warningOnStructuralElementImpl(container, warningMsg);
+        }
+      }
+    } else {
+      if ((e instanceof ITransposition)) {
+        this.warning(warningMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE);
+      } else {
+        this.warningOnStructuralElementImpl(e, warningMsg);
+      }
     }
   }
   
@@ -467,33 +457,27 @@ public class TransposedDimValidator extends DimValidator {
   }
   
   protected void errorOnStructuralElement(final EObject e, final String errorMsg) {
-    if ((e instanceof ITransposableElement)) {
-      if ((e instanceof ISyntheticElement)) {
-        ITransposition definition = ((ITransposableElement)e).getTransposedBy();
-        if ((definition instanceof TImplicitTransposition)) {
-          while ((definition instanceof TImplicitTransposition)) {
-            definition = ((TImplicitTransposition)definition).getOriginalTransposition();
-          }
-          this.errorOnStructuralElementImpl(definition, errorMsg);
-        } else {
-          final EObject container = e.eContainer();
-          if ((container instanceof ITransposableElement)) {
-            this.errorOnStructuralElement(container, errorMsg);
-          } else {
-            this.errorOnStructuralElementImpl(container, errorMsg);
-          }
+    if ((e instanceof ISyntheticElement)) {
+      ITransposition recipe = ((ISyntheticElement)e).getRecipe();
+      if ((recipe instanceof TImplicitTransposition)) {
+        while ((recipe instanceof TImplicitTransposition)) {
+          recipe = ((TImplicitTransposition)recipe).getOriginalTransposition();
         }
+        this.errorOnStructuralElementImpl(recipe, errorMsg);
       } else {
-        if ((e instanceof ITransposition)) {
-          this.error(errorMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE);
+        final EObject container = ((ISyntheticElement)e).eContainer();
+        if ((container instanceof ITransposableElement)) {
+          this.errorOnStructuralElement(container, errorMsg);
         } else {
-          if ((!(e instanceof ISyntheticElement))) {
-            this.errorOnStructuralElementImpl(e, errorMsg);
-          }
+          this.errorOnStructuralElementImpl(container, errorMsg);
         }
       }
     } else {
-      this.errorOnStructuralElementImpl(e, errorMsg);
+      if ((e instanceof ITransposition)) {
+        this.error(errorMsg, e, TransposePackage.Literals.ITRANSPOSITION__RULE);
+      } else {
+        this.errorOnStructuralElementImpl(e, errorMsg);
+      }
     }
   }
   

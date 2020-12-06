@@ -24,7 +24,7 @@ class PubTableUtil {
 		}
 		val Table t = PUB.createTable
 		t.columns = columnTitles.length
-		val row = t.addSimpleRow(columnTitles)
+		val row = t.addPlainTextRow(columnTitles)
 		row.isHeading = true
 		return t
 	}
@@ -48,12 +48,12 @@ class PubTableUtil {
 		return row
 	}
 
-	def TableRow addSimpleRow(Table t, String... cellTexts) {
-		t.addRowImpl([row, text|row.addSimpleCell(text as String)], cellTexts)
+	def TableRow addPlainTextRow(Table t, String... cellTexts) {
+		t.addRowImpl([row, text|row.addPlainTextCell(text as String)], cellTexts)
 	}
 
-	def TableRow addStyledTextRow(Table t, String... styledCells) {
-		t.addRowImpl([row, text|row.addStyledTextCell(text as String)], styledCells)
+	def TableRow addStyledTextRow(Table t, String... styledCellTexts) {
+		t.addRowImpl([row, text|row.addStyledTextCell(text as String)], styledCellTexts)
 	}
 
 	def TableRow addRichTextRow(Table t, DRichText[] cellTexts) {
@@ -73,7 +73,7 @@ class PubTableUtil {
 		t.rows.add(row)
 		for (text : cellTexts) {
 			if (! IGNORE_TABLE_CELL.equals(text)) {
-				row.addSimpleCell(text)
+				row.addPlainTextCell(text)
 			}
 		}
 		// Reference:
@@ -104,15 +104,15 @@ class PubTableUtil {
 	}
 
 	def TableRow addRowWithDescription(Table t, String[] cellTexts, DRichText description, String... moreCells) {
-		t.addRowWithDescriptionImpl([row, text|row.addSimpleCell(text as String)], cellTexts, description, moreCells)
+		t.addRowWithDescriptionImpl([row, text|row.addPlainTextCell(text as String)], cellTexts, description, moreCells)
 	}
 
-	def TableRow addStyledTextRowWithDescription(Table t, String[] styledCells, DRichText description,
+	def TableRow addStyledTextRowWithDescription(Table t, String[] styledCellTexts, DRichText description,
 		String... moreFormattedCells) {
-		t.addRowWithDescriptionImpl([row, text|row.addStyledTextCell(text as String)], styledCells, description, moreFormattedCells)
+		t.addRowWithDescriptionImpl([row, text|row.addStyledTextCell(text as String)], styledCellTexts, description, moreFormattedCells)
 	}
 
-	def TableCell addSimpleCell(TableRow row, String text) {
+	def TableCell addPlainTextCell(TableRow row, String text) {
 		val cell = PUB.createTableCell
 		row.cells.add(cell)
 		val para = PUB.createUnformattedParagraph
@@ -142,7 +142,7 @@ class PubTableUtil {
 	 */
 	def TableCell addRichTextCell(TableRow row, DRichText text) {
 		if (isEmpty(text)) {
-			return row.addSimpleCell("")
+			return row.addPlainTextCell("")
 		}
 		val cell = PUB.createTableCell
 		row.cells.add(cell)

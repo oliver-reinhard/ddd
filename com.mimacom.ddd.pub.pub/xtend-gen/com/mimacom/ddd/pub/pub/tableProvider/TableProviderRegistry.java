@@ -118,10 +118,6 @@ public class TableProviderRegistry {
       return Boolean.valueOf(Objects.equal(it.id, id));
     };
     final Iterable<TableRendererProxy> candidates = IterableExtensions.<TableRendererProxy>filter(((Iterable<TableRendererProxy>)Conversions.doWrapArray(this.getAllTableRenderers())), _function);
-    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
-    if (_isEmpty) {
-      return null;
-    }
     return IterableExtensions.<TableRendererProxy>head(candidates);
   }
   
@@ -130,10 +126,6 @@ public class TableProviderRegistry {
       return Boolean.valueOf(it.tableRootClass.isAssignableFrom(tableRootClass));
     };
     final Iterable<TableRendererProxy> candidates = IterableExtensions.<TableRendererProxy>filter(((Iterable<TableRendererProxy>)Conversions.doWrapArray(this.getAllTableRenderers())), _function);
-    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
-    if (_isEmpty) {
-      return null;
-    }
     return candidates;
   }
   
@@ -142,10 +134,6 @@ public class TableProviderRegistry {
       return Boolean.valueOf((it.tableRootClass.isAssignableFrom(tableRootClass) && it.tableTypeID.equals(tableTypeID)));
     };
     final Iterable<TableRendererProxy> candidates = IterableExtensions.<TableRendererProxy>filter(((Iterable<TableRendererProxy>)Conversions.doWrapArray(this.getAllTableRenderers())), _function);
-    boolean _isEmpty = IterableExtensions.isEmpty(candidates);
-    if (_isEmpty) {
-      return null;
-    }
     return IterableExtensions.<TableRendererProxy>head(candidates);
   }
   

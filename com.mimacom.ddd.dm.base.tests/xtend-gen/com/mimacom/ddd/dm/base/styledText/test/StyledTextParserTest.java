@@ -141,7 +141,7 @@ public class StyledTextParserTest {
   }
   
   @Test
-  public void testExpression1() {
+  public void testExpressionEmpty() {
     final String text = "aa [] cc";
     Assert.assertTrue(this.parse(text));
     final StyledTextParser parser = new StyledTextParser(text);
@@ -157,7 +157,7 @@ public class StyledTextParserTest {
   }
   
   @Test
-  public void testExpression2() {
+  public void testExpressionNotEmpty() {
     final String text = "aa [b] cc";
     Assert.assertTrue(this.parse(text));
     final StyledTextParser parser = new StyledTextParser(text);
@@ -172,7 +172,7 @@ public class StyledTextParserTest {
   }
   
   @Test
-  public void testStaticReference1() {
+  public void testStaticReferenceEmpty() {
     final String text = "aa [[]] cc";
     Assert.assertTrue(this.parse(text));
     final StyledTextParser parser = new StyledTextParser(text);
@@ -188,7 +188,7 @@ public class StyledTextParserTest {
   }
   
   @Test
-  public void testStaticReference2() {
+  public void testStaticReferenceNotEmpty() {
     final String text = "aa [[b]] cc";
     Assert.assertTrue(this.parse(text));
     final StyledTextParser parser = new StyledTextParser(text);

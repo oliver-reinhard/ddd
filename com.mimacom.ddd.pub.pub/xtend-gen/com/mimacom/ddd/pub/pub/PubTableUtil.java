@@ -40,7 +40,7 @@ public class PubTableUtil {
     }
     final Table t = PubTableUtil.PUB.createTable();
     t.setColumns(columnTitles.length);
-    final TableRow row = this.addSimpleRow(t, columnTitles);
+    final TableRow row = this.addPlainTextRow(t, columnTitles);
     row.setIsHeading(true);
     return t;
   }
@@ -76,18 +76,18 @@ public class PubTableUtil {
     return row;
   }
   
-  public TableRow addSimpleRow(final Table t, final String... cellTexts) {
+  public TableRow addPlainTextRow(final Table t, final String... cellTexts) {
     final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
-      this.addSimpleCell(row, ((String) text));
+      this.addPlainTextCell(row, ((String) text));
     };
     return this.addRowImpl(t, _function, cellTexts);
   }
   
-  public TableRow addStyledTextRow(final Table t, final String... styledCells) {
+  public TableRow addStyledTextRow(final Table t, final String... styledCellTexts) {
     final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
       this.addStyledTextCell(row, ((String) text));
     };
-    return this.addRowImpl(t, _function, styledCells);
+    return this.addRowImpl(t, _function, styledCellTexts);
   }
   
   public TableRow addRichTextRow(final Table t, final DRichText[] cellTexts) {
@@ -123,7 +123,7 @@ public class PubTableUtil {
       boolean _equals_1 = PubTableUtil.IGNORE_TABLE_CELL.equals(text);
       boolean _not = (!_equals_1);
       if (_not) {
-        this.addSimpleCell(row, text);
+        this.addPlainTextCell(row, text);
       }
     }
     this.addReference(row, lastColumn);
@@ -161,19 +161,19 @@ public class PubTableUtil {
   
   public TableRow addRowWithDescription(final Table t, final String[] cellTexts, final DRichText description, final String... moreCells) {
     final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
-      this.addSimpleCell(row, ((String) text));
+      this.addPlainTextCell(row, ((String) text));
     };
     return this.addRowWithDescriptionImpl(t, _function, cellTexts, description, moreCells);
   }
   
-  public TableRow addStyledTextRowWithDescription(final Table t, final String[] styledCells, final DRichText description, final String... moreFormattedCells) {
+  public TableRow addStyledTextRowWithDescription(final Table t, final String[] styledCellTexts, final DRichText description, final String... moreFormattedCells) {
     final PubTableUtil.AddCell _function = (TableRow row, Object text) -> {
       this.addStyledTextCell(row, ((String) text));
     };
-    return this.addRowWithDescriptionImpl(t, _function, styledCells, description, moreFormattedCells);
+    return this.addRowWithDescriptionImpl(t, _function, styledCellTexts, description, moreFormattedCells);
   }
   
-  public TableCell addSimpleCell(final TableRow row, final String text) {
+  public TableCell addPlainTextCell(final TableRow row, final String text) {
     final TableCell cell = PubTableUtil.PUB.createTableCell();
     row.getCells().add(cell);
     final UnformattedParagraph para = PubTableUtil.PUB.createUnformattedParagraph();
@@ -216,7 +216,7 @@ public class PubTableUtil {
   public TableCell addRichTextCell(final TableRow row, final DRichText text) {
     boolean _isEmpty = this._richTextUtil.isEmpty(text);
     if (_isEmpty) {
-      return this.addSimpleCell(row, "");
+      return this.addPlainTextCell(row, "");
     }
     final TableCell cell = PubTableUtil.PUB.createTableCell();
     row.getCells().add(cell);

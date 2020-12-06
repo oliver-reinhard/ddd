@@ -26,6 +26,8 @@ public abstract class AbstractRichTextRenderer {
     }
   }
   
+  private String source;
+  
   private List<DExpression> expressions;
   
   private int currentExpressionIndex = (-1);
@@ -39,6 +41,7 @@ public abstract class AbstractRichTextRenderer {
   public synchronized CharSequence render(final DRichText text, final boolean encode) throws IllegalStateException {
     final String source = this.getSourceText(text);
     if (((source != null) && (!source.isEmpty()))) {
+      this.source = source;
       this.expressions = IterableExtensions.<DExpression>toList(Iterables.<DExpression>filter(text.getSegments(), DExpression.class));
       this.currentExpressionIndex = (-1);
       AbstractRichTextRenderer.RendererErrorMessageAcceptor _rendererErrorMessageAcceptor = new AbstractRichTextRenderer.RendererErrorMessageAcceptor();
@@ -197,7 +200,11 @@ public abstract class AbstractRichTextRenderer {
       }
       return this.renderStyleExpression(expr, _xifexpression);
     }
-    throw new IllegalStateException("Number of expressions in RichText and in parsed DStyledTextSpan do not match");
+    int _size = this.expressions.size();
+    String _plus = ((("Number of expressions in RichText and in parsed DStyledTextSpan do not match: \"" + this.source) + 
+      "\". Expected expressions: ") + Integer.valueOf(_size));
+    String _plus_1 = (_plus + ". Escape reserved symbols.");
+    throw new IllegalStateException(_plus_1);
   }
   
   /**

@@ -129,7 +129,7 @@ public class PubGeneratorUtil {
       String _date = e.getDate();
       String _author = e.getAuthor();
       String _description = e.getDescription();
-      this._pubTableUtil.addSimpleRow(t, new String[] { _version, _date, _author, _description });
+      this._pubTableUtil.addPlainTextRow(t, new String[] { _version, _date, _author, _description });
     }
     return t;
   }
@@ -155,7 +155,7 @@ public class PubGeneratorUtil {
     for (final Abbreviation e : _entries) {
       String _name = e.getName();
       String _longForm = e.getLongForm();
-      this._pubTableUtil.addSimpleRow(t, new String[] { _name, _longForm });
+      this._pubTableUtil.addPlainTextRow(t, new String[] { _name, _longForm });
     }
     return t;
   }
@@ -200,7 +200,7 @@ public class PubGeneratorUtil {
       String _publisher = e.getPublisher();
       String _date = e.getDate();
       String _comment = e.getComment();
-      this._pubTableUtil.addSimpleRow(t, new String[] { _name, _authors, _title, _publisher, _date, _comment });
+      this._pubTableUtil.addPlainTextRow(t, new String[] { _name, _authors, _title, _publisher, _date, _comment });
     }
     return t;
   }
@@ -212,7 +212,7 @@ public class PubGeneratorUtil {
       String _name = e.getName();
       String _text = e.getText();
       String _comment = e.getComment();
-      this._pubTableUtil.addSimpleRow(t, new String[] { _name, _text, _comment });
+      this._pubTableUtil.addPlainTextRow(t, new String[] { _name, _text, _comment });
     }
     return t;
   }

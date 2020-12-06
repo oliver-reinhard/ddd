@@ -84,7 +84,7 @@ class PubGeneratorUtil {
 	def Table toTable(ChangeHistory ch) {
 		val Table t = createTableWithHeader(#["Version", "Date", "Author", "What has changed"])
 		for (e : ch.entries) {
-			t.addSimpleRow(#[e.version, e.date, e.author, e.description])
+			t.addPlainTextRow(#[e.version, e.date, e.author, e.description])
 		}
 		return t
 	}
@@ -103,7 +103,7 @@ class PubGeneratorUtil {
 	def Table toTable(Abbreviations seg) {
 		val Table t = createTableWithHeader(#["Abbreviation", "Stands for"])
 		for (e : seg.entries) {
-			t.addSimpleRow(#[e.name, e.longForm])
+			t.addPlainTextRow(#[e.name, e.longForm])
 		}
 		return t
 	}
@@ -133,7 +133,7 @@ class PubGeneratorUtil {
 	def Table toTable(Bibliography seg) {
 		val Table t = createTableWithHeader(#["Name", "Authors", "Title", "Publisher", "Publication Date", "Comment"])
 		for (e : seg.entries) {
-			t.addSimpleRow(#[e.name, e.authors, e.title, e.publisher, e.date, e.comment])
+			t.addPlainTextRow(#[e.name, e.authors, e.title, e.publisher, e.date, e.comment])
 		}
 		return t
 	}
@@ -141,7 +141,7 @@ class PubGeneratorUtil {
 	def Table toTable(Glossary seg) {
 		val Table t = createTableWithHeader(#["Name", "Description", "Comment"])
 		for (e : seg.entries) {
-			t.addSimpleRow(#[e.name, e.text, e.comment])
+			t.addPlainTextRow(#[e.name, e.text, e.comment])
 		}
 		return t
 	}
