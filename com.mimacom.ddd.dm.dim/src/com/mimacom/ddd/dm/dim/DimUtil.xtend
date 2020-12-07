@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.EObject
 
 class DimUtil extends DmxUtil {
 	
-	def String outermostSemanticContainerName(EObject obj) {
+	override String outermostSemanticContainerName(EObject obj) {
 		return obj.domainName
 	}
 

@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DLiteral
 import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.base.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.base.base.DNavigableMember
 import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.base.DQuery
@@ -96,17 +97,26 @@ class TypesUtil {
 		return features
 	}
 
-	def DInformationModel domain(EObject obj) {
-		return EcoreUtil2.getContainerOfType(obj, DInformationModel) // global types are not owned by a domain => null
+	def DNamespace domain(EObject obj) {
+		return EcoreUtil2.getContainerOfType(obj, DNamespace)
 	}
 
 	def String domainName(EObject obj) {
 		val d = obj.domain
-		return if (d !== null) d.name else "NO_DOMAIN"
+		return if (d !== null) d.name else "NO-DOMAIN"
+	}
+
+	def DInformationModel model(EObject obj) {
+		return EcoreUtil2.getContainerOfType(obj, DInformationModel)
+	}
+
+	def String modelName(EObject obj) {
+		val d = obj.model
+		return if (d !== null) d.name else "NO-PARENT-MODEL"
 	}
 
 	def DAggregate aggregate(EObject obj) {
-		return EcoreUtil2.getContainerOfType(obj, DAggregate) // global types are not owned by a domain => null
+		return EcoreUtil2.getContainerOfType(obj, DAggregate)
 	}
 
 	def String aggregateName(EObject obj) {
@@ -114,6 +124,10 @@ class TypesUtil {
 		return if (a !== null) a.name else "default"
 	}
 
+	def String outermostSemanticContainerName(EObject obj) {
+		return obj.modelName
+	}
+	
 	/**
 	 * @param hideMandatory1   [1,1] is the default, return "" if true
 	 */
@@ -131,35 +145,35 @@ class TypesUtil {
 	/*
 	 * Precondition: d is the domain owning the association
 	 */
-	def boolean isTargetInsideDomain(DAssociation a, DInformationModel d) {
+	def boolean isTargetInsideModel(DAssociation a, DInformationModel d) {
 		if (a.targetType !== null) {
-			val targetDomain = a.targetType.domain
-			return d == targetDomain
+			val targetModel = a.targetType.model
+			return d == targetModel
 		}
 		return false
 	}
 
-	def boolean isTargetInsideDomain(DAssociation a) {
-		val d = a.domain
+	def boolean isTargetInsideModel(DAssociation a) {
+		val d = a.model
 		if (d === null) return false
-		return a.isTargetInsideDomain(d)
+		return a.isTargetInsideModel(d)
 	}
 
 	/*
 	 * Precondition: d is the domain owning the feature
 	 */
-	def boolean isTypeInsideDomain(DFeature f, DInformationModel d) {
+	def boolean isTypeInsideModel(DFeature f, DInformationModel d) {
 		if (f.getType !== null) {
-			val targetDomain = f.getType.domain
-			return d == targetDomain
+			val targetModel = f.getType.model
+			return d == targetModel
 		}
 		return false
 	}
 
-	def boolean isTypeInsideDomain(DFeature f) {
-		val d = f.domain
+	def boolean isTypeInsideModel(DFeature f) {
+		val d = f.model
 		if (d === null) return false
-		return f.isTypeInsideDomain(d)
+		return f.isTypeInsideModel(d)
 	}
 
 	/*

@@ -1,4 +1,4 @@
-package com.mimacom.ddd.sm.sim.plantuml;
+package com.mimacom.ddd.dm.div.plantuml;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
@@ -15,8 +15,8 @@ import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition;
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition;
-import com.mimacom.ddd.sm.sim.SimUtil;
-import com.mimacom.ddd.sm.sim.SystemInformationModel;
+import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.div.DomainInformationView;
 import java.util.ArrayList;
 import java.util.Set;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -26,13 +26,13 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<SystemInformationModel> {
+public class DivTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainInformationView> {
   @Inject
   @Extension
-  private SimUtil _simUtil;
+  private DimUtil _dimUtil;
   
   @Override
-  public boolean canProvide(final SystemInformationModel model) {
+  public boolean canProvide(final DomainInformationView model) {
     return ((model != null) && (!(IterableExtensions.isEmpty(IterableExtensions.<DType>filter(model.getTypes(), ((Function1<DType, Boolean>) (DType it) -> {
       return Boolean.valueOf((!(it instanceof ITransposition)));
     }))) && IterableExtensions.isEmpty(IterableExtensions.<DAggregate>filter(model.getAggregates(), ((Function1<DAggregate, Boolean>) (DAggregate it) -> {
@@ -41,7 +41,7 @@ public class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<
   }
   
   @Override
-  public TypeDiagramTextProviderData getData(final SystemInformationModel model) {
+  public TypeDiagramTextProviderData getData(final DomainInformationView model) {
     final TypeDiagramTextProviderData data = new TypeDiagramTextProviderData();
     final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
       return Boolean.valueOf((!(it instanceof TAggregateTransposition)));
@@ -52,12 +52,12 @@ public class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<
     };
     data.allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(model, DAssociation.class), _function_1);
     final Function1<DAssociation, Boolean> _function_2 = (DAssociation it) -> {
-      String _modelName = this._simUtil.modelName(it.getTargetType());
+      String _modelName = this._dimUtil.modelName(it.getTargetType());
       String _name = model.getName();
       return Boolean.valueOf((!Objects.equal(_modelName, _name)));
     };
     final Function1<DAssociation, String> _function_3 = (DAssociation it) -> {
-      return this._simUtil.modelName(it.getTargetType());
+      return this._dimUtil.modelName(it.getTargetType());
     };
     data.allReferencedModels = IterableExtensions.<String>toSet(IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(data.allAssociations, _function_2), _function_3));
     ArrayList<DAggregate> _arrayList = new ArrayList<DAggregate>();
@@ -82,27 +82,13 @@ public class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<
   @Override
   public CharSequence generateSkinParameters() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("skinparam class {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("ArrowColor MediumBlue");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BorderColor MediumBlue");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BackgroundColor AliceBlue");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
     _builder.append("skinparam package {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("BorderColor MediumBlue");
+    _builder.append("BorderColor FireBrick");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("FontColor MediumBlue");
+    _builder.append("FontColor FireBrick");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

@@ -9,6 +9,7 @@ Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.dm.div;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dim;bundle-version="0.1.0";visibility:=reexport,
+ com.mimacom.ddd.pub.pub;bundle-version="0.1.0",
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -17,15 +18,22 @@ Require-Bundle: com.mimacom.ddd.dm.dim;bundle-version="0.1.0";visibility:=reexpo
  org.eclipse.xtext.util,
  org.eclipse.emf.common,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
- org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.core.runtime;bundle-version="3.16.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.div.serializer,
- com.mimacom.ddd.dm.div.services,
- com.mimacom.ddd.dm.div.scoping,
- com.mimacom.ddd.dm.div,
+Export-Package: com.mimacom.ddd.dm.div,
+ com.mimacom.ddd.dm.div.derivedState,
+ com.mimacom.ddd.dm.div.diagramProvider,
+ com.mimacom.ddd.dm.div.formatting2,
+ com.mimacom.ddd.dm.div.generator,
+ com.mimacom.ddd.dm.div.impl,
  com.mimacom.ddd.dm.div.parser.antlr,
  com.mimacom.ddd.dm.div.parser.antlr.internal,
- com.mimacom.ddd.dm.div.generator,
+ com.mimacom.ddd.dm.div.plantuml,
+ com.mimacom.ddd.dm.div.scoping,
+ com.mimacom.ddd.dm.div.serializer,
+ com.mimacom.ddd.dm.div.services,
+ com.mimacom.ddd.dm.div.util,
  com.mimacom.ddd.dm.div.validation,
- com.mimacom.ddd.dm.div.formatting2
+ com.mimacom.ddd.sm.sim.derivedState
 Import-Package: org.apache.log4j

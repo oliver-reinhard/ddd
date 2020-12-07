@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class DimUtil extends DmxUtil {
+  @Override
   public String outermostSemanticContainerName(final EObject obj) {
     return this.domainName(obj);
   }

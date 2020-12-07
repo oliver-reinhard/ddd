@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
+	<extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="div.informationStructure.png"
+            diagramName="Domain Information View Structure (PNG)"
+            diagramType="div.informationStructure"
+            diagramRootClass="com.mimacom.ddd.dm.div.DomainInformationView"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.div.diagramProvider.DivTypeDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.div.diagramProvider.DivTypeDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="div.informationStructure.svg"
+            diagramName="Domain Information View Structure (SVG)"
+            diagramType="div.informationStructure"
+            diagramRootClass="com.mimacom.ddd.dm.div.DomainInformationView"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.div.diagramProvider.DivTypeDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.div.diagramProvider.DivTypeDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="div.informationStructure.eps"
+            diagramName="Domain Information View Structure (EPS)"
+            diagramType="div.informationStructure"
+            diagramRootClass="com.mimacom.ddd.dm.div.DomainInformationView"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.div.diagramProvider.DivTypeDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.div.diagramProvider.DivTypeDiagramRenderer">
+      </renderer>
+      
+      <diagramType
+            id="div.informationStructure"
+            name="Domain Information View Structure">
+      </diagramType>
+   </extension>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package 
 			uri = "http://www.mimacom.com/ddd/dm/div"

@@ -19,6 +19,7 @@ import com.mimacom.ddd.dm.base.base.DLiteral;
 import com.mimacom.ddd.dm.base.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQuery;
@@ -115,17 +116,32 @@ public class TypesUtil {
     return features;
   }
   
-  public DInformationModel domain(final EObject obj) {
-    return EcoreUtil2.<DInformationModel>getContainerOfType(obj, DInformationModel.class);
+  public DNamespace domain(final EObject obj) {
+    return EcoreUtil2.<DNamespace>getContainerOfType(obj, DNamespace.class);
   }
   
   public String domainName(final EObject obj) {
-    final DInformationModel d = this.domain(obj);
+    final DNamespace d = this.domain(obj);
     String _xifexpression = null;
     if ((d != null)) {
       _xifexpression = d.getName();
     } else {
-      _xifexpression = "NO_DOMAIN";
+      _xifexpression = "NO-DOMAIN";
+    }
+    return _xifexpression;
+  }
+  
+  public DInformationModel model(final EObject obj) {
+    return EcoreUtil2.<DInformationModel>getContainerOfType(obj, DInformationModel.class);
+  }
+  
+  public String modelName(final EObject obj) {
+    final DInformationModel d = this.model(obj);
+    String _xifexpression = null;
+    if ((d != null)) {
+      _xifexpression = d.getName();
+    } else {
+      _xifexpression = "NO-PARENT-MODEL";
     }
     return _xifexpression;
   }
@@ -143,6 +159,10 @@ public class TypesUtil {
       _xifexpression = "default";
     }
     return _xifexpression;
+  }
+  
+  public String outermostSemanticContainerName(final EObject obj) {
+    return this.modelName(obj);
   }
   
   /**
@@ -187,43 +207,43 @@ public class TypesUtil {
   /**
    * Precondition: d is the domain owning the association
    */
-  public boolean isTargetInsideDomain(final DAssociation a, final DInformationModel d) {
+  public boolean isTargetInsideModel(final DAssociation a, final DInformationModel d) {
     DEntityType _targetType = a.getTargetType();
     boolean _tripleNotEquals = (_targetType != null);
     if (_tripleNotEquals) {
-      final DInformationModel targetDomain = this.domain(a.getTargetType());
-      return Objects.equal(d, targetDomain);
+      final DInformationModel targetModel = this.model(a.getTargetType());
+      return Objects.equal(d, targetModel);
     }
     return false;
   }
   
-  public boolean isTargetInsideDomain(final DAssociation a) {
-    final DInformationModel d = this.domain(a);
+  public boolean isTargetInsideModel(final DAssociation a) {
+    final DInformationModel d = this.model(a);
     if ((d == null)) {
       return false;
     }
-    return this.isTargetInsideDomain(a, d);
+    return this.isTargetInsideModel(a, d);
   }
   
   /**
    * Precondition: d is the domain owning the feature
    */
-  public boolean isTypeInsideDomain(final DFeature f, final DInformationModel d) {
+  public boolean isTypeInsideModel(final DFeature f, final DInformationModel d) {
     DType _type = f.getType();
     boolean _tripleNotEquals = (_type != null);
     if (_tripleNotEquals) {
-      final DInformationModel targetDomain = this.domain(f.getType());
-      return Objects.equal(d, targetDomain);
+      final DInformationModel targetModel = this.model(f.getType());
+      return Objects.equal(d, targetModel);
     }
     return false;
   }
   
-  public boolean isTypeInsideDomain(final DFeature f) {
-    final DInformationModel d = this.domain(f);
+  public boolean isTypeInsideModel(final DFeature f) {
+    final DInformationModel d = this.model(f);
     if ((d == null)) {
       return false;
     }
-    return this.isTypeInsideDomain(f, d);
+    return this.isTypeInsideModel(f, d);
   }
   
   /**

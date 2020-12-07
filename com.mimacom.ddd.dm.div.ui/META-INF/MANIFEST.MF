@@ -24,8 +24,13 @@ Require-Bundle: com.mimacom.ddd.dm.div,
  org.eclipse.core.resources
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.div.ui.internal,
+Export-Package: com.mimacom.ddd.dm.div.ui,
  com.mimacom.ddd.dm.div.ui.contentassist,
+ com.mimacom.ddd.dm.div.ui.internal,
+ com.mimacom.ddd.dm.div.ui.labeling,
+ com.mimacom.ddd.dm.div.ui.outline,
+ com.mimacom.ddd.dm.div.ui.plantuml,
  com.mimacom.ddd.dm.div.ui.quickfix,
- com.mimacom.ddd.dm.div.ui.wizard
+ com.mimacom.ddd.dm.div.ui.wizard,
+ com.mimacom.ddd.dm.div.validation
 Bundle-Activator: com.mimacom.ddd.dm.div.ui.internal.DivActivator

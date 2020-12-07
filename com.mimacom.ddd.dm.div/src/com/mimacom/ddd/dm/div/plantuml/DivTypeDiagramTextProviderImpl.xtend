@@ -1,4 +1,4 @@
-package com.mimacom.ddd.sm.sim.plantuml
+package com.mimacom.ddd.dm.div.plantuml
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.base.DAggregate
@@ -13,22 +13,22 @@ import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
 import com.mimacom.ddd.dm.base.transpose.TAttributeTransposition
 import com.mimacom.ddd.dm.base.transpose.TComplexTypeTransposition
-import com.mimacom.ddd.sm.sim.SimUtil
-import com.mimacom.ddd.sm.sim.SystemInformationModel
+import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.div.DomainInformationView
 import java.util.ArrayList
 import org.eclipse.xtext.EcoreUtil2
 
-class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<SystemInformationModel> {
+class DivTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainInformationView> {
 
-	@Inject extension SimUtil
+	@Inject extension DimUtil
 
-	override canProvide(SystemInformationModel model) {
+	override canProvide(DomainInformationView model) {
 		model !== null && !(model.types.filter[!(it instanceof ITransposition)].empty && model.aggregates.filter [
 			!(it instanceof ITransposition)
 		].empty)
 	}
 
-	override TypeDiagramTextProviderData getData(SystemInformationModel model) {
+	override TypeDiagramTextProviderData getData(DomainInformationView model) {
 		val TypeDiagramTextProviderData data = new TypeDiagramTextProviderData()
 		data.allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof TAggregateTransposition)]
 		data.allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof TAssociationTransposition)]
@@ -43,15 +43,9 @@ class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<SystemI
 	}
 	
 	override generateSkinParameters() '''
-		skinparam class {
-			ArrowColor MediumBlue
-			BorderColor MediumBlue
-			BackgroundColor AliceBlue
-		}
-		
 		skinparam package {
-			BorderColor MediumBlue
-			FontColor MediumBlue
+			BorderColor FireBrick
+			FontColor FireBrick
 		}
 	'''
 }
