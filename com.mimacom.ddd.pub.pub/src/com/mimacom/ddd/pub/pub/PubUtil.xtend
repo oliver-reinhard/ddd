@@ -1,12 +1,7 @@
 package com.mimacom.ddd.pub.pub
 
-import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.base.DExpression
 import com.mimacom.ddd.dm.base.base.DRichText
-import com.mimacom.ddd.dm.base.richText.AbstractRichTextToPlainTextRenderer
-import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
-import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.pub.proto.ProtoAbbreviations
 import com.mimacom.ddd.pub.proto.ProtoAbstract
 import com.mimacom.ddd.pub.proto.ProtoAppendix
@@ -29,12 +24,8 @@ import com.mimacom.ddd.pub.proto.ProtoSubsubsection
 import com.mimacom.ddd.pub.proto.ProtoTOC
 import org.eclipse.emf.common.util.Enumerator
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.nodemodel.ICompositeNode
-import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 
-class PubUtil {
-	
-	@Inject extension DmxRichTextUtil
+class PubUtil extends DmxRichTextUtil {
 	
 	def dispatch String displayName(EObject obj) {
 		obj.eClass.name.replace("Titled", "")
@@ -46,12 +37,6 @@ class PubUtil {
 	
 	def dispatch String displayName(Object obj) {
 		throw new IllegalArgumentException("Unsupported object type: " + obj.class.name)
-	}
-	
-	def String guard(String subject, String alternative) {
-		if(subject !== null && ! subject.empty) return subject
-		if(alternative !== null) return alternative
-		return ""
 	}
 
 	/**
@@ -124,54 +109,10 @@ class PubUtil {
 		return result.head
 	}
 
-	def String toPlainText(DRichText text) {
+	override String toPlainText(DRichText text) {
 		if (! (text.eContainer instanceof TitledBlock || text.eContainer instanceof Division)) {
 			throw new IllegalArgumentException("Text is not the title of a TitledBlock or a Division")
 		}
-		val renderer = new AbstractRichTextToPlainTextRenderer {
-			
-			override protected getSourceText(DExpression expr) {
-				expr.getSourceTextFromXtextResource
-			}
-
-			override protected renderStyleExpression(DExpression expr, String parsedText) {
-				switch expr {
-					DmxContextReference:
-						super.renderStyleExpression(expr, expr.target.name)
-					DmxStaticReference:
-						super.renderStyleExpression(expr, expr.plainlinkText)
-					default:
-						throw new IllegalArgumentException("Unsupported content-block type: " + expr.class.name)
-				}
-			}
-			
-			override protected encode(String plainText) {
-				return plainText
-			}
-			
-		}
-		renderer.render(text) as String
-	}
-
-	protected def String plainlinkText(DmxStaticReference ref) {
-		if (! guard(ref.displayName, "").empty) {
-			if (ref.plural) {
-				return ref.displayName + "s"
-			}
-			return ref.displayName
-		}
-		return ref.target.name + "." + ref.member.name
-	}
-	
-	
-
-	/**
-	 * Preconditions: xtextObject is part of an XtextResource and the syntax the resource's text is valid.<p>
-	 * 
-	 * @return {@code null} if no corresponding node was be found in the syntax tree.
-	 */
-	def String getSourceCodeFromXtextResource(EObject xtextObject) {
-		val ICompositeNode node = NodeModelUtils.findActualNodeFor(xtextObject)
-		return node !== null ? node.text : null;
+		return super.toPlainText(text)
 	}
 }

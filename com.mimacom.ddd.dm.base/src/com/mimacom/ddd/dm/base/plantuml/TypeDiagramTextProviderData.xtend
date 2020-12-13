@@ -5,6 +5,7 @@ import com.mimacom.ddd.dm.base.base.DAssociation
 import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DNote
 import java.util.Collections
 
 class TypeDiagramTextProviderData {
@@ -17,4 +18,5 @@ class TypeDiagramTextProviderData {
 	public var Iterable<String> allReferencedModels = Collections.EMPTY_LIST
 	public var Iterable<DAttribute> allDetailAttributes = Collections.EMPTY_LIST
 	public var Iterable<DComplexType> allSubtypes = Collections.EMPTY_LIST
+	public var Iterable<DNote> allNotes = Collections.EMPTY_LIST
 }

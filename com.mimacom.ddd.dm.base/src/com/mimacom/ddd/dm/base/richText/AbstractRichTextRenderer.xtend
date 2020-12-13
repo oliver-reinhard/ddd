@@ -9,6 +9,8 @@ import com.mimacom.ddd.dm.base.styledText.StyledTextFactory
 import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser
 import java.util.List
+import org.eclipse.xtext.nodemodel.ICompositeNode
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 
 abstract class AbstractRichTextRenderer {
 
@@ -34,7 +36,7 @@ abstract class AbstractRichTextRenderer {
 			this.source = source
 			expressions = text.segments.filter(DExpression).toList
 			currentExpressionIndex = -1
-			val parser = new StyledTextParser(source, new RendererErrorMessageAcceptor)
+			val parser = createParser(source)
 			val span = parser.parse // throws IllegalStateException
 			if (span !== null) {
 				return span.render // the first level is always a pure "Plain" span => skip rendering
@@ -42,11 +44,16 @@ abstract class AbstractRichTextRenderer {
 		}
 		return ""
 	}
+	
+	protected def StyledTextParser createParser(String source) {
+		new StyledTextParser(source, new RendererErrorMessageAcceptor)
+	}
 
 	/**
 	 * Returns the source text underlying the rich text {@code text}, i.e. {@code text} is a structured form of the underlying source text.
 	 */
 	protected def String getSourceText(DRichText text) {
+		if (text === null) return ""
 		val StringBuilder b = new StringBuilder
 		for (s : text.segments) {
 			if (s instanceof DTextSegment) {
@@ -146,6 +153,9 @@ abstract class AbstractRichTextRenderer {
 
 	abstract protected def CharSequence renderStyleKeyword(DStyledTextSpan span)
 
+	/**
+	 * @param parsedText represents the plain text of the expression an can be used to provide an easy default implementation
+	 */
 	abstract protected def CharSequence renderStyleExpression(DExpression expr, String parsedText)
 
 	abstract protected def CharSequence renderStyleMonospace(DStyledTextSpan span)
@@ -157,4 +167,14 @@ abstract class AbstractRichTextRenderer {
 	abstract protected def CharSequence renderStyleSubscript(DStyledTextSpan span)
 
 	abstract protected def CharSequence renderStyleSuperscript(DStyledTextSpan span)
+	
+	
+
+	/**
+	 * Preconditions: expr is part of an XtextResource and the syntax the resource's text is valid
+	 */
+	static def String getSourceTextFromXtextResource(DExpression expr) {
+		val ICompositeNode node = NodeModelUtils.findActualNodeFor(expr)
+		return node.text // may be null
+	}
 }

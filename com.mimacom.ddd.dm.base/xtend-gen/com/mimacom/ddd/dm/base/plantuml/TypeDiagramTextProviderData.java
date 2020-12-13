@@ -5,6 +5,7 @@ import com.mimacom.ddd.dm.base.base.DAssociation;
 import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DNote;
 import java.util.Collections;
 
 @SuppressWarnings("all")
@@ -24,4 +25,6 @@ public class TypeDiagramTextProviderData {
   public Iterable<DAttribute> allDetailAttributes = Collections.EMPTY_LIST;
   
   public Iterable<DComplexType> allSubtypes = Collections.EMPTY_LIST;
+  
+  public Iterable<DNote> allNotes = Collections.EMPTY_LIST;
 }

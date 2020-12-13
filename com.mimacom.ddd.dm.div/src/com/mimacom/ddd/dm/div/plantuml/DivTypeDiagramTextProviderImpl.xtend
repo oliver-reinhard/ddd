@@ -7,7 +7,6 @@ import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DDetailType
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData
-import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderImpl
 import com.mimacom.ddd.dm.base.transpose.ITransposition
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
@@ -17,8 +16,9 @@ import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.dm.div.DomainInformationView
 import java.util.ArrayList
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.plantuml.AbstractTypeDiagramTextProviderImpl
 
-class DivTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainInformationView> {
+class DivTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl<DomainInformationView> {
 
 	@Inject extension DimUtil
 
@@ -43,9 +43,11 @@ class DivTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainI
 	}
 	
 	override generateSkinParameters() '''
+		«super.generateSkinParameters»
+			
 		skinparam package {
-			BorderColor FireBrick
-			FontColor FireBrick
+			BorderColor Orange
+			FontColor Orange
 		}
 	'''
 }

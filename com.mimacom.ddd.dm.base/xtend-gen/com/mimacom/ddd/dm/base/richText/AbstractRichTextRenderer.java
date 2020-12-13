@@ -14,6 +14,8 @@ import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -44,8 +46,7 @@ public abstract class AbstractRichTextRenderer {
       this.source = source;
       this.expressions = IterableExtensions.<DExpression>toList(Iterables.<DExpression>filter(text.getSegments(), DExpression.class));
       this.currentExpressionIndex = (-1);
-      AbstractRichTextRenderer.RendererErrorMessageAcceptor _rendererErrorMessageAcceptor = new AbstractRichTextRenderer.RendererErrorMessageAcceptor();
-      final StyledTextParser parser = new StyledTextParser(source, _rendererErrorMessageAcceptor);
+      final StyledTextParser parser = this.createParser(source);
       final DStyledTextSpan span = parser.parse();
       if ((span != null)) {
         return this.render(span);
@@ -54,10 +55,18 @@ public abstract class AbstractRichTextRenderer {
     return "";
   }
   
+  protected StyledTextParser createParser(final String source) {
+    AbstractRichTextRenderer.RendererErrorMessageAcceptor _rendererErrorMessageAcceptor = new AbstractRichTextRenderer.RendererErrorMessageAcceptor();
+    return new StyledTextParser(source, _rendererErrorMessageAcceptor);
+  }
+  
   /**
    * Returns the source text underlying the rich text {@code text}, i.e. {@code text} is a structured form of the underlying source text.
    */
   protected String getSourceText(final DRichText text) {
+    if ((text == null)) {
+      return "";
+    }
     final StringBuilder b = new StringBuilder();
     EList<IRichTextSegment> _segments = text.getSegments();
     for (final IRichTextSegment s : _segments) {
@@ -222,6 +231,9 @@ public abstract class AbstractRichTextRenderer {
   
   protected abstract CharSequence renderStyleKeyword(final DStyledTextSpan span);
   
+  /**
+   * @param parsedText represents the plain text of the expression an can be used to provide an easy default implementation
+   */
   protected abstract CharSequence renderStyleExpression(final DExpression expr, final String parsedText);
   
   protected abstract CharSequence renderStyleMonospace(final DStyledTextSpan span);
@@ -233,4 +245,12 @@ public abstract class AbstractRichTextRenderer {
   protected abstract CharSequence renderStyleSubscript(final DStyledTextSpan span);
   
   protected abstract CharSequence renderStyleSuperscript(final DStyledTextSpan span);
+  
+  /**
+   * Preconditions: expr is part of an XtextResource and the syntax the resource's text is valid
+   */
+  public static String getSourceTextFromXtextResource(final DExpression expr) {
+    final ICompositeNode node = NodeModelUtils.findActualNodeFor(expr);
+    return node.getText();
+  }
 }

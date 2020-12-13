@@ -19,8 +19,12 @@ import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.plantuml.PlantUmlTextProviderUtil;
+import com.mimacom.ddd.dm.base.plantuml.SkinparamClass;
+import com.mimacom.ddd.dm.base.plantuml.SkinparamGlobal;
+import com.mimacom.ddd.dm.base.plantuml.SkinparamNote;
+import com.mimacom.ddd.dm.base.plantuml.SkinparamPackage;
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData;
-import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderUtil;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
@@ -34,14 +38,26 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> implements IPlantUmlDiagramTextProvider<T> {
+public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> implements IPlantUmlDiagramTextProvider<T> {
   @Inject
   @Extension
   private TypesUtil _typesUtil;
   
   @Inject
   @Extension
-  private TypeDiagramTextProviderUtil _typeDiagramTextProviderUtil;
+  private PlantUmlTextProviderUtil _plantUmlTextProviderUtil;
+  
+  @Inject
+  private SkinparamGlobal skinparamGlobal;
+  
+  @Inject
+  private SkinparamClass skinparamClass;
+  
+  @Inject
+  private SkinparamPackage skinparamPackage;
+  
+  @Inject
+  private SkinparamNote skinparamNote;
   
   protected static final String MODEL_SHAPE = "<<Frame>>";
   
@@ -58,18 +74,26 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@startuml");
     _builder.newLine();
-    _builder.newLine();
-    _builder.append("hide empty members");
-    _builder.newLine();
-    _builder.newLine();
     CharSequence _generateSkinParameters = this.generateSkinParameters();
     _builder.append(_generateSkinParameters);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
-      boolean _isEmpty = model.getTypes().isEmpty();
+      boolean _isEmpty = model.getNotes().isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
+        _builder.append("\' all model notes");
+        _builder.newLine();
+        CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(model);
+        _builder.append(_generateNotes);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    {
+      boolean _isEmpty_1 = model.getTypes().isEmpty();
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
         _builder.append("\' all domain-level types");
         _builder.newLine();
         {
@@ -94,14 +118,14 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
         String _aggregateName = this._typesUtil.aggregateName(a);
         _builder.append(_aggregateName);
         _builder.append(" ");
-        _builder.append(TypeDiagramTextProviderImpl.AGGREGATE_SHAPE);
+        _builder.append(AbstractTypeDiagramTextProviderImpl.AGGREGATE_SHAPE);
         _builder.append(" {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         {
-          boolean _isEmpty_1 = a.getFeatures().isEmpty();
-          boolean _not_1 = (!_isEmpty_1);
-          if (_not_1) {
+          boolean _isEmpty_2 = a.getFeatures().isEmpty();
+          boolean _not_2 = (!_isEmpty_2);
+          if (_not_2) {
             CharSequence _generateAggregateQueries = this.generateAggregateQueries(a);
             _builder.append(_generateAggregateQueries, "\t");
           }
@@ -121,6 +145,9 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
         }
         _builder.append("}");
         _builder.newLine();
+        CharSequence _generateNotes_1 = this._plantUmlTextProviderUtil.generateNotes(a);
+        _builder.append(_generateNotes_1);
+        _builder.newLineIfNotEmpty();
       }
     }
     _builder.newLine();
@@ -148,8 +175,8 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     _builder.newLine();
     {
       for(final DAssociation a_2 : data.allAssociations) {
-        CharSequence _generateAssociation = this.generateAssociation(a_2);
-        _builder.append(_generateAssociation);
+        CharSequence _generateEntityAssociation = this.generateEntityAssociation(a_2);
+        _builder.append(_generateEntityAssociation);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -158,8 +185,8 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     _builder.newLine();
     {
       for(final DAttribute a_3 : data.allDetailAttributes) {
-        CharSequence _generateLink = this.generateLink(a_3);
-        _builder.append(_generateLink);
+        CharSequence _generateDetailAssociation = this.generateDetailAssociation(a_3);
+        _builder.append(_generateDetailAssociation);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -200,9 +227,19 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
   
   public CharSequence generateSkinParameters() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("skinparam package {");
+    _builder.append(this.skinparamGlobal);
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("}");
+    _builder.append(this.skinparamClass);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamPackage);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamNote);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("set NamespaceSeparator .");
     _builder.newLine();
     return _builder;
   }
@@ -212,7 +249,7 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     _builder.append("package ");
     _builder.append(domain);
     _builder.append(" ");
-    _builder.append(TypeDiagramTextProviderImpl.MODEL_SHAPE);
+    _builder.append(AbstractTypeDiagramTextProviderImpl.MODEL_SHAPE);
     _builder.append(" { ");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
@@ -225,7 +262,7 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     String _aggregateName = this._typesUtil.aggregateName(a);
     _builder.append(_aggregateName);
     _builder.append(" ");
-    _builder.append(TypeDiagramTextProviderImpl.AGGREGATE_SHAPE);
+    _builder.append(AbstractTypeDiagramTextProviderImpl.AGGREGATE_SHAPE);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
@@ -241,11 +278,8 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     _builder.append(" static queries");
     _builder.newLineIfNotEmpty();
     _builder.append("abstract class ");
-    String _name_1 = a.getName();
-    _builder.append(_name_1);
-    _builder.append(".");
-    String _name_2 = a.getName();
-    _builder.append(_name_2);
+    String _aggregateQueriesClassName = this._plantUmlTextProviderUtil.aggregateQueriesClassName(a);
+    _builder.append(_aggregateQueriesClassName);
     _builder.append(" ");
     String _spot = this.spot(a);
     _builder.append(_spot);
@@ -255,13 +289,21 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     {
       EList<DFeature> _features = a.getFeatures();
       for(final DFeature q : _features) {
-        CharSequence _generateStaticQuery = this.generateStaticQuery(((DQuery) q));
-        _builder.append(_generateStaticQuery, "\t");
+        CharSequence _generateAggregateQuery = this.generateAggregateQuery(((DQuery) q));
+        _builder.append(_generateAggregateQuery, "\t");
       }
     }
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
+    {
+      EList<DFeature> _features_1 = a.getFeatures();
+      for(final DFeature q_1 : _features_1) {
+        CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(q_1);
+        _builder.append(_generateNotes);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -274,8 +316,8 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
       }
     }
     _builder.append("class ");
-    CharSequence _typeName = this._typeDiagramTextProviderUtil.typeName(c);
-    _builder.append(_typeName);
+    String _typeQN = this._plantUmlTextProviderUtil.typeQN(c);
+    _builder.append(_typeQN);
     _builder.append(" ");
     String _spot = this.spot(c);
     _builder.append(_spot);
@@ -295,17 +337,35 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
+    CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(c);
+    _builder.append(_generateNotes);
+    _builder.newLineIfNotEmpty();
+    {
+      final Function1<DFeature, Boolean> _function_1 = (DFeature it) -> {
+        boolean _renderAsLink = this._plantUmlTextProviderUtil.renderAsLink(it);
+        return Boolean.valueOf((!_renderAsLink));
+      };
+      Iterable<DFeature> _filter_1 = IterableExtensions.<DFeature>filter(c.getFeatures(), _function_1);
+      for(final DFeature f_1 : _filter_1) {
+        CharSequence _generateNotes_1 = this._plantUmlTextProviderUtil.generateNotes(f_1);
+        _builder.append(_generateNotes_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   protected CharSequence _generateType(final DPrimitive p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
-    CharSequence _typeName = this._typeDiagramTextProviderUtil.typeName(p);
-    _builder.append(_typeName);
+    String _typeQN = this._plantUmlTextProviderUtil.typeQN(p);
+    _builder.append(_typeQN);
     _builder.append(" ");
     String _spot = this.spot(p);
     _builder.append(_spot);
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(p);
+    _builder.append(_generateNotes);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -317,8 +377,8 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
   public CharSequence generateEnumeration(final DEnumeration e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("enum ");
-    CharSequence _typeName = this._typeDiagramTextProviderUtil.typeName(e);
-    _builder.append(_typeName);
+    String _typeQN = this._plantUmlTextProviderUtil.typeQN(e);
+    _builder.append(_typeQN);
     _builder.append(" ");
     String _spot = this.spot(e);
     _builder.append(_spot);
@@ -335,15 +395,30 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     }
     _builder.append("}");
     _builder.newLine();
+    CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(e);
+    _builder.append(_generateNotes);
+    _builder.newLineIfNotEmpty();
+    {
+      EList<DLiteral> _literals_1 = e.getLiterals();
+      for(final DLiteral lit : _literals_1) {
+        CharSequence _generateNotes_1 = this._plantUmlTextProviderUtil.generateNotes(lit);
+        _builder.append(_generateNotes_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   protected CharSequence _generateType(final DType t) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("UNKNOWN META TYPE: ");
+    String _name = t.getClass().getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public CharSequence generateStaticQuery(final DQuery q) {
+  public CharSequence generateAggregateQuery(final DQuery q) {
     StringConcatenation _builder = new StringConcatenation();
     {
       DType _type = q.getType();
@@ -370,7 +445,7 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
   protected CharSequence _generateFeature(final DAttribute a) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      boolean _not = (!((a.getType() == null) || (a.getType() instanceof DDetailType)));
+      boolean _not = (!((a.getType() == null) || this._plantUmlTextProviderUtil.renderAsLink(a)));
       if (_not) {
         String _name = a.getName();
         _builder.append(_name);
@@ -438,54 +513,76 @@ public abstract class TypeDiagramTextProviderImpl<T extends DInformationModel> i
     return _builder;
   }
   
-  public CharSequence generateAssociation(final DAssociation a) {
-    String _name = a.getName();
-    String _plus = (_name + " ");
-    String _multiplicityText = this._typesUtil.multiplicityText(a, false);
-    final String targetLabel = (_plus + _multiplicityText);
-    CharSequence _switchResult = null;
-    DAssociationKind _kind = a.getKind();
-    if (_kind != null) {
-      switch (_kind) {
-        case REFERENCE:
-          EObject _eContainer = a.eContainer();
-          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), targetLabel, ">");
-          break;
-        case COMPOSITE:
-          EObject _eContainer_1 = a.eContainer();
-          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), targetLabel, ">");
-          break;
-        case INVERSE_COMPOSITE:
-          EObject _eContainer_2 = a.eContainer();
-          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), targetLabel, "*");
-          break;
-        default:
-          break;
+  public CharSequence generateEntityAssociation(final DAssociation a) {
+    CharSequence _xblockexpression = null;
+    {
+      String _name = a.getName();
+      String _plus = (_name + " ");
+      String _multiplicityText = this._typesUtil.multiplicityText(a, false);
+      final String targetLabel = (_plus + _multiplicityText);
+      CharSequence _switchResult = null;
+      DAssociationKind _kind = a.getKind();
+      if (_kind != null) {
+        switch (_kind) {
+          case REFERENCE:
+            EObject _eContainer = a.eContainer();
+            _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), targetLabel, ">");
+            break;
+          case COMPOSITE:
+            EObject _eContainer_1 = a.eContainer();
+            _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), targetLabel, ">");
+            break;
+          case INVERSE_COMPOSITE:
+            EObject _eContainer_2 = a.eContainer();
+            _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), targetLabel, "*");
+            break;
+          default:
+            break;
+        }
       }
+      final CharSequence text = _switchResult;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(text);
+      _builder.newLineIfNotEmpty();
+      CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(a);
+      _builder.append(_generateNotes);
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
     }
-    return _switchResult;
+    return _xblockexpression;
   }
   
-  public CharSequence generateLink(final DAttribute a) {
-    String _name = a.getName();
-    String _plus = (_name + " ");
-    String _multiplicityText = this._typesUtil.multiplicityText(a, false);
-    final String label = (_plus + _multiplicityText);
-    EObject _eContainer = a.eContainer();
-    return this.generateLink("+", ((DType) _eContainer), a.getType(), label, "");
+  public CharSequence generateDetailAssociation(final DAttribute a) {
+    CharSequence _xblockexpression = null;
+    {
+      String _name = a.getName();
+      String _plus = (_name + " ");
+      String _multiplicityText = this._typesUtil.multiplicityText(a, false);
+      final String label = (_plus + _multiplicityText);
+      StringConcatenation _builder = new StringConcatenation();
+      EObject _eContainer = a.eContainer();
+      CharSequence _generateLink = this.generateLink("+", ((DType) _eContainer), a.getType(), label, "");
+      _builder.append(_generateLink);
+      _builder.newLineIfNotEmpty();
+      CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(a);
+      _builder.append(_generateNotes);
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
   
   public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
     StringConcatenation _builder = new StringConcatenation();
-    CharSequence _typeName = this._typeDiagramTextProviderUtil.typeName(source);
-    _builder.append(_typeName);
+    String _typeQN = this._plantUmlTextProviderUtil.typeQN(source);
+    _builder.append(_typeQN);
     _builder.append(" ");
     _builder.append(sourceArrowhead);
     _builder.append("--");
     _builder.append(targetArrowhead);
     _builder.append(" ");
-    CharSequence _targetName = this._typeDiagramTextProviderUtil.targetName(source, target);
-    _builder.append(_targetName);
+    String _associationTargetQN = this._plantUmlTextProviderUtil.associationTargetQN(source, target);
+    _builder.append(_associationTargetQN);
     _builder.append(" : ");
     _builder.append(targetRole);
     _builder.newLineIfNotEmpty();

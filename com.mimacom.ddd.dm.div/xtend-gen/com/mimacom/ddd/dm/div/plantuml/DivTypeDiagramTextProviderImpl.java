@@ -8,8 +8,8 @@ import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DDetailType;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.plantuml.AbstractTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData;
-import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.base.transpose.ITransposition;
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition;
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition;
@@ -26,7 +26,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class DivTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainInformationView> {
+public class DivTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl<DomainInformationView> {
   @Inject
   @Extension
   private DimUtil _dimUtil;
@@ -82,13 +82,18 @@ public class DivTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<
   @Override
   public CharSequence generateSkinParameters() {
     StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateSkinParameters = super.generateSkinParameters();
+    _builder.append(_generateSkinParameters);
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
     _builder.append("skinparam package {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("BorderColor FireBrick");
+    _builder.append("BorderColor Orange");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("FontColor FireBrick");
+    _builder.append("FontColor Orange");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

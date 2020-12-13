@@ -71,7 +71,7 @@ public class DNoteImpl extends MinimalEObjectImpl.Container implements DNote
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DNoteColor COLOR_EDEFAULT = DNoteColor.WHITE;
+	protected static final DNoteColor COLOR_EDEFAULT = DNoteColor.DEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.

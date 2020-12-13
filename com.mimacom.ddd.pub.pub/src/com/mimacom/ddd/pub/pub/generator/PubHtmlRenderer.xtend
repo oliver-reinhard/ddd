@@ -9,7 +9,6 @@ import com.mimacom.ddd.dm.base.richText.AbstractRichTextToHtmlRenderer
 import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.base.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.dm.dmx.DmxContextReference
-import com.mimacom.ddd.dm.dmx.DmxRichTextUtil
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.dm.dmx.DmxUrlLiteral
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
@@ -47,7 +46,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 class PubHtmlRenderer extends AbstractPubRenderer {
 
 	@Inject extension RichTextUtil
-	@Inject extension DmxRichTextUtil
 	@Inject extension PubUtil
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil

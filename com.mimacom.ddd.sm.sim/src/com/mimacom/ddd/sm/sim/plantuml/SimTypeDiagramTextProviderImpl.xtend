@@ -7,7 +7,6 @@ import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DDetailType
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData
-import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderImpl
 import com.mimacom.ddd.dm.base.transpose.ITransposition
 import com.mimacom.ddd.dm.base.transpose.TAggregateTransposition
 import com.mimacom.ddd.dm.base.transpose.TAssociationTransposition
@@ -17,8 +16,9 @@ import com.mimacom.ddd.sm.sim.SimUtil
 import com.mimacom.ddd.sm.sim.SystemInformationModel
 import java.util.ArrayList
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.plantuml.AbstractTypeDiagramTextProviderImpl
 
-class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<SystemInformationModel> {
+class SimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl<SystemInformationModel> {
 
 	@Inject extension SimUtil
 
@@ -43,6 +43,8 @@ class SimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<SystemI
 	}
 	
 	override generateSkinParameters() '''
+		«super.generateSkinParameters»
+				
 		skinparam class {
 			ArrowColor MediumBlue
 			BorderColor MediumBlue

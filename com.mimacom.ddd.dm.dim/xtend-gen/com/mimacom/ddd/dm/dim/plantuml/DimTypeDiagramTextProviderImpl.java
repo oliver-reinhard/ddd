@@ -8,9 +8,10 @@ import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DDetailType;
 import com.mimacom.ddd.dm.base.base.DEntityType;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.plantuml.AbstractTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData;
-import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import org.eclipse.emf.ecore.EObject;
@@ -21,7 +22,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class DimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainInformationModel> {
+public class DimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl<DomainInformationModel> {
   @Inject
   @Extension
   private DimUtil _dimUtil;
@@ -73,12 +74,17 @@ public class DimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<
       return Boolean.valueOf((_superType != null));
     };
     data.allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_8);
+    data.allNotes = EcoreUtil2.<DNote>eAllOfType(model, DNote.class);
     return data;
   }
   
   @Override
   public CharSequence generateSkinParameters() {
     StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateSkinParameters = super.generateSkinParameters();
+    _builder.append(_generateSkinParameters);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("skinparam package {");
     _builder.newLine();
     _builder.append("\t");

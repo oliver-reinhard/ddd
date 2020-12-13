@@ -165,6 +165,21 @@ public class TypesUtil {
     return this.modelName(obj);
   }
   
+  public DComplexType containingType(final DFeature f) {
+    return EcoreUtil2.<DComplexType>getContainerOfType(f, DComplexType.class);
+  }
+  
+  public String containingTypeName(final DFeature f) {
+    final DComplexType t = this.containingType(f);
+    String _xifexpression = null;
+    if ((t != null)) {
+      _xifexpression = t.getName();
+    } else {
+      _xifexpression = "NO-CONTAINING-TYPE";
+    }
+    return _xifexpression;
+  }
+  
   /**
    * @param hideMandatory1   [1,1] is the default, return "" if true
    */

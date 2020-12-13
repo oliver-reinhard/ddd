@@ -24,14 +24,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//DNoteColor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DNoteColor">
-    <eLiterals name="WHITE"/>
-    <eLiterals name="RED" value="1"/>
-    <eLiterals name="ORANGE" value="2"/>
-    <eLiterals name="YELLOW" value="3"/>
-    <eLiterals name="GREEN" value="4"/>
-    <eLiterals name="BLUE" value="5"/>
-    <eLiterals name="PINK" value="6"/>
-    <eLiterals name="GREY" value="7"/>
+    <eLiterals name="DEFAULT"/>
+    <eLiterals name="WHITE" value="1"/>
+    <eLiterals name="RED" value="2"/>
+    <eLiterals name="ORANGE" value="4"/>
+    <eLiterals name="YELLOW" value="5"/>
+    <eLiterals name="GREEN" value="6"/>
+    <eLiterals name="BLUE" value="7"/>
+    <eLiterals name="PINK" value="8"/>
+    <eLiterals name="GREY" value="9"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="INoteContainer" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"

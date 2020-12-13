@@ -20,6 +20,16 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum DNoteColor implements Enumerator
 {
 	/**
+	 * The '<em><b>DEFAULT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DEFAULT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DEFAULT(0, "DEFAULT", "DEFAULT"),
+
+	/**
 	 * The '<em><b>WHITE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -27,7 +37,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	WHITE(0, "WHITE", "WHITE"),
+	WHITE(1, "WHITE", "WHITE"),
 
 	/**
 	 * The '<em><b>RED</b></em>' literal object.
@@ -37,7 +47,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	RED(1, "RED", "RED"),
+	RED(2, "RED", "RED"),
 
 	/**
 	 * The '<em><b>ORANGE</b></em>' literal object.
@@ -47,7 +57,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	ORANGE(2, "ORANGE", "ORANGE"),
+	ORANGE(4, "ORANGE", "ORANGE"),
 
 	/**
 	 * The '<em><b>YELLOW</b></em>' literal object.
@@ -57,7 +67,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	YELLOW(3, "YELLOW", "YELLOW"),
+	YELLOW(5, "YELLOW", "YELLOW"),
 
 	/**
 	 * The '<em><b>GREEN</b></em>' literal object.
@@ -67,7 +77,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	GREEN(4, "GREEN", "GREEN"),
+	GREEN(6, "GREEN", "GREEN"),
 
 	/**
 	 * The '<em><b>BLUE</b></em>' literal object.
@@ -77,7 +87,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	BLUE(5, "BLUE", "BLUE"),
+	BLUE(7, "BLUE", "BLUE"),
 
 	/**
 	 * The '<em><b>PINK</b></em>' literal object.
@@ -87,7 +97,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	PINK(6, "PINK", "PINK"),
+	PINK(8, "PINK", "PINK"),
 
 	/**
 	 * The '<em><b>GREY</b></em>' literal object.
@@ -97,7 +107,18 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	GREY(7, "GREY", "GREY");
+	GREY(9, "GREY", "GREY");
+
+	/**
+	 * The '<em><b>DEFAULT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DEFAULT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DEFAULT_VALUE = 0;
 
 	/**
 	 * The '<em><b>WHITE</b></em>' literal value.
@@ -108,7 +129,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WHITE_VALUE = 0;
+	public static final int WHITE_VALUE = 1;
 
 	/**
 	 * The '<em><b>RED</b></em>' literal value.
@@ -119,7 +140,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RED_VALUE = 1;
+	public static final int RED_VALUE = 2;
 
 	/**
 	 * The '<em><b>ORANGE</b></em>' literal value.
@@ -130,7 +151,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ORANGE_VALUE = 2;
+	public static final int ORANGE_VALUE = 4;
 
 	/**
 	 * The '<em><b>YELLOW</b></em>' literal value.
@@ -141,7 +162,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int YELLOW_VALUE = 3;
+	public static final int YELLOW_VALUE = 5;
 
 	/**
 	 * The '<em><b>GREEN</b></em>' literal value.
@@ -152,7 +173,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GREEN_VALUE = 4;
+	public static final int GREEN_VALUE = 6;
 
 	/**
 	 * The '<em><b>BLUE</b></em>' literal value.
@@ -163,7 +184,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BLUE_VALUE = 5;
+	public static final int BLUE_VALUE = 7;
 
 	/**
 	 * The '<em><b>PINK</b></em>' literal value.
@@ -174,7 +195,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PINK_VALUE = 6;
+	public static final int PINK_VALUE = 8;
 
 	/**
 	 * The '<em><b>GREY</b></em>' literal value.
@@ -185,7 +206,7 @@ public enum DNoteColor implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GREY_VALUE = 7;
+	public static final int GREY_VALUE = 9;
 
 	/**
 	 * An array of all the '<em><b>DNote Color</b></em>' enumerators.
@@ -196,6 +217,7 @@ public enum DNoteColor implements Enumerator
 	private static final DNoteColor[] VALUES_ARRAY =
 		new DNoteColor[]
 		{
+			DEFAULT,
 			WHITE,
 			RED,
 			ORANGE,
@@ -268,6 +290,7 @@ public enum DNoteColor implements Enumerator
 	{
 		switch (value)
 		{
+			case DEFAULT_VALUE: return DEFAULT;
 			case WHITE_VALUE: return WHITE;
 			case RED_VALUE: return RED;
 			case ORANGE_VALUE: return ORANGE;

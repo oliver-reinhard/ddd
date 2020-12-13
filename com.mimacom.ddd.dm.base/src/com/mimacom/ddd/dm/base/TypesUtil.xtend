@@ -121,11 +121,20 @@ class TypesUtil {
 
 	def String aggregateName(EObject obj) {
 		val a = obj.aggregate
-		return if (a !== null) a.name else "default"
+		return a !== null ? a.name : "default"
 	}
 
 	def String outermostSemanticContainerName(EObject obj) {
 		return obj.modelName
+	}
+
+	def DComplexType containingType(DFeature f) {
+		return EcoreUtil2.getContainerOfType(f, DComplexType)
+	}
+
+	def String containingTypeName(DFeature f) {
+		val t = f.containingType
+		return t !== null ?t.name : "NO-CONTAINING-TYPE"
 	}
 	
 	/**

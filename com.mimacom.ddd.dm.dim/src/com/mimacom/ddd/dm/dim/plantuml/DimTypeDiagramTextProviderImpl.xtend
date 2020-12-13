@@ -7,13 +7,14 @@ import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DComplexType
 import com.mimacom.ddd.dm.base.base.DDetailType
 import com.mimacom.ddd.dm.base.base.DEntityType
+import com.mimacom.ddd.dm.base.base.DNote
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData
-import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderImpl
 import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.dm.dim.DomainInformationModel
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.plantuml.AbstractTypeDiagramTextProviderImpl
 
-class DimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainInformationModel> {
+class DimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl<DomainInformationModel> {
 
 	@Inject extension DimUtil
 
@@ -35,10 +36,13 @@ class DimTypeDiagramTextProviderImpl extends TypeDiagramTextProviderImpl<DomainI
 		data.allReferencedModels = data.allEntitiesReferencedOutsideModel.map[modelName].toSet
 		data.allDetailAttributes = EcoreUtil2.eAllOfType(model, DAttribute).filter[getType instanceof DDetailType]
 		data.allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
+		data.allNotes = EcoreUtil2.eAllOfType(model, DNote)
 		return data
 	}
 	
 	override generateSkinParameters() '''
+		«super.generateSkinParameters»
+		
 		skinparam package {
 			BorderColor FireBrick
 			FontColor FireBrick

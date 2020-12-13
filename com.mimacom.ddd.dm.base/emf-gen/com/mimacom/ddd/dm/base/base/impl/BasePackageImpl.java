@@ -1791,6 +1791,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		// Initialize enums and add enum literals
 		initEEnum(dNoteColorEEnum, DNoteColor.class, "DNoteColor");
+		addEEnumLiteral(dNoteColorEEnum, DNoteColor.DEFAULT);
 		addEEnumLiteral(dNoteColorEEnum, DNoteColor.WHITE);
 		addEEnumLiteral(dNoteColorEEnum, DNoteColor.RED);
 		addEEnumLiteral(dNoteColorEEnum, DNoteColor.ORANGE);

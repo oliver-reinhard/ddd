@@ -190,4 +190,35 @@ public class RichTextUtil {
 		}
 		return b.toString();
 	}
+
+	/**
+	 * Replace characters reserved of PlanUML language by their "escaped" counterparts.
+	 * 
+	 * @param plainText can be {@code null}.
+	 * @return {@code null} if input is {@code null}
+	 */
+	public String escapePlantUml(String plainText) {
+		if (plainText == null || plainText.isEmpty()) {
+			return plainText;
+		}
+		final char[] source = plainText.toCharArray();
+		final StringBuilder b = new StringBuilder();
+		for (int i = 0; i < source.length; i++) {
+			final char c = source[i];
+			switch (c) {
+			case '<':
+				b.append("~<");
+				break;
+			case '\"':
+				b.append("~\"");
+				break;
+			case '\'':
+				b.append('`');  // backtick: there seems to be no way to escape leading comment character '
+				break;
+			default:
+				b.append(c);
+			}
+		}
+		return b.toString();
+	}
 }
