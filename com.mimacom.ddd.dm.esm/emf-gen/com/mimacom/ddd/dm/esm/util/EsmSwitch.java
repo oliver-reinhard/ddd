@@ -85,12 +85,12 @@ public class EsmSwitch<T> extends Switch<T>
 				EsmEntityStateModel esmEntityStateModel = (EsmEntityStateModel)theEObject;
 				T result = caseEsmEntityStateModel(esmEntityStateModel);
 				if (result == null) result = caseDModel(esmEntityStateModel);
-				if (result == null) result = caseINoteContainer(esmEntityStateModel);
 				if (result == null) result = caseIEsmStateModel(esmEntityStateModel);
 				if (result == null) result = caseINavigableMemberContainer(esmEntityStateModel);
 				if (result == null) result = caseIStaticReferenceTarget(esmEntityStateModel);
 				if (result == null) result = caseIDiagramRoot(esmEntityStateModel);
 				if (result == null) result = caseDNamedElement(esmEntityStateModel);
+				if (result == null) result = caseINoteContainer(esmEntityStateModel);
 				if (result == null) result = caseIEsmLayout(esmEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -356,22 +356,6 @@ public class EsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDModel(DModel object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -383,6 +367,22 @@ public class EsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINoteContainer(INoteContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}

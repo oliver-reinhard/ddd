@@ -45,6 +45,10 @@ public class DemEventsOverviewDiagramTextProviderImpl extends AbstractDemDiagram
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@startuml");
     _builder.newLine();
+    CharSequence _generateSkinParameters = this.generateSkinParameters();
+    _builder.append(_generateSkinParameters);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     String _allActorsText = this.allActorsText(actors.values());
     _builder.append(_allActorsText);
     _builder.newLineIfNotEmpty();

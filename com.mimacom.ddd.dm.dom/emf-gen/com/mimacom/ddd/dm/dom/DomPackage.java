@@ -78,13 +78,13 @@ public interface DomPackage extends EPackage
 	int DOM_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int DOM_MODEL__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -94,6 +94,15 @@ public interface DomPackage extends EPackage
 	 * @ordered
 	 */
 	int DOM_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_MODEL__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Snapshots</b></em>' containment reference list.
@@ -133,13 +142,13 @@ public interface DomPackage extends EPackage
 	int DOM_SNAPSHOT__NAME = BasePackage.DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int DOM_SNAPSHOT__ALIAS = BasePackage.DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -151,13 +160,22 @@ public interface DomPackage extends EPackage
 	int DOM_SNAPSHOT__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_SNAPSHOT__NOTES = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT__NAVIGABLE_MEMBERS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DOM_SNAPSHOT__NAVIGABLE_MEMBERS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -166,7 +184,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT__OBJECTS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DOM_SNAPSHOT__OBJECTS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Snapshot</em>' class.
@@ -175,7 +193,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_SNAPSHOT_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DOM_SNAPSHOT_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomObjectImpl <em>Object</em>}' class.
@@ -197,13 +215,13 @@ public interface DomPackage extends EPackage
 	int DOM_OBJECT__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_OBJECT__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DOM_OBJECT__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -288,13 +306,13 @@ public interface DomPackage extends EPackage
 	int DOM_NAMED_COMPLEX_OBJECT__NAME = DOM_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_NAMED_COMPLEX_OBJECT__ALIASES = DOM_OBJECT__ALIASES;
+	int DOM_NAMED_COMPLEX_OBJECT__ALIAS = DOM_OBJECT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

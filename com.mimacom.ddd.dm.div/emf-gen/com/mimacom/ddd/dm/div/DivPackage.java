@@ -79,13 +79,13 @@ public interface DivPackage extends EPackage
 	int DOMAIN_INFORMATION_VIEW__NAME = TransposePackage.TINFORMATION_MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_INFORMATION_VIEW__ALIASES = TransposePackage.TINFORMATION_MODEL__ALIASES;
+	int DOMAIN_INFORMATION_VIEW__ALIAS = TransposePackage.TINFORMATION_MODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

@@ -23,6 +23,11 @@ public class DemEventDiagramTextProviderImpl extends AbstractDemDiagramTextProvi
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@startuml");
     _builder.newLine();
+    _builder.newLine();
+    CharSequence _generateSkinParameters = this.generateSkinParameters();
+    _builder.append(_generateSkinParameters);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     String _eventText = this.eventText(event);
     _builder.append(_eventText);
     _builder.newLineIfNotEmpty();
@@ -32,6 +37,7 @@ public class DemEventDiagramTextProviderImpl extends AbstractDemDiagramTextProvi
     String _allFlowsText = this.allFlowsText(event);
     _builder.append(_allFlowsText);
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("@enduml");
     _builder.newLine();
     final String result = _builder.toString();

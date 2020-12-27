@@ -11,10 +11,10 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DRichText;
-import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.DemNotification;
+import com.mimacom.ddd.dm.dem.DemTrigger;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
@@ -82,8 +82,8 @@ public class DemFormatter extends DmxFormatter {
       it.newLine();
     };
     document.append(this.textRegionExtensions.regionFor(event).keyword(this._demGrammarAccess.getDemDomainEventAccess().getByKeyword_9_1()), _function_4);
-    EList<DemActor> _triggers = event.getTriggers();
-    for (final DemActor t : _triggers) {
+    EList<DemTrigger> _triggers = event.getTriggers();
+    for (final DemTrigger t : _triggers) {
       {
         final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
           it.oneSpace();
@@ -92,9 +92,9 @@ public class DemFormatter extends DmxFormatter {
         final Procedure1<IHiddenRegionFormatter> _function_6 = (IHiddenRegionFormatter it) -> {
           it.indent();
         };
-        document.<DemActor>surround(t, _function_6);
+        document.<DemTrigger>surround(t, _function_6);
         final Procedure1<IHiddenRegionFormatter> _function_7 = (IHiddenRegionFormatter it) -> {
-          DemActor _last = IterableExtensions.<DemActor>last(event.getTriggers());
+          DemTrigger _last = IterableExtensions.<DemTrigger>last(event.getTriggers());
           boolean _equals = Objects.equal(t, _last);
           if (_equals) {
             it.setNewLines(2);
@@ -102,7 +102,7 @@ public class DemFormatter extends DmxFormatter {
             it.newLine();
           }
         };
-        document.<DemActor>append(t, _function_7);
+        document.<DemTrigger>append(t, _function_7);
       }
     }
     final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {

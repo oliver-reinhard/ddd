@@ -2160,7 +2160,7 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DmxComplexObject:
-	//	type=[DComplexType] DomFieldListStartSymbol
+	//	type=[DComplexType] DmxFieldListStartSymbol
 	//	fields+=DmxField*
 	//	'}';
 	public DmxGrammarAccess.DmxComplexObjectElements getDmxComplexObjectAccess() {
@@ -2172,7 +2172,9 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxField:
-	//	feature=[DFeature] "=" value=super::DExpression;
+	//	feature=[DFeature] "=" value=super::DExpression
+	//	description=DRichText?
+	//	notes+=DNote*;
 	public DmxGrammarAccess.DmxFieldElements getDmxFieldAccess() {
 		return gaDmx.getDmxFieldAccess();
 	}
@@ -2321,14 +2323,14 @@ public class PubProtoGrammarAccess extends AbstractGrammarElementFinder {
 		return getDECIMALAccess().getRule();
 	}
 	
-	//DomFieldListStartSymbol:
+	//DmxFieldListStartSymbol:
 	//	'{';
-	public DmxGrammarAccess.DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
-		return gaDmx.getDomFieldListStartSymbolAccess();
+	public DmxGrammarAccess.DmxFieldListStartSymbolElements getDmxFieldListStartSymbolAccess() {
+		return gaDmx.getDmxFieldListStartSymbolAccess();
 	}
 	
-	public ParserRule getDomFieldListStartSymbolRule() {
-		return getDomFieldListStartSymbolAccess().getRule();
+	public ParserRule getDmxFieldListStartSymbolRule() {
+		return getDmxFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

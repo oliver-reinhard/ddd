@@ -7,5 +7,40 @@
 			class = "com.mimacom.ddd.dm.dom.DomPackage"
 			genModel = "model/dom.genmodel" />
 	</extension>
+   
+   <extension
+         point="com.mimacom.ddd.pub.pub.diagramProvider">
+      <renderer
+            id="dom.objectDiagram.png"
+            diagramName="Domain Entity State Diagram (PNG)"
+            diagramType="dom.objectDiagram"
+            diagramRootClass="com.mimacom.ddd.dm.dom.DomModel"
+            outputFileFormat="PNG"
+            rendererClass="com.mimacom.ddd.dm.dom.diagramProvider.DomObjectDiagramRendererPNGExtensionFactory:com.mimacom.ddd.dm.dom.diagramProvider.DomObjectDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dom.objectDiagram.svg"
+            diagramName="Domain Entity State Diagram (SVG)"
+            diagramType="dom.objectDiagram"
+            diagramRootClass="com.mimacom.ddd.dm.dom.DomModel"
+            outputFileFormat="SVG"
+            rendererClass="com.mimacom.ddd.dm.dom.diagramProvider.DomObjectDiagramRendererSVGExtensionFactory:com.mimacom.ddd.dm.dom.diagramProvider.DomObjectDiagramRenderer">
+      </renderer>
+      
+      <renderer
+            id="dom.objectDiagram.eps"
+            diagramName="Domain Entity State Diagram (EPS)"
+            diagramType="dom.objectDiagram"
+            diagramRootClass="com.mimacom.ddd.dm.dom.DomModel"
+            outputFileFormat="EPS"
+            rendererClass="com.mimacom.ddd.dm.dom.diagramProvider.DomObjectDiagramRendererEPSExtensionFactory:com.mimacom.ddd.dm.dom.diagramProvider.DomObjectDiagramRenderer">
+      </renderer>
+      
+      <diagramType
+            id="dom.objectDiagram"
+            name="Domain Object Diagram">
+      </diagramType>
+   </extension>
 
 </plugin>

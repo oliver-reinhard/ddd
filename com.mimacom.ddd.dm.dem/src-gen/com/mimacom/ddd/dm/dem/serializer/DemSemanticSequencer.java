@@ -22,6 +22,7 @@ import com.mimacom.ddd.dm.dem.DemMessage;
 import com.mimacom.ddd.dm.dem.DemNotification;
 import com.mimacom.ddd.dm.dem.DemPackage;
 import com.mimacom.ddd.dm.dem.DemService;
+import com.mimacom.ddd.dm.dem.DemTrigger;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -143,6 +144,9 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DemPackage.DEM_SERVICE:
 				sequence_DemService(context, (DemService) semanticObject); 
+				return; 
+			case DemPackage.DEM_TRIGGER:
+				sequence_DemTrigger(context, (DemTrigger) semanticObject); 
 				return; 
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
@@ -322,7 +326,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         type=[DType|ID] 
 	 *         multiplicity=DMultiplicity? 
 	 *         description=DRichText? 
@@ -339,7 +343,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DNamedPredicate returns DNamedPredicate
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? notes+=DNote* predicate=DmxOrExpression)
+	 *     (name=ID alias=ID? description=DRichText? notes+=DNote* predicate=DmxOrExpression)
 	 */
 	protected void sequence_DNamedPredicate(ISerializationContext context, DNamedPredicate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -375,7 +379,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DemCaseConjunction returns DemCaseConjunction
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? (selector=DmxOrExpression | otherwise?='otherwise') predicates+=DNamedPredicate+)
+	 *     (name=ID alias=ID? description=DRichText? (selector=DmxOrExpression | otherwise?='otherwise') predicates+=DNamedPredicate+)
 	 */
 	protected void sequence_DemCaseConjunction(ISerializationContext context, DemCaseConjunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -389,11 +393,11 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
 	 *         context+=DContext+ 
-	 *         triggers+=[DemActor|ID]* 
+	 *         triggers+=DemTrigger* 
 	 *         notifications+=DemNotification* 
 	 *         preconditionsCNF+=DNamedPredicate* 
 	 *         (postconditionsDNF+=DemCaseConjunction+ | postconditionsDNF+=DNamedPredicate+)?
@@ -427,7 +431,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DemHumanActorRole returns DemHumanActorRole
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? notes+=DNote*)
+	 *     (name=ID alias=ID? description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DemHumanActorRole(ISerializationContext context, DemHumanActorRole semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -451,7 +455,14 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DemNotification returns DemNotification
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* message=DemMessage notified=[DemActor|ID] description=DRichText?)
+	 *     (
+	 *         name=ID 
+	 *         alias=ID? 
+	 *         message=DemMessage 
+	 *         notified=[DemActor|ID] 
+	 *         description=DRichText? 
+	 *         notes+=DNote*
+	 *     )
 	 */
 	protected void sequence_DemNotification(ISerializationContext context, DemNotification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -464,9 +475,21 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DemService returns DemService
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? notes+=DNote*)
+	 *     (name=ID alias=ID? description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DemService(ISerializationContext context, DemService semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DemTrigger returns DemTrigger
+	 *
+	 * Constraint:
+	 *     (actor=[DemActor|ID] notes+=DNote*)
+	 */
+	protected void sequence_DemTrigger(ISerializationContext context, DemTrigger semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

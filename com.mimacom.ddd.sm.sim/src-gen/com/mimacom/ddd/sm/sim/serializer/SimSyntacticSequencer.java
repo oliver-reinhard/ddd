@@ -58,14 +58,14 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getDAggregateKeywordRule())
 			return getDAggregateKeywordToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDmxFieldListStartSymbolRule())
+			return getDmxFieldListStartSymbolToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
 			return getDmxOpCastToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpInstanceOfRule())
 			return getDmxOpInstanceOfToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpSingleAssignRule())
 			return getDmxOpSingleAssignToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getDomFieldListStartSymbolRule())
-			return getDomFieldListStartSymbolToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -78,6 +78,16 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "aggregate";
+	}
+	
+	/**
+	 * DmxFieldListStartSymbol:
+	 * 	'{';
+	 */
+	protected String getDmxFieldListStartSymbolToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
 	}
 	
 	/**
@@ -108,16 +118,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ":=";
-	}
-	
-	/**
-	 * DomFieldListStartSymbol:
-	 * 	'{';
-	 */
-	protected String getDomFieldListStartSymbolToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "{";
 	}
 	
 	@Override

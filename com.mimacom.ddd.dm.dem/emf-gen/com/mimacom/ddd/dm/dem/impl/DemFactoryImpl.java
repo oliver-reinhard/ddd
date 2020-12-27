@@ -65,6 +65,7 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 		switch (eClass.getClassifierID())
 		{
 			case DemPackage.DEM_DOMAIN_EVENT: return createDemDomainEvent();
+			case DemPackage.DEM_TRIGGER: return createDemTrigger();
 			case DemPackage.DEM_CASE_CONJUNCTION: return createDemCaseConjunction();
 			case DemPackage.DEM_NOTIFICATION: return createDemNotification();
 			case DemPackage.DEM_MESSAGE: return createDemMessage();
@@ -86,6 +87,17 @@ public class DemFactoryImpl extends EFactoryImpl implements DemFactory
 	{
 		DemDomainEventImplCustom demDomainEvent = new DemDomainEventImplCustom();
 		return demDomainEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DemTrigger createDemTrigger()
+	{
+		DemTriggerImpl demTrigger = new DemTriggerImpl();
+		return demTrigger;
 	}
 
 	/**

@@ -74,6 +74,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
 			case BasePackage.DNAMED_PREDICATE: return createDNamedPredicate();
+			case BasePackage.DCOMPLEX_TYPE_PROXY_DUMMY: return createDComplexTypeProxyDummy();
+			case BasePackage.DFEATURE_PROXY_DUMMY: return createDFeatureProxyDummy();
 			case BasePackage.DSTATE: return createDState();
 			case BasePackage.DSTATE_EVENT: return createDStateEvent();
 			default:
@@ -233,6 +235,30 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
 		return dNamedPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DComplexTypeProxyDummy createDComplexTypeProxyDummy()
+	{
+		DComplexTypeProxyDummyImpl dComplexTypeProxyDummy = new DComplexTypeProxyDummyImpl();
+		return dComplexTypeProxyDummy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DFeatureProxyDummy createDFeatureProxyDummy()
+	{
+		DFeatureProxyDummyImpl dFeatureProxyDummy = new DFeatureProxyDummyImpl();
+		return dFeatureProxyDummy;
 	}
 
 	/**

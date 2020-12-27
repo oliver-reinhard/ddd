@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.base.DAssociation;
 import com.mimacom.ddd.dm.base.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DComplexTypeProxyDummy;
 import com.mimacom.ddd.dm.base.base.DContext;
 import com.mimacom.ddd.dm.base.base.DDetailType;
 import com.mimacom.ddd.dm.base.base.DEntityNature;
@@ -16,6 +17,7 @@ import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DFeature;
+import com.mimacom.ddd.dm.base.base.DFeatureProxyDummy;
 import com.mimacom.ddd.dm.base.base.DImport;
 import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DLiteral;
@@ -315,6 +317,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dComplexTypeProxyDummyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dFeatureProxyDummyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass dQueryEClass = null;
 
 	/**
@@ -523,7 +539,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDNamedElement_Aliases()
+	public EAttribute getDNamedElement_Alias()
 	{
 		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1315,6 +1331,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EClass getDComplexTypeProxyDummy()
+	{
+		return dComplexTypeProxyDummyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDFeatureProxyDummy()
+	{
+		return dFeatureProxyDummyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDQuery()
 	{
 		return dQueryEClass;
@@ -1462,7 +1500,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
 		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
-		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
+		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIAS);
 		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
 
 		dNoteEClass = createEClass(DNOTE);
@@ -1565,6 +1603,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dAttributeEClass, DATTRIBUTE__DETAIL);
 		createEAttribute(dAttributeEClass, DATTRIBUTE__KEY);
 
+		dComplexTypeProxyDummyEClass = createEClass(DCOMPLEX_TYPE_PROXY_DUMMY);
+
+		dFeatureProxyDummyEClass = createEClass(DFEATURE_PROXY_DUMMY);
+
 		dQueryEClass = createEClass(DQUERY);
 		createEReference(dQueryEClass, DQUERY__PARAMETERS);
 		createEReference(dQueryEClass, DQUERY__RETURNS);
@@ -1615,10 +1657,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dRichTextEClass.getESuperTypes().add(this.getDExpression());
 		dModelEClass.getESuperTypes().add(this.getDNamedElement());
+		dModelEClass.getESuperTypes().add(this.getINoteContainer());
 		dNamespaceEClass.getESuperTypes().add(this.getDNamedElement());
 		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
 		dInformationModelEClass.getESuperTypes().add(this.getDModel());
-		dInformationModelEClass.getESuperTypes().add(this.getINoteContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getIAggregateContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getITypeContainer());
 		dInformationModelEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
@@ -1654,6 +1696,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dFeatureEClass.getESuperTypes().add(this.getDNavigableMember());
 		dAssociationEClass.getESuperTypes().add(this.getDFeature());
 		dAttributeEClass.getESuperTypes().add(this.getDFeature());
+		dComplexTypeProxyDummyEClass.getESuperTypes().add(this.getDComplexType());
+		dFeatureProxyDummyEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dQueryParameterEClass.getESuperTypes().add(this.getDNavigableMember());
@@ -1674,7 +1718,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNamedElement_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dNoteEClass, DNote.class, "DNote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1778,6 +1822,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dComplexTypeProxyDummyEClass, DComplexTypeProxyDummy.class, "DComplexTypeProxyDummy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dFeatureProxyDummyEClass, DFeatureProxyDummy.class, "DFeatureProxyDummy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dQueryEClass, DQuery.class, "DQuery", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDQuery_Parameters(), this.getDQueryParameter(), null, "parameters", null, 0, -1, DQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

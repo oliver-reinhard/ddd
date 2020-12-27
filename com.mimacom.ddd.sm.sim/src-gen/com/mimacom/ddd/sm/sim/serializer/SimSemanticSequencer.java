@@ -901,6 +901,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (kind=STypeModelKind | kind=SystemInformationModelKind) 
 	 *         name=ID 
+	 *         alias=ID? 
 	 *         generate?='generate'? 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 

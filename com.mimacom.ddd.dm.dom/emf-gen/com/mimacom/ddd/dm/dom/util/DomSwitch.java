@@ -86,6 +86,7 @@ public class DomSwitch<T> extends Switch<T>
 				T result = caseDomModel(domModel);
 				if (result == null) result = caseDModel(domModel);
 				if (result == null) result = caseDNamedElement(domModel);
+				if (result == null) result = caseINoteContainer(domModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,6 +95,7 @@ public class DomSwitch<T> extends Switch<T>
 				DomSnapshot domSnapshot = (DomSnapshot)theEObject;
 				T result = caseDomSnapshot(domSnapshot);
 				if (result == null) result = caseDNamedElement(domSnapshot);
+				if (result == null) result = caseINoteContainer(domSnapshot);
 				if (result == null) result = caseINavigableMemberContainer(domSnapshot);
 				if (result == null) result = caseIDiagramRoot(domSnapshot);
 				if (result == null) result = defaultCase(theEObject);
@@ -205,6 +207,22 @@ public class DomSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -248,22 +266,6 @@ public class DomSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIDiagramRoot(IDiagramRoot object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

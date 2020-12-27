@@ -18,6 +18,7 @@ SystemInformationModel:
 	|	kind=SystemInformationModelKind 'information' 'model'		
 	)
 	name=ID
+	('alias' alias=ID)?
 	 (^generate?='generate')?
 	(description=DRichText)?
 	(notes+=DNote)*

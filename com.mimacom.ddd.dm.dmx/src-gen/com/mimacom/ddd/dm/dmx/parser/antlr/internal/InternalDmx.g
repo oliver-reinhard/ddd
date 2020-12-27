@@ -141,6 +141,93 @@ ruleDNamespace returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleDNote
+entryRuleDNote returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDNoteRule()); }
+	iv_ruleDNote=ruleDNote
+	{ $current=$iv_ruleDNote.current; }
+	EOF;
+
+// Rule DNote
+ruleDNote returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='NOTE'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDNoteAccess().getNOTEKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDNoteAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDNoteRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDNoteAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNoteAccess().getTextDRichTextParserRuleCall_3_0());
+				}
+				lv_text_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNoteRule());
+					}
+					set(
+						$current,
+						"text",
+						lv_text_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDNoteAccess().getColorDNoteColorEnumRuleCall_4_0());
+				}
+				lv_color_4_0=ruleDNoteColor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDNoteRule());
+					}
+					set(
+						$current,
+						"color",
+						lv_color_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNoteColor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDNoteAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
 // Entry rule entryRuleDmxModel
 entryRuleDmxModel returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDmxModelRule()); }
@@ -3187,9 +3274,9 @@ ruleDmxComplexObject[EObject in_current]  returns [EObject current=in_current]
 			)
 		)
 		{
-			newCompositeNode(grammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDmxComplexObjectAccess().getDmxFieldListStartSymbolParserRuleCall_1());
 		}
-		ruleDomFieldListStartSymbol
+		ruleDmxFieldListStartSymbol
 		{
 			afterParserOrEnumRuleCall();
 		}
@@ -3271,6 +3358,44 @@ ruleDmxField returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDmxFieldAccess().getDescriptionDRichTextParserRuleCall_3_0());
+				}
+				lv_description_3_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDmxFieldRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDmxFieldAccess().getNotesDNoteParserRuleCall_4_0());
+				}
+				lv_notes_4_0=ruleDNote
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDmxFieldRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DNote");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -3999,15 +4124,15 @@ ruleDECIMAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	)
 ;
 
-// Entry rule entryRuleDomFieldListStartSymbol
-entryRuleDomFieldListStartSymbol returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getDomFieldListStartSymbolRule()); }
-	iv_ruleDomFieldListStartSymbol=ruleDomFieldListStartSymbol
-	{ $current=$iv_ruleDomFieldListStartSymbol.current.getText(); }
+// Entry rule entryRuleDmxFieldListStartSymbol
+entryRuleDmxFieldListStartSymbol returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDmxFieldListStartSymbolRule()); }
+	iv_ruleDmxFieldListStartSymbol=ruleDmxFieldListStartSymbol
+	{ $current=$iv_ruleDmxFieldListStartSymbol.current.getText(); }
 	EOF;
 
-// Rule DomFieldListStartSymbol
-ruleDomFieldListStartSymbol returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule DmxFieldListStartSymbol
+ruleDmxFieldListStartSymbol returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -4017,7 +4142,7 @@ ruleDomFieldListStartSymbol returns [AntlrDatatypeRuleToken current=new AntlrDat
 	kw='{'
 	{
 		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getDomFieldListStartSymbolAccess().getLeftCurlyBracketKeyword());
+		newLeafNode(kw, grammarAccess.getDmxFieldListStartSymbolAccess().getLeftCurlyBracketKeyword());
 	}
 ;
 

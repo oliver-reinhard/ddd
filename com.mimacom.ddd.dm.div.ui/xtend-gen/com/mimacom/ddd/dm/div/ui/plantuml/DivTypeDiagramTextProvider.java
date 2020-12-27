@@ -6,9 +6,13 @@ import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.div.DomainInformationView;
 import com.mimacom.ddd.dm.div.plantuml.DivTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.div.ui.internal.DivActivator;
+import java.util.List;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
@@ -55,11 +59,22 @@ public class DivTypeDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
-    DModel _model = namespace.getModel();
-    final DomainInformationView model = ((DomainInformationView) _model);
-    boolean _canProvide = this.actualProvider.canProvide(model);
-    if (_canProvide) {
-      return this.actualProvider.diagramText(model);
+    DModel _model = null;
+    if (namespace!=null) {
+      _model=namespace.getModel();
+    }
+    final DModel model = _model;
+    if ((model instanceof DomainInformationView)) {
+      final List<Diagnostic> validationErrors = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
+      boolean _isEmpty = validationErrors.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        return "note \"Information view has validation errors.\" as N1";
+      }
+      boolean _canProvide = this.actualProvider.canProvide(((DomainInformationView)model));
+      if (_canProvide) {
+        return this.actualProvider.diagramText(((DomainInformationView)model));
+      }
     }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("note \"No structures to show.\" as N1");

@@ -77,24 +77,28 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cReadOnlyViewAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final Keyword cReadOnlyViewReadKeyword_3_0_0 = (Keyword)cReadOnlyViewAssignment_3_0.eContents().get(0);
-		private final Keyword cOnlyKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
-		private final Assignment cNotesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cNotesDNoteParserRuleCall_5_0 = (RuleCall)cNotesAssignment_5.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTypesAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTypesDivTypeParserRuleCall_7_0_0 = (RuleCall)cTypesAssignment_7_0.eContents().get(0);
-		private final Assignment cAggregatesAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final RuleCall cAggregatesDivAggregateParserRuleCall_7_1_0 = (RuleCall)cAggregatesAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cReadOnlyViewAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final Keyword cReadOnlyViewReadKeyword_4_0_0 = (Keyword)cReadOnlyViewAssignment_4_0.eContents().get(0);
+		private final Keyword cOnlyKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
+		private final Assignment cNotesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cNotesDNoteParserRuleCall_6_0 = (RuleCall)cNotesAssignment_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Alternatives cAlternatives_8 = (Alternatives)cGroup.eContents().get(8);
+		private final Assignment cTypesAssignment_8_0 = (Assignment)cAlternatives_8.eContents().get(0);
+		private final RuleCall cTypesDivTypeParserRuleCall_8_0_0 = (RuleCall)cTypesAssignment_8_0.eContents().get(0);
+		private final Assignment cAggregatesAssignment_8_1 = (Assignment)cAlternatives_8.eContents().get(1);
+		private final RuleCall cAggregatesDivAggregateParserRuleCall_8_1_0 = (RuleCall)cAggregatesAssignment_8_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//DomainInformationView:
 		//	'information' 'view'
-		//	name=ID (readOnlyView?='read' 'only')?
+		//	name=ID ('alias' alias=ID)? (readOnlyView?='read' 'only')?
 		//	//	 (^generate?='generate')?
 		//	description=DRichText?
 		//	notes+=DNote*
@@ -102,7 +106,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'information' 'view' name=ID (readOnlyView?='read' 'only')? //	 (^generate?='generate')?
+		//'information' 'view' name=ID ('alias' alias=ID)? (readOnlyView?='read' 'only')? //	 (^generate?='generate')?
 		//description=DRichText? notes+=DNote* '{' (types+=DivType | aggregates+=DivAggregate)* '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -118,51 +122,63 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//(readOnlyView?='read' 'only')?
+		//('alias' alias=ID)?
 		public Group getGroup_3() { return cGroup_3; }
 		
+		//'alias'
+		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		
+		//alias=ID
+		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
+		
+		//ID
+		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
+		
+		//(readOnlyView?='read' 'only')?
+		public Group getGroup_4() { return cGroup_4; }
+		
 		//readOnlyView?='read'
-		public Assignment getReadOnlyViewAssignment_3_0() { return cReadOnlyViewAssignment_3_0; }
+		public Assignment getReadOnlyViewAssignment_4_0() { return cReadOnlyViewAssignment_4_0; }
 		
 		//'read'
-		public Keyword getReadOnlyViewReadKeyword_3_0_0() { return cReadOnlyViewReadKeyword_3_0_0; }
+		public Keyword getReadOnlyViewReadKeyword_4_0_0() { return cReadOnlyViewReadKeyword_4_0_0; }
 		
 		//'only'
-		public Keyword getOnlyKeyword_3_1() { return cOnlyKeyword_3_1; }
+		public Keyword getOnlyKeyword_4_1() { return cOnlyKeyword_4_1; }
 		
 		////	 (^generate?='generate')?
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
 		
 		//notes+=DNote*
-		public Assignment getNotesAssignment_5() { return cNotesAssignment_5; }
+		public Assignment getNotesAssignment_6() { return cNotesAssignment_6; }
 		
 		//DNote
-		public RuleCall getNotesDNoteParserRuleCall_5_0() { return cNotesDNoteParserRuleCall_5_0; }
+		public RuleCall getNotesDNoteParserRuleCall_6_0() { return cNotesDNoteParserRuleCall_6_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
+		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 		
 		//(types+=DivType | aggregates+=DivAggregate)*
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		public Alternatives getAlternatives_8() { return cAlternatives_8; }
 		
 		//types+=DivType
-		public Assignment getTypesAssignment_7_0() { return cTypesAssignment_7_0; }
+		public Assignment getTypesAssignment_8_0() { return cTypesAssignment_8_0; }
 		
 		//DivType
-		public RuleCall getTypesDivTypeParserRuleCall_7_0_0() { return cTypesDivTypeParserRuleCall_7_0_0; }
+		public RuleCall getTypesDivTypeParserRuleCall_8_0_0() { return cTypesDivTypeParserRuleCall_8_0_0; }
 		
 		//aggregates+=DivAggregate
-		public Assignment getAggregatesAssignment_7_1() { return cAggregatesAssignment_7_1; }
+		public Assignment getAggregatesAssignment_8_1() { return cAggregatesAssignment_8_1; }
 		
 		//DivAggregate
-		public RuleCall getAggregatesDivAggregateParserRuleCall_7_1_0() { return cAggregatesDivAggregateParserRuleCall_7_1_0; }
+		public RuleCall getAggregatesDivAggregateParserRuleCall_8_1_0() { return cAggregatesDivAggregateParserRuleCall_8_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class DivGrabAggregateRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.div.Div.DivGrabAggregateRule");
@@ -1862,7 +1878,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DomainInformationView:
 	//	'information' 'view'
-	//	name=ID (readOnlyView?='read' 'only')?
+	//	name=ID ('alias' alias=ID)? (readOnlyView?='read' 'only')?
 	//	//	 (^generate?='generate')?
 	//	description=DRichText?
 	//	notes+=DNote*
@@ -2188,7 +2204,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DomainInformationModel:
 	//	'information' 'model'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*
 	//	'{' (types+=DimType | aggregates+=DimAggregate)*
@@ -2202,7 +2218,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DimAggregate DAggregate:
-	//	DAggregateKeyword {DimAggregate} name=ID ('alias' aliases+=ID)*
+	//	DAggregateKeyword {DimAggregate} name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*
 	//	'{' ('query' features+=DimQuery)*
@@ -2240,7 +2256,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DConstraint DNamedPredicate:
 	//	'constraint'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	':'
 	//	predicate=DExpression
 	//	description=DRichText?
@@ -2256,7 +2272,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	//DimPrimitive DPrimitive:
 	//	{DimPrimitive}
 	//	'primitive'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	'redefines' redefines=[DmxArchetype] description=DRichText?
 	//	notes+=DNote* ('{'
 	//	constraints+=DConstraint+
@@ -2272,7 +2288,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	//DimEnumeration DEnumeration:
 	//	{DimEnumeration}
 	//	'enumeration'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*
 	//	'{' (literals+=DimLiteral (',' literals+=DimLiteral)*)?
@@ -2287,7 +2303,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DimLiteral DLiteral:
-	//	{DimLiteral} name=ID ('alias' aliases+=ID)*
+	//	{DimLiteral} name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*;
 	public DimGrammarAccess.DimLiteralElements getDimLiteralAccess() {
@@ -2340,7 +2356,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DState:
-	//	name=ID;
+	//	name=ID ('alias' alias=ID)?;
 	public DimGrammarAccess.DStateElements getDStateAccess() {
 		return gaDim.getDStateAccess();
 	}
@@ -2350,7 +2366,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DStateEvent:
-	//	name=ID;
+	//	name=ID ('alias' alias=ID)?;
 	public DimGrammarAccess.DStateEventElements getDStateEventAccess() {
 		return gaDim.getDStateEventAccess();
 	}
@@ -2374,7 +2390,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DimComplexType returns DComplexType:
-	//	name=ID ('alias' aliases+=ID)* ('extends' superType=[DComplexType])?
+	//	name=ID ('alias' alias=ID)? ('extends' superType=[DComplexType])?
 	//	description=DRichText?
 	//	notes+=DNote*;
 	public DimGrammarAccess.DimComplexTypeElements getDimComplexTypeAccess() {
@@ -2397,7 +2413,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DimAssociation DAssociation:
 	//	{DimAssociation} derived?='derived'?
-	//	name=ID ('alias' aliases+=ID)* (kind=DAssociationKind | kind=DAssociationKindInverse "contains") type=[DEntityType]? // optional: allows parser to continue parsing potential targets, caught by validation
+	//	name=ID ('alias' alias=ID)? (kind=DAssociationKind | kind=DAssociationKindInverse "contains") type=[DEntityType]? // optional: allows parser to continue parsing potential targets, caught by validation
 	//	multiplicity=DMultiplicity?
 	//	description=DRichText?
 	//	notes+=DNote*;
@@ -2431,7 +2447,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DimAttribute DAttribute:
 	//	{DimAttribute} detail?='detail'?
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	':'
 	//	type=[DType]? // optional: allows parser to continue parsing potential targets, caught by validation
 	//	multiplicity=DMultiplicity?
@@ -2447,7 +2463,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DimQuery DQuery:
-	//	{DimQuery} name=ID ('alias' aliases+=ID)*
+	//	{DimQuery} name=ID ('alias' alias=ID)?
 	//	'(' (parameters+=DimQueryParameter ("," parameters+=DimQueryParameter)*)? ')'
 	//	':'
 	//	type=[DType]? // optional: allows parser to continue parsing potential targets, caught by validation
@@ -3063,7 +3079,7 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DmxComplexObject:
-	//	type=[DComplexType] DomFieldListStartSymbol
+	//	type=[DComplexType] DmxFieldListStartSymbol
 	//	fields+=DmxField*
 	//	'}';
 	public DmxGrammarAccess.DmxComplexObjectElements getDmxComplexObjectAccess() {
@@ -3075,7 +3091,9 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxField:
-	//	feature=[DFeature] "=" value=DExpression;
+	//	feature=[DFeature] "=" value=DExpression
+	//	description=DRichText?
+	//	notes+=DNote*;
 	public DmxGrammarAccess.DmxFieldElements getDmxFieldAccess() {
 		return gaDmx.getDmxFieldAccess();
 	}
@@ -3224,14 +3242,14 @@ public class DivGrammarAccess extends AbstractGrammarElementFinder {
 		return getDECIMALAccess().getRule();
 	}
 	
-	//DomFieldListStartSymbol:
+	//DmxFieldListStartSymbol:
 	//	'{';
-	public DmxGrammarAccess.DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
-		return gaDmx.getDomFieldListStartSymbolAccess();
+	public DmxGrammarAccess.DmxFieldListStartSymbolElements getDmxFieldListStartSymbolAccess() {
+		return gaDmx.getDmxFieldListStartSymbolAccess();
 	}
 	
-	public ParserRule getDomFieldListStartSymbolRule() {
-		return getDomFieldListStartSymbolAccess().getRule();
+	public ParserRule getDmxFieldListStartSymbolRule() {
+		return getDmxFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

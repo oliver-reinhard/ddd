@@ -4,6 +4,7 @@ package com.mimacom.ddd.sm.sus.util;
 
 import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import com.mimacom.ddd.sm.sus.*;
 
@@ -74,6 +75,7 @@ public class SusSwitch<T> extends Switch<T> {
 				T result = caseUserStory(userStory);
 				if (result == null) result = caseDModel(userStory);
 				if (result == null) result = caseDNamedElement(userStory);
+				if (result == null) result = caseINoteContainer(userStory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,6 +110,21 @@ public class SusSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDNamedElement(DNamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object) {
 		return null;
 	}
 

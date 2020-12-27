@@ -19,7 +19,6 @@ import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import java.util.ArrayList;
 import java.util.Set;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -77,40 +76,5 @@ public class SimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProvi
     };
     data.allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_6);
     return data;
-  }
-  
-  @Override
-  public CharSequence generateSkinParameters() {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _generateSkinParameters = super.generateSkinParameters();
-    _builder.append(_generateSkinParameters);
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("skinparam class {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("ArrowColor MediumBlue");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BorderColor MediumBlue");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BackgroundColor AliceBlue");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("skinparam package {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BorderColor MediumBlue");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("FontColor MediumBlue");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
   }
 }

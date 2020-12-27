@@ -67,7 +67,7 @@ public class DmxTypeCheckingTest {
     this.dimParseHelper = dimInjector.<ParseHelper>getInstance(ParseHelper.class);
   }
   
-  public EList<DmxTest> parse(final CharSequence dmxSourceText) {
+  protected EList<DmxTest> parse(final CharSequence dmxSourceText) {
     try {
       final ResourceSet resourceSet = this.resourceSetProvider.get();
       StringConcatenation _builder = new StringConcatenation();
@@ -100,7 +100,13 @@ public class DmxTypeCheckingTest {
       _builder_2.append("information model CustomTypes {");
       _builder_2.newLine();
       _builder_2.append("\t");
-      _builder_2.append("primitive P1 redefines Natural");
+      _builder_2.append("primitive P1 redefines Natural{");
+      _builder_2.newLine();
+      _builder_2.append("\t\t");
+      _builder_2.append("constraint Range: self | self > true AND self < 100");
+      _builder_2.newLine();
+      _builder_2.append("\t");
+      _builder_2.append("}");
       _builder_2.newLine();
       _builder_2.append("\t");
       _builder_2.append("enumeration E1 { L1, L2 }");
@@ -167,18 +173,19 @@ public class DmxTypeCheckingTest {
       _builder_2.newLine();
       _builder_2.append("}");
       _builder_2.newLine();
-      final DNamespace customTypes = this.dimParseHelper.parse(_builder_2, resourceSet);
-      Assertions.assertNotNull(customTypes);
-      final EList<Resource.Diagnostic> ctErrors = customTypes.eResource().getErrors();
+      final DNamespace dimNamespace = this.dimParseHelper.parse(_builder_2, resourceSet);
+      Assertions.assertNotNull(dimNamespace);
+      final EList<Resource.Diagnostic> ctErrors = dimNamespace.eResource().getErrors();
       boolean _isEmpty_1 = ctErrors.isEmpty();
       StringConcatenation _builder_3 = new StringConcatenation();
       _builder_3.append("Parse errors in custom types: ");
       String _join_1 = IterableExtensions.join(ctErrors, ", ");
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
-      DModel _model_1 = customTypes.getModel();
+      DModel _model_1 = dimNamespace.getModel();
       final DomainInformationModel dimModel = ((DomainInformationModel) _model_1);
       Assertions.assertNotNull(dimModel);
+      this.assertNoValidationErrors(dimModel);
       Assertions.assertEquals(DmxTypeCheckingTest.DIM.getDimPrimitive(), dimModel.getTypes().get(0).eClass());
       Assertions.assertEquals(DmxTypeCheckingTest.DIM.getDimEnumeration(), dimModel.getTypes().get(1).eClass());
       final DType detailA = dimModel.getTypes().get(2);
@@ -202,6 +209,16 @@ public class DmxTypeCheckingTest {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  @Test
+  public void testParse() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("// empty");
+    _builder.newLine();
+    this.parse(_builder);
   }
   
   @Test

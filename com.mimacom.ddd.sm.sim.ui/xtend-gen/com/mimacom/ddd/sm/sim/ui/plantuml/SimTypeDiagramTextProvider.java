@@ -6,9 +6,13 @@ import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.sm.sim.SystemInformationModel;
 import com.mimacom.ddd.sm.sim.plantuml.SimTypeDiagramTextProviderImpl;
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;
+import java.util.List;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
@@ -55,12 +59,21 @@ public class SimTypeDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
-    if ((namespace != null)) {
-      DModel _model = namespace.getModel();
-      final SystemInformationModel model = ((SystemInformationModel) _model);
-      boolean _canProvide = this.actualProvider.canProvide(model);
+    DModel _model = null;
+    if (namespace!=null) {
+      _model=namespace.getModel();
+    }
+    final DModel model = _model;
+    if ((model instanceof SystemInformationModel)) {
+      final List<Diagnostic> validationErrors = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
+      boolean _isEmpty = validationErrors.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        return "note \"Information model has validation errors.\" as N1";
+      }
+      boolean _canProvide = this.actualProvider.canProvide(((SystemInformationModel)model));
       if (_canProvide) {
-        return this.actualProvider.diagramText(model);
+        return this.actualProvider.diagramText(((SystemInformationModel)model));
       }
     }
     StringConcatenation _builder = new StringConcatenation();

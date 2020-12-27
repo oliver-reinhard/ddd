@@ -6,9 +6,9 @@ import "http://www.mimacom.com/ddd/dm/base"
 
 @Override 
 DNamespace:
-	(imports+=DImport)*
 	'domain'
 	name=DQualifiedName
+	(imports+=DImport)*
 	model=DomModel;
 	
 DomModel:
@@ -16,8 +16,9 @@ DomModel:
 
 DomSnapshot:
 	'snapshot' name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
+	(notes+=DNote)*
 	'{'
 	(objects+=DomObject)*
 	'}';
@@ -28,4 +29,6 @@ DomObject:
 DomNamedComplexObject:
 	name=ID
 	'=' 
-	object=(DmxEntity | DmxDetail);
+	object=(DmxEntity | DmxDetail)
+	(description=DRichText)?
+	(notes+=DNote)*;

@@ -6,9 +6,13 @@ import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.plantuml.EsmStateDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.esm.ui.internal.EsmActivator;
+import java.util.List;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
@@ -21,11 +25,11 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
+public class EsmStateDiagramTextProvider extends AbstractDiagramTextProvider {
   @Inject
   private EsmStateDiagramTextProviderImpl actualProvider;
   
-  public EsmDiagramTextProvider() {
+  public EsmStateDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   
@@ -55,18 +59,22 @@ public class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DNamespace namespace = document.<DNamespace>readOnly(_function);
-    EsmEntityStateModel _xifexpression = null;
-    DModel _model = namespace.getModel();
-    if ((_model instanceof EsmEntityStateModel)) {
-      DModel _model_1 = namespace.getModel();
-      _xifexpression = ((EsmEntityStateModel) _model_1);
-    } else {
-      _xifexpression = null;
+    DModel _model = null;
+    if (namespace!=null) {
+      _model=namespace.getModel();
     }
-    final EsmEntityStateModel model = _xifexpression;
-    boolean _canProvide = this.actualProvider.canProvide(model);
-    if (_canProvide) {
-      return this.actualProvider.diagramText(model);
+    final DModel model = _model;
+    if ((model instanceof EsmEntityStateModel)) {
+      final List<Diagnostic> validationErrors = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
+      boolean _isEmpty = validationErrors.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        return "note \"State model has validation errors.\" as N1";
+      }
+      boolean _canProvide = this.actualProvider.canProvide(((EsmEntityStateModel)model));
+      if (_canProvide) {
+        return this.actualProvider.diagramText(((EsmEntityStateModel)model));
+      }
     }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("note \"No state model to show.\" as N1");

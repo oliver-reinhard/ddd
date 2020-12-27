@@ -18,7 +18,7 @@ DNamespace:
 DomainInformationModel:
 	'information' 'model'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*
 	'{'
@@ -30,7 +30,7 @@ DimAggregate returns DAggregate:
 	DAggregateKeyword
 	{DimAggregate}
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*
 	'{'
@@ -49,7 +49,7 @@ DimType returns DType:
 DConstraint returns DNamedPredicate:
 	'constraint'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	':'
 	predicate=DExpression
 	(description=DRichText)?
@@ -59,7 +59,7 @@ DimPrimitive returns DPrimitive:
 	{DimPrimitive}
 	'primitive'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	'redefines' redefines=[DmxArchetype]
 	(description=DRichText)?
 	(notes+=DNote)*
@@ -73,7 +73,7 @@ DimEnumeration returns DEnumeration:
 	{DimEnumeration}
 	'enumeration'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*
 	'{'
@@ -84,7 +84,7 @@ DimEnumeration returns DEnumeration:
 DimLiteral returns DLiteral:
 	{DimLiteral}
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*;
 
@@ -117,10 +117,12 @@ enum DEntityNatureRelationship returns DEntityNature:
 	RELATIONSHIP='relationship';	
 
 DState:
-	name=ID;
+	name=ID
+	('alias' alias=ID)?;
 
 DStateEvent:
-	name=ID;
+	name=ID
+	('alias' alias=ID)?;
 
 DimDetailType returns DDetailType:
 	{DimDetailType}
@@ -133,7 +135,7 @@ DimDetailType returns DDetailType:
 
 fragment DimComplexType returns DComplexType:
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	('extends' superType=[DComplexType|ID])?
 	(description=DRichText)?
 	(notes+=DNote)*;
@@ -145,7 +147,7 @@ DimAssociation returns DAssociation:
 	{DimAssociation}
 	(derived?='derived')? 
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(kind=DAssociationKind | (kind=DAssociationKindInverse "contains"))
 	(type=[DEntityType|ID])?  // optional: allows parser to continue parsing potential targets, caught by validation
 	(multiplicity=DMultiplicity)?
@@ -162,7 +164,7 @@ DimAttribute returns DAttribute:
 	{DimAttribute}
 	(detail?='detail')?
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	':'
 	(type=[DType|ID])? // optional: allows parser to continue parsing potential targets, caught by validation
 	(multiplicity=DMultiplicity)?
@@ -173,7 +175,7 @@ DimAttribute returns DAttribute:
 DimQuery returns DQuery:
 	{DimQuery}
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	'(' (parameters+=DimQueryParameter ( "," parameters+=DimQueryParameter)*)? ')'
 	':' 
 	(type=[DType|ID])?  // optional: allows parser to continue parsing potential targets, caught by validation

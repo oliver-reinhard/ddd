@@ -15,7 +15,6 @@ import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.DomainInformationModel;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -76,25 +75,5 @@ public class DimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProvi
     data.allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_8);
     data.allNotes = EcoreUtil2.<DNote>eAllOfType(model, DNote.class);
     return data;
-  }
-  
-  @Override
-  public CharSequence generateSkinParameters() {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _generateSkinParameters = super.generateSkinParameters();
-    _builder.append(_generateSkinParameters);
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("skinparam package {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BorderColor FireBrick");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("FontColor FireBrick");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
   }
 }

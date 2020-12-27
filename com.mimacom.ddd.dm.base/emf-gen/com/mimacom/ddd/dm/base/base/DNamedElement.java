@@ -2,8 +2,6 @@
  */
 package com.mimacom.ddd.dm.base.base;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.base.DNamedElement#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAliases <em>Aliases</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAlias <em>Alias</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.DNamedElement#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -49,16 +47,26 @@ public interface DNamedElement extends EObject
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Aliases</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Aliases</em>' attribute list.
-	 * @see com.mimacom.ddd.dm.base.base.BasePackage#getDNamedElement_Aliases()
+	 * @return the value of the '<em>Alias</em>' attribute.
+	 * @see #setAlias(String)
+	 * @see com.mimacom.ddd.dm.base.base.BasePackage#getDNamedElement_Alias()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getAliases();
+	String getAlias();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAlias <em>Alias</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alias</em>' attribute.
+	 * @see #getAlias()
+	 * @generated
+	 */
+	void setAlias(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

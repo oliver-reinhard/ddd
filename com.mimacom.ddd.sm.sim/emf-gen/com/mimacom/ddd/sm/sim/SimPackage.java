@@ -79,13 +79,13 @@ public interface SimPackage extends EPackage
 	int SYSTEM_INFORMATION_MODEL__NAME = TransposePackage.TINFORMATION_MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_INFORMATION_MODEL__ALIASES = TransposePackage.TINFORMATION_MODEL__ALIASES;
+	int SYSTEM_INFORMATION_MODEL__ALIAS = TransposePackage.TINFORMATION_MODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

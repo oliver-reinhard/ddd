@@ -551,7 +551,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 		// Add supertypes to classes
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getDModel());
-		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 		esmEntityStateModelEClass.getESuperTypes().add(this.getIEsmStateModel());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());

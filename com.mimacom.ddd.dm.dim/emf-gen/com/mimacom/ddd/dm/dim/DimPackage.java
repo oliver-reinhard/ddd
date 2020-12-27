@@ -77,13 +77,13 @@ public interface DimPackage extends EPackage
 	int DOMAIN_INFORMATION_MODEL__NAME = BasePackage.DINFORMATION_MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_INFORMATION_MODEL__ALIASES = BasePackage.DINFORMATION_MODEL__ALIASES;
+	int DOMAIN_INFORMATION_MODEL__ALIAS = BasePackage.DINFORMATION_MODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -168,13 +168,13 @@ public interface DimPackage extends EPackage
 	int DIM_AGGREGATE__NAME = BasePackage.DAGGREGATE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_AGGREGATE__ALIASES = BasePackage.DAGGREGATE__ALIASES;
+	int DIM_AGGREGATE__ALIAS = BasePackage.DAGGREGATE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -286,13 +286,13 @@ public interface DimPackage extends EPackage
 	int DIM_TYPE__NAME = BasePackage.DTYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_TYPE__ALIASES = BasePackage.DTYPE__ALIASES;
+	int DIM_TYPE__ALIAS = BasePackage.DTYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -377,13 +377,13 @@ public interface DimPackage extends EPackage
 	int DIM_SIMPLE_TYPE__NAME = BasePackage.DSIMPLE_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_SIMPLE_TYPE__ALIASES = BasePackage.DSIMPLE_TYPE__ALIASES;
+	int DIM_SIMPLE_TYPE__ALIAS = BasePackage.DSIMPLE_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -468,13 +468,13 @@ public interface DimPackage extends EPackage
 	int DIM_PRIMITIVE__NAME = BasePackage.DPRIMITIVE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_PRIMITIVE__ALIASES = BasePackage.DPRIMITIVE__ALIASES;
+	int DIM_PRIMITIVE__ALIAS = BasePackage.DPRIMITIVE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -568,13 +568,13 @@ public interface DimPackage extends EPackage
 	int DIM_ENUMERATION__NAME = BasePackage.DENUMERATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_ENUMERATION__ALIASES = BasePackage.DENUMERATION__ALIASES;
+	int DIM_ENUMERATION__ALIAS = BasePackage.DENUMERATION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -677,13 +677,13 @@ public interface DimPackage extends EPackage
 	int DIM_LITERAL__NAME = BasePackage.DLITERAL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_LITERAL__ALIASES = BasePackage.DLITERAL__ALIASES;
+	int DIM_LITERAL__ALIAS = BasePackage.DLITERAL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -786,13 +786,13 @@ public interface DimPackage extends EPackage
 	int DIM_COMPLEX_TYPE__NAME = BasePackage.DCOMPLEX_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_COMPLEX_TYPE__ALIASES = BasePackage.DCOMPLEX_TYPE__ALIASES;
+	int DIM_COMPLEX_TYPE__ALIAS = BasePackage.DCOMPLEX_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -922,13 +922,13 @@ public interface DimPackage extends EPackage
 	int DIM_DETAIL_TYPE__NAME = BasePackage.DDETAIL_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_DETAIL_TYPE__ALIASES = BasePackage.DDETAIL_TYPE__ALIASES;
+	int DIM_DETAIL_TYPE__ALIAS = BasePackage.DDETAIL_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1058,13 +1058,13 @@ public interface DimPackage extends EPackage
 	int DIM_ENTITY_TYPE__NAME = BasePackage.DENTITY_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_ENTITY_TYPE__ALIASES = BasePackage.DENTITY_TYPE__ALIASES;
+	int DIM_ENTITY_TYPE__ALIAS = BasePackage.DENTITY_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1230,13 +1230,13 @@ public interface DimPackage extends EPackage
 	int DIM_FEATURE__NAME = BasePackage.DFEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_FEATURE__ALIASES = BasePackage.DFEATURE__ALIASES;
+	int DIM_FEATURE__ALIAS = BasePackage.DFEATURE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1348,13 +1348,13 @@ public interface DimPackage extends EPackage
 	int DIM_ASSOCIATION__NAME = BasePackage.DASSOCIATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_ASSOCIATION__ALIASES = BasePackage.DASSOCIATION__ALIASES;
+	int DIM_ASSOCIATION__ALIAS = BasePackage.DASSOCIATION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1502,13 +1502,13 @@ public interface DimPackage extends EPackage
 	int DIM_ATTRIBUTE__NAME = BasePackage.DATTRIBUTE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_ATTRIBUTE__ALIASES = BasePackage.DATTRIBUTE__ALIASES;
+	int DIM_ATTRIBUTE__ALIAS = BasePackage.DATTRIBUTE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1638,13 +1638,13 @@ public interface DimPackage extends EPackage
 	int DIM_QUERY__NAME = BasePackage.DQUERY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_QUERY__ALIASES = BasePackage.DQUERY__ALIASES;
+	int DIM_QUERY__ALIAS = BasePackage.DQUERY__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1783,13 +1783,13 @@ public interface DimPackage extends EPackage
 	int DIM_QUERY_PARAMETER__NAME = BasePackage.DQUERY_PARAMETER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIM_QUERY_PARAMETER__ALIASES = BasePackage.DQUERY_PARAMETER__ALIASES;
+	int DIM_QUERY_PARAMETER__ALIAS = BasePackage.DQUERY_PARAMETER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

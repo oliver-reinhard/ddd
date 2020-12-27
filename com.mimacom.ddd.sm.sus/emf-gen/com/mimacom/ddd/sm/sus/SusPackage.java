@@ -78,13 +78,13 @@ public interface SusPackage extends EPackage {
 	int USER_STORY__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__ALIASES = BasePackage.DMODEL__ALIASES;
+	int USER_STORY__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -94,6 +94,15 @@ public interface SusPackage extends EPackage {
 	 * @ordered
 	 */
 	int USER_STORY__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_STORY__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.

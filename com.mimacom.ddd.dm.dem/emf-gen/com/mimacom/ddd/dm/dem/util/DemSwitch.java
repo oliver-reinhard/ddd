@@ -85,11 +85,19 @@ public class DemSwitch<T> extends Switch<T>
 				DemDomainEvent demDomainEvent = (DemDomainEvent)theEObject;
 				T result = caseDemDomainEvent(demDomainEvent);
 				if (result == null) result = caseDModel(demDomainEvent);
-				if (result == null) result = caseINoteContainer(demDomainEvent);
 				if (result == null) result = caseINavigableMemberContainer(demDomainEvent);
 				if (result == null) result = caseIStaticReferenceTarget(demDomainEvent);
 				if (result == null) result = caseIDiagramRoot(demDomainEvent);
 				if (result == null) result = caseDNamedElement(demDomainEvent);
+				if (result == null) result = caseINoteContainer(demDomainEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DemPackage.DEM_TRIGGER:
+			{
+				DemTrigger demTrigger = (DemTrigger)theEObject;
+				T result = caseDemTrigger(demTrigger);
+				if (result == null) result = caseINoteContainer(demTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,8 +135,8 @@ public class DemSwitch<T> extends Switch<T>
 				DemActorModel demActorModel = (DemActorModel)theEObject;
 				T result = caseDemActorModel(demActorModel);
 				if (result == null) result = caseDModel(demActorModel);
-				if (result == null) result = caseINoteContainer(demActorModel);
 				if (result == null) result = caseDNamedElement(demActorModel);
+				if (result == null) result = caseINoteContainer(demActorModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -172,8 +180,8 @@ public class DemSwitch<T> extends Switch<T>
 				DemEventsOverviewModel demEventsOverviewModel = (DemEventsOverviewModel)theEObject;
 				T result = caseDemEventsOverviewModel(demEventsOverviewModel);
 				if (result == null) result = caseDModel(demEventsOverviewModel);
-				if (result == null) result = caseINoteContainer(demEventsOverviewModel);
 				if (result == null) result = caseDNamedElement(demEventsOverviewModel);
+				if (result == null) result = caseINoteContainer(demEventsOverviewModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -193,6 +201,22 @@ public class DemSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDemDomainEvent(DemDomainEvent object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Trigger</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trigger</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDemTrigger(DemTrigger object)
 	{
 		return null;
 	}
@@ -342,22 +366,6 @@ public class DemSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDModel(DModel object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -369,6 +377,22 @@ public class DemSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINoteContainer(INoteContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DModel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDModel(DModel object)
 	{
 		return null;
 	}

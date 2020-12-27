@@ -6,6 +6,7 @@ package com.mimacom.ddd.dm.dom;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -25,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DomSnapshot extends DNamedElement, INavigableMemberContainer, IDiagramRoot
+public interface DomSnapshot extends DNamedElement, INoteContainer, INavigableMemberContainer, IDiagramRoot
 {
 	/**
 	 * Returns the value of the '<em><b>Objects</b></em>' containment reference list.

@@ -301,6 +301,8 @@ public class PubProtoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxComplexObjectAccess().getFieldsAssignment_2(), "rule__DmxComplexObject__FieldsAssignment_2");
 			builder.put(grammarAccess.getDmxFieldAccess().getFeatureAssignment_0(), "rule__DmxField__FeatureAssignment_0");
 			builder.put(grammarAccess.getDmxFieldAccess().getValueAssignment_2(), "rule__DmxField__ValueAssignment_2");
+			builder.put(grammarAccess.getDmxFieldAccess().getDescriptionAssignment_3(), "rule__DmxField__DescriptionAssignment_3");
+			builder.put(grammarAccess.getDmxFieldAccess().getNotesAssignment_4(), "rule__DmxField__NotesAssignment_4");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getTargetAssignment_2(), "rule__DmxStaticReference__TargetAssignment_2");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getMemberAssignment_3_1(), "rule__DmxStaticReference__MemberAssignment_3_1");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getDisplayNameAssignment_4_1_0(), "rule__DmxStaticReference__DisplayNameAssignment_4_1_0");

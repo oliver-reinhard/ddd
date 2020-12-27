@@ -77,13 +77,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_AGGREGATE__NAME = BasePackage.DAGGREGATE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_AGGREGATE__ALIASES = BasePackage.DAGGREGATE__ALIASES;
+	int TSYNTHETIC_AGGREGATE__ALIAS = BasePackage.DAGGREGATE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -195,13 +195,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_TYPE__NAME = BasePackage.DTYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_TYPE__ALIASES = BasePackage.DTYPE__ALIASES;
+	int TSYNTHETIC_TYPE__ALIAS = BasePackage.DTYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -286,13 +286,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_PRIMITIVE__NAME = BasePackage.DPRIMITIVE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_PRIMITIVE__ALIASES = BasePackage.DPRIMITIVE__ALIASES;
+	int TSYNTHETIC_PRIMITIVE__ALIAS = BasePackage.DPRIMITIVE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -386,13 +386,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_ENUMERATION__NAME = BasePackage.DENUMERATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_ENUMERATION__ALIASES = BasePackage.DENUMERATION__ALIASES;
+	int TSYNTHETIC_ENUMERATION__ALIAS = BasePackage.DENUMERATION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -495,13 +495,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_LITERAL__NAME = BasePackage.DLITERAL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_LITERAL__ALIASES = BasePackage.DLITERAL__ALIASES;
+	int TSYNTHETIC_LITERAL__ALIAS = BasePackage.DLITERAL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -604,13 +604,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_COMPLEX_TYPE__NAME = BasePackage.DCOMPLEX_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_COMPLEX_TYPE__ALIASES = BasePackage.DCOMPLEX_TYPE__ALIASES;
+	int TSYNTHETIC_COMPLEX_TYPE__ALIAS = BasePackage.DCOMPLEX_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -740,13 +740,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_DETAIL_TYPE__NAME = BasePackage.DDETAIL_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_DETAIL_TYPE__ALIASES = BasePackage.DDETAIL_TYPE__ALIASES;
+	int TSYNTHETIC_DETAIL_TYPE__ALIAS = BasePackage.DDETAIL_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -876,13 +876,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_ENTITY_TYPE__NAME = BasePackage.DENTITY_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_ENTITY_TYPE__ALIASES = BasePackage.DENTITY_TYPE__ALIASES;
+	int TSYNTHETIC_ENTITY_TYPE__ALIAS = BasePackage.DENTITY_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1048,13 +1048,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_FEATURE__NAME = BasePackage.DFEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_FEATURE__ALIASES = BasePackage.DFEATURE__ALIASES;
+	int TSYNTHETIC_FEATURE__ALIAS = BasePackage.DFEATURE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1166,13 +1166,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_ASSOCIATION__NAME = BasePackage.DASSOCIATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_ASSOCIATION__ALIASES = BasePackage.DASSOCIATION__ALIASES;
+	int TSYNTHETIC_ASSOCIATION__ALIAS = BasePackage.DASSOCIATION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1320,13 +1320,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_ATTRIBUTE__NAME = BasePackage.DATTRIBUTE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_ATTRIBUTE__ALIASES = BasePackage.DATTRIBUTE__ALIASES;
+	int TSYNTHETIC_ATTRIBUTE__ALIAS = BasePackage.DATTRIBUTE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1456,13 +1456,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_QUERY__NAME = BasePackage.DQUERY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_QUERY__ALIASES = BasePackage.DQUERY__ALIASES;
+	int TSYNTHETIC_QUERY__ALIAS = BasePackage.DQUERY__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1601,13 +1601,13 @@ public interface SyntheticPackage extends EPackage
 	int TSYNTHETIC_QUERY_PARAMETER__NAME = BasePackage.DQUERY_PARAMETER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TSYNTHETIC_QUERY_PARAMETER__ALIASES = BasePackage.DQUERY_PARAMETER__ALIASES;
+	int TSYNTHETIC_QUERY_PARAMETER__ALIAS = BasePackage.DQUERY_PARAMETER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

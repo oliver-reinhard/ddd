@@ -76,28 +76,32 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cForKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cForTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cForTypeDimEntityTypeCrossReference_4_0 = (CrossReference)cForTypeAssignment_4.eContents().get(0);
-		private final RuleCall cForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cForTypeDimEntityTypeCrossReference_4_0.eContents().get(1);
-		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Assignment cNotesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cNotesDNoteParserRuleCall_6_0 = (RuleCall)cNotesAssignment_6.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cDirectionKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cDirectionAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cDirectionEsmLayoutDirectionEnumRuleCall_8_1_0 = (RuleCall)cDirectionAssignment_8_1.eContents().get(0);
-		private final Assignment cStatesAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cStatesEsmStateParserRuleCall_9_0 = (RuleCall)cStatesAssignment_9.eContents().get(0);
-		private final Assignment cTransitionsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cTransitionsEsmTransitionParserRuleCall_10_0 = (RuleCall)cTransitionsAssignment_10.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
+		private final Keyword cForKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cForTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cForTypeDimEntityTypeCrossReference_5_0 = (CrossReference)cForTypeAssignment_5.eContents().get(0);
+		private final RuleCall cForTypeDimEntityTypeDQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cForTypeDimEntityTypeCrossReference_5_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
+		private final Assignment cNotesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cNotesDNoteParserRuleCall_7_0 = (RuleCall)cNotesAssignment_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cDirectionKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cDirectionAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cDirectionEsmLayoutDirectionEnumRuleCall_9_1_0 = (RuleCall)cDirectionAssignment_9_1.eContents().get(0);
+		private final Assignment cStatesAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cStatesEsmStateParserRuleCall_10_0 = (RuleCall)cStatesAssignment_10.eContents().get(0);
+		private final Assignment cTransitionsAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cTransitionsEsmTransitionParserRuleCall_11_0 = (RuleCall)cTransitionsAssignment_11.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//EsmEntityStateModel:
 		//	'state' 'model'
-		//	name=DQualifiedName
+		//	name=DQualifiedName ('alias' alias=ID)?
 		//	'for'
 		//	forType=[DimEntityType|DQualifiedName] description=DRichText?
 		//	notes+=DNote*
@@ -107,8 +111,9 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'state' 'model' name=DQualifiedName 'for' forType=[DimEntityType|DQualifiedName] description=DRichText? notes+=DNote*
-		//'{' ('direction' direction=EsmLayoutDirection)? states+=EsmState+ transitions+=EsmTransition+ '}'
+		//'state' 'model' name=DQualifiedName ('alias' alias=ID)? 'for' forType=[DimEntityType|DQualifiedName]
+		//description=DRichText? notes+=DNote* '{' ('direction' direction=EsmLayoutDirection)? states+=EsmState+
+		//transitions+=EsmTransition+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'state'
@@ -123,59 +128,71 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
 		
+		//('alias' alias=ID)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'alias'
+		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		
+		//alias=ID
+		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
+		
+		//ID
+		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
+		
 		//'for'
-		public Keyword getForKeyword_3() { return cForKeyword_3; }
+		public Keyword getForKeyword_4() { return cForKeyword_4; }
 		
 		//forType=[DimEntityType|DQualifiedName]
-		public Assignment getForTypeAssignment_4() { return cForTypeAssignment_4; }
+		public Assignment getForTypeAssignment_5() { return cForTypeAssignment_5; }
 		
 		//[DimEntityType|DQualifiedName]
-		public CrossReference getForTypeDimEntityTypeCrossReference_4_0() { return cForTypeDimEntityTypeCrossReference_4_0; }
+		public CrossReference getForTypeDimEntityTypeCrossReference_5_0() { return cForTypeDimEntityTypeCrossReference_5_0; }
 		
 		//DQualifiedName
-		public RuleCall getForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1() { return cForTypeDimEntityTypeDQualifiedNameParserRuleCall_4_0_1; }
+		public RuleCall getForTypeDimEntityTypeDQualifiedNameParserRuleCall_5_0_1() { return cForTypeDimEntityTypeDQualifiedNameParserRuleCall_5_0_1; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
+		public Assignment getDescriptionAssignment_6() { return cDescriptionAssignment_6; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_6_0() { return cDescriptionDRichTextParserRuleCall_6_0; }
 		
 		//notes+=DNote*
-		public Assignment getNotesAssignment_6() { return cNotesAssignment_6; }
+		public Assignment getNotesAssignment_7() { return cNotesAssignment_7; }
 		
 		//DNote
-		public RuleCall getNotesDNoteParserRuleCall_6_0() { return cNotesDNoteParserRuleCall_6_0; }
+		public RuleCall getNotesDNoteParserRuleCall_7_0() { return cNotesDNoteParserRuleCall_7_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
+		public Keyword getLeftCurlyBracketKeyword_8() { return cLeftCurlyBracketKeyword_8; }
 		
 		//('direction' direction=EsmLayoutDirection)?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_9() { return cGroup_9; }
 		
 		//'direction'
-		public Keyword getDirectionKeyword_8_0() { return cDirectionKeyword_8_0; }
+		public Keyword getDirectionKeyword_9_0() { return cDirectionKeyword_9_0; }
 		
 		//direction=EsmLayoutDirection
-		public Assignment getDirectionAssignment_8_1() { return cDirectionAssignment_8_1; }
+		public Assignment getDirectionAssignment_9_1() { return cDirectionAssignment_9_1; }
 		
 		//EsmLayoutDirection
-		public RuleCall getDirectionEsmLayoutDirectionEnumRuleCall_8_1_0() { return cDirectionEsmLayoutDirectionEnumRuleCall_8_1_0; }
+		public RuleCall getDirectionEsmLayoutDirectionEnumRuleCall_9_1_0() { return cDirectionEsmLayoutDirectionEnumRuleCall_9_1_0; }
 		
 		//states+=EsmState+
-		public Assignment getStatesAssignment_9() { return cStatesAssignment_9; }
+		public Assignment getStatesAssignment_10() { return cStatesAssignment_10; }
 		
 		//EsmState
-		public RuleCall getStatesEsmStateParserRuleCall_9_0() { return cStatesEsmStateParserRuleCall_9_0; }
+		public RuleCall getStatesEsmStateParserRuleCall_10_0() { return cStatesEsmStateParserRuleCall_10_0; }
 		
 		//transitions+=EsmTransition+
-		public Assignment getTransitionsAssignment_10() { return cTransitionsAssignment_10; }
+		public Assignment getTransitionsAssignment_11() { return cTransitionsAssignment_11; }
 		
 		//EsmTransition
-		public RuleCall getTransitionsEsmTransitionParserRuleCall_10_0() { return cTransitionsEsmTransitionParserRuleCall_10_0; }
+		public RuleCall getTransitionsEsmTransitionParserRuleCall_11_0() { return cTransitionsEsmTransitionParserRuleCall_11_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
 	}
 	public class DExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.DExpression");
@@ -881,7 +898,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//EsmEntityStateModel:
 	//	'state' 'model'
-	//	name=DQualifiedName
+	//	name=DQualifiedName ('alias' alias=ID)?
 	//	'for'
 	//	forType=[DimEntityType|DQualifiedName] description=DRichText?
 	//	notes+=DNote*
@@ -1608,7 +1625,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DmxComplexObject:
-	//	type=[DComplexType] DomFieldListStartSymbol
+	//	type=[DComplexType] DmxFieldListStartSymbol
 	//	fields+=DmxField*
 	//	'}';
 	public DmxGrammarAccess.DmxComplexObjectElements getDmxComplexObjectAccess() {
@@ -1620,7 +1637,9 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxField:
-	//	feature=[DFeature] "=" value=super::DExpression;
+	//	feature=[DFeature] "=" value=super::DExpression
+	//	description=DRichText?
+	//	notes+=DNote*;
 	public DmxGrammarAccess.DmxFieldElements getDmxFieldAccess() {
 		return gaDmx.getDmxFieldAccess();
 	}
@@ -1769,14 +1788,14 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDECIMALAccess().getRule();
 	}
 	
-	//DomFieldListStartSymbol:
+	//DmxFieldListStartSymbol:
 	//	'{';
-	public DmxGrammarAccess.DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
-		return gaDmx.getDomFieldListStartSymbolAccess();
+	public DmxGrammarAccess.DmxFieldListStartSymbolElements getDmxFieldListStartSymbolAccess() {
+		return gaDmx.getDmxFieldListStartSymbolAccess();
 	}
 	
-	public ParserRule getDomFieldListStartSymbolRule() {
-		return getDomFieldListStartSymbolAccess().getRule();
+	public ParserRule getDmxFieldListStartSymbolRule() {
+		return getDmxFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

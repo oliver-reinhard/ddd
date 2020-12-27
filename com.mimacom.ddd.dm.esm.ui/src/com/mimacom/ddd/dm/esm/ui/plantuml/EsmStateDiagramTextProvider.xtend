@@ -7,13 +7,15 @@ import com.mimacom.ddd.dm.esm.plantuml.EsmStateDiagramTextProviderImpl
 import com.mimacom.ddd.dm.esm.ui.internal.EsmActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
+import org.eclipse.emf.ecore.util.Diagnostician
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.jface.viewers.ISelection
 import org.eclipse.ui.IEditorInput
 import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
 
-class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
+class EsmStateDiagramTextProvider extends AbstractDiagramTextProvider {
 
 	@Inject EsmStateDiagramTextProviderImpl actualProvider
 
@@ -36,10 +38,15 @@ class EsmDiagramTextProvider extends AbstractDiagramTextProvider {
 			return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
 		]
 
-		val model = namespace.model instanceof EsmEntityStateModel ? namespace.model as EsmEntityStateModel : null
-		
-		if (actualProvider.canProvide(model)) {
-			return actualProvider.diagramText(model)
+		val model = namespace?.model
+		if (model instanceof EsmEntityStateModel) {
+			val validationErrors = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).children
+			if (! validationErrors.empty) {
+				return "note \"State model has validation errors.\" as N1"
+			}
+			if (actualProvider.canProvide(model)) {
+				return actualProvider.diagramText(model)
+			}
 		}
 
 		return '''note "No state model to show." as N1'''

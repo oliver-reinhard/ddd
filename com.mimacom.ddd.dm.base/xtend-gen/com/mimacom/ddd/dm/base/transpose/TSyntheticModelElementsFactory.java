@@ -150,7 +150,7 @@ public class TSyntheticModelElementsFactory {
   
   protected void initSyntheticType(final TSyntheticType syntheticType, final ITypeContainer container, final String name, final DType original, final ITransposition recipe) {
     syntheticType.setName(name);
-    syntheticType.getAliases().addAll(original.getAliases());
+    syntheticType.setAlias(original.getAlias());
     syntheticType.setRecipe(recipe);
     container.getTypes().add(syntheticType);
   }
@@ -165,7 +165,7 @@ public class TSyntheticModelElementsFactory {
     }
     final TSyntheticFeature syntheticFeature = this.getTypedSyntheticFeature(container, source, recipe);
     syntheticFeature.setName(name);
-    syntheticFeature.getAliases().addAll(source.getAliases());
+    syntheticFeature.setAlias(source.getAlias());
     syntheticFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     syntheticFeature.setRecipe(recipe);
     final TTranspositionRule rule = recipe.getRule();
@@ -242,7 +242,7 @@ public class TSyntheticModelElementsFactory {
   
   private void initSyntheticFeatureAsCopy(final TSyntheticFeature syntheticFeature, final DFeature source) {
     syntheticFeature.setName(source.getName());
-    syntheticFeature.getAliases().addAll(source.getAliases());
+    syntheticFeature.setAlias(source.getAlias());
     syntheticFeature.setType(source.getType());
     syntheticFeature.setMultiplicity(source.getMultiplicity());
     syntheticFeature.setReadOnlyView(source.isReadOnlyView());
@@ -299,7 +299,7 @@ public class TSyntheticModelElementsFactory {
   public void addSyntheticLiteral(final DEnumeration container, final String name, final DLiteral source, final ITransposition recipe) {
     final TSyntheticLiteral syntheticLiteral = TSyntheticModelElementsFactory.SYNTHETIC.createTSyntheticLiteral();
     syntheticLiteral.setName(name);
-    syntheticLiteral.getAliases().addAll(source.getAliases());
+    syntheticLiteral.setAlias(source.getAlias());
     syntheticLiteral.setRecipe(recipe);
     container.getLiterals().add(syntheticLiteral);
   }

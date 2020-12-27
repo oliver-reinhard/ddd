@@ -357,7 +357,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
     DExpression _value = expr.getValue();
     boolean _tripleNotEquals = (_value != null);
     if (_tripleNotEquals) {
-      final AbstractDmxTypeDescriptor<?> expectedType = this.getTypeDescAndCheckNotNull(expr.getType(), expr.isCollection(), DmxTypeCheckingValidator.BASE.getDNavigableMember_Type());
+      final AbstractDmxTypeDescriptor<?> expectedType = this.getTypeDescAndCheckNotNull(expr.getType(), expr.isCollection(), DmxTypeCheckingValidator.DMX.getDmxTest_Expr());
       boolean _equals = Objects.equal(expectedType, DmxTypeDescriptorProvider.UNDEFINED_TYPE);
       if (_equals) {
         return;
@@ -369,7 +369,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
   @Check
   public void checkType(final DmxAssignment expr) {
     final DNavigableMember target = expr.getAssignToMember();
-    final AbstractDmxTypeDescriptor<?> targetType = this.getTypeDescAndCheckNotNull(target.getType(), target.isCollection(), DmxTypeCheckingValidator.BASE.getDNavigableMember_Type());
+    final AbstractDmxTypeDescriptor<?> targetType = this.getTypeDescAndCheckNotNull(target.getType(), target.isCollection(), DmxTypeCheckingValidator.DMX.getDmxAssignment_AssignToMember());
     boolean _equals = Objects.equal(targetType, DmxTypeDescriptorProvider.UNDEFINED_TYPE);
     if (_equals) {
       return;
@@ -511,7 +511,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
     }
     String _displayName = expectedType.displayName();
     String _plus = ("Expected " + _displayName);
-    String _plus_1 = (_plus + " type, but was ");
+    String _plus_1 = (_plus + " type, but is ");
     String _displayName_1 = actualType.displayName();
     final String errorText = (_plus_1 + _displayName_1);
     if ((index == DmxTypeCheckingValidator.NO_INDEX)) {
@@ -538,7 +538,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
     };
     List<String> _map = ListExtensions.<AbstractDmxTypeDescriptor<?>, String>map(expectedTypes, _function);
     String _plus = ("Expected one of " + _map);
-    String _plus_1 = (_plus + " types, but was ");
+    String _plus_1 = (_plus + " types, but is ");
     String _displayName = actualType.displayName();
     String _plus_2 = (_plus_1 + _displayName);
     this.error(_plus_2, ref, 

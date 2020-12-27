@@ -129,7 +129,7 @@ class TSyntheticModelElementsFactory {
 
 	protected def void initSyntheticType(TSyntheticType syntheticType, ITypeContainer container, String name, DType original, ITransposition recipe) {
 		syntheticType.name = name
-		syntheticType.aliases.addAll(original.aliases)
+		syntheticType.alias = original.alias
 		syntheticType.recipe = recipe
 		container.types.add(syntheticType)
 	}
@@ -144,7 +144,7 @@ class TSyntheticModelElementsFactory {
 		}
 		val syntheticFeature = getTypedSyntheticFeature(container, source, recipe)
 		syntheticFeature.name = name
-		syntheticFeature.aliases.addAll(source.aliases)
+		syntheticFeature.alias = source.alias
 		syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 		syntheticFeature.recipe = recipe
 		val rule = recipe.rule
@@ -201,7 +201,7 @@ class TSyntheticModelElementsFactory {
 
 	private def void initSyntheticFeatureAsCopy(TSyntheticFeature syntheticFeature, DFeature source) {
 		syntheticFeature.name = source.name
-		syntheticFeature.aliases.addAll(source.aliases)
+		syntheticFeature.alias = source.alias
 		syntheticFeature.type = source.getType
 		syntheticFeature.multiplicity = source.getMultiplicity
 		syntheticFeature.readOnlyView = source.readOnlyView
@@ -252,7 +252,7 @@ class TSyntheticModelElementsFactory {
 	def void addSyntheticLiteral(DEnumeration container, String name, DLiteral source, ITransposition recipe) {
 		val syntheticLiteral = SYNTHETIC.createTSyntheticLiteral
 		syntheticLiteral.name = name
-		syntheticLiteral.aliases.addAll(source.aliases)
+		syntheticLiteral.alias = source.alias
 		syntheticLiteral.recipe = recipe
 		container.literals.add(syntheticLiteral)
 	}

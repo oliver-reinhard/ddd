@@ -67,8 +67,6 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class DimSemanticSequencer extends DmxSemanticSequencer {
@@ -338,7 +336,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DConstraint returns DNamedPredicate
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* predicate=DExpression description=DRichText? notes+=DNote*)
+	 *     (name=ID alias=ID? predicate=DExpression description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DConstraint(ISerializationContext context, DNamedPredicate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -362,16 +360,10 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DStateEvent returns DStateEvent
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID alias=ID?)
 	 */
 	protected void sequence_DStateEvent(ISerializationContext context, DStateEvent semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDStateEventAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -380,16 +372,10 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DState returns DState
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID alias=ID?)
 	 */
 	protected void sequence_DState(ISerializationContext context, DState semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDStateAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -400,7 +386,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
 	 *         features+=DimQuery* 
@@ -421,7 +407,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     (
 	 *         derived?='derived'? 
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
 	 *         type=[DEntityType|ID]? 
 	 *         multiplicity=DMultiplicity? 
@@ -443,7 +429,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     (
 	 *         detail?='detail'? 
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         type=[DType|ID]? 
 	 *         multiplicity=DMultiplicity? 
 	 *         key?='key'? 
@@ -465,7 +451,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     (
 	 *         abstract?='abstract'? 
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
@@ -488,7 +474,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         root?='main'? 
 	 *         (nature=DEntityNatureAutonomous | nature=DEntityNatureRelationship)? 
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
@@ -509,7 +495,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
 	 *         (literals+=DimLiteral literals+=DimLiteral*)? 
@@ -526,7 +512,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DimLiteral returns DimLiteral
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? notes+=DNote*)
+	 *     (name=ID alias=ID? description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DimLiteral(ISerializationContext context, DimLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -541,7 +527,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         redefines=[DmxArchetype|ID] 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 
@@ -573,7 +559,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         aliases+=ID* 
+	 *         alias=ID? 
 	 *         (parameters+=DimQueryParameter parameters+=DimQueryParameter*)? 
 	 *         type=[DType|ID]? 
 	 *         multiplicity=DMultiplicity? 
@@ -592,7 +578,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomainInformationModel returns DomainInformationModel
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? notes+=DNote* (types+=DimType | aggregates+=DimAggregate)*)
+	 *     (name=ID alias=ID? description=DRichText? notes+=DNote* (types+=DimType | aggregates+=DimAggregate)*)
 	 */
 	protected void sequence_DomainInformationModel(ISerializationContext context, DomainInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

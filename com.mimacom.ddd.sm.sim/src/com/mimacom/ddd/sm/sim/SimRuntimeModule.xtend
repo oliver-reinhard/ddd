@@ -6,12 +6,17 @@ package com.mimacom.ddd.sm.sim
 import com.google.inject.Binder
 import com.google.inject.name.Names
 import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactory
+import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactoryWithTypeMapping
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource
 import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
+import com.mimacom.ddd.sm.sim.plantuml.SimSkinparamClass
+import com.mimacom.ddd.sm.sim.plantuml.SimSkinparamPackage
 import com.mimacom.ddd.sm.sim.scoping.SimQualifiedNameProvider
+import com.mimacom.ddd.util.plantuml.SkinparamClass
+import com.mimacom.ddd.util.plantuml.SkinparamPackage
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager
@@ -21,7 +26,6 @@ import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
-import com.mimacom.ddd.dm.base.transpose.TSyntheticModelElementsFactoryWithTypeMapping
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -66,6 +70,14 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	
 	def Class<? extends TSyntheticModelElementsFactory> bindTSyntheticModelElementsFactory()  {
 		return TSyntheticModelElementsFactoryWithTypeMapping
+	}
+	
+	def Class<? extends SkinparamPackage> bindPlantUMLSkinparamPackage() {
+		SimSkinparamPackage
+	}
+	
+	def Class<? extends SkinparamClass> bindPlantUMLSkinparamClass() {
+		SimSkinparamClass
 	}
 
 //	def Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {

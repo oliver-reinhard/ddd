@@ -2,10 +2,6 @@
  */
 package com.mimacom.ddd.dm.dem.impl;
 
-import com.mimacom.ddd.dm.base.base.BasePackage;
-import com.mimacom.ddd.dm.base.base.DNote;
-import com.mimacom.ddd.dm.base.base.INoteContainer;
-
 import com.mimacom.ddd.dm.base.base.impl.DModelImpl;
 
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
@@ -15,18 +11,14 @@ import com.mimacom.ddd.dm.dem.DemPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl#isAll <em>All</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl#getInclude <em>Include</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dem.impl.DemEventsOverviewModelImpl#getExclude <em>Exclude</em>}</li>
@@ -46,16 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsOverviewModel
 {
-	/**
-	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DNote> notes;
-
 	/**
 	 * The default value of the '{@link #isAll() <em>All</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -122,20 +103,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DNote> getNotes()
-	{
-		if (notes == null)
-		{
-			notes = new EObjectContainmentEList<DNote>(DNote.class, this, DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES);
-		}
-		return notes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isAll()
 	{
 		return all;
@@ -188,28 +155,10 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES:
-				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
 		{
-			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES:
-				return getNotes();
 			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__ALL:
 				return isAll();
 			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__INCLUDE:
@@ -231,10 +180,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	{
 		switch (featureID)
 		{
-			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES:
-				getNotes().clear();
-				getNotes().addAll((Collection<? extends DNote>)newValue);
-				return;
 			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__ALL:
 				setAll((Boolean)newValue);
 				return;
@@ -260,9 +205,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	{
 		switch (featureID)
 		{
-			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES:
-				getNotes().clear();
-				return;
 			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__ALL:
 				setAll(ALL_EDEFAULT);
 				return;
@@ -286,8 +228,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 	{
 		switch (featureID)
 		{
-			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES:
-				return notes != null && !notes.isEmpty();
 			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__ALL:
 				return all != ALL_EDEFAULT;
 			case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__INCLUDE:
@@ -296,44 +236,6 @@ public class DemEventsOverviewModelImpl extends DModelImpl implements DemEventsO
 				return exclude != null && !exclude.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == INoteContainer.class)
-		{
-			switch (derivedFeatureID)
-			{
-				case DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == INoteContainer.class)
-		{
-			switch (baseFeatureID)
-			{
-				case BasePackage.INOTE_CONTAINER__NOTES: return DemPackage.DEM_EVENTS_OVERVIEW_MODEL__NOTES;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

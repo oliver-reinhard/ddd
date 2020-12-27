@@ -491,7 +491,14 @@ public class SusSemanticSequencer extends PubSemanticSequencer {
 	 *     UserStory returns UserStory
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName event=[DemDomainEvent|DQualifiedName]? description=DRichText? goal=DRichText sections+=PubSection*)
+	 *     (
+	 *         name=DQualifiedName 
+	 *         alias=ID? 
+	 *         event=[DemDomainEvent|DQualifiedName]? 
+	 *         description=DRichText? 
+	 *         goal=DRichText 
+	 *         sections+=PubSection*
+	 *     )
 	 */
 	protected void sequence_UserStory(ISerializationContext context, UserStory semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

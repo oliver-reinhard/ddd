@@ -12,6 +12,8 @@ class DemActorsOverviewDiagramTextProviderImpl extends AbstractDemDiagramTextPro
 	override String diagramText(DemActorModel model) {
 		val result = '''
 			@startuml
+			«generateSkinParameters»
+			
 			«model.actors.allActorsText»
 			@enduml
 		'''

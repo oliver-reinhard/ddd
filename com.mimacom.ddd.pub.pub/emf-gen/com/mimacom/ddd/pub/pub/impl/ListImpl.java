@@ -160,7 +160,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -170,7 +169,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -183,7 +181,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -193,7 +190,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ListStyle getStyle() {
 		return style;
 	}
@@ -203,7 +199,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setStyle(ListStyle newStyle) {
 		ListStyle oldStyle = style;
 		style = newStyle == null ? STYLE_EDEFAULT : newStyle;
@@ -216,7 +211,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ProtoSequenceNumberStyle getNumberingStyle() {
 		return numberingStyle;
 	}
@@ -226,7 +220,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setNumberingStyle(ProtoSequenceNumberStyle newNumberingStyle) {
 		ProtoSequenceNumberStyle oldNumberingStyle = numberingStyle;
 		numberingStyle = newNumberingStyle == null ? NUMBERING_STYLE_EDEFAULT : newNumberingStyle;
@@ -239,7 +232,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getLevel() {
 		int i = PubConstants.TOP_LEVEL;
 		EObject parent = this.eContainer();
@@ -260,7 +252,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ListItem> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentWithInverseEList<ListItem>(ListItem.class, this, PubPackage.LIST__ITEMS, PubPackage.LIST_ITEM__LIST);

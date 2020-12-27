@@ -11,6 +11,8 @@ import com.mimacom.ddd.dm.dem.plantuml.DemEventsOverviewDiagramTextProviderImpl
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
+import org.eclipse.emf.ecore.util.Diagnostician
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.jface.viewers.ISelection
 import org.eclipse.ui.IEditorInput
 import org.eclipse.ui.IEditorPart
@@ -43,11 +45,16 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
 		val namespace = document.readOnly [
 			return if (contents.head instanceof DNamespace) contents.head as DNamespace else null
 		]
-		if (namespace.model !== null) {
-			namespace.model.diagram
-		} else {
-			'''note "Nothing show." as N1'''
-		}
+		val model = namespace?.model
+		if (model !== null) {
+			val validationErrors = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).children
+			if (! validationErrors.empty) {
+				return "note \"Model has validation errors.\" as N1"
+			}
+			return model.diagram
+		} 
+		
+		'''note "Nothing show." as N1'''
 
 	}
 	

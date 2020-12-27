@@ -39,13 +39,4 @@ class DimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl
 		data.allNotes = EcoreUtil2.eAllOfType(model, DNote)
 		return data
 	}
-	
-	override generateSkinParameters() '''
-		«super.generateSkinParameters»
-		
-		skinparam package {
-			BorderColor FireBrick
-			FontColor FireBrick
-		}
-	'''
 }

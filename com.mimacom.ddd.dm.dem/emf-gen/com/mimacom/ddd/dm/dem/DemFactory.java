@@ -32,6 +32,15 @@ public interface DemFactory extends EFactory
 	DemDomainEvent createDemDomainEvent();
 
 	/**
+	 * Returns a new object of class '<em>Trigger</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trigger</em>'.
+	 * @generated
+	 */
+	DemTrigger createDemTrigger();
+
+	/**
 	 * Returns a new object of class '<em>Case Conjunction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

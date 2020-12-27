@@ -17,12 +17,14 @@ DNamespace:
 AsmApplication:
 	'application'
 	name=ID
+	('alias' alias=ID)?
 	'information' 'model' model=[SystemInformationModel|DQualifiedName]
 	(actors+=AsmActor)*;
 
 AsmServiceInterface:
 	'service' 'interface'
 	name=ID
+	('alias' alias=ID)?
 	'interface' 'model' interface=[SystemInformationModel|DQualifiedName]
 	'core' 'model' core=[SystemInformationModel|DQualifiedName]
 	(exceptions+=AsmException)*

@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dom.ui.plantuml;
+package com.mimacom.ddd.dm.dom.plantuml;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DAssociation;
@@ -6,8 +6,8 @@ import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DModel;
-import com.mimacom.ddd.dm.base.base.DNamespace;
+import com.mimacom.ddd.dm.base.plantuml.PlantUmlTextProviderUtil;
+import com.mimacom.ddd.dm.base.plantuml.Spot;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxDetail;
 import com.mimacom.ddd.dm.dmx.DmxEntity;
@@ -21,34 +21,25 @@ import com.mimacom.ddd.dm.dom.DomSnapshot;
 import com.mimacom.ddd.dm.dom.DomUtil;
 import com.mimacom.ddd.dm.dom.evaluator.DomExpressionEvaluator;
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer;
-import com.mimacom.ddd.dm.dom.ui.internal.DomActivator;
+import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
+import com.mimacom.ddd.util.plantuml.SkinparamArrow;
+import com.mimacom.ddd.util.plantuml.SkinparamClass;
+import com.mimacom.ddd.util.plantuml.SkinparamGlobal;
+import com.mimacom.ddd.util.plantuml.SkinparamNote;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.Diagnostician;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
-import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.model.XtextDocument;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
+public class DomObjectDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<DomModel> {
   @Inject
   @Extension
   private DomUtil _domUtil;
@@ -62,115 +53,40 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
   private DomExpressionEvaluator _domExpressionEvaluator;
   
   @Inject
-  private ISerializer serializer;
+  @Extension
+  private PlantUmlTextProviderUtil _plantUmlTextProviderUtil;
   
   private static final int MAX_EXPR_LENGTH = 30;
   
-  public DomDiagramTextProvider() {
-    this.setEditorType(XtextEditor.class);
+  @Inject
+  private ISerializer serializer;
+  
+  @Inject
+  private SkinparamGlobal skinparamGlobal;
+  
+  @Inject
+  private SkinparamClass skinparamClass;
+  
+  @Inject
+  private SkinparamArrow skinparamArrow;
+  
+  @Inject
+  private SkinparamNote skinparamNote;
+  
+  @Override
+  public boolean canProvide(final DomModel model) {
+    return ((model != null) && (!model.getSnapshots().isEmpty()));
   }
   
   @Override
-  public boolean supportsEditor(final IEditorPart editorPart) {
-    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DomActivator.COM_MIMACOM_DDD_DM_DOM_DOM));
-  }
-  
-  @Override
-  public boolean supportsSelection(final ISelection sel) {
-    return false;
-  }
-  
-  @Override
-  protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
-    IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
-    final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DNamespace, XtextResource> _function = (XtextResource it) -> {
-      DNamespace _xifexpression = null;
-      EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DNamespace)) {
-        EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DNamespace) _head_1);
-      } else {
-        _xifexpression = null;
-      }
-      return _xifexpression;
-    };
-    final DNamespace ns = document.<DNamespace>readOnly(_function);
-    DModel _model = ns.getModel();
-    final DomModel model = ((DomModel) _model);
-    final List<Diagnostic> result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
-    if (((model != null) && (!result.isEmpty()))) {
-      return "note \"Object model has validation errors.\" as N1";
-    } else {
-      if (((model != null) && (!model.getSnapshots().isEmpty()))) {
-        return this.snapshots(model);
-      } else {
-        return "note \"No objects to show.\" as N1";
-      }
-    }
-  }
-  
-  public String snapshots(final DomModel model) {
+  public String diagramText(final DomModel model) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@startuml");
     _builder.newLine();
-    _builder.append("hide empty members");
     _builder.newLine();
-    _builder.newLine();
-    _builder.append("skinparam backgroundColor transparent ");
-    _builder.newLine();
-    _builder.append("skinparam shadowing false");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("skinparam CircledCharacterFontName Arial");
-    _builder.newLine();
-    _builder.append("skinparam CircledCharacterFontSize 12");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("skinparam package {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("fontName Arial");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("borderColor DimGrey");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("borderThickness 0.5");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("stereotypeFontName Arial");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("stereotypeFontSize 12");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("skinparam class {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("fontName Arial");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("fontStyle bold");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("attributeFontName Arial");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("attributeFontStyle normal");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("backgroundColor WhiteSmoke");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("borderThickness 0.5");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("arrowThickness 0.5");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
+    CharSequence _generateSkinParameters = this.generateSkinParameters();
+    _builder.append(_generateSkinParameters);
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
       EList<DomSnapshot> _snapshots = model.getSnapshots();
@@ -180,23 +96,34 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
     _builder.append("@enduml");
     _builder.newLine();
-    final String result = _builder.toString();
-    return result;
+    return _builder.toString();
+  }
+  
+  public CharSequence generateSkinParameters() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(this.skinparamGlobal);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamClass);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamArrow);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamNote);
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public String generateSnapshot(final DomSnapshot s) {
     final List<DmxComplexObject> allComplexObjects = EcoreUtil2.<DmxComplexObject>eAllOfType(s, DmxComplexObject.class);
     final Function1<DmxField, Boolean> _function = (DmxField it) -> {
-      return Boolean.valueOf(((it.getFeature() instanceof DAttribute) && ((DAttribute) it.getFeature()).isDetail()));
+      return Boolean.valueOf(this.renderAsLink(it));
     };
-    final Iterable<DmxField> allDetailContainments = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function);
-    final Function1<DmxField, Boolean> _function_1 = (DmxField it) -> {
-      DFeature _feature = it.getFeature();
-      return Boolean.valueOf((_feature instanceof DAssociation));
-    };
-    final Iterable<DmxField> allAssociations = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function_1);
+    final Iterable<DmxField> allLinks = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\' snapshot ");
     String _name = s.getName();
@@ -207,28 +134,27 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append(_name_1);
     _builder.append(" <<Snapshot>> {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     {
       for(final DmxComplexObject obj : allComplexObjects) {
         String _generate = this.generate(obj);
-        _builder.append(_generate);
+        _builder.append(_generate, "\t");
       }
     }
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     {
-      for(final DmxField detail : allDetailContainments) {
-        String _generateAssociation = this.generateAssociation(detail, this._domExpressionEvaluator.valueFor(detail.getValue()));
-        _builder.append(_generateAssociation);
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      for(final DmxField ref : allAssociations) {
-        String _generateAssociation_1 = this.generateAssociation(ref, this._domExpressionEvaluator.valueFor(ref.getValue()));
-        _builder.append(_generateAssociation_1);
+      for(final DmxField link : allLinks) {
+        String _generateLink = this.generateLink(link, this._domExpressionEvaluator.valueFor(link.getValue()));
+        _builder.append(_generateLink, "\t");
       }
     }
     _builder.newLineIfNotEmpty();
     _builder.append("}");
+    _builder.newLine();
+    CharSequence _generateNotesWithIds = this._plantUmlTextProviderUtil.generateNotesWithIds(s, s.getName());
+    _builder.append(_generateNotesWithIds);
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     final String result = _builder.toString();
     return result;
@@ -243,24 +169,40 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     String _id = this.id(o);
     _builder.append(_id);
     _builder.append(" ");
-    String _spot = this.getSpot(o);
+    Object _spot = this.getSpot(o);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
     {
-      EList<DmxField> _fields = o.getFields();
-      for(final DmxField f : _fields) {
-        {
-          if ((((f.getFeature() != null) && (f.getFeature() instanceof DAttribute)) && (!((DAttribute) f.getFeature()).isDetail()))) {
-            String _generateField = this.generateField(f, f.getValue());
-            _builder.append(_generateField, "\t");
-          }
-        }
+      final Function1<DmxField, Boolean> _function = (DmxField it) -> {
+        boolean _renderAsLink = this.renderAsLink(it);
+        return Boolean.valueOf((!_renderAsLink));
+      };
+      Iterable<DmxField> _filter = IterableExtensions.<DmxField>filter(o.getFields(), _function);
+      for(final DmxField f : _filter) {
+        _builder.append("\t");
+        String _generateField = this.generateField(f, f.getValue());
+        _builder.append(_generateField, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("}");
+    _builder.newLine();
+    CharSequence _generateNotes = this.generateNotes(o);
+    _builder.append(_generateNotes);
+    _builder.newLineIfNotEmpty();
+    {
+      final Function1<DmxField, Boolean> _function_1 = (DmxField it) -> {
+        boolean _renderAsLink = this.renderAsLink(it);
+        return Boolean.valueOf((!_renderAsLink));
+      };
+      Iterable<DmxField> _filter_1 = IterableExtensions.<DmxField>filter(o.getFields(), _function_1);
+      for(final DmxField f_1 : _filter_1) {
+        CharSequence _generateNotes_1 = this.generateNotes(f_1);
+        _builder.append(_generateNotes_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     return _builder.toString();
   }
@@ -337,7 +279,7 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder.toString();
   }
   
-  protected String _generateAssociation(final DmxField f, final DmxEntity entity) {
+  protected String _generateLink(final DmxField f, final DmxEntity entity) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _eContainer = f.eContainer();
     String _id = this.id(((DmxComplexObject) _eContainer));
@@ -346,10 +288,13 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     String _id_1 = this.id(entity);
     _builder.append(_id_1);
     _builder.newLineIfNotEmpty();
+    CharSequence _generateLinkNotes = this._plantUmlTextProviderUtil.generateLinkNotes(f);
+    _builder.append(_generateLinkNotes);
+    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
-  protected String _generateAssociation(final DmxField f, final DmxDetail detail) {
+  protected String _generateLink(final DmxField f, final DmxDetail detail) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _eContainer = f.eContainer();
     String _id = this.id(((DmxComplexObject) _eContainer));
@@ -358,45 +303,55 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     String _id_1 = this.id(detail);
     _builder.append(_id_1);
     _builder.newLineIfNotEmpty();
+    CharSequence _generateLinkNotes = this._plantUmlTextProviderUtil.generateLinkNotes(f);
+    _builder.append(_generateLinkNotes);
+    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
-  protected String _generateAssociation(final DmxField f, final List<?> list) {
+  protected String _generateLink(final DmxField f, final List<?> list) {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Object obj : list) {
-        String _generateAssociation = this.generateAssociation(f, obj);
-        _builder.append(_generateAssociation);
+        String _generateLink = this.generateLink(f, obj);
+        _builder.append(_generateLink);
         _builder.newLineIfNotEmpty();
       }
     }
     return _builder.toString();
   }
   
-  public String getSpot(final EObject obj) {
-    String _switchResult = null;
+  public Object getSpot(final EObject obj) {
+    Spot _switchResult = null;
     boolean _matched = false;
     if (obj instanceof DmxEntity) {
       _matched=true;
-      String _xifexpression = null;
+      Spot _xifexpression = null;
       boolean _root = this._domUtil.root(((DmxComplexObject)obj));
       if (_root) {
-        _xifexpression = "<< (R,#FB3333) >>";
+        _xifexpression = PlantUmlTextProviderUtil.ROOT_ENTITY_SPOT;
       } else {
-        _xifexpression = "<< (E,#F78100) >>";
+        _xifexpression = PlantUmlTextProviderUtil.ENTITY_SPOT;
       }
       _switchResult = _xifexpression;
     }
     if (!_matched) {
       if (obj instanceof DmxDetail) {
         _matched=true;
-        _switchResult = "<< (D,#FAE55F) >>";
+        _switchResult = PlantUmlTextProviderUtil.DETAIL_SPOT;
       }
     }
     if (!_matched) {
-      _switchResult = "";
+      _switchResult = null;
     }
-    return _switchResult;
+    final Spot spot = _switchResult;
+    Object _xifexpression = null;
+    if ((spot != null)) {
+      _xifexpression = spot;
+    } else {
+      _xifexpression = "";
+    }
+    return _xifexpression;
   }
   
   protected String fieldValueExpression(final DmxField f) {
@@ -407,9 +362,9 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
         String expr = this.serializer.serialize(f.getValue());
         expr = expr.replaceAll("^ |[\t\n\r]", "").replaceAll("[ ]+", " ");
         int _length = expr.length();
-        boolean _greaterThan = (_length > DomDiagramTextProvider.MAX_EXPR_LENGTH);
+        boolean _greaterThan = (_length > DomObjectDiagramTextProviderImpl.MAX_EXPR_LENGTH);
         if (_greaterThan) {
-          String _substring = expr.substring(0, DomDiagramTextProvider.MAX_EXPR_LENGTH);
+          String _substring = expr.substring(0, DomObjectDiagramTextProviderImpl.MAX_EXPR_LENGTH);
           String _plus = (_substring + "...");
           expr = _plus;
         }
@@ -424,8 +379,36 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return "";
   }
   
-  public String id(final DmxComplexObject o) {
-    return Integer.toString(o.hashCode());
+  protected String id(final DmxComplexObject o) {
+    int _hashCode = o.hashCode();
+    return ("Obj" + Integer.valueOf(_hashCode));
+  }
+  
+  public boolean renderAsLink(final DmxField f) {
+    final DFeature feature = f.getFeature();
+    return ((feature != null) && ((feature instanceof DAssociation) || ((feature instanceof DAttribute) && ((DAttribute) feature).isDetail())));
+  }
+  
+  protected CharSequence generateNotes(final DmxComplexObject obj) {
+    final DomNamedComplexObject namedComplexObject = EcoreUtil2.<DomNamedComplexObject>getContainerOfType(obj, DomNamedComplexObject.class);
+    if ((namedComplexObject != null)) {
+      return this._plantUmlTextProviderUtil.generateNotesWithIds(namedComplexObject, this.id(obj));
+    }
+    return "";
+  }
+  
+  protected CharSequence generateNotes(final DmxField f) {
+    final DmxComplexObject complexObject = EcoreUtil2.<DmxComplexObject>getContainerOfType(f, DmxComplexObject.class);
+    if ((complexObject != null)) {
+      StringConcatenation _builder = new StringConcatenation();
+      String _id = this.id(complexObject);
+      _builder.append(_id);
+      _builder.append("::");
+      String _name = f.getName();
+      _builder.append(_name);
+      return this._plantUmlTextProviderUtil.generateNotesOnRight(f, _builder.toString());
+    }
+    return "";
   }
   
   public String generateField(final DmxField f, final DExpression expr) {
@@ -439,13 +422,13 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     }
   }
   
-  public String generateAssociation(final DmxField f, final Object detail) {
+  public String generateLink(final DmxField f, final Object detail) {
     if (detail instanceof DmxDetail) {
-      return _generateAssociation(f, (DmxDetail)detail);
+      return _generateLink(f, (DmxDetail)detail);
     } else if (detail instanceof DmxEntity) {
-      return _generateAssociation(f, (DmxEntity)detail);
+      return _generateLink(f, (DmxEntity)detail);
     } else if (detail instanceof List) {
-      return _generateAssociation(f, (List<?>)detail);
+      return _generateLink(f, (List<?>)detail);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(f, detail).toString());

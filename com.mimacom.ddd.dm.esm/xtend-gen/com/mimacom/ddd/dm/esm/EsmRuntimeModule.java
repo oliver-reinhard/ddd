@@ -6,8 +6,10 @@ package com.mimacom.ddd.dm.esm;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
+import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.esm.AbstractEsmRuntimeModule;
+import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
@@ -17,6 +19,11 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 @SuppressWarnings("all")
 public class EsmRuntimeModule extends AbstractEsmRuntimeModule {
+  @Override
+  public Class<? extends IValueConverterService> bindIValueConverterService() {
+    return DmxValueConverters.class;
+  }
+  
   @Override
   public void configureIScopeProviderDelegate(final Binder binder) {
     binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.class);

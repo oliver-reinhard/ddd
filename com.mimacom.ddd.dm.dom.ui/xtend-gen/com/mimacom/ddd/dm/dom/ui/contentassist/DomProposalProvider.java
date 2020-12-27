@@ -3,11 +3,14 @@
  */
 package com.mimacom.ddd.dm.dom.ui.contentassist;
 
+import com.google.common.collect.Sets;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.base.DComplexType;
+import com.mimacom.ddd.dm.base.base.DAttribute;
+import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
@@ -18,9 +21,11 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
 import com.mimacom.ddd.dm.dom.DomUtil;
 import com.mimacom.ddd.dm.dom.ui.contentassist.AbstractDomProposalProvider;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
@@ -46,95 +51,114 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
   private static int idCurrent = 1;
   
   @Override
-  public void complete_DmxField(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-    super.complete_DmxField(model, ruleCall, context, acceptor);
-    this.proposeAllMandatoryFieldsNotYetPresent(model.eContainer(), false, acceptor, context);
-    final EObject container = model.eContainer();
-    if ((container instanceof DmxComplexObject)) {
-      DComplexType _type = ((DmxComplexObject)container).getType();
-      boolean _tripleNotEquals = (_type != null);
-      if (_tripleNotEquals) {
-        List<DFeature> _allFeatures = this.util.allFeatures(((DmxComplexObject)container).getType());
-        for (final DFeature f : _allFeatures) {
-          final Function1<DmxField, DFeature> _function = (DmxField it) -> {
-            return it.getFeature();
-          };
-          boolean _contains = ListExtensions.<DmxField, DFeature>map(((DmxComplexObject)container).getFields(), _function).contains(f);
-          boolean _not = (!_contains);
-          if (_not) {
-            String _name = f.getName();
-            final StringBuilder displayString = new StringBuilder(_name);
-            DType _type_1 = f.getType();
-            boolean _tripleNotEquals_1 = (_type_1 != null);
-            if (_tripleNotEquals_1) {
-              displayString.append(" - ");
-              displayString.append(f.getType().getName());
-            }
-            boolean _isOptional = f.isOptional();
-            if (_isOptional) {
-              displayString.append(" (optional)");
-            }
-            StringConcatenation _builder = new StringConcatenation();
-            String _name_1 = f.getName();
-            _builder.append(_name_1);
-            _builder.append(" = ");
-            String _typedLiteral = this.typedLiteral(f);
-            _builder.append(_typedLiteral);
-            final String proposal = _builder.toString();
-            acceptor.accept(this.createCompletionProposal(proposal, displayString.toString(), null, context));
-          }
-        }
-      }
-    }
+  public void completeDmxField_Feature(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    this.buildProposals(model, false, acceptor, context);
   }
   
   @Override
-  public void complete_DomFieldListStartSymbol(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-    super.complete_DomFieldListStartSymbol(model, ruleCall, context, acceptor);
-    this.proposeAllMandatoryFieldsNotYetPresent(model, true, acceptor, context);
+  public void complete_DmxFieldListStartSymbol(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.complete_DmxFieldListStartSymbol(model, ruleCall, context, acceptor);
+    this.buildProposals(model, true, acceptor, context);
   }
   
-  protected void proposeAllMandatoryFieldsNotYetPresent(final EObject model, final boolean surroundWithBraces, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
-    if ((model instanceof DmxComplexObject)) {
-      DComplexType _type = ((DmxComplexObject)model).getType();
-      boolean _tripleNotEquals = (_type != null);
-      if (_tripleNotEquals) {
-        final Function1<DFeature, Boolean> _function = (DFeature it) -> {
-          return Boolean.valueOf((!(it.isOptional() || ListExtensions.<DmxField, DFeature>map(((DmxComplexObject)model).getFields(), ((Function1<DmxField, DFeature>) (DmxField it_1) -> {
-            return it_1.getFeature();
-          })).contains(it))));
-        };
-        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this.util.allFeatures(((DmxComplexObject)model).getType()), _function);
-        final StringBuilder proposal = new StringBuilder();
-        if (surroundWithBraces) {
-          proposal.append("{\n");
-        }
-        String indent = this.calcIndent(((DmxComplexObject)model));
-        for (int i = 0; (i < IterableExtensions.size(features)); i++) {
-          {
-            final DFeature feature = ((DFeature[])Conversions.unwrapArray(features, DFeature.class))[i];
-            StringConcatenation _builder = new StringConcatenation();
-            {
-              if (((i > 0) || surroundWithBraces)) {
-                _builder.append(indent);
-                _builder.append("\t");
-              }
-            }
-            String _name = feature.getName();
-            _builder.append(_name);
-            _builder.append(" = ");
-            String _typedLiteral = this.typedLiteral(feature);
-            _builder.append(_typedLiteral);
-            _builder.newLineIfNotEmpty();
-            final String field = _builder.toString();
-            proposal.append(field);
+  protected void buildProposals(final EObject model, final boolean surroundWithBraces, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
+    final DmxComplexObject complexObject = EcoreUtil2.<DmxComplexObject>getContainerOfType(model, DmxComplexObject.class);
+    if (((complexObject == null) || (complexObject.getType() == null))) {
+      return;
+    }
+    this.proposeAllMandatoryFieldsNotYetPresent(complexObject, surroundWithBraces, acceptor, context);
+    this.proposeIndividualFieldsNotYetPresent(complexObject, acceptor, context);
+  }
+  
+  /**
+   * Creates a single proposal named "All mandatory fields".
+   */
+  protected void proposeAllMandatoryFieldsNotYetPresent(final DmxComplexObject complexObject, final boolean surroundWithBraces, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
+    final Function1<DFeature, Boolean> _function = (DFeature it) -> {
+      return Boolean.valueOf((!((it.isOptional() || (it instanceof DQuery)) || ListExtensions.<DmxField, DFeature>map(complexObject.getFields(), ((Function1<DmxField, DFeature>) (DmxField it_1) -> {
+        return it_1.getFeature();
+      })).contains(it))));
+    };
+    final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this.util.allFeatures(complexObject.getType()), _function);
+    boolean _isEmpty = IterableExtensions.isEmpty(features);
+    if (_isEmpty) {
+      return;
+    }
+    final StringBuilder proposal = new StringBuilder();
+    if (surroundWithBraces) {
+      proposal.append("{\n");
+    }
+    String indent = this.calcIndent(complexObject);
+    for (int i = 0; (i < IterableExtensions.size(features)); i++) {
+      {
+        final DFeature feature = ((DFeature[])Conversions.unwrapArray(features, DFeature.class))[i];
+        StringConcatenation _builder = new StringConcatenation();
+        {
+          if (((i > 0) || surroundWithBraces)) {
+            _builder.append(indent);
+            _builder.append("\t");
           }
         }
-        if (surroundWithBraces) {
-          proposal.append(indent);
-          proposal.append("}");
+        String _name = feature.getName();
+        _builder.append(_name);
+        _builder.append(" = ");
+        String _typedLiteral = this.typedLiteral(feature);
+        _builder.append(_typedLiteral);
+        _builder.newLineIfNotEmpty();
+        final String field = _builder.toString();
+        proposal.append(field);
+      }
+    }
+    if (surroundWithBraces) {
+      proposal.append(indent);
+      proposal.append("}");
+    }
+    acceptor.accept(this.createCompletionProposal(proposal.toString(), "All mandatory fields", null, context));
+  }
+  
+  /**
+   * Creates a multiple proposals, one per field.
+   */
+  protected void proposeIndividualFieldsNotYetPresent(final DmxComplexObject complexObject, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
+    final Function1<DFeature, Boolean> _function = (DFeature it) -> {
+      return Boolean.valueOf((!(it instanceof DQuery)));
+    };
+    final HashSet<DFeature> featuresNotYetPresent = Sets.<DFeature>newHashSet(IterableExtensions.<DFeature>filter(this.util.allFeatures(complexObject.getType()), _function));
+    final Function1<DmxField, DFeature> _function_1 = (DmxField it) -> {
+      return it.getFeature();
+    };
+    featuresNotYetPresent.removeAll(ListExtensions.<DmxField, DFeature>map(complexObject.getFields(), _function_1));
+    for (final DFeature f : featuresNotYetPresent) {
+      final Function1<DmxField, DFeature> _function_2 = (DmxField it) -> {
+        return it.getFeature();
+      };
+      boolean _contains = ListExtensions.<DmxField, DFeature>map(complexObject.getFields(), _function_2).contains(f);
+      boolean _not = (!_contains);
+      if (_not) {
+        String _name = f.getName();
+        final StringBuilder displayString = new StringBuilder(_name);
+        DType _type = f.getType();
+        boolean _tripleNotEquals = (_type != null);
+        if (_tripleNotEquals) {
+          displayString.append(" - ");
+          DType _type_1 = f.getType();
+          if ((_type_1 instanceof DEntityType)) {
+            displayString.append("Reference to ");
+          }
+          displayString.append(f.getType().getName());
         }
-        acceptor.accept(this.createCompletionProposal(proposal.toString(), "All mandatory fields", null, context));
+        boolean _isOptional = f.isOptional();
+        if (_isOptional) {
+          displayString.append(" (optional)");
+        }
+        StringConcatenation _builder = new StringConcatenation();
+        String _name_1 = f.getName();
+        _builder.append(_name_1);
+        _builder.append(" = ");
+        String _typedLiteral = this.typedLiteral(f);
+        _builder.append(_typedLiteral);
+        final String proposal = _builder.toString();
+        acceptor.accept(this.createCompletionProposal(proposal, displayString.toString(), null, context));
       }
     }
   }
@@ -192,9 +216,15 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
               _switchResult = (_plus_1 + "\"");
               break;
             case COMPLEX:
-              String _name_2 = typeDescriptor.type().getName();
-              String _plus_2 = ("detail " + _name_2);
-              _switchResult = (_plus_2 + " { }");
+              String _xifexpression_1 = null;
+              if ((f instanceof DAttribute)) {
+                String _name_2 = typeDescriptor.type().getName();
+                String _plus_2 = ("detail " + _name_2);
+                _xifexpression_1 = (_plus_2 + " { }");
+              } else {
+                _xifexpression_1 = "";
+              }
+              _switchResult = _xifexpression_1;
               break;
             default:
               _switchResult = "unknownType";

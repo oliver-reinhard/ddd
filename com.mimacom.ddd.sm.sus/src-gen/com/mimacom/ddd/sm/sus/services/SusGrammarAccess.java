@@ -76,31 +76,35 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
-		private final Keyword cRealisesKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
-		private final Keyword cRealizesKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
-		private final Assignment cEventAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cEventDemDomainEventCrossReference_3_1_0 = (CrossReference)cEventAssignment_3_1.eContents().get(0);
-		private final RuleCall cEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cEventDemDomainEventCrossReference_3_1_0.eContents().get(1);
-		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
-		private final Keyword cGoalKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cGoalAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cGoalDRichTextParserRuleCall_6_0 = (RuleCall)cGoalAssignment_6.eContents().get(0);
-		private final Assignment cSectionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cSectionsPubSectionParserRuleCall_7_0 = (RuleCall)cSectionsAssignment_7.eContents().get(0);
+		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
+		private final Keyword cRealisesKeyword_4_0_0 = (Keyword)cAlternatives_4_0.eContents().get(0);
+		private final Keyword cRealizesKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
+		private final Assignment cEventAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cEventDemDomainEventCrossReference_4_1_0 = (CrossReference)cEventAssignment_4_1.eContents().get(0);
+		private final RuleCall cEventDemDomainEventDQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cEventDemDomainEventCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
+		private final Keyword cGoalKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cGoalAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cGoalDRichTextParserRuleCall_7_0 = (RuleCall)cGoalAssignment_7.eContents().get(0);
+		private final Assignment cSectionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cSectionsPubSectionParserRuleCall_8_0 = (RuleCall)cSectionsAssignment_8.eContents().get(0);
 		
 		//UserStory:
 		//	'user' 'story'
-		//	name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
+		//	name=DQualifiedName ('alias' alias=ID)? (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 		//	description=DRichText?
 		//	'goal'
 		//	goal=DRichText
 		//	sections+=PubSection*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'user' 'story' name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
-		//description=DRichText? 'goal' goal=DRichText sections+=PubSection*
+		//'user' 'story' name=DQualifiedName ('alias' alias=ID)? (('realises' | 'realizes')
+		//event=[DemDomainEvent|DQualifiedName])? description=DRichText? 'goal' goal=DRichText sections+=PubSection*
 		public Group getGroup() { return cGroup; }
 		
 		//'user'
@@ -115,47 +119,59 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		//DQualifiedName
 		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
 		
-		//(('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
+		//('alias' alias=ID)?
 		public Group getGroup_3() { return cGroup_3; }
 		
+		//'alias'
+		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		
+		//alias=ID
+		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
+		
+		//ID
+		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
+		
+		//(('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
+		public Group getGroup_4() { return cGroup_4; }
+		
 		//('realises' | 'realizes')
-		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
 		
 		//'realises'
-		public Keyword getRealisesKeyword_3_0_0() { return cRealisesKeyword_3_0_0; }
+		public Keyword getRealisesKeyword_4_0_0() { return cRealisesKeyword_4_0_0; }
 		
 		//'realizes'
-		public Keyword getRealizesKeyword_3_0_1() { return cRealizesKeyword_3_0_1; }
+		public Keyword getRealizesKeyword_4_0_1() { return cRealizesKeyword_4_0_1; }
 		
 		//event=[DemDomainEvent|DQualifiedName]
-		public Assignment getEventAssignment_3_1() { return cEventAssignment_3_1; }
+		public Assignment getEventAssignment_4_1() { return cEventAssignment_4_1; }
 		
 		//[DemDomainEvent|DQualifiedName]
-		public CrossReference getEventDemDomainEventCrossReference_3_1_0() { return cEventDemDomainEventCrossReference_3_1_0; }
+		public CrossReference getEventDemDomainEventCrossReference_4_1_0() { return cEventDemDomainEventCrossReference_4_1_0; }
 		
 		//DQualifiedName
-		public RuleCall getEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1() { return cEventDemDomainEventDQualifiedNameParserRuleCall_3_1_0_1; }
+		public RuleCall getEventDemDomainEventDQualifiedNameParserRuleCall_4_1_0_1() { return cEventDemDomainEventDQualifiedNameParserRuleCall_4_1_0_1; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
 		
 		//'goal'
-		public Keyword getGoalKeyword_5() { return cGoalKeyword_5; }
+		public Keyword getGoalKeyword_6() { return cGoalKeyword_6; }
 		
 		//goal=DRichText
-		public Assignment getGoalAssignment_6() { return cGoalAssignment_6; }
+		public Assignment getGoalAssignment_7() { return cGoalAssignment_7; }
 		
 		//DRichText
-		public RuleCall getGoalDRichTextParserRuleCall_6_0() { return cGoalDRichTextParserRuleCall_6_0; }
+		public RuleCall getGoalDRichTextParserRuleCall_7_0() { return cGoalDRichTextParserRuleCall_7_0; }
 		
 		//sections+=PubSection*
-		public Assignment getSectionsAssignment_7() { return cSectionsAssignment_7; }
+		public Assignment getSectionsAssignment_8() { return cSectionsAssignment_8; }
 		
 		//PubSection
-		public RuleCall getSectionsPubSectionParserRuleCall_7_0() { return cSectionsPubSectionParserRuleCall_7_0; }
+		public RuleCall getSectionsPubSectionParserRuleCall_8_0() { return cSectionsPubSectionParserRuleCall_8_0; }
 	}
 	
 	
@@ -226,7 +242,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//UserStory:
 	//	'user' 'story'
-	//	name=DQualifiedName (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
+	//	name=DQualifiedName ('alias' alias=ID)? (('realises' | 'realizes') event=[DemDomainEvent|DQualifiedName])?
 	//	description=DRichText?
 	//	'goal'
 	//	goal=DRichText
@@ -1627,7 +1643,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DmxComplexObject:
-	//	type=[DComplexType] DomFieldListStartSymbol
+	//	type=[DComplexType] DmxFieldListStartSymbol
 	//	fields+=DmxField*
 	//	'}';
 	public DmxGrammarAccess.DmxComplexObjectElements getDmxComplexObjectAccess() {
@@ -1639,7 +1655,9 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxField:
-	//	feature=[DFeature] "=" value=DExpression;
+	//	feature=[DFeature] "=" value=DExpression
+	//	description=DRichText?
+	//	notes+=DNote*;
 	public DmxGrammarAccess.DmxFieldElements getDmxFieldAccess() {
 		return gaDmx.getDmxFieldAccess();
 	}
@@ -1788,14 +1806,14 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getDECIMALAccess().getRule();
 	}
 	
-	//DomFieldListStartSymbol:
+	//DmxFieldListStartSymbol:
 	//	'{';
-	public DmxGrammarAccess.DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
-		return gaDmx.getDomFieldListStartSymbolAccess();
+	public DmxGrammarAccess.DmxFieldListStartSymbolElements getDmxFieldListStartSymbolAccess() {
+		return gaDmx.getDmxFieldListStartSymbolAccess();
 	}
 	
-	public ParserRule getDomFieldListStartSymbolRule() {
-		return getDomFieldListStartSymbolAccess().getRule();
+	public ParserRule getDmxFieldListStartSymbolRule() {
+		return getDmxFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

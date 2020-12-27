@@ -5,8 +5,10 @@ package com.mimacom.ddd.dm.dom.impl;
 
 import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 
 import com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl;
 
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getObjects <em>Objects</em>}</li>
  * </ul>
@@ -42,6 +45,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 {
+	/**
+	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNote> notes;
+
 	/**
 	 * The cached value of the '{@link #getObjects() <em>Objects</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -71,6 +84,20 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	protected EClass eStaticClass()
 	{
 		return DomPackage.Literals.DOM_SNAPSHOT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DNote> getNotes()
+	{
+		if (notes == null)
+		{
+			notes = new EObjectContainmentEList<DNote>(DNote.class, this, DomPackage.DOM_SNAPSHOT__NOTES);
+		}
+		return notes;
 	}
 
 	/**
@@ -111,6 +138,8 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				return ((InternalEList<?>)getObjects()).basicRemove(otherEnd, msgs);
 		}
@@ -127,6 +156,8 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NOTES:
+				return getNotes();
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				return getNavigableMembers();
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
@@ -146,6 +177,10 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends DNote>)newValue);
+				return;
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
@@ -168,6 +203,9 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NOTES:
+				getNotes().clear();
+				return;
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				getNavigableMembers().clear();
 				return;
@@ -188,6 +226,8 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NOTES:
+				return notes != null && !notes.isEmpty();
 			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
 				return !getNavigableMembers().isEmpty();
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
@@ -204,6 +244,14 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case DomPackage.DOM_SNAPSHOT__NOTES: return BasePackage.INOTE_CONTAINER__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (derivedFeatureID)
@@ -230,6 +278,14 @@ public class DomSnapshotImpl extends DNamedElementImpl implements DomSnapshot
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INoteContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INOTE_CONTAINER__NOTES: return DomPackage.DOM_SNAPSHOT__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (baseFeatureID)

@@ -3,22 +3,45 @@
  */
 package com.mimacom.ddd.dm.dom;
 
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
+import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
 import com.mimacom.ddd.dm.dom.AbstractDomRuntimeModule;
+import com.mimacom.ddd.dm.dom.plantuml.DomSkinparamClass;
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer;
+import com.mimacom.ddd.util.plantuml.SkinparamClass;
+import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
 public class DomRuntimeModule extends AbstractDomRuntimeModule {
+  @Override
+  public Class<? extends IValueConverterService> bindIValueConverterService() {
+    return DmxValueConverters.class;
+  }
+  
   public Class<? extends DmxTypeComputer> bindITypeComputer() {
     return DomTypeComputer.class;
   }
   
+  @Override
+  public void configureIScopeProviderDelegate(final Binder binder) {
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes.class);
+  }
+  
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
     return DmxResourceDescriptionStrategy.class;
+  }
+  
+  public Class<? extends SkinparamClass> bindPlantUMLSkinparamClass() {
+    return DomSkinparamClass.class;
   }
 }

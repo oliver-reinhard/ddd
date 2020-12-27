@@ -14,6 +14,7 @@ DNamespace:
 UserStory:
 	'user' 'story'
 	name=DQualifiedName
+	('alias' alias=ID)?
 	(	('realises' | 'realizes')
 		event=[DemDomainEvent|DQualifiedName]
 	)?

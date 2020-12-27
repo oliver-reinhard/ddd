@@ -394,6 +394,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=DQualifiedName 
+	 *         alias=ID? 
 	 *         forType=[DimEntityType|DQualifiedName] 
 	 *         description=DRichText? 
 	 *         notes+=DNote* 

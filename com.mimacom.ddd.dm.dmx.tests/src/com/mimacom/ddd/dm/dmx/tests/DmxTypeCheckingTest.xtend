@@ -47,7 +47,7 @@ class DmxTypeCheckingTest {
 		dimParseHelper = dimInjector.getInstance(ParseHelper)
 	}
 	
-	def EList<DmxTest> parse(CharSequence dmxSourceText) {
+	protected def EList<DmxTest> parse(CharSequence dmxSourceText) {
 		val resourceSet = resourceSetProvider.get
 		
 		// Provide SystemTypes:
@@ -66,10 +66,12 @@ class DmxTypeCheckingTest {
 		assertEquals(DmxArchetypeImpl, systemTypesModel.types.get(0).class)
 		
 		// Provide custom types:
-		val customTypes = dimParseHelper.parse('''
+		val dimNamespace = dimParseHelper.parse('''
 			domain D
 			information model CustomTypes {
-				primitive P1 redefines Natural
+				primitive P1 redefines Natural{
+					constraint Range: self | self > true AND self < 100
+				}
 				enumeration E1 { L1, L2 }
 				detail A {
 					a0 : Text
@@ -93,11 +95,13 @@ class DmxTypeCheckingTest {
 				}
 			}
 		''', resourceSet)
-		assertNotNull(customTypes)
-		val ctErrors = customTypes.eResource.errors
+		assertNotNull(dimNamespace)
+		val ctErrors = dimNamespace.eResource.errors
 		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
-		val dimModel = customTypes.model as DomainInformationModel
+		val dimModel = dimNamespace.model as DomainInformationModel
 		assertNotNull(dimModel)
+		assertNoValidationErrors(dimModel)
+		
 		// Test resolution of SystemTypes:
 		assertEquals(DIM.dimPrimitive, dimModel.types.get(0).eClass)
 		assertEquals(DIM.dimEnumeration, dimModel.types.get(1).eClass)
@@ -115,6 +119,14 @@ class DmxTypeCheckingTest {
 		val errors = result.eResource.errors
 		assertTrue(errors.isEmpty, '''Parse errors: «errors.join("; ")»''')
 		return (result.model as DmxModel).tests
+	}
+	
+	@Test
+	def void testParse() {
+		parse('''
+			namespace N
+			// empty
+		''')
 	}
 	
 	@Test

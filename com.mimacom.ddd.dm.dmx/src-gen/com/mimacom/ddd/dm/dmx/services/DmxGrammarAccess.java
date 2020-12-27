@@ -1922,18 +1922,18 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cTypeDComplexTypeCrossReference_0_0 = (CrossReference)cTypeAssignment_0.eContents().get(0);
 		private final RuleCall cTypeDComplexTypeIDTerminalRuleCall_0_0_1 = (RuleCall)cTypeDComplexTypeCrossReference_0_0.eContents().get(1);
-		private final RuleCall cDomFieldListStartSymbolParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cDmxFieldListStartSymbolParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cFieldsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cFieldsDmxFieldParserRuleCall_2_0 = (RuleCall)cFieldsAssignment_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//fragment DmxComplexObject:
-		//	type=[DComplexType] DomFieldListStartSymbol
+		//	type=[DComplexType] DmxFieldListStartSymbol
 		//	fields+=DmxField*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=[DComplexType] DomFieldListStartSymbol fields+=DmxField* '}'
+		//type=[DComplexType] DmxFieldListStartSymbol fields+=DmxField* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//type=[DComplexType]
@@ -1945,8 +1945,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTypeDComplexTypeIDTerminalRuleCall_0_0_1() { return cTypeDComplexTypeIDTerminalRuleCall_0_0_1; }
 		
-		//DomFieldListStartSymbol
-		public RuleCall getDomFieldListStartSymbolParserRuleCall_1() { return cDomFieldListStartSymbolParserRuleCall_1; }
+		//DmxFieldListStartSymbol
+		public RuleCall getDmxFieldListStartSymbolParserRuleCall_1() { return cDmxFieldListStartSymbolParserRuleCall_1; }
 		
 		//fields+=DmxField*
 		public Assignment getFieldsAssignment_2() { return cFieldsAssignment_2; }
@@ -1966,12 +1966,18 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueDExpressionParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
+		private final Assignment cNotesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNotesDNoteParserRuleCall_4_0 = (RuleCall)cNotesAssignment_4.eContents().get(0);
 		
 		//DmxField:
-		//	feature=[DFeature] "=" value=DExpression;
+		//	feature=[DFeature] "=" value=DExpression
+		//	description=DRichText?
+		//	notes+=DNote*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//feature=[DFeature] "=" value=DExpression
+		//feature=[DFeature] "=" value=DExpression description=DRichText? notes+=DNote*
 		public Group getGroup() { return cGroup; }
 		
 		//feature=[DFeature]
@@ -1991,6 +1997,18 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DExpression
 		public RuleCall getValueDExpressionParserRuleCall_2_0() { return cValueDExpressionParserRuleCall_2_0; }
+		
+		//description=DRichText?
+		public Assignment getDescriptionAssignment_3() { return cDescriptionAssignment_3; }
+		
+		//DRichText
+		public RuleCall getDescriptionDRichTextParserRuleCall_3_0() { return cDescriptionDRichTextParserRuleCall_3_0; }
+		
+		//notes+=DNote*
+		public Assignment getNotesAssignment_4() { return cNotesAssignment_4; }
+		
+		//DNote
+		public RuleCall getNotesDNoteParserRuleCall_4_0() { return cNotesDNoteParserRuleCall_4_0; }
 	}
 	public class DmxStaticReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxStaticReference");
@@ -2507,11 +2525,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//NATURAL
 		public RuleCall getNATURALTerminalRuleCall_3_2() { return cNATURALTerminalRuleCall_3_2; }
 	}
-	public class DomFieldListStartSymbolElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DomFieldListStartSymbol");
+	public class DmxFieldListStartSymbolElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxFieldListStartSymbol");
 		private final Keyword cLeftCurlyBracketKeyword = (Keyword)rule.eContents().get(1);
 		
-		//DomFieldListStartSymbol:
+		//DmxFieldListStartSymbol:
 		//	'{';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -3182,7 +3200,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final DmxUndefinedLiteralElements pDmxUndefinedLiteral;
 	private final DmxUrlLiteralElements pDmxUrlLiteral;
 	private final DECIMALElements pDECIMAL;
-	private final DomFieldListStartSymbolElements pDomFieldListStartSymbol;
+	private final DmxFieldListStartSymbolElements pDmxFieldListStartSymbol;
 	private final DQualifiedNameWithWildcardElements pDQualifiedNameWithWildcard;
 	private final DQualifiedNameElements pDQualifiedName;
 	private final TerminalRule tID;
@@ -3272,7 +3290,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDmxUndefinedLiteral = new DmxUndefinedLiteralElements();
 		this.pDmxUrlLiteral = new DmxUrlLiteralElements();
 		this.pDECIMAL = new DECIMALElements();
-		this.pDomFieldListStartSymbol = new DomFieldListStartSymbolElements();
+		this.pDmxFieldListStartSymbol = new DmxFieldListStartSymbolElements();
 		this.pDQualifiedNameWithWildcard = new DQualifiedNameWithWildcardElements();
 		this.pDQualifiedName = new DQualifiedNameElements();
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.ID");
@@ -3912,7 +3930,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DmxComplexObject:
-	//	type=[DComplexType] DomFieldListStartSymbol
+	//	type=[DComplexType] DmxFieldListStartSymbol
 	//	fields+=DmxField*
 	//	'}';
 	public DmxComplexObjectElements getDmxComplexObjectAccess() {
@@ -3924,7 +3942,9 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxField:
-	//	feature=[DFeature] "=" value=DExpression;
+	//	feature=[DFeature] "=" value=DExpression
+	//	description=DRichText?
+	//	notes+=DNote*;
 	public DmxFieldElements getDmxFieldAccess() {
 		return pDmxField;
 	}
@@ -4073,14 +4093,14 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDECIMALAccess().getRule();
 	}
 	
-	//DomFieldListStartSymbol:
+	//DmxFieldListStartSymbol:
 	//	'{';
-	public DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
-		return pDomFieldListStartSymbol;
+	public DmxFieldListStartSymbolElements getDmxFieldListStartSymbolAccess() {
+		return pDmxFieldListStartSymbol;
 	}
 	
-	public ParserRule getDomFieldListStartSymbolRule() {
-		return getDomFieldListStartSymbolAccess().getRule();
+	public ParserRule getDmxFieldListStartSymbolRule() {
+		return getDmxFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

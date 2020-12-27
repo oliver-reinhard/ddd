@@ -15,6 +15,7 @@ DNamespace:
 DomainInformationView:
 	'information' 'view'
 	name=ID
+	('alias' alias=ID)?
 	(readOnlyView?='read' 'only')?
 	//	 (^generate?='generate')?
 	(description=DRichText)?

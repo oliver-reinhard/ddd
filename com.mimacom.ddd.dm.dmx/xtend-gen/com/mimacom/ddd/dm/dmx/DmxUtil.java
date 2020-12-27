@@ -78,7 +78,7 @@ public class DmxUtil extends TypesUtil {
         return format.parse(value);
       }
     } catch (final Throwable _t) {
-      if (_t instanceof ParseException) {
+      if (_t instanceof ParseException || _t instanceof NumberFormatException) {
         return null;
       } else {
         throw Exceptions.sneakyThrow(_t);

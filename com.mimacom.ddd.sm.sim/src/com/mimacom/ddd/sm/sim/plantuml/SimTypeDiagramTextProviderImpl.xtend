@@ -41,19 +41,4 @@ class SimTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProviderImpl
 		data.allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
 		return data
 	}
-	
-	override generateSkinParameters() '''
-		«super.generateSkinParameters»
-				
-		skinparam class {
-			ArrowColor MediumBlue
-			BorderColor MediumBlue
-			BackgroundColor AliceBlue
-		}
-		
-		skinparam package {
-			BorderColor MediumBlue
-			FontColor MediumBlue
-		}
-	'''
 }

@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.dem.DemActor;
 import com.mimacom.ddd.dm.dem.DemCaseConjunction;
 import com.mimacom.ddd.dm.dem.DemDomainEvent;
 import com.mimacom.ddd.dm.dem.DemNotification;
+import com.mimacom.ddd.dm.dem.DemTrigger;
 import com.mimacom.ddd.dm.dem.tableProvider.AbstractDemEventTableRenderer;
 import com.mimacom.ddd.pub.pub.PubTableUtil;
 import com.mimacom.ddd.pub.pub.Table;
@@ -23,6 +24,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
@@ -87,8 +89,12 @@ public class DemEventTableRenderer extends AbstractDemEventTableRenderer {
   
   protected void renderTriggers(final Table t, final DemDomainEvent e) {
     boolean firstRow = true;
-    EList<DemActor> _triggers = e.getTriggers();
-    for (final DemActor trigger : _triggers) {
+    final Function1<DemTrigger, Boolean> _function = (DemTrigger it) -> {
+      DemActor _actor = it.getActor();
+      return Boolean.valueOf((_actor != null));
+    };
+    Iterable<DemTrigger> _filter = IterableExtensions.<DemTrigger>filter(e.getTriggers(), _function);
+    for (final DemTrigger trigger : _filter) {
       {
         String _xifexpression = null;
         if (firstRow) {
@@ -97,8 +103,8 @@ public class DemEventTableRenderer extends AbstractDemEventTableRenderer {
           _xifexpression = PubTableUtil.IGNORE_TABLE_CELL;
         }
         final String firstColValue = _xifexpression;
-        String _name = trigger.getName();
-        final TableRow row = this._pubTableUtil.addStyledTextRowWithDescription(t, new String[] { firstColValue, _name, "" }, trigger.getDescription());
+        String _name = trigger.getActor().getName();
+        final TableRow row = this._pubTableUtil.addStyledTextRowWithDescription(t, new String[] { firstColValue, _name, "" }, trigger.getActor().getDescription());
         if (firstRow) {
           TableCell _head = IterableExtensions.<TableCell>head(row.getCells());
           _head.setHeight(((Object[])Conversions.unwrapArray(e.getTriggers(), Object.class)).length);

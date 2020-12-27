@@ -31,7 +31,7 @@ public class SusParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SusGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getUserStoryAccess().getAlternatives_3_0(), "rule__UserStory__Alternatives_3_0");
+			builder.put(grammarAccess.getUserStoryAccess().getAlternatives_4_0(), "rule__UserStory__Alternatives_4_0");
 			builder.put(grammarAccess.getPubDocumentAccess().getAlternatives(), "rule__PubDocument__Alternatives");
 			builder.put(grammarAccess.getPubGenerateAccess().getAlternatives_2_1(), "rule__PubGenerate__Alternatives_2_1");
 			builder.put(grammarAccess.getPubDocumentSegmentAccess().getAlternatives(), "rule__PubDocumentSegment__Alternatives");
@@ -105,6 +105,7 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
 			builder.put(grammarAccess.getUserStoryAccess().getGroup(), "rule__UserStory__Group__0");
 			builder.put(grammarAccess.getUserStoryAccess().getGroup_3(), "rule__UserStory__Group_3__0");
+			builder.put(grammarAccess.getUserStoryAccess().getGroup_4(), "rule__UserStory__Group_4__0");
 			builder.put(grammarAccess.getPubModelAccess().getGroup(), "rule__PubModel__Group__0");
 			builder.put(grammarAccess.getPubPublicationAccess().getGroup(), "rule__PubPublication__Group__0");
 			builder.put(grammarAccess.getPubPublicationAccess().getGroup_8(), "rule__PubPublication__Group_8__0");
@@ -315,10 +316,11 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
 			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
 			builder.put(grammarAccess.getUserStoryAccess().getNameAssignment_2(), "rule__UserStory__NameAssignment_2");
-			builder.put(grammarAccess.getUserStoryAccess().getEventAssignment_3_1(), "rule__UserStory__EventAssignment_3_1");
-			builder.put(grammarAccess.getUserStoryAccess().getDescriptionAssignment_4(), "rule__UserStory__DescriptionAssignment_4");
-			builder.put(grammarAccess.getUserStoryAccess().getGoalAssignment_6(), "rule__UserStory__GoalAssignment_6");
-			builder.put(grammarAccess.getUserStoryAccess().getSectionsAssignment_7(), "rule__UserStory__SectionsAssignment_7");
+			builder.put(grammarAccess.getUserStoryAccess().getAliasAssignment_3_1(), "rule__UserStory__AliasAssignment_3_1");
+			builder.put(grammarAccess.getUserStoryAccess().getEventAssignment_4_1(), "rule__UserStory__EventAssignment_4_1");
+			builder.put(grammarAccess.getUserStoryAccess().getDescriptionAssignment_5(), "rule__UserStory__DescriptionAssignment_5");
+			builder.put(grammarAccess.getUserStoryAccess().getGoalAssignment_7(), "rule__UserStory__GoalAssignment_7");
+			builder.put(grammarAccess.getUserStoryAccess().getSectionsAssignment_8(), "rule__UserStory__SectionsAssignment_8");
 			builder.put(grammarAccess.getPubModelAccess().getImportsAssignment_1(), "rule__PubModel__ImportsAssignment_1");
 			builder.put(grammarAccess.getPubModelAccess().getDocumentAssignment_2(), "rule__PubModel__DocumentAssignment_2");
 			builder.put(grammarAccess.getPubPublicationAccess().getTitleAssignment_3(), "rule__PubPublication__TitleAssignment_3");
@@ -540,6 +542,8 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxComplexObjectAccess().getFieldsAssignment_2(), "rule__DmxComplexObject__FieldsAssignment_2");
 			builder.put(grammarAccess.getDmxFieldAccess().getFeatureAssignment_0(), "rule__DmxField__FeatureAssignment_0");
 			builder.put(grammarAccess.getDmxFieldAccess().getValueAssignment_2(), "rule__DmxField__ValueAssignment_2");
+			builder.put(grammarAccess.getDmxFieldAccess().getDescriptionAssignment_3(), "rule__DmxField__DescriptionAssignment_3");
+			builder.put(grammarAccess.getDmxFieldAccess().getNotesAssignment_4(), "rule__DmxField__NotesAssignment_4");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getTargetAssignment_2(), "rule__DmxStaticReference__TargetAssignment_2");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getMemberAssignment_3_1(), "rule__DmxStaticReference__MemberAssignment_3_1");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getDisplayNameAssignment_4_1_0(), "rule__DmxStaticReference__DisplayNameAssignment_4_1_0");

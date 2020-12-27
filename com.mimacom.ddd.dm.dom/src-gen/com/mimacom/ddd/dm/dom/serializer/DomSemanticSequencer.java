@@ -292,7 +292,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DNamespace returns DNamespace
 	 *
 	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName model=DomModel)
+	 *     (name=DQualifiedName imports+=DImport* model=DomModel)
 	 */
 	protected void sequence_DNamespace(ISerializationContext context, DNamespace semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -317,7 +317,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomNamedComplexObject returns DomNamedComplexObject
 	 *
 	 * Constraint:
-	 *     (name=ID (object=DmxEntity | object=DmxDetail))
+	 *     (name=ID (object=DmxEntity | object=DmxDetail) description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DomNamedComplexObject(ISerializationContext context, DomNamedComplexObject semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -329,7 +329,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomSnapshot returns DomSnapshot
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? objects+=DomObject*)
+	 *     (name=ID alias=ID? description=DRichText? notes+=DNote* objects+=DomObject*)
 	 */
 	protected void sequence_DomSnapshot(ISerializationContext context, DomSnapshot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

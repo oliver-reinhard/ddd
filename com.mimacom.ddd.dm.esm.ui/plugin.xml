@@ -463,7 +463,7 @@
        point="net.sourceforge.plantuml.eclipse.diagramTextProvider">
     <diagramTextProvider
           priority="100"
-          providerClass="com.mimacom.ddd.dm.esm.ui.plantuml.EsmDiagramTextProviderWrapper">
+          providerClass="com.mimacom.ddd.dm.esm.ui.plantuml.EsmStateDiagramTextProviderWrapper">
     </diagramTextProvider>
  </extension>
 </plugin>

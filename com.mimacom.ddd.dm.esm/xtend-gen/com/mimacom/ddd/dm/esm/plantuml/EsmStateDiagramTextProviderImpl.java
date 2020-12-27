@@ -6,26 +6,49 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DState;
 import com.mimacom.ddd.dm.base.base.DStateEvent;
+import com.mimacom.ddd.dm.base.plantuml.PlantUmlTextProviderUtil;
 import com.mimacom.ddd.dm.esm.EsmCompositeState;
 import com.mimacom.ddd.dm.esm.EsmConcurrentState;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
+import com.mimacom.ddd.dm.esm.EsmState;
 import com.mimacom.ddd.dm.esm.EsmStateKind;
 import com.mimacom.ddd.dm.esm.EsmSubStateModel;
 import com.mimacom.ddd.dm.esm.EsmTransition;
 import com.mimacom.ddd.dm.esm.IEsmState;
 import com.mimacom.ddd.dm.esm.IEsmStateModel;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
+import com.mimacom.ddd.util.plantuml.SkinparamArrow;
+import com.mimacom.ddd.util.plantuml.SkinparamGlobal;
+import com.mimacom.ddd.util.plantuml.SkinparamNote;
+import com.mimacom.ddd.util.plantuml.SkinparamState;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProvider<EsmEntityStateModel> {
   @Inject
+  @Extension
+  private PlantUmlTextProviderUtil _plantUmlTextProviderUtil;
+  
+  @Inject
   private ISerializer serializer;
+  
+  @Inject
+  private SkinparamGlobal skinparamGlobal;
+  
+  @Inject
+  private SkinparamState skinparamState;
+  
+  @Inject
+  private SkinparamArrow skinparamArrow;
+  
+  @Inject
+  private SkinparamNote skinparamNote;
   
   private static final String NAME_UNDEFINED = "NO_NAME";
   
@@ -40,28 +63,78 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
   
   @Override
   public String diagramText(final EsmEntityStateModel model) {
-    return this.genStateModel(model);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@startuml");
+    _builder.newLine();
+    _builder.newLine();
+    CharSequence _generateSkinParameters = this.generateSkinParameters();
+    _builder.append(_generateSkinParameters);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    String _genStateModel = this.genStateModel(model);
+    _builder.append(_genStateModel);
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(model);
+    _builder.append(_generateNotes);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("@enduml");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public CharSequence generateSkinParameters() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(this.skinparamGlobal);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamState);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamArrow);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamNote);
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public String genStateModel(final IEsmStateModel model) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("@startuml");
-    _builder.newLine();
-    _builder.append("\' Additional, synthetic transitions: Initial state --> state:");
+    _builder.append("\' Regular states:");
     _builder.newLine();
     {
-      final Function1<IEsmState, Boolean> _function = (IEsmState s) -> {
-        return Boolean.valueOf(((Objects.equal(s.getKind(), EsmStateKind.INITIAL) && (s.getState() != null)) && (!s.getState().eIsProxy())));
+      Iterable<EsmState> _filter = Iterables.<EsmState>filter(model.getStates(), EsmState.class);
+      for(final EsmState s : _filter) {
+        _builder.append("\' Composite state");
+        _builder.newLine();
+        _builder.append("state ");
+        String _stateName = this.stateName(s);
+        _builder.append(_stateName);
+        _builder.append(" {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
+        CharSequence _generateNotesOnRight = this._plantUmlTextProviderUtil.generateNotesOnRight(s, this.stateName(s));
+        _builder.append(_generateNotesOnRight);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\' Additional, synthetic transitions: INITIAL state --> state:");
+    _builder.newLine();
+    {
+      final Function1<IEsmState, Boolean> _function = (IEsmState s_1) -> {
+        return Boolean.valueOf(((Objects.equal(s_1.getKind(), EsmStateKind.INITIAL) && (s_1.getState() != null)) && (!s_1.getState().eIsProxy())));
       };
-      Iterable<IEsmState> _filter = IterableExtensions.<IEsmState>filter(model.getStates(), _function);
-      for(final IEsmState s : _filter) {
+      Iterable<IEsmState> _filter_1 = IterableExtensions.<IEsmState>filter(model.getStates(), _function);
+      for(final IEsmState s_1 : _filter_1) {
         _builder.append(EsmStateDiagramTextProviderImpl.STATE_INITIAL_FINAL);
         _builder.append(" -");
         String _lowerCase = model.getDirection().getLiteral().toLowerCase();
         _builder.append(_lowerCase);
         _builder.append("-> ");
-        String _stateName = this.stateName(s);
-        _builder.append(_stateName);
+        String _stateName_1 = this.stateName(s_1);
+        _builder.append(_stateName_1);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -70,32 +143,35 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
     {
       EList<EsmTransition> _transitions = model.getTransitions();
       for(final EsmTransition t : _transitions) {
-        String _stateName_1 = this.stateName(t.getFrom());
-        _builder.append(_stateName_1);
+        String _stateName_2 = this.stateName(t.getFrom());
+        _builder.append(_stateName_2);
         _builder.append(" -");
         String _lowerCase_1 = t.getDirection().getLiteral().toLowerCase();
         _builder.append(_lowerCase_1);
         _builder.append("-> ");
-        String _stateName_2 = this.stateName(t.getTo());
-        _builder.append(_stateName_2);
-        _builder.append(":");
+        String _stateName_3 = this.stateName(t.getTo());
+        _builder.append(_stateName_3);
+        _builder.append(" : ");
         String _eventName = this.eventName(t.getEvent());
         _builder.append(_eventName);
         String _guardExpression = this.guardExpression(t);
         _builder.append(_guardExpression);
         _builder.newLineIfNotEmpty();
+        CharSequence _generateLinkNotes = this._plantUmlTextProviderUtil.generateLinkNotes(t);
+        _builder.append(_generateLinkNotes);
+        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\' Additional, synthetic transitions: state --> final state:");
+    _builder.append("\' Additional, synthetic transitions: state --> FINAL state:");
     _builder.newLine();
     {
-      final Function1<IEsmState, Boolean> _function_1 = (IEsmState s_1) -> {
-        return Boolean.valueOf(((Objects.equal(s_1.getKind(), EsmStateKind.FINAL) && (s_1.getState() != null)) && (!s_1.getState().eIsProxy())));
+      final Function1<IEsmState, Boolean> _function_1 = (IEsmState s_2) -> {
+        return Boolean.valueOf(((Objects.equal(s_2.getKind(), EsmStateKind.FINAL) && (s_2.getState() != null)) && (!s_2.getState().eIsProxy())));
       };
-      Iterable<IEsmState> _filter_1 = IterableExtensions.<IEsmState>filter(model.getStates(), _function_1);
-      for(final IEsmState s_1 : _filter_1) {
-        String _stateName_3 = this.stateName(s_1);
-        _builder.append(_stateName_3);
+      Iterable<IEsmState> _filter_2 = IterableExtensions.<IEsmState>filter(model.getStates(), _function_1);
+      for(final IEsmState s_2 : _filter_2) {
+        String _stateName_4 = this.stateName(s_2);
+        _builder.append(_stateName_4);
         _builder.append(" -");
         String _lowerCase_2 = model.getDirection().getLiteral().toLowerCase();
         _builder.append(_lowerCase_2);
@@ -105,13 +181,13 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
       }
     }
     {
-      Iterable<EsmCompositeState> _filter_2 = Iterables.<EsmCompositeState>filter(model.getStates(), EsmCompositeState.class);
-      for(final EsmCompositeState composite : _filter_2) {
+      Iterable<EsmCompositeState> _filter_3 = Iterables.<EsmCompositeState>filter(model.getStates(), EsmCompositeState.class);
+      for(final EsmCompositeState composite : _filter_3) {
         _builder.append("\' Composite state");
         _builder.newLine();
         _builder.append("state ");
-        String _stateName_4 = this.stateName(composite.getState());
-        _builder.append(_stateName_4);
+        String _stateName_5 = this.stateName(composite.getState());
+        _builder.append(_stateName_5);
         _builder.append(" {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -120,16 +196,19 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
         _builder.newLineIfNotEmpty();
         _builder.append("}");
         _builder.newLine();
+        CharSequence _generateNotesOnRight_1 = this._plantUmlTextProviderUtil.generateNotesOnRight(composite, this.stateName(composite.getState()));
+        _builder.append(_generateNotesOnRight_1);
+        _builder.newLineIfNotEmpty();
       }
     }
     {
-      Iterable<EsmConcurrentState> _filter_3 = Iterables.<EsmConcurrentState>filter(model.getStates(), EsmConcurrentState.class);
-      for(final EsmConcurrentState concurrent : _filter_3) {
+      Iterable<EsmConcurrentState> _filter_4 = Iterables.<EsmConcurrentState>filter(model.getStates(), EsmConcurrentState.class);
+      for(final EsmConcurrentState concurrent : _filter_4) {
         _builder.append("\' Concurrent state");
         _builder.newLine();
         _builder.append("state ");
-        String _stateName_5 = this.stateName(concurrent.getState());
-        _builder.append(_stateName_5);
+        String _stateName_6 = this.stateName(concurrent.getState());
+        _builder.append(_stateName_6);
         _builder.append(" {");
         _builder.newLineIfNotEmpty();
         {
@@ -149,18 +228,12 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
         }
         _builder.append("}");
         _builder.newLine();
+        CharSequence _generateNotesOnRight_2 = this._plantUmlTextProviderUtil.generateNotesOnRight(concurrent, this.stateName(concurrent.getState()));
+        _builder.append(_generateNotesOnRight_2);
+        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("@enduml");
-    _builder.newLine();
     return _builder.toString();
-  }
-  
-  protected String stateName(final DState state) {
-    if (((state == null) || state.eIsProxy())) {
-      return EsmStateDiagramTextProviderImpl.NAME_UNDEFINED;
-    }
-    return state.getName();
   }
   
   protected String guardExpression(final EsmTransition t) {
@@ -188,11 +261,11 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
     return "";
   }
   
-  protected String eventName(final DStateEvent event) {
-    if (((event == null) || event.eIsProxy())) {
+  protected String stateName(final DState state) {
+    if (((state == null) || state.eIsProxy())) {
       return EsmStateDiagramTextProviderImpl.NAME_UNDEFINED;
     }
-    return event.getName().toLowerCase();
+    return state.getName();
   }
   
   protected String stateName(final IEsmState state) {
@@ -202,5 +275,12 @@ public class EsmStateDiagramTextProviderImpl implements IPlantUmlDiagramTextProv
       return EsmStateDiagramTextProviderImpl.NAME_UNDEFINED;
     }
     return state.getState().getName();
+  }
+  
+  protected String eventName(final DStateEvent event) {
+    if (((event == null) || event.eIsProxy())) {
+      return EsmStateDiagramTextProviderImpl.NAME_UNDEFINED;
+    }
+    return event.getName().toLowerCase();
   }
 }

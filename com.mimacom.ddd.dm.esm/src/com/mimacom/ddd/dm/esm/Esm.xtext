@@ -15,6 +15,7 @@ DNamespace:
 EsmEntityStateModel:
 	'state' 'model' 
 	name=DQualifiedName
+	('alias' alias=ID)?
 	'for'
 	 forType=[DimEntityType|DQualifiedName]
 	(description=DRichText)?

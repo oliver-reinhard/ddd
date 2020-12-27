@@ -310,7 +310,7 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     AsmApplication returns AsmApplication
 	 *
 	 * Constraint:
-	 *     (name=ID model=[SystemInformationModel|DQualifiedName] actors+=AsmActor*)
+	 *     (name=ID alias=ID? model=[SystemInformationModel|DQualifiedName] actors+=AsmActor*)
 	 */
 	protected void sequence_AsmApplication(ISerializationContext context, AsmApplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -355,6 +355,7 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         alias=ID? 
 	 *         interface=[SystemInformationModel|DQualifiedName] 
 	 *         core=[SystemInformationModel|DQualifiedName] 
 	 *         exceptions+=AsmException* 

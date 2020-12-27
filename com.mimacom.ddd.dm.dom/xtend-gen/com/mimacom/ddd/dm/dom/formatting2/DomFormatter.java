@@ -44,8 +44,8 @@ public class DomFormatter extends DmxFormatter {
       it.setNewLines(2);
     };
     document.append(this.textRegionExtensions.regionFor(snapshot).assignment(this._domGrammarAccess.getDomSnapshotAccess().getNameAssignment_1()), _function);
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getLeftCurlyBracketKeyword_4());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getRightCurlyBracketKeyword_6());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getLeftCurlyBracketKeyword_5());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(snapshot).keyword(this._domGrammarAccess.getDomSnapshotAccess().getRightCurlyBracketKeyword_7());
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -81,7 +81,7 @@ public class DomFormatter extends DmxFormatter {
       it.oneSpace();
     };
     document.surround(this.textRegionExtensions.regionFor(obj).assignment(this._domGrammarAccess.getDmxComplexObjectAccess().getTypeAssignment_0()), _function);
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(obj).ruleCall(this._domGrammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(obj).ruleCall(this._domGrammarAccess.getDmxComplexObjectAccess().getDmxFieldListStartSymbolParserRuleCall_1());
     final ISemanticRegion close = this.textRegionExtensions.regionFor(obj).keyword(this._domGrammarAccess.getDmxComplexObjectAccess().getRightCurlyBracketKeyword_3());
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       it.indent();

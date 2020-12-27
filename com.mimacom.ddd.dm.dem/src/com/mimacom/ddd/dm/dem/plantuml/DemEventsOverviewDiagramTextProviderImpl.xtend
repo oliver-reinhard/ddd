@@ -30,6 +30,8 @@ class DemEventsOverviewDiagramTextProviderImpl extends AbstractDemDiagramTextPro
 		}
 		val result = '''
 			@startuml
+			«generateSkinParameters»
+			
 			«actors.values.allActorsText»
 			«FOR event : events»
 			

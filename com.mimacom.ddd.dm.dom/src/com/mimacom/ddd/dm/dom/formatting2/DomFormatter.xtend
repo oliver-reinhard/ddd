@@ -26,8 +26,8 @@ class DomFormatter extends DmxFormatter {
 
 	def dispatch void format(DomSnapshot snapshot, extension IFormattableDocument document) {
 		snapshot.regionFor.assignment(domSnapshotAccess.nameAssignment_1).append[newLines = 2]
-		val open = snapshot.regionFor.keyword(domSnapshotAccess.leftCurlyBracketKeyword_4)
-		val close = snapshot.regionFor.keyword(domSnapshotAccess.rightCurlyBracketKeyword_6)
+		val open = snapshot.regionFor.keyword(domSnapshotAccess.leftCurlyBracketKeyword_5)
+		val close = snapshot.regionFor.keyword(domSnapshotAccess.rightCurlyBracketKeyword_7)
 		open.append[newLines=2]
 		interior(open, close) [indent]
 		
@@ -45,7 +45,7 @@ class DomFormatter extends DmxFormatter {
 	
 	def dispatch void format(DmxComplexObject obj, extension IFormattableDocument document) {
 		obj.regionFor.assignment(dmxComplexObjectAccess.typeAssignment_0).surround[oneSpace]
-		val open = obj.regionFor.ruleCall(dmxComplexObjectAccess.domFieldListStartSymbolParserRuleCall_1)
+		val open = obj.regionFor.ruleCall(dmxComplexObjectAccess.dmxFieldListStartSymbolParserRuleCall_1)
 		val close = obj.regionFor.keyword(dmxComplexObjectAccess.rightCurlyBracketKeyword_3)
 		interior(open, close) [indent]
 		

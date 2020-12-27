@@ -317,13 +317,13 @@ public interface PubPackage extends EPackage {
 	int SYMBOL__NAME = BasePackage.DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYMBOL__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int SYMBOL__ALIAS = BasePackage.DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

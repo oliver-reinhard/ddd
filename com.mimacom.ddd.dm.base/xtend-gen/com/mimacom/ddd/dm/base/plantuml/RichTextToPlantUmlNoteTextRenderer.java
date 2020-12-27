@@ -7,6 +7,8 @@ import com.mimacom.ddd.dm.base.richText.RichTextUtil;
 import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.base.styledText.parser.NullErrorMessageAcceptor;
 import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser;
+import com.mimacom.ddd.util.plantuml.Color;
+import com.mimacom.ddd.util.plantuml.SkinparamNote;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
@@ -14,6 +16,9 @@ public class RichTextToPlantUmlNoteTextRenderer extends AbstractRichTextRenderer
   @Inject
   @Extension
   private RichTextUtil _richTextUtil;
+  
+  @Inject
+  private SkinparamNote skinparamNote;
   
   @Override
   protected String getSourceText(final DExpression expr) {
@@ -59,9 +64,14 @@ public class RichTextToPlantUmlNoteTextRenderer extends AbstractRichTextRenderer
   
   @Override
   protected CharSequence renderStyleKeyword(final DStyledTextSpan span) {
-    CharSequence _render = this.render(span);
-    String _plus = ("<b><color:DimGrey>" + _render);
-    return (_plus + "</color></b>");
+    String _xblockexpression = null;
+    {
+      final Color color = this.skinparamNote.keywordFontColor();
+      CharSequence _render = this.render(span);
+      String _plus = ((("<b><color:" + color) + ">") + _render);
+      _xblockexpression = (_plus + "</color></b>");
+    }
+    return _xblockexpression;
   }
   
   @Override
@@ -84,16 +94,16 @@ public class RichTextToPlantUmlNoteTextRenderer extends AbstractRichTextRenderer
   }
   
   @Override
-  protected CharSequence renderStyleSubscript(final DStyledTextSpan span) {
+  protected CharSequence renderStyleSuperscript(final DStyledTextSpan span) {
     CharSequence _render = this.render(span);
-    String _plus = ("<size:7>" + _render);
-    return (_plus + "</size>");
+    String _plus = ("<sup>" + _render);
+    return (_plus + "</sup>");
   }
   
   @Override
-  protected CharSequence renderStyleSuperscript(final DStyledTextSpan span) {
+  protected CharSequence renderStyleSubscript(final DStyledTextSpan span) {
     CharSequence _render = this.render(span);
-    String _plus = ("<size:7>^" + _render);
-    return (_plus + "^</size>");
+    String _plus = ("<sub>" + _render);
+    return (_plus + "</sub>");
   }
 }

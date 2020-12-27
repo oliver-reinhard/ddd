@@ -13,7 +13,11 @@ import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
+import com.mimacom.ddd.sm.sim.plantuml.SimSkinparamClass;
+import com.mimacom.ddd.sm.sim.plantuml.SimSkinparamPackage;
 import com.mimacom.ddd.sm.sim.scoping.SimQualifiedNameProvider;
+import com.mimacom.ddd.util.plantuml.SkinparamClass;
+import com.mimacom.ddd.util.plantuml.SkinparamPackage;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager;
@@ -69,5 +73,13 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   public Class<? extends TSyntheticModelElementsFactory> bindTSyntheticModelElementsFactory() {
     return TSyntheticModelElementsFactoryWithTypeMapping.class;
+  }
+  
+  public Class<? extends SkinparamPackage> bindPlantUMLSkinparamPackage() {
+    return SimSkinparamPackage.class;
+  }
+  
+  public Class<? extends SkinparamClass> bindPlantUMLSkinparamClass() {
+    return SimSkinparamClass.class;
   }
 }

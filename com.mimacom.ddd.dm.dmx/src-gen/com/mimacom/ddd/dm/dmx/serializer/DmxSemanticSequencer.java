@@ -767,19 +767,10 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DmxField returns DmxField
 	 *
 	 * Constraint:
-	 *     (feature=[DFeature|ID] value=DExpression)
+	 *     (feature=[DFeature|ID] value=DExpression description=DRichText? notes+=DNote*)
 	 */
 	protected void sequence_DmxField(ISerializationContext context, DmxField semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FIELD__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FIELD__FEATURE));
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FIELD__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FIELD__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDmxFieldAccess().getFeatureDFeatureIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DmxPackage.Literals.DMX_FIELD__FEATURE, false));
-		feeder.accept(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

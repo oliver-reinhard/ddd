@@ -15,9 +15,13 @@ class DemEventDiagramTextProviderImpl extends AbstractDemDiagramTextProviderImpl
 		event.collectActors(actors)
 		val result = '''
 			@startuml
+			
+			«generateSkinParameters»
+			
 			«event.eventText»
 			«actors.values.allActorsText»
 			«event.allFlowsText»
+			
 			@enduml
 		'''
        return result

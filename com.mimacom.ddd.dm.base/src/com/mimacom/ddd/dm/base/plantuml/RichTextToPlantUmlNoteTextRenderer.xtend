@@ -7,10 +7,12 @@ import com.mimacom.ddd.dm.base.richText.RichTextUtil
 import com.mimacom.ddd.dm.base.styledText.DStyledTextSpan
 import com.mimacom.ddd.dm.base.styledText.parser.NullErrorMessageAcceptor
 import com.mimacom.ddd.dm.base.styledText.parser.StyledTextParser
+import com.mimacom.ddd.util.plantuml.SkinparamNote
 
 class RichTextToPlantUmlNoteTextRenderer extends AbstractRichTextRenderer {
 	
 	@Inject extension RichTextUtil
+	@Inject SkinparamNote skinparamNote
 	
 	override protected getSourceText(DExpression expr) {
 		expr.getSourceTextFromXtextResource
@@ -41,7 +43,8 @@ class RichTextToPlantUmlNoteTextRenderer extends AbstractRichTextRenderer {
 	}
 	
 	override protected renderStyleKeyword(DStyledTextSpan span) {
-		"<b><color:DimGrey>" + span.render + "</color></b>"
+		val color = skinparamNote.keywordFontColor
+		"<b><color:" + color + ">" + span.render + "</color></b>"
 	}
 	
 	override protected renderStyleExpression(DExpression expr, String parsedText) {
@@ -56,11 +59,11 @@ class RichTextToPlantUmlNoteTextRenderer extends AbstractRichTextRenderer {
 		"<s>" + span.render + "</s>"
 	}
 	
-	override protected renderStyleSubscript(DStyledTextSpan span) {
-		"<size:7>" + span.render + "</size>"
+	override protected renderStyleSuperscript(DStyledTextSpan span) {
+		"<sup>" + span.render + "</sup>"
 	}
 	
-	override protected renderStyleSuperscript(DStyledTextSpan span) {
-		"<size:7>^" + span.render + "^</size>"
+	override protected renderStyleSubscript(DStyledTextSpan span) {
+		"<sub>" + span.render + "</sub>"
 	}
 }

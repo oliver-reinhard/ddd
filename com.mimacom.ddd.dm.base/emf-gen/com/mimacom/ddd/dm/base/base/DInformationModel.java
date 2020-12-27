@@ -13,7 +13,7 @@ package com.mimacom.ddd.dm.base.base;
  * @model
  * @generated
  */
-public interface DInformationModel extends DModel, INoteContainer, IAggregateContainer, ITypeContainer, IStaticReferenceTarget, IDiagramRoot
+public interface DInformationModel extends DModel, IAggregateContainer, ITypeContainer, IStaticReferenceTarget, IDiagramRoot
 {
 	/**
 	 * <!-- begin-user-doc -->

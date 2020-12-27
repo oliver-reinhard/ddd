@@ -1,6 +1,5 @@
 package com.mimacom.ddd.dm.base.plantuml;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.TypesUtil;
 import com.mimacom.ddd.dm.base.base.DAggregate;
@@ -8,9 +7,6 @@ import com.mimacom.ddd.dm.base.base.DAssociation;
 import com.mimacom.ddd.dm.base.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
-import com.mimacom.ddd.dm.base.base.DDetailType;
-import com.mimacom.ddd.dm.base.base.DEntityNature;
-import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DFeature;
 import com.mimacom.ddd.dm.base.base.DInformationModel;
@@ -20,14 +16,16 @@ import com.mimacom.ddd.dm.base.base.DQuery;
 import com.mimacom.ddd.dm.base.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.base.DType;
 import com.mimacom.ddd.dm.base.plantuml.PlantUmlTextProviderUtil;
-import com.mimacom.ddd.dm.base.plantuml.SkinparamClass;
-import com.mimacom.ddd.dm.base.plantuml.SkinparamGlobal;
-import com.mimacom.ddd.dm.base.plantuml.SkinparamNote;
-import com.mimacom.ddd.dm.base.plantuml.SkinparamPackage;
 import com.mimacom.ddd.dm.base.plantuml.TypeDiagramTextProviderData;
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition;
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition;
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider;
+import com.mimacom.ddd.util.plantuml.SkinparamArrow;
+import com.mimacom.ddd.util.plantuml.SkinparamClass;
+import com.mimacom.ddd.util.plantuml.SkinparamFrame;
+import com.mimacom.ddd.util.plantuml.SkinparamGlobal;
+import com.mimacom.ddd.util.plantuml.SkinparamNote;
+import com.mimacom.ddd.util.plantuml.SkinparamRectangle;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -54,7 +52,13 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
   private SkinparamClass skinparamClass;
   
   @Inject
-  private SkinparamPackage skinparamPackage;
+  private SkinparamArrow skinparamArrow;
+  
+  @Inject
+  private SkinparamRectangle skinparamRectangle;
+  
+  @Inject
+  private SkinparamFrame skinparamFrame;
   
   @Inject
   private SkinparamNote skinparamNote;
@@ -73,6 +77,7 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@startuml");
+    _builder.newLine();
     _builder.newLine();
     CharSequence _generateSkinParameters = this.generateSkinParameters();
     _builder.append(_generateSkinParameters);
@@ -195,22 +200,19 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     _builder.newLine();
     {
       for(final DComplexType s : allSubtypes) {
-        String _aggregateName_1 = this._typesUtil.aggregateName(s);
-        _builder.append(_aggregateName_1);
-        _builder.append(".");
-        String _name = s.getName();
-        _builder.append(_name);
+        String _typeQN = this._plantUmlTextProviderUtil.typeQN(s);
+        _builder.append(_typeQN);
         _builder.append(" --|> ");
-        String _aggregateName_2 = this._typesUtil.aggregateName(s.getSuperType());
-        _builder.append(_aggregateName_2);
         {
-          String _aggregateName_3 = this._typesUtil.aggregateName(s);
-          String _aggregateName_4 = this._typesUtil.aggregateName(s.getSuperType());
-          boolean _tripleEquals = (_aggregateName_3 == _aggregateName_4);
+          String _aggregateName_1 = this._typesUtil.aggregateName(s);
+          String _aggregateName_2 = this._typesUtil.aggregateName(s.getSuperType());
+          boolean _tripleEquals = (_aggregateName_1 == _aggregateName_2);
           if (_tripleEquals) {
-            _builder.append(".");
-            String _name_1 = s.getSuperType().getName();
-            _builder.append(_name_1);
+            String _typeQN_1 = this._plantUmlTextProviderUtil.typeQN(s.getSuperType());
+            _builder.append(_typeQN_1);
+          } else {
+            String _aggregateQN = this._plantUmlTextProviderUtil.aggregateQN(s.getSuperType());
+            _builder.append(_aggregateQN);
           }
         }
         _builder.newLineIfNotEmpty();
@@ -233,7 +235,14 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     _builder.append(this.skinparamClass);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append(this.skinparamPackage);
+    _builder.append(this.skinparamArrow);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append(this.skinparamRectangle);
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append(this.skinparamFrame);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append(this.skinparamNote);
@@ -281,7 +290,7 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     String _aggregateQueriesClassName = this._plantUmlTextProviderUtil.aggregateQueriesClassName(a);
     _builder.append(_aggregateQueriesClassName);
     _builder.append(" ");
-    String _spot = this.spot(a);
+    String _spot = this._plantUmlTextProviderUtil.spot(a);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
@@ -319,7 +328,7 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     String _typeQN = this._plantUmlTextProviderUtil.typeQN(c);
     _builder.append(_typeQN);
     _builder.append(" ");
-    String _spot = this.spot(c);
+    String _spot = this._plantUmlTextProviderUtil.spot(c);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
@@ -361,7 +370,7 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     String _typeQN = this._plantUmlTextProviderUtil.typeQN(p);
     _builder.append(_typeQN);
     _builder.append(" ");
-    String _spot = this.spot(p);
+    String _spot = this._plantUmlTextProviderUtil.spot(p);
     _builder.append(_spot);
     _builder.newLineIfNotEmpty();
     CharSequence _generateNotes = this._plantUmlTextProviderUtil.generateNotes(p);
@@ -380,7 +389,7 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     String _typeQN = this._plantUmlTextProviderUtil.typeQN(e);
     _builder.append(_typeQN);
     _builder.append(" ");
-    String _spot = this.spot(e);
+    String _spot = this._plantUmlTextProviderUtil.spot(e);
     _builder.append(_spot);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
@@ -587,56 +596,6 @@ public abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformation
     _builder.append(targetRole);
     _builder.newLineIfNotEmpty();
     return _builder;
-  }
-  
-  public String spot(final DAggregate a) {
-    return "<< (Q,Gold) >>";
-  }
-  
-  public String spot(final DType t) {
-    String _switchResult = null;
-    boolean _matched = false;
-    if (t instanceof DEntityType) {
-      _matched=true;
-      String _xifexpression = null;
-      boolean _isRoot = ((DEntityType)t).isRoot();
-      if (_isRoot) {
-        _xifexpression = "<< (R,#FB3333) >>";
-      } else {
-        String _xifexpression_1 = null;
-        DEntityNature _nature = ((DEntityType)t).getNature();
-        boolean _equals = Objects.equal(_nature, DEntityNature.RELATIONSHIP);
-        if (_equals) {
-          _xifexpression_1 = "<< (R,#FA78C8) >>";
-        } else {
-          _xifexpression_1 = "<< (E,#F78100) >>";
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _switchResult = _xifexpression;
-    }
-    if (!_matched) {
-      if (t instanceof DDetailType) {
-        _matched=true;
-        _switchResult = "<< (D,#FAE55F) >>";
-      }
-    }
-    if (!_matched) {
-      if (t instanceof DEnumeration) {
-        _matched=true;
-        _switchResult = "<< (e,#66B371) >>";
-      }
-    }
-    if (!_matched) {
-      if (t instanceof DPrimitive) {
-        _matched=true;
-        _switchResult = "<< (p,#9AF78F) >>";
-      }
-    }
-    if (!_matched) {
-      _switchResult = "";
-    }
-    return _switchResult;
   }
   
   public CharSequence generateType(final DType e) {

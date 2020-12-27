@@ -89,6 +89,7 @@ public class AsmSwitch<T> extends Switch<T>
 				if (result == null) result = caseIDiagramRoot(applicationServiceModel);
 				if (result == null) result = caseIStaticReferenceTarget(applicationServiceModel);
 				if (result == null) result = caseDNamedElement(applicationServiceModel);
+				if (result == null) result = caseINoteContainer(applicationServiceModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -101,6 +102,7 @@ public class AsmSwitch<T> extends Switch<T>
 				if (result == null) result = caseIDiagramRoot(asmApplication);
 				if (result == null) result = caseIStaticReferenceTarget(asmApplication);
 				if (result == null) result = caseDNamedElement(asmApplication);
+				if (result == null) result = caseINoteContainer(asmApplication);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,6 +115,7 @@ public class AsmSwitch<T> extends Switch<T>
 				if (result == null) result = caseIDiagramRoot(asmServiceInterface);
 				if (result == null) result = caseIStaticReferenceTarget(asmServiceInterface);
 				if (result == null) result = caseDNamedElement(asmServiceInterface);
+				if (result == null) result = caseINoteContainer(asmServiceInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -330,6 +333,22 @@ public class AsmSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINoteContainer(INoteContainer object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DModel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -389,22 +408,6 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINavigableMemberContainer(INavigableMemberContainer object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INote Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INote Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINoteContainer(INoteContainer object)
 	{
 		return null;
 	}

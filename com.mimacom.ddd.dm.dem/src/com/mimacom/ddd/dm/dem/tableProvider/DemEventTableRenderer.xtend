@@ -51,9 +51,9 @@ class DemEventTableRenderer extends AbstractDemEventTableRenderer {
 
 	protected def void renderTriggers(Table t, DemDomainEvent e) {
 		var firstRow = true
-		for (trigger : e.triggers) {
+		for (trigger : e.triggers.filter[actor !== null]) {
 			val firstColValue = firstRow ? "Triggers".strong : IGNORE_TABLE_CELL
-			val row = t.addStyledTextRowWithDescription(#[firstColValue, trigger.name, ""],	trigger.description)
+			val row = t.addStyledTextRowWithDescription(#[firstColValue, trigger.actor.name, ""],	trigger.actor.description)
 			if (firstRow) {
 				row.cells.head.height = e.triggers.length
 				firstRow = false

@@ -277,7 +277,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	@Check
 	def checkType(DmxTestContext expr) {
 		if (expr.value !== null) {
-			val expectedType = getTypeDescAndCheckNotNull(expr.type, expr.collection, BASE.DNavigableMember_Type)
+			val expectedType = getTypeDescAndCheckNotNull(expr.type, expr.collection, DMX.dmxTest_Expr)
 			if (expectedType == UNDEFINED_TYPE) {
 				// don't look at value, it's useless and will only generate more validation errors
 				return
@@ -289,7 +289,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	@Check
 	def checkType(DmxAssignment expr) {
 		val target = expr.assignToMember
-		val targetType = getTypeDescAndCheckNotNull(target.type, target.collection, BASE.DNavigableMember_Type)
+		val targetType = getTypeDescAndCheckNotNull(target.type, target.collection, DMX.dmxAssignment_AssignToMember)
 		if (targetType == UNDEFINED_TYPE) {
 			// don't look at value, it's useless and will only generate more validation errors
 			return
@@ -414,7 +414,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 		if (actualType.isCompatibleWith(expectedType)) {
 			return true
 		}
-		val errorText = "Expected " + expectedType.displayName + " type, but was " + actualType.displayName
+		val errorText = "Expected " + expectedType.displayName + " type, but is " + actualType.displayName
 		if (index == NO_INDEX) {
 			error(errorText, ref, TYPE_MISMATCH)
 		} else {
@@ -436,7 +436,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 				return true
 			}
 		}
-		error("Expected one of " + expectedTypes.map[displayName] + " types, but was " + actualType.displayName, ref,
+		error("Expected one of " + expectedTypes.map[displayName] + " types, but is " + actualType.displayName, ref,
 			TYPE_MISMATCH)
 		return false
 	}

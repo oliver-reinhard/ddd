@@ -81,13 +81,13 @@ public interface DmxPackage extends EPackage
 	int DMX_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int DMX_MODEL__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -97,6 +97,15 @@ public interface DmxPackage extends EPackage
 	 * @ordered
 	 */
 	int DMX_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_MODEL__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -227,13 +236,13 @@ public interface DmxPackage extends EPackage
 	int DMX_TEST_CONTEXT__NAME = BasePackage.DCONTEXT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_TEST_CONTEXT__ALIASES = BasePackage.DCONTEXT__ALIASES;
+	int DMX_TEST_CONTEXT__ALIAS = BasePackage.DCONTEXT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -382,13 +391,13 @@ public interface DmxPackage extends EPackage
 	int DMX_ARCHETYPE__NAME = BasePackage.DPRIMITIVE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_ARCHETYPE__ALIASES = BasePackage.DPRIMITIVE__ALIASES;
+	int DMX_ARCHETYPE__ALIAS = BasePackage.DPRIMITIVE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -491,13 +500,13 @@ public interface DmxPackage extends EPackage
 	int DMX_FILTER__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FILTER__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DMX_FILTER__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -856,13 +865,13 @@ public interface DmxPackage extends EPackage
 	int DMX_CORRELATION_VARIABLE__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_CORRELATION_VARIABLE__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DMX_CORRELATION_VARIABLE__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1830,13 +1839,13 @@ public interface DmxPackage extends EPackage
 	int DMX_FIELD__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FIELD__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DMX_FIELD__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

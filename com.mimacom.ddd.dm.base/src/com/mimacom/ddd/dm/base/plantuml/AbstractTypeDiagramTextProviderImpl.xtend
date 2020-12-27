@@ -6,9 +6,6 @@ import com.mimacom.ddd.dm.base.base.DAggregate
 import com.mimacom.ddd.dm.base.base.DAssociation
 import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DComplexType
-import com.mimacom.ddd.dm.base.base.DDetailType
-import com.mimacom.ddd.dm.base.base.DEntityNature
-import com.mimacom.ddd.dm.base.base.DEntityType
 import com.mimacom.ddd.dm.base.base.DEnumeration
 import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DPrimitive
@@ -17,6 +14,12 @@ import com.mimacom.ddd.dm.base.base.DType
 import com.mimacom.ddd.dm.base.transpose.TFeatureTransposition
 import com.mimacom.ddd.dm.base.transpose.TTypeTransposition
 import com.mimacom.ddd.util.plantuml.IPlantUmlDiagramTextProvider
+import com.mimacom.ddd.util.plantuml.SkinparamArrow
+import com.mimacom.ddd.util.plantuml.SkinparamClass
+import com.mimacom.ddd.util.plantuml.SkinparamFrame
+import com.mimacom.ddd.util.plantuml.SkinparamGlobal
+import com.mimacom.ddd.util.plantuml.SkinparamNote
+import com.mimacom.ddd.util.plantuml.SkinparamRectangle
 import org.eclipse.xtext.EcoreUtil2
 
 abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> implements IPlantUmlDiagramTextProvider<T> {
@@ -26,7 +29,9 @@ abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> 
 	
 	@Inject SkinparamGlobal skinparamGlobal
 	@Inject SkinparamClass skinparamClass
-	@Inject SkinparamPackage skinparamPackage
+	@Inject SkinparamArrow skinparamArrow
+	@Inject SkinparamRectangle skinparamRectangle
+	@Inject SkinparamFrame skinparamFrame
 	@Inject SkinparamNote skinparamNote
 	
 	protected static val MODEL_SHAPE = "<<Frame>>"
@@ -39,6 +44,7 @@ abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> 
 
 		val result = '''
 			@startuml
+			
 			«generateSkinParameters()»
 			
 			«IF ! model.notes.empty»
@@ -82,7 +88,7 @@ abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> 
 			
 			' all subtypes
 			«FOR s : allSubtypes»
-				«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
+				«s.typeQN» --|> «IF s.aggregateName === s.superType.aggregateName»«s.superType.typeQN»«ELSE»«s.superType.aggregateQN»«ENDIF»
 			«ENDFOR»
 			
 			@enduml
@@ -97,7 +103,11 @@ abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> 
 		
 		«skinparamClass»
 		
-		«skinparamPackage»
+		«skinparamArrow»
+		
+		«skinparamRectangle»
+				
+		«skinparamFrame»
 		
 		«skinparamNote»
 		
@@ -205,23 +215,4 @@ abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> 
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''
 		«source.typeQN» «sourceArrowhead»--«targetArrowhead» «associationTargetQN(source,target)» : «targetRole»
 	'''
-
-	// 
-	// Utility methods
-	//
-
-	def spot(DAggregate a) {
-		"<< (Q,Gold) >>"
-	}
-
-	def spot(DType t) {
-		// Returns the "Spot Letter" to use next to the class name.
-		return switch t {
-			DEntityType: if (t.root) "<< (R,#FB3333) >>" else if (t.nature == DEntityNature.RELATIONSHIP) "<< (R,#FA78C8) >>" else "<< (E,#F78100) >>"
-			DDetailType: "<< (D,#FAE55F) >>"
-			DEnumeration: "<< (e,#66B371) >>"
-			DPrimitive: "<< (p,#9AF78F) >>"
-			default: ""
-		}
-	}
 }

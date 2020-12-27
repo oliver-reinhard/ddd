@@ -311,13 +311,13 @@ public interface TransposePackage extends EPackage
 	int TINFORMATION_MODEL__NAME = BasePackage.DINFORMATION_MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TINFORMATION_MODEL__ALIASES = BasePackage.DINFORMATION_MODEL__ALIASES;
+	int TINFORMATION_MODEL__ALIAS = BasePackage.DINFORMATION_MODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -439,13 +439,13 @@ public interface TransposePackage extends EPackage
 	int TAGGREGATE_TRANSPOSITION__NAME = BasePackage.DAGGREGATE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAGGREGATE_TRANSPOSITION__ALIASES = BasePackage.DAGGREGATE__ALIASES;
+	int TAGGREGATE_TRANSPOSITION__ALIAS = BasePackage.DAGGREGATE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -566,13 +566,13 @@ public interface TransposePackage extends EPackage
 	int TTYPE_TRANSPOSITION__NAME = BasePackage.DTYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TTYPE_TRANSPOSITION__ALIASES = BasePackage.DTYPE__ALIASES;
+	int TTYPE_TRANSPOSITION__ALIAS = BasePackage.DTYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -666,13 +666,13 @@ public interface TransposePackage extends EPackage
 	int TPRIMITIVE_TRANSPOSITION__NAME = BasePackage.DPRIMITIVE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TPRIMITIVE_TRANSPOSITION__ALIASES = BasePackage.DPRIMITIVE__ALIASES;
+	int TPRIMITIVE_TRANSPOSITION__ALIAS = BasePackage.DPRIMITIVE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -775,13 +775,13 @@ public interface TransposePackage extends EPackage
 	int TENUMERATION_TRANSPOSITION__NAME = BasePackage.DENUMERATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENUMERATION_TRANSPOSITION__ALIASES = BasePackage.DENUMERATION__ALIASES;
+	int TENUMERATION_TRANSPOSITION__ALIAS = BasePackage.DENUMERATION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -893,13 +893,13 @@ public interface TransposePackage extends EPackage
 	int TLITERAL_TRANSPOSITION__NAME = BasePackage.DLITERAL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TLITERAL_TRANSPOSITION__ALIASES = BasePackage.DLITERAL__ALIASES;
+	int TLITERAL_TRANSPOSITION__ALIAS = BasePackage.DLITERAL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1011,13 +1011,13 @@ public interface TransposePackage extends EPackage
 	int TCOMPLEX_TYPE_TRANSPOSITION__NAME = TTYPE_TRANSPOSITION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TCOMPLEX_TYPE_TRANSPOSITION__ALIASES = TTYPE_TRANSPOSITION__ALIASES;
+	int TCOMPLEX_TYPE_TRANSPOSITION__ALIAS = TTYPE_TRANSPOSITION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1111,13 +1111,13 @@ public interface TransposePackage extends EPackage
 	int TDETAIL_TYPE_TRANSPOSITION__NAME = BasePackage.DDETAIL_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TDETAIL_TYPE_TRANSPOSITION__ALIASES = BasePackage.DDETAIL_TYPE__ALIASES;
+	int TDETAIL_TYPE_TRANSPOSITION__ALIAS = BasePackage.DDETAIL_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1256,13 +1256,13 @@ public interface TransposePackage extends EPackage
 	int TENTITY_TYPE_TRANSPOSITION__NAME = BasePackage.DENTITY_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENTITY_TYPE_TRANSPOSITION__ALIASES = BasePackage.DENTITY_TYPE__ALIASES;
+	int TENTITY_TYPE_TRANSPOSITION__ALIAS = BasePackage.DENTITY_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1437,13 +1437,13 @@ public interface TransposePackage extends EPackage
 	int TFEATURE_TRANSPOSITION__NAME = BasePackage.DFEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TFEATURE_TRANSPOSITION__ALIASES = BasePackage.DFEATURE__ALIASES;
+	int TFEATURE_TRANSPOSITION__ALIAS = BasePackage.DFEATURE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1564,13 +1564,13 @@ public interface TransposePackage extends EPackage
 	int TASSOCIATION_TRANSPOSITION__NAME = BasePackage.DASSOCIATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASSOCIATION_TRANSPOSITION__ALIASES = BasePackage.DASSOCIATION__ALIASES;
+	int TASSOCIATION_TRANSPOSITION__ALIAS = BasePackage.DASSOCIATION__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1727,13 +1727,13 @@ public interface TransposePackage extends EPackage
 	int TATTRIBUTE_TRANSPOSITION__NAME = BasePackage.DATTRIBUTE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TATTRIBUTE_TRANSPOSITION__ALIASES = BasePackage.DATTRIBUTE__ALIASES;
+	int TATTRIBUTE_TRANSPOSITION__ALIAS = BasePackage.DATTRIBUTE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1872,13 +1872,13 @@ public interface TransposePackage extends EPackage
 	int TQUERY_TRANSPOSITION__NAME = BasePackage.DQUERY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TQUERY_TRANSPOSITION__ALIASES = BasePackage.DQUERY__ALIASES;
+	int TQUERY_TRANSPOSITION__ALIAS = BasePackage.DQUERY__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2026,13 +2026,13 @@ public interface TransposePackage extends EPackage
 	int TQUERY_PARAMETER_TRANSPOSITION__NAME = BasePackage.DQUERY_PARAMETER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TQUERY_PARAMETER_TRANSPOSITION__ALIASES = BasePackage.DQUERY_PARAMETER__ALIASES;
+	int TQUERY_PARAMETER_TRANSPOSITION__ALIAS = BasePackage.DQUERY_PARAMETER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

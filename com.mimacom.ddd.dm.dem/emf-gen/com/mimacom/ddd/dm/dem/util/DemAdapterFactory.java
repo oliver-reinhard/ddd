@@ -88,6 +88,11 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 				return createDemDomainEventAdapter();
 			}
 			@Override
+			public Adapter caseDemTrigger(DemTrigger object)
+			{
+				return createDemTriggerAdapter();
+			}
+			@Override
 			public Adapter caseDemCaseConjunction(DemCaseConjunction object)
 			{
 				return createDemCaseConjunctionAdapter();
@@ -133,14 +138,14 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseDModel(DModel object)
-			{
-				return createDModelAdapter();
-			}
-			@Override
 			public Adapter caseINoteContainer(INoteContainer object)
 			{
 				return createINoteContainerAdapter();
+			}
+			@Override
+			public Adapter caseDModel(DModel object)
+			{
+				return createDModelAdapter();
 			}
 			@Override
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
@@ -195,6 +200,21 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDemDomainEventAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dem.DemTrigger <em>Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dem.DemTrigger
+	 * @generated
+	 */
+	public Adapter createDemTriggerAdapter()
 	{
 		return null;
 	}
@@ -335,21 +355,6 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DModel <em>DModel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.base.DModel
-	 * @generated
-	 */
-	public Adapter createDModelAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.INoteContainer <em>INote Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -360,6 +365,21 @@ public class DemAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINoteContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DModel <em>DModel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.DModel
+	 * @generated
+	 */
+	public Adapter createDModelAdapter()
 	{
 		return null;
 	}

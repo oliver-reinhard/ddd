@@ -39,7 +39,7 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_PubTableRow_FalseKeyword_1_0_0_0_1_1_q;
 	protected AbstractElementAlias match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__;
 	protected AbstractElementAlias match_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q;
-	protected AbstractElementAlias match_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1;
+	protected AbstractElementAlias match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -61,20 +61,30 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_PubTableRow_FalseKeyword_1_0_0_0_1_1_q = new TokenAlias(false, true, grammarAccess.getPubTableRowAccess().getFalseKeyword_1_0_0_0_1_1());
 		match_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRowKeyword_1_0_0_0_0()), new TokenAlias(false, true, grammarAccess.getPubTableRowAccess().getFalseKeyword_1_0_0_0_1_1()), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_1_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_1_0_2()))), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getVerticalLineVerticalLineKeyword_1_1_0_1()));
 		match_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getLeftCurlyBracketKeyword_1_0_1_0_0()), new TokenAlias(false, false, grammarAccess.getPubTableRowAccess().getRightCurlyBracketKeyword_1_0_1_0_2()));
-		match_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealisesKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealizesKeyword_3_0_1()));
+		match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealisesKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealizesKeyword_4_0_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
+		if (ruleCall.getRule() == grammarAccess.getDmxFieldListStartSymbolRule())
+			return getDmxFieldListStartSymbolToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
 			return getDmxOpCastToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpInstanceOfRule())
 			return getDmxOpInstanceOfToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpSingleAssignRule())
 			return getDmxOpSingleAssignToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getDomFieldListStartSymbolRule())
-			return getDomFieldListStartSymbolToken(semanticObject, ruleCall, node);
 		return "";
+	}
+	
+	/**
+	 * DmxFieldListStartSymbol:
+	 * 	'{';
+	 */
+	protected String getDmxFieldListStartSymbolToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
 	}
 	
 	/**
@@ -105,16 +115,6 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ":=";
-	}
-	
-	/**
-	 * DomFieldListStartSymbol:
-	 * 	'{';
-	 */
-	protected String getDomFieldListStartSymbolToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "{";
 	}
 	
 	@Override
@@ -157,8 +157,8 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_PubTableRow_VerticalLineVerticalLineKeyword_1_1_0_1_or___RowKeyword_1_0_0_0_0_FalseKeyword_1_0_0_0_1_1_q___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q.equals(syntax))
 				emit_PubTableRow___LeftCurlyBracketKeyword_1_0_1_0_0_RightCurlyBracketKeyword_1_0_1_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1.equals(syntax))
-				emit_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1.equals(syntax))
+				emit_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -456,9 +456,10 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'realises' | 'realizes'
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     alias=ID (ambiguity) event=[DemDomainEvent|DQualifiedName]
 	 *     name=DQualifiedName (ambiguity) event=[DemDomainEvent|DQualifiedName]
 	 */
-	protected void emit_UserStory_RealisesKeyword_3_0_0_or_RealizesKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

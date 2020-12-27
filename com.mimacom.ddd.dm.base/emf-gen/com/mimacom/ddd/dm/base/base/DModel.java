@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base.base;
  * @model abstract="true"
  * @generated
  */
-public interface DModel extends DNamedElement
+public interface DModel extends DNamedElement, INoteContainer
 {
 } // DModel

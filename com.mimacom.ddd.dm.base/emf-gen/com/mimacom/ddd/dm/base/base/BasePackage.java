@@ -209,13 +209,13 @@ public interface BasePackage extends EPackage
 	int DNAMED_ELEMENT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMED_ELEMENT__ALIASES = 1;
+	int DNAMED_ELEMENT__ALIAS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -393,13 +393,13 @@ public interface BasePackage extends EPackage
 	int DMODEL__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMODEL__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DMODEL__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -411,13 +411,22 @@ public interface BasePackage extends EPackage
 	int DMODEL__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMODEL__NOTES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>DModel</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMODEL_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DMODEL_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DModel</em>' class.
@@ -448,13 +457,13 @@ public interface BasePackage extends EPackage
 	int DNAMESPACE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMESPACE__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DNAMESPACE__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -549,13 +558,13 @@ public interface BasePackage extends EPackage
 	int ISTATIC_REFERENCE_TARGET__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISTATIC_REFERENCE_TARGET__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int ISTATIC_REFERENCE_TARGET__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -604,13 +613,13 @@ public interface BasePackage extends EPackage
 	int DINFORMATION_MODEL__NAME = DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL__ALIASES = DMODEL__ALIASES;
+	int DINFORMATION_MODEL__ALIAS = DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -628,7 +637,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL__NOTES = DMODEL_FEATURE_COUNT + 0;
+	int DINFORMATION_MODEL__NOTES = DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -637,7 +646,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL__AGGREGATES = DMODEL_FEATURE_COUNT + 1;
+	int DINFORMATION_MODEL__AGGREGATES = DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -646,7 +655,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL__TYPES = DMODEL_FEATURE_COUNT + 2;
+	int DINFORMATION_MODEL__TYPES = DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DInformation Model</em>' class.
@@ -655,7 +664,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DINFORMATION_MODEL_FEATURE_COUNT = DMODEL_FEATURE_COUNT + 3;
+	int DINFORMATION_MODEL_FEATURE_COUNT = DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Allows Identity Types</em>' operation.
@@ -806,13 +815,13 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DAGGREGATE__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -915,13 +924,13 @@ public interface BasePackage extends EPackage
 	int DNAVIGABLE_MEMBER__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAVIGABLE_MEMBER__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DNAVIGABLE_MEMBER__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1052,13 +1061,13 @@ public interface BasePackage extends EPackage
 	int DCONTEXT__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+	int DCONTEXT__ALIAS = DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1263,13 +1272,13 @@ public interface BasePackage extends EPackage
 	int DTYPE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DTYPE__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1345,13 +1354,13 @@ public interface BasePackage extends EPackage
 	int DNAMED_PREDICATE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMED_PREDICATE__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DNAMED_PREDICATE__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1418,13 +1427,13 @@ public interface BasePackage extends EPackage
 	int DSIMPLE_TYPE__NAME = DTYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSIMPLE_TYPE__ALIASES = DTYPE__ALIASES;
+	int DSIMPLE_TYPE__ALIAS = DTYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1500,13 +1509,13 @@ public interface BasePackage extends EPackage
 	int DPRIMITIVE__NAME = DSIMPLE_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DPRIMITIVE__ALIASES = DSIMPLE_TYPE__ALIASES;
+	int DPRIMITIVE__ALIAS = DSIMPLE_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1591,13 +1600,13 @@ public interface BasePackage extends EPackage
 	int DENUMERATION__NAME = DSIMPLE_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENUMERATION__ALIASES = DSIMPLE_TYPE__ALIASES;
+	int DENUMERATION__ALIAS = DSIMPLE_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1691,13 +1700,13 @@ public interface BasePackage extends EPackage
 	int DLITERAL__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+	int DLITERAL__ALIAS = DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1791,13 +1800,13 @@ public interface BasePackage extends EPackage
 	int DCOMPLEX_TYPE__NAME = DTYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCOMPLEX_TYPE__ALIASES = DTYPE__ALIASES;
+	int DCOMPLEX_TYPE__ALIAS = DTYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1918,13 +1927,13 @@ public interface BasePackage extends EPackage
 	int DDETAIL_TYPE__NAME = DCOMPLEX_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDETAIL_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
+	int DDETAIL_TYPE__ALIAS = DCOMPLEX_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2045,13 +2054,13 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE__NAME = DCOMPLEX_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
+	int DENTITY_TYPE__ALIAS = DCOMPLEX_TYPE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2208,13 +2217,13 @@ public interface BasePackage extends EPackage
 	int DFEATURE__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+	int DFEATURE__ALIAS = DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2317,13 +2326,13 @@ public interface BasePackage extends EPackage
 	int DASSOCIATION__NAME = DFEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DASSOCIATION__ALIASES = DFEATURE__ALIASES;
+	int DASSOCIATION__ALIAS = DFEATURE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2462,13 +2471,13 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__NAME = DFEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATTRIBUTE__ALIASES = DFEATURE__ALIASES;
+	int DATTRIBUTE__ALIAS = DFEATURE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2570,6 +2579,242 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE_OPERATION_COUNT = DFEATURE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DComplexTypeProxyDummyImpl <em>DComplex Type Proxy Dummy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DComplexTypeProxyDummyImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDComplexTypeProxyDummy()
+	 * @generated
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY = 35;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__NAME = DCOMPLEX_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__ALIAS = DCOMPLEX_TYPE__ALIAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__NOTES = DCOMPLEX_TYPE__NOTES;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__CONSTRAINTS = DCOMPLEX_TYPE__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__PRIMITIVE = DCOMPLEX_TYPE__PRIMITIVE;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__FEATURES = DCOMPLEX_TYPE__FEATURES;
+
+	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__NAVIGABLE_MEMBERS = DCOMPLEX_TYPE__NAVIGABLE_MEMBERS;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__ABSTRACT = DCOMPLEX_TYPE__ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Super Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY__READ_ONLY_VIEW = DCOMPLEX_TYPE__READ_ONLY_VIEW;
+
+	/**
+	 * The number of structural features of the '<em>DComplex Type Proxy Dummy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DComplex Type Proxy Dummy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE_PROXY_DUMMY_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DFeatureProxyDummyImpl <em>DFeature Proxy Dummy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.base.impl.DFeatureProxyDummyImpl
+	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDFeatureProxyDummy()
+	 * @generated
+	 */
+	int DFEATURE_PROXY_DUMMY = 36;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__NAME = DFEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__ALIAS = DFEATURE__ALIAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__DESCRIPTION = DFEATURE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__NOTES = DFEATURE__NOTES;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__TYPE = DFEATURE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__MULTIPLICITY = DFEATURE__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__OPTIONAL = DFEATURE__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__COLLECTION = DFEATURE__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Read Only View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY__READ_ONLY_VIEW = DFEATURE__READ_ONLY_VIEW;
+
+	/**
+	 * The number of structural features of the '<em>DFeature Proxy Dummy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY_FEATURE_COUNT = DFEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DFeature Proxy Dummy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE_PROXY_DUMMY_OPERATION_COUNT = DFEATURE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.impl.DQueryImpl <em>DQuery</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2577,7 +2822,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 35;
+	int DQUERY = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2589,13 +2834,13 @@ public interface BasePackage extends EPackage
 	int DQUERY__NAME = DFEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY__ALIASES = DFEATURE__ALIASES;
+	int DQUERY__ALIAS = DFEATURE__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2713,7 +2958,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 36;
+	int DQUERY_PARAMETER = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2725,13 +2970,13 @@ public interface BasePackage extends EPackage
 	int DQUERY_PARAMETER__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+	int DQUERY_PARAMETER__ALIAS = DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2813,7 +3058,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDState()
 	 * @generated
 	 */
-	int DSTATE = 37;
+	int DSTATE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2825,13 +3070,13 @@ public interface BasePackage extends EPackage
 	int DSTATE__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSTATE__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+	int DSTATE__ALIAS = DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2913,7 +3158,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDStateEvent()
 	 * @generated
 	 */
-	int DSTATE_EVENT = 38;
+	int DSTATE_EVENT = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2925,13 +3170,13 @@ public interface BasePackage extends EPackage
 	int DSTATE_EVENT__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSTATE_EVENT__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DSTATE_EVENT__ALIAS = DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2977,7 +3222,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDNoteColor()
 	 * @generated
 	 */
-	int DNOTE_COLOR = 39;
+	int DNOTE_COLOR = 41;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}' enum.
@@ -2987,7 +3232,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDMultiplicityShorthand()
 	 * @generated
 	 */
-	int DMULTIPLICITY_SHORTHAND = 40;
+	int DMULTIPLICITY_SHORTHAND = 42;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DEntityNature <em>DEntity Nature</em>}' enum.
@@ -2997,7 +3242,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDEntityNature()
 	 * @generated
 	 */
-	int DENTITY_NATURE = 41;
+	int DENTITY_NATURE = 43;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -3007,7 +3252,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 42;
+	int DASSOCIATION_KIND = 44;
 
 
 	/**
@@ -3094,15 +3339,15 @@ public interface BasePackage extends EPackage
 	EAttribute getDNamedElement_Name();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAliases <em>Aliases</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getAlias <em>Alias</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Aliases</em>'.
-	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getAliases()
+	 * @return the meta object for the attribute '<em>Alias</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DNamedElement#getAlias()
 	 * @see #getDNamedElement()
 	 * @generated
 	 */
-	EAttribute getDNamedElement_Aliases();
+	EAttribute getDNamedElement_Alias();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.base.DNamedElement#getDescription <em>Description</em>}'.
@@ -3854,6 +4099,26 @@ public interface BasePackage extends EPackage
 	EAttribute getDAttribute_Key();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DComplexTypeProxyDummy <em>DComplex Type Proxy Dummy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DComplex Type Proxy Dummy</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DComplexTypeProxyDummy
+	 * @generated
+	 */
+	EClass getDComplexTypeProxyDummy();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DFeatureProxyDummy <em>DFeature Proxy Dummy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DFeature Proxy Dummy</em>'.
+	 * @see com.mimacom.ddd.dm.base.base.DFeatureProxyDummy
+	 * @generated
+	 */
+	EClass getDFeatureProxyDummy();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.base.DQuery <em>DQuery</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4054,12 +4319,12 @@ public interface BasePackage extends EPackage
 		EAttribute DNAMED_ELEMENT__NAME = eINSTANCE.getDNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Aliases</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DNAMED_ELEMENT__ALIASES = eINSTANCE.getDNamedElement_Aliases();
+		EAttribute DNAMED_ELEMENT__ALIAS = eINSTANCE.getDNamedElement_Alias();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
@@ -4688,6 +4953,26 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DATTRIBUTE__KEY = eINSTANCE.getDAttribute_Key();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DComplexTypeProxyDummyImpl <em>DComplex Type Proxy Dummy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DComplexTypeProxyDummyImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDComplexTypeProxyDummy()
+		 * @generated
+		 */
+		EClass DCOMPLEX_TYPE_PROXY_DUMMY = eINSTANCE.getDComplexTypeProxyDummy();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DFeatureProxyDummyImpl <em>DFeature Proxy Dummy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.base.impl.DFeatureProxyDummyImpl
+		 * @see com.mimacom.ddd.dm.base.base.impl.BasePackageImpl#getDFeatureProxyDummy()
+		 * @generated
+		 */
+		EClass DFEATURE_PROXY_DUMMY = eINSTANCE.getDFeatureProxyDummy();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.base.impl.DQueryImpl <em>DQuery</em>}' class.

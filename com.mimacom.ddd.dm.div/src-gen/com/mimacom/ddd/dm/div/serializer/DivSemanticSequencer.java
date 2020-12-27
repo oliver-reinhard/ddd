@@ -800,7 +800,14 @@ public class DivSemanticSequencer extends DimSemanticSequencer {
 	 *     DomainInformationView returns DomainInformationView
 	 *
 	 * Constraint:
-	 *     (name=ID readOnlyView?='read'? description=DRichText? notes+=DNote* (types+=DivType | aggregates+=DivAggregate)*)
+	 *     (
+	 *         name=ID 
+	 *         alias=ID? 
+	 *         readOnlyView?='read'? 
+	 *         description=DRichText? 
+	 *         notes+=DNote* 
+	 *         (types+=DivType | aggregates+=DivAggregate)*
+	 *     )
 	 */
 	protected void sequence_DomainInformationView(ISerializationContext context, DomainInformationView semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

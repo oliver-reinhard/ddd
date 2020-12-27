@@ -52,7 +52,7 @@ class DmxUtil extends TypesUtil {
 		try {
 			if (value.length <= format.toPattern.length)
 				return format.parse(value)
-		} catch (ParseException ex) {
+		} catch (ParseException | NumberFormatException ex) {
 			return null
 		}
 	}

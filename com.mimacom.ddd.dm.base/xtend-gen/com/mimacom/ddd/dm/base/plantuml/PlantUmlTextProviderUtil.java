@@ -3,21 +3,26 @@ package com.mimacom.ddd.dm.base.plantuml;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.TypesUtil;
+import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DAggregate;
 import com.mimacom.ddd.dm.base.base.DAssociation;
 import com.mimacom.ddd.dm.base.base.DAttribute;
 import com.mimacom.ddd.dm.base.base.DComplexType;
 import com.mimacom.ddd.dm.base.base.DDetailType;
+import com.mimacom.ddd.dm.base.base.DEntityNature;
+import com.mimacom.ddd.dm.base.base.DEntityType;
 import com.mimacom.ddd.dm.base.base.DEnumeration;
 import com.mimacom.ddd.dm.base.base.DFeature;
-import com.mimacom.ddd.dm.base.base.DInformationModel;
 import com.mimacom.ddd.dm.base.base.DLiteral;
+import com.mimacom.ddd.dm.base.base.DModel;
 import com.mimacom.ddd.dm.base.base.DNote;
 import com.mimacom.ddd.dm.base.base.DNoteColor;
+import com.mimacom.ddd.dm.base.base.DPrimitive;
 import com.mimacom.ddd.dm.base.base.DType;
+import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.plantuml.RichTextToPlantUmlNoteTextRenderer;
+import com.mimacom.ddd.dm.base.plantuml.Spot;
 import com.mimacom.ddd.util.plantuml.Color;
-import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -32,7 +37,23 @@ public class PlantUmlTextProviderUtil {
   @Inject
   private RichTextToPlantUmlNoteTextRenderer notesTextRenderer;
   
-  public static final Color WHITE_NOTE = new Color(255, 255, 255);
+  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  
+  public static final Spot AGGREGATE_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDAggregate(), new Color(255, 204, 0), 'A');
+  
+  public static final Spot ENTITY_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDEntityType(), new Color(232, 158, 77), 'E');
+  
+  public static final Spot ROOT_ENTITY_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDEntityType(), new Color(209, 127, 121), 'R');
+  
+  public static final Spot RELATIONSHIP_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDEntityType(), new Color(140, 128, 186), 'R');
+  
+  public static final Spot DETAIL_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDDetailType(), new Color(222, 193, 113), 'D');
+  
+  public static final Spot PRIMITIVE_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDPrimitive(), new Color(198, 222, 169), 'p');
+  
+  public static final Spot ENUMERATION_SPOT = new Spot(PlantUmlTextProviderUtil.BASE.getDEnumeration(), new Color(161, 191, 124), 'e');
+  
+  public static final Color WHITE_NOTE = new Color(250, 249, 245);
   
   public static final Color RED_NOTE = new Color(227, 177, 170);
   
@@ -48,8 +69,14 @@ public class PlantUmlTextProviderUtil {
   
   public static final Color GREY_NOTE = new Color(230, 230, 230);
   
+  /**
+   * Sequential numbering of Notes:
+   */
   private int noteID = 0;
   
+  /**
+   * Qualified names for references within PlantUML files
+   */
   public String aggregateQN(final EObject obj) {
     final DAggregate a = this._typesUtil.aggregate(obj);
     String _xifexpression = null;
@@ -138,84 +165,166 @@ public class PlantUmlTextProviderUtil {
     return this._typesUtil.modelName(target);
   }
   
-  protected CharSequence _generateNotes(final DInformationModel m) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<DNote> _notes = m.getNotes();
-      for(final DNote n : _notes) {
-        int _plusPlus = this.noteID++;
-        CharSequence _generateNoteForStructuralElement = this.generateNoteForStructuralElement(n, _plusPlus, null);
-        _builder.append(_generateNoteForStructuralElement);
-        _builder.newLineIfNotEmpty();
-      }
+  /**
+   * Spots for type diagrams
+   */
+  public String spot(final DAggregate a) {
+    String _xifexpression = null;
+    if ((a != null)) {
+      _xifexpression = PlantUmlTextProviderUtil.AGGREGATE_SPOT.toString();
+    } else {
+      _xifexpression = "";
     }
-    return _builder;
+    return _xifexpression;
   }
   
-  protected CharSequence _generateNotes(final DAggregate a) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<DNote> _notes = a.getNotes();
-      for(final DNote n : _notes) {
-        int _plusPlus = this.noteID++;
-        CharSequence _generateNoteForStructuralElement = this.generateNoteForStructuralElement(n, _plusPlus, this.aggregateQN(a));
-        _builder.append(_generateNoteForStructuralElement);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  protected CharSequence _generateNotes(final DType t) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<DNote> _notes = t.getNotes();
-      for(final DNote n : _notes) {
-        int _plusPlus = this.noteID++;
-        CharSequence _generateNoteForStructuralElement = this.generateNoteForStructuralElement(n, _plusPlus, this.typeQN(t));
-        _builder.append(_generateNoteForStructuralElement);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  protected CharSequence _generateNotes(final DFeature a) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<DNote> _notes = a.getNotes();
-      for(final DNote n : _notes) {
-        {
-          boolean _renderAsLink = this.renderAsLink(a);
-          if (_renderAsLink) {
-            _builder.append("note bottom on link ");
-            String _noteColor = this.noteColor(n);
-            _builder.append(_noteColor);
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t");
-            CharSequence _generateNoteText = this.generateNoteText(n);
-            _builder.append(_generateNoteText, "\t");
-            _builder.newLineIfNotEmpty();
-            _builder.append("end note");
-            _builder.newLine();
-          } else {
-            CharSequence _generateUmlFeatureNote = this.generateUmlFeatureNote(n, this.featureQN(a));
-            _builder.append(_generateUmlFeatureNote);
-            _builder.newLineIfNotEmpty();
-          }
+  public String spot(final DType t) {
+    Spot _switchResult = null;
+    boolean _matched = false;
+    if (t instanceof DEntityType) {
+      _matched=true;
+      Spot _xifexpression = null;
+      boolean _isRoot = ((DEntityType)t).isRoot();
+      if (_isRoot) {
+        _xifexpression = PlantUmlTextProviderUtil.ROOT_ENTITY_SPOT;
+      } else {
+        Spot _xifexpression_1 = null;
+        DEntityNature _nature = ((DEntityType)t).getNature();
+        boolean _equals = Objects.equal(_nature, DEntityNature.RELATIONSHIP);
+        if (_equals) {
+          _xifexpression_1 = PlantUmlTextProviderUtil.RELATIONSHIP_SPOT;
+        } else {
+          _xifexpression_1 = PlantUmlTextProviderUtil.ENTITY_SPOT;
         }
+        _xifexpression = _xifexpression_1;
+      }
+      _switchResult = _xifexpression;
+    }
+    if (!_matched) {
+      if (t instanceof DDetailType) {
+        _matched=true;
+        _switchResult = PlantUmlTextProviderUtil.DETAIL_SPOT;
+      }
+    }
+    if (!_matched) {
+      if (t instanceof DEnumeration) {
+        _matched=true;
+        _switchResult = PlantUmlTextProviderUtil.ENUMERATION_SPOT;
+      }
+    }
+    if (!_matched) {
+      if (t instanceof DPrimitive) {
+        _matched=true;
+        _switchResult = PlantUmlTextProviderUtil.PRIMITIVE_SPOT;
+      }
+    }
+    if (!_matched) {
+      _switchResult = null;
+    }
+    final Spot spot = _switchResult;
+    String _xifexpression = null;
+    if ((spot != null)) {
+      _xifexpression = spot.toString();
+    } else {
+      _xifexpression = "";
+    }
+    return _xifexpression;
+  }
+  
+  /**
+   * Generate notes on information structure.
+   */
+  public CharSequence generateNotes(final DModel m) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateNotesWithIds = this.generateNotesWithIds(m, null);
+    _builder.append(_generateNotesWithIds);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateNotes(final DAggregate a) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateNotesWithIds = this.generateNotesWithIds(a, this.aggregateQN(a));
+    _builder.append(_generateNotesWithIds);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateNotes(final DType t) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateNotesWithIds = this.generateNotesWithIds(t, this.typeQN(t));
+    _builder.append(_generateNotesWithIds);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateNotes(final DFeature f) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _renderAsLink = this.renderAsLink(f);
+      if (_renderAsLink) {
+        CharSequence _generateLinkNotes = this.generateLinkNotes(f);
+        _builder.append(_generateLinkNotes);
+        _builder.newLineIfNotEmpty();
+      } else {
+        CharSequence _generateNotesOnRight = this.generateNotesOnRight(f, this.featureQN(f));
+        _builder.append(_generateNotesOnRight);
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
   }
   
-  protected CharSequence _generateNotes(final DLiteral lit) {
+  public CharSequence generateNotes(final DLiteral lit) {
     StringConcatenation _builder = new StringConcatenation();
     {
       EList<DNote> _notes = lit.getNotes();
       for(final DNote n : _notes) {
-        CharSequence _generateUmlFeatureNote = this.generateUmlFeatureNote(n, this.literalQN(lit));
-        _builder.append(_generateUmlFeatureNote);
+        CharSequence _generateGenericNoteOnRight = this.generateGenericNoteOnRight(n, this.literalQN(lit));
+        _builder.append(_generateGenericNoteOnRight);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  /**
+   * Generic Notes generators
+   */
+  public CharSequence generateNotesWithIds(final INoteContainer nc, final String targetQN) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<DNote> _notes = nc.getNotes();
+      for(final DNote n : _notes) {
+        int _plusPlus = this.noteID++;
+        CharSequence _generateGenericNoteWithId = this.generateGenericNoteWithId(n, _plusPlus, targetQN);
+        _builder.append(_generateGenericNoteWithId);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence generateNotesOnRight(final INoteContainer nc, final String targetQN) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<DNote> _notes = nc.getNotes();
+      for(final DNote n : _notes) {
+        CharSequence _generateGenericNoteOnRight = this.generateGenericNoteOnRight(n, targetQN);
+        _builder.append(_generateGenericNoteOnRight);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence generateLinkNotes(final INoteContainer nc) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<DNote> _notes = nc.getNotes();
+      for(final DNote n : _notes) {
+        CharSequence _generateLinkNote = this.generateLinkNote(n);
+        _builder.append(_generateLinkNote);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -226,7 +335,10 @@ public class PlantUmlTextProviderUtil {
     return ((f instanceof DAssociation) || ((f instanceof DAttribute) && (f.getType() instanceof DDetailType)));
   }
   
-  protected CharSequence generateNoteForStructuralElement(final DNote n, final int id, final String targetQN) {
+  /**
+   * Note for PlantUML object known as 'targetQN' (can be empty --> unlinked note on canvas).
+   */
+  protected CharSequence generateGenericNoteWithId(final DNote n, final int id, final String targetQN) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("note as Note");
     _builder.append(id);
@@ -234,9 +346,8 @@ public class PlantUmlTextProviderUtil {
     String _noteColor = this.noteColor(n);
     _builder.append(_noteColor);
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _generateNoteText = this.generateNoteText(n);
-    _builder.append(_generateNoteText, "\t");
+    String _generateNoteText = this.generateNoteText(n);
+    _builder.append(_generateNoteText);
     _builder.newLineIfNotEmpty();
     _builder.append("end note");
     _builder.newLine();
@@ -249,11 +360,21 @@ public class PlantUmlTextProviderUtil {
       }
     }
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     return _builder;
   }
   
-  protected CharSequence generateUmlFeatureNote(final DNote n, final String targetQN) {
+  /**
+   * Note for previously declared PlantUML object.
+   */
+  protected CharSequence generateGenericNoteOnRight(final DNote n, final String targetQN) {
     StringConcatenation _builder = new StringConcatenation();
+    {
+      if (((n.eContainer() instanceof DFeature) && (!Objects.equal(this.noteColor(n), "")))) {
+        _builder.append("\' PlantUML BUG: color ignored on class members");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     _builder.append("note right of ");
     _builder.append(targetQN);
     _builder.append(" ");
@@ -261,17 +382,52 @@ public class PlantUmlTextProviderUtil {
     _builder.append(_noteColor);
     _builder.append(" ");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t\t");
-    CharSequence _generateNoteText = this.generateNoteText(n);
-    _builder.append(_generateNoteText, "\t\t\t");
+    String _generateNoteText = this.generateNoteText(n);
+    _builder.append(_generateNoteText);
     _builder.newLineIfNotEmpty();
     _builder.append("end note");
+    _builder.newLine();
     _builder.newLine();
     return _builder;
   }
   
-  protected CharSequence generateNoteText(final DNote n) {
-    return this.notesTextRenderer.render(n.getText());
+  /**
+   * Note for previously declared PlantUML object.
+   */
+  protected CharSequence generateLinkNote(final DNote n) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("note bottom on link ");
+    String _noteColor = this.noteColor(n);
+    _builder.append(_noteColor);
+    _builder.newLineIfNotEmpty();
+    String _generateNoteText = this.generateNoteText(n);
+    _builder.append(_generateNoteText);
+    _builder.newLineIfNotEmpty();
+    _builder.append("end note");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected String generateNoteText(final DNote n) {
+    CharSequence _render = this.notesTextRenderer.render(n.getText());
+    return this.removeIndent(((String) _render));
+  }
+  
+  protected String removeIndent(final String text) {
+    final String[] lines = text.split("\n[\\s]*");
+    final StringBuilder sb = new StringBuilder();
+    boolean first = true;
+    for (final String line : lines) {
+      {
+        if ((!first)) {
+          sb.append("\n");
+        }
+        sb.append(line);
+        first = false;
+      }
+    }
+    return sb.toString();
   }
   
   protected String noteColor(final DNote n) {
@@ -350,26 +506,5 @@ public class PlantUmlTextProviderUtil {
   
   protected Color noteColorGrey() {
     return PlantUmlTextProviderUtil.GREY_NOTE;
-  }
-  
-  protected Color defaultNoteColor() {
-    return PlantUmlTextProviderUtil.YELLOW_NOTE;
-  }
-  
-  public CharSequence generateNotes(final EObject a) {
-    if (a instanceof DAggregate) {
-      return _generateNotes((DAggregate)a);
-    } else if (a instanceof DFeature) {
-      return _generateNotes((DFeature)a);
-    } else if (a instanceof DInformationModel) {
-      return _generateNotes((DInformationModel)a);
-    } else if (a instanceof DLiteral) {
-      return _generateNotes((DLiteral)a);
-    } else if (a instanceof DType) {
-      return _generateNotes((DType)a);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(a).toString());
-    }
   }
 }

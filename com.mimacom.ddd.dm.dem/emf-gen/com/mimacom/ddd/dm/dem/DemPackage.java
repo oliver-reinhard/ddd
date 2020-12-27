@@ -79,13 +79,13 @@ public interface DemPackage extends EPackage
 	int DEM_DOMAIN_EVENT__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__ALIASES = BasePackage.DMODEL__ALIASES;
+	int DEM_DOMAIN_EVENT__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -103,7 +103,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int DEM_DOMAIN_EVENT__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -112,7 +112,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int DEM_DOMAIN_EVENT__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' containment reference list.
@@ -121,16 +121,16 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__CONTEXT = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int DEM_DOMAIN_EVENT__CONTEXT = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Triggers</b></em>' reference list.
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__TRIGGERS = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int DEM_DOMAIN_EVENT__TRIGGERS = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Preconditions CNF</b></em>' containment reference list.
@@ -139,7 +139,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__PRECONDITIONS_CNF = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int DEM_DOMAIN_EVENT__PRECONDITIONS_CNF = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Postconditions DNF</b></em>' containment reference list.
@@ -148,7 +148,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__POSTCONDITIONS_DNF = BasePackage.DMODEL_FEATURE_COUNT + 5;
+	int DEM_DOMAIN_EVENT__POSTCONDITIONS_DNF = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
@@ -157,7 +157,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT__NOTIFICATIONS = BasePackage.DMODEL_FEATURE_COUNT + 6;
+	int DEM_DOMAIN_EVENT__NOTIFICATIONS = BasePackage.DMODEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Domain Event</em>' class.
@@ -166,7 +166,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_DOMAIN_EVENT_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 7;
+	int DEM_DOMAIN_EVENT_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Domain Event</em>' class.
@@ -178,6 +178,52 @@ public interface DemPackage extends EPackage
 	int DEM_DOMAIN_EVENT_OPERATION_COUNT = BasePackage.DMODEL_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dem.impl.DemTriggerImpl <em>Trigger</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dem.impl.DemTriggerImpl
+	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemTrigger()
+	 * @generated
+	 */
+	int DEM_TRIGGER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_TRIGGER__NOTES = BasePackage.INOTE_CONTAINER__NOTES;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_TRIGGER__ACTOR = BasePackage.INOTE_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Trigger</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_TRIGGER_FEATURE_COUNT = BasePackage.INOTE_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Trigger</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEM_TRIGGER_OPERATION_COUNT = BasePackage.INOTE_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dem.impl.DemCaseConjunctionImpl <em>Case Conjunction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,7 +231,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemCaseConjunction()
 	 * @generated
 	 */
-	int DEM_CASE_CONJUNCTION = 1;
+	int DEM_CASE_CONJUNCTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -197,13 +243,13 @@ public interface DemPackage extends EPackage
 	int DEM_CASE_CONJUNCTION__NAME = BasePackage.DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_CASE_CONJUNCTION__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int DEM_CASE_CONJUNCTION__ALIAS = BasePackage.DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -267,7 +313,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemNotification()
 	 * @generated
 	 */
-	int DEM_NOTIFICATION = 2;
+	int DEM_NOTIFICATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -279,13 +325,13 @@ public interface DemPackage extends EPackage
 	int DEM_NOTIFICATION__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_NOTIFICATION__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DEM_NOTIFICATION__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -394,7 +440,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemMessage()
 	 * @generated
 	 */
-	int DEM_MESSAGE = 3;
+	int DEM_MESSAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -406,13 +452,13 @@ public interface DemPackage extends EPackage
 	int DEM_MESSAGE__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_MESSAGE__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DEM_MESSAGE__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -494,7 +540,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemActorModel()
 	 * @generated
 	 */
-	int DEM_ACTOR_MODEL = 4;
+	int DEM_ACTOR_MODEL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -506,13 +552,13 @@ public interface DemPackage extends EPackage
 	int DEM_ACTOR_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int DEM_ACTOR_MODEL__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -530,7 +576,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR_MODEL__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int DEM_ACTOR_MODEL__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -539,7 +585,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR_MODEL__ACTORS = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int DEM_ACTOR_MODEL__ACTORS = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Actor Model</em>' class.
@@ -548,7 +594,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int DEM_ACTOR_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Actor Model</em>' class.
@@ -567,7 +613,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemActor()
 	 * @generated
 	 */
-	int DEM_ACTOR = 5;
+	int DEM_ACTOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -579,13 +625,13 @@ public interface DemPackage extends EPackage
 	int DEM_ACTOR__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_ACTOR__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int DEM_ACTOR__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -667,7 +713,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemHumanActorRole()
 	 * @generated
 	 */
-	int DEM_HUMAN_ACTOR_ROLE = 6;
+	int DEM_HUMAN_ACTOR_ROLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -679,13 +725,13 @@ public interface DemPackage extends EPackage
 	int DEM_HUMAN_ACTOR_ROLE__NAME = DEM_ACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_HUMAN_ACTOR_ROLE__ALIASES = DEM_ACTOR__ALIASES;
+	int DEM_HUMAN_ACTOR_ROLE__ALIAS = DEM_ACTOR__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -767,7 +813,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemService()
 	 * @generated
 	 */
-	int DEM_SERVICE = 7;
+	int DEM_SERVICE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -779,13 +825,13 @@ public interface DemPackage extends EPackage
 	int DEM_SERVICE__NAME = DEM_ACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_SERVICE__ALIASES = DEM_ACTOR__ALIASES;
+	int DEM_SERVICE__ALIAS = DEM_ACTOR__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -867,7 +913,7 @@ public interface DemPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemEventsOverviewModel()
 	 * @generated
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL = 8;
+	int DEM_EVENTS_OVERVIEW_MODEL = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -879,13 +925,13 @@ public interface DemPackage extends EPackage
 	int DEM_EVENTS_OVERVIEW_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int DEM_EVENTS_OVERVIEW_MODEL__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -903,7 +949,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int DEM_EVENTS_OVERVIEW_MODEL__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>All</b></em>' attribute.
@@ -912,7 +958,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__ALL = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int DEM_EVENTS_OVERVIEW_MODEL__ALL = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -921,7 +967,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__INCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int DEM_EVENTS_OVERVIEW_MODEL__INCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Exclude</b></em>' reference list.
@@ -930,7 +976,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int DEM_EVENTS_OVERVIEW_MODEL__EXCLUDE = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Events Overview Model</em>' class.
@@ -939,7 +985,7 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEM_EVENTS_OVERVIEW_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int DEM_EVENTS_OVERVIEW_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Events Overview Model</em>' class.
@@ -973,10 +1019,10 @@ public interface DemPackage extends EPackage
 	EReference getDemDomainEvent_Context();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.dem.DemDomainEvent#getTriggers <em>Triggers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dem.DemDomainEvent#getTriggers <em>Triggers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Triggers</em>'.
+	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
 	 * @see com.mimacom.ddd.dm.dem.DemDomainEvent#getTriggers()
 	 * @see #getDemDomainEvent()
 	 * @generated
@@ -1015,6 +1061,27 @@ public interface DemPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDemDomainEvent_Notifications();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dem.DemTrigger <em>Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Trigger</em>'.
+	 * @see com.mimacom.ddd.dm.dem.DemTrigger
+	 * @generated
+	 */
+	EClass getDemTrigger();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dem.DemTrigger#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor</em>'.
+	 * @see com.mimacom.ddd.dm.dem.DemTrigger#getActor()
+	 * @see #getDemTrigger()
+	 * @generated
+	 */
+	EReference getDemTrigger_Actor();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dem.DemCaseConjunction <em>Case Conjunction</em>}'.
@@ -1238,7 +1305,7 @@ public interface DemPackage extends EPackage
 		EReference DEM_DOMAIN_EVENT__CONTEXT = eINSTANCE.getDemDomainEvent_Context();
 
 		/**
-		 * The meta object literal for the '<em><b>Triggers</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1268,6 +1335,24 @@ public interface DemPackage extends EPackage
 		 * @generated
 		 */
 		EReference DEM_DOMAIN_EVENT__NOTIFICATIONS = eINSTANCE.getDemDomainEvent_Notifications();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dem.impl.DemTriggerImpl <em>Trigger</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dem.impl.DemTriggerImpl
+		 * @see com.mimacom.ddd.dm.dem.impl.DemPackageImpl#getDemTrigger()
+		 * @generated
+		 */
+		EClass DEM_TRIGGER = eINSTANCE.getDemTrigger();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEM_TRIGGER__ACTOR = eINSTANCE.getDemTrigger_Actor();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dem.impl.DemCaseConjunctionImpl <em>Case Conjunction</em>}' class.

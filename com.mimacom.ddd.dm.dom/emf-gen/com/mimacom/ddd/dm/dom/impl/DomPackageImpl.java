@@ -269,6 +269,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Add supertypes to classes
 		domModelEClass.getESuperTypes().add(theBasePackage.getDModel());
 		domSnapshotEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		domSnapshotEClass.getESuperTypes().add(theBasePackage.getINoteContainer());
 		domSnapshotEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		domSnapshotEClass.getESuperTypes().add(theBasePackage.getIDiagramRoot());
 		domObjectEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());

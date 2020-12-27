@@ -19,12 +19,12 @@ DemDomainEvent returns DModel:
 	'event'
 	{DemDomainEvent}
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*
 	'{'
 		'context' (context+=DContext)+
-		('triggered' 'by' triggers+=[DemActor|ID]+)?
+		('triggered' 'by' triggers+=DemTrigger+)?
 		('notifications' notifications+=DemNotification+)?
 		('preconditions' preconditionsCNF+=DNamedPredicate+)?
 		('postconditions'
@@ -34,9 +34,13 @@ DemDomainEvent returns DModel:
 		)? 
 	'}';
 
+DemTrigger:
+	actor=[DemActor|ID]
+	(notes+=DNote)*;
+	
 DNamedPredicate:
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	':'
 	(description=DRichText)?
 	(notes+=DNote)*
@@ -45,7 +49,7 @@ DNamedPredicate:
 DemCaseConjunction:
 	'case'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(	'when'
 		selector=DmxOrExpression
@@ -58,11 +62,12 @@ DemCaseConjunction:
 DemNotification:
 	// type always null
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	':'
 	message=DemMessage
 	'to' notified=[DemActor|ID]
-	(description=DRichText)?;
+	(description=DRichText)?
+	(notes+=DNote)*;
 
 DemMessage:
 	// implicit name: "message"
@@ -70,7 +75,7 @@ DemMessage:
 	
 DContext:
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?
@@ -94,14 +99,14 @@ DemActor:
 DemHumanActorRole:
 	'human' 'actor' 'as'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*;
 	
 DemService:
 	'service' 'actor'
 	name=ID
-	('alias' aliases+=ID)*
+	('alias' alias=ID)?
 	(description=DRichText)?
 	(notes+=DNote)*;
 

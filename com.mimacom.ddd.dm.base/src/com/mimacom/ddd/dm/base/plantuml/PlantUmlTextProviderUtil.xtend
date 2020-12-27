@@ -2,16 +2,21 @@ package com.mimacom.ddd.dm.base.plantuml
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.TypesUtil
+import com.mimacom.ddd.dm.base.base.BasePackage
 import com.mimacom.ddd.dm.base.base.DAggregate
 import com.mimacom.ddd.dm.base.base.DAssociation
 import com.mimacom.ddd.dm.base.base.DAttribute
 import com.mimacom.ddd.dm.base.base.DDetailType
+import com.mimacom.ddd.dm.base.base.DEntityNature
+import com.mimacom.ddd.dm.base.base.DEntityType
 import com.mimacom.ddd.dm.base.base.DEnumeration
 import com.mimacom.ddd.dm.base.base.DFeature
-import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DLiteral
+import com.mimacom.ddd.dm.base.base.DModel
 import com.mimacom.ddd.dm.base.base.DNote
+import com.mimacom.ddd.dm.base.base.DPrimitive
 import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.INoteContainer
 import com.mimacom.ddd.util.plantuml.Color
 import org.eclipse.emf.ecore.EObject
 
@@ -20,7 +25,17 @@ class PlantUmlTextProviderUtil {
 	@Inject extension TypesUtil
 	@Inject RichTextToPlantUmlNoteTextRenderer notesTextRenderer
 	
-	public static val WHITE_NOTE = new Color(255, 255, 255)
+	static val BASE = BasePackage.eINSTANCE
+	
+	public static val AGGREGATE_SPOT = new Spot(BASE.DAggregate, new Color(255, 204, 0), 'A')
+	public static val ENTITY_SPOT = new Spot(BASE.DEntityType, new Color(232, 158, 77), 'E')
+	public static val ROOT_ENTITY_SPOT = new Spot(BASE.DEntityType, new Color(209, 127, 121), 'R')
+	public static val RELATIONSHIP_SPOT = new Spot(BASE.DEntityType, new Color(140, 128, 186), 'R')
+	public static val DETAIL_SPOT = new Spot(BASE.DDetailType, new Color(222, 193, 113), 'D')
+	public static val PRIMITIVE_SPOT = new Spot(BASE.DPrimitive, new Color(198, 222, 169), 'p')
+	public static val ENUMERATION_SPOT = new Spot(BASE.DEnumeration, new Color(161, 191, 124), 'e')
+	
+	public static val WHITE_NOTE = new Color(250, 249, 245) // off-white
 	public static val RED_NOTE = new Color(227, 177, 170)
 	public static val ORANGE_NOTE  = new Color(252, 223, 194)
 	public static val YELLOW_NOTE  = new Color(252, 239, 194)
@@ -29,8 +44,15 @@ class PlantUmlTextProviderUtil {
 	public static val PINK_NOTE  = new Color(230, 216, 227)
 	public static val GREY_NOTE  = new Color(230, 230, 230)
 	
+	/*
+	 * Sequential numbering of Notes:
+	 */
 	var noteID=0
-
+	
+	/*
+	 * Qualified names for references within PlantUML files
+	 */
+	 
 	def String aggregateQN(EObject obj) {
 		val a = obj.aggregate
 		return a !== null ? a.name : ""
@@ -66,40 +88,76 @@ class PlantUmlTextProviderUtil {
 		}
 		return target.modelName
 	}
+
+	/*
+	 * Spots for type diagrams
+	 */
 	
-	def dispatch generateNotes(DInformationModel m) '''
-		«FOR n : m.notes»
-			«n.generateNoteForStructuralElement(noteID++, null)»
-		«ENDFOR»
+	def spot(DAggregate a) {
+		return a !== null ? AGGREGATE_SPOT.toString : ""
+	}
+
+	def spot(DType t) {
+		// Returns the "Spot Letter" to use next to the class name.
+		val spot = switch t {
+			DEntityType: if (t.root) ROOT_ENTITY_SPOT else if (t.nature == DEntityNature.RELATIONSHIP) RELATIONSHIP_SPOT else ENTITY_SPOT
+			DDetailType: DETAIL_SPOT
+			DEnumeration: ENUMERATION_SPOT
+			DPrimitive: PRIMITIVE_SPOT
+			default: null
+		}
+		return spot !== null ? spot.toString : ""
+	}
+	
+	/*
+	 * Generate notes on information structure.
+	 */
+	
+	def generateNotes(DModel m) '''
+		«m.generateNotesWithIds(null)»
 	'''
 	
-	def dispatch generateNotes(DAggregate a) '''
-		«FOR n : a.notes»
-			«n.generateNoteForStructuralElement(noteID++, a.aggregateQN)»
-		«ENDFOR»
+	def generateNotes(DAggregate a) '''
+		«a.generateNotesWithIds(a.aggregateQN)»
 	'''
 	
-	def dispatch generateNotes(DType t) '''
-		«FOR n : t.notes»
-			«n.generateNoteForStructuralElement(noteID++, t.typeQN)»
-		«ENDFOR»
+	def generateNotes(DType t) '''
+		«t.generateNotesWithIds(t.typeQN)»
 	'''
 	
-	def dispatch generateNotes(DFeature a) '''
-		«FOR n : a.notes»
-			«IF a.renderAsLink»
-				note bottom on link «n.noteColor»
-					«n.generateNoteText»
-				end note
-			«ELSE»
-				«n.generateUmlFeatureNote(a.featureQN)»
-			«ENDIF»	 	
-		«ENDFOR»
+	def generateNotes(DFeature f) '''
+		«IF f.renderAsLink»
+			«f.generateLinkNotes»
+		«ELSE»
+			«f.generateNotesOnRight(f.featureQN)»
+		«ENDIF»	 	
 	'''
 	
-	def dispatch generateNotes(DLiteral lit) '''
+	def generateNotes(DLiteral lit) '''
 		«FOR n : lit.notes»
-			«n.generateUmlFeatureNote(lit.literalQN)»
+			«n.generateGenericNoteOnRight(lit.literalQN)»
+		«ENDFOR»
+	'''
+	
+	/*
+	 * Generic Notes generators
+	 */
+	
+	def generateNotesWithIds(INoteContainer nc, String targetQN) '''
+		«FOR n : nc.notes»
+			«n.generateGenericNoteWithId(noteID++, targetQN)»
+		«ENDFOR»
+	'''
+	
+	def generateNotesOnRight(INoteContainer nc, String targetQN) '''
+		«FOR n : nc.notes»
+			«n.generateGenericNoteOnRight(targetQN)»
+		«ENDFOR»
+	'''
+	
+	def generateLinkNotes(INoteContainer nc) '''
+		«FOR n : nc.notes»
+			«n.generateLinkNote»
 		«ENDFOR»
 	'''
 	
@@ -107,22 +165,54 @@ class PlantUmlTextProviderUtil {
 		return f instanceof DAssociation || f instanceof DAttribute && f.type instanceof DDetailType
 	}
 	
-	protected def generateNoteForStructuralElement(DNote n, int id, String targetQN) '''
+	/*
+	 * Note for PlantUML object known as 'targetQN' (can be empty --> unlinked note on canvas).
+	 */
+	protected def generateGenericNoteWithId(DNote n, int id, String targetQN) '''
 		note as Note«id» «n.noteColor»
-			«n.generateNoteText»
+		«n.generateNoteText»
 		end note
 		«IF targetQN !== null»Note«id» .. «targetQN»«ENDIF»
+		
 	'''
 	
-	protected def generateUmlFeatureNote(DNote n,String targetQN) '''
+	/*
+	 * Note for previously declared PlantUML object.
+	 */
+	protected def generateGenericNoteOnRight(DNote n,String targetQN) '''
+		«IF n.eContainer instanceof DFeature && n.noteColor!= ""»' PlantUML BUG: color ignored on class members«ENDIF»
 		note right of «targetQN» «n.noteColor» 
-		««« PlantUML BUG: color ignored
-			«n.generateNoteText»
+		«n.generateNoteText»
 		end note
+		
+	'''
+	
+	/*
+	 * Note for previously declared PlantUML object.
+	 */
+	protected def generateLinkNote(DNote n) '''
+		note bottom on link «n.noteColor»
+		«n.generateNoteText»
+		end note
+		
 	'''
 	
 	protected def generateNoteText(DNote n) {
-		notesTextRenderer.render(n.text)
+		return (notesTextRenderer.render(n.text) as String).removeIndent
+	}
+	
+	protected def String removeIndent(String text) {
+		val lines = text.split("\n[\\s]*")
+		val sb = new StringBuilder
+		var first = true
+		for (line : lines) {
+			if (! first) {
+				sb.append("\n")
+			}
+			sb.append(line)
+			first = false
+		}
+		return sb.toString
 	}
 	
 	protected def String noteColor(DNote n) {
@@ -170,10 +260,6 @@ class PlantUmlTextProviderUtil {
 	
 	protected def Color noteColorGrey() {
 		GREY_NOTE
-	}
-	
-	protected def Color defaultNoteColor() {
-		YELLOW_NOTE
 	}
 	
 //	static val SYNTHETIC = SyntheticFactory.eINSTANCE

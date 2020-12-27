@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.base.IDiagramRoot;
 import com.mimacom.ddd.dm.base.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.base.INoteContainer;
 import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 
 import org.eclipse.emf.common.util.EList;
@@ -33,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DemDomainEvent extends DModel, INoteContainer, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
+public interface DemDomainEvent extends DModel, INavigableMemberContainer, IStaticReferenceTarget, IDiagramRoot
 {
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
@@ -52,20 +51,20 @@ public interface DemDomainEvent extends DModel, INoteContainer, INavigableMember
 	EList<DContext> getContext();
 
 	/**
-	 * Returns the value of the '<em><b>Triggers</b></em>' reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.dem.DemActor}.
+	 * Returns the value of the '<em><b>Triggers</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.dem.DemTrigger}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Triggers</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Triggers</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Triggers</em>' reference list.
+	 * @return the value of the '<em>Triggers</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dem.DemPackage#getDemDomainEvent_Triggers()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<DemActor> getTriggers();
+	EList<DemTrigger> getTriggers();
 
 	/**
 	 * Returns the value of the '<em><b>Preconditions CNF</b></em>' containment reference list.

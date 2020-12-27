@@ -89,8 +89,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAliasesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
+		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
 		private final Assignment cNotesAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -103,8 +103,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTriggeredKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Keyword cByKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
 		private final Assignment cTriggersAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final CrossReference cTriggersDemActorCrossReference_9_2_0 = (CrossReference)cTriggersAssignment_9_2.eContents().get(0);
-		private final RuleCall cTriggersDemActorIDTerminalRuleCall_9_2_0_1 = (RuleCall)cTriggersDemActorCrossReference_9_2_0.eContents().get(1);
+		private final RuleCall cTriggersDemTriggerParserRuleCall_9_2_0 = (RuleCall)cTriggersAssignment_9_2.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cNotificationsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cNotificationsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -125,19 +124,19 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		///*
 		// * DOMAIN EVENT
 		// */ DemDomainEvent DModel:
-		//	'event' {DemDomainEvent} name=ID ('alias' aliases+=ID)*
+		//	'event' {DemDomainEvent} name=ID ('alias' alias=ID)?
 		//	description=DRichText?
 		//	notes+=DNote*
 		//	'{'
-		//	'context' context+=DContext+ ('triggered' 'by' triggers+=[DemActor]+)? ('notifications'
+		//	'context' context+=DContext+ ('triggered' 'by' triggers+=DemTrigger+)? ('notifications'
 		//	notifications+=DemNotification+)? ('preconditions' preconditionsCNF+=DNamedPredicate+)? ('postconditions'
 		//	(postconditionsDNF+=DemCaseConjunction+
 		//	| postconditionsDNF+=DNamedPredicate+))?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'event' {DemDomainEvent} name=ID ('alias' aliases+=ID)* description=DRichText? notes+=DNote* '{' 'context'
-		//context+=DContext+ ('triggered' 'by' triggers+=[DemActor]+)? ('notifications' notifications+=DemNotification+)?
+		//'event' {DemDomainEvent} name=ID ('alias' alias=ID)? description=DRichText? notes+=DNote* '{' 'context'
+		//context+=DContext+ ('triggered' 'by' triggers+=DemTrigger+)? ('notifications' notifications+=DemNotification+)?
 		//('preconditions' preconditionsCNF+=DNamedPredicate+)? ('postconditions' (postconditionsDNF+=DemCaseConjunction+ |
 		//postconditionsDNF+=DNamedPredicate+))? '}'
 		public Group getGroup() { return cGroup; }
@@ -154,17 +153,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_3_1() { return cAliasesAssignment_3_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_3_1_0() { return cAliasesIDTerminalRuleCall_3_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
@@ -190,7 +189,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//DContext
 		public RuleCall getContextDContextParserRuleCall_8_0() { return cContextDContextParserRuleCall_8_0; }
 		
-		//('triggered' 'by' triggers+=[DemActor]+)?
+		//('triggered' 'by' triggers+=DemTrigger+)?
 		public Group getGroup_9() { return cGroup_9; }
 		
 		//'triggered'
@@ -199,14 +198,11 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//'by'
 		public Keyword getByKeyword_9_1() { return cByKeyword_9_1; }
 		
-		//triggers+=[DemActor]+
+		//triggers+=DemTrigger+
 		public Assignment getTriggersAssignment_9_2() { return cTriggersAssignment_9_2; }
 		
-		//[DemActor]
-		public CrossReference getTriggersDemActorCrossReference_9_2_0() { return cTriggersDemActorCrossReference_9_2_0; }
-		
-		//ID
-		public RuleCall getTriggersDemActorIDTerminalRuleCall_9_2_0_1() { return cTriggersDemActorIDTerminalRuleCall_9_2_0_1; }
+		//DemTrigger
+		public RuleCall getTriggersDemTriggerParserRuleCall_9_2_0() { return cTriggersDemTriggerParserRuleCall_9_2_0; }
 		
 		//('notifications' notifications+=DemNotification+)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -256,6 +252,37 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
+	public class DemTriggerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DemTrigger");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cActorAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cActorDemActorCrossReference_0_0 = (CrossReference)cActorAssignment_0.eContents().get(0);
+		private final RuleCall cActorDemActorIDTerminalRuleCall_0_0_1 = (RuleCall)cActorDemActorCrossReference_0_0.eContents().get(1);
+		private final Assignment cNotesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNotesDNoteParserRuleCall_1_0 = (RuleCall)cNotesAssignment_1.eContents().get(0);
+		
+		//DemTrigger:
+		//	actor=[DemActor] notes+=DNote*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//actor=[DemActor] notes+=DNote*
+		public Group getGroup() { return cGroup; }
+		
+		//actor=[DemActor]
+		public Assignment getActorAssignment_0() { return cActorAssignment_0; }
+		
+		//[DemActor]
+		public CrossReference getActorDemActorCrossReference_0_0() { return cActorDemActorCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getActorDemActorIDTerminalRuleCall_0_0_1() { return cActorDemActorIDTerminalRuleCall_0_0_1; }
+		
+		//notes+=DNote*
+		public Assignment getNotesAssignment_1() { return cNotesAssignment_1; }
+		
+		//DNote
+		public RuleCall getNotesDNoteParserRuleCall_1_0() { return cNotesDNoteParserRuleCall_1_0; }
+	}
 	public class DNamedPredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DNamedPredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -263,8 +290,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cAliasKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cAliasesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasesAssignment_1_1.eContents().get(0);
+		private final Assignment cAliasAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasAssignment_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
@@ -274,14 +301,14 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPredicateDmxOrExpressionParserRuleCall_5_0 = (RuleCall)cPredicateAssignment_5.eContents().get(0);
 		
 		//DNamedPredicate:
-		//	name=ID ('alias' aliases+=ID)*
+		//	name=ID ('alias' alias=ID)?
 		//	':'
 		//	description=DRichText?
 		//	notes+=DNote*
 		//	predicate=DmxOrExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('alias' aliases+=ID)* ':' description=DRichText? notes+=DNote* predicate=DmxOrExpression
+		//name=ID ('alias' alias=ID)? ':' description=DRichText? notes+=DNote* predicate=DmxOrExpression
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -290,17 +317,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_1_0() { return cAliasKeyword_1_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_1_1() { return cAliasesAssignment_1_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_1_1() { return cAliasAssignment_1_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_1_1_0() { return cAliasesIDTerminalRuleCall_1_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_1_1_0() { return cAliasIDTerminalRuleCall_1_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -331,8 +358,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cAliasKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cAliasesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_2_1_0 = (RuleCall)cAliasesAssignment_2_1.eContents().get(0);
+		private final Assignment cAliasAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_2_1_0 = (RuleCall)cAliasAssignment_2_1.eContents().get(0);
 		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
@@ -348,7 +375,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DemCaseConjunction:
 		//	'case'
-		//	name=ID ('alias' aliases+=ID)*
+		//	name=ID ('alias' alias=ID)?
 		//	description=DRichText? ('when'
 		//	selector=DmxOrExpression
 		//	| otherwise?='otherwise')
@@ -356,8 +383,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//	predicates+=DNamedPredicate+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'case' name=ID ('alias' aliases+=ID)* description=DRichText? ('when' selector=DmxOrExpression | otherwise?='otherwise')
-		//':' predicates+=DNamedPredicate+
+		//'case' name=ID ('alias' alias=ID)? description=DRichText? ('when' selector=DmxOrExpression | otherwise?='otherwise') ':'
+		//predicates+=DNamedPredicate+
 		public Group getGroup() { return cGroup; }
 		
 		//'case'
@@ -369,17 +396,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_2_0() { return cAliasKeyword_2_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_2_1() { return cAliasesAssignment_2_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_2_1() { return cAliasAssignment_2_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_2_1_0() { return cAliasesIDTerminalRuleCall_2_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_2_1_0() { return cAliasIDTerminalRuleCall_2_1_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_3() { return cDescriptionAssignment_3; }
@@ -424,8 +451,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cAliasKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cAliasesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasesAssignment_1_1.eContents().get(0);
+		private final Assignment cAliasAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasAssignment_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cMessageAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cMessageDemMessageParserRuleCall_3_0 = (RuleCall)cMessageAssignment_3.eContents().get(0);
@@ -435,16 +462,19 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNotifiedDemActorIDTerminalRuleCall_5_0_1 = (RuleCall)cNotifiedDemActorCrossReference_5_0.eContents().get(1);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
+		private final Assignment cNotesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cNotesDNoteParserRuleCall_7_0 = (RuleCall)cNotesAssignment_7.eContents().get(0);
 		
 		//DemNotification:
-		//	name=ID ('alias' aliases+=ID)*
+		//	name=ID ('alias' alias=ID)?
 		//	':'
 		//	message=DemMessage
-		//	'to' notified=[DemActor] description=DRichText?;
+		//	'to' notified=[DemActor] description=DRichText?
+		//	notes+=DNote*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// type always null
-		//name=ID ('alias' aliases+=ID)* ':' message=DemMessage 'to' notified=[DemActor] description=DRichText?
+		//name=ID ('alias' alias=ID)? ':' message=DemMessage 'to' notified=[DemActor] description=DRichText? notes+=DNote*
 		public Group getGroup() { return cGroup; }
 		
 		//// type always null
@@ -454,17 +484,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_1_0() { return cAliasKeyword_1_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_1_1() { return cAliasesAssignment_1_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_1_1() { return cAliasAssignment_1_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_1_1_0() { return cAliasesIDTerminalRuleCall_1_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_1_1_0() { return cAliasIDTerminalRuleCall_1_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -492,6 +522,12 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_6_0() { return cDescriptionDRichTextParserRuleCall_6_0; }
+		
+		//notes+=DNote*
+		public Assignment getNotesAssignment_7() { return cNotesAssignment_7; }
+		
+		//DNote
+		public RuleCall getNotesDNoteParserRuleCall_7_0() { return cNotesDNoteParserRuleCall_7_0; }
 	}
 	public class DemMessageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DemMessage");
@@ -533,8 +569,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cAliasKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cAliasesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasesAssignment_1_1.eContents().get(0);
+		private final Assignment cAliasAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasAssignment_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cTypeDTypeCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
@@ -547,14 +583,14 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNotesDNoteParserRuleCall_6_0 = (RuleCall)cNotesAssignment_6.eContents().get(0);
 		
 		//DContext:
-		//	name=ID ('alias' aliases+=ID)*
+		//	name=ID ('alias' alias=ID)?
 		//	':'
 		//	type=[DType] multiplicity=DMultiplicity?
 		//	description=DRichText?
 		//	notes+=DNote*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('alias' aliases+=ID)* ':' type=[DType] multiplicity=DMultiplicity? description=DRichText? notes+=DNote*
+		//name=ID ('alias' alias=ID)? ':' type=[DType] multiplicity=DMultiplicity? description=DRichText? notes+=DNote*
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -563,17 +599,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_1_0() { return cAliasKeyword_1_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_1_1() { return cAliasesAssignment_1_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_1_1() { return cAliasAssignment_1_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_1_1_0() { return cAliasesIDTerminalRuleCall_1_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_1_1_0() { return cAliasIDTerminalRuleCall_1_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -701,8 +737,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cAliasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAliasesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasesAssignment_4_1.eContents().get(0);
+		private final Assignment cAliasAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasAssignment_4_1.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		private final Assignment cNotesAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -710,12 +746,12 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DemHumanActorRole:
 		//	'human' 'actor' 'as'
-		//	name=ID ('alias' aliases+=ID)*
+		//	name=ID ('alias' alias=ID)?
 		//	description=DRichText?
 		//	notes+=DNote*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'human' 'actor' 'as' name=ID ('alias' aliases+=ID)* description=DRichText? notes+=DNote*
+		//'human' 'actor' 'as' name=ID ('alias' alias=ID)? description=DRichText? notes+=DNote*
 		public Group getGroup() { return cGroup; }
 		
 		//'human'
@@ -733,17 +769,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_4_0() { return cAliasKeyword_4_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_4_1() { return cAliasesAssignment_4_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_4_1() { return cAliasAssignment_4_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_4_1_0() { return cAliasesIDTerminalRuleCall_4_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_4_1_0() { return cAliasIDTerminalRuleCall_4_1_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
@@ -766,8 +802,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAliasesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
+		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
 		private final Assignment cNotesAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -775,12 +811,12 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DemService:
 		//	'service' 'actor'
-		//	name=ID ('alias' aliases+=ID)*
+		//	name=ID ('alias' alias=ID)?
 		//	description=DRichText?
 		//	notes+=DNote*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'service' 'actor' name=ID ('alias' aliases+=ID)* description=DRichText? notes+=DNote*
+		//'service' 'actor' name=ID ('alias' alias=ID)? description=DRichText? notes+=DNote*
 		public Group getGroup() { return cGroup; }
 		
 		//'service'
@@ -795,17 +831,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//('alias' aliases+=ID)*
+		//('alias' alias=ID)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'alias'
 		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
 		
-		//aliases+=ID
-		public Assignment getAliasesAssignment_3_1() { return cAliasesAssignment_3_1; }
+		//alias=ID
+		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_3_1_0() { return cAliasesIDTerminalRuleCall_3_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
@@ -947,6 +983,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final DNamespaceElements pDNamespace;
 	private final DemDomainEventElements pDemDomainEvent;
+	private final DemTriggerElements pDemTrigger;
 	private final DNamedPredicateElements pDNamedPredicate;
 	private final DemCaseConjunctionElements pDemCaseConjunction;
 	private final DemNotificationElements pDemNotification;
@@ -969,6 +1006,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaDmx = gaDmx;
 		this.pDNamespace = new DNamespaceElements();
 		this.pDemDomainEvent = new DemDomainEventElements();
+		this.pDemTrigger = new DemTriggerElements();
 		this.pDNamedPredicate = new DNamedPredicateElements();
 		this.pDemCaseConjunction = new DemCaseConjunctionElements();
 		this.pDemNotification = new DemNotificationElements();
@@ -1025,11 +1063,11 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * DOMAIN EVENT
 	// */ DemDomainEvent DModel:
-	//	'event' {DemDomainEvent} name=ID ('alias' aliases+=ID)*
+	//	'event' {DemDomainEvent} name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*
 	//	'{'
-	//	'context' context+=DContext+ ('triggered' 'by' triggers+=[DemActor]+)? ('notifications'
+	//	'context' context+=DContext+ ('triggered' 'by' triggers+=DemTrigger+)? ('notifications'
 	//	notifications+=DemNotification+)? ('preconditions' preconditionsCNF+=DNamedPredicate+)? ('postconditions'
 	//	(postconditionsDNF+=DemCaseConjunction+
 	//	| postconditionsDNF+=DNamedPredicate+))?
@@ -1042,8 +1080,18 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDemDomainEventAccess().getRule();
 	}
 	
+	//DemTrigger:
+	//	actor=[DemActor] notes+=DNote*;
+	public DemTriggerElements getDemTriggerAccess() {
+		return pDemTrigger;
+	}
+	
+	public ParserRule getDemTriggerRule() {
+		return getDemTriggerAccess().getRule();
+	}
+	
 	//DNamedPredicate:
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	':'
 	//	description=DRichText?
 	//	notes+=DNote*
@@ -1058,7 +1106,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DemCaseConjunction:
 	//	'case'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	description=DRichText? ('when'
 	//	selector=DmxOrExpression
 	//	| otherwise?='otherwise')
@@ -1073,10 +1121,11 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DemNotification:
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	':'
 	//	message=DemMessage
-	//	'to' notified=[DemActor] description=DRichText?;
+	//	'to' notified=[DemActor] description=DRichText?
+	//	notes+=DNote*;
 	public DemNotificationElements getDemNotificationAccess() {
 		return pDemNotification;
 	}
@@ -1096,7 +1145,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContext:
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	':'
 	//	type=[DType] multiplicity=DMultiplicity?
 	//	description=DRichText?
@@ -1139,7 +1188,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DemHumanActorRole:
 	//	'human' 'actor' 'as'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*;
 	public DemHumanActorRoleElements getDemHumanActorRoleAccess() {
@@ -1152,7 +1201,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DemService:
 	//	'service' 'actor'
-	//	name=ID ('alias' aliases+=ID)*
+	//	name=ID ('alias' alias=ID)?
 	//	description=DRichText?
 	//	notes+=DNote*;
 	public DemServiceElements getDemServiceAccess() {
@@ -1770,7 +1819,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment DmxComplexObject:
-	//	type=[DComplexType] DomFieldListStartSymbol
+	//	type=[DComplexType] DmxFieldListStartSymbol
 	//	fields+=DmxField*
 	//	'}';
 	public DmxGrammarAccess.DmxComplexObjectElements getDmxComplexObjectAccess() {
@@ -1782,7 +1831,9 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxField:
-	//	feature=[DFeature] "=" value=DExpression;
+	//	feature=[DFeature] "=" value=DExpression
+	//	description=DRichText?
+	//	notes+=DNote*;
 	public DmxGrammarAccess.DmxFieldElements getDmxFieldAccess() {
 		return gaDmx.getDmxFieldAccess();
 	}
@@ -1931,14 +1982,14 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDECIMALAccess().getRule();
 	}
 	
-	//DomFieldListStartSymbol:
+	//DmxFieldListStartSymbol:
 	//	'{';
-	public DmxGrammarAccess.DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
-		return gaDmx.getDomFieldListStartSymbolAccess();
+	public DmxGrammarAccess.DmxFieldListStartSymbolElements getDmxFieldListStartSymbolAccess() {
+		return gaDmx.getDmxFieldListStartSymbolAccess();
 	}
 	
-	public ParserRule getDomFieldListStartSymbolRule() {
-		return getDomFieldListStartSymbolAccess().getRule();
+	public ParserRule getDmxFieldListStartSymbolRule() {
+		return getDmxFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

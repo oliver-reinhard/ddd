@@ -11,9 +11,13 @@ import com.mimacom.ddd.dm.dem.plantuml.DemEventDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.dem.plantuml.DemEventsOverviewDiagramTextProviderImpl;
 import com.mimacom.ddd.dm.dem.ui.internal.DemActivator;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
@@ -69,17 +73,23 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
         return _xifexpression;
       };
       final DNamespace namespace = document.<DNamespace>readOnly(_function);
-      String _xifexpression = null;
-      DModel _model = namespace.getModel();
-      boolean _tripleNotEquals = (_model != null);
-      if (_tripleNotEquals) {
-        _xifexpression = this.diagram(namespace.getModel());
-      } else {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("note \"Nothing show.\" as N1");
-        _xifexpression = _builder.toString();
+      DModel _model = null;
+      if (namespace!=null) {
+        _model=namespace.getModel();
       }
-      _xblockexpression = _xifexpression;
+      final DModel model = _model;
+      if ((model != null)) {
+        final List<Diagnostic> validationErrors = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
+        boolean _isEmpty = validationErrors.isEmpty();
+        boolean _not = (!_isEmpty);
+        if (_not) {
+          return "note \"Model has validation errors.\" as N1";
+        }
+        return this.diagram(model);
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("note \"Nothing show.\" as N1");
+      _xblockexpression = _builder.toString();
     }
     return _xblockexpression;
   }
@@ -114,7 +124,7 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder.toString();
   }
   
-  public String diagram(final EObject model) {
+  public String diagram(final DModel model) {
     if (model instanceof DemActorModel) {
       return _diagram((DemActorModel)model);
     } else if (model instanceof DemDomainEvent) {

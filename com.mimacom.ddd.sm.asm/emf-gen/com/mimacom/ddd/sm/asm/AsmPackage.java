@@ -81,13 +81,13 @@ public interface AsmPackage extends EPackage
 	int APPLICATION_SERVICE_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_SERVICE_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int APPLICATION_SERVICE_MODEL__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -97,6 +97,15 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int APPLICATION_SERVICE_MODEL__DESCRIPTION = BasePackage.DMODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_SERVICE_MODEL__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The number of structural features of the '<em>Application Service Model</em>' class.
@@ -136,13 +145,13 @@ public interface AsmPackage extends EPackage
 	int ASM_APPLICATION__NAME = APPLICATION_SERVICE_MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_APPLICATION__ALIASES = APPLICATION_SERVICE_MODEL__ALIASES;
+	int ASM_APPLICATION__ALIAS = APPLICATION_SERVICE_MODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -152,6 +161,15 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int ASM_APPLICATION__DESCRIPTION = APPLICATION_SERVICE_MODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASM_APPLICATION__NOTES = APPLICATION_SERVICE_MODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -218,13 +236,13 @@ public interface AsmPackage extends EPackage
 	int ASM_SERVICE_INTERFACE__NAME = APPLICATION_SERVICE_MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_SERVICE_INTERFACE__ALIASES = APPLICATION_SERVICE_MODEL__ALIASES;
+	int ASM_SERVICE_INTERFACE__ALIAS = APPLICATION_SERVICE_MODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -234,6 +252,15 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int ASM_SERVICE_INTERFACE__DESCRIPTION = APPLICATION_SERVICE_MODEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASM_SERVICE_INTERFACE__NOTES = APPLICATION_SERVICE_MODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Interface</b></em>' reference.
@@ -309,13 +336,13 @@ public interface AsmPackage extends EPackage
 	int ASM_EXCEPTION__NAME = BasePackage.DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_EXCEPTION__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int ASM_EXCEPTION__ALIAS = BasePackage.DNAMED_ELEMENT__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -557,13 +584,13 @@ public interface AsmPackage extends EPackage
 	int ASM_SERVICE_PARAMETER__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASM_SERVICE_PARAMETER__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+	int ASM_SERVICE_PARAMETER__ALIAS = BasePackage.DNAVIGABLE_MEMBER__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.

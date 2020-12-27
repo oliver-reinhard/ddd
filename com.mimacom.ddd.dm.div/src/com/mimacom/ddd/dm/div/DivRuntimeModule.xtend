@@ -8,10 +8,14 @@ import com.google.inject.name.Names
 import com.mimacom.ddd.dm.base.transpose.TransposeAwareResource
 import com.mimacom.ddd.dm.dim.scoping.TransposedDimScopeProvider
 import com.mimacom.ddd.dm.div.derivedState.DivDerivedStateComputer
+import com.mimacom.ddd.dm.div.plantuml.DivSkinparamClass
+import com.mimacom.ddd.dm.div.plantuml.DivSkinparamPackage
 import com.mimacom.ddd.dm.div.scoping.DivImportedNamespaceAwareLocalScopeProviderWithDmTypes
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider
+import com.mimacom.ddd.util.plantuml.SkinparamClass
+import com.mimacom.ddd.util.plantuml.SkinparamPackage
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager
@@ -60,5 +64,13 @@ class DivRuntimeModule extends AbstractDivRuntimeModule {
 
 	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
 		return DmxResourceDescriptionStrategy;
+	}
+	
+	def Class<? extends SkinparamPackage> bindPlantUMLSkinparamPackage() {
+		DivSkinparamPackage
+	}
+	
+	def Class<? extends SkinparamClass> bindPlantUMLSkinparamClass() {
+		DivSkinparamClass
 	}
 }

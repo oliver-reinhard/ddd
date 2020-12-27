@@ -6,7 +6,7 @@ import com.mimacom.ddd.util.plantuml.AbstractInjectingDiagramTextProviderWrapper
 
 import net.sourceforge.plantuml.eclipse.utils.DiagramTextProvider;
 
-public class EsmDiagramTextProviderWrapper extends AbstractInjectingDiagramTextProviderWrapper {
+public class EsmStateDiagramTextProviderWrapper extends AbstractInjectingDiagramTextProviderWrapper {
 
 	@Override
 	protected Injector getInjector() {
@@ -15,6 +15,6 @@ public class EsmDiagramTextProviderWrapper extends AbstractInjectingDiagramTextP
 
 	@Override
 	protected Class<? extends DiagramTextProvider> getDiagramTextProviderClass() {
-		return EsmDiagramTextProvider.class;
+		return EsmStateDiagramTextProvider.class;
 	}
 }

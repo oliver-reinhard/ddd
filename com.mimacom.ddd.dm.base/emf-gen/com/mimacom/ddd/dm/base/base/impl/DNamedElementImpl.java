@@ -6,20 +6,14 @@ import com.mimacom.ddd.dm.base.base.BasePackage;
 import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DRichText;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +24,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl#getAliases <em>Aliases</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.base.impl.DNamedElementImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -59,14 +53,24 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAliases() <em>Aliases</em>}' attribute list.
+	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAliases()
+	 * @see #getAlias()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> aliases;
+	protected static final String ALIAS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlias()
+	 * @generated
+	 * @ordered
+	 */
+	protected String alias = ALIAS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -130,13 +134,23 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public EList<String> getAliases()
+	public String getAlias()
 	{
-		if (aliases == null)
-		{
-			aliases = new EDataTypeUniqueEList<String>(String.class, this, BasePackage.DNAMED_ELEMENT__ALIASES);
-		}
-		return aliases;
+		return alias;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAlias(String newAlias)
+	{
+		String oldAlias = alias;
+		alias = newAlias;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DNAMED_ELEMENT__ALIAS, oldAlias, alias));
 	}
 
 	/**
@@ -217,8 +231,8 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 		{
 			case BasePackage.DNAMED_ELEMENT__NAME:
 				return getName();
-			case BasePackage.DNAMED_ELEMENT__ALIASES:
-				return getAliases();
+			case BasePackage.DNAMED_ELEMENT__ALIAS:
+				return getAlias();
 			case BasePackage.DNAMED_ELEMENT__DESCRIPTION:
 				return getDescription();
 		}
@@ -230,7 +244,6 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -239,9 +252,8 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 			case BasePackage.DNAMED_ELEMENT__NAME:
 				setName((String)newValue);
 				return;
-			case BasePackage.DNAMED_ELEMENT__ALIASES:
-				getAliases().clear();
-				getAliases().addAll((Collection<? extends String>)newValue);
+			case BasePackage.DNAMED_ELEMENT__ALIAS:
+				setAlias((String)newValue);
 				return;
 			case BasePackage.DNAMED_ELEMENT__DESCRIPTION:
 				setDescription((DRichText)newValue);
@@ -263,8 +275,8 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 			case BasePackage.DNAMED_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case BasePackage.DNAMED_ELEMENT__ALIASES:
-				getAliases().clear();
+			case BasePackage.DNAMED_ELEMENT__ALIAS:
+				setAlias(ALIAS_EDEFAULT);
 				return;
 			case BasePackage.DNAMED_ELEMENT__DESCRIPTION:
 				setDescription((DRichText)null);
@@ -285,8 +297,8 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 		{
 			case BasePackage.DNAMED_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case BasePackage.DNAMED_ELEMENT__ALIASES:
-				return aliases != null && !aliases.isEmpty();
+			case BasePackage.DNAMED_ELEMENT__ALIAS:
+				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
 			case BasePackage.DNAMED_ELEMENT__DESCRIPTION:
 				return description != null;
 		}
@@ -306,8 +318,8 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", aliases: ");
-		result.append(aliases);
+		result.append(", alias: ");
+		result.append(alias);
 		result.append(')');
 		return result.toString();
 	}

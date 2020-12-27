@@ -19,7 +19,6 @@ import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.div.DomainInformationView;
 import java.util.ArrayList;
 import java.util.Set;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -77,26 +76,5 @@ public class DivTypeDiagramTextProviderImpl extends AbstractTypeDiagramTextProvi
     };
     data.allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_6);
     return data;
-  }
-  
-  @Override
-  public CharSequence generateSkinParameters() {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _generateSkinParameters = super.generateSkinParameters();
-    _builder.append(_generateSkinParameters);
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("skinparam package {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("BorderColor Orange");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("FontColor Orange");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
   }
 }

@@ -69,7 +69,8 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
 			builder.put(grammarAccess.getDNamespaceAccess().getGroup(), "rule__DNamespace__Group__0");
 			builder.put(grammarAccess.getEsmEntityStateModelAccess().getGroup(), "rule__EsmEntityStateModel__Group__0");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getGroup_8(), "rule__EsmEntityStateModel__Group_8__0");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getGroup_3(), "rule__EsmEntityStateModel__Group_3__0");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getGroup_9(), "rule__EsmEntityStateModel__Group_9__0");
 			builder.put(grammarAccess.getEsmNormalStateAccess().getGroup(), "rule__EsmNormalState__Group__0");
 			builder.put(grammarAccess.getEsmNormalStateAccess().getGroup_0_0(), "rule__EsmNormalState__Group_0_0__0");
 			builder.put(grammarAccess.getEsmDerivedStateAccess().getGroup(), "rule__EsmDerivedState__Group__0");
@@ -186,12 +187,13 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamespaceAccess().getImportsAssignment_2(), "rule__DNamespace__ImportsAssignment_2");
 			builder.put(grammarAccess.getDNamespaceAccess().getModelAssignment_3(), "rule__DNamespace__ModelAssignment_3");
 			builder.put(grammarAccess.getEsmEntityStateModelAccess().getNameAssignment_2(), "rule__EsmEntityStateModel__NameAssignment_2");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getForTypeAssignment_4(), "rule__EsmEntityStateModel__ForTypeAssignment_4");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getDescriptionAssignment_5(), "rule__EsmEntityStateModel__DescriptionAssignment_5");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getNotesAssignment_6(), "rule__EsmEntityStateModel__NotesAssignment_6");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getDirectionAssignment_8_1(), "rule__EsmEntityStateModel__DirectionAssignment_8_1");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getStatesAssignment_9(), "rule__EsmEntityStateModel__StatesAssignment_9");
-			builder.put(grammarAccess.getEsmEntityStateModelAccess().getTransitionsAssignment_10(), "rule__EsmEntityStateModel__TransitionsAssignment_10");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getAliasAssignment_3_1(), "rule__EsmEntityStateModel__AliasAssignment_3_1");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getForTypeAssignment_5(), "rule__EsmEntityStateModel__ForTypeAssignment_5");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getDescriptionAssignment_6(), "rule__EsmEntityStateModel__DescriptionAssignment_6");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getNotesAssignment_7(), "rule__EsmEntityStateModel__NotesAssignment_7");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getDirectionAssignment_9_1(), "rule__EsmEntityStateModel__DirectionAssignment_9_1");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getStatesAssignment_10(), "rule__EsmEntityStateModel__StatesAssignment_10");
+			builder.put(grammarAccess.getEsmEntityStateModelAccess().getTransitionsAssignment_11(), "rule__EsmEntityStateModel__TransitionsAssignment_11");
 			builder.put(grammarAccess.getEsmNormalStateAccess().getKindAssignment_0_0_0(), "rule__EsmNormalState__KindAssignment_0_0_0");
 			builder.put(grammarAccess.getEsmNormalStateAccess().getStateAssignment_1(), "rule__EsmNormalState__StateAssignment_1");
 			builder.put(grammarAccess.getEsmNormalStateAccess().getDescriptionAssignment_2(), "rule__EsmNormalState__DescriptionAssignment_2");
@@ -306,6 +308,8 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxComplexObjectAccess().getFieldsAssignment_2(), "rule__DmxComplexObject__FieldsAssignment_2");
 			builder.put(grammarAccess.getDmxFieldAccess().getFeatureAssignment_0(), "rule__DmxField__FeatureAssignment_0");
 			builder.put(grammarAccess.getDmxFieldAccess().getValueAssignment_2(), "rule__DmxField__ValueAssignment_2");
+			builder.put(grammarAccess.getDmxFieldAccess().getDescriptionAssignment_3(), "rule__DmxField__DescriptionAssignment_3");
+			builder.put(grammarAccess.getDmxFieldAccess().getNotesAssignment_4(), "rule__DmxField__NotesAssignment_4");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getTargetAssignment_2(), "rule__DmxStaticReference__TargetAssignment_2");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getMemberAssignment_3_1(), "rule__DmxStaticReference__MemberAssignment_3_1");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getDisplayNameAssignment_4_1_0(), "rule__DmxStaticReference__DisplayNameAssignment_4_1_0");

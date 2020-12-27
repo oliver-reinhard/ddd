@@ -80,13 +80,13 @@ public interface EsmPackage extends EPackage
 	int ESM_ENTITY_STATE_MODEL__NAME = BasePackage.DMODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__ALIASES = BasePackage.DMODEL__ALIASES;
+	int ESM_ENTITY_STATE_MODEL__ALIAS = BasePackage.DMODEL__ALIAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -104,7 +104,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__NOTES = BasePackage.DMODEL_FEATURE_COUNT + 0;
+	int ESM_ENTITY_STATE_MODEL__NOTES = BasePackage.DMODEL__NOTES;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -113,7 +113,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__DIRECTION = BasePackage.DMODEL_FEATURE_COUNT + 1;
+	int ESM_ENTITY_STATE_MODEL__DIRECTION = BasePackage.DMODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -122,7 +122,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__STATES = BasePackage.DMODEL_FEATURE_COUNT + 2;
+	int ESM_ENTITY_STATE_MODEL__STATES = BasePackage.DMODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -131,7 +131,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__TRANSITIONS = BasePackage.DMODEL_FEATURE_COUNT + 3;
+	int ESM_ENTITY_STATE_MODEL__TRANSITIONS = BasePackage.DMODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
@@ -140,7 +140,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 4;
+	int ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS = BasePackage.DMODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>For Type</b></em>' reference.
@@ -149,7 +149,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DMODEL_FEATURE_COUNT + 5;
+	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DMODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Entity State Model</em>' class.
@@ -158,7 +158,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 6;
+	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DMODEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.IEsmLayout <em>IEsm Layout</em>}' class.

@@ -250,6 +250,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDAttributeAdapter();
 			}
 			@Override
+			public Adapter caseDComplexTypeProxyDummy(DComplexTypeProxyDummy object)
+			{
+				return createDComplexTypeProxyDummyAdapter();
+			}
+			@Override
+			public Adapter caseDFeatureProxyDummy(DFeatureProxyDummy object)
+			{
+				return createDFeatureProxyDummyAdapter();
+			}
+			@Override
 			public Adapter caseDQuery(DQuery object)
 			{
 				return createDQueryAdapter();
@@ -812,6 +822,36 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAttributeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DComplexTypeProxyDummy <em>DComplex Type Proxy Dummy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.DComplexTypeProxyDummy
+	 * @generated
+	 */
+	public Adapter createDComplexTypeProxyDummyAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.base.DFeatureProxyDummy <em>DFeature Proxy Dummy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.base.DFeatureProxyDummy
+	 * @generated
+	 */
+	public Adapter createDFeatureProxyDummyAdapter()
 	{
 		return null;
 	}

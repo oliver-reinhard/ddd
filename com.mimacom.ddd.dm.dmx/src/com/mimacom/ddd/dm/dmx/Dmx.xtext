@@ -284,12 +284,14 @@ DmxDetail:
 
 fragment DmxComplexObject:
 	type=[DComplexType|ID]
-	DomFieldListStartSymbol
+	DmxFieldListStartSymbol
 	(fields+=DmxField)*
 	'}';
 	
 DmxField:
-	feature=[DFeature|ID] "=" value=DExpression;
+	feature=[DFeature|ID] "=" value=DExpression
+	(description=DRichText)?
+	(notes+=DNote)*;
 		
 DmxStaticReference returns DExpression:
 	{DmxStaticReference}
@@ -337,7 +339,7 @@ DmxUrlLiteral returns DExpression:
 
 DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
 
-DomFieldListStartSymbol:
+DmxFieldListStartSymbol:
 	'{';
 	
 DQualifiedNameWithWildcard: 

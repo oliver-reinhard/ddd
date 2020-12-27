@@ -137,6 +137,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DModel dModel = (DModel)theEObject;
 				T result = caseDModel(dModel);
 				if (result == null) result = caseDNamedElement(dModel);
+				if (result == null) result = caseINoteContainer(dModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,12 +169,12 @@ public class BaseSwitch<T> extends Switch<T>
 				DInformationModel dInformationModel = (DInformationModel)theEObject;
 				T result = caseDInformationModel(dInformationModel);
 				if (result == null) result = caseDModel(dInformationModel);
-				if (result == null) result = caseINoteContainer(dInformationModel);
 				if (result == null) result = caseIAggregateContainer(dInformationModel);
 				if (result == null) result = caseITypeContainer(dInformationModel);
 				if (result == null) result = caseIStaticReferenceTarget(dInformationModel);
 				if (result == null) result = caseIDiagramRoot(dInformationModel);
 				if (result == null) result = caseDNamedElement(dInformationModel);
+				if (result == null) result = caseINoteContainer(dInformationModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -399,6 +400,31 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDNavigableMember(dAttribute);
 				if (result == null) result = caseDNamedElement(dAttribute);
 				if (result == null) result = caseINoteContainer(dAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DCOMPLEX_TYPE_PROXY_DUMMY:
+			{
+				DComplexTypeProxyDummy dComplexTypeProxyDummy = (DComplexTypeProxyDummy)theEObject;
+				T result = caseDComplexTypeProxyDummy(dComplexTypeProxyDummy);
+				if (result == null) result = caseDComplexType(dComplexTypeProxyDummy);
+				if (result == null) result = caseDType(dComplexTypeProxyDummy);
+				if (result == null) result = caseIFeatureContainer(dComplexTypeProxyDummy);
+				if (result == null) result = caseINavigableMemberContainer(dComplexTypeProxyDummy);
+				if (result == null) result = caseINoteContainer(dComplexTypeProxyDummy);
+				if (result == null) result = caseIStaticReferenceTarget(dComplexTypeProxyDummy);
+				if (result == null) result = caseDNamedElement(dComplexTypeProxyDummy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DFEATURE_PROXY_DUMMY:
+			{
+				DFeatureProxyDummy dFeatureProxyDummy = (DFeatureProxyDummy)theEObject;
+				T result = caseDFeatureProxyDummy(dFeatureProxyDummy);
+				if (result == null) result = caseDFeature(dFeatureProxyDummy);
+				if (result == null) result = caseDNavigableMember(dFeatureProxyDummy);
+				if (result == null) result = caseDNamedElement(dFeatureProxyDummy);
+				if (result == null) result = caseINoteContainer(dFeatureProxyDummy);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1003,6 +1029,38 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAttribute(DAttribute object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DComplex Type Proxy Dummy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DComplex Type Proxy Dummy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDComplexTypeProxyDummy(DComplexTypeProxyDummy object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DFeature Proxy Dummy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DFeature Proxy Dummy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDFeatureProxyDummy(DFeatureProxyDummy object)
 	{
 		return null;
 	}

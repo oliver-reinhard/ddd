@@ -104,6 +104,24 @@ public interface BaseFactory extends EFactory
 	DNamedPredicate createDNamedPredicate();
 
 	/**
+	 * Returns a new object of class '<em>DComplex Type Proxy Dummy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DComplex Type Proxy Dummy</em>'.
+	 * @generated
+	 */
+	DComplexTypeProxyDummy createDComplexTypeProxyDummy();
+
+	/**
+	 * Returns a new object of class '<em>DFeature Proxy Dummy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DFeature Proxy Dummy</em>'.
+	 * @generated
+	 */
+	DFeatureProxyDummy createDFeatureProxyDummy();
+
+	/**
 	 * Returns a new object of class '<em>DState</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
