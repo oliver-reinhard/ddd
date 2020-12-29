@@ -11,7 +11,6 @@ import java.util.List
 
 class DmxUtil extends TypesUtil {
 
-	public static val ENTITY_TYPE_STATE_FILTER_NAME = "state"
 	public static val String TIMEPOINT_SYNTAX = "yyyy-MM-dd [HH:mm]"
 	public static val SimpleDateFormat TIMEPOINT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd")
 	public static val SimpleDateFormat TIMEPOINT_DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm")

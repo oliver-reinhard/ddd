@@ -6,13 +6,17 @@ package com.mimacom.ddd.dm.dim;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 import com.mimacom.ddd.dm.dim.AbstractDimRuntimeModule;
+import com.mimacom.ddd.dm.dim.derivedState.DimDerivedStateComputer;
 import com.mimacom.ddd.dm.dmx.indexing.DmxResourceDescriptionStrategy;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProviderWithDmTypes;
 import com.mimacom.ddd.dm.dmx.scoping.DmxQualifiedNameProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
+import org.eclipse.xtext.resource.IDerivedStateComputer;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
@@ -38,5 +42,14 @@ public class DimRuntimeModule extends AbstractDimRuntimeModule {
   
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
     return DmxResourceDescriptionStrategy.class;
+  }
+  
+  @Override
+  public Class<? extends XtextResource> bindXtextResource() {
+    return DerivedStateAwareResource.class;
+  }
+  
+  public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
+    return DimDerivedStateComputer.class;
   }
 }

@@ -19,8 +19,6 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class DmxUtil extends TypesUtil {
-  public static final String ENTITY_TYPE_STATE_FILTER_NAME = "state";
-  
   public static final String TIMEPOINT_SYNTAX = "yyyy-MM-dd [HH:mm]";
   
   public static final SimpleDateFormat TIMEPOINT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");

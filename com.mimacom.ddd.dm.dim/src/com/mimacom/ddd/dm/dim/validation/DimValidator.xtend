@@ -25,9 +25,15 @@ import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.base.DState
 import com.mimacom.ddd.dm.base.base.DStateEvent
 import com.mimacom.ddd.dm.base.base.DType
+import com.mimacom.ddd.dm.base.base.IFeatureContainer
+import com.mimacom.ddd.dm.base.base.ITypeContainer
 import com.mimacom.ddd.dm.base.base.IValueType
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticEnumeration
+import com.mimacom.ddd.dm.base.synthetic.TSyntheticQuery
+import com.mimacom.ddd.dm.base.transpose.ISyntheticElement
 import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.dm.dim.DomainInformationModel
+import com.mimacom.ddd.dm.dim.derivedState.DimDerivedStateComputer
 import java.util.List
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
@@ -43,17 +49,17 @@ class DimValidator extends AbstractDimValidator {
 
 	@Inject extension DimUtil
 
-	val NAME_ALL_UPPERCASE = "Name should be all uppercase"
+	protected static val BASE = BasePackage.eINSTANCE
 
 	@Check
 	def checkDomainDeclaresOnlyValueTypes(DomainInformationModel d) {
 		for (vt : d.types) {
 			if (! (vt instanceof IValueType)) {
-				error('Declared type is not a value type', vt, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('Declared type is not a value type', vt, BASE.DNamedElement_Name)
 			} else if (vt instanceof DComplexType) {
 				for (f : vt.features) {
 					if (f instanceof DAssociation) {
-						error('Declared feature cannot be an association', f, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+						error('Declared feature cannot be an association', f, BASE.DNamedElement_Name)
 					}
 				}
 			}
@@ -67,13 +73,12 @@ class DimValidator extends AbstractDimValidator {
 		val topLevelRoots = roots.filter[superType.aggregate != a]
 		if (topLevelRoots.size > 1) {
 			for (r : roots) {
-				error(
-					'Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof',
-					r, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof', r,
+					BASE.DNamedElement_Name)
 			}
 		}
 //		if(roots.size == 0) {
-//			warning('Aggregate does not declare a root or a relationship', a, BasePackage.Literals.DAGGREGATE)
+//			warning('Aggregate does not declare a root or a relationship', a, BASE.DAGGREGATE)
 //		}
 	}
 
@@ -81,7 +86,7 @@ class DimValidator extends AbstractDimValidator {
 	@Check
 	def checkCyclicTypeHierarchy(DComplexType t) {
 		if (t.typeHierarchy.contains(t)) {
-			error('Type is part of a supertype cycle', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+			error('Type is part of a supertype cycle', t, BASE.DNamedElement_Name)
 		}
 	}
 
@@ -89,17 +94,16 @@ class DimValidator extends AbstractDimValidator {
 	def checkSupertype(DComplexType t) {
 		if (t.superType !== null) {
 			if (t.superType.eClass !== t.eClass) {
-				error('Supertype is not compatible', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('Supertype is not compatible', t, BASE.DNamedElement_Name)
 			} else if (t instanceof DEntityType) {
 				if (t.isRoot !== (t.superType as DEntityType).isRoot) {
-					error("Entity or relationship root property must match supertype's root property", t,
-						BasePackage.Literals.DNAMED_ELEMENT__NAME)
+					error("Entity or relationship root property must match supertype's root property", t, BASE.DNamedElement_Name)
 				}
 			}
 			val tDomain = EcoreUtil2.getContainerOfType(t, DomainInformationModel)
 			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DomainInformationModel)
 			if (superTypeDomain !== tDomain) {
-				error('Supertype must be in same domain', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('Supertype must be in same domain', t, BASE.DNamedElement_Name)
 			}
 		}
 	}
@@ -108,9 +112,9 @@ class DimValidator extends AbstractDimValidator {
 	def checkNoFeatureOverrides(DComplexType t) {
 		val inherited = t.inheritedFeatureNames
 		for (f : t.features) {
-			if (inherited.contains(f.name)) {
-				error('Feature cannot override inherited feature with same name', f,
-					BasePackage.Literals.DNAMED_ELEMENT__NAME)
+			if (inherited.contains(f.name) && f.name != DimDerivedStateComputer::SYNTHETIC_STATE_QUERY_NAME) {
+				// Case of DimDerivedStateComputer::SYNTHETIC_STATE_QUERY_NAME is covered by another @Check
+				error("Feature '" + f.name + "' cannot override inherited feature of same name", f, BASE.DNamedElement_Name)
 			}
 		}
 	}
@@ -123,8 +127,7 @@ class DimValidator extends AbstractDimValidator {
 				if (r.features.get(i) instanceof DAssociation) count++
 			}
 			if (count < 2) {
-				error('A relationship must declare at least 2 associations', r,
-					BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('A relationship must declare at least 2 associations', r, BASE.DNamedElement_Name)
 			}
 		}
 	}
@@ -132,159 +135,208 @@ class DimValidator extends AbstractDimValidator {
 	@Check
 	def checkPrimitiveDoesNotRedefineItself(DPrimitive p) {
 		if (p.redefines == p) {
-			error('Primitive cannot redefine itself', p, BasePackage.Literals.DPRIMITIVE__REDEFINES)
+			error('Primitive cannot redefine itself', p, BASE.DPrimitive_Redefines)
 		}
 	}
 
 	@Check
 	def checkEnumerationHasLiterals(DEnumeration e) {
 		if (e.literals.size == 0) {
-			warning('Enumeration does not declare literals', e, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+			warning('Enumeration does not declare literals', e, BASE.DNamedElement_Name)
 		}
 	}
-	
+
 	@Check
 	def checkFeatureTypeIsSet(DFeature f) {
 		if (f.type === null) {
-			error('Feature must have a type', f, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+			error('Feature must have a type', f, BASE.DNamedElement_Name)
+		}
+	}
+
+	@Check
+	def checkNoFeatureNamedState(DFeature f) {
+		if (f.name == DimDerivedStateComputer::SYNTHETIC_STATE_QUERY_NAME) {
+			val container = EcoreUtil2.getContainerOfType(f, IFeatureContainer)
+			if (container instanceof DEntityType) {
+				val superTypes = container.typeHierarchy
+				if (superTypes.exists(t|t instanceof DEntityType && ! (t as DEntityType).states.empty)) {
+					if (f instanceof TSyntheticQuery) { // = this entity declares states
+						error("Cannot declare states while states or a 'state' feature are declared for one of its super types.", container,
+							BASE.DEntityType_States)
+					} else { // = this entity declares an explicit 'state' feature
+						error("Cannot declare a 'state' feature while states or a 'state' feature are declared for one of its super types.", f,
+							BASE.DNamedElement_Name)
+					}
+				}
+			}
+		}
+	}
+
+	@Check
+	def checkNoEnumNamedState(DEnumeration e) {
+		if (e.name.endsWith(DimDerivedStateComputer::SYNTHETIC_STATES_ENUM_SUFFIX) && ! (e instanceof TSyntheticEnumeration)) {
+			val container = EcoreUtil2.getContainerOfType(e, ITypeContainer)
+			if (container !== null) {
+				val len = DimDerivedStateComputer::SYNTHETIC_STATES_ENUM_SUFFIX.length
+				val entityName = e.name.substring(0, e.name.length - len)
+				val candidate = container.types.filter(DEntityType).filter[name == entityName].head
+
+				if (candidate !== null && ! candidate.states.empty) {
+					error("Cannot declare a '" + e.name + "' enumeration while entity '" + candidate.name + "' declares states.", e,
+						BASE.DNamedElement_Name)
+				}
+			}
 		}
 	}
 
 	@Check
 	def checkAttributeIsValueType(DAttribute a) {
 		if (! (a.type instanceof IValueType)) {
-			error('Referenced type must be a ValueType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
+			error('Referenced type must be a ValueType', a, BASE.DNavigableMember_Type)
 		}
 	}
 
 	@Check
 	def checkRealWorldEntityType(DEntityType e) {
 		if (e.nature == DEntityNature.AUTONOMOUS_ENTITY && e.abstract) {
-			error('Autonomous entities cannot be abstract', e,
-				BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT)
+			error('Autonomous entities cannot be abstract', e, BASE.DComplexType_Abstract)
 		}
 	}
 
 	@Check
 	def checkAssocitionToEntityType(DAssociation a) {
 		if (! (a.getType instanceof DEntityType)) {
-			error('Referenced type must be an EntityType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
+			error('Referenced type must be an EntityType', a, BASE.DNavigableMember_Type)
 		}
 	}
 
 	@Check
 	def checkAssociationMultiplicities(DMultiplicity m) {
 		if (m.maxOccurs == 0) {
-			error('Maximum targets cannot be 0', m, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS)
+			error('Maximum targets cannot be 0', m, BASE.DMultiplicity_MaxOccurs)
 		}
 	}
 
 	// // Queries: restrictions on types
-
 	@Check
 	def checkQueryType(DQuery q) {
 		checkMemberType(q)
 	}
-	
+
 	@Check
 	def checkQueryParameterType(DQueryParameter p) {
 		checkMemberType(p)
 	}
-	
+
 	protected def checkMemberType(DNavigableMember member) {
 		if (! member.isAllowedMemberType) {
-			error("Referenced " + ILLEGAL_MEMBER_TYPE_MSG, member, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
+			error("Referenced " + ILLEGAL_MEMBER_TYPE_MSG, member, BASE.DNavigableMember_Type)
 		}
 	}
-	
+
 	protected static val ILLEGAL_MEMBER_TYPE_MSG = "type must be a ValueType, the query's own container, or the component's main entity"
-	
+
 	protected def boolean isAllowedMemberType(DNavigableMember member) {
-		val containingType = EcoreUtil2.getContainerOfType(member, DComplexType)  // is null if container is an aggregate
+		val containingType = EcoreUtil2.getContainerOfType(member, DComplexType) // is null if container is an aggregate
 		val aggregate = EcoreUtil2.getContainerOfType(member, DAggregate)
 		val type = member.type
 		return type instanceof IValueType || type == containingType ||
 			type instanceof DEntityType && (type as DEntityType).root && aggregate.allTypes.contains(type)
 	}
-	
+
 	// use to override
 	protected def List<DType> allTypes(DAggregate a) {
 		a.types
 	}
 
-	// // Naming: Elements whose names should start with a CAPITAL
+	/*
+	 * Naming: Elements whose names should start with a CAPITAL
+	 */
 	protected def void checkNameStartsWithCapitalImpl(String name, DNamedElement ne) {
-		if (name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
-			warning("Name should start with a capital", ne, BasePackage.Literals::DNAMED_ELEMENT__NAME)
-
+		if (! (ne instanceof ISyntheticElement)) { // synthetic elements' names are generated and source may violate capitalization rule
+			if (name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
+				warning("Name should start with a capital", ne, BASE.DNamedElement_Name)
+			}
 		}
-	}
-
-	def void checkNameStartsWithCapital(DNamedElement ne) {
-		checkNameStartsWithCapitalImpl(ne.name, ne)
 	}
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DomainInformationModel d) {
 		if (DEFAULT_IMPORT_TYPES == d.name) {
 			return
-		} else if (d.name.startsWith(PREFIX + ".")) {
-			checkNameStartsWithCapitalImpl(d.name.substring(3), d)
+		} else if (d.name !== null && d.name.startsWith(PREFIX + ".")) {
+			checkNameStartsWithCapitalImpl(d.name.substring(3), d) // 3 = length of PREFIX + 1
 			return
 		}
-		checkNameStartsWithCapital(d)
+		checkNameStartsWithCapitalImpl(d.name, d)
+	}
+
+	@Check
+	def void checkTypeNameStartsWithCapital(DAggregate a) {
+		checkNameStartsWithCapitalImpl(a.name, a)
 	}
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DType t) {
-		checkNameStartsWithCapital(t)
+		checkNameStartsWithCapitalImpl(t.name, t)
 	}
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DNamedPredicate c) {
-		checkNameStartsWithCapital(c)
+		checkNameStartsWithCapitalImpl(c.name, c)
 	}
 
-// // Naming: Elements whose names should start with a LOWERCASE
-	def void checkNameStartsWithLowercase(DNamedElement ne) {
-		val first = ne.getName().charAt(0)
-		val char underscore = '_'
-		if (!Character::isLowerCase(first) && first !== underscore) {
-			warning("Name should start with a lowercase or underscore", BasePackage.Literals::DNAMED_ELEMENT__NAME)
+	/*
+	 * Naming: Elements whose names should start with a LOWERCASE
+	 */
+	protected def void checkNameStartsWithLowercaseImpl(DNamedElement ne) {
+		if (! (ne instanceof ISyntheticElement)) { // synthetic elements' names are generated and source may violate capitalization rule
+			if (ne.name !== null) {
+				val first = ne.getName().charAt(0)
+				val char underscore = '_'
+				if (!Character::isLowerCase(first) && first !== underscore) {
+					warning("Name should start with a lowercase or underscore", BASE.DNamedElement_Name)
+				}
+			}
 		}
 	}
 
 	@Check
 	def void checkFeatureNameStartsWithLowercase(DFeature f) {
-		checkNameStartsWithLowercase(f)
+		checkNameStartsWithLowercaseImpl(f)
 	}
 
 	@Check
 	def void checkFeatureNameStartsWithLowercase(DQueryParameter p) {
-		checkNameStartsWithLowercase(p)
+		checkNameStartsWithLowercaseImpl(p)
 	}
 
 	@Check
 	def void checkFeatureNameStartsWithLowercase(DContext c) {
-		checkNameStartsWithLowercase(c)
+		checkNameStartsWithLowercaseImpl(c)
 	}
 
-// // Naming: Elements whose names should be ALL UPPERCASE
-	@Check def void checkLiteralIsUppercase(DLiteral literal) {
-		if (! literal.name.equals(literal.name.toUpperCase)) {
-			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
+	/*
+	 * Naming: Elements whose names should be ALL UPPERCASE
+	 */
+	protected def void checkLiteralIsUppercaseImpl(DNamedElement ne) {
+		if (! (ne instanceof ISyntheticElement)) { // synthetic elements' names are generated and source may violate capitalization rule
+			val name = ne.name
+			if (name !== null && ! name.equals(name.toUpperCase)) {
+				warning("Name should be all uppercase: " + ne.name, BASE.DNamedElement_Name)
+			}
 		}
+	}
+
+	@Check def void checkLiteralIsUppercase(DLiteral literal) {
+		checkLiteralIsUppercaseImpl(literal)
 	}
 
 	@Check def void checkStateNameIsUppercase(DState state) {
-		if (! state.name.equals(state.name.toUpperCase)) {
-			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
-		}
+		checkLiteralIsUppercaseImpl(state)
 	}
 
 	@Check def void checkStateEventNameIsUppercase(DStateEvent event) {
-		if (! event.name.equals(event.name.toUpperCase)) {
-			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
-		}
+		checkLiteralIsUppercaseImpl(event)
 	}
 }
