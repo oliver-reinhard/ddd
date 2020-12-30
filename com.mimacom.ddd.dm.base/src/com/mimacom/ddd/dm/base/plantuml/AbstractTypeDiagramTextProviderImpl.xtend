@@ -135,10 +135,8 @@ abstract class AbstractTypeDiagramTextProviderImpl<T extends DInformationModel> 
 
 	def dispatch generateType(DComplexType c) '''	
 		«IF c.abstract»abstract «ENDIF»class «c.typeQN» «c.spot» {
-«««			«IF c.hasStateFeature»state() : «c.statesFeatureName»«ENDIF»
 			«FOR f : c.features.filter[!(it instanceof TFeatureTransposition)]»«f.generateFeature»«ENDFOR»
 		}
-«««		«IF c.hasStateFeature»«c.statesEnumeration.generateEnumeration»«ENDIF»
 		«c.generateNotes»
 		«FOR f : c.features.filter[! renderAsLink]»
 			«f.generateNotes»

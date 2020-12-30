@@ -261,32 +261,4 @@ class PlantUmlTextProviderUtil {
 	protected def Color noteColorGrey() {
 		GREY_NOTE
 	}
-	
-//	static val SYNTHETIC = SyntheticFactory.eINSTANCE
-
-
-//	def boolean hasStateFeature(DComplexType t) {
-//		if (t instanceof DEntityType) {
-//			return ! t.states.empty
-//		}
-//		return false
-//	}
-//	
-//	def statesFeatureName(DComplexType t) {
-//		return t.name + "State"
-//	}
-//
-//	def DEnumeration statesEnumeration(DComplexType t) {
-//		if (t instanceof DEntityType) {
-//			val states = SYNTHETIC.createTSyntheticEnumeration
-//			states.name = t.statesFeatureName
-//			for(s : t.states) {
-//				val literal = SYNTHETIC.createTSyntheticLiteral
-//				literal.name = s.name
-//				states.literals.add(literal)
-//			}
-//			return states
-//		}
-//		return null
-//	}
 }
