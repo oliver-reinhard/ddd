@@ -419,9 +419,6 @@ public class SimTranspositionTest {
       Assertions.assertFalse((stTransposition instanceof ISyntheticElement));
       TTranspositionRule _rule = stTransposition.getRule();
       Assertions.assertTrue((_rule instanceof TGrabRule));
-      final List<IEObjectDescription> descs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getExportedDTypeDescriptions(stTransposition));
-      final List<IEObjectDescription> visibleDTypeDescs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(stTransposition));
-      final List<IEObjectDescription> visibleTranspositionDescs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleTTypeMappingDescriptions(stTransposition, SimTranspositionTest.DM_TYPES_AT));
       DType _get_4 = sm.getTypes().get(1);
       final TEntityTypeTransposition sma1Transposition = ((TEntityTypeTransposition) _get_4);
       Assertions.assertFalse((sma1Transposition instanceof ISyntheticElement));
@@ -477,6 +474,27 @@ public class SimTranspositionTest {
         Assertions.assertTrue((_rule_3 instanceof TGrabRule));
         Assertions.assertEquals(x, smx.getRecipe().getRule().getSource());
       }
+      final List<IEObjectDescription> descs = IterableExtensions.<IEObjectDescription>toList(this.index.getExportedDTypeDescriptions(stTransposition));
+      Assertions.assertEquals(3, descs.size());
+      Assertions.assertEquals("SM.SM1.ST", descs.get(0).getQualifiedName().toString());
+      Assertions.assertEquals("SM.SM1.SMA1", descs.get(1).getQualifiedName().toString());
+      Assertions.assertEquals("SM.SM1.SMA2", descs.get(2).getQualifiedName().toString());
+      final List<IEObjectDescription> visibleDTypeDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleDTypeDescriptions(stTransposition));
+      Assertions.assertEquals(5, visibleDTypeDescs.size());
+      Assertions.assertEquals("dm.types.AT", visibleDTypeDescs.get(0).getQualifiedName().toString());
+      Assertions.assertEquals("DM.A", visibleDTypeDescs.get(1).getQualifiedName().toString());
+      Assertions.assertEquals("SM.SM1.ST", visibleDTypeDescs.get(2).getQualifiedName().toString());
+      Assertions.assertEquals("SM.SM1.SMA1", visibleDTypeDescs.get(3).getQualifiedName().toString());
+      Assertions.assertEquals("SM.SM1.SMA2", visibleDTypeDescs.get(4).getQualifiedName().toString());
+      final QualifiedName DM_TYPES_AT_withMarkerSegment = TranspositionUtil.getTranspositionSourceQNForIndex("dm.types.AT");
+      final List<IEObjectDescription> visibleTranspositionDescs = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleTTypeMappingDescriptions(stTransposition, DM_TYPES_AT_withMarkerSegment));
+      Assertions.assertEquals(1, visibleTranspositionDescs.size());
+      Assertions.assertEquals("SM.SM1.ST", IterableExtensions.<IEObjectDescription>head(visibleTranspositionDescs).getUserData(TranspositionUtil.KEY_TRANSPOSITION_TARGET_TYPE));
+      final QualifiedName DM_A_withMarkerSegment = TranspositionUtil.getTranspositionSourceQNForIndex("DM.A");
+      final List<IEObjectDescription> visibleTranspositionDescs2 = IterableExtensions.<IEObjectDescription>toList(this.index.getVisibleTTypeMappingDescriptions(stTransposition, DM_A_withMarkerSegment));
+      Assertions.assertEquals(2, visibleTranspositionDescs2.size());
+      Assertions.assertEquals("SM.SM1.SMA1", visibleTranspositionDescs2.get(0).getUserData(TranspositionUtil.KEY_TRANSPOSITION_TARGET_TYPE));
+      Assertions.assertEquals("SM.SM1.SMA2", visibleTranspositionDescs2.get(1).getUserData(TranspositionUtil.KEY_TRANSPOSITION_TARGET_TYPE));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

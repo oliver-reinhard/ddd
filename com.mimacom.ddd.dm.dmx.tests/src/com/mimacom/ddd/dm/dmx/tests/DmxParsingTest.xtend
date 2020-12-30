@@ -4,7 +4,6 @@
 package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.base.DNamedElement
 import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.base.base.DRichText
 import com.mimacom.ddd.dm.base.base.impl.DRichTextImpl
@@ -153,7 +152,6 @@ class DmxParsingTest {
 			assertEquals(DmxStaticReferenceImpl, seg1.class)
 			// actual value of 'e71.target' cross reference is a proxy that gets resolved upon access => Exception
 			assertTrue((seg1 as DmxStaticReferenceImpl).basicGetTarget.eIsProxy)
-			assertTrue((seg1 as DmxStaticReferenceImpl).basicGetTarget instanceof DNamedElement)
 		}
 //		assertTrue(e6
 //		val e6 = tests.get(9).expr
@@ -197,12 +195,11 @@ class DmxParsingTest {
 		assertEquals(DmxMemberNavigationImpl, e2.class)
 		val e2_1 = e2 as DmxMemberNavigationImpl
 		// actual value of 'e2.member' cross reference is a proxy that gets resolved upon access => Exception
-		assertTrue((e2_1 as DmxMemberNavigationImpl).basicGetMember.eIsProxy)
+		assertTrue((e2_1).basicGetMember.eIsProxy)
 		assertEquals(DmxContextReferenceImpl, e2_1.precedingNavigationSegment.class)
 		val e2_2 = e2_1.precedingNavigationSegment as DmxContextReferenceImpl
 		// actual value of 'e2.reference' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue(e2_2.basicGetTarget.eIsProxy)
-		assertTrue(e2_2.basicGetTarget instanceof DNamedElement)
 
 		val e3 = tests.get(3).expr
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DContextReference
@@ -216,7 +213,6 @@ class DmxParsingTest {
 		val e3_3 = e3_2.precedingNavigationSegment as DmxContextReferenceImpl
 		// actual value of 'e3_2.reference' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue(e3_3.basicGetTarget.eIsProxy)
-		assertTrue(e3_3.basicGetTarget instanceof DNamedElement)
 	}
 
 	@Test

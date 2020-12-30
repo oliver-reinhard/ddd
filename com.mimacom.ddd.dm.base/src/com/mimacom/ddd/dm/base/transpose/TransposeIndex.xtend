@@ -35,7 +35,13 @@ class TransposeIndex extends AbstractXtextIndex {
 		context.getVisibleEObjectDescriptions(BASE.DType).toMap[qualifiedName]
 	}
 
+	/*
+	 * @param name must end in segment "@" (otherwise there will be no matches!)
+	 */
 	def Iterable<IEObjectDescription> getVisibleTTypeMappingDescriptions(EObject context, QualifiedName name) {
+		if (name.segments.last != TranspositionUtil.TRANSPOSITION_INDEX_ENTRY_MARKER) {
+			throw new IllegalArgumentException("Name must end in '" + TranspositionUtil.TRANSPOSITION_INDEX_ENTRY_MARKER + "' segment: " + name)
+		}
 		context.getVisibleEObjectDescriptions(TRANSPOSE.TTypeMapping, name)
 	}
 

@@ -9,6 +9,8 @@ import org.eclipse.xtext.resource.IEObjectDescription
 class TranspositionUtil {
 
 	public static val TRANSPOSITION_PROXY_URI_FRAGMENT_PREFIX = "transpositionSourceTypeQN="
+	
+	public static val TRANSPOSITION_INDEX_ENTRY_MARKER = "@"
 
 	public static val KEY_TRANSPOSITION_TARGET_TYPE = "TRANSPOSITION_TARGET_TYPE"
 
@@ -26,12 +28,13 @@ class TranspositionUtil {
 		if (proxyUri === null) return null
 		val fragment = proxyUri.fragment();
 		if (fragment === null || ! fragment.startsWith(TRANSPOSITION_PROXY_URI_FRAGMENT_PREFIX)) return null
+		// remove prefix:
 		val sourceQNStr = fragment.substring(TRANSPOSITION_PROXY_URI_FRAGMENT_PREFIX.length)
 		return QualifiedName.create(sourceQNStr.split("\\."))
 	}
 	
 	static def QualifiedName getTranspositionSourceQNForIndex(String qualifiedName) {
-		return QualifiedName.create(qualifiedName.split("\\.")).append("@")
+		return QualifiedName.create(qualifiedName.split("\\.")).append(TRANSPOSITION_INDEX_ENTRY_MARKER)
 	}
 	
 	static def QualifiedName getTranspositionSourceQNForIndex(QualifiedName qualifiedName) {

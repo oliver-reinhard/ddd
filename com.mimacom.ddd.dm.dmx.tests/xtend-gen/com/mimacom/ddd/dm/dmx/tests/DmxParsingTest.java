@@ -6,11 +6,9 @@ package com.mimacom.ddd.dm.dmx.tests;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.base.DExpression;
 import com.mimacom.ddd.dm.base.base.DModel;
-import com.mimacom.ddd.dm.base.base.DNamedElement;
 import com.mimacom.ddd.dm.base.base.DNamespace;
 import com.mimacom.ddd.dm.base.base.DRichText;
 import com.mimacom.ddd.dm.base.base.IRichTextSegment;
-import com.mimacom.ddd.dm.base.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.base.impl.DRichTextImpl;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -209,8 +207,6 @@ public class DmxParsingTest {
         final IRichTextSegment seg1 = ((DRichText) e).getSegments().get(1);
         Assertions.assertEquals(DmxStaticReferenceImpl.class, seg1.getClass());
         Assertions.assertTrue(((DmxStaticReferenceImpl) seg1).basicGetTarget().eIsProxy());
-        IStaticReferenceTarget _basicGetTarget = ((DmxStaticReferenceImpl) seg1).basicGetTarget();
-        Assertions.assertTrue((_basicGetTarget instanceof DNamedElement));
       }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -256,13 +252,11 @@ public class DmxParsingTest {
       final DExpression e2 = tests.get(2).getExpr();
       Assertions.assertEquals(DmxMemberNavigationImpl.class, e2.getClass());
       final DmxMemberNavigationImpl e2_1 = ((DmxMemberNavigationImpl) e2);
-      Assertions.assertTrue(((DmxMemberNavigationImpl) e2_1).basicGetMember().eIsProxy());
+      Assertions.assertTrue(e2_1.basicGetMember().eIsProxy());
       Assertions.assertEquals(DmxContextReferenceImpl.class, e2_1.getPrecedingNavigationSegment().getClass());
       DExpression _precedingNavigationSegment_1 = e2_1.getPrecedingNavigationSegment();
       final DmxContextReferenceImpl e2_2 = ((DmxContextReferenceImpl) _precedingNavigationSegment_1);
       Assertions.assertTrue(e2_2.basicGetTarget().eIsProxy());
-      DNamedElement _basicGetTarget = e2_2.basicGetTarget();
-      Assertions.assertTrue((_basicGetTarget instanceof DNamedElement));
       final DExpression e3 = tests.get(3).getExpr();
       Assertions.assertEquals(DmxMemberNavigationImpl.class, e3.getClass());
       final DmxMemberNavigationImpl e3_1 = ((DmxMemberNavigationImpl) e3);
@@ -275,8 +269,6 @@ public class DmxParsingTest {
       DExpression _precedingNavigationSegment_3 = e3_2.getPrecedingNavigationSegment();
       final DmxContextReferenceImpl e3_3 = ((DmxContextReferenceImpl) _precedingNavigationSegment_3);
       Assertions.assertTrue(e3_3.basicGetTarget().eIsProxy());
-      DNamedElement _basicGetTarget_1 = e3_3.basicGetTarget();
-      Assertions.assertTrue((_basicGetTarget_1 instanceof DNamedElement));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

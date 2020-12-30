@@ -143,7 +143,7 @@ public class DimLinkingAndValidationTest {
     Assertions.assertEquals("Boolean", a0.getType().getName());
     Assertions.assertFalse(a0.getType().eIsProxy());
     Assertions.assertEquals(DimLinkingAndValidationTest.DMX.getDmxArchetype(), a0.getType().eClass());
-    final DFeature a1 = detailA.getFeatures().get(0);
+    final DFeature a1 = detailA.getFeatures().get(1);
     Assertions.assertNotNull(a1.getType());
     Assertions.assertEquals("Natural", a1.getType().getName());
     Assertions.assertFalse(a1.getType().eIsProxy());

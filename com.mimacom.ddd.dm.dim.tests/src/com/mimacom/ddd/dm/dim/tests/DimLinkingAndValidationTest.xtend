@@ -94,7 +94,7 @@ class DimLinkingAndValidationTest {
 		assertFalse(a0.type.eIsProxy)
 		assertEquals(DMX.dmxArchetype, a0.type.eClass)
 		
-		val a1 = detailA.features.get(0)
+		val a1 = detailA.features.get(1)
 		assertNotNull(a1.type)
 		assertEquals("Natural", a1.type.name)
 		assertFalse(a1.type.eIsProxy)

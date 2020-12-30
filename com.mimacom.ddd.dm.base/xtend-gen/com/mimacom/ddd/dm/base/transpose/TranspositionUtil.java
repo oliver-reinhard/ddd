@@ -11,6 +11,8 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 public class TranspositionUtil {
   public static final String TRANSPOSITION_PROXY_URI_FRAGMENT_PREFIX = "transpositionSourceTypeQN=";
   
+  public static final String TRANSPOSITION_INDEX_ENTRY_MARKER = "@";
+  
   public static final String KEY_TRANSPOSITION_TARGET_TYPE = "TRANSPOSITION_TARGET_TYPE";
   
   public static boolean isTransposedTypeProxyURI(final URI uri) {
@@ -39,7 +41,7 @@ public class TranspositionUtil {
   }
   
   public static QualifiedName getTranspositionSourceQNForIndex(final String qualifiedName) {
-    return QualifiedName.create(qualifiedName.split("\\.")).append("@");
+    return QualifiedName.create(qualifiedName.split("\\.")).append(TranspositionUtil.TRANSPOSITION_INDEX_ENTRY_MARKER);
   }
   
   public static QualifiedName getTranspositionSourceQNForIndex(final QualifiedName qualifiedName) {

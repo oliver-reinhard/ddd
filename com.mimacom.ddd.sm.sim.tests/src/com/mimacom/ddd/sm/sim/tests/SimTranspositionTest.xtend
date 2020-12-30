@@ -11,8 +11,6 @@ import com.mimacom.ddd.dm.base.base.DEnumeration
 import com.mimacom.ddd.dm.base.base.DInformationModel
 import com.mimacom.ddd.dm.base.base.DNamespace
 import com.mimacom.ddd.dm.base.base.DPrimitive
-import com.mimacom.ddd.dm.base.base.DQuery
-import com.mimacom.ddd.dm.base.base.DQueryParameter
 import com.mimacom.ddd.dm.base.synthetic.TSyntheticAggregate
 import com.mimacom.ddd.dm.base.synthetic.TSyntheticAttribute
 import com.mimacom.ddd.dm.base.synthetic.TSyntheticEntityType
@@ -331,17 +329,6 @@ class SimTranspositionTest {
 		val stTransposition = sm.types.get(0) as TPrimitiveTransposition
 		assertFalse(stTransposition instanceof ISyntheticElement)
 		assertTrue(stTransposition.rule instanceof TGrabRule)
-		
-		// Check the index:
-		val descs2 = index.getExportedDTypeDescriptions(stTransposition).toList
-//		assertEquals(1, descs2.size)
-//		assertEquals("dm.types.AT", descs2.head.qualifiedName.toString)
-		val visibleDTypeDescs2 = index.getVisibleDTypeDescriptions(stTransposition).toList
-//		assertEquals(1, visibleDescs2.size)
-//		assertEquals("dm.types.AT", visibleDescs2.head.qualifiedName.toString)
-		val visibleTranspositionDescs2 = index.getVisibleTTypeMappingDescriptions(stTransposition, DM_TYPES_AT).toList
-//		assertEquals(1, visibleDTTranspositionDescs2.size)
-//		assertEquals("dm.types.AT", visibleDescs2.head.qualifiedName.toString)
 		//
 		val sma1Transposition = sm.types.get(1) as TEntityTypeTransposition
 		assertFalse(sma1Transposition instanceof ISyntheticElement)
@@ -389,6 +376,32 @@ class SimTranspositionTest {
 			assertTrue(smxTransposition.rule instanceof TGrabRule)
 			assertEquals(x, smx.recipe.rule.source)
 		}
+		
+		// Check the index:
+		val descs = index.getExportedDTypeDescriptions(stTransposition).toList
+		assertEquals(3, descs.size)
+		assertEquals("SM.SM1.ST", descs.get(0).qualifiedName.toString)
+		assertEquals("SM.SM1.SMA1", descs.get(1).qualifiedName.toString)
+		assertEquals("SM.SM1.SMA2", descs.get(2).qualifiedName.toString)
+		//
+		val visibleDTypeDescs = index.getVisibleDTypeDescriptions(stTransposition).toList
+		assertEquals(5, visibleDTypeDescs.size)
+		assertEquals("dm.types.AT", visibleDTypeDescs.get(0).qualifiedName.toString)
+		assertEquals("DM.A", visibleDTypeDescs.get(1).qualifiedName.toString)
+		assertEquals("SM.SM1.ST", visibleDTypeDescs.get(2).qualifiedName.toString)
+		assertEquals("SM.SM1.SMA1", visibleDTypeDescs.get(3).qualifiedName.toString)
+		assertEquals("SM.SM1.SMA2", visibleDTypeDescs.get(4).qualifiedName.toString)
+		//
+		val DM_TYPES_AT_withMarkerSegment = TranspositionUtil.getTranspositionSourceQNForIndex("dm.types.AT")
+		val visibleTranspositionDescs = index.getVisibleTTypeMappingDescriptions(stTransposition, DM_TYPES_AT_withMarkerSegment).toList
+		assertEquals(1, visibleTranspositionDescs.size)
+		assertEquals("SM.SM1.ST", visibleTranspositionDescs.head.getUserData(TranspositionUtil.KEY_TRANSPOSITION_TARGET_TYPE))
+		//
+		val DM_A_withMarkerSegment = TranspositionUtil.getTranspositionSourceQNForIndex("DM.A")
+		val visibleTranspositionDescs2 = index.getVisibleTTypeMappingDescriptions(stTransposition, DM_A_withMarkerSegment).toList
+		assertEquals(2, visibleTranspositionDescs2.size)
+		assertEquals("SM.SM1.SMA1", visibleTranspositionDescs2.get(0).getUserData(TranspositionUtil.KEY_TRANSPOSITION_TARGET_TYPE))
+		assertEquals("SM.SM1.SMA2", visibleTranspositionDescs2.get(1).getUserData(TranspositionUtil.KEY_TRANSPOSITION_TARGET_TYPE))
 	}
 
 	@Test
