@@ -12,7 +12,7 @@ import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
 import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.Index
-import com.mimacom.ddd.pub.pub.List
+import com.mimacom.ddd.pub.pub.List2
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.ReferenceTarget
@@ -70,11 +70,11 @@ abstract class AbstractPubRenderer {
 	//
 	abstract def CharSequence renderAdmonition(Admonition a)
 
-	abstract def CharSequence renderBulletList(List list, NestedElementsRenderer p)
+	abstract def CharSequence renderBulletList(List2 list, NestedElementsRenderer p)
 
-	abstract def CharSequence renderNumberedList(List list, NestedElementsRenderer p)
+	abstract def CharSequence renderNumberedList(List2 list, NestedElementsRenderer p)
 
-	abstract def CharSequence renderTitledList(List list, NestedElementsRenderer p)
+	abstract def CharSequence renderTitledList(List2 list, NestedElementsRenderer p)
 
 	abstract def CharSequence renderListItem(ListItem item, NestedElementsRenderer p)
 

@@ -33,7 +33,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "${project}.Pub"
 			fileExtensions = "pub"
-			referencedResource = "platform:/resource/${project}/model/pub.xcore"
+			referencedResource = "platform:/resource/com.mimacom.ddd.pub.pub/model/pub.xcore"
 			referencedResource = "platform:/resource/com.mimacom.ddd.pub.proto/model/pubproto.xcore"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
 			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"

@@ -302,14 +302,14 @@ enum AdmonitionKind {
 	, Important
 }
 
-class List extends ContentBlock, ReferenceTarget {
+class List2 extends ContentBlock, ReferenceTarget {
 	ListStyle style
 	ProtoSequenceNumberStyle numberingStyle
 	derived int level get {
 		var i = PubConstants::TOP_LEVEL
 		var parent = eContainer
 		while (parent !== null && ! (parent instanceof Division)) {
-			if (eContainer instanceof List) i++
+			if (eContainer instanceof List2) i++
 			parent = parent.eContainer
 		}
 		return i
@@ -325,9 +325,9 @@ enum ListStyle {
 
 class ListItem extends BlockContainer, Numbered, ReferenceTarget {
 	contains DRichText title
-	container List list opposite items
+	container List2 list opposite items
 	op int getLevel() {
-		if (eContainer instanceof List) return list.level
+		if (eContainer instanceof List2) return list.level
 		return PubConstants::UNDEFINED_LEVEL
 	}
 	op int getSequenceNumber() {

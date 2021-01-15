@@ -23,7 +23,7 @@ import com.mimacom.ddd.pub.pub.Equation
 import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.GridLines
 import com.mimacom.ddd.pub.pub.Index
-import com.mimacom.ddd.pub.pub.List
+import com.mimacom.ddd.pub.pub.List2
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
@@ -211,11 +211,11 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		-- admonition
 	'''
 
-	override CharSequence renderBulletList(List list, NestedElementsRenderer p) '''
+	override CharSequence renderBulletList(List2 list, NestedElementsRenderer p) '''
 		<ul>«renderAnchor(list)»«p.render»</ul>
 	'''
 
-	override CharSequence renderNumberedList(List list, NestedElementsRenderer p) '''
+	override CharSequence renderNumberedList(List2 list, NestedElementsRenderer p) '''
 		<ol type=«list.numberingStyle.htmlNumberingAttribute»">«renderAnchor(list)»«p.render»</ol>
 	'''
 
@@ -230,7 +230,7 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		}
 	}
 
-	override CharSequence renderTitledList(List list, NestedElementsRenderer p) '''
+	override CharSequence renderTitledList(List2 list, NestedElementsRenderer p) '''
 		<ul style="list-style-type:none;">«renderAnchor(list)»
 			«p.render»</ul>
 	'''

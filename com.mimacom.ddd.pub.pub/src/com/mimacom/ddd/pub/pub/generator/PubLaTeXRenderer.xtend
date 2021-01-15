@@ -24,7 +24,7 @@ import com.mimacom.ddd.pub.pub.DocumentSegment
 import com.mimacom.ddd.pub.pub.Equation
 import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.Index
-import com.mimacom.ddd.pub.pub.List
+import com.mimacom.ddd.pub.pub.List2
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.Paragraph
 import com.mimacom.ddd.pub.pub.PubPackage
@@ -224,14 +224,14 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		-- admonition TODO
 	'''
 
-	override CharSequence renderBulletList(List list, NestedElementsRenderer p) '''
+	override CharSequence renderBulletList(List2 list, NestedElementsRenderer p) '''
 		\begin{itemize}
 			«list.renderAnchor»
 			«p.render»
 		\end{itemize} 
 	'''
 
-	override CharSequence renderNumberedList(List list, NestedElementsRenderer p) '''
+	override CharSequence renderNumberedList(List2 list, NestedElementsRenderer p) '''
 		\begin{enumerate}[label=\«list.numberingStyle.latexNumberingAttribute»"*]
 			«list.renderAnchor»
 			«p.render»
@@ -249,7 +249,7 @@ class PubLaTeXRenderer extends AbstractPubRenderer {
 		}
 	}
 
-	override CharSequence renderTitledList(List list, NestedElementsRenderer p) '''
+	override CharSequence renderTitledList(List2 list, NestedElementsRenderer p) '''
 		\begin{description}
 			«list.renderAnchor»
 			«p.render»

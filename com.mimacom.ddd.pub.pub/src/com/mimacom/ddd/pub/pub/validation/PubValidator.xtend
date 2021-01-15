@@ -277,7 +277,7 @@ class PubValidator extends AbstractPubValidator {
 	def titleForTitledListItems(ListItem item) {
 		val style = item.list.style
 		if (style == ListStyle.TITLE && item.title.empty) {
-			error("Item title must be defined for list style '" + style.literal + "'.", item.list, PUB.list_Items,
+			error("Item title must be defined for list style '" + style.literal + "'.", item.list, PUB.list2_Items,
 				item.list.items.indexOf(item))
 		} else if (style != ListStyle.TITLE && ! (item.title.empty)) {
 			error("Item cannot have a title for list style '" + style.literal + "'.", PUB.listItem_Title)
