@@ -27,7 +27,7 @@ import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
 import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Index;
-import com.mimacom.ddd.pub.pub.List;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.PubPackage;
@@ -392,7 +392,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderBulletList(final List list, final NestedElementsRenderer p) {
+  public CharSequence renderBulletList(final List2 list, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{itemize}");
     _builder.newLine();
@@ -410,7 +410,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderNumberedList(final List list, final NestedElementsRenderer p) {
+  public CharSequence renderNumberedList(final List2 list, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{enumerate}[label=\\");
     String _latexNumberingAttribute = this.latexNumberingAttribute(list.getNumberingStyle());
@@ -460,7 +460,7 @@ public class PubLaTeXRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderTitledList(final List list, final NestedElementsRenderer p) {
+  public CharSequence renderTitledList(final List2 list, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{description}");
     _builder.newLine();

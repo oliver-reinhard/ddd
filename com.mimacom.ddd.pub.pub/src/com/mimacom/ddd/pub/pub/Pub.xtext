@@ -272,8 +272,8 @@ PubAdmonition returns Admonition:
 enum PubAdmonitionKind returns AdmonitionKind:
 	Note='note' | Tip='tip' | Caution='caution' | Important='important';
 
-PubList returns List:
-	{List}
+PubList returns List2:
+	{List2}
 	'List'
 	('(' ('#')? name=ID ')')?
 	('style:' style=PubListStyle)?

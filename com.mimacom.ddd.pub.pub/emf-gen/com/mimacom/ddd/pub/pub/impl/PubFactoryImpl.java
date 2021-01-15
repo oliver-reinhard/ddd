@@ -89,7 +89,7 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 			case PubPackage.SUBSECTION: return createSubsection();
 			case PubPackage.SUBSUBSECTION: return createSubsubsection();
 			case PubPackage.ADMONITION: return createAdmonition();
-			case PubPackage.LIST: return createList();
+			case PubPackage.LIST2: return createList2();
 			case PubPackage.LIST_ITEM: return createListItem();
 			case PubPackage.TITLED_TABLE: return createTitledTable();
 			case PubPackage.TABLE: return createTable();
@@ -487,9 +487,9 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List createList() {
-		ListImpl list = new ListImpl();
-		return list;
+	public List2 createList2() {
+		List2Impl list2 = new List2Impl();
+		return list2;
 	}
 
 	/**

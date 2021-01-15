@@ -41837,7 +41837,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:11930:2: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubListAccess().getListAction_0()); 
+               before(grammarAccess.getPubListAccess().getList2Action_0()); 
             }
             // InternalPub.g:11931:2: ()
             // InternalPub.g:11931:3: 
@@ -41845,7 +41845,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubListAccess().getListAction_0()); 
+               after(grammarAccess.getPubListAccess().getList2Action_0()); 
             }
 
             }

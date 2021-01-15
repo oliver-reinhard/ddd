@@ -3621,14 +3621,14 @@ public interface PubPackage extends EPackage {
 	int ADMONITION_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ListImpl <em>List</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.List2Impl <em>List2</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.pub.pub.impl.ListImpl
-	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getList()
+	 * @see com.mimacom.ddd.pub.pub.impl.List2Impl
+	 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getList2()
 	 * @generated
 	 */
-	int LIST = 41;
+	int LIST2 = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3637,7 +3637,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__NAME = CONTENT_BLOCK_FEATURE_COUNT + 0;
+	int LIST2__NAME = CONTENT_BLOCK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3646,7 +3646,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__ID = CONTENT_BLOCK_FEATURE_COUNT + 1;
+	int LIST2__ID = CONTENT_BLOCK_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
@@ -3655,7 +3655,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__STYLE = CONTENT_BLOCK_FEATURE_COUNT + 2;
+	int LIST2__STYLE = CONTENT_BLOCK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Numbering Style</b></em>' attribute.
@@ -3664,7 +3664,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__NUMBERING_STYLE = CONTENT_BLOCK_FEATURE_COUNT + 3;
+	int LIST2__NUMBERING_STYLE = CONTENT_BLOCK_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -3673,7 +3673,7 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__LEVEL = CONTENT_BLOCK_FEATURE_COUNT + 4;
+	int LIST2__LEVEL = CONTENT_BLOCK_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -3682,25 +3682,25 @@ public interface PubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__ITEMS = CONTENT_BLOCK_FEATURE_COUNT + 5;
+	int LIST2__ITEMS = CONTENT_BLOCK_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of structural features of the '<em>List</em>' class.
+	 * The number of structural features of the '<em>List2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 6;
+	int LIST2_FEATURE_COUNT = CONTENT_BLOCK_FEATURE_COUNT + 6;
 
 	/**
-	 * The number of operations of the '<em>List</em>' class.
+	 * The number of operations of the '<em>List2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
+	int LIST2_OPERATION_COUNT = CONTENT_BLOCK_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl <em>List Item</em>}' class.
@@ -6329,58 +6329,58 @@ public interface PubPackage extends EPackage {
 	EReference getAdmonition_Title();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.List <em>List</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.List2 <em>List2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>List</em>'.
-	 * @see com.mimacom.ddd.pub.pub.List
+	 * @return the meta object for class '<em>List2</em>'.
+	 * @see com.mimacom.ddd.pub.pub.List2
 	 * @generated
 	 */
-	EClass getList();
+	EClass getList2();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.List#getStyle <em>Style</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.List2#getStyle <em>Style</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Style</em>'.
-	 * @see com.mimacom.ddd.pub.pub.List#getStyle()
-	 * @see #getList()
+	 * @see com.mimacom.ddd.pub.pub.List2#getStyle()
+	 * @see #getList2()
 	 * @generated
 	 */
-	EAttribute getList_Style();
+	EAttribute getList2_Style();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.List#getNumberingStyle <em>Numbering Style</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.List2#getNumberingStyle <em>Numbering Style</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Numbering Style</em>'.
-	 * @see com.mimacom.ddd.pub.pub.List#getNumberingStyle()
-	 * @see #getList()
+	 * @see com.mimacom.ddd.pub.pub.List2#getNumberingStyle()
+	 * @see #getList2()
 	 * @generated
 	 */
-	EAttribute getList_NumberingStyle();
+	EAttribute getList2_NumberingStyle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.List#getLevel <em>Level</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.pub.pub.List2#getLevel <em>Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see com.mimacom.ddd.pub.pub.List#getLevel()
-	 * @see #getList()
+	 * @see com.mimacom.ddd.pub.pub.List2#getLevel()
+	 * @see #getList2()
 	 * @generated
 	 */
-	EAttribute getList_Level();
+	EAttribute getList2_Level();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.List#getItems <em>Items</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.pub.pub.List2#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Items</em>'.
-	 * @see com.mimacom.ddd.pub.pub.List#getItems()
-	 * @see #getList()
+	 * @see com.mimacom.ddd.pub.pub.List2#getItems()
+	 * @see #getList2()
 	 * @generated
 	 */
-	EReference getList_Items();
+	EReference getList2_Items();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.ListItem <em>List Item</em>}'.
@@ -8007,14 +8007,14 @@ public interface PubPackage extends EPackage {
 		EReference ADMONITION__TITLE = eINSTANCE.getAdmonition_Title();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ListImpl <em>List</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.List2Impl <em>List2</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.pub.pub.impl.ListImpl
-		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getList()
+		 * @see com.mimacom.ddd.pub.pub.impl.List2Impl
+		 * @see com.mimacom.ddd.pub.pub.impl.PubPackageImpl#getList2()
 		 * @generated
 		 */
-		EClass LIST = eINSTANCE.getList();
+		EClass LIST2 = eINSTANCE.getList2();
 
 		/**
 		 * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
@@ -8022,7 +8022,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LIST__STYLE = eINSTANCE.getList_Style();
+		EAttribute LIST2__STYLE = eINSTANCE.getList2_Style();
 
 		/**
 		 * The meta object literal for the '<em><b>Numbering Style</b></em>' attribute feature.
@@ -8030,7 +8030,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LIST__NUMBERING_STYLE = eINSTANCE.getList_NumberingStyle();
+		EAttribute LIST2__NUMBERING_STYLE = eINSTANCE.getList2_NumberingStyle();
 
 		/**
 		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
@@ -8038,7 +8038,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LIST__LEVEL = eINSTANCE.getList_Level();
+		EAttribute LIST2__LEVEL = eINSTANCE.getList2_Level();
 
 		/**
 		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
@@ -8046,7 +8046,7 @@ public interface PubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LIST__ITEMS = eINSTANCE.getList_Items();
+		EReference LIST2__ITEMS = eINSTANCE.getList2_Items();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl <em>List Item</em>}' class.

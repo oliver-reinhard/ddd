@@ -10641,7 +10641,7 @@ public class InternalSusParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getPubListAccess().getListAction_0(),
+              					grammarAccess.getPubListAccess().getList2Action_0(),
               					current);
               			
             }

@@ -21,6 +21,7 @@ import com.mimacom.ddd.pub.pub.Equation;
 import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.Index;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
@@ -354,7 +355,7 @@ public class PubGeneratorDelegate {
     return this.renderer.renderAdmonition(a);
   }
   
-  protected CharSequence _genBlock(final com.mimacom.ddd.pub.pub.List list) {
+  protected CharSequence _genBlock(final List2 list) {
     CharSequence _xblockexpression = null;
     {
       StringConcatenation _builder = new StringConcatenation();
@@ -666,8 +667,8 @@ public class PubGeneratorDelegate {
       return _genBlock((UnformattedParagraph)f);
     } else if (f instanceof Admonition) {
       return _genBlock((Admonition)f);
-    } else if (f instanceof com.mimacom.ddd.pub.pub.List) {
-      return _genBlock((com.mimacom.ddd.pub.pub.List)f);
+    } else if (f instanceof List2) {
+      return _genBlock((List2)f);
     } else if (f instanceof RichTextReferencingParagraph) {
       return _genBlock((RichTextReferencingParagraph)f);
     } else if (f != null) {

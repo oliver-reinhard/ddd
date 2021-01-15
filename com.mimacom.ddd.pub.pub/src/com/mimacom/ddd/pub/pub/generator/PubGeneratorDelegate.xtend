@@ -16,7 +16,7 @@ import com.mimacom.ddd.pub.pub.Equation
 import com.mimacom.ddd.pub.pub.Footnote
 import com.mimacom.ddd.pub.pub.IncludedFigure
 import com.mimacom.ddd.pub.pub.Index
-import com.mimacom.ddd.pub.pub.List
+import com.mimacom.ddd.pub.pub.List2
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListOfFigures
 import com.mimacom.ddd.pub.pub.ListOfTables
@@ -222,7 +222,7 @@ class PubGeneratorDelegate {
 		a.renderAdmonition
 	}
 
-	def dispatch CharSequence genBlock(List list) {
+	def dispatch CharSequence genBlock(List2 list) {
 		val itemIterator = '''
 			«FOR item : list.items»
 				«item.genListItem»
