@@ -43166,7 +43166,7 @@ public class InternalSusParser extends AbstractInternalContentAssistParser {
             // InternalSus.g:12329:2: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubListAccess().getListAction_0()); 
+               before(grammarAccess.getPubListAccess().getList2Action_0()); 
             }
             // InternalSus.g:12330:2: ()
             // InternalSus.g:12330:3: 
@@ -43174,7 +43174,7 @@ public class InternalSusParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubListAccess().getListAction_0()); 
+               after(grammarAccess.getPubListAccess().getList2Action_0()); 
             }
 
             }

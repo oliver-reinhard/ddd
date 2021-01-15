@@ -310,13 +310,13 @@ public interface PubFactory extends EFactory {
 	Admonition createAdmonition();
 
 	/**
-	 * Returns a new object of class '<em>List</em>'.
+	 * Returns a new object of class '<em>List2</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>List</em>'.
+	 * @return a new object of class '<em>List2</em>'.
 	 * @generated
 	 */
-	List createList();
+	List2 createList2();
 
 	/**
 	 * Returns a new object of class '<em>List Item</em>'.

@@ -12,7 +12,7 @@ import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Equation;
 import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.Index;
-import com.mimacom.ddd.pub.pub.List;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
@@ -70,11 +70,11 @@ public abstract class AbstractPubRenderer {
   
   public abstract CharSequence renderAdmonition(final Admonition a);
   
-  public abstract CharSequence renderBulletList(final List list, final NestedElementsRenderer p);
+  public abstract CharSequence renderBulletList(final List2 list, final NestedElementsRenderer p);
   
-  public abstract CharSequence renderNumberedList(final List list, final NestedElementsRenderer p);
+  public abstract CharSequence renderNumberedList(final List2 list, final NestedElementsRenderer p);
   
-  public abstract CharSequence renderTitledList(final List list, final NestedElementsRenderer p);
+  public abstract CharSequence renderTitledList(final List2 list, final NestedElementsRenderer p);
   
   public abstract CharSequence renderListItem(final ListItem item, final NestedElementsRenderer p);
   

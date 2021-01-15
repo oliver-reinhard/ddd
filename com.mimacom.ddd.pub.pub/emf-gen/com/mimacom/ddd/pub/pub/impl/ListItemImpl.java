@@ -4,7 +4,7 @@ package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.dm.base.base.DRichText;
 
-import com.mimacom.ddd.pub.pub.List;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.Numbered;
 import com.mimacom.ddd.pub.pub.PubPackage;
@@ -263,9 +263,9 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List getList() {
+	public List2 getList() {
 		if (eContainerFeatureID() != PubPackage.LIST_ITEM__LIST) return null;
-		return (List)eContainer();
+		return (List2)eContainer();
 	}
 
 	/**
@@ -273,9 +273,9 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List basicGetList() {
+	public List2 basicGetList() {
 		if (eContainerFeatureID() != PubPackage.LIST_ITEM__LIST) return null;
-		return (List)eInternalContainer();
+		return (List2)eInternalContainer();
 	}
 
 	/**
@@ -283,7 +283,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetList(List newList, NotificationChain msgs) {
+	public NotificationChain basicSetList(List2 newList, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newList, PubPackage.LIST_ITEM__LIST, msgs);
 		return msgs;
 	}
@@ -293,7 +293,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setList(List newList) {
+	public void setList(List2 newList) {
 		if (newList != eInternalContainer() || (eContainerFeatureID() != PubPackage.LIST_ITEM__LIST && newList != null)) {
 			if (EcoreUtil.isAncestor(this, newList))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -301,7 +301,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newList != null)
-				msgs = ((InternalEObject)newList).eInverseAdd(this, PubPackage.LIST__ITEMS, List.class, msgs);
+				msgs = ((InternalEObject)newList).eInverseAdd(this, PubPackage.LIST2__ITEMS, List2.class, msgs);
 			msgs = basicSetList(newList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -316,7 +316,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 */
 	public int getLevel() {
 		EObject _eContainer = this.eContainer();
-		if ((_eContainer instanceof List)) {
+		if ((_eContainer instanceof List2)) {
 			return this.getList().getLevel();
 		}
 		return PubConstants.UNDEFINED_LEVEL;
@@ -342,7 +342,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 			case PubPackage.LIST_ITEM__LIST:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetList((List)otherEnd, msgs);
+				return basicSetList((List2)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -372,7 +372,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case PubPackage.LIST_ITEM__LIST:
-				return eInternalContainer().eInverseRemove(this, PubPackage.LIST__ITEMS, List.class, msgs);
+				return eInternalContainer().eInverseRemove(this, PubPackage.LIST2__ITEMS, List2.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -423,7 +423,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 				setTitle((DRichText)newValue);
 				return;
 			case PubPackage.LIST_ITEM__LIST:
-				setList((List)newValue);
+				setList((List2)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -450,7 +450,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 				setTitle((DRichText)null);
 				return;
 			case PubPackage.LIST_ITEM__LIST:
-				setList((List)null);
+				setList((List2)null);
 				return;
 		}
 		super.eUnset(featureID);

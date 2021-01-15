@@ -46,17 +46,17 @@ public interface ListItem extends BlockContainer, Numbered, ReferenceTarget {
 
 	/**
 	 * Returns the value of the '<em><b>List</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.mimacom.ddd.pub.pub.List#getItems <em>Items</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.mimacom.ddd.pub.pub.List2#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>List</em>' container reference.
-	 * @see #setList(List)
+	 * @see #setList(List2)
 	 * @see com.mimacom.ddd.pub.pub.PubPackage#getListItem_List()
-	 * @see com.mimacom.ddd.pub.pub.List#getItems
+	 * @see com.mimacom.ddd.pub.pub.List2#getItems
 	 * @model opposite="items" transient="false"
 	 * @generated
 	 */
-	List getList();
+	List2 getList();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.ListItem#getList <em>List</em>}' container reference.
@@ -66,7 +66,7 @@ public interface ListItem extends BlockContainer, Numbered, ReferenceTarget {
 	 * @see #getList()
 	 * @generated
 	 */
-	void setList(List value);
+	void setList(List2 value);
 
 	/**
 	 * <!-- begin-user-doc -->

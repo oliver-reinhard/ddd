@@ -236,8 +236,8 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createAdmonitionAdapter();
 			}
 			@Override
-			public Adapter caseList(List object) {
-				return createListAdapter();
+			public Adapter caseList2(List2 object) {
+				return createList2Adapter();
 			}
 			@Override
 			public Adapter caseListItem(ListItem object) {
@@ -930,16 +930,16 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.List <em>List</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.List2 <em>List2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.pub.pub.List
+	 * @see com.mimacom.ddd.pub.pub.List2
 	 * @generated
 	 */
-	public Adapter createListAdapter() {
+	public Adapter createList2Adapter() {
 		return null;
 	}
 

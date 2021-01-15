@@ -26,7 +26,7 @@ import com.mimacom.ddd.pub.pub.Equation;
 import com.mimacom.ddd.pub.pub.Footnote;
 import com.mimacom.ddd.pub.pub.GridLines;
 import com.mimacom.ddd.pub.pub.Index;
-import com.mimacom.ddd.pub.pub.List;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
@@ -396,7 +396,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderBulletList(final List list, final NestedElementsRenderer p) {
+  public CharSequence renderBulletList(final List2 list, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ul>");
     CharSequence _renderAnchor = this.renderAnchor(list);
@@ -409,7 +409,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderNumberedList(final List list, final NestedElementsRenderer p) {
+  public CharSequence renderNumberedList(final List2 list, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ol type=");
     String _htmlNumberingAttribute = this.htmlNumberingAttribute(list.getNumberingStyle());
@@ -454,7 +454,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderTitledList(final List list, final NestedElementsRenderer p) {
+  public CharSequence renderTitledList(final List2 list, final NestedElementsRenderer p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ul style=\"list-style-type:none;\">");
     CharSequence _renderAnchor = this.renderAnchor(list);

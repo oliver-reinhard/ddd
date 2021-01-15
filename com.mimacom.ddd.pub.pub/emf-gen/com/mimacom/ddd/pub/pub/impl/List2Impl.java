@@ -5,7 +5,7 @@ package com.mimacom.ddd.pub.pub.impl;
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
 
 import com.mimacom.ddd.pub.pub.Division;
-import com.mimacom.ddd.pub.pub.List;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.PubPackage;
@@ -29,23 +29,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>List</b></em>'.
+ * An implementation of the model object '<em><b>List2</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListImpl#getNumberingStyle <em>Numbering Style</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListImpl#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.List2Impl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.List2Impl#getId <em>Id</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.List2Impl#getStyle <em>Style</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.List2Impl#getNumberingStyle <em>Numbering Style</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.List2Impl#getLevel <em>Level</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.List2Impl#getItems <em>Items</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ListImpl extends ContentBlockImpl implements List {
+public class List2Impl extends ContentBlockImpl implements List2 {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -141,7 +141,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ListImpl() {
+	protected List2Impl() {
 		super();
 	}
 
@@ -152,7 +152,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PubPackage.Literals.LIST;
+		return PubPackage.Literals.LIST2;
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST2__NAME, oldName, name));
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 		ListStyle oldStyle = style;
 		style = newStyle == null ? STYLE_EDEFAULT : newStyle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST__STYLE, oldStyle, style));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST2__STYLE, oldStyle, style));
 	}
 
 	/**
@@ -224,7 +224,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 		ProtoSequenceNumberStyle oldNumberingStyle = numberingStyle;
 		numberingStyle = newNumberingStyle == null ? NUMBERING_STYLE_EDEFAULT : newNumberingStyle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST__NUMBERING_STYLE, oldNumberingStyle, numberingStyle));
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST2__NUMBERING_STYLE, oldNumberingStyle, numberingStyle));
 	}
 
 	/**
@@ -238,7 +238,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 		while (((parent != null) && (!(parent instanceof Division)))) {
 			{
 				EObject _eContainer = this.eContainer();
-				if ((_eContainer instanceof List)) {
+				if ((_eContainer instanceof List2)) {
 					i++;
 				}
 				parent = parent.eContainer();
@@ -254,7 +254,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 */
 	public EList<ListItem> getItems() {
 		if (items == null) {
-			items = new EObjectContainmentWithInverseEList<ListItem>(ListItem.class, this, PubPackage.LIST__ITEMS, PubPackage.LIST_ITEM__LIST);
+			items = new EObjectContainmentWithInverseEList<ListItem>(ListItem.class, this, PubPackage.LIST2__ITEMS, PubPackage.LIST_ITEM__LIST);
 		}
 		return items;
 	}
@@ -268,7 +268,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PubPackage.LIST__ITEMS:
+			case PubPackage.LIST2__ITEMS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getItems()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -282,7 +282,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PubPackage.LIST__ITEMS:
+			case PubPackage.LIST2__ITEMS:
 				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -296,17 +296,17 @@ public class ListImpl extends ContentBlockImpl implements List {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PubPackage.LIST__NAME:
+			case PubPackage.LIST2__NAME:
 				return getName();
-			case PubPackage.LIST__ID:
+			case PubPackage.LIST2__ID:
 				return getId();
-			case PubPackage.LIST__STYLE:
+			case PubPackage.LIST2__STYLE:
 				return getStyle();
-			case PubPackage.LIST__NUMBERING_STYLE:
+			case PubPackage.LIST2__NUMBERING_STYLE:
 				return getNumberingStyle();
-			case PubPackage.LIST__LEVEL:
+			case PubPackage.LIST2__LEVEL:
 				return getLevel();
-			case PubPackage.LIST__ITEMS:
+			case PubPackage.LIST2__ITEMS:
 				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -321,16 +321,16 @@ public class ListImpl extends ContentBlockImpl implements List {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PubPackage.LIST__NAME:
+			case PubPackage.LIST2__NAME:
 				setName((String)newValue);
 				return;
-			case PubPackage.LIST__STYLE:
+			case PubPackage.LIST2__STYLE:
 				setStyle((ListStyle)newValue);
 				return;
-			case PubPackage.LIST__NUMBERING_STYLE:
+			case PubPackage.LIST2__NUMBERING_STYLE:
 				setNumberingStyle((ProtoSequenceNumberStyle)newValue);
 				return;
-			case PubPackage.LIST__ITEMS:
+			case PubPackage.LIST2__ITEMS:
 				getItems().clear();
 				getItems().addAll((Collection<? extends ListItem>)newValue);
 				return;
@@ -346,16 +346,16 @@ public class ListImpl extends ContentBlockImpl implements List {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PubPackage.LIST__NAME:
+			case PubPackage.LIST2__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case PubPackage.LIST__STYLE:
+			case PubPackage.LIST2__STYLE:
 				setStyle(STYLE_EDEFAULT);
 				return;
-			case PubPackage.LIST__NUMBERING_STYLE:
+			case PubPackage.LIST2__NUMBERING_STYLE:
 				setNumberingStyle(NUMBERING_STYLE_EDEFAULT);
 				return;
-			case PubPackage.LIST__ITEMS:
+			case PubPackage.LIST2__ITEMS:
 				getItems().clear();
 				return;
 		}
@@ -370,17 +370,17 @@ public class ListImpl extends ContentBlockImpl implements List {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PubPackage.LIST__NAME:
+			case PubPackage.LIST2__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PubPackage.LIST__ID:
+			case PubPackage.LIST2__ID:
 				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
-			case PubPackage.LIST__STYLE:
+			case PubPackage.LIST2__STYLE:
 				return style != STYLE_EDEFAULT;
-			case PubPackage.LIST__NUMBERING_STYLE:
+			case PubPackage.LIST2__NUMBERING_STYLE:
 				return numberingStyle != NUMBERING_STYLE_EDEFAULT;
-			case PubPackage.LIST__LEVEL:
+			case PubPackage.LIST2__LEVEL:
 				return getLevel() != LEVEL_EDEFAULT;
-			case PubPackage.LIST__ITEMS:
+			case PubPackage.LIST2__ITEMS:
 				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -395,8 +395,8 @@ public class ListImpl extends ContentBlockImpl implements List {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ReferenceTarget.class) {
 			switch (derivedFeatureID) {
-				case PubPackage.LIST__NAME: return PubPackage.REFERENCE_TARGET__NAME;
-				case PubPackage.LIST__ID: return PubPackage.REFERENCE_TARGET__ID;
+				case PubPackage.LIST2__NAME: return PubPackage.REFERENCE_TARGET__NAME;
+				case PubPackage.LIST2__ID: return PubPackage.REFERENCE_TARGET__ID;
 				default: return -1;
 			}
 		}
@@ -412,8 +412,8 @@ public class ListImpl extends ContentBlockImpl implements List {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ReferenceTarget.class) {
 			switch (baseFeatureID) {
-				case PubPackage.REFERENCE_TARGET__NAME: return PubPackage.LIST__NAME;
-				case PubPackage.REFERENCE_TARGET__ID: return PubPackage.LIST__ID;
+				case PubPackage.REFERENCE_TARGET__NAME: return PubPackage.LIST2__NAME;
+				case PubPackage.REFERENCE_TARGET__ID: return PubPackage.LIST2__ID;
 				default: return -1;
 			}
 		}
@@ -440,4 +440,4 @@ public class ListImpl extends ContentBlockImpl implements List {
 		return result.toString();
 	}
 
-} //ListImpl
+} //List2Impl

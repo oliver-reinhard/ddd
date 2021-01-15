@@ -8,24 +8,24 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>List</b></em>'.
+ * A representation of the model object '<em><b>List2</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.pub.pub.List#getStyle <em>Style</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.List#getNumberingStyle <em>Numbering Style</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.List#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.List#getItems <em>Items</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.List2#getStyle <em>Style</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.List2#getNumberingStyle <em>Numbering Style</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.List2#getLevel <em>Level</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.List2#getItems <em>Items</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.pub.pub.PubPackage#getList()
+ * @see com.mimacom.ddd.pub.pub.PubPackage#getList2()
  * @model
  * @generated
  */
-public interface List extends ContentBlock, ReferenceTarget {
+public interface List2 extends ContentBlock, ReferenceTarget {
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.pub.pub.ListStyle}.
@@ -34,14 +34,14 @@ public interface List extends ContentBlock, ReferenceTarget {
 	 * @return the value of the '<em>Style</em>' attribute.
 	 * @see com.mimacom.ddd.pub.pub.ListStyle
 	 * @see #setStyle(ListStyle)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList_Style()
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList2_Style()
 	 * @model unique="false"
 	 * @generated
 	 */
 	ListStyle getStyle();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.List#getStyle <em>Style</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.List2#getStyle <em>Style</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Style</em>' attribute.
@@ -59,14 +59,14 @@ public interface List extends ContentBlock, ReferenceTarget {
 	 * @return the value of the '<em>Numbering Style</em>' attribute.
 	 * @see com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 	 * @see #setNumberingStyle(ProtoSequenceNumberStyle)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList_NumberingStyle()
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList2_NumberingStyle()
 	 * @model unique="false"
 	 * @generated
 	 */
 	ProtoSequenceNumberStyle getNumberingStyle();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.List#getNumberingStyle <em>Numbering Style</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.List2#getNumberingStyle <em>Numbering Style</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Numbering Style</em>' attribute.
@@ -81,7 +81,7 @@ public interface List extends ContentBlock, ReferenceTarget {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Level</em>' attribute.
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList_Level()
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList2_Level()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -94,11 +94,11 @@ public interface List extends ContentBlock, ReferenceTarget {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Items</em>' containment reference list.
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList_Items()
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getList2_Items()
 	 * @see com.mimacom.ddd.pub.pub.ListItem#getList
 	 * @model opposite="list" containment="true"
 	 * @generated
 	 */
 	EList<ListItem> getItems();
 
-} // List
+} // List2

@@ -35,7 +35,7 @@ import com.mimacom.ddd.pub.pub.GridLines;
 import com.mimacom.ddd.pub.pub.IncludedFigure;
 import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.IndexEntry;
-import com.mimacom.ddd.pub.pub.List;
+import com.mimacom.ddd.pub.pub.List2;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListOfFigures;
 import com.mimacom.ddd.pub.pub.ListOfTables;
@@ -386,7 +386,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass listEClass = null;
+	private EClass list2EClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1575,8 +1575,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getList() {
-		return listEClass;
+	public EClass getList2() {
+		return list2EClass;
 	}
 
 	/**
@@ -1584,8 +1584,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getList_Style() {
-		return (EAttribute)listEClass.getEStructuralFeatures().get(0);
+	public EAttribute getList2_Style() {
+		return (EAttribute)list2EClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1593,8 +1593,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getList_NumberingStyle() {
-		return (EAttribute)listEClass.getEStructuralFeatures().get(1);
+	public EAttribute getList2_NumberingStyle() {
+		return (EAttribute)list2EClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1602,8 +1602,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getList_Level() {
-		return (EAttribute)listEClass.getEStructuralFeatures().get(2);
+	public EAttribute getList2_Level() {
+		return (EAttribute)list2EClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1611,8 +1611,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getList_Items() {
-		return (EReference)listEClass.getEStructuralFeatures().get(3);
+	public EReference getList2_Items() {
+		return (EReference)list2EClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2381,11 +2381,11 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEAttribute(admonitionEClass, ADMONITION__KIND);
 		createEReference(admonitionEClass, ADMONITION__TITLE);
 
-		listEClass = createEClass(LIST);
-		createEAttribute(listEClass, LIST__STYLE);
-		createEAttribute(listEClass, LIST__NUMBERING_STYLE);
-		createEAttribute(listEClass, LIST__LEVEL);
-		createEReference(listEClass, LIST__ITEMS);
+		list2EClass = createEClass(LIST2);
+		createEAttribute(list2EClass, LIST2__STYLE);
+		createEAttribute(list2EClass, LIST2__NUMBERING_STYLE);
+		createEAttribute(list2EClass, LIST2__LEVEL);
+		createEReference(list2EClass, LIST2__ITEMS);
 
 		listItemEClass = createEClass(LIST_ITEM);
 		createEReference(listItemEClass, LIST_ITEM__TITLE);
@@ -2548,8 +2548,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		admonitionEClass.getESuperTypes().add(this.getContentBlock());
 		admonitionEClass.getESuperTypes().add(this.getBlockContainer());
 		admonitionEClass.getESuperTypes().add(this.getReferenceTarget());
-		listEClass.getESuperTypes().add(this.getContentBlock());
-		listEClass.getESuperTypes().add(this.getReferenceTarget());
+		list2EClass.getESuperTypes().add(this.getContentBlock());
+		list2EClass.getESuperTypes().add(this.getReferenceTarget());
 		listItemEClass.getESuperTypes().add(this.getBlockContainer());
 		listItemEClass.getESuperTypes().add(this.getNumbered());
 		listItemEClass.getESuperTypes().add(this.getReferenceTarget());
@@ -2726,15 +2726,15 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEAttribute(getAdmonition_Kind(), this.getAdmonitionKind(), "kind", null, 0, 1, Admonition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAdmonition_Title(), theBasePackage.getDRichText(), null, "title", null, 0, 1, Admonition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getList_Style(), this.getListStyle(), "style", null, 0, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getList_NumberingStyle(), theProtoPackage.getProtoSequenceNumberStyle(), "numberingStyle", null, 0, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getList_Level(), theEcorePackage.getEInt(), "level", null, 0, 1, List.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getList_Items(), this.getListItem(), this.getListItem_List(), "items", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(list2EClass, List2.class, "List2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getList2_Style(), this.getListStyle(), "style", null, 0, 1, List2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getList2_NumberingStyle(), theProtoPackage.getProtoSequenceNumberStyle(), "numberingStyle", null, 0, 1, List2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getList2_Level(), theEcorePackage.getEInt(), "level", null, 0, 1, List2.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getList2_Items(), this.getListItem(), this.getListItem_List(), "items", null, 0, -1, List2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listItemEClass, ListItem.class, "ListItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListItem_Title(), theBasePackage.getDRichText(), null, "title", null, 0, 1, ListItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getListItem_List(), this.getList(), this.getList_Items(), "list", null, 0, 1, ListItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getListItem_List(), this.getList2(), this.getList2_Items(), "list", null, 0, 1, ListItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getListItem__GetLevel(), theEcorePackage.getEInt(), "getLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 

@@ -417,11 +417,11 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PubPackage.LIST: {
-				List list = (List)theEObject;
-				T result = caseList(list);
-				if (result == null) result = caseContentBlock(list);
-				if (result == null) result = caseReferenceTarget(list);
+			case PubPackage.LIST2: {
+				List2 list2 = (List2)theEObject;
+				T result = caseList2(list2);
+				if (result == null) result = caseContentBlock(list2);
+				if (result == null) result = caseReferenceTarget(list2);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1213,17 +1213,17 @@ public class PubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>List</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>List2</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>List</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>List2</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseList(List object) {
+	public T caseList2(List2 object) {
 		return null;
 	}
 

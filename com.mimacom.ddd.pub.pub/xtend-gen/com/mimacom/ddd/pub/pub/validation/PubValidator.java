@@ -398,7 +398,7 @@ public class PubValidator extends AbstractPubValidator {
       String _literal = style.getLiteral();
       String _plus = ("Item title must be defined for list style \'" + _literal);
       String _plus_1 = (_plus + "\'.");
-      this.error(_plus_1, item.getList(), PubValidator.PUB.getList_Items(), 
+      this.error(_plus_1, item.getList(), PubValidator.PUB.getList2_Items(), 
         item.getList().getItems().indexOf(item));
     } else {
       if (((!Objects.equal(style, ListStyle.TITLE)) && (!this._richTextUtil.isEmpty(item.getTitle())))) {
